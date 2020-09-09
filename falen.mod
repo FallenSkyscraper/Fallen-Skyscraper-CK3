@@ -4,4 +4,4 @@ tags={
 }
 name="Fallen Skyscraper"
 path="mod/Falen"
-supported_version="1.0.2"
+supported_version="1.0.*"
