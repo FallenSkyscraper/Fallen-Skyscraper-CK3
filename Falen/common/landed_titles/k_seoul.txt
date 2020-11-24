@@ -1,0 +1,174 @@
+k_seoul = {
+		color = { 75 30 230 }
+		color2 = { 255 255 23 }
+		
+		capital = c_jongno
+		
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:greek
+				}
+				add = @correct_culture_primary_score
+			}
+		}
+		
+		d_seoul = {
+			color = { 180 25 100 }
+			color2 = { 255 255 255 }
+			
+			capital = c_jongno
+			c_jongno = {
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+				
+				b_28 = {
+					province = 28
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_junggu = {
+			
+				b_29 = {
+					province = 29
+					
+					color = { 170 65 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_yongsan = {
+			
+				b_30 = {
+					province = 30
+					
+					color = { 170 65 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+		d_mapo = {
+			color = { 180 125 100 }
+			color2 = { 255 255 255 }
+			
+			capital = c_mapo
+			c_mapo = {
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+				
+				b_27 = {
+					province = 27
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_west_gate = {
+			
+				b_26 = {
+					province = 26
+					
+					color = { 170 65 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_eunpyeong = {
+			
+				b_25 = {
+					province = 25
+					
+					color = { 170 65 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+		d_northeast = {
+			color = { 80 25 100 }
+			color2 = { 255 255 255 }
+			
+			capital = c_seongbuk
+			c_seongbuk = {
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+				
+				b_32 = {
+					province = 32
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_gangbuk = {
+			
+				b_33 = {
+					province = 33
+					
+					color = { 170 65 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_dobong = {
+			
+				b_35 = {
+					province = 35
+					
+					color = { 170 65 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_nowon = {
+			
+				b_36 = {
+					province = 36
+					
+					color = { 170 65 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+		d_fareast = {
+			color = { 18 225 200 }
+			color2 = { 255 255 255 }
+			
+			capital = c_seongdong
+			c_seongdong = {
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+				
+				b_31 = {
+					province = 31
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_east_gate = {
+			
+				b_34 = {
+					province = 34
+					
+					color = { 170 65 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_jungnang = {
+			
+				b_37 = {
+					province = 37
+					
+					color = { 170 65 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_gwangjin = {
+			
+				b_38 = {
+					province = 38
+					
+					color = { 170 65 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+	}
