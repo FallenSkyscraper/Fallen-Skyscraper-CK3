@@ -1,0 +1,134 @@
+k_andong = {
+		color = { 275 130 130 }
+		color2 = { 255 255 23 }
+		
+		capital = c_andong
+		
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:greek
+				}
+				add = @correct_culture_primary_score
+			}
+		}
+		
+		d_andong = {
+			color = { 180 25 100 }
+			color2 = { 255 255 255 }
+			
+			capital = c_andong
+			c_andong = {
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+				
+				b_1347 = {
+					province = 1347
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1343 = { # Namseon
+					province = 1343
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_yean = {
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+				
+				b_163 = { # Yean
+					province = 163
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1349 = { # Waryong
+					province = 1349
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1350 = { # Nokjeon
+					province = 1350
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1351 = { # Dosan
+					province = 1351
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				
+			}
+			c_imha = {
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+				
+				b_1344 = { # Imha
+					province = 1344
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1352 = { # Imdong
+					province = 1352
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1345 = { # Giran
+					province = 1345
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_pungsan = {
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+				
+				b_1342 = {
+					province = 1342
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1340 = { # Iljik
+					province = 1340
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1341 = { # Namhu
+					province = 1341
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1339 = { # Pungcheon
+					province = 1339
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1346 = { # Seohu
+					province = 1346
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+				b_1348 = { # Bukhu
+					province = 1348
+					
+					color = { 170 55 90 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+		
+	}
