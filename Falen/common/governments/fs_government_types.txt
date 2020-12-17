@@ -1,0 +1,22 @@
+proletarian_government = {
+    create_cadet_branches = yes
+
+	primary_holding = city_holding
+	primary_holding = castle_holding
+	required_county_holdings = { castle_holding city_holding church_holding }
+
+	vassal_contract = {
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		title_revocation_rights
+	}
+	
+	color = hsv{ 1.00 0 0 }
+}
