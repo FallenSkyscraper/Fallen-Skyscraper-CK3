@@ -1,0 +1,233 @@
+marxism_religion = {
+family = ideology #이념 그룹
+doctrine = ideology_hostility_doctrine #수정필요
+graphical_faith = marxism_gfx #gfx 수정필요
+
+#Main Group
+doctrine = doctrine_temporal_head #세속 종교지도자
+doctrine = doctrine_gender_equal #남녀평등
+doctrine = doctrine_pluralism_fundamentalist    #원리주의
+doctrine = doctrine_theocracy_lay_clergy    #민간성직자
+
+#Marriage
+doctrine = doctrine_monogamy #일부일처
+doctrine = doctrine_divorce_approval #승인필수
+doctrine = doctrine_bastardry_none #사생아개념 없음
+doctrine = doctrine_consanguinity_cousins #사촌간 결혼
+
+#Crimes
+doctrine = doctrine_homosexuality_accepted #동성연애 용인
+doctrine = doctrine_adultery_men_shunned #남성간통 지탄
+doctrine = doctrine_adultery_women_shunned #여성간통 지탄
+doctrine = doctrine_kinslaying_any_dynasty_member_crime #가문원 살해 죄악
+doctrine = doctrine_deviancy_accepted #이상성욕 용인
+doctrine = doctrine_witchcraft_crime #마술 죄악
+
+#Clerical Functions
+doctrine = doctrine_clerical_function_taxation #성직자 기능 통제
+doctrine = doctrine_clerical_gender_either #성직자 남녀
+doctrine = doctrine_clerical_marriage_allowed #성직자 결혼 허용
+doctrine = doctrine_clerical_succession_temporal_appointment #세속적, 박탈가능
+
+traits = {
+virtues = {
+Astute Intellectual
+Scholar
+Mastermind Philosopher #미덕 3개
+}
+sins = {
+Arbitrary
+Lazy
+Greedy
+            #악덕 3개
+}
+}
+
+custom_faith_icons = {
+custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5 custom_faith_6 custom_faith_7 custom_faith_8 custom_faith_9 custom_faith_10 dualism_custom_1 zoroastrian_custom_1 zoroastrian_custom_2 buddhism_custom_1 buddhism_custom_2 buddhism_custom_3 buddhism_custom_4 taoism_custom_1 yazidi_custom_1 sunni_custom_2 sunni_custom_3 sunni_custom_4 ibadi_custom muhakkima_1 muhakkima_2 muhakkima_4 muhakkima_5 muhakkima_6 judaism_custom_1
+}
+#커스텀 문장들, 추후 수정 필요
+
+localization = { #설정대로 다 입력해야함 #신 이름들
+HighGodName = marxism_high_god_name
+HighGodNamePossessive = marxism_high_god_name_possessive
+HighGodNameSheHe = CHARACTER_SHEHE_THEY
+HighGodHerselfHimself = CHARACTER_THEMSELVES
+HighGodHerHis = CHARACTER_HERHIS_THEIR
+#HighGodNameAlternate = marxism_high_god_name_alternate HighGodNameAlternatePossessive = marxism_high_god_name_alternate_possessive
+#최고신, 프롤레타리아트
+
+#Creator
+CreatorName = marxism_creator_god_name
+CreatorNamePossessive = marxism_creator_god_name_possessive
+CreatorSheHe = CHARACTER_SHEHE_IT
+CreatorHerHis = CHARACTER_HERHIS_ITS
+CreatorHerHim = CHARACTER_HERHIM_IT
+#창조주, 변증법적 유물론
+
+#HealthGod
+HealthGodName = marxism_health_god_name
+HealthGodNamePossessive = marxism_health_god_name_possessive
+HealthGodSheHe = CHARACTER_SHEHE_HE
+HealthGodHerHis = CHARACTER_HERHIS_HIS
+HealthGodHerHim = CHARACTER_HERHIM_HIM
+#건강신, 체 게바라
+
+FertilityGod
+FertilityGodName = marxism_fertility_god_name
+FertilityGodNamePossessive = marxism_fertility_god_name_possessive
+FertilityGodSheHe = CHARACTER_SHEHE_HE
+FertilityGodHerHis = CHARACTER_HERHIS_HIS
+FertilityGodHerHim = CHARACTER_HERHIM_HIM
+#풍년신, 부하린
+
+#WealthGod
+WealthGodName = marxism_wealth_god_name
+WealthGodNamePossessive = marxism_wealth_god_name_possessive
+WealthGodSheHe = CHARACTER_SHEHE_HE
+WealthGodHerHis = CHARACTER_HERHIS_HIS
+WealthGodHerHim = CHARACTER_HERHIM_HIM
+#재물신, 엥겔스
+
+#HouseholdGod
+HouseholdGodName = marxism_household_god_name
+HouseholdGodNamePossessive = marxism_household_god_name_possessive
+HouseholdGodSheHe = CHARACTER_SHEHE_SHE
+HouseholdGodHerHis = CHARACTER_HERHIS_HER
+HouseholdGodHerHim = CHARACTER_HERHIM_HER
+#가정신, 콜론타이
+
+FateGod
+FateGodName = marxism_fate_god_name
+FateGodNamePossessive = marxism_fate_god_name_possessive
+FateGodSheHe = CHARACTER_SHEHE_IT
+FateGodHerHis = CHARACTER_HERHIS_ITS
+FateGodHerHim = CHARACTER_HERHIM_IT
+#운명신, 사적 유물론
+
+#KnowledgeGod
+KnowledgeGodName = marxism_knowledge_god_name
+KnowledgeGodNamePossessive = marxism_knowledge_god_name_possessive
+KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+#지식신, 맑스
+
+#WarGod
+WarGodName = marxism_war_god_name
+WarGodNamePossessive = marxism_war_god_name_possessive
+WarGodSheHe = CHARACTER_SHEHE_HE
+WarGodHerHis = CHARACTER_HERHIS_HIS
+WarGodHerHim = CHARACTER_HERHIM_HIM
+#전쟁신, 장 조레스
+
+#TricksterGod
+TricksterGodName = marxism_trickster_god_name
+TricksterGodNamePossessive = marxism_trickster_god_name_possessive
+TricksterGodSheHe = CHARACTER_SHEHE_HE
+TricksterGodHerHis = CHARACTER_HERHIS_HIS
+TricksterGodHerHim = CHARACTER_HERHIM_HIM
+#장난신, 포사다스
+
+#NightGod
+NightGodName = marxism_night_god_name
+NightGodNamePossessive = marxism_night_god_name_possessive
+NightGodSheHe = CHARACTER_SHEHE_HE
+NightGodHerHis = CHARACTER_HERHIS_HIS
+NightGodHerHim = CHARACTER_HERHIM_HIM
+#밤의 신, 레닌
+
+#WaterGod
+WaterGodName = marxism_water_god_name
+WaterGodNamePossessive = marxism_water_god_name_possessive
+WaterGodSheHe = CHARACTER_SHEHE_SHE
+WaterGodHerHis = CHARACTER_HERHIS_HER
+WaterGodHerHim = CHARACTER_HERHIM_HER
+#물의 신, 로자 룩셈부르크
+
+#PantheonTerm = religion_the_gods
+#PantheonTermHasHave = pantheon_term_have
+#GoodGodNames = {
+        # ~ godnames
+}
+DevilName = marxism_devil_name
+DevilNamePossessive = marxism_devil_name_possessive
+DevilSheHe = CHARACTER_SHEHE_THEY
+DevilHerHis = CHARACTER_HERHIS_THEM
+DevilHerselfHimself = CHARACTER_THEMSELVES
+#악마, 자본가
+EvilGodNames = { marxism_devil_name }
+#악신, 자본가
+#HouseOfWorship = marxism_house_of_worship
+#HouseOfWorshipPlural = marxism_house_of_worship_plural
+#교회 이름, 소비에트
+ReligiousSymbol = marxism_religious_symbol
+#종교 상징, 낫과 망치
+ReligiousText = marxism_religious_text
+#종교 경전, 공산당 선언
+ReligiousHeadName = marxism_religious_head_title
+#종교지도자 명칭, 서기장
+ReligiousHeadTitleName = marxism_religious_head_title_name
+#종교지도자 타이틀 명칭, 서기장
+DevoteeMale = marxism_devotee_male
+DevoteeMalePlural = marxism_devotee_male_plural
+DevoteeFemale = marxism_devotee_female
+DevoteeFemalePlural = marxism_devotee_female_plural
+DevoteeNeuter = marxism_devotee_neuter
+DevoteeNeuterPlural = marxism_devotee_neuter_plural
+#수도사 명칭, 당원
+PriestMale = marxsm_priest_male
+PriestMalePlural = marxism_priest_male_plural
+PriestFemale = marxism_priest_female
+PriestFemalePlural = marxism_priest_female_plural
+PriestNeuter = marxism_priest_neuter
+PriestNeuterPlural = marxism_priest_neuter_plural
+AltPriestTermPlural = marxism_alternate_priest_term_plural
+#성직자 명칭, 전위대
+BishopMale = marxism_priest_male
+BishopMalePlural = marxism_priest_male_plural
+BishopFemale = marxism_priest_female
+BishopFemalePlural = marxism_priest_female_plural
+BishopNeuter = marxism_priest_neuter
+BishopNeuterPlural = marxism_priest_neuter_plural
+#주교 명칭, 당 간부
+DivineRealm = marxism_divine_realm
+#성지 이름, 미정
+PositiveAfterLife = marxism_positive_afterlife
+#천국 이름, 사회주의 낙원
+NegativeAfterLife = marxism_negative_afterlife
+#지옥 이름, 봉건 반동
+DeathDeityName = marxism_death_deity_name
+DeathDeityNamePossessive = marxism_death_deity_name_possessive
+DeathDeitySheHe = CHARACTER_SHEHE_HE
+DeathDeityHerHis = CHARACTER_HERSHIS_HIS
+#죽음의 신 명칭, 스탈린
+WitchGodName = witchgodname_marxism
+WitchGodHerHis = CHARACTER_HERHIS_HIS
+WitchGodSheHe = CHARACTER_SHEHE_HE
+WitchGodHerHim = CHARACTER_HERHIM_HIM
+#마녀신 명칭, 고르바초프
+WitchGodMistressMaster = master
+WitchGodMotherFather = father
+
+GHWName = ghw_purification
+GHWNamePlural = ghw_purifications
+}
+
+faiths = {
+marxism = { #마르크스주의
+color = { 225 0 0 }
+icon = marxism_icon #아이콘 추가 필요
+
+holy_site = site1
+holy_site = site2
+holy_site = site3
+holy_site = site4
+holy_site = site5
+#성지는 프로빈스 정해지면 그때 지정
+doctrine = tenet_legalism #율법주의
+doctrine = tenet_communal_identity #공동체정체성
+doctrine = tenet_literalism #직해주의
+}
+}
+}
