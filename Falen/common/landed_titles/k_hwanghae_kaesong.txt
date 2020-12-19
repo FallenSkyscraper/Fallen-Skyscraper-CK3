@@ -1,0 +1,77 @@
+k_kaesong = {
+	color = { 175 30 130 }
+	color2 = { 255 255 23 }
+		
+	capital = c_kaesong
+		
+	ai_primary_priority = {
+		if = {
+			limit = {
+				culture = culture:hwanghae
+			}
+			add = @correct_culture_primary_score
+		}
+	}
+		
+	d_kaesong = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_kaesong
+		
+		c_kaesong = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_nhs_1 = {
+				province = 255
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_nhs_2 = {
+				province = 1740
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_nhs_3 = {
+				province = 254
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_nhs_4 = {
+				province = 1733
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_nhs_5 = {
+				province = 1734
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_nhs_6 = {
+				province = 1732
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_nhs_7 = {
+				province = 1738
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		
+	}
+}
