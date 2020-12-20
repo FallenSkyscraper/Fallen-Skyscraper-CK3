@@ -12,8 +12,8 @@ borrow_from_bobu_decision = {
 		is_landed = yes
 		highest_held_title_tier > tier_barony
 		}
-		NOR = {
-			exists = flag:borrow_from_bobu
+		NOT = {
+			has_character_flag = borrow_from_bobu
 		}
 	}
 
@@ -46,7 +46,7 @@ repay_to_bobu_decision = {
 
 	ai_check_interval = 72
 	is_shown = {
-		exists = flag:borrow_from_bobu
+		has_character_flag = borrow_from_bobu
 		gold >= 350
 	}
 
