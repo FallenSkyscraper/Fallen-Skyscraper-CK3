@@ -1,0 +1,72 @@
+borrow_from_bobu_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = borrow_from_bobu_decision_desc
+	selection_tooltip = borrow_from_bobu_decision_tooltip
+
+	ai_check_interval = 72
+
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		is_landed = yes
+		highest_held_title_tier > tier_barony
+		}
+		NOR = {
+			exists = flag:borrow_from_bobu
+		}
+	}
+
+	effect = {
+		hidden_effect = {
+			add_character_flag = {
+				flag = borrow_from_bobu
+			}
+		}
+		add_gold = 300
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 5
+		ai_value_modifier = {
+			ai_greed = 0.5
+		}
+	}
+}
+
+repay_to_bobu_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = repay_to_bobu_decision_desc
+	selection_tooltip = repay_to_bobu_decision_tooltip
+
+	ai_check_interval = 72
+	is_shown = {
+		exists = flag:borrow_from_bobu
+		gold >= 350
+	}
+
+	effect = {
+		hidden_effect = {
+			remove_character_flag = {
+				flag = borrow_from_bobu
+			}
+		}
+		remove_short_term_gold = 350
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 25
+		ai_value_modifier = {
+			ai_greed = 0.5
+		}
+	}
+}
