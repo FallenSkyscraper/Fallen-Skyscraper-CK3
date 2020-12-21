@@ -1,0 +1,23 @@
+total_war.decision.0001 = {
+	type = charater_event
+	title = total_war.decision.0001.t
+	desc = total_war.decision.0001.t
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = war_attacker
+	}
+	option = {
+		name = total_war.decision.0001
+		effects = {
+			spawn_army = {
+				uses_supply = no
+				inheritable = no
+				name = mongol_event_troops
+				levies = {
+					value = #대충 니 직할 수 x 2500
+				}
+			}
+		}
+	}
+}
