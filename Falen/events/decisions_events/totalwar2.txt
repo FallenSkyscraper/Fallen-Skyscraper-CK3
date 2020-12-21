@@ -13,10 +13,18 @@ total_war.decision.0001 = {
 			spawn_army = {
 				uses_supply = no
 				inheritable = no
-				name = mongol_event_troops
+				name = total_war_troops
 				levies = {
-					value = #대충 니 직할 수 x 2500
+  					value = 0
+
+					every_held_title = {
+						limit = {
+ 							tier = tier_country
+						}
+					add = 4000
+					}
 				}
+				location = capital_province
 			}
 		}
 	}
