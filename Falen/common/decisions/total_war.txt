@@ -1,0 +1,41 @@
+total_war_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	ai_check_interval = 60
+
+	cooldown = { days = 7300 }
+
+
+	desc = total_war_decision_desc
+	selection_tooltip = total_war_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		has_government = 군정_government
+		is_landed = yes
+		is_imprisoned = no
+		is_at_war = yes
+	}
+	cost = {
+		prestige = 2000
+	}
+	effect = {
+		add_character_modifier = {
+			modifier = total_war_modicier
+		}
+
+		trigger_event = {
+			id = total_war.decisions.0001
+		}
+	}
+	ai_will_do = {
+		base = 0
+
+		ai_value_modifier = {
+			ai_brave = 5
+			ai_craven = -5
+			ai_content = -10
+			ai_ambitious = 10
+			ai_callous = 5
+		}
+	}
+}
