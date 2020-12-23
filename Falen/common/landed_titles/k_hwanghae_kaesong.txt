@@ -4,15 +4,6 @@ k_kaesong = {
 		
 	capital = c_kaesong
 		
-	ai_primary_priority = {
-		if = {
-			limit = {
-				culture = culture:hwanghae
-			}
-			add = @correct_culture_primary_score
-		}
-	}
-		
 	d_kaesong = {
 		color = { 180 25 100 }
 		color2 = { 255 255 255 }
@@ -80,15 +71,6 @@ k_s_hwanghae = {
 	color2 = { 255 255 23 }
 		
 	capital = c_sh_haeju
-		
-	ai_primary_priority = {
-		if = {
-			limit = {
-				culture = culture:hwanghae
-			}
-			add = @correct_culture_primary_score
-		}
-	}
 		
 	d_sh_ongjin = {
 		color = { 180 25 100 }
@@ -1014,14 +996,14 @@ k_s_hwanghae = {
 			color = { 170 55 90 }
 			color2 = { 255 255 255 }
 			
-			b_1862 = {
+			b_1762 = {
 				province = 1762
 			
 				color = { 170 55 90 }
 				color2 = { 255 255 255 }
 			}
 				
-			b_1860 = {
+			b_1760 = {
 				province = 1760
 					
 				color = { 170 65 90 }
@@ -1039,14 +1021,14 @@ k_s_hwanghae = {
 			color = { 170 55 90 }
 			color2 = { 255 255 255 }
 			
-			b_1861 = {
+			b_1761 = {
 				province = 1761
 			
 				color = { 170 55 90 }
 				color2 = { 255 255 255 }
 			}
 				
-			b_1859 = {
+			b_1759 = {
 				province = 1759
 					
 				color = { 170 65 90 }
