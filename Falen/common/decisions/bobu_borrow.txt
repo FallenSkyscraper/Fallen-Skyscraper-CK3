@@ -12,8 +12,9 @@ borrow_from_bobu_decision = {
 		is_landed = yes
 		highest_held_title_tier > tier_barony
 		}
-		NOT = {
+		NOR = {
 			has_character_flag = borrow_from_bobu
+			has_character_flag = expel_bobu
 		}
 	}
 
@@ -33,7 +34,7 @@ borrow_from_bobu_decision = {
 	ai_will_do = {
 		base = 5
 		ai_value_modifier = {
-			ai_greed = 0.5
+			ai_greed = +5
 		}
 	}
 }
@@ -48,6 +49,9 @@ repay_to_bobu_decision = {
 	is_shown = {
 		has_character_flag = borrow_from_bobu
 		gold >= 350
+		NOT = {
+			has_character_flag = expel_bobu
+		}
 	}
 
 	effect = {
@@ -66,7 +70,7 @@ repay_to_bobu_decision = {
 	ai_will_do = {
 		base = 25
 		ai_value_modifier = {
-			ai_greed = 0.5
+			ai_greed = -10
 		}
 	}
 }
@@ -103,7 +107,34 @@ expel_bobu_decision = {
 	}
 }
 
-#cancel_expel_bobu_decision
+cancel_expel_bobu_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+
+	desc = cancel_expel_bobu_decision_desc
+	selection_tooltip = cancel_expel_bobu_decision_tooltip
+
+	ai_check_interval = 72
+
+	is_shown = {
+		in_ruler = yes
+		has_character_flag = expel_bobu
+		gold >= 500
+	}
+	effect = {
+		hidden_effect = {
+			remove_character_flag = {
+				flag = expel_bobu
+			}
+		}
+		remove_gold = 500
+	}
+	ai_will_do = {
+		base = 10
+		ai_value_modifier = {
+			ai_greed = -5
+		}
+	}
+}
 
 #디시전명: 300원을 보부상에게서 빌린다.
 #설명: 당신의 땅에서 활동하는 보부상에게서 300원을 빌릴 수 있습니다. 오직 당신이 원할때 350원을 갚을 수 있습니다.
