@@ -23,49 +23,49 @@ k_kaesong = {
 			color = { 170 55 90 }
 			color2 = { 255 255 255 }
 			
-			b_nhs_1 = {
+			b_255 = {
 				province = 255
 			
 				color = { 170 55 90 }
 				color2 = { 255 255 255 }
 			}
 				
-			b_nhs_2 = {
+			b_1740 = {
 				province = 1740
 					
 				color = { 170 65 90 }
 				color2 = { 255 255 255 }
 			}
 			
-			b_nhs_3 = {
+			b_254 = {
 				province = 254
 			
 				color = { 170 55 90 }
 				color2 = { 255 255 255 }
 			}
 				
-			b_nhs_4 = {
+			b_1733 = {
 				province = 1733
 					
 				color = { 170 65 90 }
 				color2 = { 255 255 255 }
 			}
 			
-			b_nhs_5 = {
+			b_1734 = {
 				province = 1734
 			
 				color = { 170 55 90 }
 				color2 = { 255 255 255 }
 			}
 				
-			b_nhs_6 = {
+			b_1732 = {
 				province = 1732
 					
 				color = { 170 65 90 }
 				color2 = { 255 255 255 }
 			}
 			
-			b_nhs_7 = {
+			b_1738 = {
 				province = 1738
 					
 				color = { 170 65 90 }
@@ -73,5 +73,1095 @@ k_kaesong = {
 			}
 		}
 		
+	}
+}
+k_s_hwanghae = {
+	color = { 175 30 130 }
+	color2 = { 255 255 23 }
+		
+	capital = c_sh_haeju
+		
+	ai_primary_priority = {
+		if = {
+			limit = {
+				culture = culture:hwanghae
+			}
+			add = @correct_culture_primary_score
+		}
+	}
+		
+	d_sh_ongjin = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_sh_ongjin
+		
+		c_sh_sunwi = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_286 = {
+				province = 286
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_285 = {
+				province = 285
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1809 = {
+				province = 1809
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1810 = {
+				province = 1810
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_kangryeong = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1811 = {
+				province = 1811
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1805 = {
+				province = 1805
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1806 = {
+				province = 1806
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_282 = {
+				province = 282
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_eupjeo = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_284 = {
+				province = 284
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1817 = {
+				province = 1817
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1816 = {
+				province = 1816
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_ongjin = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1812 = {
+				province = 1812
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1813 = {
+				province = 1813
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1814 = {
+				province = 1814
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1815 = {
+				province = 1815
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+	}
+	d_sh_haeju = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_sh_haeju
+		
+		c_sh_haeju = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_283 = {
+				province = 283
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1798 = {
+				province = 1798
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1796 = {
+				province = 1796
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1801 = {
+				province = 1801
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1797 = {
+				province = 1797
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_cheongdan = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1792 = {
+				province = 1792
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1795 = {
+				province = 1795
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1794 = {
+				province = 1794
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1793 = {
+				province = 1793
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_deokdal = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1791 = {
+				province = 1791
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1765 = {
+				province = 1765
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+	}
+	d_sh_gwail = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_sh_gwail
+		
+		c_sh_yongyeon = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1824 = {
+				province = 1824
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1822 = {
+				province = 1822
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1825 = {
+				province = 1825
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1823 = {
+				province = 1823
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_jangyeon = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_287 = {
+				province = 287
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1826 = {
+				province = 1826
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1821 = {
+				province = 1821
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1820 = {
+				province = 1820
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_gwail = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1836 = {
+				province = 1836
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1827 = {
+				province = 1827
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1828 = {
+				province = 1828
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1835 = {
+				province = 1835
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_sinpyeong = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_288 = {
+				province = 288
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1838 = {
+				province = 1838
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1837 = {
+				province = 1837
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_songhwa = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1834 = {
+				province = 1834
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1829 = {
+				province = 1829
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1833 = {
+				province = 1833
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+	}
+	d_sh_taethan = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_sh_taethan
+		
+		c_sh_taethan = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1818 = {
+				province = 1818
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1808 = {
+				province = 1808
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1807 = {
+				province = 1807
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1819 = {
+				province = 1819
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1803 = {
+				province = 1803
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_byeokseong = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1802 = {
+				province = 1802
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1804 = {
+				province = 1804
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1800 = {
+				province = 1800
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+	}
+	d_sh_samcheon = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_sh_samcheon
+		
+		c_sh_samcheon = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1859 = {
+				province = 1859
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1862 = {
+				province = 1862
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1861 = {
+				province = 1861
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1858 = {
+				province = 1858
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_yeonpyeong = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1831 = {
+				province = 1831
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1832 = {
+				province = 1832
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1830 = {
+				province = 1830
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_cheonbong = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1857 = {
+				province = 1857
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1851 = {
+				province = 1851
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1799 = {
+				province = 1799
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+	}
+	d_sh_sinwon = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_sh_sinwon
+		
+		c_sh_sinwon = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1840 = {
+				province = 1840
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1841 = {
+				province = 1841
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1839 = {
+				province = 1839
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_myeongsa = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1850 = {
+				province = 1850
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1852 = {
+				province = 1852
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1849 = {
+				province = 1849
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_jangguk = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1843 = {
+				province = 1843
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1845 = {
+				province = 1845
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1842 = {
+				province = 1842
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1844 = {
+				province = 1844
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+	}
+	d_sh_anak = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_sh_anak
+		
+		c_sh_jaryeong = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1846 = {
+				province = 1846
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1847 = {
+				province = 1847
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1848 = {
+				province = 1848
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_sincheon = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1855 = {
+				province = 1855
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1856 = {
+				province = 1856
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1853 = {
+				province = 1853
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1854 = {
+				province = 1854
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_wonryong = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1874 = {
+				province = 1874
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1875 = {
+				province = 1875
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_292 = {
+				province = 292
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_anak = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1876 = {
+				province = 1876
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_291 = {
+				province = 291
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1860 = {
+				province = 1860
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_290 = {
+				province = 290
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+	}
+	d_sh_euncheon = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_sh_euncheon
+		
+		c_sh_euncheon = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1872 = {
+				province = 1872
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1873 = {
+				province = 1873
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1871 = {
+				province = 1871
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1870 = {
+				province = 1870
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1869 = {
+				province = 1869
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_guwol = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1864 = {
+				province = 1864
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1868 = {
+				province = 1868
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1865 = {
+				province = 1865
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_eunryul = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1866 = {
+				province = 1866
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1867 = {
+				province = 1867
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1768 = {
+				province = 1768
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1763 = {
+				province = 1763
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+	}
+	d_sh_yeonan = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_sh_yeonan
+		
+		c_sh_buheung = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1766 = {
+				province = 1766
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1767 = {
+				province = 1767
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1768 = {
+				province = 1768
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1764 = {
+				province = 1764
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_yeomjeon = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_262 = {
+				province = 262
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1770 = {
+				province = 1770
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1769 = {
+				province = 1769
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1763 = {
+				province = 1763
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_yeonan = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1862 = {
+				province = 1762
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1860 = {
+				province = 1760
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1757 = {
+				province = 1757
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_yeokgudo = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1861 = {
+				province = 1761
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1859 = {
+				province = 1759
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1758 = {
+				province = 1758
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+	}
+	d_sh_bongcheon = {
+		color = { 180 25 100 }
+		color2 = { 255 255 255 }
+			
+		capital = c_sh_bongcheon
+		
+		c_sh_baecheon = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1755 = {
+				province = 1755
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1754 = {
+				province = 1754
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1753 = {
+				province = 1753
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1752 = {
+				province = 1752
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_bongcheon = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1784 = {
+				province = 1784
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1756 = {
+				province = 1756
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_265 = {
+				province = 265
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1751 = {
+				province = 1751
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_1783 = {
+				province = 1783
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sh_hanchon = {
+			color = { 170 55 90 }
+			color2 = { 255 255 255 }
+			
+			b_1790 = {
+				province = 1790
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+				
+			b_1785 = {
+				province = 1785
+					
+				color = { 170 65 90 }
+				color2 = { 255 255 255 }
+			}
+			
+			b_261 = {
+				province = 261
+			
+				color = { 170 55 90 }
+				color2 = { 255 255 255 }
+			}
+		}
 	}
 }
