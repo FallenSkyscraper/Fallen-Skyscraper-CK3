@@ -15,15 +15,16 @@ total_war.decisions.0001 = {
 				inheritable = no
 				name = total_war_troops
 				levies = {
-  					value = 7500
+  					value = 0
 					every_held_title = {
 						limit = {
  							tier = tier_county
 						}
-					add = 2500
+						add = 2500
 					}
 				}
 				location = capital_province
+				war = war
 			}
 		}
 	}
