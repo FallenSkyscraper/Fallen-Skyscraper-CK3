@@ -1,0 +1,50 @@
+iron_burial_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+
+	desc = give_iron_burial_decision_desc
+
+	selection_tooltip = give_iron_burial_decision_tooltip
+
+ 	is_shown = {
+		faith = {
+			has_doctrine_parameter = iron_burials_active
+		}
+		has_variable = ancestor_to_bury
+	} 
+
+	effect = {
+		show_as_tooltip = {
+			add_piety = major_piety_value
+			if = {
+				limit = {
+					any_vassal = {
+						faith = {
+							has_doctrine_parameter = iron_burials_active
+						}
+					}
+				}
+				every_vassal = {
+					limit = {
+						faith = {
+							has_doctrine_parameter = iron_burials_active
+						}
+					}
+					custom = give_iron_burial_vassals
+					add_opinion = {
+					modifier = pleased_opinion
+					target = root
+					opinion = 20
+				}
+			}
+		}
+		trigger_event = iron_burial_decision.0001
+	}
+
+	ai_check_interval = 36
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
