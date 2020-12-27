@@ -33,13 +33,7 @@ military_government = {
 	
 	
 	
-	#이 부분 작동안함 ㅅㅂ 고쳐야된다
-		uses_opinion_of_liege = yes/no	# if set to yes, scope:opinion_of_liege can be used in the levies and tax script math (it's a value that's updated daily for player contracts, for AI it uses NVassalContract::OPINION_OF_LIEGE_UPDATE_INTERVAL. No by default for performance reasons.
-
-
-	display_mode = tree/list # How are the obligations displayed in the negotiate contract UI, defualt is list
-
-	
+	# 다음부터 징세 징병관련 할 때 vassal_contracts 폴더에 military 혹은 페더, 혹은 리퍼블릭 형식으로 암튼 같은 방식으로 제작할것
 	vassal_contract = {	 military_government_obligations}
 	
 	
@@ -53,3 +47,35 @@ military_government = {
 	
 	color = hsv{ 130 45 55 }
 }
+
+maritime_government = {
+	rulers_should_have_dynasty = yes#지배자는 가문을 가져야함
+	dynasty_named_realms = yes#가문이 해당 백작령 이름으로 정해진다.
+	primary_holding = castle_holding#수도 백작령으로 둬야하는 남작령 종류
+	required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
+ 	supply_limit_mult_for_others = -0.3#다른 정부체제의 남작령에 진입시 보급한계제한
+	affected_by_development = yes#부족정처럼 개발도 버프시에 영향 없음
+	regiments_prestige_as_gold = no#상비군 구매시 명성 사용여부
+	flag = government_can_raid_rule#해당 정부체제의 약탈 가능여부
+	
+	#fallback = 1
+	
+	# 다음부터 징세 징병관련 할 때 vassal_contracts 폴더에 military 혹은 페더, 혹은 리퍼블릭 형식으로 암튼 같은 방식으로 제작할것
+	vassal_contract = {	 
+	feudal_government_taxes
+	feudal_government_levies
+	}
+	
+	
+	
+	character_modifier = {
+		army_maintenance_mult = -0.5
+		development_growth = -5
+	
+		ai_war_chance = 1.5
+	}	
+	
+	color = hsv{ 20 35 160 }#만약 파란색이 안나오면 	233°	88°	62°
+}
+
+
