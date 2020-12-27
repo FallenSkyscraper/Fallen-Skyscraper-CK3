@@ -1,0 +1,17 @@
+bobu.0001 = {
+	hidden = yes
+
+	immediate = {
+		remove_character_flag = borrow_from_bobu
+		scope:order ={
+			leader = {
+				save_scope_as = new_leader
+			}
+		}
+		scope:new_leader = {
+			add_character_flag = {
+				flag = borrow_from_bobu
+			}
+		}
+	}
+}

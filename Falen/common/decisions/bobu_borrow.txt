@@ -74,68 +74,6 @@ repay_to_bobu_decision = {
 		}
 	}
 }
-
-expel_bobu_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
-
-	desc = expel_bobu_decision_desc
-	selection_tooltip = expel_bobu_decision_tooltip
-
-	ai_check_interval = 72
-
-	cooldown = { days = 3650 }
-
-	is_shown = {
-		in_ruler = yes
-		NOT = {
-			has_character_flag = expel_bobu
-		}
-	}
-	effect = {
-		hidden_effect = {
-			add_character_flag = {
-				flag = expel_bobu
-			}
-		add_gold = 500
-		}
-	}
-	ai_will_do = {
-		base = 1
-		ai_value_modifier = {
-			ai_greed = +2
-		}
-	}
-}
-
-cancel_expel_bobu_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
-
-	desc = cancel_expel_bobu_decision_desc
-	selection_tooltip = cancel_expel_bobu_decision_tooltip
-
-	ai_check_interval = 72
-
-	is_shown = {
-		in_ruler = yes
-		has_character_flag = expel_bobu
-		gold >= 500
-	}
-	effect = {
-		hidden_effect = {
-			remove_character_flag = {
-				flag = expel_bobu
-			}
-		}
-		remove_gold = 500
-	}
-	ai_will_do = {
-		base = 10
-		ai_value_modifier = {
-			ai_greed = -5
-		}
-	}
-}
-
 #디시전명: 300원을 보부상에게서 빌린다.
 #설명: 당신의 땅에서 활동하는 보부상에게서 300원을 빌릴 수 있습니다. 오직 당신이 원할때 350원을 갚을 수 있습니다.
 #i can borrow 300 from jewish merchants and moneylenders living inthe realm. with the interest agreed upon, i will owe them 350 to be paid back at my convenience
