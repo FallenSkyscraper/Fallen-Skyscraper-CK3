@@ -1,0 +1,66 @@
+national_assembly_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_activity.dds"
+	ai_check_interval = 60
+
+	cost = { gold = standard_activity_cost }
+
+	cooldown = { days = 1460 }
+
+	is_shown = {
+		is_landed = yes
+		highest_held_title_tier > tier_barony
+		completely_controls = title:k_seoul
+		faith = faith:populism	
+		is_imprisoned = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		custom_tooltip = national_assembly_decision_hold
+		#Stress loss
+		if = {
+			limit = {
+				has_trait = lazy
+			}
+			custom_tooltip = national_assembly_decision_lazy
+		}
+		else = {
+			stress_impact = {
+				base = -30
+				diligent = -5
+				lazy = 5
+				gregarious = -5
+				shy = 5
+				zealous = -5
+				cynical = 5
+				diplomat = -5
+				administrator = -5
+			}
+		}
+
+		custom_tooltip = national_assembly_decision_prestige
+		
+		hidden_effect = {
+			capital_province = {
+				title_province = {
+					spawn_activity = {
+						type = activity_national_assembly
+						owner = root
+					}
+				}
+			}
+		}
+	}
+	
+	ai_potential = {
+		short_term_gold > standard_activity_cost
+	}
+
+	ai_will_do = {
+		base = 100
+		}
+	}
+}
