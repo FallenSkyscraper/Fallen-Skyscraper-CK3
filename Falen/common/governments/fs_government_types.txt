@@ -77,5 +77,19 @@ maritime_government = {
 	
 	color = hsv{ 20 35 160 }#만약 파란색이 안나오면 	233°	88°	62°
 }
+secular_republic_government = {
 
+	rulers_should_have_dynasty = yes/no		# rulers of this government type generate a dynasty; default: no
+	primary_holding = city_holding
+	valid_holdings = { castle_holding }		# Holdings that can be held directly by rulers of this government type. The primary holding is always valid.
+	required_county_holdings = { castle_holding city_holding }	# Which holdings must be present in a county before more of an existing type or others can be built
+	supply_limit_mult_for_others = 0		# Army owners of different govenment type have this multiplier applied to the supply limit
+
+	vassal_contract = {	 
+	feudal_government_taxes
+	feudal_government_levies
+	}
+	
+	color = { 193 121 121 }
+}
 
