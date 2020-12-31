@@ -1,0 +1,675 @@
+
+### test
+
+test_01 = {
+	construction_time = quick_construction_time   #교체 해도 됌
+
+	can_construct_potential = {
+		building_test_requirement_terrain = yes #duchy 건물 부분 참고하셈 웬만해선 yes
+		building_requirement_castle_city_church = { LEVEL = 01 } #이것도 웬만해선 그대로 놔두자
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no #이건 부족정이면 건설 못한다같은 거니까 놔두자
+	}
+	
+	cost_gold = cheap_building_tier_1_cost    #교체 해도 됌
+	
+	province_modifier = {
+		defender_advantage = normal_building_advantage_tier_1  #교체 해도 됌. 수비대 창출
+		monthly_income = poor_building_tax_tier_1 #교체 해도 됌 수입 창출
+movement_speed = 1 #이속 조정. 현재 적용된 것이 현지화-로컬라이즈되어서 보이긴 하지만 프로빈스가 다 완성되어 있지 않아 확인어려움.
+	}
+	
+	character_modifier = {
+		light_cavalry_damage_add = 1  #경비병 피해 추가
+		light_cavalry_pursuit_add = 1 
+	}
+	
+	next_building = test_02  #해당 형식을 지키며 바꾸셈
+	
+	type_icon = "icon_building_hunting_grounds.dds"  #이것도 아이콘 준비될 때 까지 놔두셈
+	
+	ai_value = {
+		base = 10  #최대 100까지 있음 예시 orchards 그러니까 과수원은 지을 수 있으면 무조건 지은다는 소리 농장도 똑같이 100 
+		#regimental grounds같은 경우 외엔 수입원부터 짓도록 하는듯
+		#전체적으로 베이스 값을 티어가 올라갈 때마다 --하는 경향이 있음. 100의 경우엔 그 다음 숫자는 9
+		modifier = {
+			factor = 0
+			building_cereal_fields_requirement_terrain = yes #곡창지대? 아무튼 농장건설이 가능해야 지을 수 있다는 것?
+			NOT = {
+				has_building_or_higher = cereal_fields_01 #plantations과 사냥터 외엔 없음 의미모름
+			}
+		}
+		modifier = {
+			factor = 0
+			scope:holder = {
+				has_government = republic_government #의미 모름
+			}
+			NOT = {
+				has_building_or_higher = guild_halls_01
+			}
+		}
+	}
+}
+
+test_02 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_test_requirement_terrain = yes
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		scope:holder.culture = {
+			has_innovation = innovation_crop_rotation
+		}
+	}
+	
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = cheap_building_tier_2_cost
+	
+	levy = poor_building_levy_tier_2
+	province_modifier = {
+		defender_advantage = normal_building_advantage_tier_2
+		monthly_income = poor_building_tax_tier_2
+	}
+	
+	character_modifier = {
+		skirmishers_pursuit_mult = 0.02
+		light_cavalry_damage_add = 2
+		light_cavalry_pursuit_add = 2
+		light_cavalry_screen_add = 1
+		light_cavalry_toughness_add = 1
+	}
+	
+	next_building = test_03
+	
+	ai_value = {
+		base = 9
+	}
+}
+
+test_03 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_test_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 02 }
+		scope:holder.culture = {
+			has_innovation = innovation_manorialism
+		}
+	}
+	
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = cheap_building_tier_3_cost
+	
+	levy = poor_building_levy_tier_3
+	province_modifier = {
+		defender_advantage = normal_building_advantage_tier_3
+		monthly_income = poor_building_tax_tier_3
+		hostile_raid_time = 0.1
+	}
+	
+	character_modifier = {
+		skirmishers_pursuit_mult = 0.02
+		light_cavalry_damage_add = 3
+		light_cavalry_pursuit_add = 3
+		light_cavalry_screen_add = 1
+		light_cavalry_toughness_add = 1
+	}
+	
+	next_building = test_04
+	
+	ai_value = {
+		base = 8
+	}
+}
+
+test_04 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_test_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 02 }
+		scope:holder.culture = {
+			has_innovation = innovation_manorialism
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = cheap_building_tier_4_cost
+	
+	levy = poor_building_levy_tier_4
+	province_modifier = {
+		defender_advantage = normal_building_advantage_tier_4
+		monthly_income = poor_building_tax_tier_4
+		hostile_raid_time = 0.15
+	}
+	
+	character_modifier = {
+		skirmishers_pursuit_mult = 0.02
+		light_cavalry_damage_add = 4
+		light_cavalry_pursuit_add = 4
+		light_cavalry_screen_add = 2
+		light_cavalry_toughness_add = 2
+	}
+	
+	next_building = test_05
+	
+	ai_value = {
+		base = 7
+	}
+}
+
+test_05 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_test_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 03 }
+		scope:holder.culture = {
+			has_innovation = innovation_windmills
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = cheap_building_tier_5_cost
+	
+	levy = poor_building_levy_tier_5
+	province_modifier = {
+		defender_advantage = normal_building_advantage_tier_5
+		monthly_income = poor_building_tax_tier_5
+		hostile_raid_time = 0.15
+	}
+	
+	character_modifier = {
+		skirmishers_pursuit_mult = 0.02
+		light_cavalry_damage_add = 5
+		light_cavalry_pursuit_add = 5
+		light_cavalry_screen_add = 2
+		light_cavalry_toughness_add = 2
+		men_at_arms_maintenance = -0.01
+	}
+	
+	next_building = test_06
+	
+	ai_value = {
+		base = 6
+	}
+}
+
+test_06 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_test_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 03 }
+		scope:holder.culture = {
+			has_innovation = innovation_windmills
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = cheap_building_tier_6_cost
+	
+	levy = poor_building_levy_tier_6
+	province_modifier = {
+		defender_advantage = normal_building_advantage_tier_6
+		monthly_income = poor_building_tax_tier_6
+		hostile_raid_time = 0.2
+	}
+	
+	character_modifier = {
+		skirmishers_pursuit_mult = 0.02
+		light_cavalry_damage_add = 6
+		light_cavalry_pursuit_add = 6
+		light_cavalry_screen_add = 3
+		light_cavalry_toughness_add = 3
+		men_at_arms_maintenance = -0.01
+	}
+	
+	next_building = test_07
+	
+	ai_value = {
+		base = 5
+	}
+}
+
+test_07 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_test_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 04 }
+		scope:holder.culture = {
+			has_innovation = innovation_cranes
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = cheap_building_tier_7_cost
+	
+	levy = poor_building_levy_tier_7
+	province_modifier = {
+		defender_advantage = normal_building_advantage_tier_7
+		monthly_income = poor_building_tax_tier_7
+		hostile_raid_time = 0.2
+	}
+	
+	character_modifier = {
+		skirmishers_pursuit_mult = 0.02
+		light_cavalry_damage_add = 7
+		light_cavalry_pursuit_add = 7
+		light_cavalry_screen_add = 3
+		light_cavalry_toughness_add = 3
+		men_at_arms_maintenance = -0.01
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.02
+	}
+	
+	next_building = test_08
+	
+	ai_value = {
+		base = 4
+	}
+}
+
+test_08 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_test_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 04 }
+		scope:holder.culture = {
+			has_innovation = innovation_cranes
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = cheap_building_tier_8_cost
+	
+	levy = poor_building_levy_tier_8
+	province_modifier = {
+		defender_advantage = normal_building_advantage_tier_8
+		monthly_income = poor_building_tax_tier_8
+		hostile_raid_time = 0.3
+	}
+	
+	character_modifier = {
+		skirmishers_pursuit_mult = 0.02
+		light_cavalry_damage_add = 8
+		light_cavalry_pursuit_add = 8
+		light_cavalry_screen_add = 4
+		light_cavalry_toughness_add = 4
+		men_at_arms_maintenance = -0.01
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.02
+	}
+	
+	ai_value = {
+		base = 3
+	}
+}
+
+
+#####도로 road 단위임
+
+
+### road #미완성했음. 귀찮음.
+
+road_01 = {
+	construction_time = standard_construction_time   #교체 해도 됌
+
+	can_construct_potential = {
+		building_road_requirement_terrain = yes #duchy 건물 부분 참고하셈 웬만해선 yes
+		building_requirement_castle_city_church = { LEVEL = 01 } #이것도 웬만해선 그대로 놔두자
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no #이건 부족정이면 건설 못한다같은 거니까 놔두자
+	}
+	
+	cost_gold = cheap_building_tier_1_cost    #교체 해도 됌
+	
+	province_modifier = {
+ 		monthly_income = -0.2 #교체 해도 됌 수입 창출
+	 hostile_raid_time =-0.1 #적대적 약탈 시간 단축
+	 build_speed = good_building_build_speed_tier_1 #건축 시간 단축
+	 #build_gold_cost = -0.02 #건축 비용 단축
+	movement_speed = 1 #이속 조정. 현재 적용된 것이 현지화-로컬라이즈되어서 보이긴 하지만 프로빈스가 다 완성되어 있지 않아 확인어려움.
+	}
+	
+	character_modifier = {
+	 
+		
+	}
+	
+	next_building = road_02  #해당 형식을 지키며 바꾸셈
+	
+	type_icon = "icon_building_hunting_grounds.dds"  #이것도 아이콘 준비될 때 까지 놔두셈
+	
+	ai_value = {
+		base = 10  #최대 100까지 있음 예시 orchards 그러니까 과수원은 지을 수 있으면 무조건 지은다는 소리 농장도 똑같이 100 
+		#regimental grounds같은 경우 외엔 수입원부터 짓도록 하는듯
+		#전체적으로 베이스 값을 티어가 올라갈 때마다 --하는 경향이 있음. 100의 경우엔 그 다음 숫자는 9
+		modifier = {
+			factor = 0
+			building_cereal_fields_requirement_terrain = yes #곡창지대? 아무튼 농장건설이 가능해야 지을 수 있다는 것?
+			NOT = {
+				has_building_or_higher = cereal_fields_01 #plantations과 사냥터 외엔 없음 의미모름
+			}
+		}
+		modifier = {
+			factor = 0
+			scope:holder = {
+				has_government = republic_government #의미 모름
+			}
+			NOT = {
+				has_building_or_higher = guild_halls_01
+			}
+		}
+	}
+}
+
+road_02 = {
+	construction_time = standard_construction_time
+
+	can_construct_potential = {
+		building_road_requirement_terrain = yes
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		scope:holder.culture = {
+			has_innovation = innovation_crop_rotation
+		}
+	}
+	
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = cheap_building_tier_2_cost
+	
+	levy = poor_building_levy_tier_2
+	province_modifier = {
+ 		monthly_income = poor_building_tax_tier_2
+	}
+	
+	character_modifier = {
+	 
+	}
+	
+	next_building = road_03
+	
+	ai_value = {
+		base = 9
+	}
+}
+
+road_03 = {
+	construction_time = standard_construction_time
+
+	can_construct_potential = {
+		building_road_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 02 }
+		scope:holder.culture = {
+			has_innovation = innovation_manorialism
+		}
+	}
+	
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = cheap_building_tier_3_cost
+	
+	levy = poor_building_levy_tier_3
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_3
+		hostile_raid_time = 0.1
+	}
+	
+	character_modifier = {
+	 
+	}
+	
+	next_building = road_04
+	
+	ai_value = {
+		base = 8
+	}
+}
+
+road_04 = {
+	construction_time = standard_construction_time
+
+	can_construct_potential = {
+		building_road_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 02 }
+		scope:holder.culture = {
+			has_innovation = innovation_manorialism
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = cheap_building_tier_4_cost
+	
+	levy = poor_building_levy_tier_4
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_4
+		hostile_raid_time = 0.15
+	}
+	
+	character_modifier = {
+	 
+	}
+	
+	next_building = road_05
+	
+	ai_value = {
+		base = 7
+	}
+}
+
+road_05 = {
+	construction_time = standard_construction_time
+
+	can_construct_potential = {
+		building_road_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 03 }
+		scope:holder.culture = {
+			has_innovation = innovation_windmills
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = cheap_building_tier_5_cost
+	
+	levy = poor_building_levy_tier_5
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_5
+		hostile_raid_time = 0.15
+	}
+	
+	character_modifier = {
+	 
+	}
+	
+	next_building = road_06
+	
+	ai_value = {
+		base = 6
+	}
+}
+
+road_06 = {
+	construction_time = standard_construction_time
+
+	can_construct_potential = {
+		building_road_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 03 }
+		scope:holder.culture = {
+			has_innovation = innovation_windmills
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = cheap_building_tier_6_cost
+	
+	levy = poor_building_levy_tier_6
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_6
+		hostile_raid_time = 0.2
+	}
+	
+	character_modifier = {
+	 
+	}
+	
+	next_building = road_07
+	
+	ai_value = {
+		base = 5
+	}
+}
+
+road_07 = {
+	construction_time = standard_construction_time
+
+	can_construct_potential = {
+		building_road_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 04 }
+		scope:holder.culture = {
+			has_innovation = innovation_cranes
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = cheap_building_tier_7_cost
+	
+	levy = poor_building_levy_tier_7
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_7
+		hostile_raid_time = 0.2
+	}
+	
+	character_modifier = {
+	 
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.02
+	}
+	
+	next_building = road_08
+	
+	ai_value = {
+		base = 4
+	}
+}
+
+road_08 = {
+	construction_time = standard_construction_time
+
+	can_construct_potential = {
+		building_road_requirement_terrain = yes
+	}
+
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 04 }
+		scope:holder.culture = {
+			has_innovation = innovation_cranes
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = cheap_building_tier_8_cost
+	
+	levy = poor_building_levy_tier_8
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_8
+		hostile_raid_time = 0.3
+	}
+	
+	character_modifier = {
+		 
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.02
+	}
+	
+	ai_value = {
+		base = 3
+	}
+}
