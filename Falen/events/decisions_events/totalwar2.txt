@@ -1,0 +1,31 @@
+total_war.decisions.0001 = {
+	type = charater_event
+	title = total_war.decision.0001.t
+	desc = total_war.decision.0001.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = war_attacker
+	}
+	option = {
+		name = total_war.decision.0001.a
+		effects = {
+			spawn_army = {
+				uses_supply = no
+				inheritable = no
+				name = total_war_troops
+				levies = {
+  					value = 0
+					every_held_title = {
+						limit = {
+ 							tier = tier_county
+						}
+						add = 2500
+					}
+				}
+				location = capital_province
+				war = war
+			}
+		}
+	}
+}

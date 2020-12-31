@@ -1,0 +1,170 @@
+you can define 
+너는 정의할 수 있음.
+# 참고자료 https://flatsun.tistory.com/1560
+#https://ck3.paradoxwikis.com/index.php?title=Barony&mobileaction=toggle_view_desktop 크킹 3 위키 건물 정보나옴
+#여기있는거 보고 찾아서 원하는 기능이 있는 것의 이름을 컨트롤 f로 검색
+###정의된 값 define 된 값은 script_values에 다 있다 아마도.
+###province_terrain에 지형 설정하는거 있음
+###holdings 폴더에 해당 홀딩에 지을 수 있는 초기 건물들이 있음.
+###건물 추가하는건 buildings임 홀딩이랑 빌딩
+###regiment_types 연대에 돈 소요하는거랑 건물이랑 좀 다름. 
+###############주로 해야할 부분은 아마 terrain_specific 빌딩임. 대부분 남작령의 내부건물은 다 여기있음
+#######################아래의 퍽은 조직화된 진격 or 진군. 이속보너스를 주는 modifier있음.
+###########웬만하면 00_special_buildings 파일 봐보셈 독특한게 많아서 참고됌
+########## 
+organized_retreat_perk = {
+	lifestyle = martial_lifestyle
+	tree = strategy
+	position = { 2 1.25 }
+	icon = node_martial
+	
+	parent = bellum_justum_perk
+	
+	character_modifier = {
+		movement_speed = 0.15
+		heavy_infantry_screen_add = 5
+		pikemen_screen_add = 5
+		archers_screen_add = 5
+		skirmishers_screen_add = 5
+	}
+}
+##############
+###이건 martial_라이프스타일_모디파이어.txt 안의 것
+
+innovative_strategy_modifier = {
+	icon = martial_positive
+	martial = 1
+	movement_speed = 0.2
+	min_combat_roll = -2
+}
+
+warfare_flexible_strategy_modifier = {
+	icon = martial_positive
+	enemy_terrain_advantage = -0.25
+	movement_speed = 0.1
+}
+
+#############
+== Structure ==
+
+name_of_the_building = {
+	
+	# How many levies does the building give 
+	#얼마나 징집병을 주느냐
+	levy = 200
+	
+	# How much garrison does the building give
+	#얼마나 수비대를 주느냐 
+	garrison = 100
+	
+	# How long does it take to construct the building
+	#건설까지 얼마쯤 걸리냐
+	construction_time = 720
+
+	# Specifies whether this is a regular building, a special building, or a duchy capital building. Regular by default
+	#일반건물, 특수건물, 공작건물인지 구분한다. 일반이 기본. 
+	type = regular/special/duchy_capital	
+	
+	
+	# Which asset does the building use
+	#건물 에셋 혹은 리소스라고도 한다. 암튼 그런거. 게임 벨렌스엔 영향 안 줌
+	asset = {
+		# 'pdxmesh' or 'entity', specifies wheter to use a mesh or an entity. Meshes are more performant and should be preferred.
+		## 'pdxmesh'또는 'entity'는 메시(그물,맞물림) 또는 엔티티(실재,실체)를 사용할지 여부를 지정합니다. 메시가 더 성능이 좋으며 선호되어야합니다.
+		type = pdxmesh
+		# The name of the mesh or the entity
+		### 메시 또는 엔티티의 이름
+		name = "western_castle_01_level_03_mesh"
+		# To randomize between multiple meshes/entities. Note that they must all be entities, or all be meshes:
+		#여러 메시 / 엔티티간에 무작위 화합니다. 모두 엔티티이거나 모두 메시 여야합니다.
+		names = { "western_castle_01_level_03a_mesh" "western_castle_01_level_03b_mesh" "western_castle_01_level_03c_mesh" }
+		# Path to illustration shown in the county view, texture can be accessed in GUI: "[Holding.GetIllustration]"
+		#카운티 뷰에 표시된 그림의 경로, 텍스처는 GUI에서 액세스 할 수 있습니다. "[Holding.GetIllustration]"
+		illustration = "path/to/image.dds" #illustration는 삽화다
+		# Associated sound effect and an optional parameter, can also be just soundeffect = "event:..." if no parameter is needed
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Generic/sfx_amb_3d_holdings_generic_castle" soundparameter = { "Tier" = 2.0 } }
+		# Graphical cultures that prefer this asset to be shown
+		graphical_cultures = { arabicgfx muslimgfx }
+		# Graphical faiths that prefer this asset to be shown (priority is faith > religion > family, so Catholic graphical_faith overrides Abrahamic graphical_faith)
+		graphical_faiths = { catholic_gfx orthodox_gfx }
+		# Graphical regions in which this asset is preferred, this is the most important criterion when selecting the asset, with the exception of government
+		graphical_regions = { western mena }
+		# Governments that prefer this asset to be shown
+		governments = { tribal_government }
+	}
+	
+	# Is the building enabled? Else won't give any effects to holder, and not be constructible (see can_construct* below).
+	## 건물이 활성화되어 있습니까? 그렇지 않으면 소지자에게 어떤 효과도주지 않으며 시공 할 수 없습니다 (아래 can_construct * 참조).
+	# If is_graphical_background = yes, this controls whether the building can be shown in the province.
+	## is_graphical_background = yes 인 경우 건물을 지방에 표시 할 수 있는지 여부를 제어합니다. 
+	# scopes: root is the province; scope:holder is the holder of the province; county is the county title the province belongs to
+	##한계 혹은 범위: 루트는 프로빈스입니다. scope : holder는 프로빈스의 소유자입니다. county는 프로빈스가 속한 county 작위입니다.
+	is_enabled = {}
+	
+	# Can the building be constructed.
+	# 건물을 지을 수 있습니까?
+	# Use this instead of is_enabled if you want to allow rulers to "use" the building after getting the holding, but to disallow that they construct it.
+	# 통치자가 건물을 소유 한 후 건물을 "사용"하도록 허용하고 건물을 건설하는 것을 허용하지 않으려면 is_enabled 대신 이것을 사용합니다.
+	# can_construct_potential controls whether the building appears in the build menu. For upgrades it is identical to can_construct_showing_failures_only.
+	# can_construct_potential은 건물이 빌드 메뉴에 표시되는지 여부를 제어합니다. 업그레이드의 경우 can_construct_showing_failures_only와 동일합니다.
+	# Note that is_enabled (see above) is added to can_construct_potential.
+	# is_enabled (위 참조)가 can_construct_potential에 추가됩니다.
+	# Not used if is_graphical_background = yes
+	# is_graphical_background = yes 인 경우 사용되지 않음
+	# scopes: root is the province; scope:holder is the holder of the province; county is the county title the province belongs to
+	# 범위 : 루트는 프로빈스입니다. scope : holder는 프로빈스의 소유자입니다. county는 프로빈스가 속한 카운티 작위입니다.
+	can_construct_potential = {}
+	can_construct_showing_failures_only = {}
+	can_construct = {}
+	show_disabled = yes/no	# if set to yes, the building will show in the build menu even if disabled (will still use can_construct_potential). No by default
+				# yes로 설정하면 비활성화 된 경우에도 건물이 빌드 메뉴에 표시됩니다 (계속 can_construct_potential 사용). 기본적으로 아니요
+
+	# How much cost does the building cost
+	# 건물 비용은 얼마입니까? 아래 부분은 디파인된 것을 사용하는 경우가 많음
+	cost = { gold = 500 ... }
+	
+	# The next building in chain unlocked by this building
+	##이 건물의 다음 건물
+	next_building = castle_02
+	
+	# A modifier applied to the owner of the holding
+	# 보유 소유자에게 적용되는 모디파이어
+	character_modifier = {
+	}
+	
+	# A modifier applied to the province
+	# 프로빈스에 적용되는 모디파이어
+	province_modifier = {
+	}
+
+	# A modifier applied to the county
+	#백작령?에 적용되는 모디파이어
+	county_modifier = {
+	}
+	
+	# A modifier applied to every de jure county in the duchy (if the county has the same de facto liege as this building's county). Can only be used (and only works) for duchy capital buildings.
+	# 공국의 모든 데주레 백작령에 적용되는 모디파이어 (백작령 건물의 백작령과//수정바람 사실상 동일한 영토를 가지고있는 경우). 공국 수도 건물에만 사용할 수 있으며 작동합니다.
+	duchy_capital_county_modifier = {
+	}
+	
+	# A special modifier applied to every holding of specified type in the county
+	# 백작령의 지정된 유형의 모든 홀딩에 적용되는 특수 모디파이어
+	county_holding_modifier = {
+		holding = castle_holding
+		income_mult = 1
+	}
+	
+	# Building flags
+	# 건물 깃발
+	flag = castle
+	
+	# How desirable is the building for the AI
+	# AI의 건물 건설 우선도값
+	ai_value = {
+		base = 100
+	}
+	
+	# If this is set to yes, the building will be used for figuring out which background asset (walls/no walls etc) should be shown
+	## 이것이 yes로 설정되면 건물은 어떤 배경 에셋 (벽 / 벽 없음 등)을 표시해야하는지 파악하는 데 사용됩니다.
+	is_graphical_background = no
+}
