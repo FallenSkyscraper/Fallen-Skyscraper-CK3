@@ -1,0 +1,360 @@
+k_yeongdong = {
+		color = { 43 117 23 }
+		color2 = { 255 255 255 }
+		
+		capital = c_gangleung
+		
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:greek
+				}
+				add = @correct_culture_primary_score
+			}
+		}
+		
+		d_gangleung = {
+			color = { 43 117 23 }
+			color2 = { 255 255 255 }
+			
+			capital = c_gangleung
+			c_gangleung = {
+				color = { 43 117 237 }
+				color2 = { 255 255 255 }
+				
+				b_1246 = { # Gangleung
+					province = 1246
+					
+					color = { 43 117 23 }
+					color2 = { 255 255 255 }
+				}
+				b_1245 = { # Seongsan
+					province = 1245
+					
+					color = { 43 117 23 }
+					color2 = { 255 255 255 }
+				}
+				b_2661 = { # Gujeong
+					province = 2661
+					
+					color = { 43 117 23 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_wangsan = {
+				color = { 85 105 21 }
+				color2 = { 255 255 255 }
+				
+				b_1242 = { # Wangsan
+					province = 1242
+					
+					color = { 85 105 21 }
+					color2 = { 255 255 255 }
+				}
+				b_1243 = { # Gangdong
+					province = 1243
+					
+					color = { 85 105 21 }
+					color2 = { 255 255 255 }
+				}
+				b_1241 = { # Oggye
+					province = 1241
+					
+					color = { 85 105 21 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_jumunjin = {
+				color = { 2 84 155 }
+				color2 = { 255 255 255 }
+				
+				b_2655 = { # Jumunjin
+					province = 2655
+					
+					color = { 2 84 155 }
+					color2 = { 255 255 255 }
+				}
+				b_2662 = { # Yeongok
+					province = 2662
+					
+					color = { 2 84 155 }
+					color2 = { 255 255 255 }
+				}
+				b_1247 = { # Sacheon
+					province = 1247
+					
+					color = { 2 84 155 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+
+		d_donghae = {
+			color = { 44 87 28 }
+			color2 = { 255 255 255 }
+			
+			capital = c_donghae
+			c_donghae = {
+				color = { 44 87 28 }
+				color2 = { 255 255 255 }
+				
+				b_2656 = { # Donghae
+					province = 2656
+					
+					color = { 44 87 28 }
+					color2 = { 255 255 255 }
+				}
+				b_246 = { # Samcheok
+					province = 246
+					
+					color = { 44 87 28 }
+					color2 = { 255 255 255 }
+				}
+				b_1227 = { # Miro
+					province = 1227
+					
+					color = { 44 87 28 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_taebaek = {
+				color = { 127 78 144 }
+				color2 = { 255 255 255 }
+				
+				b_1233 = { # Taebaek
+					province = 1233
+					
+					color = { 127 78 144 }
+					color2 = { 255 255 255 }
+				}
+				b_1233 = { # Dogye
+					province = 1233
+					
+					color = { 127 78 144 }
+					color2 = { 255 255 255 }
+				}
+				b_1233 = { # Hajang
+					province = 1233
+					
+					color = { 127 78 144 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_oesamcheok = {
+				color = { 85 45 11 }
+				color2 = { 255 255 255 }
+				
+				b_1222 = { # Wondeok
+					province = 1222
+					
+					color = { 85 45 11 }
+					color2 = { 255 255 255 }
+				}
+				b_1223 = { # Nogok
+					province = 1223
+					
+					color = { 85 45 11 }
+					color2 = { 255 255 255 }
+				}
+				b_1224 = { # Geundeok
+					province = 1224
+					
+					color = { 85 45 11 }
+					color2 = { 255 255 255 }
+				}
+				b_1221 = { # Gagok
+					province = 1221
+					
+					color = { 85 45 11 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+
+		d_sokcho = {
+			color = { 126 165 34 }
+			color2 = { 255 255 255 }
+			
+			capital = c_sokcho
+			c_sokcho = {
+				color = { 126 165 34 }
+				color2 = { 255 255 255 }
+				
+				b_268 = { # Sokcho
+					province = 268
+					
+					color = { 126 165 34 }
+					color2 = { 255 255 255 }
+				}
+				b_1594 = { # Ganseong
+					province = 1594
+					
+					color = { 126 165 34 }
+					color2 = { 255 255 255 }
+				}
+				b_1593 = { # Jukwang
+					province = 1593
+					
+					color = { 126 165 34 }
+					color2 = { 255 255 255 }
+				}
+				b_1592 = { # Toseong
+					province = 1592
+					
+					color = { 126 165 34 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_koseong = {
+				color = { 85 105 226 }
+				color2 = { 255 255 255 }
+				
+				b_1597 = { # Koseong
+					province = 1597
+					
+					color = { 85 105 226 }
+					color2 = { 255 255 255 }
+				}
+				b_1596 = { # Sudong
+					province = 1596
+					
+					color = { 85 105 226 }
+					color2 = { 255 255 255 }
+				}
+				b_1598 = { # Hyeonnae
+					province = 1598
+					
+					color = { 85 105 226 }
+					color2 = { 255 255 255 }
+				}
+				b_1595 = { # Geojin
+					province = 1595
+					
+					color = { 85 105 226 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_yangyang = {
+				color = { 42 174 163 }
+				color2 = { 255 255 255 }
+				
+				b_271 = { # Yangyang
+					province = 271
+					
+					color = { 42 174 163 }
+					color2 = { 255 255 255 }
+				}
+				b_1591 = { # Ganghyeon
+					province = 1591
+					
+					color = { 42 174 163 }
+					color2 = { 255 255 255 }
+				}
+				b_1589 = { # W.Yangyang
+					province = 1589
+					
+					color = { 42 174 163 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_s.yangyang = {
+				color = { 1 84 96 }
+				color2 = { 255 255 255 }
+				
+				b_1590 = { # sonyang
+					province = 1590
+					
+					color = { 1 84 96 }
+					color2 = { 255 255 255 }
+				}
+				b_1588 = { # Hyeonbuk
+					province = 1588
+					
+					color = { 1 84 96 }
+					color2 = { 255 255 255 }
+				}
+				b_1587 = { # Hyeonnam
+					province = 1587
+					
+					color = { 1 84 96 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+
+		d_tongcheon = {
+			color = { 85 72 156 }
+			color2 = { 255 255 255 }
+			
+			capital = c_tongcheon
+			c_tongcheon = {
+				color = { 85 72 156 }
+				color2 = { 255 255 255 }
+				
+				b_1657 = { # tongcheon
+					province = 1657
+					
+					color = { 85 72 156 }
+					color2 = { 255 255 255 }
+				}
+				b_1658 = { # Gojeo
+					province = 1658
+					
+					color = { 85 72 156 }
+					color2 = { 255 255 255 }
+				}
+				b_1656 = { # Byeokyang
+					province = 1656
+					
+					color = { 85 72 156 }
+					color2 = { 255 255 255 }
+				}
+				b_1655 = { # Imnam
+					province = 1655
+					
+					color = { 85 72 156 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_jangjeon = {
+				color = { 42 189 38 }
+				color2 = { 255 255 255 }
+				
+				b_276 = { # Jangjeon
+					province = 276
+					
+					color = { 42 189 38 }
+					color2 = { 255 255 255 }
+				}
+				b_1600 = { # Oegeumgang
+					province = 1600
+					
+					color = { 42 189 38 }
+					color2 = { 255 255 255 }
+				}
+				b_1599 = { # W.Goseong
+					province = 1599
+					
+					color = { 42 189 38 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_songjeon = {
+				color = { 169 78 157 }
+				color2 = { 255 255 255 }
+				
+				b_1659 = { # Songjeon
+					province = 1659
+					
+					color = { 169 78 157 }
+					color2 = { 255 255 255 }
+				}
+				b_1660 = { # Hakil
+					province = 1660
+					
+					color = { 169 78 157 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+	}
