@@ -1,0 +1,235 @@
+national_assembly.0001 = {
+	type = letter_event
+	desc = {
+		desc = national_assembly.0001.opening_desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					reverse_opinion = {
+						target = scope:sender
+						value > 50
+					}
+				}
+				desc = national_assembly.0001.host_likes_me
+			}
+			triggered_desc = {
+				trigger = {
+					reverse_opinion = {
+						target = scope:sender
+						value > -1
+					}
+				}
+				desc = national_assembly.0001.host_gets_along_with_me
+			}
+			desc = national_assembly.0001.host_dislikes_me
+		}
+	}
+	sender = scope:sender
+
+	trigger = {
+		is_available_for_activity_trigger = yes
+		exists = scope:activity.activity_owner
+		target_is_liege_or_above = scope:activity.activity_owner
+	}
+	immediate = {
+		scope:activity.activity_owner = {
+			save_scope_as = sender
+		}
+		scope:activity.activity_province = {
+			barony = {
+				save_scope_as = barony
+			}
+		}
+		set_variable = {
+			name = is_handling_feast_invitation
+			value = scope:sender
+			days = 20
+		}
+	}
+
+	option = {
+		name = national_assembly.0001.a
+		trigger = {
+			opinion = {
+				target = liege
+				value >= 0
+			}
+		}
+		play_music_cue = mx_cue_banquet
+		scope:activity = {
+			accept_invitation_for_character = prev
+		}
+#		set_variable = {
+#			name = booked_for_a_party
+#			value = scope:sender
+#			days = 20
+#		}
+		stress_impact = {
+			comfort_eater = minor_stress_loss
+			drunkard = minor_stress_loss
+		}
+		ai_chance = {
+			base = 100
+			opinion_modifier = {
+				opinion_target = scope:sender
+			}
+		}
+	}
+
+	option = {
+		name = national_assembly.0001.b
+		trigger = {
+			opinion = {
+				target = liege
+				value < 0
+			}
+		}
+		play_music_cue = mx_cue_banquet
+		scope:activity = {
+			accept_invitation_for_character = prev
+		}
+#		set_variable = {
+#			name = booked_for_a_party
+#			value = scope:sender
+#			days = 20
+#		}
+		stress_impact = {
+			comfort_eater = minor_stress_loss
+			drunkard = minor_stress_loss
+		}
+		ai_chance = {
+			base = 100
+			opinion_modifier = {
+				opinion_target = scope:sender
+			}
+		}
+	}
+
+	option = {
+		name = national_assembly.0001.c
+		trigger = {
+			opinion = {
+				target = liege
+				value > -1
+			}
+		}
+		scope:activity = {
+			decline_invitation_for_character = prev
+		}
+		stress_impact = {
+			inappetetic = minor_stress_loss
+			reclusive = minor_stress_loss
+		}
+		ai_chance = {
+			base = 10
+			ai_value_modifier = {
+				ai_boldness = 0.2
+			}
+		}
+	}
+
+	option = {
+		name = national_assembly.0001.d
+		trigger = {
+			opinion = {
+				target = liege
+				value < 0
+			}
+		}
+		scope:activity = {
+			decline_invitation_for_character = prev
+		}
+		stress_impact = {
+			inappetetic = minor_stress_loss
+			reclusive = minor_stress_loss
+		}
+		ai_chance = {
+			base = 10
+			ai_value_modifier = {
+				ai_boldness = 0.2
+				ai_vengefulness = 0.5
+			}
+		}
+	}
+
+	after = {
+		remove_variable = is_handling_feast_invitation
+	}
+}
+
+
+
+national_assembly.0002 = {
+	type = letter_event
+	desc = national_assembly.0002.desc
+	sender = scope:sender
+
+	trigger = {
+		is_available_for_activity_trigger = yes
+	}
+	immediate = {
+		scope:activity.activity_owner = {
+			save_scope_as = sender
+		}
+		scope:activity.activity_province = {
+			barony = {
+				save_scope_as = barony
+			}
+		}
+		set_variable = {
+			name = is_handling_feast_invitation
+			value = scope:sender
+			days = 20
+		}
+	}
+
+	option = {
+		name = national_assembly.0002.a
+		play_music_cue = mx_cue_banquet
+		scope:activity = {
+			accept_invitation_for_character = prev
+		}
+#		set_variable = {
+#			name = booked_for_a_party
+#			value = scope:sender
+#			days = 20
+#		}
+		stress_impact = {
+			comfort_eater = minor_stress_loss
+			drunkard = minor_stress_loss
+		}
+		ai_chance = {
+			base = 100
+			opinion_modifier = {
+				opinion_target = scope:sender
+			}
+		}
+	}
+
+	option = {
+		name = national_assembly.0002.b
+		scope:activity = {
+			decline_invitation_for_character = prev
+		}
+		stress_impact = {
+			inappetetic = minor_stress_loss
+			reclusive = minor_stress_loss
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 15
+				scope:sender = {
+					target_is_liege_or_above = scope:sender
+				}
+			}
+			ai_value_modifier = {
+				ai_boldness = 0.2
+			}
+		}
+	}
+
+#	after = {
+#		remove_variable = is_handling_feast_invitation
+#	}
+}
