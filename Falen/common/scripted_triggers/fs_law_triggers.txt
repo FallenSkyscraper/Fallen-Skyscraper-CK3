@@ -1,4 +1,4 @@
-﻿
+
 character_gender_can_rule_title_trigger = {
 	trigger_if = {
 		limit = {
@@ -62,7 +62,12 @@ realm_law_use_crown_authority = {
 
 can_have_confederate_partition_succession_law_trigger = {
 	has_government = tribal_government
- 
+#fs_모드의
+#has_government = proletarian_government 
+#has_government = military_government 
+#has_government = maritime_government 
+#has_government = secular_republic_government  
+#has_government = landward_republic_government  
 }
 
 can_keep_partition_succession_law_trigger = {
@@ -86,6 +91,12 @@ can_have_partition_succession_law_trigger = {
 			has_government = feudal_government
 			has_government = tributary_government
 			has_government = clan_government
+#fs_모드의
+has_government = proletarian_government 
+has_government = military_government 
+has_government = maritime_government 
+has_government = secular_republic_government  
+has_government = landward_republic_government  
 		}
 	}
 }

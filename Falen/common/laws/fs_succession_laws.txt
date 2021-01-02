@@ -22,6 +22,12 @@ succession_order_laws = {
 					OR = {
 						has_government = feudal_government
 						has_government = clan_government
+							#fs_모드의 것들
+						has_government = proletarian_government 
+						has_government = military_government 
+						has_government = maritime_government 
+							has_government = secular_republic_government  
+								has_government = landward_republic_government  
 					}
 					culture = {
 						NOR = {
@@ -70,6 +76,12 @@ succession_order_laws = {
 			OR = {
 				has_government = feudal_government
 				has_government = clan_government
+				#fs_모드의
+				has_government = proletarian_government 
+				has_government = military_government 
+				has_government = maritime_government 
+				has_government = secular_republic_government  
+				has_government = landward_republic_government 
 			}
 			culture = {
 				has_innovation = innovation_hereditary_rule
@@ -354,7 +366,7 @@ succession_order_laws = {
 			pool_character_config = pool_mercenary_succession
 		}
 	}
-#####도시 상속제
+
 	city_succession_law = {
 		can_keep = {
 			can_have_city_succession_law_trigger = yes
