@@ -17,8 +17,21 @@
 				historical_succession_access_single_heir_succession_law_youngest_trigger = yes
 				historical_succession_access_single_heir_dynasty_house_trigger = yes
 			}
-			has_government = tribal_government
-			always = no
+			OR = {
+				AND = {
+					OR = {
+						has_government = feudal_government
+						has_government = clan_government
+					}
+					culture = {
+						NOR = {
+							has_innovation = innovation_hereditary_rule
+							has_innovation = innovation_heraldry
+						}
+					}
+				}
+				has_government = tribal_government
+			}
 		}
 		succession = {
 			order_of_succession = inheritance
@@ -49,9 +62,21 @@
 			can_have_partition_succession_law_trigger = yes
 		}
 		should_start_with = {
-			historical_succession_access_single_heir_succession_law_trigger = no
-			has_government = tribal_government
-			NOT = { culture = { has_innovation = innovation_kingship } }
+			NOR = {
+				historical_succession_access_single_heir_succession_law_trigger = yes
+				historical_succession_access_single_heir_succession_law_youngest_trigger = yes
+				historical_succession_access_single_heir_dynasty_house_trigger = yes
+			}
+			OR = {
+				has_government = feudal_government
+				has_government = clan_government
+			}
+			culture = {
+				has_innovation = innovation_hereditary_rule
+				NOT = {
+					has_innovation = innovation_heraldry
+				}
+			}
 		}
 		succession = {
 			order_of_succession = inheritance
@@ -88,19 +113,19 @@
 			can_have_high_partition_succession_law_trigger = yes
 		}
 		should_start_with = {
-			historical_succession_access_single_heir_succession_law_trigger = no
+			NOR = {
+				historical_succession_access_single_heir_succession_law_trigger = yes
+				historical_succession_access_single_heir_succession_law_youngest_trigger = yes
+				historical_succession_access_single_heir_dynasty_house_trigger = yes
+			}
 			OR = {
-				AND = {
-					has_government = tribal_government
-					culture = { has_innovation = innovation_kingship }
-				}
-				AND = {
-					OR = {
-						has_government = feudal_government
-						has_government = tributary_government
-						has_government = clan_government
-					}
-					NOT = { culture = { has_innovation = innovation_kingship } }
+				has_government = feudal_government
+				has_government = clan_government
+			}
+			culture = {
+				has_innovation = innovation_heraldry
+				NOT = {
+					has_innovation = innovation_hereditary_rule
 				}
 			}
 		}
@@ -269,7 +294,11 @@
 			if = {
 				limit = {
 					primary_title.tier > tier_county
-					always = no
+					OR = {
+						#West Slavic
+						has_culture = culture:czech
+						has_culture = culture:slovien
+					}
 				}
 				value = 2
 			}
@@ -351,25 +380,16 @@ succession_gender_laws = {
 		can_title_have = { tier >= tier_duchy }
 		can_keep = {
 			faith = {
-				OR = {
-					has_doctrine = doctrine_gender_male_dominated
-					has_doctrine = doctrine_gender_eblaite_equality
-				}
+				has_doctrine = doctrine_gender_male_dominated
 			}
 		}
 		can_pass = {
 			can_change_succession_law_trigger = yes
 		}
 		should_start_with = {
-			OR = {
-				has_culture = culture:hittite
-				has_culture_group = culture_group:hellenic_group
-			}
 			faith = {
-				OR = {
-					has_doctrine = doctrine_gender_male_dominated
-					has_doctrine = doctrine_gender_eblaite_equality
-				}
+				has_doctrine = doctrine_gender_male_dominated
+				religion_tag = islam_religion
 			}
 		}
 		succession = {
@@ -393,10 +413,7 @@ succession_gender_laws = {
 			custom_description = {
 				text = change_law_male_preference_faith_requirement
 				faith = {
-					NOR = { 
-						has_doctrine = doctrine_gender_female_dominated
-						has_doctrine = doctrine_gender_minoan_matriarchy
-					}
+					NOT = { has_doctrine = doctrine_gender_female_dominated }
 				}
 			}
 		}
@@ -406,10 +423,10 @@ succession_gender_laws = {
 		should_start_with = {
 			OR = {
 				faith = {
-					OR = {
-						has_doctrine = doctrine_gender_male_dominated
-						has_doctrine = doctrine_gender_eblaite_equality
+					NOT = {
+						religion_tag = islam_religion
 					}
+					has_doctrine = doctrine_gender_male_dominated
 				}
 				has_realm_law = male_only_law # For when male_only_law ceases to be a legal option
 			}
@@ -432,10 +449,31 @@ succession_gender_laws = {
 	equal_law = {
 		can_title_have = { tier >= tier_duchy }
 		can_keep = {
-			faith = {
-				OR = {
+			trigger_if = {
+				limit = {
+					OR = {
+						culture = culture:occitan
+						culture = culture:basque
+						culture = culture:aragonese
+						culture = culture:catalan
+					}
+					NOT = {
+						faith = { has_doctrine = doctrine_gender_equal }
+					}
+				}
+				culture = { has_innovation = innovation_visigothic_codes }
+			}
+			trigger_else = {
+				limit = {
+					NOT = {
+						OR = {
+							culture = culture:hausa
+							culture = culture:sumpa
+						}
+					}
+				}
+				faith = {
 					has_doctrine = doctrine_gender_equal
-					has_doctrine = doctrine_gender_equal_male_warriors
 				}
 			}
 		}
@@ -444,10 +482,7 @@ succession_gender_laws = {
 		}
 		should_start_with = {
 			faith = {
-				OR = {
-					has_doctrine = doctrine_gender_equal
-					has_doctrine = doctrine_gender_equal_male_warriors
-				}
+				has_doctrine = doctrine_gender_equal
 			}
 			NOT = { has_realm_law = female_only_law } # For when female_only_law ceases to be valid
 		}
@@ -470,7 +505,7 @@ succession_gender_laws = {
 			if = {
 				limit = {
 					primary_title.tier > tier_county
-					always = no
+					has_culture = culture:basque
 				}
 				value = 2
 			}
@@ -490,10 +525,7 @@ succession_gender_laws = {
 		should_start_with = {
 			OR = {
 				faith = {
-					OR = {
-						has_doctrine = doctrine_gender_female_dominated
-						has_doctrine = doctrine_gender_minoan_matriarchy
-					}
+					has_doctrine = doctrine_gender_female_dominated
 				}
 				has_realm_law = female_only_law # For when male_only_law ceases to be a legal option
 			}
@@ -519,19 +551,11 @@ succession_gender_laws = {
 		can_title_have = { tier >= tier_duchy }
 		can_keep = {
 			faith = {
-				OR = {
-					has_doctrine = doctrine_gender_female_dominated
-					has_doctrine = doctrine_gender_minoan_matriarchy
-				}
+				has_doctrine = doctrine_gender_female_dominated
 			}
 		}
 		can_pass = {
 			can_change_succession_law_trigger = yes
-		}
-		should_start_with = {
-			faith = {
-				has_doctrine = doctrine_gender_minoan_matriarchy
-			}
 		}
 		succession = {
 			gender_law = female_only
