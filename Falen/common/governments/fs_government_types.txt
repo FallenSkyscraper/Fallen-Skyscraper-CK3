@@ -29,7 +29,7 @@ military_government = {
 	supply_limit_mult_for_others = -0.3#다른 정부체제의 남작령에 진입시 보급한계제한
 	affected_by_development = no#부족정처럼 개발도 버프시에 영향 없음
 	regiments_prestige_as_gold = yes#상비군 구매시 명성 사용여부
-	flag = government_can_raid_rule#해당 정부체제의 약탈 가능여부
+	##flag = government_can_raid_rule#해당 정부체제의 약탈 가능여부
 	
 	
 	
@@ -47,7 +47,7 @@ military_government = {
 	
 	color = hsv{ 130 45 55 }
 }
-
+##해안 제국
 maritime_government = {
 	rulers_should_have_dynasty = yes#지배자는 가문을 가져야함
 	dynasty_named_realms = yes#가문이 해당 백작령 이름으로 정해진다.
@@ -58,7 +58,7 @@ maritime_government = {
 	regiments_prestige_as_gold = no#상비군 구매시 명성 사용여부
 	flag = government_can_raid_rule#해당 정부체제의 약탈 가능여부
 	
-	#fallback = 1
+	 
 	
 	# 다음부터 징세 징병관련 할 때 vassal_contracts 폴더에 military 혹은 페더, 혹은 리퍼블릭 형식으로 암튼 같은 방식으로 제작할것
 	vassal_contract = {	 
@@ -77,19 +77,56 @@ maritime_government = {
 	
 	color = hsv{ 20 35 160 }#만약 파란색이 안나오면 	233°	88°	62°
 }
+## 세속 공화정
 secular_republic_government = {
 
-	rulers_should_have_dynasty = yes/no		# rulers of this government type generate a dynasty; default: no
+	#fallback = 1  
+	rulers_should_have_dynasty = yes	# rulers of this government type generate a dynasty; default: no
 	primary_holding = city_holding
-	valid_holdings = { castle_holding }		# Holdings that can be held directly by rulers of this government type. The primary holding is always valid.
-	required_county_holdings = { castle_holding city_holding }	# Which holdings must be present in a county before more of an existing type or others can be built
+	valid_holdings = { castle_holding }	# Holdings that can be held directly by rulers of this government type. The primary holding is always valid.
+		required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
+# Which holdings must be present in a county before more of an existing type or others can be built
 	supply_limit_mult_for_others = 0		# Army owners of different govenment type have this multiplier applied to the supply limit
 
 	vassal_contract = {	 
-	feudal_government_taxes
-	feudal_government_levies
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		##title_revocation_rights
 	}
 	
 	color = { 193 121 121 }
 }
 
+##내륙 공화정
+
+landward_republic_government = {
+
+	rulers_should_have_dynasty = yes	# rulers of this government type generate a dynasty; default: no
+	primary_holding = city_holding
+	valid_holdings = { castle_holding }		# Holdings that can be held directly by rulers of this government type. The primary holding is always valid.
+		required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
+# Which holdings must be present in a county before more of an existing type or others can be built
+	supply_limit_mult_for_others = 0		# Army owners of different govenment type have this multiplier applied to the supply limit
+
+	vassal_contract = {	 
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		##title_revocation_rights
+	}
+	
+	color = { 193 121 121 }
+}

@@ -1,0 +1,115 @@
+In this folder, law groups and laws can be defined.
+
+== Inheritance ==
+Any heir that goes up one or more tier due to inheritance gets the laws of the dead ruler.
+Note that currently the law conditions are not checked in any way for law inheritance.
+
+== Structure ==
+All script has the ruler as ROOT.
+
+law_group_name = {
+	default = law_name 	# Optional. New rulers will by default use this law, as long as its "should_start_with" trigger returns true or is not defined
+	cumulative = yes 	# If set, each subsequent law in the group will provide all effects of the previous law
+	
+	flag = some_arbitrary_flag	# See below for flags treated specially. Also can check it in the data/GUI system with LawGroup.HasFlag('some_arbitrary_flag')
+	
+	law_name = {
+		can_keep = {		# 통치자의 범위 내에서 법을 유지하기위한 요건. 이것이 무효화되면 한 달 이내에 법률이 기본 법률 (자체 섹션 참조)로 대체됩니다. 또한 교리적인 변화는 법을 무효화 할 가능성이 있기 때문에 신앙을 바꾼 후 확인했습니다. 지정하지 않으면 항상 true입니다.
+# Requirements for keeping the law in the ruler's scope. If this invalidates, the law will be replaced with the default law (see own section) within a month. Also checked after changing faith since doctrinal changes are likely to invalidate laws. Always true if not specified.
+		}
+		can_have = {		# 통치자의 범위에서 법을 채택하기위한 요건. 이것이 사실이면 캐릭터가 법을 채택 할 수 있고 법이 사용 가능한 것으로 표시됩니다 (그러나 can_pass가 false이면 건포도로 비활성화 될 수 있음). 지정하지 않으면 항상 true입니다.
+
+		}
+		can_pass = {		# 통치자의 범위에서 법을 채택하기위한 요건. 더 일시적인 조건 (예 : 전쟁 중입니다 ( "나는 법을 가질 수 있지만 지금은 통과 할 수 없습니다"). 지정하지 않으면 항상 true입니다.
+# Requirements for adopting the law in the ruler's scope. For more temporary conditions, e.g. being at war ("I can have the law, but can't pass it right now"). Always true if not specified.
+		}
+		should_start_with = { # 이러한 조건이 참이면 시작하기에 유효한 법입니다. 항상 can_keep 검사를 포함합니다.# If these conditions are true, this is a valid law to start with. Note that it always includes the can_keep check.
+		}
+		
+		can_title_have = {# 타이틀의 범위에서이 법을 가질 수있는 타이틀에 대한 요구 사항. 지정하지 않으면 항상 거짓
+	# Requirements for titles being able to have this law, in the title's scope. Always false if not specified
+		}
+
+		pass_cost = { gold/piety/presitge = ... }	
+#이 법을 제정하는 데 드는 비용# Cost of enacting this law
+
+		revoke_cost = { gold/piety/presitge = ... } #이 법을 취소하거나 취소하는 비용
+ # Cost of revoking or clearing this law
+
+		modifier = { #이 법칙이 활성화되었을 때 통치자에 적용되는 수정 자
+	# Modifier applied to the ruler when this law is active
+		}
+		flag = some_arbitrary_flag# 특별히 처리 된 플래그는 아래를 참조하십시오. has_realm_law_flag = some_arbitrary_flag를 사용하여 스크립트에서도 확인할 수 있습니다.
+	# See below for flags treated specially. Also can be checked in script with has_realm_law_flag = some_arbitrary_flag
+
+		on_pass = {	# 법이 추가되면 통치자에게 효과가 적용됩니다. 기본 법률이 초기화되거나 다른 사람으로부터 법률을 상속 할 때 실행되지 * 않습니다 *. 이 작업이 제목에 대해 수행되면 제목은 범위로 액세스 할 수 있습니다.
+	# Effect run on ruler when the law is added. Does *NOT* get run when default laws are initialized, nor when inheriting a law from someone else. If this is done on a title, the title is accessible as scope:title
+		}
+		on_revoke = {# 법이 제거되면 통치자에게 효과가 적용됩니다. 다른 사람으로부터 법을 상속 받아 법이 제거 될 때 실행되지 * 않습니다 *. 이 작업이 제목에 대해 수행되면 제목은 범위로 액세스 할 수 있습니다.
+	# Effect run on ruler when the law is removed. Does *NOT* get run when law is removed due to inheriting a law from someone else. If this is done on a title, the title is accessible as scope:title
+		}
+
+		# 승계 규칙. 규칙 세트가있는 모든 새 법률은 이전 법률의 규칙보다 우선합니다.
+# Succession rules. Any new law with a rule set will override the previous law's rule.
+		succession = {
+			order_of_succession = inheritance/election/theocratic/company
+
+			# For inheritance:
+			title_division = partition/single_heir	# only "traversal_order = children" supports partition
+			traversal_order = children/dynasty_house/dynasty
+			rank = oldest/youngest
+
+			# For theocratic & company:
+			pool_character_config = key		# entry in common/pool_character_selectors, used when choosing a character from the pool or generating a new one
+
+			# For election:
+			election_type = key				# entry in common/succession_election
+
+			# Generic rules:
+			gender_law = male_only/male_preference/equal/female_preference/female_only
+			faith = same_faith/same_religion/same_family	# Faith restrictions on who can inherit. If no one fulfilling this is found, the restriction is ignored (but titles with the flag destroy_if_invalid_heir = yes will be destroyed)
+			create_primary_tier_titles = yes 	# If set, then under partition all titles you can create of your primary tier will be created for free, resulting in a more split-up realm
+			primary_heir_minimum_share = 0.5	# The primary heir will get at least this portion of titles, which means if there's a lot of heirs the primary still gets a lot of land
+		}
+
+		ai_will_do = { ... }				# Script value in ruler scope. If above 0, the AI will enact this law if able. Law enactment is checked in the RARE_TASK_TICK. If multiple laws are possible, the AI will enact the one with the highest score
+	}
+	another_law_name = {}
+}
+
+== Default law ==
+All rulers have a single law from each group.
+If a group has a default set, that law will be checked first.
+Otherwise, or if it is invalid, the laws are checked in definition order.
+The first checked law where "should_start_with" returns true (or does not exist) gets used. Note that "can_pass" is ignored entirely.
+When a default law is set, "on_pass" is *not* executed
+
+== Title Succession Laws ==
+Laws are usually defined for realm. However some succession laws are valid for only titles, or for both realms and titles:
+Title only:
+- order_of_succession = elective
+Realm only:
+- order_of_succession = theocratic/company
+- order_of_succession = inheritance + title_division = partition
+Realm & Title:
+- order_of_succession = inheritance + title_division = single_heir
+
+== Associated loc ==
+The key of the law will be used as its name. E.G., law_name: "Law Name"
+The key plus "_effects" can optionally be defined to provide custom effects. E.G., law_name_effects: "Does some law thingy"
+The key plus "_effects_not_in_prev" can optionally be defined to provide custom effects that should *not* be included when listing effects inherited from earlier laws. E.G., law_name_effects_not_in_prev: "Does some law thingy"
+
+CHARACTER.GetActiveLawInGroupWithFlag('realm_law') - Will get the character's active law in a group. The group must have the given flag. Note that it does not work for dead characters
+
+== Hardcoded flags ==
+Some flags have special meaning, and are used by the game code.
+
+Law Groups:
+flag = realm_law - Will show up in My Realm window
+
+Laws:
+flag = titles_cannot_leave_realm_on_succession - Disables titles leaving realm when received on succession by someone outside the realm - the respective heirs will be disqualified from succession
+flag = men_can_have_multiple_spouses - Allows multiple spouses (if also allowed by faith)
+flag = men_can_have_consorts - Allows consorts (if also allowed by faith)
+flag = women_can_have_multiple_spouses - Allows multiple spouses (if also allowed by faith)
+flag = women_can_have_consorts - Allows consorts (if also allowed by faith)
