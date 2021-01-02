@@ -377,7 +377,12 @@ succession_gender_laws = {
 	flag = succession_gender_laws
 	
 	male_only_law = {
-		can_title_have = { tier >= tier_duchy }
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		should_show_for_title = { # Never show this in the UI, just apply it through script
+			always = no
+		}
 		can_keep = {
 			faith = {
 				has_doctrine = doctrine_gender_male_dominated
@@ -408,7 +413,12 @@ succession_gender_laws = {
 	}
 	
 	male_preference_law = {
-		can_title_have = { tier >= tier_duchy }
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		should_show_for_title = { # Never show this in the UI, just apply it through script
+			always = no
+		}
 		can_keep = {
 			custom_description = {
 				text = change_law_male_preference_faith_requirement
@@ -447,7 +457,12 @@ succession_gender_laws = {
 	}
 	
 	equal_law = {
-		can_title_have = { tier >= tier_duchy }
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		should_show_for_title = { # Never show this in the UI, just apply it through script
+			always = no
+		}
 		can_keep = {
 			trigger_if = {
 				limit = {
@@ -513,7 +528,12 @@ succession_gender_laws = {
 	}
 	
 	female_preference_law = {
-		can_title_have = { tier >= tier_duchy }
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		should_show_for_title = { # Never show this in the UI, just apply it through script
+			always = no
+		}
 		can_keep = {
 			custom_description = {
 				text = change_law_female_preference_faith_requirement
@@ -548,7 +568,12 @@ succession_gender_laws = {
 	}
 	
 	female_only_law = {
-		can_title_have = { tier >= tier_duchy }
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		should_show_for_title = { # Never show this in the UI, just apply it through script
+			always = no
+		}
 		can_keep = {
 			faith = {
 				has_doctrine = doctrine_gender_female_dominated
@@ -574,7 +599,7 @@ succession_gender_laws = {
 
 succession_rel_head = {
 	same_faith_theocratic_succession_law = {
-		can_have = {
+		can_keep = {
 			faith = {
 				religious_head = root
 				has_doctrine = doctrine_spiritual_head
@@ -587,7 +612,8 @@ succession_rel_head = {
 		}
 	}
 	same_faith_succession_law = {
-		can_have = {
+		shown_in_encyclopedia = no
+		can_keep = {
 			faith = {
 				religious_head = root
 				has_doctrine = doctrine_temporal_head
