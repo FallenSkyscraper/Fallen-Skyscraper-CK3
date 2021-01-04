@@ -3,11 +3,12 @@ title_succession_laws = {
 	feudal_elective_succession_law = {
 		can_have = {
 			has_government = feudal_government
-			#has_government = proletarian_government 
-			#has_government = military_government 
-			#has_government = maritime_government 
-			#has_government = secular_republic_government 
-			#has_government = landward_republic_government  
+			#fs_모드의
+			has_government = proletarian_government 
+			has_government = military_government 
+			has_government = maritime_government 
+			has_government = secular_republic_government 
+			has_government = landward_republic_government  
 			highest_held_title_tier >= tier_duchy#이걸로 어디부터 해당 상속제를 실시할수 있는지 결정하는듯
 			NOR = { #Cultures have their special flavor.
 				culture = culture:anglo_saxon
@@ -22,7 +23,8 @@ title_succession_laws = {
 		}
 		succession = {
 			order_of_succession = election
-			election_type = feudal_elective # 이게 문제부분일거다
+			election_type = feudal_elective  
+		 
 		}
 		flag = elective_succession_law
 		modifier = {
@@ -72,12 +74,15 @@ title_succession_laws = {
 			OR = {
 				has_government = feudal_government
 				has_government = tribal_government
+				##fs_모드의
+				has_government = secular_republic_government 
+			has_government = landward_republic_government  
 			}
 			highest_held_title_tier >= tier_kingdom
 		}
 		can_pass = {
 			can_change_title_law_trigger = yes
-			culture = culture:anglo_saxon
+			#culture = culture:anglo_saxon
 		}
 		can_title_have = {
 			tier >= tier_duchy
