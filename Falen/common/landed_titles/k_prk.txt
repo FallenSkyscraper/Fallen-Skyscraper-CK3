@@ -226,10 +226,15 @@ k_prk = {
 		}
 	}
 	d_nampho = {
-		capital = c_ryonggang
+		capital = c_nampho
 		color = { 124 42 212 }
-		c_ryonggang = {
-			color = { 12 252 21 }
+		c_nampho = {
+			color = { 213 113 199 }
+			b_2048 = {
+				province = 2048 # 진남포
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
 			b_2046 = {
 				province = 2046 # 다미
 				color = { 169 18 42 }
@@ -240,18 +245,11 @@ k_prk = {
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
-			b_2048 = {
-				province = 2048 # 진남포
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_2049 = {
-				province = 2049 # 대대
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_2050 = {
-				province = 2050 # 신령
+		}
+		c_ryonggang = {
+			color = { 12 252 21 }
+			b_2057 = {
+				province = 2057 # 룡강
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
@@ -265,28 +263,8 @@ k_prk = {
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
-			b_2053 = {
-				province = 2053 # 삼화
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_2054 = {
-				province = 2054 # 금곡
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_2055 = {
-				province = 2055 # 귀성
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
 			b_2056 = {
 				province = 2056 # 해운
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_2057 = {
-				province = 2057 # 룡강
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
@@ -301,8 +279,45 @@ k_prk = {
 				color2 = { 255 255 255 }
 			}
 		}
+		c_samhwa = {
+			color = { 173 196 91 }
+			b_2053 = {
+				province = 2053 # 삼화
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_2049 = {
+				province = 2049 # 대대
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_2050 = {
+				province = 2050 # 신령
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_2054 = {
+				province = 2054 # 금곡
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_2055 = {
+				province = 2055 # 귀성
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+		}
+	}
+	d_kangso = {
+		color = { 133 245 47 }
+		capital = c_kangso
 		c_kangso = {
 			color = { 132 252 21 }
+			b_2064 = {
+				province = 2064 # 강서
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
 			b_2059 = {
 				province = 2059 # 성암
 				color = { 169 18 42 }
@@ -328,18 +343,34 @@ k_prk = {
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
-			b_2064 = {
-				province = 2064 # 강서
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
 			b_2065 = {
 				province = 2065 # 수산
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
+		}
+		c_hamjong = {
+			color = { 155 25 25 }
 			b_2066 = {
 				province = 2066 # 함종
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_2069 = {
+				province = 2069 # 신정
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_jungsan = {
+			color = { 151 226 235 }
+			b_2070 = {
+				province = 2070 # 성태
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_2071 = {
+				province = 2071 # 증산
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
@@ -353,23 +384,13 @@ k_prk = {
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
-			b_2069 = {
-				province = 2069 # 신정
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_2070 = {
-				province = 2070 # 성태
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_2071 = {
-				province = 2071 # 증산
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
 			b_301 = {
 				province = 301 # 적송
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_307 = {
+				province = 307 # 한천
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
@@ -423,28 +444,8 @@ k_prk = {
 		}
 		c_phyongwon = { # 평원
 			color = { 23 142 222 }
-			b_307 = {
-				province = 307 # 한천
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_1954 = {
-				province = 1954 # 동송
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_1955 = {
-				province = 1955 # 검산
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_1956 = {
-				province = 1956 # 서해
-				color = { 169 18 42 }
-				color2 = { 255 255 255 }
-			}
-			b_1957 = {
-				province = 1957 # 숙천
+			b_1962 = {
+				province = 1962 # 평원
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
@@ -468,8 +469,41 @@ k_prk = {
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
-			b_1962 = {
-				province = 1962 # 평원
+			b_1966 = {
+				province = 1966 # 노지
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_1967 = {
+				province = 1967 # 덕산
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_1968 = {
+				province = 1968 # 청산
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_sukchon = {
+			color = { 171 183 246 }
+			b_1957 = {
+				province = 1957 # 숙천
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_1954 = {
+				province = 1954 # 동송
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_1955 = {
+				province = 1955 # 검산
+				color = { 169 18 42 }
+				color2 = { 255 255 255 }
+			}
+			b_1956 = {
+				province = 1956 # 서해
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
@@ -488,19 +522,92 @@ k_prk = {
 				color = { 169 18 42 }
 				color2 = { 255 255 255 }
 			}
-			b_1966 = {
-				province = 1966 # 노지
-				color = { 169 18 42 }
+		}
+	}
+	d_sunchon = {
+		capital = c_sunchon
+		color = { 132 25 21 }
+		c_sunchon = {
+			color = { 123 25 20 }
+			b_1948 = {
+				province = 1948 # 순천
+				color = { 169 118 142 }
 				color2 = { 255 255 255 }
 			}
-			b_1967 = {
-				province = 1967 # 덕산
-				color = { 169 18 42 }
+			b_308 = {
+				province = 308 # 사인
+				color = { 169 118 142 }
 				color2 = { 255 255 255 }
 			}
-			b_1968 = {
-				province = 1968 # 청산
-				color = { 169 18 42 }
+			b_1946 = {
+				province = 1946 # 내남
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+			b_1952 = {
+				province = 1952 # 자산
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+			b_1953 = {
+				province = 1953 # 후탄
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_eunsan = {
+			color = { 158 167 167 }
+			b_1950 = {
+				province = 1950 # 은산
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+			b_1947 = {
+				province = 1947 # 북창
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+			b_1949 = {
+				province = 1949 # 선소
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+			b_1951 = {
+				province = 1951 # 신창
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+		}
+		c_kaechon = {
+			color = { 31 112 232 }
+			b_1937 = {
+				province = 1937 # 개천
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+			b_1938 = {
+				province = 1938 # 중서
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+			b_1936 = {
+				province = 1936 # 북면 - 북개천
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+			b_1935 = {
+				province = 1935 # 조양
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+			b_1934 = {
+				province = 1934 # 봉동
+				color = { 169 118 142 }
+				color2 = { 255 255 255 }
+			}
+			b_311 = {
+				province = 311 # 중남
+				color = { 169 118 142 }
 				color2 = { 255 255 255 }
 			}
 		}
