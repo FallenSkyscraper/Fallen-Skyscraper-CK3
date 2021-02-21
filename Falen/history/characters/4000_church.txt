@@ -552,23 +552,706 @@
 		birth = yes
 	}
 	2328.1.1 = {
-		death = {
-			death_reason = execution
-			killer = 4237
-		}
+		death = yes
+	}
+}
+
+4024 = {
+	name = "세아"
+	dynasty = 4021 #김
+	female = yes
+	martial = 4
+	diplomacy = 5
+	intrigue = 4
+	stewardship = 4
+	learning = 8
+	prowess = 4
+	religion = test_faith
+	#religion = imperial_church
+	culture = gunsan
+	trait = chaste
+	trait = zealous
+	trait = temperate
+	trait = education_learning_3
+	father = 4021
+	mother = 4026
+	2296.1.1 = {
+		birth = yes
+	}
+	2316.1.1 = {
+		add_spouse = 4002
+	}
+	2365.1.1 = {
+		death = yes
+	}
+}
+
+4025 = {
+	name = "아영"
+	dynasty = 4021 #김
+	female = yes
+	religion = test_faith
+	#religion = protestant
+	culture = gunsan
+	father = 4022
+	mother = 4034
+	2325.1.1 = {
+		birth = yes
+	}
+	2328.1.1 = {
+		death = yes
+	}
+}
+
+4026 = {
+	name = "이화"
+	dynasty = 4026 #최
+	female = yes
+	martial = 4
+	diplomacy = 5
+	intrigue = 7
+	stewardship = 4
+	learning = 6
+	prowess = 4
+	religion = test_faith
+	#religion = protestant
+	culture = gunsan
+	trait = chaste
+	trait = cynical
+	trait = patient
+	trait = education_intrigue_2
+	2275.1.1 = {
+		birth = yes
+	}
+	2295.1.1 = {
+		add_spouse = 4021
+	}
+	2328.1.1 = {
+		death = yes
+	}
+}
+
+4027 = {
+	#profile
+	name = "철원"
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = protestant
+	culture = jeonju
+	
+	#stat
+	martial = 6
+	diplomacy = 4
+	intrigue = 8
+	stewardship = 4
+	learning = 4
+	prowess = 4
+	trait = deceitful
+	trait = ambitious
+	trait = calm
+	trait = education_martial_3
+	
+	#birth & Death
+	2266.1.1 = {
+		birth = yes
+	}
+	2288.1.1 = {
+		add_spouse = 4040
+	}
+	2330.1.1 = {
+		death = yes
+	}
+}
+
+4028 = {
+	#profile
+	name = "석금"
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4027
+	mother = 4040
+	
+	#stat
+	martial = 5
+	diplomacy = 7
+	intrigue = 4
+	stewardship = 4
+	learning = 4
+	prowess = 4
+	trait = gregarious
+	trait = calm
+	trait = humble
+	trait = education_diplomacy_2
+	
+	#birth & Death
+	2294.1.1 = {
+		birth = yes
+	}
+	2308.1.1 = {
+		add_spouse = 4041
+	}
+	2358.1.1 = {
+		death = yes
+	}
+}
+
+4029 = {
+	#profile
+	name = "민호"
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4028
+	mother = 4041
+
+	#stat
+	martial = 5
+	diplomacy = 4
+	intrigue = 10
+	stewardship = 4
+	learning = 4
+	prowess = 4
+	trait = deceitful
+	trait = ambitious
+	trait = sadistic
+	trait = education_intrigue_4
+	
+	#birth & Death
+	2312.1.1 = {
+		birth = yes
+	}
+	2338.1.1 = {
+		add_spouse = 4045
+	}
+	2377.1.1 = {
+		death = yes
+	}
+}
+
+4030 = {
+	#profile
+	name = "중현"
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4029
+	mother = 4045
+	
+	#stat
+	martial = 3
+	diplomacy = 8
+	intrigue = 3
+	stewardship = 4
+	learning = 3
+	prowess = 4
+	trait = trusting
+	trait = gregarious
+	trait = generous
+	trait = education_diplomacy_4
+	trait = dull
+	
+	#birth & Death
+	2341.1.1 = {
+		birth = yes
+	}
+	2365.1.1 = {
+		add_spouse = 4010
+	}
+	2414.1.1 = {
+		death = yes
+	}
+}
+
+4031 = {
+	#profile
+	name = "근영"
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4030
+	mother = 4010
+	
+	#stat
+	martial = 3
+	diplomacy = 4
+	intrigue = 3
+	stewardship = 6
+	learning = 3
+	prowess = 4
+	trait = diligent
+	trait = vengeful
+	trait = greedy
+	trait = education_stewardship_3
+	
+	#birth & Death
+	2370.1.1 = {
+		birth = yes
+	}
+	2393.1.1 = {
+		add_spouse = 4119
+	}
+	2437.1.1 = {
+		death = yes
 	}
 }
 
 4032 = {
+	#profile
 	name = "룡승"
 	dynasty = 4027 #박
 	religion = test_faith
 	#religion = imperial_church
-	culture = honam
+	culture = jeonju
+	father = 4031
+	mother = 4119
+
+	#stat
+	martial = 7
+	diplomacy = 4
+	intrigue = 3
+	stewardship = 6
+	learning = 3
+	prowess = 4
+	trait = diligent
+	trait = ambitious
+	trait = calm
+	trait = education_martial_3
+	
+	#birth & Death
 	2395.1.1 = {
 		birth = yes
 	}
+	2420.1.1 = {
+		add_spouse = 4136
+	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+
+4033 = {
+	#profile
+	name = "순원"
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4032
+	mother = 4136
+
+	#stat
+	
+	#birth & Death
+	2424.1.1 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+
+4034 = {
+	#profile
+	name = "세원"
+	female = yes
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = protestant
+	culture = jeonju
+	father = 4027
+	mother = 4040
+
+	#stat
+	martial = 5
+	diplomacy = 6
+	intrigue = 3
+	stewardship = 4
+	learning = 3
+	prowess = 4
+	trait = diligent
+	trait = forgiving
+	trait = calm
+	trait = education_diplomacy_2
+	
+	#birth & Death
+	2290.1.1 = {
+		birth = yes
+	}
+	2320.1.1 = {
+		add_spouse = 4034
+	}
+	2328.1.1 = {
+		death = yes
+	}
+}
+
+4035 = {
+	#profile
+	name = "현미"
+	female = yes
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4029
+	mother = 4035
+
+	#stat
+	
+	#birth & Death
+	2339.1.1 = {
+		birth = yes
+	}
+	2359.1.1 = {
+		add_spouse = 4130
+	}
+	2397.1.1 = {
+		death = yes
+	}
+}
+
+4036 = {
+	#profile
+	name = "혜진"
+	female = yes
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4030
+	mother = 4010
+
+	#stat
+	
+	#birth & Death
+	2372.1.1 = {
+		birth = yes
+	}
+	2397.1.1 = {
+		add_spouse = 4054
+	}
+	2418.1.1 = {
+		death = yes
+	}
+}
+
+4037 = {
+	#profile
+	name = "혜선"
+	female = yes
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4030
+	mother = 4010
+
+	#stat
+	
+	#birth & Death
+	2374.1.1 = {
+		birth = yes
+	}
+	2437.1.1 = {
+		death = yes
+	}
+}
+
+4038 = {
+	#profile
+	name = "지현"
+	female = yes
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4031
+	mother = 4119
+
+	#stat
+	
+	#birth & Death
+	2401.1.1 = {
+		birth = yes
+	}
+	2428.1.1 = {
+		add_spouse = 4137
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+
+4039 = {
+	#profile
+	name = "선예"
+	female = yes
+	dynasty = 4027 #박
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4032
+	mother = 4136
+
+	#stat
+	
+	#birth & Death
+	2422.1.1 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+
+4040 = {
+	#profile
+	name = "세원"
+	female = yes
+	dynasty = 4040 #한
+	religion = test_faith
+	#religion = protestant
+	culture = jeonju
+
+	#stat
+	
+	#birth & Death
+	2267.1.1 = {
+		birth = yes
+	}
+	2288.1.1 = {
+		add_spouse = 4027
+	}
+	2322.1.1 = {
+		death = yes
+	}
+}
+
+4041 = {
+	#profile
+	name = "혜진"
+	female = yes
+	dynasty = 4041 #권
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+
+	#stat
+	
+	#birth & Death
+	2290.1.1 = {
+		birth = yes
+	}
+	2308.1.1 = {
+		add_spouse = 4028
+	}
+	2361.1.1 = {
+		death = yes
+	}
+}
+
+4042 = {
+	#profile
+	name = "한전"
+	dynasty = 4042 #최
+	religion = test_faith
+	#religion = protestant
+	culture = jeonju
+
+	#stat
+	martial = 3
+	diplomacy = 6
+	intrigue = 3
+	stewardship = 6
+	learning = 4
+	prowess = 4
+	trait = greedy
+	trait = gregarious
+	trait = gluttonous
+	trait = education_stewardship_2
+	
+	#birth & Death
+	2258.1.1 = {
+		birth = yes
+	}
+	2288.1.1 = {
+		add_spouse = 4047
+	}
+	2328.1.1 = {
+		death = yes
+	}
+}
+
+4043 = {
+	#profile
+	name = "필호"
+	dynasty = 4042 #최
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4042
+	mother = 4047
+
+	#stat
+	martial = 4
+	diplomacy = 5
+	intrigue = 8
+	stewardship = 4
+	learning = 4
+	prowess = 4
+	trait = cynical
+	trait = patient
+	trait = just
+	trait = education_intrigue_3
+	
+	#birth & Death
+	2292.1.1 = {
+		birth = yes
+	}
+	2315.1.1 = {
+		add_spouse = 4048
+	}
+	2360.1.1 = {
+		death = yes
+	}
+}
+
+4044 = {
+	#profile
+	name = "현민"
+	dynasty = 4042 #최
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4043
+	mother = 4048
+
+	#stat
+	martial = 4
+	diplomacy = 6
+	intrigue = 4
+	stewardship = 4
+	learning = 4
+	prowess = 4
+	trait = compassionate
+	trait = trusting
+	trait = just
+	trait = education_diplomacy_3
+	
+	#birth & Death
+	2332.1.1 = {
+		birth = yes
+	}
+	2361.1.1 = {
+		add_spouse = 4060
+	}
+	2362.1.1 = {
+		death = yes
+	}
+}
+
+4045 = {
+	#profile
+	name = "현서"
+	female = yes
+	dynasty = 4042 #최
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4043
+	mother = 4048
+
+	#stat
+	martial = 5
+	diplomacy = 6
+	intrigue = 6
+	stewardship = 4
+	learning = 4
+	prowess = 4
+	trait = lustful
+	trait = stubborn
+	trait = deceitful
+	trait = education_intringue_2
+	
+	#birth & Death
+	2318.1.1 = {
+		birth = yes
+	}
+	2338.1.1 = {
+		add_spouse = 4029
+	}
+	2382.1.1 = {
+		death = yes
+	}
+}
+
+4046 = {
+	#profile
+	name = "혜원"
+	female = yes
+	dynasty = 4042 #최
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+	father = 4043
+	mother = 4048
+
+	#stat
+	
+	#birth & Death
+	2325.1.1 = {
+		birth = yes
+
+	2384.1.1 = {
+		death = yes
+	}
+}
+
+4047 = {
+	#profile
+	name = "혜진"
+	female = yes
+	dynasty = 4047 #임
+	religion = test_faith
+	#religion = protestant
+	culture = jeonju
+
+	#stat
+	
+	#birth & Death
+	2260.1.1 = {
+		birth = yes
+	2288.1.1 = {
+		add_spouse = 4042
+	}
+	2325.1.1 = {
+		death = yes
+	}
+}
+
+4048 = {
+	#profile
+	name = "주현"
+	female = yes
+	dynasty = 4048 #원
+	religion = test_faith
+	#religion = imperial_church
+	culture = jeonju
+
+	#stat
+	
+	#birth & Death
+	2291.1.1 = {
+		birth = yes
+	2315.1.1 = {
+		add_spouse = 4043
+	}
+	2357.1.1 = {
 		death = yes
 	}
 }
