@@ -1,6 +1,10 @@
 zoroastrianism_religion = {
+
+////////////종교 계열 ex) 불교일 경우엔 eastern 가톨릭이면 아브라함
 	family = rf_eastern
 
+
+////////////////크2 독트린으로 보면 안 됌. 성별법이나 결혼, 범죄와 관련 법률과 주교 서임에 관한 설정임.monogamy는 일부일처제
 	doctrine = doctrine_monogamy
 	doctrine = heresy_hostility_doctrine # Needs to be before eastern_hostility_doctrine in order to override the same religion hostility
 	doctrine = eastern_hostility_doctrine
@@ -24,6 +28,7 @@ zoroastrianism_religion = {
 	doctrine = doctrine_clerical_succession_temporal_fixed_appointment
 
 	
+	///////종교에서 선호하는 성격 트레잇들. 미덕은 정직 공정한, 근면한   죄악은 기만, 나태한, 가학적인
 	traits = {
 		virtues = { honest just diligent }
 		sins = { deceitful lazy sadistic }
@@ -38,7 +43,7 @@ zoroastrianism_religion = {
 	}
 
 	holy_order_names = {
-		{ name = "holy_order_immortals" }
+		{}
 		{ name = "holy_order_ahura_mazdas_champions" }
 		{ name = "holy_order_fire_walkers" }
 	}
@@ -198,6 +203,7 @@ zoroastrianism_religion = {
 		GHWNamePlural = ghw_purifications
 	}	
 
+/////종교들이다. 아래에 doctrine의 tenet이 교리다.
 	faiths = {
 		mazdayasna = {
 			color = { 0.5 0.3 0.6 }
