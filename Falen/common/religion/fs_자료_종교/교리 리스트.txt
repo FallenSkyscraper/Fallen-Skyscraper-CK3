@@ -1,0 +1,127 @@
+# Main Group
+교계 지도자 doctrine_head_of_faith {
+	없음 doctrine_no_head
+	영성주의 doctrine_spiritual_head
+	세속주의 doctrine_temporal_head
+}
+성별에 대한 관점 doctrine_gender {
+	남성우월주의 doctrine_gender_male_dominated
+	양성평등주의 doctrine_gender_equal
+	여성우월주의 doctrine_gender_female_dominated
+}
+종교적 태도 doctrine_pluralism {
+	원리주의자 doctrine_pluralism_fundamentalist
+	정의주의자 doctrine_pluralism_righteous
+	다원주의자 doctrine_pluralism_pluralistic
+}
+전통 doctrine_theocracy {
+	신정주의 doctrine_theocracy_temporal
+	민간 성직자 doctrine_theocracy_lay_clergy
+}
+
+# Marriage
+결혼 형식 doctrine_marriage_type {
+	일부일처제 doctrine_monogamy
+	일부다처제 doctrine_polygamy
+	축첩제 doctrine_concubines
+}
+이혼 doctrine_divorce {
+	불허 doctrine_divorce_disallowed
+	승인 필수 doctrine_divorce_approval
+	항상 허용 doctrine_divorce_allowed
+}
+적서제 doctrine_bastardry {
+	사생아 개념 없음 doctrine_bastardry_none
+	정통화 가능 doctrine_bastardry_legitimization
+	정통화 불가 doctrine_bastardry_all
+}
+근친 관계 doctrine_consanguinity {
+	근친상간 금기화 doctrine_consanguinity_restricted
+	사촌 간 결혼 doctrine_consanguinity_cousins
+	숙질 간 결혼 doctrine_consanguinity_aunt_nephew_and_uncle_niece
+	무제한 결혼 doctrine_consanguinity_unrestricted
+}
+
+# Crimes
+동성연애 {
+	죄악 doctrine_homosexuality_crime
+	지탄 doctrine_homosexuality_shunned
+	용인 doctrine_homosexuality_accepted
+}
+남성의 간통 doctrine_adultery_men {
+	범죄자 doctrine_adultery_men_crime
+	지탄 doctrine_adultery_men_shunned
+	용인 doctrine_adultery_men_accepted
+}
+여성의 간통 doctrine_adultery_women {
+	범죄자 doctrine_adultery_women_crime
+	지탄 doctrine_adultery_women_shunned
+	용인 doctrine_adultery_women_accepted
+}
+친족 살해 doctrine_kinslaying {
+	가문 살해는 범죄 doctrine_kinslaying_any_dynasty_member_crime
+	집안 살해는 범죄 doctrine_kinslaying_extended_family_crime
+	근친 살해는 범죄 doctrine_kinslaying_close_kin_crime
+	지탄 doctrine_kinslaying_shunned
+	용인 doctrine_kinslaying_accepted
+}
+이상성욕 doctrine_deviancy {
+	범죄자 doctrine_deviancy_crime
+	지탄 doctrine_deviancy_shunned
+	용인 doctrine_deviancy_accepted
+}
+마술 doctrine_witchcraft {
+	범죄자 doctrine_witchcraft_crime
+	지탄 doctrine_witchcraft_shunned
+	용인 doctrine_witchcraft_accepted
+}
+
+# Clerical Functions
+성직자의 기능 doctrine_clerical_function {
+	통제 doctrine_clerical_function_taxation
+	구호와 평화 doctrine_clerical_function_alms_and_pacification
+	모병 doctrine_clerical_function_recruitment
+}
+성직자의 성별 doctrine_clerical_gender {
+	남성 한정 doctrine_clerical_gender_male_only
+	여성 한정 doctrine_clerical_gender_female_only
+	제한 없음 doctrine_clerical_gender_either
+}
+성직자의 결혼 doctrine_clerical_marriage {
+	허용 doctrine_clerical_marriage_allowed
+	불허 doctrine_clerical_marriage_disallowed
+}
+성직자의 지위 doctrine_clerical_succession {
+	세속적, 박탈 가능 doctrine_clerical_succession_temporal_appointment
+	영적, 박탈 가능 doctrine_clerical_succession_spiritual_appointment
+	세속적, 종신 doctrine_clerical_succession_temporal_fixed_appointment
+	영적, 종신 doctrine_clerical_succession_spiritual_fixed_appointment
+}
+
+### 
+
+적대 집단 hostility_group {
+	아브라함 계통 abrahamic_hostility_doctrine
+	토속 신앙 계통 pagan_hostility_doctrine
+	동방 계통 eastern_hostility_doctrine
+	
+세계 교회주의 special_doctrine_ecumenical_christian
+완전 관용 special_doctrine_full_tolerance
+$special_doctrine_full_tolerance_name$ full_tolerance
+
+나체에 대한 관점 nudity_doctrine {
+	헐벗은 사제 special_doctrine_naked_priests
+}
+
+미개혁 unreformed_faith_doctrine
+$unreformed_faith_doctrine_name$ unreformed_faith
+
+이단 heresy_hostility_doctrine
+
+세상의 정당한 지배자 divine_destiny_doctrine
+예수 그리스도의 가르침 special_doctrine_is_christian_faith
+$special_doctrine_is_christian_faith_name$ is_christian_faith
+선지자의 가르침 special_doctrine_is_islamic_faith
+$special_doctrine_is_islamic_faith_name$ is_islamic_faith
+모세의 가르침 special_doctrine_is_jewish_faith
+$special_doctrine_is_jewish_faith_name$ is_jewish_faith
