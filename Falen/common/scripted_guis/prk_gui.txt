@@ -1,0 +1,52 @@
+prk_gui_toggle = {
+	scope = character
+	
+	is_shown = {
+		has_variable = prk_gui_toggle
+	}
+
+	effect = {
+		if = {
+			limit = {
+				has_variable = prk_gui_toggle
+			}
+			remove_variable = prk_gui_toggle
+		}
+		else = {
+			set_variable = prk_gui_toggle
+		}
+	}
+}
+
+prk_gui_close = {
+	scope = character
+	
+	is_shown = {
+		always = yes
+	}
+
+	effect = {
+		remove_variable = prk_gui_toggle
+	}
+}
+prk_gui_abc = {
+	scope = character
+	is_shown = {
+		has_landed_title = k_prk
+	}
+}
+prk_president = {
+	scope = character
+	effect = {
+		title:k_prk = {
+			holder = {
+				root = {
+					add_to_variable_list = {
+						name = prk_president
+						target = prev
+					}
+				}
+			}
+		}
+	}
+}
