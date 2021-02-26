@@ -7,6 +7,8 @@
 #####이거 전부 복붙하고 적용만 되도록 한거니까 나중에 flag좀 바꿔주셈
  
 
+
+
 jongno = {
 	county = c_jongno
 	
@@ -90,6 +92,46 @@ jeonju = {
 
 iksan = {
 	county = c_iksan
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+
+
+###태철교
+##이쪽도 편의상 위와 동일
+pohang = {
+	county = c_pohang
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+ 
+gwangyang = {
+	county = c_gwangyang
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+
+ulsan = {
+	county = c_ulsan
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+ ####서울의 종로 jongno =  c_jongno
+
+cheongju ={###당진이 어디임? 당진 찾으면 당진으로 바꿔주셈
+	county = c_cheongju
 	
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
