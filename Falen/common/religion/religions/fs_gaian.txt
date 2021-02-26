@@ -1,72 +1,72 @@
-old_world_religion_group = {
-	family = rf_pagan 	# ì†Œì† ì¢…êµ íŒ¨ë°€ë¦¬
-	 graphical_faith = pagan_gfx	# ì¢…êµ gfx ì„¤ì •
-	 #piety_icon_group = 	# ì‹ ì•™ì‹¬ ì•„ì´ì½˜ ì„¤ì •
-	 #doctrine_background_icon = 	# êµë¦¬ ë°°ê²½ ì•„ì´ì½˜ ì„¤ì •
+gaian_group = {
+	family = rf_pagan 	# ¼Ò¼Ó Á¾±³ ÆĞ¹Ğ¸®
+	 graphical_faith = pagan_gfx	# Á¾±³ gfx ¼³Á¤
+	 #piety_icon_group = 	# ½Å¾Ó½É ¾ÆÀÌÄÜ ¼³Á¤
+	 #doctrine_background_icon = 	# ±³¸® ¹è°æ ¾ÆÀÌÄÜ ¼³Á¤
 	
-	doctrine = religion_hostility_doctrine	# ì¢…êµ ì ëŒ€ ì‹œ ì†Œì†
-	 doctrine = unreformed_faith_doctrine	# íŒŒê°„ ì„¤ì •
+	 doctrine = pagan_hostility_doctrine	# Á¾±³ Àû´ë ½Ã ¼Ò¼Ó
+	 doctrine = unreformed_faith_doctrine	# ÆÄ°£ ¼³Á¤
 	  pagan_roots = yes
 	  
 	  
 	  	#Main Group
-	doctrine = doctrine_no_head         #êµê³„ì§€ë„ì
-	doctrine = doctrine_gender_male_dominated #ë‚¨ì„±ìš°ì›”
-	doctrine = doctrine_pluralism_pluralistic    #ë‹¤ìœˆì£¼ì˜
-	doctrine = doctrine_theocracy_lay_clergy    #ë¯¼ê°„ì„±ì§ì
+	doctrine = doctrine_no_head         #±³°èÁöµµÀÚ
+	doctrine = doctrine_gender_equal #Æòµî
+	doctrine = doctrine_pluralism_righteous    #Á¤ÀÇ
+	doctrine = doctrine_theocracy_lay_clergy    #¹Î°£¼ºÁ÷ÀÚ
 
 	#Marriage
-	doctrine = doctrine_concubines #ì²©ì¶•ì œ
-	doctrine = doctrine_divorce_allowed #í—ˆìš©
-	doctrine = doctrine_bastardry_legitimization #ì •í†µí™”ê°€ëŠ¥
-	doctrine = doctrine_consanguinity_cousins #ì‚¬ì´Œí—ˆìš©
+	doctrine = doctrine_polygamy #ÀÏºÎ ´ÙÃ³
+	doctrine = doctrine_divorce_allowed #Çã¿ë
+	doctrine = doctrine_bastardry_none #»ç»ı¾Æ ¾øÀ½
+	doctrine = doctrine_consanguinity_unrestricted #¹«Á¦ÇÑ °áÈ¥
 
 	#Crimes
-	doctrine = doctrine_homosexuality_accepted #ë™ì„±ì—°ì•  ìš©ì¸
-	doctrine = doctrine_adultery_men_shunned #ë‚¨ì„±ê°„í†µ ì§€íƒ„
-	doctrine = doctrine_adultery_women_shunned #ì—¬ì„±ê°„í†µ ì§€íƒ„
-	doctrine = doctrine_kinslaying_close_kin_crime #ê·¼ì¹œ ì‚´í•´ ì£„ì•…
-	doctrine = doctrine_deviancy_accepted #ì´ìƒì„±ìš• ìš©ì¸
-	doctrine = doctrine_witchcraft_accepted #ë§ˆìˆ  ìš©ì¸
+	doctrine = doctrine_homosexuality_shunned #µ¿¼º¿¬¾Ö ÁöÅº
+	doctrine = doctrine_adultery_men_accepted #³²¼º°£Åë ¿ëÀÎ
+	doctrine = doctrine_adultery_women_accepted #¿©¼º°£Åë ¿ëÀÎ
+	doctrine = doctrine_kinslaying_close_kin_crime #±ÙÄ£ »ìÇØ ÁË¾Ç
+	doctrine = doctrine_deviancy_shunned #ÀÌ»ó¼º¿å ÁöÅº
+	doctrine = doctrine_witchcraft_accepted #¸¶¼ú ¿ëÀÎ
 
 	#Clerical Functions
-	doctrine = doctrine_clerical_function_recruitment #ì„±ì§ì ê¸°ëŠ¥ ëª¨ë³‘
-	doctrine = doctrine_clerical_gender_either #ì„±ì§ì ì„±ë³„ ì œí•œ ì—†ìŒ
-	doctrine = doctrine_clerical_marriage_allowed #ì„±ì§ì ê²°í˜¼ í—ˆìš©
-	doctrine = doctrine_clerical_succession_temporal_appointment #ì˜ì , ë°•íƒˆê°€ëŠ¥
+	doctrine = doctrine_clerical_function_recruitment #¼ºÁ÷ÀÚ ±â´É ¸ğº´
+	doctrine = doctrine_clerical_gender_either #¼ºÁ÷ÀÚ ¼ºº° Á¦ÇÑ ¾øÀ½
+	doctrine = doctrine_clerical_marriage_allowed #¼ºÁ÷ÀÚ °áÈ¥ Çã¿ë
+	doctrine = doctrine_clerical_succession_temporal_appointment #¼¼¼Ó, ¹ÚÅ»°¡´É
 	  
 	  
 	
-	traits = {	# íŠ¸ë ˆì‡
-		virtues = { ambitious wrathful stubborn }	# ë¯¸ë•
-		sins = { content calm fickle }	# ì£„ì•…
+	traits = {	# Æ®·¹ÀÕ
+		virtues = { lustful gluttonous brave }	# ¹Ì´ö
+		sins = { chaste temperate craven }	# ÁË¾Ç
 	}
 	
-	reserved_male_names = {	# ë‚¨ì„± ì´ë¦„
+	reserved_male_names = {	# ³²¼º ÀÌ¸§
 		Cheolsu Gildong
 	}
-	reserved_female_names = {	# ì—¬ì„± ì´ë¦„
+	reserved_female_names = {	# ¿©¼º ÀÌ¸§
 		Yonghui
 	}
 	
-	custom_faith_icons = {	# ë¶„íŒŒ ìƒì„± ìš© ì•„ì´ì½˜ ëª©ë¡
+	custom_faith_icons = {	# ºĞÆÄ »ı¼º ¿ë ¾ÆÀÌÄÜ ¸ñ·Ï
 		ex_faith_1
 	}
 
-	holy_order_names = {	# ê·¸ë£¹ ê³µìš© ê¸°ì‚¬ë‹¨ ì´ë¦„
+	holy_order_names = {	# ±×·ì °ø¿ë ±â»ç´Ü ÀÌ¸§
 		{ name = "holy_order_knights_templar" coat_of_arms = "ho_knights_templar" }
 	}
 	
-	holy_order_maa = { huscarl }	# ê¸°ì‚¬ë‹¨ì—ì„œ ë§ì´ ì“°ì¼ ë³‘ì¢…
+	holy_order_maa = { huscarl }	# ±â»ç´Ü¿¡¼­ ¸¹ÀÌ ¾²ÀÏ º´Á¾
 	
 	localization = {
 		#HighGod
-		HighGodName = christianity_high_god_name	# ì‹  ì´ë¦„
-		HighGodNamePossessive = christianity_high_god_name_possessive	# ì‹  ì´ë¦„ ì†Œìœ ê²©
-		HighGodNameSheHe = CHARACTER_SHEHE_HE	# ì§€ì¹­ ì‹œ ì„±ë³„
+		HighGodName = christianity_high_god_name	# ½Å ÀÌ¸§
+		HighGodNamePossessive = christianity_high_god_name_possessive	# ½Å ÀÌ¸§ ¼ÒÀ¯°İ
+		HighGodNameSheHe = CHARACTER_SHEHE_HE	# ÁöÄª ½Ã ¼ºº°
 		HighGodHerselfHimself = CHARACTER_HIMSELF
 		HighGodHerHis = CHARACTER_HERHIS_HIS
-		HighGodNameAlternate = christianity_high_god_name_alternate	# ìµœê³ ì‹ ì€ ì´ëª… ì‚¬ìš© ê°€ëŠ¥
+		HighGodNameAlternate = christianity_high_god_name_alternate	# ÃÖ°í½ÅÀº ÀÌ¸í »ç¿ë °¡´É
 		HighGodNameAlternatePossessive = christianity_high_god_name_alternate_possessive
 
 		#CreatorName
@@ -148,7 +148,7 @@ old_world_religion_group = {
 
 		PantheonTerm = christianity_high_god_name
 		PantheonTermHasHave = pantheon_term_has
-		GoodGodNames = {	# ì„ ì‹  ì´ë¦„ë“¤
+		GoodGodNames = {	# ¼±½Å ÀÌ¸§µé
 			christianity_high_god_name
 		}
 		
@@ -158,7 +158,7 @@ old_world_religion_group = {
 		DevilHerHis = CHARACTER_HERHIS_HIS
 		DevilHerHis = CHARACTER_HERHIS_HIS
 		DevilHerselfHimself = CHARACTER_HIMSELF
-		EvilGodNames = {	# ì•…ì‹  ì´ë¦„ë“¤
+		EvilGodNames = {	# ¾Ç½Å ÀÌ¸§µé
 			christianity_devil_name
 		}
 		
@@ -207,63 +207,65 @@ old_world_religion_group = {
 		WitchGodMotherFather = father
 
 
-		GHWName = ghw_crusade	# ëŒ€ì„±ì „ ì´ë¦„
+		GHWName = ghw_crusade	# ´ë¼ºÀü ÀÌ¸§
 		GHWNamePlural = ghw_crusades
 	}
 	
 	faiths = {
-		steel_pagan = {	# í•˜ìœ„ ì¢…êµ
-			color = { 16 64 128 }	# ì§€ë„ ìƒì—ì„œ í‘œì‹œë  ìƒ‰ê¹”
-			icon = gfxicon	# ì¢…êµ ì•„ì´ì½˜
-			# reformed_icon = slavic_reformed	# íŒŒê°„ ì¢…êµê°œí˜ ì‹œ ì•„ì´ì½˜ ëŒ€ì²´ ê°€ëŠ¥
+		gaian_pagan = {	# ÇÏÀ§ Á¾±³
+			color = { 16 64 108 }	# Áöµµ »ó¿¡¼­ Ç¥½ÃµÉ »ö±ò
+			icon = gfxicon	# Á¾±³ ¾ÆÀÌÄÜ
+			# reformed_icon = slavic_reformed	# ÆÄ°£ Á¾±³°³Çõ ½Ã ¾ÆÀÌÄÜ ´ëÃ¼ °¡´É
 		
-			#graphical_faith = 	# ì¢…êµ gfx ì„¤ì •
-			#piety_icon_group = 	# ì¢…êµ ì‹ ì•™ì‹¬ ì•„ì´ì½˜ ì„¤ì • ëŒ€ì²´ ê°€ëŠ¥
-			#doctrine_background_icon = 	# êµë¦¬ ë°°ê²½ ì„¤ì • ëŒ€ì²´ ê°€ëŠ¥
+			#graphical_faith = 	# Á¾±³ gfx ¼³Á¤
+			#piety_icon_group = 	# Á¾±³ ½Å¾Ó½É ¾ÆÀÌÄÜ ¼³Á¤ ´ëÃ¼ °¡´É
+			#doctrine_background_icon = 	# ±³¸® ¹è°æ ¼³Á¤ ´ëÃ¼ °¡´É
 		
-			#religion_head = 	# ì¢…êµ ìˆ˜ì¥ ì‘ìœ„
+			#religion_head = 	# Á¾±³ ¼öÀå ÀÛÀ§
 		
-			holy_site = pohang 	# ì„±ì§€ ì„¤ì •
+			holy_site = pohang 	# ¼ºÁö ¼³Á¤
 			holy_site = gwangyang
 			holy_site = jongno  
 			holy_site = ulsan 
-			holy_site = cheongju #ë‹¹ì§„ìœ¼ë¡œ ë°”ê¿”ì£¼ì…ˆ
+			holy_site = dangjin  
 			
-			  	#Main Group
-	doctrine = doctrine_no_head         #êµê³„ì§€ë„ì
-	doctrine = doctrine_gender_male_dominated #ë‚¨ì„±ìš°ì›”
-	doctrine = doctrine_pluralism_pluralistic    #ë‹¤ìœˆì£¼ì˜
-	doctrine = doctrine_theocracy_lay_clergy    #ë¯¼ê°„ì„±ì§ì
+		  	#Main Group
+	doctrine = doctrine_no_head         #±³°èÁöµµÀÚ
+	doctrine = doctrine_gender_equal #Æòµî
+	doctrine = doctrine_pluralism_righteous    #Á¤ÀÇ
+	doctrine = doctrine_theocracy_lay_clergy    #¹Î°£¼ºÁ÷ÀÚ
 
 	#Marriage
-	doctrine = doctrine_concubines #ì²©ì¶•ì œ
-	doctrine = doctrine_divorce_allowed #í—ˆìš©
-	doctrine = doctrine_bastardry_legitimization #ì •í†µí™”ê°€ëŠ¥
-	doctrine = doctrine_consanguinity_cousins #ì‚¬ì´Œí—ˆìš©
+	doctrine = doctrine_polygamy #ÀÏºÎ ´ÙÃ³
+	doctrine = doctrine_divorce_allowed #Çã¿ë
+	doctrine = doctrine_bastardry_none #»ç»ı¾Æ ¾øÀ½
+	doctrine = doctrine_consanguinity_unrestricted #¹«Á¦ÇÑ °áÈ¥
 
 	#Crimes
-	doctrine = doctrine_homosexuality_accepted #ë™ì„±ì—°ì•  ìš©ì¸
-	doctrine = doctrine_adultery_men_shunned #ë‚¨ì„±ê°„í†µ ì§€íƒ„
-	doctrine = doctrine_adultery_women_shunned #ì—¬ì„±ê°„í†µ ì§€íƒ„
-	doctrine = doctrine_kinslaying_close_kin_crime #ê·¼ì¹œ ì‚´í•´ ì£„ì•…
-	doctrine = doctrine_deviancy_accepted #ì´ìƒì„±ìš• ìš©ì¸
-	doctrine = doctrine_witchcraft_accepted #ë§ˆìˆ  ìš©ì¸
+	doctrine = doctrine_homosexuality_shunned #µ¿¼º¿¬¾Ö ÁöÅº
+	doctrine = doctrine_adultery_men_accepted #³²¼º°£Åë ¿ëÀÎ
+	doctrine = doctrine_adultery_women_accepted #¿©¼º°£Åë ¿ëÀÎ
+	doctrine = doctrine_kinslaying_close_kin_crime #±ÙÄ£ »ìÇØ ÁË¾Ç
+	doctrine = doctrine_deviancy_shunned #ÀÌ»ó¼º¿å ÁöÅº
+	doctrine = doctrine_witchcraft_accepted #¸¶¼ú ¿ëÀÎ
 
 	#Clerical Functions
-	doctrine = doctrine_clerical_function_recruitment #ì„±ì§ì ê¸°ëŠ¥ ëª¨ë³‘
-	doctrine = doctrine_clerical_gender_either #ì„±ì§ì ì„±ë³„ ì œí•œ ì—†ìŒ
-	doctrine = doctrine_clerical_marriage_allowed #ì„±ì§ì ê²°í˜¼ í—ˆìš©
-	doctrine = doctrine_clerical_succession_temporal_appointment #ì˜ì , ë°•íƒˆê°€ëŠ¥
+	doctrine = doctrine_clerical_function_recruitment #¼ºÁ÷ÀÚ ±â´É ¸ğº´
+	doctrine = doctrine_clerical_gender_either #¼ºÁ÷ÀÚ ¼ºº° Á¦ÇÑ ¾øÀ½
+	doctrine = doctrine_clerical_marriage_allowed #¼ºÁ÷ÀÚ °áÈ¥ Çã¿ë
+	doctrine = doctrine_clerical_succession_temporal_appointment #¼¼¼Ó, ¹ÚÅ»°¡´É
+	  
+	  
 			
-			# doctrine = 	# êµë¦¬ ë³€ê²½ì´ë‚˜ ì¶”ê°€ ê°€ëŠ¥
+			# doctrine = 	# ±³¸® º¯°æÀÌ³ª Ãß°¡ °¡´É
 			
-			doctrine = tenet_communal_identity	# ì›ë¦¬ ì„¤ì •
-			doctrine = tenet_pursuit_of_power
-			doctrine = tenet_warmonger
+			doctrine = tenet_hedonistic	# ¿ø¸® ¼³Á¤
+			doctrine = tenet_carnal_exaltation
+			doctrine = tenet_natural_primitivism
 			
-			# reserved_male_names = {} # ë‚¨ì„± ì´ë¦„ ì¶”ê°€ ê°€ëŠ¥
-			# reserved_female_names = {} # ì—¬ì„± ì´ë¦„ ì¶”ê°€ ê°€ëŠ¥
-			# localization = {}	# localization ë³€ê²½ ê°€ëŠ¥
+			# reserved_male_names = {} # ³²¼º ÀÌ¸§ Ãß°¡ °¡´É
+			# reserved_female_names = {} # ¿©¼º ÀÌ¸§ Ãß°¡ °¡´É
+			# localization = {}	# localization º¯°æ °¡´É
 		}
 	}
 }
