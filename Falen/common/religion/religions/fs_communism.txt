@@ -1,0 +1,282 @@
+communism_religion = {
+	family = rf_ideology	# 소속 종교 패밀리
+	# graphical_faith = religion_gfx	# 종교 gfx 설정
+	# piety_icon_group = 	# 신앙심 아이콘 설정
+	# doctrine_background_icon = 	# 교리 배경 설정
+	
+	doctrine = ideology_hostility_doctrine	# 종교 적대 시 소속
+	# doctrine = unreformed_faith_doctrine	# 파간 설정
+	# pagan_roots = yes
+	
+	traits = {	# 트레잇
+		virtues = { trait1 trait2 trait3 }	# 미덕
+		sins = { trait4 trait5 trait6 }	# 죄악
+	}
+	
+	reserved_male_names = {	# 남성 이름
+	}
+	reserved_female_names = {	# 여성 이름
+	}
+	
+	custom_faith_icons = {	# 분파 생성 용 아이콘 목록
+	}
+	
+	localization = {
+		#HighGod
+		HighGodName = communism_high_god_name	# 신 이름
+		HighGodNamePossessive = communism_high_god_name_possessive	# 신 이름 소유격
+		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = communism_high_god_name_alternate	# 최고신은 이명 사용 가능
+		HighGodNameAlternatePossessive = communism_high_god_name_alternate_possessive
+
+		#CreatorName
+		CreatorName = communism_creator_god_name
+		CreatorNamePossessive = communism_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+
+		#HealthGod
+		HealthGodName = communism_health_god_name
+		HealthGodNamePossessive = communism_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		
+		#FertilityGod
+		FertilityGodName = communism_fertility_god_name
+		FertilityGodNamePossessive = communism_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WealthGod
+		WealthGodName = communism_wealth_god_name
+		WealthGodNamePossessive = communism_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		#HouseholdGod
+		HouseholdGodName = communism_household_god_name
+		HouseholdGodNamePossessive = communism_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_HE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+		#FateGod
+		FateGodName = communism_fate_god_name
+		FateGodNamePossessive = communism_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+
+		#Knowledge
+		KnowledgeGodName = communism_knowledge_god_name
+		KnowledgeGodNamePossessive = communism_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WarGod
+		WarGodName = communism_war_god_name
+		WarGodNamePossessive = communism_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		#TricksterGod
+		TricksterGodName = communism_trickster_god_name
+		TricksterGodNamePossessive = communism_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		#NightGod
+		NightGodName = communism_night_god_name
+		NightGodNamePossessive = communism_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WaterGod
+		WaterGodName = communism_water_god_name
+		WaterGodNamePossessive = communism_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+		PantheonTerm = communism_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {	# 선신 이름들
+			communism_high_god_name
+		}
+		
+		DevilName = communism_devil_name
+		DevilNamePossessive = communism_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {	# 악신 이름들
+			communism_devil_name
+		}
+		
+		HouseOfWorship = communism_house_of_worship
+		HouseOfWorshipPlural = communism_house_of_worship_plural
+		ReligiousSymbol = communism_religious_symbol
+		ReligiousText = communism_religious_text
+		ReligiousHeadName = communism_religious_head_title
+		ReligiousHeadTitleName = communism_religious_head_title_name
+		
+		DevoteeMale = communism_devotee_male
+		DevoteeMalePlural = communism_devotee_male_plural
+		DevoteeFemale = communism_devotee_female
+		DevoteeFemalePlural = communism_devotee_female_plural
+		DevoteeNeuter = communism_devotee_neuter
+		DevoteeNeuterPlural = communism_devotee_neuter_plural
+		
+		PriestMale = communism_priest_male
+		PriestMalePlural = communism_priest_male_plural
+		PriestFemale = communism_priest_male
+		PriestFemalePlural = communism_priest_male_plural
+		PriestNeuter = communism_priest_male
+		PriestNeuterPlural = communism_priest_male_plural
+		AltPriestTermPlural = communism_priest_alternate_plural
+		
+		BishopMale = communism_bishop
+		BishopMalePlural = communism_bishop_plural
+		BishopFemale = communism_bishop
+		BishopFemalePlural = communism_bishop_plural
+		BishopNeuter = communism_bishop
+		BishopNeuterPlural = communism_bishop_plural
+		
+		DivineRealm = communism_positive_afterlife
+		PositiveAfterLife = communism_positive_afterlife
+		NegativeAfterLife = communism_negative_afterlife
+		DeathDeityName = communism_death_deity_name
+		DeathDeityNamePossessive = communism_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		
+		WitchGodName = communism_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+
+
+		GHWName = ghw_crusade	# 대성전 이름
+		GHWNamePlural = ghw_crusades
+	}
+	
+	faiths = {
+		marxism = {	# 하위 종교
+			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
+			icon = default_custom	# 종교 아이콘
+		
+			# graphical_faith = 	# 종교 gfx 설정
+			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
+			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
+		
+			# religion_head = 	# 종교 수장 작위
+		
+			# holy_site = site1	# 성지 설정
+			# holy_site = site2
+			# holy_site = site3
+			# holy_site = site4
+			# holy_site = site5
+			
+			# 주요 교리
+			doctrine = doctrine_temporal_head	교계 지도자: 
+			doctrine = doctrine_gender_equal	성별에 대한 관점: 
+			doctrine = doctrine_pluralism_fundamentalist	종교적 태도: 
+			doctrine = doctrine_theocracy_lay_clergy	전통: 
+
+			# 결혼 교리
+			doctrine = doctrine_monogamy	결혼 형식: 
+			doctrine = doctrine_divorce_approval	이혼: 
+			doctrine = doctrine_bastardry_none	적서제: 
+			doctrine = doctrine_consanguinity_cousins	근친 관계: 
+
+			# 범죄 교리
+			doctrine = doctrine_homosexuality_accepted	동성연애: 
+			doctrine = doctrine_adultery_men_shunned	남성의 간통: 
+			doctrine = doctrine_adultery_women_shunned	여성의 간통: 
+			doctrine = doctrine_kinslaying_close_kin_crime	친족 살해: 
+			doctrine = doctrine_deviancy_shunned	이상성욕: 
+			doctrine = doctrine_witchcraft_crime	마술: 
+
+			# 성직자 교리
+			doctrine = doctrine_clerical_function_taxation	성직자의 기능: 
+			doctrine = doctrine_clerical_gender_either	성직자의 성별: 
+			doctrine = doctrine_clerical_marriage_allowed	성직자의 결혼: 
+			doctrine = doctrine_clerical_succession_temporal_appointment	성직자의 지위: 
+			
+			# doctrine = 	교리 변경이나 추가 가능
+			
+			doctrine = tenet_communal_identity	# 원리 설정
+			doctrine = tenet_literalism
+			doctrine = tenet_legalism
+			
+			# reserved_male_names = {} # 남성 이름 추가 가능
+			# reserved_female_names = {} # 여성 이름 추가 가능
+			# localization = {}	# localization 변경 가능
+		}
+		maoism = {	# 하위 종교
+			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
+			icon = default_custom	# 종교 아이콘
+		
+			# graphical_faith = 	# 종교 gfx 설정
+			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
+			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
+		
+			# religion_head = 	# 종교 수장 작위
+		
+			# holy_site = site1	# 성지 설정
+			# holy_site = site2
+			# holy_site = site3
+			# holy_site = site4
+			# holy_site = site5
+			
+			# 주요 교리
+			doctrine = doctrine_temporal_head	교계 지도자: 
+			doctrine = doctrine_gender_male_dominated	성별에 대한 관점: 
+			doctrine = doctrine_pluralism_fundamentalist	종교적 태도: 
+			doctrine = doctrine_theocracy_lay_clergy	전통: 
+
+			# 결혼 교리
+			doctrine = doctrine_monogamy	결혼 형식: 
+			doctrine = doctrine_divorce_approval	이혼: 
+			doctrine = doctrine_bastardry_all	적서제: 
+			doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece	근친 관계: 
+
+			# 범죄 교리
+			doctrine = doctrine_homosexuality_shunned	동성연애: 
+			doctrine = doctrine_adultery_men_shunned	남성의 간통: 
+			doctrine = doctrine_adultery_women_crime	여성의 간통: 
+			doctrine = doctrine_kinslaying_close_kin_crime	친족 살해: 
+			doctrine = doctrine_deviancy_shunned	이상성욕: 
+			doctrine = doctrine_witchcraft_crime	마술: 
+
+			# 성직자 교리
+			doctrine = doctrine_clerical_function_taxation	성직자의 기능: 
+			doctrine = doctrine_clerical_gender_either	성직자의 성별: 
+			doctrine = doctrine_clerical_marriage_allowed	성직자의 결혼: 
+			doctrine = doctrine_clerical_succession_temporal_appointment	성직자의 지위: 
+			
+			# doctrine = 	교리 변경이나 추가 가능
+			
+			# doctrine = tenet_ 마오주의 고유 원리	# 원리 설정
+			doctrine = tenet_aniconism
+			doctrine = tenet_armed_pilgrimages
+			
+			# reserved_male_names = {} # 남성 이름 추가 가능
+			# reserved_female_names = {} # 여성 이름 추가 가능
+			# localization = {}	# localization 변경 가능
+		}
+	}
+}
