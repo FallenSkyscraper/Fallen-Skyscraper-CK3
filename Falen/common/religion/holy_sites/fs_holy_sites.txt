@@ -7,6 +7,8 @@
 #####이거 전부 복붙하고 적용만 되도록 한거니까 나중에 flag좀 바꿔주셈
  
 
+
+
 jongno = {
 	county = c_jongno
 	
@@ -90,6 +92,102 @@ jeonju = {
 
 iksan = {
 	county = c_iksan
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+
+
+###태철교
+##이쪽도 편의상 위와 동일
+pohang = {
+	county = c_pohang
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+ 
+gwangyang = {
+	county = c_gwangyang
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+
+ulsan = {
+	county = c_ulsan
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+ ####서울의 종로 jongno =  c_jongno
+
+dangjin ={ 
+	county = c_dangjin #####공홍에 있다.
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+
+
+
+
+#############
+####자연교#####
+#############
+
+
+##이쪽도 편의상 위와 동일
+hyesan   = {
+	county = c_hyesan  
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+
+
+hamyang  = {
+	county = c_hamyang 
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+ 
+hoeyang = {
+	county = c_hoeyang
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+
+yeoncheon = {
+	county = c_yeoncheon
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+  
+
+gaeseong ={ 
+	county = c_gaeseong
 	
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
