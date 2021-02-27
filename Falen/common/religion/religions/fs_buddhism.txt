@@ -1,0 +1,386 @@
+buddhism_religion = {
+	family = rf_easterb	# 소속 종교 패밀리
+	# graphical_faith = religion_gfx	# 종교 gfx 설정
+	# piety_icon_group = 	# 신앙심 아이콘 설정
+	# doctrine_background_icon = 	# 교리 배경 설정
+	
+	doctrine = eastern_hostility_doctrine	# 종교 적대 시 소속
+	# doctrine = unreformed_faith_doctrine	# 파간 설정
+	# pagan_roots = yes
+	
+	traits = {	# 트레잇
+		virtues = { trait1 trait2 trait3 }	# 미덕
+		sins = { trait4 trait5 trait6 }	# 죄악
+	}
+	
+	reserved_male_names = {	# 남성 이름
+	}
+	reserved_female_names = {	# 여성 이름
+	}
+	
+	custom_faith_icons = {	# 분파 생성 용 아이콘 목록
+	}
+	
+	localization = {
+		#HighGod
+		HighGodName = buddhism_high_god_name	# 신 이름
+		HighGodNamePossessive = buddhism_high_god_name_possessive	# 신 이름 소유격
+		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = buddhism_high_god_name_alternate	# 최고신은 이명 사용 가능
+		HighGodNameAlternatePossessive = buddhism_high_god_name_alternate_possessive
+
+		#CreatorName
+		CreatorName = buddhism_creator_god_name
+		CreatorNamePossessive = buddhism_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+
+		#HealthGod
+		HealthGodName = buddhism_health_god_name
+		HealthGodNamePossessive = buddhism_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		
+		#FertilityGod
+		FertilityGodName = buddhism_fertility_god_name
+		FertilityGodNamePossessive = buddhism_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WealthGod
+		WealthGodName = buddhism_wealth_god_name
+		WealthGodNamePossessive = buddhism_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		#HouseholdGod
+		HouseholdGodName = buddhism_household_god_name
+		HouseholdGodNamePossessive = buddhism_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_HE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+		#FateGod
+		FateGodName = buddhism_fate_god_name
+		FateGodNamePossessive = buddhism_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+
+		#Knowledge
+		KnowledgeGodName = buddhism_knowledge_god_name
+		KnowledgeGodNamePossessive = buddhism_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WarGod
+		WarGodName = buddhism_war_god_name
+		WarGodNamePossessive = buddhism_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		#TricksterGod
+		TricksterGodName = buddhism_trickster_god_name
+		TricksterGodNamePossessive = buddhism_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		#NightGod
+		NightGodName = buddhism_night_god_name
+		NightGodNamePossessive = buddhism_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WaterGod
+		WaterGodName = buddhism_water_god_name
+		WaterGodNamePossessive = buddhism_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+		PantheonTerm = buddhism_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {	# 선신 이름들
+			buddhism_high_god_name
+		}
+		
+		DevilName = buddhism_devil_name
+		DevilNamePossessive = buddhism_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {	# 악신 이름들
+			buddhism_devil_name
+		}
+		
+		HouseOfWorship = buddhism_house_of_worship
+		HouseOfWorshipPlural = buddhism_house_of_worship_plural
+		ReligiousSymbol = buddhism_religious_symbol
+		ReligiousText = buddhism_religious_text
+		ReligiousHeadName = buddhism_religious_head_title
+		ReligiousHeadTitleName = buddhism_religious_head_title_name
+		
+		DevoteeMale = buddhism_devotee_male
+		DevoteeMalePlural = buddhism_devotee_male_plural
+		DevoteeFemale = buddhism_devotee_female
+		DevoteeFemalePlural = buddhism_devotee_female_plural
+		DevoteeNeuter = buddhism_devotee_neuter
+		DevoteeNeuterPlural = buddhism_devotee_neuter_plural
+		
+		PriestMale = buddhism_priest_male
+		PriestMalePlural = buddhism_priest_male_plural
+		PriestFemale = buddhism_priest_male
+		PriestFemalePlural = buddhism_priest_male_plural
+		PriestNeuter = buddhism_priest_male
+		PriestNeuterPlural = buddhism_priest_male_plural
+		AltPriestTermPlural = buddhism_priest_alternate_plural
+		
+		BishopMale = buddhism_bishop
+		BishopMalePlural = buddhism_bishop_plural
+		BishopFemale = buddhism_bishop
+		BishopFemalePlural = buddhism_bishop_plural
+		BishopNeuter = buddhism_bishop
+		BishopNeuterPlural = buddhism_bishop_plural
+		
+		DivineRealm = buddhism_positive_afterlife
+		PositiveAfterLife = buddhism_positive_afterlife
+		NegativeAfterLife = buddhism_negative_afterlife
+		DeathDeityName = buddhism_death_deity_name
+		DeathDeityNamePossessive = buddhism_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		
+		WitchGodName = buddhism_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+
+
+		GHWName = ghw_crusade	# 대성전 이름
+		GHWNamePlural = ghw_crusades
+	}
+	
+	faiths = {
+		jogye = {	# 하위 종교
+			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
+			icon = default_custom	# 종교 아이콘
+		
+			# graphical_faith = 	# 종교 gfx 설정
+			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
+			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
+		
+			# religion_head = 	# 종교 수장 작위
+		
+			# holy_site = site1	# 성지 설정
+			# holy_site = site2
+			# holy_site = site3
+			# holy_site = site4
+			# holy_site = site5
+			
+			# 주요 교리
+			doctrine = doctrine_no_head	# 교계 지도자: 
+			doctrine = doctrine_gender_male_dominated	# 성별에 대한 관점: 
+			doctrine = doctrine_pluralism_fundamentalist	# 종교적 태도: 
+			doctrine = doctrine_theocracy_temporal	# 전통: 
+
+			# 결혼 교리
+			doctrine = doctrine_monogamy	# 결혼 형식: 
+			doctrine = doctrine_divorce_disallowed	# 이혼: 
+			doctrine = doctrine_bastardry_none	# 적서제: 
+			doctrine = doctrine_consanguinity_cousins	# 근친 관계: 
+
+			# 범죄 교리
+			doctrine = doctrine_homosexuality_shunned	# 동성연애: 
+			doctrine = doctrine_adultery_men_crime	# 남성의 간통: 
+			doctrine = doctrine_adultery_women_crime	# 여성의 간통: 
+			doctrine = doctrine_kinslaying_any_dynasty_member_crime	# 친족 살해: 
+			doctrine = doctrine_deviancy_shunned	# 이상성욕: 
+			doctrine = doctrine_witchcraft_accepted	# 마술: 
+
+			# 성직자 교리
+			doctrine = doctrine_clerical_function_alms_and_pacification	# 성직자의 기능: 
+			doctrine = doctrine_clerical_gender_either	# 성직자의 성별: 
+			doctrine = doctrine_clerical_marriage_disallowed	# 성직자의 결혼: 
+			doctrine = doctrine_clerical_succession_spiritual_fixed_appointment	# 성직자의 지위: 
+			
+			# doctrine = 	# 교리 변경이나 추가 가능
+			
+			doctrine = tenet_asceticism	# 원리 설정
+			doctrine = tenet_monasticism
+			doctrine = tenet_vows_of_poverty
+			
+			# reserved_male_names = {} # 남성 이름 추가 가능
+			# reserved_female_names = {} # 여성 이름 추가 가능
+			# localization = {}	# localization 변경 가능
+		}
+		maitreya = {	# 하위 종교
+			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
+			icon = default_custom	# 종교 아이콘
+		
+			# graphical_faith = 	# 종교 gfx 설정
+			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
+			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
+		
+			# religion_head = 	# 종교 수장 작위
+		
+			# holy_site = site1	# 성지 설정
+			# holy_site = site2
+			# holy_site = site3
+			# holy_site = site4
+			# holy_site = site5
+			
+			# 주요 교리
+			doctrine = doctrine_no_head	# 교계 지도자: 
+			doctrine = doctrine_gender_male_dominated	# 성별에 대한 관점: 
+			doctrine = doctrine_pluralism_fundamentalist	# 종교적 태도: 
+			doctrine = doctrine_theocracy_lay_clergy	# 전통: 
+
+			# 결혼 교리
+			doctrine = doctrine_monogamy	# 결혼 형식: 
+			doctrine = doctrine_divorce_approval	# 이혼: 
+			doctrine = doctrine_bastardry_legitimization	# 적서제: 
+			doctrine = doctrine_consanguinity_restricted	# 근친 관계: 
+
+			# 범죄 교리
+			doctrine = doctrine_homosexuality_crime	# 동성연애: 
+			doctrine = doctrine_adultery_men_crime	# 남성의 간통: 
+			doctrine = doctrine_adultery_women_crime	# 여성의 간통: 
+			doctrine = doctrine_kinslaying_any_dynasty_member_crime	# 친족 살해: 
+			doctrine = doctrine_deviancy_crime	# 이상성욕: 
+			doctrine = doctrine_witchcraft_crime	# 마술: 
+
+			# 성직자 교리
+			doctrine = doctrine_clerical_gender_male_only	# 성직자의 기능: 
+			doctrine = doctrine_clerical_gender_either	# 성직자의 성별: 
+			doctrine = doctrine_clerical_marriage_allowed	# 성직자의 결혼: 
+			doctrine = doctrine_clerical_succession_spiritual_appointment	# 성직자의 지위: 
+			
+			# doctrine = 	# 교리 변경이나 추가 가능
+			
+			doctrine = tenet_pursuit_of_power	# 원리 설정
+			doctrine = tenet_consolamentum
+			doctrine = tenet_legalism
+			
+			# reserved_male_names = {} # 남성 이름 추가 가능
+			# reserved_female_names = {} # 여성 이름 추가 가능
+			# localization = {}	# localization 변경 가능
+		}
+		bailian = {	# 하위 종교
+			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
+			icon = default_custom	# 종교 아이콘
+		
+			# graphical_faith = 	# 종교 gfx 설정
+			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
+			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
+		
+			# religion_head = 	# 종교 수장 작위
+		
+			# holy_site = site1	# 성지 설정
+			# holy_site = site2
+			# holy_site = site3
+			# holy_site = site4
+			# holy_site = site5
+			
+			# 주요 교리
+			doctrine = doctrine_no_head	# 교계 지도자: 
+			doctrine = doctrine_gender_equal	# 성별에 대한 관점: 
+			doctrine = doctrine_pluralism_pluralistic	# 종교적 태도: 
+			doctrine = doctrine_theocracy_lay_clergy	# 전통: 
+
+			# 결혼 교리
+			doctrine = doctrine_monogamy	# 결혼 형식: 
+			doctrine = doctrine_divorce_allowed	# 이혼: 
+			doctrine = doctrine_bastardry_none	# 적서제: 
+			doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece	# 근친 관계: 
+
+			# 범죄 교리
+			doctrine = doctrine_homosexuality_shunned	# 동성연애: 
+			doctrine = doctrine_adultery_men_accepted	# 남성의 간통: 
+			doctrine = doctrine_adultery_women_accepted	# 여성의 간통: 
+			doctrine = doctrine_kinslaying_shunned	# 친족 살해: 
+			doctrine = doctrine_deviancy_shunned	# 이상성욕: 
+			doctrine = doctrine_witchcraft_accepted	# 마술: 
+
+			# 성직자 교리
+			doctrine = doctrine_clerical_function_alms_and_pacification	# 성직자의 기능: 
+			doctrine = doctrine_clerical_gender_either	# 성직자의 성별: 
+			doctrine = doctrine_clerical_marriage_disallowed	# 성직자의 결혼: 
+			doctrine = doctrine_clerical_succession_spiritual_appointment	# 성직자의 지위: 
+			
+			# doctrine = 	교리 변경이나 추가 가능
+			
+			doctrine = tenet_pursuit_of_power	# 원리 설정
+			doctrine = tenet_adaptive
+			# doctrine = tenet
+			
+			# reserved_male_names = {} # 남성 이름 추가 가능
+			# reserved_female_names = {} # 여성 이름 추가 가능
+			# localization = {}	# localization 변경 가능
+		}
+		esoteric = {	# 하위 종교
+			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
+			icon = default_custom	# 종교 아이콘
+		
+			# graphical_faith = 	# 종교 gfx 설정
+			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
+			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
+		
+			# religion_head = 	# 종교 수장 작위
+		
+			# holy_site = site1	# 성지 설정
+			# holy_site = site2
+			# holy_site = site3
+			# holy_site = site4
+			# holy_site = site5
+			
+			# 주요 교리
+			# doctrine = 	# 교계 지도자: 
+			# doctrine = 	# 성별에 대한 관점: 
+			# doctrine = 	# 종교적 태도: 
+			# doctrine = 	# 전통: 
+
+			# 결혼 교리
+			# doctrine = 	# 결혼 형식: 
+			# doctrine = 	# 이혼: 
+			# doctrine = 	# 적서제: 
+			# doctrine = 	# 근친 관계: 
+
+			# 범죄 교리
+			# doctrine = 	# 동성연애: 
+			# doctrine = 	# 남성의 간통: 
+			# doctrine = 	# 여성의 간통: 
+			# doctrine = 	# 친족 살해: 
+			# doctrine = 	# 이상성욕: 
+			# doctrine = 	# 마술: 
+
+			# 성직자 교리
+			# doctrine = 	# 성직자의 기능: 
+			# doctrine = 	# 성직자의 성별: 
+			# doctrine = 	# 성직자의 결혼: 
+			# doctrine = 	# 성직자의 지위: 
+			
+			# doctrine = 	# 교리 변경이나 추가 가능
+			
+			# doctrine = tenet	# 원리 설정
+			# doctrine = tenet
+			# doctrine = tenet
+			
+			# reserved_male_names = {} # 남성 이름 추가 가능
+			# reserved_female_names = {} # 여성 이름 추가 가능
+			# localization = {}	# localization 변경 가능
+		}
+	}
+}
