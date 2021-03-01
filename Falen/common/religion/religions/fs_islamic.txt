@@ -1,0 +1,236 @@
+islamic_group = {
+	family = rf_western	# 소속 종교 패밀리
+	# graphical_faith = religion_gfx	# 종교 gfx 설정
+	# piety_icon_group = 	# 신앙심 아이콘 설정
+	# doctrine_background_icon = 	# 교리 배경 설정
+	
+	doctrine = religion_hostility_doctrine	# 종교 적대 시 소속
+	# doctrine = unreformed_faith_doctrine	# 파간 설정
+	# pagan_roots = yes
+	
+	traits = {	# 트레잇
+		virtues = { trait1 trait2 trait3 }	# 미덕
+		sins = { trait4 trait5 trait6 }	# 죄악
+	}
+	
+	reserved_male_names = {	# 남성 이름
+	}
+	reserved_female_names = {	# 여성 이름
+	}
+	
+	custom_faith_icons = {	# 분파 생성 용 아이콘 목록
+	}
+
+	holy_order_names = {	# 그룹 공용 기사단 이름
+	}
+	
+	holy_order_maa = { huscarl }	# 기사단에서 많이 쓰일 병종
+	
+	localization = {
+		#HighGod
+		HighGodName = islamic_high_god_name	# 신 이름
+		HighGodNamePossessive = islamic_high_god_name_possessive	# 신 이름 소유격
+		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = islamic_high_god_name_alternate	# 최고신은 이명 사용 가능
+		HighGodNameAlternatePossessive = islamic_high_god_name_alternate_possessive
+
+		#CreatorName
+		CreatorName = islamic_creator_god_name
+		CreatorNamePossessive = islamic_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+
+		#HealthGod
+		HealthGodName = islamic_health_god_name
+		HealthGodNamePossessive = islamic_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		
+		#FertilityGod
+		FertilityGodName = islamic_fertility_god_name
+		FertilityGodNamePossessive = islamic_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WealthGod
+		WealthGodName = islamic_wealth_god_name
+		WealthGodNamePossessive = islamic_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		#HouseholdGod
+		HouseholdGodName = islamic_household_god_name
+		HouseholdGodNamePossessive = islamic_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_HE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+		#FateGod
+		FateGodName = islamic_fate_god_name
+		FateGodNamePossessive = islamic_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+
+		#Knowledge
+		KnowledgeGodName = islamic_knowledge_god_name
+		KnowledgeGodNamePossessive = islamic_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WarGod
+		WarGodName = islamic_war_god_name
+		WarGodNamePossessive = islamic_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		#TricksterGod
+		TricksterGodName = islamic_trickster_god_name
+		TricksterGodNamePossessive = islamic_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		#NightGod
+		NightGodName = islamic_night_god_name
+		NightGodNamePossessive = islamic_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WaterGod
+		WaterGodName = islamic_water_god_name
+		WaterGodNamePossessive = islamic_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+		PantheonTerm = islamic_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {	# 선신 이름들
+			islamic_high_god_name
+		}
+		
+		DevilName = islamic_devil_name
+		DevilNamePossessive = islamic_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {	# 악신 이름들
+			islamic_devil_name
+		}
+		
+		HouseOfWorship = islamic_house_of_worship
+		HouseOfWorshipPlural = islamic_house_of_worship_plural
+		ReligiousSymbol = islamic_religious_symbol
+		ReligiousText = islamic_religious_text
+		ReligiousHeadName = islamic_religious_head_title
+		ReligiousHeadTitleName = islamic_religious_head_title_name
+		
+		DevoteeMale = islamic_devotee_male
+		DevoteeMalePlural = islamic_devotee_male_plural
+		DevoteeFemale = islamic_devotee_female
+		DevoteeFemalePlural = islamic_devotee_female_plural
+		DevoteeNeuter = islamic_devotee_neuter
+		DevoteeNeuterPlural = islamic_devotee_neuter_plural
+		
+		PriestMale = islamic_priest_male
+		PriestMalePlural = islamic_priest_male_plural
+		PriestFemale = islamic_priest_male
+		PriestFemalePlural = islamic_priest_male_plural
+		PriestNeuter = islamic_priest_male
+		PriestNeuterPlural = islamic_priest_male_plural
+		AltPriestTermPlural = islamic_priest_alternate_plural
+		
+		BishopMale = islamic_bishop
+		BishopMalePlural = islamic_bishop_plural
+		BishopFemale = islamic_bishop
+		BishopFemalePlural = islamic_bishop_plural
+		BishopNeuter = islamic_bishop
+		BishopNeuterPlural = islamic_bishop_plural
+		
+		DivineRealm = islamic_positive_afterlife
+		PositiveAfterLife = islamic_positive_afterlife
+		NegativeAfterLife = islamic_negative_afterlife
+		DeathDeityName = islamic_death_deity_name
+		DeathDeityNamePossessive = islamic_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		
+		WitchGodName = islamic_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+
+
+		GHWName = ghw_crusade	# 대성전 이름
+		GHWNamePlural = ghw_crusades
+	}
+	
+	faiths = {
+		islamic = {	# 하위 종교
+			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
+			icon = default_custom	# 종교 아이콘
+			# reformed_icon = 	# 파간 종교개혁 시 아이콘 대체 가능
+		
+			graphical_faith = 	# 종교 gfx 설정
+			piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
+			doctrine_background_icon = 	# 교리 배경 설정 대체 가능
+		
+			religion_head = 	# 종교 수장 작위
+		
+			holy_site = site1	# 성지 설정
+			holy_site = site2
+			holy_site = site3
+			holy_site = site4
+			holy_site = site5
+			
+			# 주요 교리
+			# doctrine = 	# 교계 지도자: 
+			# doctrine = 	# 성별에 대한 관점: 
+			# doctrine = 	# 종교적 태도: 
+			# doctrine = 	# 전통: 
+
+			# 결혼 교리
+			# doctrine = 	# 결혼 형식: 
+			# doctrine = 	# 이혼: 
+			# doctrine = 	# 적서제: 
+			# doctrine = 	# 근친 관계: 
+
+			# 범죄 교리
+			# doctrine = 	# 동성연애: 
+			# doctrine = 	# 남성의 간통: 
+			# doctrine = 	# 여성의 간통: 
+			# doctrine = 	# 친족 살해: 
+			# doctrine = 	# 이상성욕: 
+			# doctrine = 	# 마술: 
+
+			# 성직자 교리
+			# doctrine = 	# 성직자의 기능: 
+			# doctrine = 	# 성직자의 성별: 
+			# doctrine = 	# 성직자의 결혼: 
+			# doctrine = 	# 성직자의 지위: 
+			
+			# doctrine = 	# 교리 변경이나 추가 가능
+			
+			# doctrine = tenet	# 원리 설정
+			# doctrine = tenet
+			# doctrine = tenet
+			
+			# reserved_male_names = {} # 남성 이름 추가 가능
+			# reserved_female_names = {} # 여성 이름 추가 가능
+			# localization = {}	# localization 변경 가능
+		}
+	}
+}
