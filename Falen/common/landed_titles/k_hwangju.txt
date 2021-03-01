@@ -12,7 +12,7 @@ k_hwangju = {
 				add = @correct_culture_primary_score
 			}
 		}
-
+		
 		d_hwangju = {
 			color = { 44 84 8 }
 			color2 = { 255 255 255 }
@@ -40,6 +40,12 @@ k_hwangju = {
 					color = { 44 84 8 }
 					color2 = { 255 255 255 }
 				}
+				b_2015 = { # Changmae
+					province = 2015
+					
+					color = { 2 66 5 }
+					color2 = { 255 255 255 }
+				}
 			}
 			c_songrim = {
 				color = { 0 33 175 }
@@ -63,6 +69,12 @@ k_hwangju = {
 					color = { 0 33 175 }
 					color2 = { 255 255 255 }
 				}
+				b_2017 = { # Samjeong
+					province = 2017
+					
+					color = { 170 78 7 }
+					color2 = { 255 255 255 }
+				}
 			}
 			c_cheoldo = {
 				color = { 170 78 7 }
@@ -70,12 +82,6 @@ k_hwangju = {
 				
 				b_2014 = { # Cheoldo
 					province = 2014
-					
-					color = { 170 78 7 }
-					color2 = { 255 255 255 }
-				}
-				b_2017 = { # Samjeong
-					province = 2017
 					
 					color = { 170 78 7 }
 					color2 = { 255 255 255 }
@@ -92,16 +98,15 @@ k_hwangju = {
 					color = { 170 78 7 }
 					color2 = { 255 255 255 }
 				}
+				b_2011 = { # Dochi
+					province = 2011
+					
+					color = { 2 66 5 }
+					color2 = { 255 255 255 }
+				}
 			}
-		}
-
-		d_yeontan = {
-			color = { 2 66 5 }
-			color2 = { 255 255 255 }
-			
-			capital = c_yeontan
 			c_yeontan = {
-				color = { 2 66 5 }
+				color = { 42 36 48 }
 				color2 = { 255 255 255 }
 				
 				b_2010 = { # Yeontan
@@ -110,23 +115,6 @@ k_hwangju = {
 					color = { 2 66 5 }
 					color2 = { 255 255 255 }
 				}
-				b_2015 = { # Changmae
-					province = 2015
-					
-					color = { 2 66 5 }
-					color2 = { 255 255 255 }
-				}
-				b_2011 = { # Dochi
-					province = 2011
-					
-					color = { 2 66 5 }
-					color2 = { 255 255 255 }
-				}
-			}
-			c_pungdap = {
-				color = { 42 36 48 }
-				color2 = { 255 255 255 }
-				
 				b_296 = { # Pungdap
 					province = 296
 					
@@ -140,24 +128,8 @@ k_hwangju = {
 					color2 = { 255 255 255 }
 				}
 			}
-			c_seongmae = {
-				color = { 85 153 176 }
-				color2 = { 255 255 255 }
-				
-				b_1897 = { # Seongmae
-					province = 1897
-					
-					color = { 85 153 176 }
-					color2 = { 255 255 255 }
-				}
-				b_298 = { # Obong
-					province = 298
-					
-					color = { 85 153 176 }
-					color2 = { 255 255 255 }
-				}
-			}
 		}
+		
 
 		d_sariwon = {
 			color = { 168 30 47 }
@@ -620,13 +592,23 @@ k_hwangju = {
 					color2 = { 255 255 255 }
 				}
 			}
-		}
-
-		d_goksan = {
-			color = { 42 141 193 }
-			color2 = { 255 255 255 }
-			
-			capital = c_goksan
+			c_seongmae = {
+				color = { 85 153 176 }
+				color2 = { 255 255 255 }
+				
+				b_1897 = { # Seongmae
+					province = 1897
+					
+					color = { 85 153 176 }
+					color2 = { 255 255 255 }
+				}
+				b_298 = { # Obong
+					province = 298
+					
+					color = { 85 153 176 }
+					color2 = { 255 255 255 }
+				}
+			}
 			c_goksan = {
 				color = { 42 141 193 }
 				color2 = { 255 255 255 }
@@ -641,75 +623,6 @@ k_hwangju = {
 					province = 1985
 					
 					color = { 42 141 193 }
-					color2 = { 255 255 255 }
-				}
-			}
-			c_umil = {
-				color = { 169 201 92 }
-				color2 = { 255 255 255 }
-				
-				b_1984 = { # Umil
-					province = 1984
-					
-					color = { 169 201 92 }
-					color2 = { 255 255 255 }
-				}
-				b_1982 = { # Goseong
-					province = 1982
-					
-					color = { 169 201 92 }
-					color2 = { 255 255 255 }
-				}
-				b_1981 = { # Dongsan
-					province = 1981
-					
-					color = { 169 201 92 }
-					color2 = { 255 255 255 }
-				}
-			}
-			c_holdong = {
-				color = { 169 186 217 }
-				color2 = { 255 255 255 }
-				
-				b_1979 = { # Holdong
-					province = 1979
-					
-					color = { 169 186 217 }
-					color2 = { 255 255 255 }
-				}
-				b_1980 = { # Daegun
-					province = 1980
-					
-					color = { 169 186 217 }
-					color2 = { 255 255 255 }
-				}
-				b_1978 = { # Geomdae
-					province = 1978
-					
-					color = { 169 186 217 }
-					color2 = { 255 255 255 }
-				}
-			}
-			c_h_sinpyeong = {
-				color = { 1 174 215 }
-				color2 = { 255 255 255 }
-				
-				b_1975 = { # Sinpyeong
-					province = 1975
-					
-					color = { 1 174 215 }
-					color2 = { 255 255 255 }
-				}
-				b_1976 = { # Daeheung
-					province = 1976
-					
-					color = { 1 174 215 }
-					color2 = { 255 255 255 }
-				}
-				b_1977 = { # Baeksan
-					province = 1977
-					
-					color = { 1 174 215 }
 					color2 = { 255 255 255 }
 				}
 			}
