@@ -1,0 +1,664 @@
+k_shen = { #심양
+		color = { 87 39 196 }
+		color2 = { 255 255 255 }
+		
+		capital = c_shen
+		
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:greek
+				}
+				add = @correct_culture_primary_score
+			}
+		}
+
+		d_shen = { # 심양
+			color = { 87 39 196 }
+			color2 = { 255 255 255 }
+			
+			capital = c_shen
+			c_shen = { # 심양
+				color = { 87 39 196 }
+				color2 = { 255 255 255 }
+				
+				b_3137 = { # 심양
+					province = 3137
+					
+					color = { 87 39 196 }
+					color2 = { 255 255 255 }
+				}
+				b_3100 = { # 황구
+					province = 3100
+					
+					color = { 87 39 196 }
+					color2 = { 255 255 255 }
+				}
+				b_3104 = { # 다둥
+					province = 3104
+					
+					color = { 87 39 196 }
+					color2 = { 255 255 255 }
+				}
+				b_3095 = { # 허핑
+					province = 3095
+					
+					color = { 87 39 196 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_tyeshi = { # 톄시
+				color = { 129 42 69 }
+				color2 = { 255 255 255 }
+				
+				b_3138 = { # 톄시
+					province = 3138
+					
+					color = { 129 42 69 }
+					color2 = { 255 255 255 }
+				}
+				b_3088 = { # 위훙
+					province = 3088
+					
+					color = { 129 42 69 }
+					color2 = { 255 255 255 }
+				}
+				b_3089 = { # 구앙후이
+					province = 3089
+					
+					color = { 129 42 69 }
+					color2 = { 255 255 255 }
+				}
+				b_3085 = { # 장제즈한
+					province = 3085
+					
+					color = { 129 42 69 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_sunbei = { # 선베이
+				color = { 87 147 51 }
+				color2 = { 255 255 255 }
+				
+				b_3102 = { # 선베이
+					province = 3102
+					
+					color = { 87 147 51 }
+					color2 = { 255 255 255 }
+				}
+				b_3105 = { # 후앙지아
+					province = 3105
+					
+					color = { 87 147 51 }
+					color2 = { 255 255 255 }
+				}
+				b_3092 = { # 싱롱타이
+					province = 3092
+					
+					color = { 87 147 51 }
+					color2 = { 255 255 255 }
+				}
+				b_3103 = { # 후시타이
+					province = 3103
+					
+					color = { 87 147 51 }
+					color2 = { 255 255 255 }
+				}
+				b_3107 = { # 칭수이
+					province = 3107
+					
+					color = { 87 147 51 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_hunnan = { # 훈난
+				color = { 45 144 178 }
+				color2 = { 255 255 255 }
+				
+				b_3101 = { # 훈난
+					province = 3101
+					
+					color = { 45 144 178 }
+					color2 = { 255 255 255 }
+				}
+				b_3108 = { # 만장
+					province = 3108
+					
+					color = { 45 144 178 }
+					color2 = { 255 255 255 }
+				}
+				b_3110 = { # 왕빈고우
+					province = 3110
+					
+					color = { 45 144 178 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_ssujatun = { # 쑤자툰
+				color = { 129 120 174 }
+				color2 = { 255 255 255 }
+				
+				b_3093 = { # 쑤자툰
+					province = 3093
+					
+					color = { 129 120 174 }
+					color2 = { 255 255 255 }
+				}
+				b_3087 = { # 왕강바오
+					province = 3087
+					
+					color = { 129 120 174 }
+					color2 = { 255 255 255 }
+				}
+				b_3094 = { # 린센바오
+					province = 3094
+					
+					color = { 129 120 174 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_qenxiangtun = { # 첸시앙툰
+				color = { 171 138 177 }
+				color2 = { 255 255 255 }
+				
+				b_3099 = { # 첸시앙툰
+					province = 3099
+					
+					color = { 171 138 177 }
+					color2 = { 255 255 255 }
+				}
+				b_3096 = { # 사헤칭푸
+					province = 3096
+					
+					color = { 171 138 177 }
+					color2 = { 255 255 255 }
+				}
+				b_3097 = { # 린셍바오
+					province = 3097
+					
+					color = { 171 138 177 }
+					color2 = { 255 255 255 }
+				}
+				b_3098 = { # 시리헤
+					province = 3098
+					
+					color = { 171 138 177 }
+					color2 = { 255 255 255 }
+				}
+				b_3106 = { # 야오치안후툰
+					province = 3106
+					
+					color = { 171 138 177 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+
+		d_laojung = { # 라오중
+			color = { 129 30 159 }
+			color2 = { 255 255 255 }
+			
+			capital = c_laojung
+			c_laojung = { # 라오중
+				color = { 129 30 159 }
+				color2 = { 255 255 255 }
+				
+				b_3063 = { # 라오중
+					province = 3063
+					
+					color = { 129 30 159 }
+					color2 = { 255 255 255 }
+				}
+				b_3057 = { # 리우지안팡
+					province = 3057
+					
+					color = { 129 30 159 }
+					color2 = { 255 255 255 }
+				}
+				b_3055 = { # 라오구안토
+					province = 3055
+					
+					color = { 129 30 159 }
+					color2 = { 255 255 255 }
+				}
+				b_3056 = { # 주지아팡
+					province = 3056
+					
+					color = { 129 30 159 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_chingbo = { # 칭보
+				color = { 171 18 157 }
+				color2 = { 255 255 255 }
+				
+				b_3059 = { # 칭보
+					province = 3059
+					
+					color = { 171 18 157 }
+					color2 = { 255 255 255 }
+				}
+				b_3058 = { # 니우신투오
+					province = 3058
+					
+					color = { 171 18 157 }
+					color2 = { 255 255 255 }
+				}
+				b_3060 = { # 다구오지
+					province = 3060
+					
+					color = { 171 18 157 }
+					color2 = { 255 255 255 }
+				}
+				b_3076 = { # 렝지바오
+					province = 3076
+					
+					color = { 171 18 157 }
+					color2 = { 255 255 255 }
+				}
+				b_3066 = { # 양시푸
+					province = 3066
+					
+					color = { 171 18 157 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_singjongtai = { # 싱종타이
+				color = { 3 36 160 }
+				color2 = { 255 255 255 }
+				
+				b_3065 = { # 싱종타이
+					province = 3065
+					
+					color = { 3 36 160 }
+					color2 = { 255 255 255 }
+				}
+				b_3079 = { # 시부타이
+					province = 3079
+					
+					color = { 3 36 160 }
+					color2 = { 255 255 255 }
+				}
+				b_3086 = { # 창강
+					province = 3086
+					
+					color = { 3 36 160 }
+					color2 = { 255 255 255 }
+				}
+				b_3064 = { # 시아오자이멘
+					province = 3064
+					
+					color = { 3 36 160 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+
+		d_sinmin = { # 신민
+			color = { 171 63 37 }
+			color2 = { 255 255 255 }
+			
+			capital = c_sinmin
+			c_sinmin = { # 신민
+				color = { 171 63 37 }
+				color2 = { 255 255 255 }
+				
+				b_3074 = { # 신민
+					province = 3074
+					
+					color = { 171 63 37 }
+					color2 = { 255 255 255 }
+				}
+				b_3083 = { # 싱롱
+					province = 3083
+					
+					color = { 171 63 37 }
+					color2 = { 255 255 255 }
+				}
+				b_3081 = { # 싱롱바오
+					province = 3081
+					
+					color = { 171 63 37 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_damintun = { # 다민툰
+				color = { 87 72 166 }
+				color2 = { 255 255 255 }
+				
+				b_3077 = { # 다민툰
+					province = 3077
+					
+					color = { 87 72 166 }
+					color2 = { 255 255 255 }
+				}
+				b_3078 = { # 치안당푸
+					province = 3078
+					
+					color = { 87 72 166 }
+					color2 = { 255 255 255 }
+				}
+				b_3080 = { # 파하니우
+					province = 3080
+					
+					color = { 87 72 166 }
+					color2 = { 255 255 255 }
+				}
+				b_3084 = { # 후타이
+					province = 3084
+					
+					color = { 87 72 166 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_gongjutun = { # 공주툰
+				color = { 129 60 164 }
+				color2 = { 255 255 255 }
+				
+				b_3073 = { # 공주툰
+					province = 3073
+					
+					color = { 129 60 164 }
+					color2 = { 255 255 255 }
+				}
+				b_3072 = { # 유지아우푸
+					province = 3072
+					
+					color = { 129 60 164 }
+					color2 = { 255 255 255 }
+				}
+				b_3082 = { # 산다오강지
+					province = 3082
+					
+					color = { 129 60 164 }
+					color2 = { 255 255 255 }
+				}
+				b_3091 = { # 타오툰
+					province = 3091
+					
+					color = { 129 60 164 }
+					color2 = { 255 255 255 }
+				}
+				b_3090 = { # 루오지아팡
+					province = 3090
+					
+					color = { 129 60 164 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_liangsan = { # 리앙산
+				color = { 3 51 35 }
+				color2 = { 255 255 255 }
+				
+				b_3070 = { # 리앙산
+					province = 3070
+					
+					color = { 3 51 35 }
+					color2 = { 255 255 255 }
+				}
+				b_3069 = { # 조우투오지
+					province = 3069
+					
+					color = { 3 51 35 }
+					color2 = { 255 255 255 }
+				}
+				b_3068 = { # 야오바오
+					province = 3068
+					
+					color = { 3 51 35 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_dahongchi = { # 다홍치
+				color = { 45 54 163 }
+				color2 = { 255 255 255 }
+				
+				b_3071 = { # 다홍치
+					province = 3071
+					
+					color = { 45 54 163 }
+					color2 = { 255 255 255 }
+				}
+				b_3075 = { # 리우헤고우
+					province = 3075
+					
+					color = { 45 54 163 }
+					color2 = { 255 255 255 }
+				}
+				b_3062 = { # 홍치
+					province = 3062
+					
+					color = { 45 54 163 }
+					color2 = { 255 255 255 }
+				}
+				b_3061 = { # 진우타이
+					province = 3061
+					
+					color = { 45 54 163 }
+					color2 = { 255 255 255 }
+				}
+				b_3067 = { # 루툰
+					province = 3067
+					
+					color = { 45 54 163 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+
+		d_suncheong = { # 순청
+			color = { 87 177 56 }
+			color2 = { 255 255 255 }
+			
+			capital = c_suncheong
+			c_suncheong = { # 순청
+				color = { 87 177 56 }
+				color2 = { 255 255 255 }
+				
+				b_3112 = { # 순청
+					province = 3112
+					
+					color = { 87 177 56 }
+					color2 = { 255 255 255 }
+				}
+				b_3111 = { # 후이유안
+					province = 3111
+					
+					color = { 87 177 56 }
+					color2 = { 255 255 255 }
+				}
+				b_3109 = { # 왕하
+					province = 3109
+					
+					color = { 87 177 56 }
+					color2 = { 255 255 255 }
+				}
+				b_3115 = { # 둥저우
+					province = 3115
+					
+					color = { 87 177 56 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_siwen = { # 시웬
+				color = { 171 183 57 }
+				color2 = { 255 255 255 }
+				
+				b_3114 = { # 시웬
+					province = 3114
+					
+					color = { 171 183 57 }
+					color2 = { 255 255 255 }
+				}
+				b_3113 = { # 라구고우
+					province = 3113
+					
+					color = { 171 183 57 }
+					color2 = { 255 255 255 }
+				}
+				b_3117 = { # 시아헤
+					province = 3117
+					
+					color = { 171 183 57 }
+					color2 = { 255 255 255 }
+				}
+				b_3118 = { # 지우빙
+					province = 3118
+					
+					color = { 171 183 57 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_houan = { # 호우안
+				color = { 171 198 187 }
+				color2 = { 255 255 255 }
+				
+				b_3119 = { # 호우안
+					province = 3119
+					
+					color = { 171 183 57 }
+					color2 = { 255 255 255 }
+				}
+				b_3120 = { # 양투
+					province = 3120
+					
+					color = { 171 183 57 }
+					color2 = { 255 255 255 }
+				}
+				b_3121 = { # 마구지
+					province = 3121
+					
+					color = { 171 183 57 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_hadaji = { # 하다지
+				color = { 87 207 61 }
+				color2 = { 255 255 255 }
+				
+				b_3122 = { # 하다지
+					province = 3122
+					
+					color = { 87 207 61 }
+					color2 = { 255 255 255 }
+				}
+				b_3123 = { # 장당
+					province = 3123
+					
+					color = { 87 207 61 }
+					color2 = { 255 255 255 }
+				}
+				b_3116 = { # 상마
+					province = 3116
+					
+					color = { 87 207 61 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+
+		d_tyeling = { # 톄링
+			color = { 87 24 66 }
+			color2 = { 255 255 255 }
+			
+			capital = c_tyeling
+			c_tyeling = { # 톄링
+				color = { 87 24 66 }
+				color2 = { 255 255 255 }
+				
+				b_3132 = { # 톄링
+					province = 3132
+					
+					color = { 87 24 66 }
+					color2 = { 255 255 255 }
+				}
+				b_3131 = { # 양수린지
+					province = 3131
+					
+					color = { 87 24 66 }
+					color2 = { 255 255 255 }
+				}
+				b_3133 = { # 바비아오린
+					province = 3133
+					
+					color = { 87 24 66 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_feidi = { # 페이디
+				color = { 3 33 195 }
+				color2 = { 255 255 255 }
+				
+				b_3135 = { # 상페이디
+					province = 3135
+					
+					color = { 3 33 195 }
+					color2 = { 255 255 255 }
+				}
+				b_3136 = { # 하페이디
+					province = 3136
+					
+					color = { 3 33 195 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_caiwian = { # 카이위안
+				color = { 3 18 65 }
+				color2 = { 255 255 255 }
+				
+				b_3130 = { # 카이위안
+					province = 3130
+					
+					color = { 3 18 65 }
+					color2 = { 255 255 255 }
+				}
+				b_3129 = { # 진고우지
+					province = 3129
+					
+					color = { 3 18 65 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_siaobao = { # 시아오바오
+				color = { 129 12 64 }
+				color2 = { 255 255 255 }
+				
+				b_3128 = { # 시아오바오
+					province = 3128
+					
+					color = { 129 12 64 }
+					color2 = { 255 255 255 }
+				}
+				b_3127 = { # 윤다오
+					province = 3127
+					
+					color = { 129 12 64 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_aji = { # 아지
+				color = { 171 0 62 }
+				color2 = { 255 255 255 }
+				
+				b_3124 = { # 아지
+					province = 3124
+					
+					color = { 171 0 62 }
+					color2 = { 255 255 255 }
+				}
+				b_3125 = { # 카이니우두오
+					province = 3125
+					
+					color = { 171 0 62 }
+					color2 = { 255 255 255 }
+				}
+				b_3126 = { # 징지
+					province = 3126
+					
+					color = { 171 0 62 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+	}
+}
