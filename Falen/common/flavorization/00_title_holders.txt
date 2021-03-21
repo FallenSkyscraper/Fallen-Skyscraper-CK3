@@ -22,6 +22,54 @@
 
 # Special Titles
 
+archduke = {
+	type = character
+	gender = male
+	special = holder
+	priority = 47
+	titles = { k_n_grandduke }
+	top_liege = no
+}
+archduchess = {
+	type = character
+	gender = female
+	special = holder
+	priority = 47
+	titles = { k_n_grandduke }
+	top_liege = no
+}
+archduchy = {
+	type = title
+	tier = kingdom
+	titles = { k_n_grandduke }
+	priority = 47
+	top_liege = no
+}
+
+president = {
+	type = character
+	gender = male
+	special = holder
+	priority = 100
+	titles = { k_prk }
+	top_liege = no
+}
+president_female = {
+	type = character
+	gender = female
+	special = holder
+	priority = 100
+	titles = { k_prk }
+	top_liege = no
+}
+peoples_republic = {
+	type = title
+	tier = kingdom
+	titles = { k_prk }
+	priority = 47
+	top_liege = no
+}
+
 # Religious Titles
 head_of_faith_male = {
 	type = character
