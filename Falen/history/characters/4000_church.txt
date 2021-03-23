@@ -16,7 +16,7 @@
 	2262.1.1 = {
 		birth = yes
 	}
-	2391.1.1 = {
+	2291.1.1 = {
 		add_spouse = 4016
 	}
 	2315.1.1 = {
@@ -368,7 +368,7 @@
 	2264.1.1 = {
 		birth = yes
 	}
-	2391.1.1 = {
+	2291.1.1 = {
 		add_spouse = 4001
 	}
 	2310.1.1 = {
@@ -1211,7 +1211,7 @@
 	2258.1.1 = {
 		birth = yes
 	}
-	2378.1.1 = {
+	2278.1.1 = {
 		add_spouse = 4062
 	}
 	2320.1.1 = {
@@ -1545,7 +1545,7 @@
 	2258.1.1 = {
 		birth = yes
 	}
-	2378.1.1 = {
+	2278.1.1 = {
 		add_spouse = 4049
 	}
 	2322.1.1 = {
@@ -2333,7 +2333,7 @@
 	religion = protestant
 	culture = saemangeum
 	father = 4101
-	mother = 4104
+	mother = 4103
 
 	#stat
 	martial = 3
@@ -2359,11 +2359,213 @@
 	}
 }
 
+4105 = {
+	#profile
+	name = "설원"
+	female = yes
+	dynasty = 4105 #한
+	religion = protestant
+	culture = saemangeum
+
+	#birth & Death
+	2289.1.1 = {
+		birth = yes
+	}
+	2303.1.1 = {
+		add_spouse = 4104
+	}
+	2344.1.1 = {
+		death = yes
+	}
+}
+
+4106 = {
+	#profile
+	name = "동원"
+	dynasty = 4101 #나
+	religion = imperial_church
+	culture = saemangeum
+	father = 4104
+	mother = 4105
+
+	#stat
+	martial = 5
+	diplomacy = 5
+	intrigue = 4
+	stewardship = 8
+	learning = 4
+	prowess = 4
+	trait = diligent
+	trait = gregarious
+	trait = patient
+	trait = education_stewardship_3
+	
+	#birth & Death
+	2310.1.1 = {
+		birth = yes
+	}
+	2329.1.1 = {
+		add_spouse = 4112
+	}
+	2361.1.1 = {
+		death = yes
+	}
+}
+
+4107 = {
+	#profile
+	name = "원호"
+	dynasty = 4101 #나
+	religion = imperial_church
+	culture = saemangeum
+	father = 4106
+	mother = 4112
+
+	#stat
+	martial = 4
+	diplomacy = 5
+	intrigue = 4
+	stewardship = 6
+	learning = 7
+	prowess = 4
+	trait = zealous
+	trait = just
+	trait = patient
+	trait = education_learning_2
+	
+	#birth & Death
+	2330.1.1 = {
+		birth = yes
+	}
+	2348.1.1 = {
+		add_spouse = 4128
+	}
+	2384.1.1 = {
+		death = yes
+	}
+}
+
+4108 = {
+	#profile
+	name = "세원"
+	dynasty = 4101 #나
+	religion = imperial_church
+	culture = saemangeum
+	father = 4107
+	mother = 4128
+
+	#stat
+	martial = 9
+	diplomacy = 6
+	intrigue = 4
+	stewardship = 7
+	learning = 6
+	prowess = 4
+	trait = temperate
+	trait = just
+	trait = diligent
+	trait = education_martial_4
+	
+	#birth & Death
+	2349.1.1 = {
+		birth = yes
+	}
+	2367.1.1 = {
+		add_spouse = 4114
+	}
+	2392.1.1 = {
+		death = yes
+	}
+}
+
+4109 = {
+	#profile
+	name = "성진"
+	dynasty = 4101 #나
+	religion = imperial_church
+	culture = saemangeum
+	father = 4108
+	mother = 4114
+
+	#stat
+	martial = 2
+	diplomacy = 4
+	intrigue = 10
+	stewardship = 2
+	learning = 3
+	prowess = 4
+	trait = deceitful
+	trait = paranoid
+	trait = diligent
+	trait = education_intrigue_3
+	
+	#birth & Death
+	2368.1.1 = {
+		birth = yes
+	}
+	2388.1.1 = {
+		add_spouse = 4132
+	}
+	2418.1.1 = {
+		death = yes
+	}
+}
+
+4110 = {
+	#profile
+	name = "세호"
+	dynasty = 4101 #나
+	religion = imperial_church
+	culture = saemangeum
+	father = 4109
+	mother = 4132
+
+	#stat
+	martial = 8
+	diplomacy = 6
+	intrigue = 9
+	stewardship = 5
+	learning = 7
+	prowess = 4
+	trait = ambitious
+	trait = sadistic
+	trait = trusting
+	trait = education_intrigue_4
+	
+	#birth & Death
+	2390.1.1 = {
+		birth = yes
+	}
+	2415.1.1 = {
+		add_spouse = 4135
+	}
+	2439.1.1 = {
+		death = yes
+	}
+}
+
 4111 = {
+	#profile
 	name = "천호"
 	dynasty = 4101 #나
 	religion = imperial_church
-	culture = jeonju
+	culture = saemangeum
+	father = 4110
+	mother = 4135
+
+	#stat
+	martial = 9
+	diplomacy = 5
+	intrigue = 4
+	stewardship = 6
+	learning = 4
+	prowess = 7
+	trait = ambitious
+	trait = callous
+	trait = brave
+	trait = education_martial_3
+	
+	#birth & Death
 	2417.1.1 = {
 		birth = yes
 	}
@@ -2373,10 +2575,27 @@
 }
 
 4113 = {
+	#profile
 	name = "민호"
 	dynasty = 4101 #나
 	religion = imperial_church
-	culture = jeonju
+	culture = saemangeum
+	father = 4110
+	mother = 4135
+
+	#stat
+	martial = 7
+	diplomacy = 8
+	intrigue = 9
+	stewardship = 5
+	learning = 4
+	prowess = 7
+	trait = ambitious
+	trait = sadistic
+	trait = paranoid
+	trait = education_intrigue_3
+	
+	#birth & Death
 	2419.1.1 = {
 		birth = yes
 	}
