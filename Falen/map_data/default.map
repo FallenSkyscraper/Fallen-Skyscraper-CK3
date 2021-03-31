@@ -25,11 +25,16 @@ seasons = "seasons.txt"
 # LAKES
 ########
 
+lakes = LIST { 3793 } # 프리모리예
+
 #####################
 # IMPASSABLE TERRAIN
 #####################
 # Can be colored by whoever owns the most of the province's neighbours.
 # Blocks unit movement.
+
+#프리모리예
+impassable_mountains = RANGE { 3777 3792 } 
 
 ############
 # WASTELAND
