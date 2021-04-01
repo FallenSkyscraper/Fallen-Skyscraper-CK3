@@ -140,35 +140,92 @@ widget = {
 							onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 						}
 					}
-
+					hbox = {
+						using = Window_Margins
+						layoutpolicy_horizontal = expanding
+						margin_bottom = 5
+						state = {
+							name = get_list
+							trigger_on_create = yes
+							duration = 2
+							on_start = "[GetScriptedGui('prk_get_president').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							next = get_list
+						}
+						vbox = {
+							text_single = { text = "현직:" }
+							datacontext = "[GetPlayer.MakeScope.Var('prk_president').GetCharacter]"
+							portrait_head = {}
+							text_single = { text = "[Character.GetFirstNameNicknamedNoTooltip]" }
+						}
+						vbox = {
+							
+							text_single = { text = "Next Election:" }
+							text_single = { text = "2445.1.1" }
+						}
+					}
 					hbox = {
 						using = Window_Margins
 						layoutpolicy_horizontal = expanding
 						margin_bottom = 5
 					
 						fixedgridbox = {
-							datamodel = "[GetPlayer.MakeScope.GetList('prk_president')]"
+							datamodel = "[GetPlayer.MakeScope.GetList('prk_candidates')]"
 							state = {
 										name = get_list
 										trigger_on_create = yes
 										duration = 2
-										on_start = "[GetScriptedGui('prk_president').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+										on_start = "[GetScriptedGui('prk_candidate').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 										next = get_list
 									}
 							item = {
-								flowcontainer = {
-									datacontext = "[Scope.GetCharacter]"
-									portrait_head_small = {}
-									text_single = { text = "Incumbent" }
+								vbox = {
+									portrait_head_small = {
+										datacontext = "[Scope.GetCharacter]"
+									}
+									text_single = { text = "[Scope.GetCharacter.GetFirstNameNicknamedOrMe]" }
 								}
 							}
 						}
 					}
+					hbox = {
+						button_standard = {
+							name = "run_candidate"
+							size = { 100 25 }
+							enabled = "[GetScriptedGui('prk_run_candidate').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+							onclick = "[GetScriptedGui('prk_run_candidate').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							hbox = {
+								margin = { 20 0 }
+								margin_right = 10
 
-					icon = {
-						size = { 200 200 }
-						texture = "gfx/interface/component_overlay/overlay_texture.dds"
+								text_single = {
+									layoutpolicy_horizontal = growing
+									text = "출마"
+									align = nobaseline
+								}
+							}
+						}
+						button_standard = {
+							name = "resign_candidate"
+							size = { 100 25 }
+							enabled = "[GetScriptedGui('prk_resign_candidate').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+							onclick = "[GetScriptedGui('prk_resign_candidate_candidate').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+							hbox = {
+								margin = { 20 0 }
+								margin_right = 10
+
+								text_single = {
+									layoutpolicy_horizontal = growing
+									text = "사퇴"
+									align = nobaseline
+								}
+							}
+						}
 					}
+				#	icon = {
+				#		size = { 200 200 }
+				#		texture = "gfx/interface/component_overlay/overlay_texture.dds"
+				#	}
 				}
 			}
 		}
