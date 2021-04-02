@@ -67,18 +67,22 @@ prk_candidate = {
 prk_run_candidate = {
 	scope = character
 	is_valid = {
-		NOT = { has_variable = candidate }
+		root = { has_variable = candidate }
 	}
 	effect = {
-		set_variable = candidate
+		root = {
+			set_variable = candidate
+		}
 	}
 }
 prk_run_candidate = {
 	scope = character
 	is_valid = {
-		has_variable = candidate
+		root = { NOT = { has_variable = candidate } }
 	}
 	effect = {
-		remove_variable = candidate
+		root = {
+			remove_variable = candidate
+		}
 	}
 }
