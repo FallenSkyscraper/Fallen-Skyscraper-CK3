@@ -56,7 +56,7 @@ prk_candidate = {
 		every_living_character = {
 			limit = { has_variable = candidate }
 			root = {
-				add_variable_to_list = {
+				add_to_variable_list = {
 					name = prk_candidates
 					target = prev
 				}
@@ -64,21 +64,28 @@ prk_candidate = {
 		}
 	}
 }
-prk_run_candidate = {
+prk_clear_list = {
 	scope = character
-	is_valid = {
-		root = { has_variable = candidate }
-	}
 	effect = {
-		root = {
-			set_variable = candidate
-		}
+		clear_variable_list = prk_candidates
 	}
 }
 prk_run_candidate = {
 	scope = character
 	is_valid = {
 		root = { NOT = { has_variable = candidate } }
+	}
+	effect = {
+		root = {
+			set_variable = candidate
+			add_gold = 100
+		}
+	}
+}
+prk_resign_candidate = {
+	scope = character
+	is_valid = {
+		root = { has_variable = candidate }
 	}
 	effect = {
 		root = {
