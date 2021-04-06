@@ -2,7 +2,7 @@ k_incheon = {
 		color = { 84 201 161 }
 		color2 = { 255 255 255 }
 		
-		capital = c_i_guwol
+		capital = c_michuhol
 		
 		ai_primary_priority = {
 			if = {
@@ -13,15 +13,26 @@ k_incheon = {
 			}
 		}
 		
-		d_s.incheon = {
+		d_incheon = {
 			color = { 84 201 161 }
 			color2 = { 255 255 255 }
 			
-			capital = c_i_guwol
-			c_i_guwol = {
+			capital = c_incheon
+			c_incheon = {
 				color = { 84 201 161 }
 				color2 = { 255 255 255 }
-				
+				b_65 = { # Michuhol
+					province = 65
+					
+					color = { 0 195 160 }
+					color2 = { 255 255 255 }
+				}
+				b_66 = { # Yeonsu
+					province = 66
+					
+					color = { 42 198 33 }
+					color2 = { 255 255 255 }
+				}
 				b_67 = { # Guwol
 					province = 67
 					
@@ -39,39 +50,6 @@ k_incheon = {
 					color = { 63 126 189 }
 					color2 = { 255 255 255 }
 				}
-			}
-			c_michuhol = {
-				color = { 0 195 160 }
-				color2 = { 255 255 255 }
-				
-				b_65 = { # Michuhol
-					province = 65
-					
-					color = { 0 195 160 }
-					color2 = { 255 255 255 }
-				}
-			}
-			c_yeonsu = {
-				color = { 42 198 33 }
-				color2 = { 255 255 255 }
-				
-				b_66 = { # Yeonsu
-					province = 66
-					
-					color = { 42 198 33 }
-					color2 = { 255 255 255 }
-				}
-			}
-		}
-		d_n.incheon = {
-			color = { 42 183 158 }
-			color2 = { 255 255 255 }
-			
-			capital = c_gyeyang
-			c_gyeyang = {
-				color = { 42 183 158 }
-				color2 = { 255 255 255 }
-				
 				b_61 = { # Gyeyang
 					province = 61
 					
@@ -79,18 +57,7 @@ k_incheon = {
 					color2 = { 255 255 255 }
 				}
 			}
-			c_geomdan = {
-				color = { 85 21 141 }
-				color2 = { 255 255 255 }
-				
-				b_1427 = { # Geomdan
-					province = 1427
-					
-					color = { 85 21 141 }
-					color2 = { 255 255 255 }
-				}
-			}
-			c_oryuwang = {
+			c_seogu = {
 				color = { 0 180 30 }
 				color2 = { 255 255 255 }
 				
@@ -100,11 +67,6 @@ k_incheon = {
 					color = { 0 180 30 }
 					color2 = { 255 255 255 }
 				}
-			}
-			c_cheongra = {
-				color = { 168 192 32 }
-				color2 = { 255 255 255 }
-				
 				b_64 = { # Cheongra
 					province = 64
 					
@@ -344,6 +306,12 @@ k_incheon = {
 					province = 1432
 					
 					color = { 43 33 143 }
+					color2 = { 255 255 255 }
+				}
+				b_1427 = { # Geomdan
+					province = 1427
+					
+					color = { 85 21 141 }
 					color2 = { 255 255 255 }
 				}
 			}

@@ -114,16 +114,13 @@ widget = {
 			using = Window_Position_MainTab_Hide
 			
 			on_start = "[GetVariableSystem.Clear( 'right_window_open')]"
+			on_start = "[GetScriptedGui('prk_clear_list').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		}
-		
-		margin_widget = {
-			size = { 100% 100% }
-			margin = { 0 40 }
-			margin_right = { 30 }
-			ignoreinvisible = yes
 			widget = {
 				size = { 100% 100% }
 				using = Window_Margins
+				margin_top = 5
+				margin_bottom = 5
 				vbox = {
 					header_pattern = {
 						using = Window_Margins
@@ -131,7 +128,7 @@ widget = {
 						blockoverride "header_text"
 						{
 							text = "PRK_VIEW_TITLE"
-							margin = { -30 0 }
+							margin = { -10 0 }
 							parentanchor = center
 						}
 						blockoverride "button_close"
@@ -140,38 +137,93 @@ widget = {
 							onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 						}
 					}
-
 					hbox = {
 						using = Window_Margins
 						layoutpolicy_horizontal = expanding
+						margin_top = 5
 						margin_bottom = 5
-					
-						fixedgridbox = {
-							datamodel = "[GetPlayer.MakeScope.GetList('prk_president')]"
+						state = {
+							name = get_list
+							trigger_on_create = yes
+							duration = 2
+							on_start = "[GetScriptedGui('prk_get_president').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							next = get_list
+						}
+						vbox = {
+							text_single = { text = "현직:" }
+							datacontext = "[GetPlayer.MakeScope.Var('prk_president').GetCharacter]"
+							portrait_head = {}
+							text_single = { text = "[Character.GetFirstNameNicknamedNoTooltip]" }
+						}
+						vbox = {
+							
+							text_single = { text = "Next Election:" }
+							text_single = { text = "2445.1.1" }
+						}
+					}
+					text_single = { text = "후보들" }
+					hbox = {
+						using = Window_Margins
+							datamodel = "[GetPlayer.MakeScope.GetList('prk_candidates')]"
 							state = {
 										name = get_list
 										trigger_on_create = yes
 										duration = 2
-										on_start = "[GetScriptedGui('prk_president').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+										on_start = "[GetScriptedGui('prk_candidate').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 										next = get_list
 									}
 							item = {
-								flowcontainer = {
-									datacontext = "[Scope.GetCharacter]"
-									portrait_head_small = {}
-									text_single = { text = "Incumbent" }
+								vbox = {
+									portrait_head_small = {
+										datacontext = "[Scope.GetCharacter]"
+									}
+									text_single = { text = "[Scope.GetCharacter.GetFirstNameNicknamedOrMe]" }
+								}
+							}
+						
+					}
+					hbox = {
+						button_standard = {
+							name = "run_candidate"
+							size = { 100 25 }
+							datacontext = "[GetScriptedGui('prk_run_candidate')]"
+							enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							hbox = {
+								margin = { 20 0 }
+								margin_right = 10
+
+								text_single = {
+									layoutpolicy_horizontal = growing
+									text = "출마"
+									align = nobaseline
+								}
+							}
+						}
+						button_standard = {
+							name = "resign_candidate"
+							size = { 100 25 }
+							datacontext = "[GetScriptedGui('prk_resign_candidate')]"
+							enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							hbox = {
+								margin = { 20 0 }
+								margin_right = 10
+
+								text_single = {
+									layoutpolicy_horizontal = growing
+									text = "사퇴"
+									align = nobaseline
 								}
 							}
 						}
 					}
-
-					icon = {
-						size = { 200 200 }
-						texture = "gfx/interface/component_overlay/overlay_texture.dds"
-					}
+				#	icon = {
+				#		size = { 200 200 }
+				#		texture = "gfx/interface/component_overlay/overlay_texture.dds"
+				#	}
 				}
 			}
-		}
 	}
 	######################################################
 	#################### TOP RIGHT #######################

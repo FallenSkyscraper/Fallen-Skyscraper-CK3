@@ -35,18 +35,61 @@ prk_gui_abc = {
 		has_landed_title = k_prk
 	}
 }
-prk_president = {
+prk_get_president = {
 	scope = character
 	effect = {
 		title:k_prk = {
 			holder = {
 				root = {
-					add_to_variable_list = {
+					set_variable = {
 						name = prk_president
-						target = prev
+						 value = prev
 					}
 				}
 			}
+		}
+	}
+}
+prk_candidate = {
+	scope = character
+	effect = {
+		every_living_character = {
+			limit = { has_variable = candidate }
+			root = {
+				add_to_variable_list = {
+					name = prk_candidates
+					target = prev
+				}
+			}
+		}
+	}
+}
+prk_clear_list = {
+	scope = character
+	effect = {
+		clear_variable_list = prk_candidates
+	}
+}
+prk_run_candidate = {
+	scope = character
+	is_valid = {
+		root = { NOT = { has_variable = candidate } }
+	}
+	effect = {
+		root = {
+			set_variable = candidate
+			add_gold = 100
+		}
+	}
+}
+prk_resign_candidate = {
+	scope = character
+	is_valid = {
+		root = { has_variable = candidate }
+	}
+	effect = {
+		root = {
+			remove_variable = candidate
 		}
 	}
 }
