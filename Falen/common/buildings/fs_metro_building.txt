@@ -1,0 +1,190 @@
+#############건물##############
+#거대광장
+Giant_Square_01 = {
+	construction_time = 545
+
+    type_icon = "icon_building_hunting_grounds.dds"
+	can_construct_potential = {
+		has_building_or_higher = Metropolis_01
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = 245
+	
+	province_modifier = {
+		monthly_income = 2
+		fort_level = -0.3
+		levy_size = 0.05
+	}
+	
+	next_building = Giant_Square_02
+}
+
+#국제시장
+International_market_01 = {
+	construction_time = 625
+
+    type_icon = "icon_building_hunting_grounds.dds"
+	can_construct_potential = {
+		has_building_or_higher = Metropolis_01
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = 320
+	
+	province_modifier = {
+		monthly_income = 2.5
+		fort_level = -0.2
+		development_growth_factor = 0.035
+	}
+	
+	next_building = International_market_02
+}
+
+#장벽
+Great_Wall_01 = {
+	construction_time = 400
+
+    type_icon = "icon_building_hunting_grounds.dds"
+	can_construct_potential = {
+		has_building_or_higher = Metropolis_01
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = 175
+	
+	province_modifier = {
+		monthly_income = -1
+		fort_level = 1.25
+		development_growth_factor = -0.01
+	}
+	
+	next_building = Great_Wall_02
+}
+
+#궁전
+Palace_01 = {
+	construction_time = 700
+
+    type_icon = "icon_building_hunting_grounds.dds"
+	can_construct_potential = {
+		has_building_or_higher = Metropolis_01
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = 300
+	
+	province_modifier = {
+	    monthly_piety = 0.8
+		monthly_income = -1
+		fort_level = 0.3
+		monthly_province_control_change_factor = 0.05
+	}
+	
+	next_building = Palace_02
+}
+
+#연병장
+parade_ground_01 = {
+	construction_time = 365
+
+    type_icon = "icon_building_hunting_grounds.dds"
+	can_construct_potential = {
+		has_building_or_higher = Metropolis_01
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = 150
+	
+	province_modifier = {
+		monthly_income = -0.7
+		levy = 350
+	    garrison = 50
+	}
+	
+	next_building = parade_ground_02
+}
+
+#해자
+moat_01 = {
+	construction_time = 500
+
+    type_icon = "icon_building_hunting_grounds.dds"
+	can_construct_potential = {
+		has_building_or_higher = Metropolis_01
+		has_building_or_higher = Great_Wall_01
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = 345
+	
+	province_modifier = {
+		monthly_income = -1
+		fort_level = 1.2
+	}
+	
+	next_building = moat_02
+}
+#관개수로
+irrigation_water_01 = {
+	construction_time = 425
+
+    type_icon = "icon_building_hunting_grounds.dds"
+	can_construct_potential = {
+		has_building_or_higher = Metropolis_01
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = 225
+	
+	province_modifier = {
+		monthly_income = -0.5
+		development_growth_factor = 0.02
+	}
+	
+	next_building = irrigation_water_02
+}
+
+#수문
+Hydrologic_gate_01 = {
+	construction_time = 425
+
+    type_icon = "icon_building_hunting_grounds.dds"
+	can_construct_potential = {
+		has_building_or_higher = Metropolis_01
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = 225
+	
+	province_modifier = {
+		monthly_income = -0.75
+		development_growth_factor = 0.03
+	}
+
+	next_building = Hydrologic_gate_02
+}

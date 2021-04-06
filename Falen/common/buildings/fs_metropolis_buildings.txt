@@ -1,0 +1,39 @@
+#홀딩
+Metropolis_01 = {
+    construction_time = 3250
+	cost_gold = 1500
+	
+	type_icon = "icon_building_hunting_grounds.dds"
+	asset = {
+		type = pdxmesh
+		names = {
+			"Metropolis_01_mesh"
+			"Metropolis_01_b_mesh"
+		}
+		illustration = @holding_illustration_western
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+	}
+	
+	flag = Metropolis
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+		barony_cannot_construct_holding = no
+	}
+	
+	can_construct_showing_failures_only = {
+		building_requirement_tribal_holding_in_county = no
+	}
+	
+	levy = 200
+	garrison = 100
+	
+	province_modifier = {
+		monthly_income = 3.5
+		fort_level = 4
+	}
+	
+	ai_value = {
+		base = 100
+	}
+}
