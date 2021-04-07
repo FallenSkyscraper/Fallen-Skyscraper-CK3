@@ -7,10 +7,36 @@ cheondo_religion = {
 	doctrine = eastern_hostility_doctrine	# 종교 적대 시 소속
 	# doctrine = unreformed_faith_doctrine	# 파간 설정
 	# pagan_roots = yes
-	
+
+	#Main Group
+	doctrine = doctrine_spiritual_head
+	doctrine = doctrine_gender_equal
+	doctrine = doctrine_pluralism_pluralistic
+	doctrine = doctrine_theocracy_lay_clergy
+
+	#Marriage
+	doctrine = doctrine_monogamy
+	doctrine = doctrine_divorce_approval
+	doctrine = doctrine_bastardry_legitimization
+	doctrine = doctrine_consanguinity_cousins
+
+	#Crimes
+	doctrine = doctrine_homosexuality_shunned
+	doctrine = doctrine_adultery_men_shunned
+	doctrine = doctrine_adultery_women_shunned
+	doctrine = doctrine_kinslaying_close_kin_crime
+	doctrine = doctrine_deviancy_crime
+	doctrine = doctrine_witchcraft_shunned
+
+	#Clerical Functions
+	doctrine = doctrine_clerical_function_alms_and_pacification
+	doctrine = doctrine_clerical_gender_either
+	doctrine = doctrine_clerical_marriage_disallowed
+	doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
+
 	traits = {	# 트레잇
-		virtues = { trait1 trait2 trait3 }	# 미덕
-		sins = { trait4 trait5 trait6 }	# 죄악
+		virtues = { temperate generous just }	# 미덕
+		sins = { greedy sadistic arbitrary }	# 죄악
 	}
 	
 	reserved_male_names = {	# 남성 이름
