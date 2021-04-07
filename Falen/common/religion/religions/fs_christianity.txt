@@ -1,27 +1,67 @@
 christianity_religion = {
-	family = rf_western	# 소속 종교 패밀리
+	family = rf_abrahamic	# 소속 종교 패밀리
 	# graphical_faith = religion_gfx	# 종교 gfx 설정
-	# piety_icon_group = 	# 신앙심 아이콘 설정
-	# doctrine_background_icon = 	# 교리 배경 설정
-	
-	doctrine = religion_hostility_doctrine	# 종교 적대 시 소속
-	# doctrine = unreformed_faith_doctrine	# 파간 설정
-	# pagan_roots = yes
-	
-	traits = {	# 트레잇
-		virtues = { trait1 trait2 trait3 }	# 미덕
-		sins = { trait4 trait5 trait6 }	# 죄악
+	piety_icon_group = "christian"
+
+	doctrine_background_icon = core_tenet_banner_christian.dds
+	doctrine = abrahamic_hostility_doctrine
+
+	#Main Group
+	doctrine = doctrine_spiritual_head
+	doctrine = doctrine_gender_male_dominated
+	doctrine = doctrine_pluralism_righteous
+	doctrine = doctrine_theocracy_temporal
+
+	#Marriage
+	doctrine = doctrine_monogamy
+	doctrine = doctrine_divorce_approval
+	doctrine = doctrine_bastardry_legitimization
+	doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+
+	#Crimes
+	doctrine = doctrine_homosexuality_shunned
+	doctrine = doctrine_adultery_men_shunned
+	doctrine = doctrine_adultery_women_crime
+	doctrine = doctrine_kinslaying_close_kin_crime
+	doctrine = doctrine_deviancy_crime
+	doctrine = doctrine_witchcraft_crime
+
+	#Clerical Functions
+	doctrine = doctrine_clerical_function_taxation
+	doctrine = doctrine_clerical_gender_male_only
+	doctrine = doctrine_clerical_marriage_disallowed
+	doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
+
+	#Special Doctrine for Christian Syncretism
+	doctrine = special_doctrine_is_christian_faith
+
+	traits = {
+		virtues = { forgiving compassionate chaste }
+		sins = { vengeful sadistic lustful }
 	}
 	
-	reserved_male_names = {	# 남성 이름
+	reserved_male_names = {
+		Andrew Antoninus Bartolomeus Benedict Christian Christopher Clement Constantine David Demetrius Eustace George Gregory
+		Hans Isaac Joakim Jacob John Jordan Joseph Laurence Magnus Marcus Martin Matthew Michael Nicholas Patrick Paul Peter Philip
+		Salvador Samuel Sebastian Simon Stephen Thomas Abraham Alexander Daniel Jesus Job Joshua Cyrus Luke Zachariah
 	}
-	reserved_female_names = {	# 여성 이름
-	}
-	
-	custom_faith_icons = {	# 분파 생성 용 아이콘 목록
+	reserved_female_names = {
+		Anna Beatrice Benedicta Brigid Catherine Cecilia Christina Clementia Constance Dorothy Elisabeth Joan Judith Juliana Helen
+		Magdalena Margaret Maria Marine Patricia Philippa Rachel Sarah Sophia Stephania
 	}
 
-	holy_order_names = {	# 그룹 공용 기사단 이름
+	custom_faith_icons = {
+		custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5 custom_faith_6 custom_faith_7 custom_faith_8 custom_faith_9 custom_faith_10 dualism_custom_1 zoroastrian_custom_1 zoroastrian_custom_2 buddhism_custom_1 buddhism_custom_2 buddhism_custom_3 buddhism_custom_4 taoism_custom_1 yazidi_custom_1 sunni_custom_2 sunni_custom_3 sunni_custom_4 ibadi_custom muhakkima_1 muhakkima_2 muhakkima_4 muhakkima_5 muhakkima_6 judaism_custom_1 custom_faith_fp1_fenrir custom_faith_fp1_irminsul custom_faith_fp1_jormungandr custom_faith_fp1_odins_ravens custom_faith_fp1_runestone_moon custom_faith_fp1_thors_hammer custom_faith_fp1_valknut custom_faith_fp1_yggdrasil
+	}
+
+	holy_order_names = {
+		{ name = "holy_order_knights_of_the_chalice" }
+		{ name = "holy_order_order_of_the_holy_communion" }
+		{ name = "holy_order_knights_of_the_first_gospel" }
+		{ name = "holy_order_guardians_of_the_shroud" }
+		{ name = "holy_order_knights_of_the_reliquary" }
+		{ name = "holy_order_warriors_of_the_cross" }
+		{ name = "holy_order_christian" coat_of_arms = "ho_christian" }
 	}
 	
 	holy_order_maa = { huscarl }	# 기사단에서 많이 쓰일 병종
@@ -181,10 +221,7 @@ christianity_religion = {
 	faiths = {
 		catholic = {	# 하위 종교
 			color = { 255 255 0 }	# 지도 상에서 표시될 색깔
-			icon = default_custom	# 종교 아이콘
-			# reformed_icon = 	# 파간 종교개혁 시 아이콘 대체 가능
-		
-			# graphical_faith = 	# 종교 gfx 설정
+			graphical_faith = catholic_gfx	# 종교 gfx 설정
 			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
 			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
 		
@@ -222,15 +259,89 @@ christianity_religion = {
 			# doctrine = 	# 성직자의 결혼: 
 			# doctrine = 	# 성직자의 지위: 
 			
-			# doctrine = 	# 교리 변경이나 추가 가능
-			
-			# doctrine = tenet	# 원리 설정
-			# doctrine = tenet
-			# doctrine = tenet
+			#Special Tolerance
+			doctrine = special_doctrine_ecumenical_christian
+
+			#Tenets
+			doctrine = tenet_communion
+			doctrine = tenet_armed_pilgrimages
+			doctrine = tenet_monasticism
 			
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
 			# localization = {}	# localization 변경 가능
+		}
+		coptic = {
+			color = { 210 235 87 }
+		#	religious_head = d_coptic_papacy
+		#	holy_site = alexandria
+		#	holy_site = jerusalem
+		#	holy_site = antioch
+		#	holy_site = aksum
+		#	holy_site = napata
+
+			#Special Tolerance
+			doctrine = special_doctrine_ecumenical_christian
+
+			#Main Group
+			doctrine = doctrine_pluralism_pluralistic
+
+			#Tenets
+			doctrine = tenet_monasticism
+			doctrine = tenet_alexandrian_catechism
+			doctrine = tenet_communal_identity
+
+			holy_order_names = {
+				{ name = "holy_order_order_of_saint_anthony" }
+			}
+
+			localization = { # Utilizes the 'East Christian' Saints, shared by Coptics and Armenians
+				#HealthGod
+				HealthGodName = east_christian_health_god_name
+				HealthGodNamePossessive = east_christian_health_god_name_possessive
+				HealthGodSheHe = CHARACTER_SHEHE_HE
+				HealthGodHerHis = CHARACTER_HERHIS_HIS
+				HealthGodHerHim = CHARACTER_HERHIM_HIM
+				
+				#FertilityGod
+				FertilityGodName = east_christian_fertility_god_name
+				FertilityGodNamePossessive = east_christian_fertility_god_name_possessive
+				FertilityGodSheHe = CHARACTER_SHEHE_SHE
+				FertilityGodHerHis = CHARACTER_HERHIS_HER
+				FertilityGodHerHim = CHARACTER_HERHIM_HER
+
+				#WealthGod
+				WealthGodName = east_christian_wealth_god_name
+				WealthGodNamePossessive = east_christian_wealth_god_name_possessive
+				WealthGodSheHe = CHARACTER_SHEHE_HE
+				WealthGodHerHis = CHARACTER_HERHIS_HIS
+				WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+				#HouseholdGod
+				HouseholdGodName = east_christian_household_god_name
+				HouseholdGodNamePossessive = east_christian_household_god_name_possessive
+				HouseholdGodSheHe = CHARACTER_SHEHE_HE
+				HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+				HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+				#KnowledgeGod
+				KnowledgeGodName = east_christian_knowledge_god_name
+				KnowledgeGodNamePossessive = east_christian_knowledge_god_name_possessive
+				KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+				KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+				KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+				#WarGod
+				WarGodName = east_christian_war_god_name
+				WarGodNamePossessive = east_christian_war_god_name_possessive
+				WarGodSheHe = CHARACTER_SHEHE_HE
+				WarGodHerHis = CHARACTER_HERHIS_HIS
+				WarGodHerHim = CHARACTER_HERHIM_HIM
+
+				#Popes despite lacking rank
+				ReligiousHeadName = coptic_religious_head_title
+				ReligiousHeadTitleName = coptic_religious_head_title_name
+			}			
 		}
 	}
 }

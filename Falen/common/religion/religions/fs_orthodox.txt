@@ -1,172 +1,209 @@
 orthodox_religion = {
-	family = rf_western	# 소속 종교 패밀리
-	# graphical_faith = religion_gfx	# 종교 gfx 설정
-	# piety_icon_group = 	# 신앙심 아이콘 설정
-	# doctrine_background_icon = 	# 교리 배경 설정
-	
-	doctrine = western_hostility_doctrine	# 종교 적대 시 소속
-	# doctrine = unreformed_faith_doctrine	# 파간 설정
-	# pagan_roots = yes
-	
-	traits = {	# 트레잇
-		virtues = { trait1 trait2 trait3 }	# 미덕
-		sins = { trait4 trait5 trait6 }	# 죄악
-	}
-	
-	reserved_male_names = {	# 남성 이름
-	}
-	reserved_female_names = {	# 여성 이름
-	}
-	
-	custom_faith_icons = {	# 분파 생성 용 아이콘 목록
+	family = rf_abrahamic
+
+	doctrine_background_icon = core_tenet_banner_christian.dds
+	doctrine = abrahamic_hostility_doctrine
+
+	#Main Group
+	doctrine = doctrine_spiritual_head
+	doctrine = doctrine_gender_male_dominated
+	doctrine = doctrine_pluralism_righteous
+	doctrine = doctrine_theocracy_temporal
+
+	#Marriage
+	doctrine = doctrine_monogamy
+	doctrine = doctrine_divorce_approval
+	doctrine = doctrine_bastardry_legitimization
+	doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+
+	#Crimes
+	doctrine = doctrine_homosexuality_shunned
+	doctrine = doctrine_adultery_men_shunned
+	doctrine = doctrine_adultery_women_crime
+	doctrine = doctrine_kinslaying_close_kin_crime
+	doctrine = doctrine_deviancy_crime
+	doctrine = doctrine_witchcraft_crime
+
+	#Clerical Functions
+	doctrine = doctrine_clerical_function_taxation
+	doctrine = doctrine_clerical_gender_male_only
+	doctrine = doctrine_clerical_marriage_disallowed
+	doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
+
+	#Special Doctrine for Christian Syncretism
+	doctrine = special_doctrine_is_christian_faith
+
+	traits = {
+		virtues = { forgiving compassionate chaste }
+		sins = { vengeful sadistic lustful }
 	}
 
-	holy_order_names = {	# 그룹 공용 기사단 이름
+	reserved_male_names = {
+		Andrew Antoninus Bartolomeus Benedict Christian Christopher Clement Constantine David Demetrius Eustace George Gregory
+		Hans Isaac Joakim Jacob John Jordan Joseph Laurence Magnus Marcus Martin Matthew Michael Nicholas Patrick Paul Peter Philip
+		Salvador Samuel Sebastian Simon Stephen Thomas Abraham Alexander Daniel Jesus Job Joshua Cyrus Luke Zachariah
 	}
-	
-	holy_order_maa = { huscarl }	# 기사단에서 많이 쓰일 병종
+	reserved_female_names = {
+		Anna Beatrice Benedicta Brigid Catherine Cecilia Christina Clementia Constance Dorothy Elisabeth Joan Judith Juliana Helen
+		Magdalena Margaret Maria Marine Patricia Philippa Rachel Sarah Sophia Stephania
+	}
+
+	custom_faith_icons = {
+		custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5 custom_faith_6 custom_faith_7 custom_faith_8 custom_faith_9 custom_faith_10 dualism_custom_1 zoroastrian_custom_1 zoroastrian_custom_2 buddhism_custom_1 buddhism_custom_2 buddhism_custom_3 buddhism_custom_4 taoism_custom_1 yazidi_custom_1 sunni_custom_2 sunni_custom_3 sunni_custom_4 ibadi_custom muhakkima_1 muhakkima_2 muhakkima_4 muhakkima_5 muhakkima_6 judaism_custom_1 custom_faith_fp1_fenrir custom_faith_fp1_irminsul custom_faith_fp1_jormungandr custom_faith_fp1_odins_ravens custom_faith_fp1_runestone_moon custom_faith_fp1_thors_hammer custom_faith_fp1_valknut custom_faith_fp1_yggdrasil
+	}
+
+	holy_order_names = {
+		{ name = "holy_order_knights_of_the_chalice" }
+		{ name = "holy_order_order_of_the_holy_communion" }
+		{ name = "holy_order_knights_of_the_first_gospel" }
+		{ name = "holy_order_guardians_of_the_shroud" }
+		{ name = "holy_order_knights_of_the_reliquary" }
+		{ name = "holy_order_warriors_of_the_cross" }
+		{ name = "holy_order_christian" coat_of_arms = "ho_christian" }
+	}
+
+	holy_order_maa = { teutonic_knights }
 	
 	localization = {
 		#HighGod
-		HighGodName = orthodox_high_god_name	# 신 이름
-		HighGodNamePossessive = orthodox_high_god_name_possessive	# 신 이름 소유격
-		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
+		HighGodName = christianity_high_god_name
+		HighGodNamePossessive = christianity_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
 		HighGodHerselfHimself = CHARACTER_HIMSELF
 		HighGodHerHis = CHARACTER_HERHIS_HIS
-		HighGodNameAlternate = orthodox_high_god_name_alternate	# 최고신은 이명 사용 가능
-		HighGodNameAlternatePossessive = orthodox_high_god_name_alternate_possessive
+		HighGodNameAlternate = christianity_high_god_name_alternate
+		HighGodNameAlternatePossessive = christianity_high_god_name_alternate_possessive
 
-		#CreatorName
-		CreatorName = orthodox_creator_god_name
-		CreatorNamePossessive = orthodox_creator_god_name_possessive
+		#Creator
+		CreatorName = christianity_creator_god_name
+		CreatorNamePossessive = christianity_creator_god_name_possessive
 		CreatorSheHe = CHARACTER_SHEHE_HE
 		CreatorHerHis = CHARACTER_HERHIS_HIS
 		CreatorHerHim = CHARACTER_HERHIM_HIM
 
 		#HealthGod
-		HealthGodName = orthodox_health_god_name
-		HealthGodNamePossessive = orthodox_health_god_name_possessive
+		HealthGodName = christianity_health_god_name
+		HealthGodNamePossessive = christianity_health_god_name_possessive
 		HealthGodSheHe = CHARACTER_SHEHE_HE
 		HealthGodHerHis = CHARACTER_HERHIS_HIS
 		HealthGodHerHim = CHARACTER_HERHIM_HIM
 		
 		#FertilityGod
-		FertilityGodName = orthodox_fertility_god_name
-		FertilityGodNamePossessive = orthodox_fertility_god_name_possessive
+		FertilityGodName = christianity_fertility_god_name
+		FertilityGodNamePossessive = christianity_fertility_god_name_possessive
 		FertilityGodSheHe = CHARACTER_SHEHE_HE
 		FertilityGodHerHis = CHARACTER_HERHIS_HIS
 		FertilityGodHerHim = CHARACTER_HERHIM_HIM
 
 		#WealthGod
-		WealthGodName = orthodox_wealth_god_name
-		WealthGodNamePossessive = orthodox_wealth_god_name_possessive
+		WealthGodName = christianity_wealth_god_name
+		WealthGodNamePossessive = christianity_wealth_god_name_possessive
 		WealthGodSheHe = CHARACTER_SHEHE_HE
 		WealthGodHerHis = CHARACTER_HERHIS_HIS
 		WealthGodHerHim = CHARACTER_HERHIM_HIM
 
 		#HouseholdGod
-		HouseholdGodName = orthodox_household_god_name
-		HouseholdGodNamePossessive = orthodox_household_god_name_possessive
+		HouseholdGodName = christianity_household_god_name
+		HouseholdGodNamePossessive = christianity_household_god_name_possessive
 		HouseholdGodSheHe = CHARACTER_SHEHE_HE
 		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
 		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
 
 		#FateGod
-		FateGodName = orthodox_fate_god_name
-		FateGodNamePossessive = orthodox_fate_god_name_possessive
+		FateGodName = christianity_fate_god_name
+		FateGodNamePossessive = christianity_fate_god_name_possessive
 		FateGodSheHe = CHARACTER_SHEHE_HE
 		FateGodHerHis = CHARACTER_HERHIS_HIS
 		FateGodHerHim = CHARACTER_HERHIM_HIM
 
-		#Knowledge
-		KnowledgeGodName = orthodox_knowledge_god_name
-		KnowledgeGodNamePossessive = orthodox_knowledge_god_name_possessive
+		#KnowledgeGod
+		KnowledgeGodName = christianity_knowledge_god_name
+		KnowledgeGodNamePossessive = christianity_knowledge_god_name_possessive
 		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
 		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
 		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
 
 		#WarGod
-		WarGodName = orthodox_war_god_name
-		WarGodNamePossessive = orthodox_war_god_name_possessive
+		WarGodName = christianity_war_god_name
+		WarGodNamePossessive = christianity_war_god_name_possessive
 		WarGodSheHe = CHARACTER_SHEHE_HE
 		WarGodHerHis = CHARACTER_HERHIS_HIS
 		WarGodHerHim = CHARACTER_HERHIM_HIM
 
 		#TricksterGod
-		TricksterGodName = orthodox_trickster_god_name
-		TricksterGodNamePossessive = orthodox_trickster_god_name_possessive
+		TricksterGodName = christianity_trickster_god_name
+		TricksterGodNamePossessive = christianity_trickster_god_name_possessive
 		TricksterGodSheHe = CHARACTER_SHEHE_HE
 		TricksterGodHerHis = CHARACTER_HERHIS_HIS
 		TricksterGodHerHim = CHARACTER_HERHIM_HIM
 
 		#NightGod
-		NightGodName = orthodox_night_god_name
-		NightGodNamePossessive = orthodox_night_god_name_possessive
+		NightGodName = christianity_night_god_name
+		NightGodNamePossessive = christianity_night_god_name_possessive
 		NightGodSheHe = CHARACTER_SHEHE_HE
 		NightGodHerHis = CHARACTER_HERHIS_HIS
 		NightGodHerHim = CHARACTER_HERHIM_HIM
 
 		#WaterGod
-		WaterGodName = orthodox_water_god_name
-		WaterGodNamePossessive = orthodox_water_god_name_possessive
+		WaterGodName = christianity_water_god_name
+		WaterGodNamePossessive = christianity_water_god_name_possessive
 		WaterGodSheHe = CHARACTER_SHEHE_HE
 		WaterGodHerHis = CHARACTER_HERHIS_HIS
 		WaterGodHerHim = CHARACTER_HERHIM_HIM
 
-		PantheonTerm = orthodox_high_god_name
+		PantheonTerm = christianity_high_god_name
 		PantheonTermHasHave = pantheon_term_has
-		GoodGodNames = {	# 선신 이름들
-			orthodox_high_god_name
+		GoodGodNames = {
+			christianity_high_god_name
+			christianity_high_god_name_alternate
+			chistianity_good_god_jesus
+			chistianity_good_god_christ
 		}
-		
-		DevilName = orthodox_devil_name
-		DevilNamePossessive = orthodox_devil_name_possessive
+		DevilName = christianity_devil_name
+		DevilNamePossessive = christianity_devil_name_possessive
 		DevilSheHe = CHARACTER_SHEHE_HE
 		DevilHerHis = CHARACTER_HERHIS_HIS
 		DevilHerHis = CHARACTER_HERHIS_HIS
 		DevilHerselfHimself = CHARACTER_HIMSELF
-		EvilGodNames = {	# 악신 이름들
-			orthodox_devil_name
+		EvilGodNames = {
+			christianity_devil_name
+			christianity_evil_god_lucifer
+			christianity_evil_god_beelzebub
+			christianity_evil_god_mephistopheles
 		}
-		
-		HouseOfWorship = orthodox_house_of_worship
-		HouseOfWorshipPlural = orthodox_house_of_worship_plural
-		ReligiousSymbol = orthodox_religious_symbol
-		ReligiousText = orthodox_religious_text
+		HouseOfWorship = christianity_house_of_worship
+		HouseOfWorshipPlural = christianity_house_of_worship_plural
+		ReligiousSymbol = christianity_religious_symbol
+		ReligiousText = christianity_religious_text
 		ReligiousHeadName = orthodox_religious_head_title
-		ReligiousHeadTitleName = orthodox_religious_head_title_name
-		
-		DevoteeMale = orthodox_devotee_male
-		DevoteeMalePlural = orthodox_devotee_male_plural
-		DevoteeFemale = orthodox_devotee_female
-		DevoteeFemalePlural = orthodox_devotee_female_plural
-		DevoteeNeuter = orthodox_devotee_neuter
-		DevoteeNeuterPlural = orthodox_devotee_neuter_plural
-		
-		PriestMale = orthodox_priest_male
-		PriestMalePlural = orthodox_priest_male_plural
-		PriestFemale = orthodox_priest_male
-		PriestFemalePlural = orthodox_priest_male_plural
-		PriestNeuter = orthodox_priest_male
-		PriestNeuterPlural = orthodox_priest_male_plural
-		AltPriestTermPlural = orthodox_priest_alternate_plural
-		
-		BishopMale = orthodox_bishop
-		BishopMalePlural = orthodox_bishop_plural
-		BishopFemale = orthodox_bishop
-		BishopFemalePlural = orthodox_bishop_plural
-		BishopNeuter = orthodox_bishop
-		BishopNeuterPlural = orthodox_bishop_plural
-		
-		DivineRealm = orthodox_positive_afterlife
-		PositiveAfterLife = orthodox_positive_afterlife
-		NegativeAfterLife = orthodox_negative_afterlife
-		DeathDeityName = orthodox_death_deity_name
-		DeathDeityNamePossessive = orthodox_death_deity_name_possessive
+		ReligiousHeadTitleName = orthodox_religious_head_title_name			
+		DevoteeMale = christianity_devotee_male
+		DevoteeMalePlural = christianity_devotee_male_plural
+		DevoteeFemale = christianity_devotee_female
+		DevoteeFemalePlural = christianity_devotee_female_plural
+		DevoteeNeuter = christianity_devotee_neuter
+		DevoteeNeuterPlural = christianity_devotee_neuter_plural
+		PriestMale = christianity_priest_male
+		PriestMalePlural = christianity_priest_male_plural
+		PriestFemale = christianity_priest_male
+		PriestFemalePlural = christianity_priest_male_plural
+		PriestNeuter = christianity_priest_male
+		PriestNeuterPlural = christianity_priest_male_plural
+		AltPriestTermPlural = christianity_priest_alternate_plural
+		BishopMale = christianity_bishop
+		BishopMalePlural = christianity_bishop_plural
+		BishopFemale = christianity_bishop
+		BishopFemalePlural = christianity_bishop_plural
+		BishopNeuter = christianity_bishop
+		BishopNeuterPlural = christianity_bishop_plural
+		DivineRealm = christianity_positive_afterlife
+		PositiveAfterLife = christianity_positive_afterlife
+		NegativeAfterLife = christianity_negative_afterlife
+		DeathDeityName = christianity_death_deity_name
+		DeathDeityNamePossessive = christianity_death_deity_name_possessive
 		DeathDeitySheHe = CHARACTER_SHEHE_HE
 		DeathDeityHerHis = CHARACTER_HERHIS_HIS
-		
-		WitchGodName = orthodox_witchgodname_the_horned_god
+		WitchGodName = christianity_witchgodname_the_horned_god
 		WitchGodHerHis = CHARACTER_HERHIS_HIS
 		WitchGodSheHe = CHARACTER_SHEHE_HE
 		WitchGodHerHim = CHARACTER_HERHIM_HIM
@@ -174,67 +211,87 @@ orthodox_religion = {
 		WitchGodMotherFather = father
 
 
-		GHWName = ghw_crusade	# 대성전 이름
+		GHWName = ghw_crusade
 		GHWNamePlural = ghw_crusades
+
 	}
 	
 	faiths = {
-		orthodox = {	# 하위 종교
-			color = { 244 99 255 }	# 지도 상에서 표시될 색깔
-			icon = default_custom	# 종교 아이콘
-			# reformed_icon = 	# 파간 종교개혁 시 아이콘 대체 가능
-		
-			# graphical_faith = 	# 종교 gfx 설정
-			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
-			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
-		
-			# religion_head = 	# 종교 수장 작위
-		
-			# holy_site = site1	# 성지 설정
-			# holy_site = site2
-			# holy_site = site3
-			# holy_site = site4
-			# holy_site = site5
+		orthodox = {
+			color = { 0.7 0 0.5 }
+		#	religious_head = k_orthodox
 			
-			# 주요 교리
-			# doctrine = 	# 교계 지도자: 
-			# doctrine = 	# 성별에 대한 관점: 
-			# doctrine = 	# 종교적 태도: 
-			# doctrine = 	# 전통: 
+		#	holy_site = jerusalem
+		#	holy_site = constantinople
+		#	holy_site = rome
+		#	holy_site = alexandria
+		#	holy_site = antioch
 
-			# 결혼 교리
-			# doctrine = 	# 결혼 형식: 
-			# doctrine = 	# 이혼: 
-			# doctrine = 	# 적서제: 
-			# doctrine = 	# 근친 관계: 
+			#Special Tolerance
+			doctrine = special_doctrine_ecumenical_christian
 
-			# 범죄 교리
-			# doctrine = 	# 동성연애: 
-			# doctrine = 	# 남성의 간통: 
-			# doctrine = 	# 여성의 간통: 
-			# doctrine = 	# 친족 살해: 
-			# doctrine = 	# 이상성욕: 
-			# doctrine = 	# 마술: 
+			#Tenets
+			doctrine = tenet_communion
+			doctrine = tenet_pentarchy
+			doctrine = tenet_monasticism
 
-			# 성직자 교리
-			# doctrine = 	# 성직자의 기능: 
-			# doctrine = 	# 성직자의 성별: 
-			# doctrine = 	# 성직자의 결혼: 
-			# doctrine = 	# 성직자의 지위: 
-			
-			# doctrine = 	# 교리 변경이나 추가 가능
-			
-			# doctrine = tenet	# 원리 설정
-			# doctrine = tenet
-			# doctrine = tenet
-			
-			# reserved_male_names = {} # 남성 이름 추가 가능
-			# reserved_female_names = {} # 여성 이름 추가 가능
-			# localization = {}	# localization 변경 가능
+			holy_order_names = {
+				{ name = "holy_order_brotherhood_of_the_holy_sepulchre" }
+				{ name = "holy_order_knights_of_the_first_patrirchate" }
+				{ name = "holy_order_order_of_the_holy_virgin" }
+			}
+
+			localization = { # Utilizes the 'West Christian' Saints, shared by Catholics and Orthodox
+				#FertilityGod
+				FertilityGodName = west_christian_fertility_god_name
+				FertilityGodNamePossessive = west_christian_fertility_god_name_possessive
+				FertilityGodSheHe = CHARACTER_SHEHE_SHE
+				FertilityGodHerHis = CHARACTER_HERHIS_HER
+				FertilityGodHerHim = CHARACTER_HERHIM_HER
+
+				#WealthGod
+				WealthGodName = west_christian_wealth_god_name
+				WealthGodNamePossessive = west_christian_wealth_god_name_possessive
+				WealthGodSheHe = CHARACTER_SHEHE_HE
+				WealthGodHerHis = CHARACTER_HERHIS_HIS
+				WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+				#HouseholdGod
+				HouseholdGodName = west_christian_household_god_name
+				HouseholdGodNamePossessive = west_christian_household_god_name_possessive
+				HouseholdGodSheHe = CHARACTER_SHEHE_HE
+				HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+				HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+				#KnowledgeGod
+				KnowledgeGodName = west_christian_knowledge_god_name
+				KnowledgeGodNamePossessive = west_christian_knowledge_god_name_possessive
+				KnowledgeGodSheHe = CHARACTER_SHEHE_SHE
+				KnowledgeGodHerHis = CHARACTER_HERHIS_HER
+				KnowledgeGodHerHim = CHARACTER_HERHIM_HER
+
+				#WarGod
+				WarGodName = west_christian_war_god_name
+				WarGodNamePossessive = west_christian_war_god_name_possessive
+				WarGodSheHe = CHARACTER_SHEHE_HE
+				WarGodHerHis = CHARACTER_HERHIS_HIS
+				WarGodHerHim = CHARACTER_HERHIM_HIM
+
+				#WaterGod
+				WaterGodName = west_christian_water_god_name
+				WaterGodNamePossessive = west_christian_water_god_name_possessive
+				WaterGodSheHe = CHARACTER_SHEHE_HE
+				WaterGodHerHis = CHARACTER_HERHIS_HIS
+				WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+				# Patriarchs instead of Popes
+				ReligiousHeadName = orthodox_religious_head_title
+				ReligiousHeadTitleName = orthodox_religious_head_title_name				
+			}			
 		}
 		rusortho = {	# 하위 종교
 			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
-			icon = default_custom	# 종교 아이콘
+			icon = orthodox	# 종교 아이콘
 			# reformed_icon = 	# 파간 종교개혁 시 아이콘 대체 가능
 		
 			# graphical_faith = 	# 종교 gfx 설정
@@ -287,7 +344,7 @@ orthodox_religion = {
 		}
 		hamortho = {	# 하위 종교
 			color = { 146 59 153 }	# 지도 상에서 표시될 색깔
-			icon = default_custom	# 종교 아이콘
+			icon = orthodox	# 종교 아이콘
 			# reformed_icon = 	# 파간 종교개혁 시 아이콘 대체 가능
 		
 			# graphical_faith = 	# 종교 gfx 설정
