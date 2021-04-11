@@ -1,0 +1,73 @@
+found_silla_decision.0001 = {
+	type = character_event
+	title = found_silla_decision.0001.t
+	desc = {
+		desc = found_silla_decision.0001.desc
+	}
+	theme = realm
+	left_portrait = {
+		character = scope:scoped_emperor
+		animation = personality_honorable
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		hidden_effect = {
+		title:k_andong = {
+			save_scope_as = title_k_andong
+			set_de_jure_liege_title = title:e_silla
+		}
+		title:k_gyeongju = {
+			save_scope_as = title_k_gyeongju
+			set_de_jure_liege_title = title:e_silla
+		}
+		title:k_busan = {
+			save_scope_as = title_k_busan
+			set_de_jure_liege_title = title:e_silla
+		}
+		title:k_changwon = {
+			save_scope_as = title_k_changwon
+			set_de_jure_liege_title = title:e_silla
+		}
+		title:k_jinju = {
+			save_scope_as = title_k_jinju
+			set_de_jure_liege_title = title:e_silla
+		}
+		title:k_gaya = {
+			save_scope_as = title_k_gaya
+			set_de_jure_liege_title = title:e_silla
+		}
+		title:k_daegu = {
+			save_scope_as = title_daegu
+			set_de_jure_liege_title = title:e_silla
+		}
+		title:k_pohang = {
+			save_scope_as = title_k_pohang
+			set_de_jure_liege_title = title:e_silla
+		}
+		title:k_sangju = {
+			save_scope_as = title_k_sangju
+			set_de_jure_liege_title = title:e_silla
+		}
+		title:e_silla = {
+			save_scope_as = title:e_silla
+		}
+	}
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = title_change
+		add_claim_on_loss = no
+	}
+	title:e_silla = {
+		change_title_holder = {
+			holder = root
+			change = scope:title_change
+		}
+		save_scope_as = title_e_silla
+	}
+	resolve_title_and_vassal_change = scope:title_change
+	add_prestige = massive_prestige_gain	
+	option = {
+		name = desc = found_silla_decision.0001.a
+	}
+}

@@ -1,0 +1,57 @@
+found_silla_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+
+	desc = found_silla_decision_desc
+	selection_tooltip = found_silla_decision_tooltip
+	major = yes
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		OR = {
+			religion = religion:buddhism_religion
+			religion = religion:confucian_religion
+			religion = religion:pagan_religion
+		}
+		highest_held_title_tier = tier_kingdom
+		has_culture_group = culture_group:yeongnam_group
+	}
+
+	is_valid = {
+		completely_controls = title:k_andong
+		completely_controls = title:k_gyeongju
+		completely_controls = title:k_busan
+		completely_controls = title:k_changwon
+		completely_controls = title:k_jinju
+		completely_controls = title:k_gaya
+		completely_controls = title:k_daegu
+		completely_controls = title:k_pohang
+		completely_controls = title:k_sangju
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+	}
+
+	effect = {
+		custom_tooltip = restore_roman_empire_decision_effect_tooltip
+		show_as_tooltip = {
+			create_roman_empire_scripted_effect = yes
+		}
+		trigger_event = {
+			id = found_silla_decision.0001
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
