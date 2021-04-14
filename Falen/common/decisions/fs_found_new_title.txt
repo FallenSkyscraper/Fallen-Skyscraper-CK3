@@ -1,3 +1,4 @@
+#영남제국
 found_silla_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 
@@ -10,25 +11,23 @@ found_silla_decision = {
 	is_shown = {
 		is_ruler = yes
 		is_landed = yes
-		OR = {
-			religion = religion:buddhism_religion
-			religion = religion:confucian_religion
-			religion = religion:pagan_religion
-		}
 		highest_held_title_tier = tier_kingdom
 		has_culture_group = culture_group:yeongnam_group
+		NOR = {
+			religion = religion:confucian_religion
+			religion = religion:koreanism_religion
+			faith.religion = faith:steeler_pagan
+			religion = religion:buddhism_religion
+			religion = religion:christianity_religion
+			}
 	}
 
 	is_valid = {
-		completely_controls = title:k_andong
-		completely_controls = title:k_gyeongju
-		completely_controls = title:k_busan
-		completely_controls = title:k_changwon
-		completely_controls = title:k_jinju
-		completely_controls = title:k_gaya
-		completely_controls = title:k_daegu
-		completely_controls = title:k_pohang
-		completely_controls = title:k_sangju
+		completely_controls = title:c_andong
+		completely_controls = title:c_gyeongju
+		completely_controls = title:c_busan
+		completely_controls = title:c_sangju
+		completely_controls = title:c_pohang
 	}
 
 	is_valid_showing_failures_only = {
@@ -38,12 +37,238 @@ found_silla_decision = {
 	}
 
 	effect = {
-		custom_tooltip = restore_roman_empire_decision_effect_tooltip
-		show_as_tooltip = {
-			create_roman_empire_scripted_effect = yes
-		}
 		trigger_event = {
 			id = found_silla_decision.0001
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+#새에덴동산(영남)
+found_silla_christian_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+
+	desc = found_silla_christian_decision_desc
+	selection_tooltip = found_silla_christian_decision_tooltip
+	major = yes
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		highest_held_title_tier = tier_kingdom
+		has_culture_group = culture_group:yeongnam_group
+		religion = religion:christianity_religion
+	}
+
+	is_valid = {
+		completely_controls = title:c_andong
+		completely_controls = title:c_gyeongju
+		completely_controls = title:c_busan
+		completely_controls = title:c_sangju
+		completely_controls = title:c_pohang
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+	}
+
+	effect = {
+		trigger_event = {
+			id = found_silla_christian_decision.0001
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+#대동사회(유교, 영남)
+found_silla_confusion_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+
+	desc = found_silla_confusion_decision_desc
+	selection_tooltip = found_silla_confusion_decision_tooltip
+	major = yes
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		highest_held_title_tier = tier_kingdom
+		has_culture_group = culture_group:yeongnam_group
+		religion = religion:christianity_religion
+	}
+
+	is_valid = {
+		completely_controls = title:c_andong
+		completely_controls = title:c_gyeongju
+		completely_controls = title:c_busan
+		completely_controls = title:c_sangju
+		completely_controls = title:c_pohang
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+	}
+
+	effect = {
+		trigger_event = {
+			id = found_silla_confusion_decision.0001
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+#불국정토(불교, 영남)
+found_silla_buddhism_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+
+	desc = found_silla_buddhism_decision_desc
+	selection_tooltip = found_silla_buddhism_decision_tooltip
+	major = yes
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		highest_held_title_tier = tier_kingdom
+		has_culture_group = culture_group:yeongnam_group
+		religion = religion:christianity_religion
+	}
+
+	is_valid = {
+		completely_controls = title:c_andong
+		completely_controls = title:c_gyeongju
+		completely_controls = title:c_busan
+		completely_controls = title:c_sangju
+		completely_controls = title:c_pohang
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+	}
+
+	effect = {
+		trigger_event = {
+			id = found_silla_buddhism_decision.0001
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+#강철제국(태철교)
+found_silla_steel_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+
+	desc = found_silla_steel_decision_desc
+	selection_tooltip = found_silla_steel_decision_tooltip
+	major = yes
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		highest_held_title_tier = tier_kingdom
+		has_culture_group = culture_group:yeongnam_group
+		religion = religion:christianity_religion
+	}
+
+	is_valid = {
+		completely_controls = title:c_andong
+		completely_controls = title:c_gyeongju
+		completely_controls = title:c_busan
+		completely_controls = title:c_sangju
+		completely_controls = title:c_pohang
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+	}
+
+	effect = {
+		trigger_event = {
+			id = found_silla_steel_decision.0001
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+#대한민국 영남 임시정부(한국교)
+found_silla_koreanism_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+
+	desc = found_silla_koreanism_decision_desc
+	selection_tooltip = found_silla_koreanism_decision_tooltip
+	major = yes
+
+	ai_check_interval = 120
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		highest_held_title_tier = tier_kingdom
+		has_culture_group = culture_group:yeongnam_group
+		religion = religion:koreanism_religion
+	}
+
+	is_valid = {
+		completely_controls = title:c_andong
+		completely_controls = title:c_gyeongju
+		completely_controls = title:c_busan
+		completely_controls = title:c_sangju
+		completely_controls = title:c_pohang
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+	}
+
+	effect = {
+		trigger_event = {
+			id = found_silla_koreanism_decision.0001
 		}
 	}
 	
