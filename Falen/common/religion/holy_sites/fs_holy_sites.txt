@@ -69,7 +69,7 @@ guwol = { #인천
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	 
 }
 
 pyeongyang = {
@@ -78,7 +78,7 @@ pyeongyang = {
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	 
 }
 
 jeonju = {
@@ -87,7 +87,7 @@ jeonju = {
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	 
 }
 
 iksan = {
@@ -95,8 +95,7 @@ iksan = {
 	
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
-	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	} 
 }
 
 
@@ -108,35 +107,45 @@ pohang = {
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	 
 }
  
 gwangyang = {
 	county = c_gwangyang
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+		character_capital_county_monthly_development_growth_add = 0.1
+		stewardship = 1
+	} 
 }
 
 ulsan = {
 	county = c_ulsan
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+		monthly_county_control_change_add = 0.5 
+		cultural_head_fascination_mult = 0.05
+	} 
 }
  ####서울의 종로 jongno =  c_jongno
+
+jongno = {
+	county = c_jongno
+	
+	character_modifier = {
+	holy_order_hire_cost_mult = -0.1
+		supply_capacity_mult = 0.2
+	} 
+}
 
 dangjin ={ 
 	county = c_dangjin #####공홍에 있다.
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+		 religious_vassal_opinion =5
+		 
+		sway_scheme_power_mult = 0.1
+	} 
 }
 
 
@@ -153,8 +162,9 @@ hyesan   = {
 	
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
+dynasty_house_opinion = 5
 	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	 
 }
 
 
@@ -162,27 +172,32 @@ hamyang  = {
 	county = c_hamyang 
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		 
+		men_at_arms_maintenance = -0.2
+
 	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	 
 }
  
 hoeyang = {
 	county = c_hoeyang
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		monthly_piety_gain_per_knight_mult = 0.02
+		knight_effectiveness_mult = 0.1
+		 
 	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	 
 }
 
 yeoncheon = {
 	county = c_yeoncheon
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+	monthly_piety_gain_mult = 0.05
+		learning = 1
 	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	 
 }
   
 
@@ -190,7 +205,8 @@ gaeseong ={
 	county = c_gaeseong
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+	movement_speed = 0.05
+	naval_movement_speed_mult = 0.1
 	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	 
 }
