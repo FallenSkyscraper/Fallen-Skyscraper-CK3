@@ -5,7 +5,8 @@
 #################
 
 #####이거 전부 복붙하고 적용만 되도록 한거니까 나중에 flag좀 바꿔주셈
- 
+#####만약 성지 효과 겹치는 곳에서 다르게 하고 싶으면 하위 남작령을 성지로 하든지 해야함.
+#####종로가 겹치는 곳 많으니까 남작령 1개 정해주셈. 안 그럼 맨 아래의 종로로 될듯
 
 
 
@@ -15,7 +16,7 @@ jongno = {
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
-	flag = jerusalem_conversion_bonus # +20% County Conversion
+	##flag = jerusalem_conversion_bonus # +20% County Conversion
 }
 
 gyeongju  = {
@@ -23,9 +24,8 @@ gyeongju  = {
 	 
 	
 	character_modifier = {
-		name = holy_site_rome_effect_name
-		development_growth_factor = 0.1
-		stewardship = 1
+		##name = holy_site_bodh_gaya_effect_name
+		stress_loss_mult = 0.2
 	}
 }
 
@@ -33,9 +33,9 @@ hapcheon = {
 	county = c_hapcheon
 	
 	character_modifier = {
-		name = holy_site_cologne_effect_name
-		cultural_head_fascination_mult = 0.05
-		monthly_county_control_change_factor = 0.05
+		##name = holy_site_kusinagara_effect_name
+		fertility = 0.10
+		monthly_lifestyle_xp_gain_mult = 0.15
 	}
 }
 
@@ -43,9 +43,8 @@ hapcheon = {
 	county =  c_yangsan
 	
 	character_modifier = {
-		name = holy_site_santiago_effect_name
-		supply_duration = 0.2
-		holy_order_hire_cost_mult = -0.1
+		##name = holy_site_sarnath_effect_name
+		learning = 2
 	}
 }
 
@@ -54,9 +53,9 @@ juam   = {
 	barony = b_Songgwang
 	
 	character_modifier = {
-		name = holy_site_kent_effect_name
-		religious_vassal_opinion = 5
-		sway_scheme_power_mult = 0.1
+		##name = holy_site_ajanta_effect_name
+		negate_learning_penalty_add = 2
+		learning_per_piety_level = 1
 	}
 }
 
@@ -67,7 +66,8 @@ guwol = { #인천
 	county = c_i_guwol
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		cultural_head_fascination_mult = 0.05
+		monthly_county_control_change_factor = 0.05
 	}
 	 
 }
@@ -76,7 +76,8 @@ pyeongyang = {
 	county = c_pyongyang
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		development_growth_factor = 0.1
+		stewardship = 1
 	}
 	 
 }
@@ -94,7 +95,8 @@ iksan = {
 	county = c_iksan
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		supply_duration = 0.2
+		holy_order_hire_cost_mult = -0.1
 	} 
 }
 
@@ -105,7 +107,8 @@ pohang = {
 	county = c_pohang
 	
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		martial_per_piety_level = 1
+		knight_effectiveness_mult = 0.2
 	}
 	 
 }
@@ -114,8 +117,8 @@ gwangyang = {
 	county = c_gwangyang
 	
 	character_modifier = {
-		character_capital_county_monthly_development_growth_add = 0.1
-		stewardship = 1
+		controlled_province_advantage = 5
+		stress_loss_mult = 0.1
 	} 
 }
 
@@ -123,8 +126,8 @@ ulsan = {
 	county = c_ulsan
 	
 	character_modifier = {
-		monthly_county_control_change_add = 0.5 
-		cultural_head_fascination_mult = 0.05
+		monthly_piety_gain_per_knight_add = 0.1
+		skirmishers_toughness_mult = 0.1
 	} 
 }
  ####서울의 종로 jongno =  c_jongno
@@ -133,8 +136,8 @@ jongno = {
 	county = c_jongno
 	
 	character_modifier = {
-	holy_order_hire_cost_mult = -0.1
-		supply_capacity_mult = 0.2
+		diplomacy = 1
+		stewardship = 1
 	} 
 }
 
@@ -142,9 +145,7 @@ dangjin ={
 	county = c_dangjin #####공홍에 있다.
 	
 	character_modifier = {
-		 religious_vassal_opinion =5
-		 
-		sway_scheme_power_mult = 0.1
+		dread_baseline_add = 5
 	} 
 }
 
