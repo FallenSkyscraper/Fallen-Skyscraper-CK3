@@ -6,10 +6,14 @@
 
 #####이거 전부 복붙하고 적용만 되도록 한거니까 나중에 flag좀 바꿔주셈
 #####만약 성지 효과 겹치는 곳에서 다르게 하고 싶으면 하위 남작령을 성지로 하든지 해야함.
-#####종로가 겹치는 곳 많으니까 남작령 1개 정해주셈. 안 그럼 맨 아래의 종로로 될듯
+#####종로가 겹치는 곳 많으니까 종교마다 성능 다르게하고 싶으면 
+#####남작령 1개 정해주셈. 안 그럼 맨 아래의 종로로 될듯
+#####
+#####
+#####
+ 
 
-
-
+#####종로는 한국의 예루살렘이니 예루살렘 효과
 jongno = {
 	county = c_jongno
 	
@@ -58,6 +62,59 @@ juam   = {
 		learning_per_piety_level = 1
 	}
 }
+
+
+#############
+###신유교 c_andong 
+###########
+ andong  = { #안동
+	county = c_andong 
+	
+	character_modifier = {
+	defender_advantage = 5
+		diplomacy = 1
+	}
+	 
+}
+ junggu    = { #중구
+	county = c_junggu  
+	
+	character_modifier = {
+		learning = 1
+	}
+	 
+}
+ pyongyang    = { #평양
+	county = c_pyongyang  
+	
+	character_modifier = {
+	learning_per_piety_level = 1
+		monthly_prestige_gain_mult = 0.2
+	}
+	 
+} 
+
+ jeonju     = { #전주
+	county = c_jeonju  
+	
+	character_modifier = {
+			same_faith_opinion = 10
+	}
+	 
+}
+
+ yeongju     = { #영주
+	county = c_yeongju   
+	
+	character_modifier = {
+		cultural_head_fascination_mult = 0.05
+		monthly_county_control_change_factor = 0.05
+	}
+	 
+}
+
+
+
 
 #제국국교회
 #편의상 예루살렘효과 그대로 적용함 추후 수정바람
@@ -130,16 +187,7 @@ ulsan = {
 		skirmishers_toughness_mult = 0.1
 	} 
 }
- ####서울의 종로 jongno =  c_jongno
-
-jongno = {
-	county = c_jongno
-	
-	character_modifier = {
-		diplomacy = 1
-		stewardship = 1
-	} 
-}
+  
 
 dangjin ={ 
 	county = c_dangjin #####공홍에 있다.
@@ -151,6 +199,61 @@ dangjin ={
 
 
 
+#####
+#####하르방교
+#####c_jeju
+
+
+
+jeju     = {
+	county = c_jeju 
+	character_modifier = {
+supply_duration = 0.25
+		prowess = 1
+	}
+	 
+}
+
+
+hankyeong    = {
+	county = c_hankyeong   
+	barony = b_452  ##대정  
+	character_modifier = {
+		stewardship = 1
+		close_relative_opinion = 5
+	}
+	 
+}
+
+busan      = {
+	county = c_busan 
+	barony= b_763 ###Yeongdo 영도
+	character_modifier = {
+monthly_piety_gain_per_happy_powerful_vassal_mult = 0.02
+	}
+	 
+}
+
+sinan      = {
+	county = c_sinan 
+	character_modifier = {
+prowess_per_piety_level = 1
+
+	naval_movement_speed_mult = 0.1
+	}
+	 
+}
+
+
+ganghwa       = {
+	county = c_ganghwa 
+	character_modifier = {
+	monthly_piety_gain_mult = 0.1
+	
+	knight_effectiveness_mult = 0.2
+	}
+	 
+}
 
 #############
 ####자연교#####
@@ -207,7 +310,8 @@ gaeseong ={
 	
 	character_modifier = {
 	movement_speed = 0.05
-	naval_movement_speed_mult = 0.1
+	
+		clergy_opinion = 5
 	}
 	 
 }
