@@ -1,28 +1,328 @@
-6001 = { #예시
+6001 = {
+	name = "만영"
+	dynasty = 6001
+	father = 6003
+	mother = 6004
+	female = yes
+	religion = "cheondo"
+	culture = "pyongyang"
+	diplomacy = 13
+	martial = 8
+	intrigue = 9
+	stewardship = 12
+	learning = 10
+	trait = patient
+	trait = diligent
+	trait = just
+	trait = education_diplomacy_4
+	trait = intellect_good_3
+	trait = scholar
+	trait = diplomat
+	trait = administrator
+	trait = strategist
+	trait = wounded
+	trait = organizer
+	2382.4.15 = {
+		birth = yes
+	}
+	2405.5.2 = {
+	#	give_nickname = nick_the_mother_of_nation
+	#	create_bloodline = {
+	#		type = mother_of_nation_blood
+	#		has_dlc = "Holy Fury"
+	#	}
+	}
+	2410.3.11 = {
+		add_spouse = 6009
+	}
+	2433.8.15 = {
+		death = yes
+	}
+}
+6002 = {
 	name = "상홍"
 	dynasty = 6001
+	culture = pyongyang
 	religion = cheondo
-	culture = pyeongnam
-	mother = 6002
+	mother = 6001
+	father = 6009
+	diplomacy = 8
+	martial = 5
+	intrigue = 7
+	stewardship = 9
+	learning = 5
+	wealth = 104
+	prestige = 500
+	piety = 107
+	trait = gregarious
+	trait = cynical
+	trait = education_diplomacy_3
 	2416.1.12 = {
 		birth = yes
+	}
+	2432.6.29 = {
+	#	add_spouse = 203
 	}
 	2500.1.1 = {
 		death = yes
 	}
 }
-6002 = { #예시
-	name = "만영"
-	female = yes
+6003 = {
+	name = "일규"
 	dynasty = 6001
+	culture = pyongyang
 	religion = cheondo
-	culture = pyeongnam
-	2382.4.15 = {
-		birth = yes
-	}
-	2433.8.15 = {
-		death = yes
-	}
+	2347.9.18 = { birth = yes }
+	2367.6.6 = { add_spouse = 6004 }
+	2403.11.23 = { death = yes }
+}
+6004 = {
+	name = "희"
+	dynasty = 6004 # 민
+	female = yes
+	culture = pyongyang
+	religion = cheondo
+	2350.1.15 = { birth = yes }
+	2399.11.23 = { death = yes }
+}
+6005 = {
+	name = "시영"
+	dynasty = 6001
+	father = 6003
+	mother = 6004
+	culture = pyongyang
+	religion = cheondo
+	2375.6.21 = { birth = yes }
+	2401.6.26 = { death = yes }
+}
+6006 = {
+	name = "지영"
+	dynasty = 6001
+	father = 6003
+	mother = 6004
+	female = yes
+	culture = pyongyang
+	religion = cheondo
+	2384.7.11 = { birth = yes }
+	2389.8.11 = { death = yes }
+}
+6007 = {
+	name = "희영"
+	dynasty = 6001
+	father = 6003
+	mother = 6004
+	female = yes
+	culture = pyongyang
+	religion = cheondo
+	2389.5.6 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6008 = {
+	name = "현"
+	dynasty = 6008 # 장
+	culture = pyongyang
+	religion = cheondo
+	2375.6.21 = { birth = yes }
+	2367.6.6 = { add_spouse = 6007 }
+	2401.6.26 = { death = yes }
+}
+6009 = {
+	name = "민후"
+	dynasty = 6009
+	culture = pyongyang
+	religion = cheondo
+	2382.3.12 = { birth = yes }
+	2429.1.1 = { death = yes }
+}
+6010 = {
+	name = "상일"
+	dynasty = 6001
+	father = 6009
+	mother = 6001
+	culture = pyongyang
+	religion = cheondo
+	2419.5.22 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6011 = {
+	name = "상희"
+	dynasty = 6001
+	father = 6009
+	mother = 6001
+	female = yes
+	culture = pyongyang
+	religion = cheondo
+	2421.3.9 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6012 = {
+	name = "한일"
+	dynasty = 6012
+	culture = pyongyang
+	religion = cheondo
+	2357.1.13 = { birth = yes }
+	2423.5.1 = { death = yes }
+}
+6013 = {
+	name = "철국"
+	dynasty = 6013
+	culture = pyongyang
+	religion = cheondo
+	2336.12.6 = { birth = yes }
+	2418.4.13 = { death = yes }
+}
+6014 = {
+	name = "경식"
+	dynasty = 6012
+	father = 6013
+	culture = pyongyang
+	religion = cheondo
+	2374.8.1 = { birth = yes }
+	2439.5.11 = { death = yes }
+}
+6015 = {
+	name = "현갑"
+	dynasty = 6015
+	culture = pyongyang
+	religion = cheondo
+	2377.12.30 = { birth = yes }
+	2428.9.23 = { death = yes } # assasinated
+}
+6016 = {
+	name = "복"
+	dynasty = 6015
+	father = 6015
+	culture = pyongyang
+	religion = cheondo
+	2399.4.11 = { birth = yes }
+	2442.6.28 = { death = yes } # 대동강다이브
+}
+6017 = {
+	name = "수일"
+	dynasty = 6017
+	culture = pyongyang
+	religion = cheondo
+	2378.9.11 = { birth = yes }
+	2439.7.12 = { death = yes } # 전사
+}
+6018 = {
+	name = "형교"
+	dynasty = 6018
+	culture = pyongyang
+	religion = cheondo
+	2399.5.1 = { birth = yes }
+	2441.1.11 = { death = yes } # 전사
+}
+6019 = {
+	name = "민갑"
+	dynasty = 6012
+	father = 6012
+	culture = pyongyang
+	religion = cheondo
+	2394.5.11 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6020 = {
+	name = "극상"
+	dynasty = 6013
+	father = 6013
+	culture = pyongyang
+	religion = cheondo
+	2398.9.12 = { birth = yes }
+	2443.5.4 = { death = yes }
+}
+6021 = {
+	name = "국희"
+	dynasty = 6013
+	father = 6020
+	female = yes
+	culture = pyongyang
+	religion = cheondo
+	2427.9.8 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6022 = {
+	name = "희"
+	dynasty = 6015
+	father = 6015
+	culture = pyongyang
+	religion = cheondo
+	2409.1.12 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6023 = {
+	name = "무"
+	dynasty = 6017
+	father = 6017
+	culture = pyongyang
+	religion = cheondo
+	2411.5.1 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6024 = {
+	name = "현성"
+	dynasty = 6024
+	culture = pyongyang
+	religion = cheondo
+	2414.1.12 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6025 = {
+	name = "선호"
+	dynasty = 6025
+	culture = pyongyang
+	religion = cheondo
+	2408.5.1 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6026 = {
+	name = "준태"
+	dynasty = 6026
+	culture = pyongyang
+	religion = cheondo
+	2405.2.23 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6027 = {
+	name = "청수"
+	dynasty = 6027
+	female = yes
+	culture = pyongyang
+	religion = cheondo
+	2419.6.6 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6028 = {
+	name = "구"
+	dynasty = 6028
+	culture = pyongyang
+	religion = cheondo
+	2400.4.3 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6029 = {
+	name = "방희"
+	dynasty = 6029
+	culture = pyongyang
+	religion = cheondo
+	2411.3.2 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6030 = {
+	name = "태식"
+	dynasty = 6030
+	culture = pyongyang
+	religion = cheondo
+	2422.2.22 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6031 = {
+	name = "반"
+	dynasty = 6031
+	culture = pyongyang
+	religion = cheondo
+	2410.5.17 = { birth = yes }
+	2500.1.1 = { death = yes }
 }
 6601 = { #예시
 	name = "필성"
