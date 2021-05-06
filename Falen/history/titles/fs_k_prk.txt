@@ -21,7 +21,7 @@ k_prk = {
 	2428.9.23 = {
 		holder = 6001
 	}
-	2433.5.1 = {
+	2433.8.15 = {
 		holder = 6017
 	}
 	2439.7.12 = {
@@ -35,16 +35,12 @@ k_prk = {
 	}
 }
 c_pyongyang = {
+	2397.1.1 = {
+		holder = 6003
+	}
 	2405.5.2 = {
 		holder = 6001
-	}
-	2433.8.15 = {
-		holder = 6002
-	}
-}
-c_taedong = {
-	2405.5.2 = {
-		holder = 6001
+		liege = k_prk
 	}
 	2433.8.15 = {
 		holder = 6002
@@ -53,24 +49,142 @@ c_taedong = {
 c_ryokpho = {
 	2405.5.2 = {
 		holder = 6001
+		liege = k_prk
 	}
 	2433.8.15 = {
 		holder = 6002
+	}
+}
+c_taedong = {
+	2405.5.2 = {
+		holder = 6008
+		liege = k_prk
 	}
 }
 c_sangwon = {
 	2405.5.2 = {
-		holder = 6001
+		holder = 6017
+		liege = k_prk
 	}
-	2433.8.15 = {
-		holder = 6002
+	2439.7.12 = {
+		holder = 6023
 	}
 }
 c_junghwa = {
 	2405.5.2 = {
-		holder = 6001
+		holder = 6017
+		liege = k_prk
 	}
-	2433.8.15 = {
-		holder = 6002
+	2439.7.12 = {
+		holder = 6023
+	}
+}
+c_nampho = {
+	2405.5.2 = {
+		holder = 6015
+		liege = k_prk
+	}
+	2428.9.23 = {
+		holder = 6022
+	}
+}
+c_samhwa = {
+	2405.5.2 = {
+		holder = 6015
+		liege = k_prk
+	}
+	2428.9.23 = {
+		holder = 6022
+	}
+}
+c_phyongwon = {
+	2430.1.1 = {
+		holder = 6010
+		liege = k_prk
+	}
+}
+c_kangdong = {
+	2360.1.1 = {
+		holder = 6012
+	}
+	2405.5.2 = {
+		liege = k_prk
+	}
+	2423.5.1 = {
+		holder = 6019
+	}
+}
+c_ryongsong = {
+	2350.1.1 = {
+		holder = 6013
+	}
+	2405.5.2 = {
+		liege = k_prk
+	}
+	2418.4.13 = {
+		holder = 6014
+	}
+	2439.5.11 = {
+		holder = 6020
+	}
+	2443.5.4 = {
+		holder = 6021
+	}
+}
+d_kangso = {
+	2420.1.1 = {
+		liege = k_prk
+		holder = 6024
+	}
+}
+c_ryonggang = {
+	2420.1.1 = {
+		liege = k_prk
+		holder = 6025
+	}
+}
+d_anju = {
+	2420.1.1 = {
+		liege = k_prk
+		holder = 6026
+	}
+}
+c_sunchon = {
+	2420.1.1 = {
+		liege = k_prk
+		holder = 6027
+	}
+}
+c_kaechon = {
+	2420.1.1 = {
+		liege = k_prk
+		holder = 6028
+	}
+}
+c_eunsan = {
+	2420.1.1 = {
+		liege = k_prk
+		holder = 6028
+	}
+}
+c_jungsan = {
+	2410.1.1 = {
+		liege = k_prk
+		holder = 6029
+	}
+	2430.1.1 = {
+		liege = d_kangso
+	}
+}
+c_sunan = {
+	2410.1.1 = {
+		liege = k_prk
+		holder = 6030
+	}
+}
+c_sukchon = {
+	2425.1.1 = {
+		liege = d_anju
+		holder = 6031
 	}
 }
