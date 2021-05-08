@@ -245,5 +245,32 @@ imperial_religion = { #제국교회 그룹
 				{ name = "holy_order_knights_of_santiago" coat_of_arms = "ho_knights_of_santiago"  }
 			}
 		}
+		holy_spirit = {
+			icon = imperial
+			
+			color = { 96 96 96 }
+			religious_head = k_imperial_state #법왕령
+			graphical_faith = "catholic_gfx" # 수정바람
+			
+			holy_site = iksan
+			holy_site = jeonju
+			holy_site = guwol
+			holy_site = pyeongyang
+			holy_site = jongno
+
+			#Tenets
+			doctrine = tenet_communion
+			doctrine = tenet_armed_pilgrimages
+			doctrine = tenet_aniconism
+
+			holy_order_names = { # 추후 수정바람
+				{ name = "holy_order_knights_templar" coat_of_arms = "ho_knights_templar" }
+				{ name = "holy_order_knights_hospitaller" coat_of_arms = "ho_knights_hospitaller"  }
+				{ name = "holy_order_teutonic_order" coat_of_arms = "ho_teutonic_order"  }
+				{ name = "holy_order_order_of_calatrava" coat_of_arms = "ho_order_of_calatrava"  }
+				{ name = "holy_order_order_of_alcantara" coat_of_arms = "ho_order_of_alcantara"  }
+				{ name = "holy_order_knights_of_santiago" coat_of_arms = "ho_knights_of_santiago"  }
+			}
+		}
 	}
 }
