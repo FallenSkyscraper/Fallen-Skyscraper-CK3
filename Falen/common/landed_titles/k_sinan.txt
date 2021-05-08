@@ -1,4 +1,18 @@
-k_sinan = {
+e_sinan = {
+	color = { 168 171 227 }
+		color2 = { 255 255 255 }
+		
+		capital = c_sinan
+		
+		ai_primary_priority = {
+			if = {
+				limit = {
+					culture = culture:sinan
+				}
+				add = @correct_culture_primary_score
+			}
+		}
+	k_sinan = {
 		color = { 168 171 227 }
 		color2 = { 255 255 255 }
 		
@@ -7,7 +21,7 @@ k_sinan = {
 		ai_primary_priority = {
 			if = {
 				limit = {
-					culture = culture:greek
+					culture = culture:sinan
 				}
 				add = @correct_culture_primary_score
 			}
@@ -187,3 +201,4 @@ k_sinan = {
 			}
 		}
 	}
+}

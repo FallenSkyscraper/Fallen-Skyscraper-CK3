@@ -2,6 +2,7 @@ k_prk = {
 	2405.5.2 = {
 		holder = 6001
 		government = secular_republic_government
+		change_development_level = 10
 	}
 	2413.5.1 = {
 		holder = 6012
@@ -34,6 +35,9 @@ k_prk = {
 		holder = 6002
 	}
 }
+d_pyongyang = {
+	2444.1.1 = { change_development_level = 12 }
+}
 c_pyongyang = {
 	2397.1.1 = {
 		holder = 6003
@@ -45,6 +49,7 @@ c_pyongyang = {
 	2433.8.15 = {
 		holder = 6002
 	}
+	2444.1.1 = { change_development_level = 18 }
 }
 c_ryokpho = {
 	2405.5.2 = {
@@ -87,6 +92,7 @@ c_nampho = {
 	2428.9.23 = {
 		holder = 6022
 	}
+	2444.1.1 = { change_development_level = 13 }
 }
 c_samhwa = {
 	2405.5.2 = {
@@ -187,4 +193,11 @@ c_sukchon = {
 		liege = d_anju
 		holder = 6031
 	}
+}
+d_hwangju = {
+	2420.1.1 = {
+		liege = k_prk
+		holder = 6032
+	}
+	2444.1.1 = { change_development_level = 11 }
 }

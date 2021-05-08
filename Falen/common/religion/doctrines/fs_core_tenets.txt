@@ -24,4 +24,22 @@ doctrine_core_tenets = {
 			faith_creation_piety_cost_mult = -0.99
 		}
 	}
+	tenet_cheondoism = {
+		icon = core_tenet_festivities
+		piety_cost = {
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_aniconism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		is_shown = {
+			has_doctrine = tenet_cheondoism
+		}
+		can_pick = {
+			always = no
+		}
+		character_modifier = {
+			short_reign_duration_mult = -0.99
+		}
 }
