@@ -13,16 +13,39 @@ k_anak = {
 			}
 		}
 
-		d_gwail = {
+		d_songhwa = {
 			color = { 43 183 18 }
 			color2 = { 255 255 255 }
 			
-			capital = c_gwail
-			c_gwail = {
+			capital = c_songhwa
+			c_songhwa = {
+				color = { 169 177 17 }
+				color2 = { 255 255 255 }
+				
+				b_1834 = { # Songhwa
+					province = 1834
+					
+					color = { 169 177 17 }
+					color2 = { 255 255 255 }
+				}
+				b_1829 = { # Oncheon
+					province = 1829
+					
+					color = { 169 177 17 }
+					color2 = { 255 255 255 }
+				}
+				b_1833 = { # Daam
+					province = 1833
+					
+					color = { 169 177 17 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_phungchon = { # aka 과일
 				color = { 43 183 18 }
 				color2 = { 255 255 255 }
 				
-				b_1836 = { # Gwail
+				b_1836 = { # 풍해
 					province = 1836
 					
 					color = { 43 183 18 }
@@ -76,6 +99,42 @@ k_anak = {
 					color2 = { 255 255 255 }
 				}
 			}
+			c_samcheon = {
+				color = { 169 39 157 }
+				color2 = { 255 255 255 }
+				
+				b_1859 = { # Samcheon
+					province = 1859
+					
+					color = { 169 39 157 }
+					color2 = { 255 255 255 }
+				}
+				b_1862 = { # Domyeong
+					province = 1862
+					
+					color = { 169 39 157 }
+					color2 = { 255 255 255 }
+				}
+				b_1861 = { # Gohyeon
+					province = 1861
+					
+					color = { 169 39 157 }
+					color2 = { 255 255 255 }
+				}
+				b_1858 = { # Deokcheon
+					province = 1858
+					
+					color = { 169 39 157 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+
+		d_jangyeon = {
+			color = { 169 39 157 }
+			color2 = { 255 255 255 }
+			
+			capital = c_jangyeon
 			c_jangyeon = {
 				color = { 43 138 138 }
 				color2 = { 255 255 255 }
@@ -128,65 +187,6 @@ k_anak = {
 					color2 = { 255 255 255 }
 				}
 			}
-			c_songhwa = {
-				color = { 169 177 17 }
-				color2 = { 255 255 255 }
-				
-				b_1834 = { # Songhwa
-					province = 1834
-					
-					color = { 169 177 17 }
-					color2 = { 255 255 255 }
-				}
-				b_1829 = { # Oncheon
-					province = 1829
-					
-					color = { 169 177 17 }
-					color2 = { 255 255 255 }
-				}
-				b_1833 = { # Daam
-					province = 1833
-					
-					color = { 169 177 17 }
-					color2 = { 255 255 255 }
-				}
-			}
-		}
-
-		d_samcheon = {
-			color = { 169 39 157 }
-			color2 = { 255 255 255 }
-			
-			capital = c_samcheon
-			c_samcheon = {
-				color = { 169 39 157 }
-				color2 = { 255 255 255 }
-				
-				b_1859 = { # Samcheon
-					province = 1859
-					
-					color = { 169 39 157 }
-					color2 = { 255 255 255 }
-				}
-				b_1862 = { # Domyeong
-					province = 1862
-					
-					color = { 169 39 157 }
-					color2 = { 255 255 255 }
-				}
-				b_1861 = { # Gohyeon
-					province = 1861
-					
-					color = { 169 39 157 }
-					color2 = { 255 255 255 }
-				}
-				b_1858 = { # Deokcheon
-					province = 1858
-					
-					color = { 169 39 157 }
-					color2 = { 255 255 255 }
-				}
-			}
 			c_yeonpyeong = {
 				color = { 43 168 143 }
 				color2 = { 255 255 255 }
@@ -207,29 +207,6 @@ k_anak = {
 					province = 1830
 					
 					color = { 43 168 143 }
-					color2 = { 255 255 255 }
-				}
-			}
-			c_cheonbong = {
-				color = { 85 33 156 }
-				color2 = { 255 255 255 }
-				
-				b_1857 = { # Bogu
-					province = 1857
-					
-					color = { 85 33 156 }
-					color2 = { 255 255 255 }
-				}
-				b_1851 = { # Geunroja
-					province = 1851
-					
-					color = { 85 33 156 }
-					color2 = { 255 255 255 }
-				}
-				b_1799 = { # Imok
-					province = 1799
-					
-					color = { 85 33 156 }
 					color2 = { 255 255 255 }
 				}
 			}
@@ -313,6 +290,30 @@ k_anak = {
 					province = 1844
 					
 					color = { 85 201 21 }
+					color2 = { 255 255 255 }
+				}
+			}
+			
+			c_cheonbong = {
+				color = { 85 33 156 }
+				color2 = { 255 255 255 }
+				
+				b_1857 = { # Bogu
+					province = 1857
+					
+					color = { 85 33 156 }
+					color2 = { 255 255 255 }
+				}
+				b_1851 = { # Geunroja
+					province = 1851
+					
+					color = { 85 33 156 }
+					color2 = { 255 255 255 }
+				}
+				b_1799 = { # Imok
+					province = 1799
+					
+					color = { 85 33 156 }
 					color2 = { 255 255 255 }
 				}
 			}
