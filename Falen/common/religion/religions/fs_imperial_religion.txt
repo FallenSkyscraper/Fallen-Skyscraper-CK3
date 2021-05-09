@@ -1,8 +1,8 @@
-imperial_religion = { #Á¦±¹±³È¸ ±×·ì
-	family = rf_abrahamic #¼­¹æ°è¿­
+imperial_religion = {
+	family = rf_abrahamic
 
-	doctrine_background_icon = core_tenet_banner_christian.dds #¼öÁ¤¹Ù¶÷
-	doctrine = abrahamic_hostility_doctrine #¼öÁ¤¹Ù¶÷
+	doctrine_background_icon = core_tenet_banner_christian.dds #ìˆ˜ì •ë°”ëŒ
+	doctrine = abrahamic_hostility_doctrine #ìˆ˜ì •ë°”ëŒ
 
 	#Main Group
 	doctrine = doctrine_spiritual_head
@@ -39,17 +39,17 @@ imperial_religion = { #Á¦±¹±³È¸ ±×·ì
 	}
 
 	reserved_male_names = {
-		¿äÇÑ ¿ä¼Á ´Ù´Ï¿¤ º£µå·Î ¾Èµå·¹ ¸¶ÅÂ ´ÙÀ­ ¿ä³ª 
+		ìš”í•œ ìš”ì…‰ ë‹¤ë‹ˆì—˜ ë² ë“œë¡œ ì•ˆë“œë ˆ ë§ˆíƒœ ë‹¤ìœ— ìš”ë‚˜ 
 	}
 	reserved_female_names = {
-		ÇÑ³ª ¸¶¸®¾Æ ¿¡½º´õ
+		í•œë‚˜ ë§ˆë¦¬ì•„ ì—ìŠ¤ë”
 	}
 
 	custom_faith_icons = {
 		custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5 custom_faith_6 custom_faith_7 custom_faith_8 custom_faith_9 custom_faith_10 dualism_custom_1 zoroastrian_custom_1 zoroastrian_custom_2 buddhism_custom_1 buddhism_custom_2 buddhism_custom_3 buddhism_custom_4 taoism_custom_1 yazidi_custom_1 sunni_custom_2 sunni_custom_3 sunni_custom_4 ibadi_custom muhakkima_1 muhakkima_2 muhakkima_4 muhakkima_5 muhakkima_6 judaism_custom_1
 	}
 
-	holy_order_names = { # ¼öÁ¤¹Ù¶÷
+	holy_order_names = { # incomplete
 		{ name = "holy_order_knights_of_the_chalice" }
 		{ name = "holy_order_order_of_the_holy_communion" }
 		{ name = "holy_order_knights_of_the_first_gospel" }
@@ -59,17 +59,17 @@ imperial_religion = { #Á¦±¹±³È¸ ±×·ì
 		{ name = "holy_order_christian" coat_of_arms = "ho_christian" }
 	}
 
-	holy_order_maa = { teutonic_knights } #¼öÁ¤¹Ù¶÷
+	holy_order_maa = { teutonic_knights } #incomplete
 
 	localization = {
 		#HighGod
-		HighGodName = imperial_high_god_name # ÇÏ³ª´Ô
-		HighGodNamePossessive = imperial_high_god_name_possessive # ÇÏ³ª´ÔÀÇ
+		HighGodName = imperial_high_god_name # í•˜ë‚˜ë‹˜
+		HighGodNamePossessive = imperial_high_god_name_possessive # í•˜ë‚˜ë‹˜ì˜
 		HighGodNameSheHe = CHARACTER_SHEHE_HE
 		HighGodHerselfHimself = CHARACTER_HIMSELF
 		HighGodHerHis = CHARACTER_HERHIS_HIS
-		HighGodNameAlternate = imperial_high_god_name_alternate # ÁÖ´Ô
-		HighGodNameAlternatePossessive = imperial_high_god_name_alternate_possessive # ÁÖ´ÔÀÇ
+		HighGodNameAlternate = imperial_high_god_name_alternate # ì£¼ë‹˜
+		HighGodNameAlternatePossessive = imperial_high_god_name_alternate_possessive # ì£¼ë‹˜ì˜
 
 		#Creator
 		CreatorName = imperial_creator_god_name # imperial high god name
@@ -148,17 +148,17 @@ imperial_religion = { #Á¦±¹±³È¸ ±×·ì
 		WaterGodHerHis = CHARACTER_HERHIS_HIS
 		WaterGodHerHim = CHARACTER_HERHIM_HIM
 
-		#À§ ¸ğµÎ ÃÖ°í½ÅÀÇ ÀÌ¸§À¸·Î ÇÑ´Ù
+		#ìœ„ ëª¨ë‘ ìµœê³ ì‹ ì˜ ì´ë¦„ìœ¼ë¡œ í•œë‹¤
 
 		PantheonTerm = imperial_high_god_name
 		PantheonTermHasHave = pantheon_term_has
 		GoodGodNames = {
 			imperial_high_god_name
 			imperial_high_god_name_alternate
-			imperial_good_god_jesus # ¿¹¼ö
-			imperial_good_god_christ #±×¸®½ºµµ
+			imperial_good_god_jesus # ì˜ˆìˆ˜
+			imperial_good_god_christ #ê·¸ë¦¬ìŠ¤ë„
 		}
-		DevilName = imperial_devil_name # imperial¸¦ imperial·Î °íÄ¡°í ¸íÄªÀº ±âº»ÀûÀ¸·Î Å©3 ¹Ù´Ò¶ó ±âµ¶±³¸¦ ¸ŞÀÎÀ¸·Î ÇÑ´Ù
+		DevilName = imperial_devil_name # imperialë¥¼ imperialë¡œ ê³ ì¹˜ê³  ëª…ì¹­ì€ ê¸°ë³¸ì ìœ¼ë¡œ í¬3 ë°”ë‹ë¼ ê¸°ë…êµë¥¼ ë©”ì¸ìœ¼ë¡œ í•œë‹¤
 		DevilNamePossessive = imperial_devil_name_possessive
 		DevilSheHe = CHARACTER_SHEHE_HE
 		DevilHerHis = CHARACTER_HERHIS_HIS
@@ -215,15 +215,15 @@ imperial_religion = { #Á¦±¹±³È¸ ±×·ì
 
 	}
 	
-	piety_icon_group = "christian" #¼öÁ¤¹Ù¶÷
+	piety_icon_group = "christian" #ìˆ˜ì •ë°”ëŒ
 
 	faiths = {
 		imperial_church = {
 			icon = imperial
 			
 			color = { 96 96 96 }
-			religious_head = k_imperial_state #¹ı¿Õ·É
-			graphical_faith = "catholic_gfx" # ¼öÁ¤¹Ù¶÷
+			religious_head = k_imperial_state #ë²•ì™•ë ¹
+			graphical_faith = "catholic_gfx" 
 			
 			holy_site = iksan
 			holy_site = jeonju
@@ -236,7 +236,7 @@ imperial_religion = { #Á¦±¹±³È¸ ±×·ì
 			doctrine = tenet_armed_pilgrimages
 			doctrine = tenet_aniconism
 
-			holy_order_names = { # ÃßÈÄ ¼öÁ¤¹Ù¶÷
+			holy_order_names = { # ì¶”í›„ ìˆ˜ì •ë°”ëŒ
 				{ name = "holy_order_knights_templar" coat_of_arms = "ho_knights_templar" }
 				{ name = "holy_order_knights_hospitaller" coat_of_arms = "ho_knights_hospitaller"  }
 				{ name = "holy_order_teutonic_order" coat_of_arms = "ho_teutonic_order"  }
@@ -248,9 +248,9 @@ imperial_religion = { #Á¦±¹±³È¸ ±×·ì
 		holy_spirit = {
 			icon = imperial
 			
-			color = { 96 96 96 }
-			religious_head = k_imperial_state #¹ı¿Õ·É
-			graphical_faith = "catholic_gfx" # ¼öÁ¤¹Ù¶÷
+			color = { 122 96 66 }
+		#	religious_head = k_imperial_state #ë²•ì™•ë ¹
+			graphical_faith = "catholic_gfx"
 			
 			holy_site = iksan
 			holy_site = jeonju
@@ -263,7 +263,7 @@ imperial_religion = { #Á¦±¹±³È¸ ±×·ì
 			doctrine = tenet_armed_pilgrimages
 			doctrine = tenet_aniconism
 
-			holy_order_names = { # ÃßÈÄ ¼öÁ¤¹Ù¶÷
+			holy_order_names = { # ì¶”í›„ ìˆ˜ì •ë°”ëŒ
 				{ name = "holy_order_knights_templar" coat_of_arms = "ho_knights_templar" }
 				{ name = "holy_order_knights_hospitaller" coat_of_arms = "ho_knights_hospitaller"  }
 				{ name = "holy_order_teutonic_order" coat_of_arms = "ho_teutonic_order"  }
