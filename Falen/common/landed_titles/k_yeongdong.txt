@@ -2,27 +2,27 @@ k_yeongdong = {
 		color = { 43 117 23 }
 		color2 = { 255 255 255 }
 		
-		capital = c_gangleung
+		capital = c_gangneung
 		
 		ai_primary_priority = {
 			if = {
 				limit = {
-					culture = culture:greek
+					culture = culture:gangneung
 				}
 				add = @correct_culture_primary_score
 			}
 		}
 		
-		d_gangleung = {
+		d_gangneung = {
 			color = { 43 117 23 }
 			color2 = { 255 255 255 }
 			
-			capital = c_gangleung
-			c_gangleung = {
+			capital = c_gangneung
+			c_gangneung = {
 				color = { 43 117 237 }
 				color2 = { 255 255 255 }
 				
-				b_1246 = { # Gangleung
+				b_1246 = { # Gangneung
 					province = 1246
 					
 					color = { 43 117 23 }
