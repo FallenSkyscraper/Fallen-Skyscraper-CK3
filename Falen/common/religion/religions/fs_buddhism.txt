@@ -7,11 +7,50 @@ buddhism_religion = {
 	doctrine = eastern_hostility_doctrine	# 종교 적대 시 소속
 	# doctrine = unreformed_faith_doctrine	# 파간 설정
 	# pagan_roots = yes
+
+
+	#Main Group
+	doctrine = doctrine_no_head
+	doctrine = doctrine_gender_male_dominated
+	doctrine = doctrine_pluralism_pluralistic
+	doctrine = doctrine_theocracy_temporal
+
+	#Marriage
+	doctrine = doctrine_monogamy
+	doctrine = doctrine_divorce_allowed
+	doctrine = doctrine_bastardry_none
+	doctrine = doctrine_consanguinity_cousins
+
+	#Crimes
+	doctrine = doctrine_homosexuality_accepted
+	doctrine = doctrine_adultery_men_shunned
+	doctrine = doctrine_adultery_women_shunned
+	doctrine = doctrine_kinslaying_any_dynasty_member_crime
+	doctrine = doctrine_deviancy_shunned
+	doctrine = doctrine_witchcraft_shunned
+
+	#Clerical Functions
+	doctrine = doctrine_clerical_function_alms_and_pacification
+	doctrine = doctrine_clerical_gender_either
+	doctrine = doctrine_clerical_marriage_disallowed
+	doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
+
+
 	
-	traits = {	# 트레잇
-		virtues = { trait1 trait2 trait3 }	# 미덕
-		sins = { trait4 trait5 trait6 }	# 죄악
+	
+	traits = {
+		virtues = {
+			generous
+			honest
+			calm
+		}
+		sins = {
+			deceitful
+			impatient
+			wrathful
+		}
 	}
+
 	
 	reserved_male_names = {	# 남성 이름
 	}
@@ -184,38 +223,29 @@ buddhism_religion = {
 		
 			# religion_head = 	# 종교 수장 작위
 		
-			# holy_site = site1	# 성지 설정
-			# holy_site = site2
-			# holy_site = site3
-			# holy_site = site4
-			# holy_site = site5
+			 holy_site = jongno # 성지 설정
+			 holy_site = gyeongju  
+			 holy_site = hapcheon 
+			 holy_site = yangsan 
+			 holy_site = juam   
 			
 			# 주요 교리
-			doctrine = doctrine_no_head	# 교계 지도자: 
+			 
 			doctrine = doctrine_gender_male_dominated	# 성별에 대한 관점: 
 			doctrine = doctrine_pluralism_fundamentalist	# 종교적 태도: 
-			doctrine = doctrine_theocracy_temporal	# 전통: 
-
+			 
 			# 결혼 교리
-			doctrine = doctrine_monogamy	# 결혼 형식: 
-			doctrine = doctrine_divorce_disallowed	# 이혼: 
-			doctrine = doctrine_bastardry_none	# 적서제: 
-			doctrine = doctrine_consanguinity_cousins	# 근친 관계: 
+			 
+			doctrine = doctrine_divorce_disallowed	# 이혼:   
 
 			# 범죄 교리
 			doctrine = doctrine_homosexuality_shunned	# 동성연애: 
 			doctrine = doctrine_adultery_men_crime	# 남성의 간통: 
-			doctrine = doctrine_adultery_women_crime	# 여성의 간통: 
-			doctrine = doctrine_kinslaying_any_dynasty_member_crime	# 친족 살해: 
-			doctrine = doctrine_deviancy_shunned	# 이상성욕: 
+			doctrine = doctrine_adultery_women_crime	# 여성의 간통:  
 			doctrine = doctrine_witchcraft_accepted	# 마술: 
 
 			# 성직자 교리
-			doctrine = doctrine_clerical_function_alms_and_pacification	# 성직자의 기능: 
-			doctrine = doctrine_clerical_gender_either	# 성직자의 성별: 
-			doctrine = doctrine_clerical_marriage_disallowed	# 성직자의 결혼: 
-			doctrine = doctrine_clerical_succession_spiritual_fixed_appointment	# 성직자의 지위: 
-			
+			 
 			# doctrine = 	# 교리 변경이나 추가 가능
 			
 			doctrine = tenet_asceticism	# 원리 설정
@@ -236,21 +266,19 @@ buddhism_religion = {
 		
 			# religion_head = 	# 종교 수장 작위
 		
-			# holy_site = site1	# 성지 설정
-			# holy_site = site2
-			# holy_site = site3
-			# holy_site = site4
-			# holy_site = site5
+			 holy_site = jongno # 성지 설정
+			 holy_site = gyeongju  
+			 holy_site = hapcheon 
+			 holy_site = yangsan 
+			 holy_site = juam   
 			
 			# 주요 교리
-			doctrine = doctrine_no_head	# 교계 지도자: 
-			doctrine = doctrine_gender_male_dominated	# 성별에 대한 관점: 
-			doctrine = doctrine_pluralism_fundamentalist	# 종교적 태도: 
+			 
+			 doctrine = doctrine_pluralism_fundamentalist	# 종교적 태도: 
 			doctrine = doctrine_theocracy_lay_clergy	# 전통: 
 
 			# 결혼 교리
-			doctrine = doctrine_monogamy	# 결혼 형식: 
-			doctrine = doctrine_divorce_approval	# 이혼: 
+			 doctrine = doctrine_divorce_approval	# 이혼: 
 			doctrine = doctrine_bastardry_legitimization	# 적서제: 
 			doctrine = doctrine_consanguinity_restricted	# 근친 관계: 
 
@@ -258,13 +286,11 @@ buddhism_religion = {
 			doctrine = doctrine_homosexuality_crime	# 동성연애: 
 			doctrine = doctrine_adultery_men_crime	# 남성의 간통: 
 			doctrine = doctrine_adultery_women_crime	# 여성의 간통: 
-			doctrine = doctrine_kinslaying_any_dynasty_member_crime	# 친족 살해: 
-			doctrine = doctrine_deviancy_crime	# 이상성욕: 
+			 doctrine = doctrine_deviancy_crime	# 이상성욕: 
 			doctrine = doctrine_witchcraft_crime	# 마술: 
 
 			# 성직자 교리
-			doctrine = doctrine_clerical_gender_male_only	# 성직자의 기능: 
-			doctrine = doctrine_clerical_gender_either	# 성직자의 성별: 
+		 	doctrine = doctrine_clerical_gender_either	# 성직자의 성별: 
 			doctrine = doctrine_clerical_marriage_allowed	# 성직자의 결혼: 
 			doctrine = doctrine_clerical_succession_spiritual_appointment	# 성직자의 지위: 
 			
@@ -288,37 +314,29 @@ buddhism_religion = {
 		
 			# religion_head = 	# 종교 수장 작위
 		
-			# holy_site = site1	# 성지 설정
-			# holy_site = site2
-			# holy_site = site3
-			# holy_site = site4
-			# holy_site = site5
+			 holy_site = jongno # 성지 설정
+			 holy_site = gyeongju  
+			 holy_site = hapcheon 
+			 holy_site = yangsan 
+			 holy_site = juam   
 			
 			# 주요 교리
-			doctrine = doctrine_no_head	# 교계 지도자: 
-			doctrine = doctrine_gender_equal	# 성별에 대한 관점: 
-			doctrine = doctrine_pluralism_pluralistic	# 종교적 태도: 
+			 
+			doctrine = doctrine_gender_equal	# 성별에 대한 관점:  
 			doctrine = doctrine_theocracy_lay_clergy	# 전통: 
 
-			# 결혼 교리
-			doctrine = doctrine_monogamy	# 결혼 형식: 
-			doctrine = doctrine_divorce_allowed	# 이혼: 
-			doctrine = doctrine_bastardry_none	# 적서제: 
+			# 결혼 교리   
 			doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece	# 근친 관계: 
 
 			# 범죄 교리
 			doctrine = doctrine_homosexuality_shunned	# 동성연애: 
 			doctrine = doctrine_adultery_men_accepted	# 남성의 간통: 
 			doctrine = doctrine_adultery_women_accepted	# 여성의 간통: 
-			doctrine = doctrine_kinslaying_shunned	# 친족 살해: 
-			doctrine = doctrine_deviancy_shunned	# 이상성욕: 
+			doctrine = doctrine_kinslaying_shunned	# 친족 살해:  
 			doctrine = doctrine_witchcraft_accepted	# 마술: 
 
 			# 성직자 교리
-			doctrine = doctrine_clerical_function_alms_and_pacification	# 성직자의 기능: 
-			doctrine = doctrine_clerical_gender_either	# 성직자의 성별: 
-			doctrine = doctrine_clerical_marriage_disallowed	# 성직자의 결혼: 
-			doctrine = doctrine_clerical_succession_spiritual_appointment	# 성직자의 지위: 
+			 doctrine = doctrine_clerical_succession_spiritual_appointment	# 성직자의 지위: 
 			
 			# doctrine = 	# 교리 변경이나 추가 가능
 			
@@ -340,11 +358,11 @@ buddhism_religion = {
 		
 			# religion_head = 	# 종교 수장 작위
 		
-			# holy_site = site1	# 성지 설정
-			# holy_site = site2
-			# holy_site = site3
-			# holy_site = site4
-			# holy_site = site5
+			 holy_site = jongno # 성지 설정
+			 holy_site = gyeongju  
+			 holy_site = hapcheon 
+			 holy_site = yangsan 
+			 holy_site = juam   
 			
 			# 주요 교리
 			# doctrine = 	# 교계 지도자: 
