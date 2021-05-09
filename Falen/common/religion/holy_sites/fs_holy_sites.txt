@@ -364,3 +364,20 @@ chamseongdan = { #참성단, 단군의 성지
 	}
 	 
 }
+
+# cheondo : 종로, 평양, 경주는 기존파일 그대로 사용
+gobu = { # 고부 농민 봉기
+	county = c_jeongeup
+	barony = b_982 # 고부
+	character_modifier = {
+		stress_loss_mult = 0.15
+		monthly_prestige_gain_mult = 0.1
+	}
+}
+ugeumti = { # 우금티(우금치) 전투
+	county = c_gongju
+	character_modifier = {
+		knight_effectiveness_mult = 0.15
+		monthly_prestige_gain_mult = 0.1
+	}
+}
