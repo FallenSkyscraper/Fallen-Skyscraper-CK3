@@ -1,16 +1,45 @@
 taoism_religion = {
 	family = rf_eastern	# 소속 종교 패밀리
-	# graphical_faith = religion_gfx	# 종교 gfx 설정
-	# piety_icon_group = 	# 신앙심 아이콘 설정
-	# doctrine_background_icon = 	# 교리 배경 설정
-	
-	doctrine = eastern_hostility_doctrine	# 종교 적대 시 소속
-	# doctrine = unreformed_faith_doctrine	# 파간 설정
-	# pagan_roots = yes
-	
-	traits = {	# 트레잇
-		virtues = { trait1 trait2 trait3 }	# 미덕
-		sins = { trait4 trait5 trait6 }	# 죄악
+	doctrine = eastern_hostility_doctrine
+	graphical_faith = dharmic_gfx
+
+	#Main Group
+	doctrine = doctrine_no_head
+	doctrine = doctrine_gender_equal
+	doctrine = doctrine_pluralism_pluralistic
+	doctrine = doctrine_theocracy_temporal
+
+	#Marriage
+	doctrine = doctrine_monogamy
+	doctrine = doctrine_divorce_allowed
+	doctrine = doctrine_bastardry_none
+	doctrine = doctrine_consanguinity_cousins
+
+	#Crimes
+	doctrine = doctrine_homosexuality_accepted
+	doctrine = doctrine_adultery_men_shunned
+	doctrine = doctrine_adultery_women_shunned
+	doctrine = doctrine_kinslaying_any_dynasty_member_crime
+	doctrine = doctrine_deviancy_shunned
+	doctrine = doctrine_witchcraft_accepted
+
+	#Clerical Functions
+	doctrine = doctrine_clerical_function_alms_and_pacification
+	doctrine = doctrine_clerical_gender_either
+	doctrine = doctrine_clerical_marriage_allowed
+	doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
+
+	traits = {
+		virtues = {
+			compassionate
+			content
+			humble
+		}
+		sins = {
+			sadistic
+			ambitious
+			arrogant
+		}
 	}
 	
 	reserved_male_names = {	# 남성 이름
@@ -18,20 +47,20 @@ taoism_religion = {
 	reserved_female_names = {	# 여성 이름
 	}
 	
-	custom_faith_icons = {	# 분파 생성 용 아이콘 목록
+	custom_faith_icons = {
+		custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5 custom_faith_6 custom_faith_7 custom_faith_8 custom_faith_9 custom_faith_10 dualism_custom_1 zoroastrian_custom_1 zoroastrian_custom_2 buddhism_custom_1 buddhism_custom_2 buddhism_custom_3 buddhism_custom_4 taoism_custom_1 yazidi_custom_1 sunni_custom_2 sunni_custom_3 sunni_custom_4 ibadi_custom muhakkima_1 muhakkima_2 muhakkima_4 muhakkima_5 muhakkima_6 judaism_custom_1 custom_faith_fp1_fenrir custom_faith_fp1_irminsul custom_faith_fp1_jormungandr custom_faith_fp1_odins_ravens custom_faith_fp1_runestone_moon custom_faith_fp1_thors_hammer custom_faith_fp1_valknut custom_faith_fp1_yggdrasil
 	}
 	
 	localization = {
-		#HighGod
-		HighGodName = taoism_high_god_name	# 신 이름
-		HighGodNamePossessive = taoism_high_god_name_possessive	# 신 이름 소유격
-		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
-		HighGodHerselfHimself = CHARACTER_HIMSELF
-		HighGodHerHis = CHARACTER_HERHIS_HIS
-		HighGodNameAlternate = taoism_high_god_name_alternate	# 최고신은 이명 사용 가능
+		HighGodName = taoism_high_god_name
+		HighGodNamePossessive = taoism_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_IT
+		HighGodHerselfHimself = CHARACTER_ITSELF
+		HighGodHerHis = CHARACTER_HERHIS_ITS
+		HighGodNameAlternate = taoism_high_god_name_alternate
 		HighGodNameAlternatePossessive = taoism_high_god_name_alternate_possessive
 
-		#CreatorName
+		#Creator
 		CreatorName = taoism_creator_god_name
 		CreatorNamePossessive = taoism_creator_god_name_possessive
 		CreatorSheHe = CHARACTER_SHEHE_HE
@@ -69,11 +98,11 @@ taoism_religion = {
 		#FateGod
 		FateGodName = taoism_fate_god_name
 		FateGodNamePossessive = taoism_fate_god_name_possessive
-		FateGodSheHe = CHARACTER_SHEHE_HE
-		FateGodHerHis = CHARACTER_HERHIS_HIS
-		FateGodHerHim = CHARACTER_HERHIM_HIM
+		FateGodSheHe = CHARACTER_SHEHE_IT
+		FateGodHerHis = CHARACTER_HERHIS_ITS
+		FateGodHerHim = CHARACTER_HERHIM_IT
 
-		#Knowledge
+		#KnowledgeGod
 		KnowledgeGodName = taoism_knowledge_god_name
 		KnowledgeGodNamePossessive = taoism_knowledge_god_name_possessive
 		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
@@ -90,16 +119,16 @@ taoism_religion = {
 		#TricksterGod
 		TricksterGodName = taoism_trickster_god_name
 		TricksterGodNamePossessive = taoism_trickster_god_name_possessive
-		TricksterGodSheHe = CHARACTER_SHEHE_HE
-		TricksterGodHerHis = CHARACTER_HERHIS_HIS
-		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+		TricksterGodSheHe = CHARACTER_SHEHE_SHE
+		TricksterGodHerHis = CHARACTER_HERHIS_HER
+		TricksterGodHerHim = CHARACTER_HERHIM_HER
 
 		#NightGod
 		NightGodName = taoism_night_god_name
 		NightGodNamePossessive = taoism_night_god_name_possessive
-		NightGodSheHe = CHARACTER_SHEHE_HE
-		NightGodHerHis = CHARACTER_HERHIS_HIS
-		NightGodHerHim = CHARACTER_HERHIM_HIM
+		NightGodSheHe = CHARACTER_SHEHE_SHE
+		NightGodHerHis = CHARACTER_HERHIS_HER
+		NightGodHerHim = CHARACTER_HERHIM_HER
 
 		#WaterGod
 		WaterGodName = taoism_water_god_name
@@ -108,75 +137,71 @@ taoism_religion = {
 		WaterGodHerHis = CHARACTER_HERHIS_HIS
 		WaterGodHerHim = CHARACTER_HERHIM_HIM
 
-		PantheonTerm = taoism_high_god_name
-		PantheonTermHasHave = pantheon_term_has
-		GoodGodNames = {	# 선신 이름들
-			buddhism_high_god_name
+		PantheonTerm = religion_the_gods
+		PantheonTermHasHave = pantheon_term_have
+		GoodGodNames = {
+			taoism_good_god_name_three_pure_ones
+			taoism_wealth_god_name
+			taoism_health_god_name
+			taoism_knowledge_god_name
+			taoism_war_god_name
+			taoism_night_god_name
+			taoism_water_god_name
 		}
-		
 		DevilName = taoism_devil_name
 		DevilNamePossessive = taoism_devil_name_possessive
-		DevilSheHe = CHARACTER_SHEHE_HE
-		DevilHerHis = CHARACTER_HERHIS_HIS
-		DevilHerHis = CHARACTER_HERHIS_HIS
-		DevilHerselfHimself = CHARACTER_HIMSELF
-		EvilGodNames = {	# 악신 이름들
-			buddhism_devil_name
-		}
-		
+		DevilSheHe = CHARACTER_SHEHE_IT
+		DevilHerHis = CHARACTER_HERHIS_ITS
+		DevilHerselfHimself = CHARACTER_ITSELF
+		EvilGodNames = { taoism_devil_name }
 		HouseOfWorship = taoism_house_of_worship
 		HouseOfWorshipPlural = taoism_house_of_worship_plural
 		ReligiousSymbol = taoism_religious_symbol
 		ReligiousText = taoism_religious_text
 		ReligiousHeadName = taoism_religious_head_title
 		ReligiousHeadTitleName = taoism_religious_head_title_name
-		
 		DevoteeMale = taoism_devotee_male
 		DevoteeMalePlural = taoism_devotee_male_plural
 		DevoteeFemale = taoism_devotee_female
 		DevoteeFemalePlural = taoism_devotee_female_plural
 		DevoteeNeuter = taoism_devotee_neuter
 		DevoteeNeuterPlural = taoism_devotee_neuter_plural
-		
 		PriestMale = taoism_priest_male
 		PriestMalePlural = taoism_priest_male_plural
-		PriestFemale = taoism_priest_male
-		PriestFemalePlural = taoism_priest_male_plural
-		PriestNeuter = taoism_priest_male
-		PriestNeuterPlural = taoism_priest_male_plural
-		AltPriestTermPlural = taoism_priest_alternate_plural
-		
-		BishopMale = taoism_bishop
-		BishopMalePlural = taoism_bishop_plural
-		BishopFemale = taoism_bishop
-		BishopFemalePlural = taoism_bishop_plural
-		BishopNeuter = taoism_bishop
-		BishopNeuterPlural = taoism_bishop_plural
-		
-		DivineRealm = taoism_positive_afterlife
+		PriestFemale = taoism_priest_female
+		PriestFemalePlural = taoism_priest_female_plural
+		PriestNeuter = taoism_priest_neuter
+		PriestNeuterPlural = taoism_priest_neuter_plural
+		AltPriestTermPlural = taoism_alternate_priest_term_plural
+		BishopMale = taoism_priest_male
+		BishopMalePlural = taoism_priest_male_plural
+		BishopFemale = taoism_priest_female
+		BishopFemalePlural = taoism_priest_female_plural
+		BishopNeuter = taoism_priest_neuter
+		BishopNeuterPlural = taoism_priest_neuter_plural
+
+		DivineRealm = taoism_divine_realm
 		PositiveAfterLife = taoism_positive_afterlife
 		NegativeAfterLife = taoism_negative_afterlife
-		DeathDeityName = taoism_death_deity_name
-		DeathDeityNamePossessive = taoism_death_deity_name_possessive
-		DeathDeitySheHe = CHARACTER_SHEHE_HE
-		DeathDeityHerHis = CHARACTER_HERHIS_HIS
-		
-		WitchGodName = taoism_witchgodname_the_horned_god
-		WitchGodHerHis = CHARACTER_HERHIS_HIS
-		WitchGodSheHe = CHARACTER_SHEHE_HE
-		WitchGodHerHim = CHARACTER_HERHIM_HIM
-		WitchGodMistressMaster = master
-		WitchGodMotherFather = father
+		DeathDeityName = paganism_death_deity_name
+		DeathDeityNamePossessive = paganism_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_IT
+		DeathDeityHerHis = CHARACTER_HERSHIS_ITS
+		WitchGodName = witchgodname_taoism_daode_tianzun
+		WitchGodHerHis = CHARACTER_HERHIS_HER
+		WitchGodSheHe = CHARACTER_SHEHE_SHE
+		WitchGodHerHim = CHARACTER_HERHIM_HER
+		WitchGodMistressMaster = mistress
+		WitchGodMotherFather = mother
 
-
-		GHWName = ghw_crusade	# 대성전 이름
-		GHWNamePlural = ghw_crusades
+		GHWName = ghw_purification
+		GHWNamePlural = ghw_purifications
 	}
 	
 	faiths = {
 		taoism = {	# 하위 종교
-			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
-			icon = default_custom	# 종교 아이콘
+			color = { 8 140 131 }
+			icon = taoism
 		
 			# graphical_faith = 	# 종교 gfx 설정
 			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
@@ -218,17 +243,17 @@ taoism_religion = {
 			
 			# doctrine = 	# 교리 변경이나 추가 가능
 			
-			# doctrine = tenet	# 원리 설정
-			# doctrine = tenet
-			# doctrine = tenet
+			doctrine = tenet_communion
+			doctrine = tenet_esotericism
+			doctrine = tenet_mendicant_preachers
 			
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
 			# localization = {}	# localization 변경 가능
 		}
 		nightglow = {	# 하위 종교
-			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
-			icon = default_custom	# 종교 아이콘
+			color = { 208 249 211 }
+			icon = shangqing	# 종교 아이콘
 		
 			# graphical_faith = 	# 종교 gfx 설정
 			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
