@@ -7,7 +7,7 @@ k_jeju = {
 		ai_primary_priority = {
 			if = {
 				limit = {
-					culture = culture:greek
+					culture = culture:jeju
 				}
 				add = @correct_culture_primary_score
 			}
@@ -229,6 +229,20 @@ k_jeju = {
 					province = 455
 					
 					color = { 42 90 28 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+		d_chuja = {
+			color = { 126 63 44 }
+			color2 = { 255 255 255 }
+			capital = c_chuja
+			c_chuja = {
+				color = { 126 63 44 }
+				color2 = { 255 255 255 }
+				b_3813 = { # Chuja
+					province = 3813
+					color = { 126 63 44 }
 					color2 = { 255 255 255 }
 				}
 			}

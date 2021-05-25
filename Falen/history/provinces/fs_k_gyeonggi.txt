@@ -18,13 +18,6 @@
 1423 = { #Jangan
 	holding = none
 }
-75 = { #Gunpo
-	holding = none
-}
-
-76 = { #Uiwang
-	holding = none
-}
 
 ### c_g_namyang   
  
@@ -89,7 +82,7 @@
 	holding = city_holding
 }
 1418 = { #Bongdam
-	holding = none
+	holding = temple_holding
 }
 1416 = {#Jeongnam
 	holding = none
@@ -105,14 +98,14 @@
 	holding = castle_holding
 }
 73 = {#수암
-	holding = none
+	holding = temple_holding
 }
 3806 = {#군자
 	holding = none
 }
 
 1425 = { #Singil
-	holding = none
+	holding = city_holding
 }
 
 ### c_bucheon 
@@ -123,7 +116,7 @@
 	holding = castle_holding
 }
 3807 = {#소래
-	holding = none
+	holding = city_holding
 }
 ### c_anyang  
 
@@ -134,16 +127,25 @@
 }
 
 1426 = {#Manan
-	holding = none
+	holding = city_holding
 }
 69 = { #Gwangmyeong
-	holding = none
+	holding = city_holding
+}
+75 = { #Gunpo
+	holding = temple_holding
 }
 
+### c_gwacheon
+
 51 = { #Gwacheon
-	holding = none
+	culture	= suwon
+	religion = populism
+	holding = castle_holding
 }
-  
+76 = { #Uiwang
+	holding = city_holding
+}
   
 
 ##d_seongnam  ######################
@@ -156,10 +158,10 @@
 }
 
 1525 = {#Sujeong
-	holding = none
+	holding = city_holding
 }
 1524 = { #Bundang
-	holding = none
+	holding = city_holding
 }
 
 ###c_kwangju

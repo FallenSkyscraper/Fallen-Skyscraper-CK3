@@ -40,23 +40,6 @@ k_incheon = {
 					color2 = { 255 255 255 }
 				}
 			}
-			c_bupyeong = {
-				color = { 63 126 189 }
-				color2 = { 255 255 255 }
-				
-				b_63 = { # Bupyeong
-					province = 63
-					
-					color = { 63 126 189 }
-					color2 = { 255 255 255 }
-				}
-				b_61 = { # Gyeyang
-					province = 61
-					
-					color = { 42 183 158 }
-					color2 = { 255 255 255 }
-				}
-			}
 			c_seogu = {
 				color = { 0 180 30 }
 				color2 = { 255 255 255 }
@@ -75,7 +58,45 @@ k_incheon = {
 				}
 			}
 		}
-
+		d_bupyeong = {
+			color = { 54 101 161 }
+			color2 = { 255 255 255 }
+			
+			capital = c_bupyeong
+			c_bupyeong = {
+				color = { 63 126 189 }
+				color2 = { 255 255 255 }
+				
+				b_63 = { # Bupyeong
+					province = 63
+					
+					color = { 63 126 189 }
+					color2 = { 255 255 255 }
+				}
+				b_61 = { # Gyeyang
+					province = 61
+					
+					color = { 42 183 158 }
+					color2 = { 255 255 255 }
+				}
+			}
+			c_bucheon = {
+				color = { 84 186 31 }
+				color2 = { 255 255 255 }
+				
+				b_62 = { # Bucheon
+					province = 62
+					
+					color = { 84 186 31 }
+					color2 = { 255 255 255 }
+				}
+				b_3807 = { # Sorae
+					province = 3807
+					color = { 84 185 3 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
 		d_ganghwado = {
 			color = { 170 141 187 }
 			color2 = { 255 255 255 }
@@ -114,11 +135,6 @@ k_incheon = {
 					color = { 84 18 166 }
 					color2 = { 255 255 255 }
 				}
-			}
-			c_naega = {
-				color = { 86 135 186 }
-				color2 = { 255 255 255 }
-				
 				b_1441 = { # Naega
 					province = 1441
 					
