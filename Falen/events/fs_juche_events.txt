@@ -1,0 +1,105 @@
+namespace = juche_rised
+
+juche.0001 = {
+    type = charater_event
+	title = juche.0001.t
+    desc = juche.0001.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = war_attacker
+	}
+	
+	trigger = {
+		has_landed_title = e_north_korea
+		NOT = { has_global_flag = juche_rised }
+	}
+	
+	option = {
+		set_global_flag = juche_rised
+		name = juche.0001.a
+	}
+}
+juche.0002 = {
+	type = charater_event
+	title = juche.0002.t
+	desc = juche.0002.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = war_attacker
+	}
+	
+	trigger = {
+		has_global_flag = juche_rised
+		
+	}
+	option = {
+		name = juche.0002.a
+		trigger = {
+			NOT = { religion = juche }
+		}
+	}
+	option = {
+		name = juche.0002.b
+		trigger = {
+			religion = juche
+		}
+	}
+}
+juche.0003 = {
+	type = juche.0003
+	title = juche.0003.t
+	desc = juche.0003.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = war_attacker
+	}
+	
+    trigger = {
+		has_global_flag = juche_rised
+		
+	}
+	option = {
+		name = juche.0003.a
+		trigger = {
+			NOT = { religion = juche }
+		}
+	}
+	option = {
+		name = juche.0003.b
+		trigger = {
+			religion = juche
+		}
+		piety = 50
+		ai_chance = { factor = 1 }
+	}
+	option = {
+		name = juche.0003.c
+		ai_chance = { factor = 99 }
+		trigger = {
+			OR = {
+				AND = {
+					ROOT = { ai = yes }
+					religion = juche
+					independent = yes
+					primary_title = {
+						NOT = { tier = EMPEROR }
+					}
+				}
+				AND = {
+					ROOT = { ai = no }
+					religion = juche
+					culture = baekdu
+					independent = yes
+					primary_title = {
+						NOT = { tier = EMPEROR }
+					}
+				}
+			}
+		}
+		set_defacto_liege = ROOT
+		piety = 250
+	}
+}
