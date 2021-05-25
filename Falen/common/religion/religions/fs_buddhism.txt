@@ -349,8 +349,8 @@ buddhism_religion = {
 			# localization = {}	# localization 변경 가능
 		}
 		tibetan = {	# 하위 종교
-			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
-			icon = default_custom	# 종교 아이콘
+			color = { 0.9 0.2 0.0 }	# 지도 상에서 표시될 색깔
+			icon = lamaism_buddhism	# 종교 아이콘
 		
 			# graphical_faith = 	# 종교 gfx 설정
 			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
@@ -378,11 +378,11 @@ buddhism_religion = {
 
 			# 범죄 교리
 			# doctrine = 	# 동성연애: 
-			# doctrine = 	# 남성의 간통: 
-			# doctrine = 	# 여성의 간통: 
+			doctrine = doctrine_adultery_men_accepted
+			doctrine = doctrine_adultery_women_accepted
 			# doctrine = 	# 친족 살해: 
-			# doctrine = 	# 이상성욕: 
-			# doctrine = 	# 마술: 
+			doctrine = doctrine_deviancy_accepted
+			doctrine = doctrine_witchcraft_accepted
 
 			# 성직자 교리
 			# doctrine = 	# 성직자의 기능: 
@@ -391,14 +391,31 @@ buddhism_religion = {
 			# doctrine = 	# 성직자의 지위: 
 			
 			# doctrine = 	# 교리 변경이나 추가 가능
-			
-			# doctrine = tenet	# 원리 설정
-			# doctrine = tenet
-			# doctrine = tenet
-			
-			# reserved_male_names = {} # 남성 이름 추가 가능
-			# reserved_female_names = {} # 여성 이름 추가 가능
-			# localization = {}	# localization 변경 가능
+
+			doctrine = doctrine_gender_equal
+			doctrine = doctrine_concubines
+
+			doctrine = tenet_communal_identity
+			doctrine = tenet_monasticism
+			doctrine = tenet_esotericism
+
+			localization = {
+				ReligiousText = tibetan_religious_text
+				ReligiousHeadName = tibetan_religious_head_title
+				PriestMale = tibetan_priest
+				PriestMalePlural = tibetan_priest_plural
+				PriestFemale = tibetan_priest
+				PriestFemalePlural = tibetan_priest_plural
+				PriestNeuter = tibetan_priest
+				PriestNeuterPlural = tibetan_priest_plural
+				AltPriestTermPlural = tibetan_priest_term_plural
+				BishopMale = tibetan_bishop
+				BishopMalePlural = tibetan_bishop_plural
+				BishopFemale = tibetan_bishop
+				BishopFemalePlural = tibetan_bishop_plural
+				BishopNeuter = tibetan_bishop
+				BishopNeuterPlural = tibetan_bishop_plural
+			}
 		}
 	}
 }

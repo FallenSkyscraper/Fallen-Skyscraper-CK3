@@ -88,65 +88,46 @@ orthodox_religion = {
 		HealthGodHerHis = CHARACTER_HERHIS_HIS
 		HealthGodHerHim = CHARACTER_HERHIM_HIM
 		
+		# Utilizes the 'West Christian' Saints, shared by Catholics and Orthodox
+		
 		#FertilityGod
-		FertilityGodName = christianity_fertility_god_name
-		FertilityGodNamePossessive = christianity_fertility_god_name_possessive
-		FertilityGodSheHe = CHARACTER_SHEHE_HE
-		FertilityGodHerHis = CHARACTER_HERHIS_HIS
-		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+		FertilityGodName = west_christian_fertility_god_name
+		FertilityGodNamePossessive = west_christian_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_SHE
+		FertilityGodHerHis = CHARACTER_HERHIS_HER
+		FertilityGodHerHim = CHARACTER_HERHIM_HER
 
 		#WealthGod
-		WealthGodName = christianity_wealth_god_name
-		WealthGodNamePossessive = christianity_wealth_god_name_possessive
+		WealthGodName = west_christian_wealth_god_name
+		WealthGodNamePossessive = west_christian_wealth_god_name_possessive
 		WealthGodSheHe = CHARACTER_SHEHE_HE
 		WealthGodHerHis = CHARACTER_HERHIS_HIS
 		WealthGodHerHim = CHARACTER_HERHIM_HIM
 
 		#HouseholdGod
-		HouseholdGodName = christianity_household_god_name
-		HouseholdGodNamePossessive = christianity_household_god_name_possessive
+		HouseholdGodName = west_christian_household_god_name
+		HouseholdGodNamePossessive = west_christian_household_god_name_possessive
 		HouseholdGodSheHe = CHARACTER_SHEHE_HE
 		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
 		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
 
-		#FateGod
-		FateGodName = christianity_fate_god_name
-		FateGodNamePossessive = christianity_fate_god_name_possessive
-		FateGodSheHe = CHARACTER_SHEHE_HE
-		FateGodHerHis = CHARACTER_HERHIS_HIS
-		FateGodHerHim = CHARACTER_HERHIM_HIM
-
 		#KnowledgeGod
-		KnowledgeGodName = christianity_knowledge_god_name
-		KnowledgeGodNamePossessive = christianity_knowledge_god_name_possessive
-		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
-		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
-		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+		KnowledgeGodName = west_christian_knowledge_god_name
+		KnowledgeGodNamePossessive = west_christian_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_SHE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HER
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HER
 
 		#WarGod
-		WarGodName = christianity_war_god_name
-		WarGodNamePossessive = christianity_war_god_name_possessive
+		WarGodName = west_christian_war_god_name
+		WarGodNamePossessive = west_christian_war_god_name_possessive
 		WarGodSheHe = CHARACTER_SHEHE_HE
 		WarGodHerHis = CHARACTER_HERHIS_HIS
 		WarGodHerHim = CHARACTER_HERHIM_HIM
 
-		#TricksterGod
-		TricksterGodName = christianity_trickster_god_name
-		TricksterGodNamePossessive = christianity_trickster_god_name_possessive
-		TricksterGodSheHe = CHARACTER_SHEHE_HE
-		TricksterGodHerHis = CHARACTER_HERHIS_HIS
-		TricksterGodHerHim = CHARACTER_HERHIM_HIM
-
-		#NightGod
-		NightGodName = christianity_night_god_name
-		NightGodNamePossessive = christianity_night_god_name_possessive
-		NightGodSheHe = CHARACTER_SHEHE_HE
-		NightGodHerHis = CHARACTER_HERHIS_HIS
-		NightGodHerHim = CHARACTER_HERHIM_HIM
-
 		#WaterGod
-		WaterGodName = christianity_water_god_name
-		WaterGodNamePossessive = christianity_water_god_name_possessive
+		WaterGodName = west_christian_water_god_name
+		WaterGodNamePossessive = west_christian_water_god_name_possessive
 		WaterGodSheHe = CHARACTER_SHEHE_HE
 		WaterGodHerHis = CHARACTER_HERHIS_HIS
 		WaterGodHerHim = CHARACTER_HERHIM_HIM
@@ -175,8 +156,9 @@ orthodox_religion = {
 		HouseOfWorshipPlural = christianity_house_of_worship_plural
 		ReligiousSymbol = christianity_religious_symbol
 		ReligiousText = christianity_religious_text
+		# Patriarchs instead of Popes
 		ReligiousHeadName = orthodox_religious_head_title
-		ReligiousHeadTitleName = orthodox_religious_head_title_name			
+		ReligiousHeadTitleName = orthodox_religious_head_title_name				
 		DevoteeMale = christianity_devotee_male
 		DevoteeMalePlural = christianity_devotee_male_plural
 		DevoteeFemale = christianity_devotee_female
@@ -239,55 +221,7 @@ orthodox_religion = {
 				{ name = "holy_order_brotherhood_of_the_holy_sepulchre" }
 				{ name = "holy_order_knights_of_the_first_patrirchate" }
 				{ name = "holy_order_order_of_the_holy_virgin" }
-			}
-
-			localization = { # Utilizes the 'West Christian' Saints, shared by Catholics and Orthodox
-				#FertilityGod
-				FertilityGodName = west_christian_fertility_god_name
-				FertilityGodNamePossessive = west_christian_fertility_god_name_possessive
-				FertilityGodSheHe = CHARACTER_SHEHE_SHE
-				FertilityGodHerHis = CHARACTER_HERHIS_HER
-				FertilityGodHerHim = CHARACTER_HERHIM_HER
-
-				#WealthGod
-				WealthGodName = west_christian_wealth_god_name
-				WealthGodNamePossessive = west_christian_wealth_god_name_possessive
-				WealthGodSheHe = CHARACTER_SHEHE_HE
-				WealthGodHerHis = CHARACTER_HERHIS_HIS
-				WealthGodHerHim = CHARACTER_HERHIM_HIM
-
-				#HouseholdGod
-				HouseholdGodName = west_christian_household_god_name
-				HouseholdGodNamePossessive = west_christian_household_god_name_possessive
-				HouseholdGodSheHe = CHARACTER_SHEHE_HE
-				HouseholdGodHerHis = CHARACTER_HERHIS_HIS
-				HouseholdGodHerHim = CHARACTER_HERHIM_HIM
-
-				#KnowledgeGod
-				KnowledgeGodName = west_christian_knowledge_god_name
-				KnowledgeGodNamePossessive = west_christian_knowledge_god_name_possessive
-				KnowledgeGodSheHe = CHARACTER_SHEHE_SHE
-				KnowledgeGodHerHis = CHARACTER_HERHIS_HER
-				KnowledgeGodHerHim = CHARACTER_HERHIM_HER
-
-				#WarGod
-				WarGodName = west_christian_war_god_name
-				WarGodNamePossessive = west_christian_war_god_name_possessive
-				WarGodSheHe = CHARACTER_SHEHE_HE
-				WarGodHerHis = CHARACTER_HERHIS_HIS
-				WarGodHerHim = CHARACTER_HERHIM_HIM
-
-				#WaterGod
-				WaterGodName = west_christian_water_god_name
-				WaterGodNamePossessive = west_christian_water_god_name_possessive
-				WaterGodSheHe = CHARACTER_SHEHE_HE
-				WaterGodHerHis = CHARACTER_HERHIS_HIS
-				WaterGodHerHim = CHARACTER_HERHIM_HIM
-
-				# Patriarchs instead of Popes
-				ReligiousHeadName = orthodox_religious_head_title
-				ReligiousHeadTitleName = orthodox_religious_head_title_name				
-			}			
+			}		
 		}
 		rusortho = {	# 하위 종교
 			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
@@ -332,11 +266,13 @@ orthodox_religion = {
 			# doctrine = 	# 성직자의 결혼: 
 			# doctrine = 	# 성직자의 지위: 
 			
-			# doctrine = 	# 교리 변경이나 추가 가능
-			
-			# doctrine = tenet	# 원리 설정
-			# doctrine = tenet
-			# doctrine = tenet
+			#Special Tolerance
+			doctrine = special_doctrine_ecumenical_christian
+
+			#Tenets
+			doctrine = tenet_communion
+			doctrine = tenet_pentarchy
+			doctrine = tenet_monasticism
 			
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
@@ -385,11 +321,13 @@ orthodox_religion = {
 			# doctrine = 	# 성직자의 결혼: 
 			# doctrine = 	# 성직자의 지위: 
 			
-			# doctrine = 	# 교리 변경이나 추가 가능
-			
-			# doctrine = tenet	# 원리 설정
-			# doctrine = tenet
-			# doctrine = tenet
+			#Special Tolerance
+			doctrine = special_doctrine_ecumenical_christian
+
+			#Tenets
+			doctrine = tenet_communion
+			doctrine = tenet_pentarchy
+			doctrine = tenet_monasticism
 			
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
