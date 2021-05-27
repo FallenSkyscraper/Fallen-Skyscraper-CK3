@@ -1,0 +1,22 @@
+#인천내전
+war = {
+	name = "Incheon_Civil_War"
+	start_date =2443.9.27
+	end_date = 2450.6.14
+	targeted_titles = {
+                           #공화국
+		c_bupyeong
+                            #김포
+                            d_gimpo
+                            c_gimpo
+                            c_tongjin
+                            #옹진
+                            d_yeongjongdo
+                            c_daebu
+                            c_deokjeok
+                            c_jawol 
+	}
+	casus_belli = invasion_war
+	attackers = { 1 5 8 9 }
+	defenders = { 2 3 4 }
+}
