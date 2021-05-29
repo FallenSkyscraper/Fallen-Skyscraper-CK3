@@ -3,10 +3,9 @@ borrow_from_bobu_decision = {
 
 	desc = borrow_from_bobu_decision_desc
 	selection_tooltip = borrow_from_bobu_decision_tooltip
+	confirm_text = borrow_from_bobu_decision_confirm
 
 	ai_check_interval = 72
-
-	cooldown = { days = 3650 }
 
 	is_shown = {
 		is_landed = yes
@@ -19,12 +18,8 @@ borrow_from_bobu_decision = {
 	}
 
 	effect = {
-		hidden_effect = {
-			add_character_flag = {
-				flag = borrow_from_bobu
-			}
-		}
 		add_gold = 300
+		add_character_flag = { flag = borrow_from_bobu }
 	}
 	
 	ai_potential = {
@@ -32,7 +27,7 @@ borrow_from_bobu_decision = {
 	}
 
 	ai_will_do = {
-		base = 5
+		base = 0
 		ai_value_modifier = {
 			ai_greed = +5
 		}
@@ -44,8 +39,10 @@ repay_to_bobu_decision = {
 
 	desc = repay_to_bobu_decision_desc
 	selection_tooltip = repay_to_bobu_decision_tooltip
+	confirm_text = repay_to_bobu_decision_confirm
 
 	ai_check_interval = 72
+
 	is_shown = {
 		has_character_flag = borrow_from_bobu
 		gold >= 350
@@ -54,12 +51,12 @@ repay_to_bobu_decision = {
 		}
 	}
 
+	cost = {
+		gold = 350
+	}
+
 	effect = {
-		hidden_effect = {
-			remove_character_flag = {
-				flag = borrow_from_bobu
-			}
-		}
+		remove_character_flag = borrow_from_bobu
 		remove_short_term_gold = 350
 	}
 	
@@ -68,7 +65,7 @@ repay_to_bobu_decision = {
 	}
 
 	ai_will_do = {
-		base = 25
+		base = 0
 		ai_value_modifier = {
 			ai_greed = -10
 		}
@@ -80,10 +77,11 @@ expel_bobu_decision = {
 
 	desc = expel_bobu_decision_desc
 	selection_tooltip = expel_bobu_decision_tooltip
+	confirm_text = expel_bobu_decision_confirm
 
 	ai_check_interval = 72
 
-	cooldown = { days = 3650 }
+	cooldown = { days = 1000 }
 
 	is_shown = {
 		in_ruler = yes
@@ -91,16 +89,14 @@ expel_bobu_decision = {
 			has_character_flag = expel_bobu
 		}
 	}
+
 	effect = {
-		hidden_effect = {
-			add_character_flag = {
-				flag = expel_bobu
-			}
+		add_character_flag = expel_bobu
 		add_gold = 500
-		}
 	}
+
 	ai_will_do = {
-		base = 1
+		base = 0
 		ai_value_modifier = {
 			ai_greed = +2
 		}
@@ -112,6 +108,7 @@ cancel_expel_bobu_decision = {
 
 	desc = cancel_expel_bobu_decision_desc
 	selection_tooltip = cancel_expel_bobu_decision_tooltip
+	confirm_text = cancel_expel_bobu_decision_cofirm
 
 	ai_check_interval = 72
 
@@ -120,16 +117,17 @@ cancel_expel_bobu_decision = {
 		has_character_flag = expel_bobu
 		gold >= 500
 	}
-	effect = {
-		hidden_effect = {
-			remove_character_flag = {
-				flag = expel_bobu
-			}
-		}
-		remove_gold = 500
+
+	cost = {
+		gold = 500
 	}
+
+	effect = { 
+		remove_character_flag = expel_bobu
+	}
+
 	ai_will_do = {
-		base = 10
+		base = 0
 		ai_value_modifier = {
 			ai_greed = -5
 		}
