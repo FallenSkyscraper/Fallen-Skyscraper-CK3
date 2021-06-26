@@ -93,3 +93,42 @@ prk_resign_candidate = {
 		}
 	}
 }
+election_gui_toggle = {
+	scope = character
+	
+	is_shown = {
+		has_variable = election_gui_toggle
+	}
+}
+voting1 = {
+	scope = character
+	effect = {
+		root = {
+			set_variable = { name = voting_power value = 0 }
+			every_held_title = {
+				limit = {
+					tier = tier_county
+					development_level > 0
+				}
+				prev = {
+					change_variable = { name = voting_power add = prev.development_level }
+				}
+			}
+		}
+	}
+}
+voting = {
+	scope = character
+	effect = {
+		root = {
+			change_variable = { name = votes add = scope:player.var:voting_power }
+		}
+		scope:player = {
+			remove_variable = voting_power
+			remove_variable = election_gui_toggle
+			trigger_event = {
+				id = joson_election.0003
+			}
+		}
+	}
+}

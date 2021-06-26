@@ -158,8 +158,9 @@ widget = {
 						vbox = {
 							
 							text_single = { text = "Next Election:" }
-							text_single = { text = "2445.1.1" }
+							text_single = { text="[GetPlayer.MakeScope.Var('election_date').GetValue|0].1.1"}
 						}
+						
 					}
 					text_single = { text = "후보들" }
 					hbox = {
@@ -222,6 +223,77 @@ widget = {
 				#		size = { 200 200 }
 				#		texture = "gfx/interface/component_overlay/overlay_texture.dds"
 				#	}
+				}
+			}
+	}
+	window = {
+		name = "election_window"
+		parentanchor = center
+		position = { 50 100 }
+		size = { 800 600 }
+		layer = windows_layer
+		filter_mouse = all
+		alwaystransparent = no
+
+		using = Window_Background
+		using = Window_Decoration
+		movable = yes
+		datacontext = "[GetScriptedGui('election_gui_toggle')]"
+		visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			using = Sound_WindowShow_Standard
+			using = Window_Position_MainTab
+			
+			on_start = "[GetScriptedGui('voting1').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		}
+		
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			using = Sound_WindowHide_Standard
+			using = Window_Position_MainTab_Hide
+		
+		}
+			widget = {
+				size = { 100% 100% }
+				using = Window_Margins
+				margin_top = 5
+				margin_bottom = 5
+				vbox = {
+					header_pattern = {
+						using = Window_Margins
+						layoutpolicy_horizontal = expanding						
+						blockoverride "header_text"
+						{
+							text = "PRK_ELECTION_TITLE"
+							margin = { -10 0 }
+							parentanchor = center
+						}
+						blockoverride "button_close" {}
+					}
+					text_single = { text = "후보들" }
+					hbox = {
+						using = Window_Margins
+							datamodel = "[GetPlayer.MakeScope.GetList('prk_candidates')]"
+							state = {
+										name = get_list
+										trigger_on_create = yes
+										duration = 2
+										on_start = "[GetScriptedGui('prk_candidate').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+										next = get_list
+									}
+							item = {
+								button_normal = {
+									datacontext = "[Scope.GetCharacter]"
+									portrait_head_small = {}
+									onclick = "[GetScriptedGui('voting').Execute(GuiScope.SetRoot(Scope.GetCharacter.MakeScope).AddScope('player',GetPlayer.MakeScope ).End)]"
+								}
+							}
+						
+					}
 				}
 			}
 	}

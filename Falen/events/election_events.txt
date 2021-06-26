@@ -1,1 +1,64 @@
 namespace = joson_election
+
+joson_election.0001 = {
+    type = charater_event
+	hidden = true
+	immediate = {
+		any_realm_county = {
+			limit = {
+				development_level > 0
+			}
+			owner = {
+				add_to_variable_list = {
+					name = voters
+					target = prev
+				}
+				if = {
+					limit = {
+						this = { is_ai = yes }
+					}
+					trigger_event = {
+						id = joson_election.0002
+					}
+				}
+				else = { # For Player!
+					set_variable = election_gui_toggle
+				}
+			}
+		}
+		every_living_character = {
+			limit = { has_variable = candidate }
+			set_variable = { name = votes value = 0 }
+	}
+}
+joson_election.0002 = { # For AI
+	type = charater_event
+	hidden = yes
+	immediate = {
+		# AI가 후보들 중에서 자기가 갖장좋아하는놈을 하나 고름
+		# 그 후보에게 직할령 개발도만큼의 표를 더함
+	}
+}
+joson_election.0003 = { # 선거 결과 계산
+	type = charater_event
+	hidden = yes
+	immediate = {
+		# 가장 많은 표를 받은 놈에게 k_prk 와 c_pyongyang을 넘김
+	}
+}
+joson_election.0004 = { # 선거 결과 발표
+	type = charater_event
+	title = joson_election.0004.t
+	desc = joson_election.0004.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = war_attacker
+	}
+	immediate = {
+		# 결과 발표
+	}
+	option = { # 알겟서요
+		name = joson_election.0004.a
+	}
+}
