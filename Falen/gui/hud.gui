@@ -158,7 +158,7 @@ widget = {
 						vbox = {
 							
 							text_single = { text = "Next Election:" }
-							text_single = { text="[GetPlayer.MakeScope.Var('election_date').GetValue|0].1.1"}
+							text_single = { text="[GetGlobalVariable('election_date').GetValue|0].1.1"}
 						}
 						
 					}

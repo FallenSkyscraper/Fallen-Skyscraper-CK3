@@ -1,0 +1,13 @@
+namespace = startup
+startup.1 = { #
+	type = charater_event
+	hidden = yes
+	trigger = {
+		is_ai = no
+	}
+	immediate = {
+		set_global_variable = { name = election_date value = 2445 }
+		set_global_variable = { name = election_term value = 1 }
+		set_global_flag = startup_settings
+	}
+}
