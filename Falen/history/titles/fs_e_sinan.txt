@@ -1,0 +1,246 @@
+#2.신안
+e_sinan = {
+	2296.3.23 = {
+		holder = 5010
+	}
+	2325.8.4 = {
+		holder = 5011
+	}
+	2335.3.2 = {
+		holder = 5014
+	}
+	2338.3.15 = {
+		holder = 0 # Interregnum, Civil War
+	}
+	2341.1.19 = {
+		holder = 5016
+	}
+	2377.9.18 = {
+		holder = 5023
+	}
+	2386.11.15 = {
+		holder = 5026
+	}
+	2393.1.15 = {
+		holder = 5025
+	}
+	2405.5.3 = {
+		holder = 5027
+	}
+	2407.2.3 = {
+		holder = 5032
+	}
+	2425.8.29 = { # 양위
+		holder = 5033
+	}
+}
+k_sinan = {
+	2231.12.9 = {
+		holder = 5007
+	}
+	2250.3.11 = {
+		holder = 5009
+	}
+	2283.9.7 = {
+		holder = 5010
+	}
+	2296.3.23 = {
+		liege = e_sinan
+		holder = 0
+	}
+}
+d_sinan = {
+	2189.4.5 = {
+		holder = 5006
+	}
+	2222.2.22 = {
+		holder = 5007
+	}
+	2250.3.11 = {
+		holder = 5009
+	}
+	2283.9.7 = {
+		holder = 5010
+	}
+	2296.3.23 = {
+		liege = e_sinan
+		holder = 0
+	}
+}
+c_sinan = {
+    2000.1.1 = { change_development_level = 13 }
+	2137.1.1 = {
+		holder = 5001
+	}
+	2140.1.1 = {
+		holder = 5002
+	}
+	2143.1.1 = {
+		holder = 5003
+	}
+	2145.1.1 = {
+		holder = 5004
+	}
+	2162.2.28 = {
+		holder = 5005
+	}
+	2184.6.7 = {
+		holder = 5006
+	}
+	2189.4.5 = {
+		liege = d_sinan
+	}
+	2222.2.22 = {
+		holder = 5007
+	}
+	2250.3.11 = {
+		holder = 5009
+	}
+	2283.9.7 = {
+		holder = 5010
+	}
+	2296.3.23 = {
+		liege = e_sinan
+	}
+	2400.1.1 = {
+		holder = 5029
+	}
+	2413.5.3 = {
+		holder = 5030
+	}
+	2441.3.4 = {
+		holder = 5031
+	}
+}
+c_mokpo = {
+    2000.1.1 = { change_development_level = 21 }
+	2229.8.27 = {
+		holder = 5007
+		liege = k_sinan
+	}
+	2250.3.11 = {
+		holder = 5009
+	}
+	2283.9.7 = {
+		holder = 5010
+	}
+	2296.3.23 = {
+		liege = e_sinan
+	}
+	2325.8.4 = {
+		holder = 5011
+	}
+	2335.3.2 = {
+		holder = 5014
+	}
+	2338.3.15 = {
+		holder = 0 # Interregnum, Civil War
+	}
+	2341.1.19 = {
+		holder = 5016
+	}
+	2377.9.18 = {
+		holder = 5023
+	}
+	2386.11.15 = {
+		holder = 5026
+	}
+	2393.1.15 = {
+		holder = 5025
+	}
+	2405.5.3 = {
+		holder = 5027
+	}
+	2407.2.3 = {
+		holder = 5032
+	}
+	2425.8.29 = { # 양위
+		holder = 5033
+	}
+}
+c_jido = {
+    2000.1.1 = { change_development_level = 7 }
+	2296.3.23 = {
+		liege = e_sinan
+	}
+	2444.1.1 = {
+		holder = 5033
+	}
+}
+c_bigeum = {
+    2000.1.1 = { change_development_level = 8 }
+	2444.1.1 = {
+		holder = 5033
+	}
+}
+c_haui = {
+    2000.1.1 = { change_development_level = 8 }
+	2444.1.1 = {
+		holder = 5033
+	}
+}
+c_heuksan = {
+    2000.1.1 = { change_development_level = 4 }
+	2133.4.4 = {
+		holder = 5001
+	}
+	2141.5.23 = {
+		holder = 5041
+	}
+	2189.4.5 = {
+		liege = d_sinan
+	}
+	2198.9.13 = {
+		holder = 5042
+	}
+	2231.12.9 = {
+		liege = k_sinan
+	}
+	2238.6.11 = {
+		holder = 5043
+	}
+	2263.4.1 = {
+		holder = 5044
+	}
+	2293.5.7 = {
+		holder = 5045
+	}
+	2296.3.23 = {
+		liege = e_sinan
+	}
+	2322.5.6 = {
+		holder = 5046
+	}
+	2341.3.2 = {
+		holder = 5047
+	}
+	2382.3.11 = {
+		holder = 5048
+	}
+	2393.1.15 = {
+		holder = 5049
+	}
+	2423.11.25 = {
+		holder = 5050
+	}
+	2443.11.15 = {
+		holder = 5053
+	}
+}
+#d_jindo = {
+#	2444.1.1 = {
+#		holder = 5001
+#	}
+#}
+c_jindo = {
+    2000.1.1 = { change_development_level = 10 }
+	2444.1.1 = {
+		holder = 5033
+	}
+}
+c_gogun = {
+    2000.1.1 = { change_development_level = 8 }
+	2444.1.1 = {
+		holder = 5033
+	}
+}
