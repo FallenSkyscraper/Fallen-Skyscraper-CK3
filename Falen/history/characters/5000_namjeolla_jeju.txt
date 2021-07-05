@@ -1,16 +1,586 @@
 #신안
-5001 = { 
-	name = "문어"
-	dynasty = 5001
-	religion = protestant
+#Old Sinan leaders
+5001 = {
+	name = "문직"
+	dynasty = 5001 # Seo
 	culture = sinan
-	2400.2.5 = {
+	religion = protestant
+	2087.3.14 = { birth = yes }
+	2141.5.23 = { death = yes }
+}
+5002 = {
+	name = "영일"
+	dynasty = 5002 # Choi
+	culture = sinan
+	religion = protestant
+	2096.6.16 = { birth = yes }
+	2152.1.12 = { death = yes }
+}
+5003 = {
+	name = "형기"
+	dynasty = 5003 # No
+	culture = sinan
+	religion = protestant
+	2101.12.23 = { birth = yes }
+	2167.7.15 = { death = yes }
+}
+# Sinan Kim dynasty
+5004 = {
+	name = "현성"
+	dynasty = 5004 # Kim(Sinan)
+	culture = sinan
+	religion = protestant
+	2103.3.24 = { birth = yes }
+	2162.2.28 = { death = yes }
+}
+5005 = {
+	name = "중대" # 중대. 정대X
+	father = 5004
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2137.3.25 = { birth = yes }
+	2184.6.7 = { death = yes }
+}
+5006 = {
+	name = "성호"
+	father = 5005
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2164.1.16 = { birth = yes }
+	2222.2.22 = { death = yes }
+}
+5007 = {
+	name = "성"
+	father = 5006
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2188.9.6 = { birth = yes }
+	2250.3.11 = {
+		death = {
+			death_reason = death_battle
+		}
+	}
+}
+5008 = {
+	name = "명수"
+	father = 5007
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2211.12.7 = { birth = yes }
+	2250.3.11 = {
+		death = {
+			death_reason = death_battle
+		}
+	}
+}
+5009 = {
+	name = "풍전" # The Architect 건축왕
+	father = 5008
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+#	trait = architect
+	2232.3.1 = { birth = yes }
+	2283.9.7 = { death = yes }
+}
+5010 = {
+	name = "대주" # The Salt Emperor 염제
+	father = 5009
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+#	trait = brilliant_strategist
+#	trait = genius
+#	trait = strong
+	trait = brave
+#	trait = robust
+#	trait = cruel
+	trait = diligent
+#	give_nickname = nick_salt_emperor
+	2267.7.16 = {
 		birth = yes
 	}
+#	2296.3.23 = {
+#		create_bloodline={
+#			type=salt_blood
+#			has_dlc="Holy Fury"
+#		}
+#	}
+	2325.8.4 = {
+		death = yes
+	}
+}
+5011 = {
+	name = "웅"
+	father = 5010
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2292.4.16 = { birth = yes }
+	2335.3.2 = { death = yes }
+}
+5012 = {
+	name = "신"
+	father = 5010
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2296.5.17 = { birth = yes }
+	2337.3.12 = { death = yes } # 대충 병사라는 말
+}
+5013 = {
+	name = "철"
+	father = 5010
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2299.8.4 = { birth = yes }
+	2341.1.23 = {
+		death = {
+			death_reason = death_execution
+			killer = 5016
+		}
+	}
+}
+5014 = {
+	name = "헌"
+	father = 5011
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2322.4.1 = { birth = yes }
+	2338.3.15 = {
+		death = {
+			death_reason = death_murder_unknown
+		}
+	}
+}
+5015 = {
+	name = "환"
+	father = 5011
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2324.6.7 = { birth = yes }
+	2341.3.31 = {
+		death = {
+			death_reason = death_execution
+			killer = 5016
+		}
+	}
+}
+5016 = {
+	name = "태우"
+	father = 5012
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	trait = kinslayer
+	2318.6.5 = { birth = yes }
+	2377.9.18 = { death = yes }
+}
+5017 = {
+	name = "태민"
+	father = 5012
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2320.4.16 = { birth = yes }
+	2379.9.7 = { death = yes }
+}
+5018 = {
+	name = "대철"
+	father = 5013
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2317.8.23 = { birth = yes }
+	2341.1.23 = {
+		death = {
+			death_reason = death_execution
+			killer = 5016
+		}
+	}
+}
+5019 = {
+	name = "민철"
+	father = 5013
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	trait = kinslayer
+	2319.7.28 = { birth = yes }
+	2341.1.23 = {
+		death = {
+			death_reason = death_execution
+			killer = 5016
+		}
+	}
+}
+5020 = {
+	name = "순철"
+	father = 5013
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2320.5.17 = { birth = yes }
+	2387.6.5 = { death = yes }
+}
+5021 = {
+	name = "현철"
+	father = 5013
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2322.1.12 = { birth = yes }
+	2339.10.5 = {
+		death = {
+			death_reason = death_murder
+			killer = 5019
+		}
+	}
+}
+5022 = {
+	name = "미희"
+	father = 5011
+	female = yes
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2310.3.14 = { birth = yes }
+	2375.6.3 = { death = yes }
+}
+5023 = {
+	name = "훈"
+	father = 5016
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2350.5.2 = { birth = yes }
+	2386.11.50 = { 
+		death = {
+			death_reason = death_murder_unknown
+		}
+	}
+}
+5024 = {
+	name = "혜림"
+	female = yes
+	father = 5016
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2354.3.16 = { birth = yes }
+	2408.2.1 = { death = yes }
+}
+5025 = {
+	name = "구리"
+	father = 5023
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2374.4.5 = { birth = yes }
+	2405.5.3 = {
+		death = {
+			death_reason = death_battle
+		}
+	}
+}
+5026 = {
+	name = "수호"
+	father = 5017
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2358.3.4 = { birth = yes }
+	2393.1.15 = { death = {
+		death_reason = death_murder_unknown
+		}
+	}
+}
+5027 = {
+	name = "준성"
+	father = 5026
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2379.6.9 = { birth = yes }
+	2407.2.3 = { death = {
+		death_reason = death_battle
+	}
+	}
+}
+5028 = {
+	name = "요한"
+	father = 5020
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2344.5.6 = { birth = yes }
+	2390.8.2 = { death = yes }
+}
+5029 = {
+	name = "명혈"
+	father = 5028
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2370.2.12 = { birth = yes }
+	2413.5.3 = {
+		death = {
+			death_reason = death_battle
+		}
+	}
+}
+5030 = {
+	name = "건호"
+	father = 5029
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2398.5.6 = { birth = yes }
+	2441.3.4 = { death = yes }
+}
+5031 = {
+	name = "홍"
+	father = 5030
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2420.3.1 = { birth = yes }
+	2489.1.1 = { death = yes }
+}
+5032 = {
+	name = "요셉"
+	father = 5027
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	trait = stressed
+	2398.4.5 = { birth = yes }
+	2428.5.3 = {
+		death = {
+			death_reason = death_trait
+		}
+	}
+}
+5033 = {
+	name = "문어"
+	father = 5025
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	trait = dull
+	trait = humble
+	trait = content
+	trait = kind
+	2400.2.5 = { birth = yes }
+	2420.8.1 = {
+		add_spouse = 5037
+	}
+	2460.1.1 = { death = yes }
+}
+5034 = {
+	name = "선호"
+	father = 5033
+	mother = 5037
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2421.5.3 = { birth = yes }
 	2500.1.1 = {
 		death = yes
 	}
 }
+5035 = {
+	name = "선희"
+	female = yes
+	father = 5033
+	mother = 5037
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2423.4.5 = { birth = yes }
+	2500.1.1 = {
+		death = yes
+	}
+}
+5036 = {
+	name = "선엽"
+	father = 5033
+	mother = 5037
+	dynasty = 5004 # Kim
+	culture = sinan
+	religion = protestant
+	2428.5.2 = { birth = yes }
+	2500.1.1 = {
+		death = yes
+	}
+}
+5037 = {
+	name = "옥련"
+	female = yes
+	dynasty = 5005 # 하
+	culture = sinan
+	religion = protestant
+	2404.2.1 = { birth = yes }
+	2500.1.1 = {
+		death = yes
+	}
+}
+5038 = {
+	name = "다희"
+	female = yes
+	dynasty = 5004 # Kim
+	father = 5026
+	culture = sinan
+	religion = protestant
+	2405.5.16 = { birth = yes }
+	2470.1.1 = { death = yes }
+}
+# Seo Family of Heuksan
+5041 = {
+	name = "석문"
+	father = 5001
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2131.3.14 = { birth = yes }
+	2198.9.13 = { death = yes }
+}
+5042 = {
+	name = "산호"
+	father = 5041
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2169.5.5 = { birth = yes }
+	2238.6.11 = { death = yes }
+}
+5043 = {
+	name = "호성"
+	father = 5042
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2191.6.13 = { birth = yes }
+	2263.4.1 = { death = yes }
+}
+5044 = {
+	name = "미역"
+	father = 5043
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2230.5.11 = { birth = yes }
+	2293.5.7 = { 
+		death = {
+			death_reason = death_execution
+			killer = 5010
+		}
+	}
+}
+5045 = {
+	name = "홍언"
+	father = 5044
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2270.4.6 = { birth = yes }
+	2322.5.6 = { death = yes }
+}
+5046 = {
+	name = "철수"
+	father = 5045
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2298.3.14 = { birth = yes }
+	2341.3.2 = {
+		death = {
+			death_reason = death_execution
+			killer = 5016
+		}
+	}
+}
+5047 = {
+	name = "승호"
+	father = 5046
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2328.12.25 = { birth = yes }
+	2382.3.11 = { death = yes }
+}
+5048 = {
+	name = "수한"
+	father = 5047
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2357.8.25 = { birth = yes }
+	2393.1.15 = { death = yes }
+}
+5049 = {
+	name = "병수"
+	father = 5048
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2375.5.11 = { birth = yes }
+	2423.11.25 = { death = yes }
+}
+5050 = {
+	name = "청해"
+	father = 5049
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	trait = depressed
+	2401.12.13 = { birth = yes }
+	2418.1.1 = { add_spouse = 5038 }
+	2443.11.15 = { death = { death_reason = death_trait } }
+}
+5051 = {
+	name = "정만"
+	father = 5050
+	mother = 5038
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2419.5.13 = { birth = yes }
+	2443.10.2 = { death = { death_reason = death_poor_health } }
+}
+5052 = {
+	name = "수정"
+	female = yes
+	father = 5050
+	mother = 5038
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2423.5.1 = { birth = yes }
+	2480.1.1 = { death = yes }
+}
+5053 = {
+	name = "만수"
+	father = 5050
+	mother = 5038
+	dynasty = 5001 # Seo
+	culture = sinan
+	religion = protestant
+	2426.9.1 = { birth = yes }
+	2490.1.1 = { death = yes }
+}
+#하의-정씨
+#지도-천씨
+#비금(이)
+#진도(조)
+#고군(박)
 #무안
 5101 = { #고쳐넣으셈
 	name = "창득"
