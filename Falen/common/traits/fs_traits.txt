@@ -1,0 +1,101 @@
+uji_minamoto = {
+	index = 300
+	fame = yes
+	
+	ruler_designer_cost = 25
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_minamoto_desc
+			}
+			desc = trait_minamoto_character_desc
+		}
+	}
+
+	inherit_chance = 100
+	parent_inheritance_sex = male
+	inherit_from_real_father = no
+}
+uji_taira = {
+	index = 301
+	fame = yes
+	
+	ruler_designer_cost = 25
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_taira_desc
+			}
+			desc = trait_taira_character_desc
+		}
+	}
+
+	inherit_chance = 100
+	parent_inheritance_sex = male
+	inherit_from_real_father = no
+}
+uji_fujiwara = {
+	index = 302
+	fame = yes
+	
+	ruler_designer_cost = 25
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_fujiwara_desc
+			}
+			desc = trait_fujiwara_character_desc
+		}
+	}
+
+	inherit_chance = 100
+	parent_inheritance_sex = male
+	inherit_from_real_father = no
+}
+uji_tachibana = {
+	index = 303
+	fame = yes
+	
+	ruler_designer_cost = 25
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_tachibana_desc
+			}
+			desc = trait_tachibana_character_desc
+		}
+	}
+
+	inherit_chance = 100
+	parent_inheritance_sex = male
+	inherit_from_real_father = no
+}
+paektu = {
+	index = 304
+	fame = yes
+	
+	ruler_designer_cost = 50
+	same_faith_opinion = 30
+	different_faith_opinion = -30
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_paektu_desc
+			}
+			desc = trait_paektu_character_desc
+		}
+	}
+
+	inherit_chance = 100
+	parent_inheritance_sex = male
+	inherit_from_real_father = no
+}
