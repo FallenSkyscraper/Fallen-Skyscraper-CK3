@@ -1,5 +1,5 @@
 borrow_from_bobu_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = "gfx/interface/illustrations/decisions/borrow_from_bobu.dds"
 
 	desc = borrow_from_bobu_decision_desc
 	selection_tooltip = borrow_from_bobu_decision_tooltip
@@ -35,7 +35,7 @@ borrow_from_bobu_decision = {
 }
 
 repay_to_bobu_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = "gfx/interface/illustrations/decisions/repay_bobu.dds"
 
 	desc = repay_to_bobu_decision_desc
 	selection_tooltip = repay_to_bobu_decision_tooltip
@@ -73,7 +73,7 @@ repay_to_bobu_decision = {
 }
 
 expel_bobu_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = "gfx/interface/illustrations/decisions/expel_bobu.dds"
 
 	desc = expel_bobu_decision_desc
 	selection_tooltip = expel_bobu_decision_tooltip
@@ -104,7 +104,7 @@ expel_bobu_decision = {
 }
 
 cancel_expel_bobu_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	picture = "gfx/interface/illustrations/decisions/cancel_expel_bobu.dds"
 
 	desc = cancel_expel_bobu_decision_desc
 	selection_tooltip = cancel_expel_bobu_decision_tooltip
@@ -115,7 +115,6 @@ cancel_expel_bobu_decision = {
 	is_shown = {
 		in_ruler = yes
 		has_character_flag = expel_bobu
-		gold >= 500
 	}
 
 	cost = {
