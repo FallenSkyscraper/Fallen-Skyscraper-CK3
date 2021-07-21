@@ -1,0 +1,49 @@
+namespace = investment
+investment.1 = {#투자시작
+	type = character_event
+	title = investment.1.t
+	desc = investment.1.desc
+	theme = stewardship_domain_focus
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+	}
+	option = {
+		name = investment.1.a		
+	}
+}
+
+invetment.2 = {#실패
+	type = character_event
+	title = investment.2.t
+	desc = investment.2.desc
+	theme = stewardship_domain_focus
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	option = {
+		name = investment.2.a
+		effects = {
+			remove_short_term_gold = medium_gold_value
+		}
+	}
+}
+
+investment.3 = {#성공
+	type = character_event
+	title = investment.3.t
+	desc = investment.3.desc
+	theme = stewardship_domain_focus
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+	}
+	option = {
+		name = investment.3.a
+		effects = {
+			add_gold = 100
+		}
+	}
+}
+			

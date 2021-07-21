@@ -1,0 +1,92 @@
+investment = {
+	picture = "gfx/interface/illustrations/decisions/investment.dds"
+	desc = investment_desc
+	selection_tooltip = investment_tooltip
+	confirm_text = investment_confirm
+
+	ai_check_interval = 50
+
+	is_shown = {
+		is_landed = yes
+		highest_held_title_tier > tier_barony
+		
+		NOT = {
+			faith = faith:marxism
+			is_imprisoned = yes
+		}
+	}
+
+	cost = {
+		gold = 50
+	}
+
+	effect = {
+		add_character_flag = { flag = investment_complete }
+		trigger_event = {
+			id = investment.1
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 10
+		ai_value_modifier = {
+			ai_greed = 20
+		}
+
+		modifier = {
+			add = 50
+			has_trait = ambitious
+		}
+	}
+}
+		
+
+investment_collection = {
+	picture = "gfx/interface/illustrations/decisions/investment_collection.dds"
+	desc = investment_collection_desc
+	selection_tooltip = investment_collection_tooltip
+	confirm_text = investment_collection_confirm
+
+	ai_check_interval = 50
+
+	cooldown = { days = 365 }
+	
+	is_shown = {
+		has_character_flag = investment_complete
+		NOT = {
+			faith = faith:marxism
+			is_imprisoned = yes
+		}
+	}
+
+	effect = {
+		remove_character_flag = investment_complete
+		if = {
+			limit = { stewardship <= low_skil_rating }
+			trigger.event = {
+				id = investment.2
+			}
+		}
+	
+		else = {
+			trigger.event = {
+				id = investment.3
+			}
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 15
+		ai_value_modifier = {
+			ai_greed = 5
+		}
+	}
+}
