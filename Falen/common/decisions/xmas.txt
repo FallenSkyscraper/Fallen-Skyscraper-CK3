@@ -1,8 +1,10 @@
 merry_xmarx_decision = {
-	picture = "gfx/interface/illustrations/decisions/xmas.dds"
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
 	ai_check_interval = 0
 
 	cooldown = { days = 1825 }
+
+
 	desc = xmarx_decision_desc
 	selection_tooltip = xmarx_decision_tooltip
 
@@ -11,31 +13,15 @@ merry_xmarx_decision = {
 		faith = faith:marxism
 		is_imprisoned = no
 	}
-	
-	cost = { 
-		gold = 50
-	}
-	
+
 	effect = {
-		stress_impact = {
-			base = feast_stress_loss_value
-		}
-		add_piety = {
-			value = 50
-		}
+		remove_short_term_gold = 50
+		remove_stress = 20
 		trigger_event = {
 			id = marx.decisions.0001
 		}
 	}
-
 	ai_potential = {
-		short_term_gold > standard_activity_cost
-		NOT = {
-			has_trait = reclusive
-		}
-	}
-
-	ai_will_do = {
-		base = 30
+		always = no
 	}
 }	
