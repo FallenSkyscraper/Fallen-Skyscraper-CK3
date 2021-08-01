@@ -4,10 +4,25 @@
 303 = {
 	culture = pyongyang
 	religion = cheondo
+	holding = city_holding
+}
+4017 = { # 대동강
+	holding = city_holding
+}
+4019 = { # 모란봉
 	holding = castle_holding
 }
-2037 = {	# 남관
+2036 = {	# 임원
+	holding = temple_holding
+}
+302 = {	# 서천
 	holding = none
+}
+###c_taebo
+2042 = {	# 대보
+	culture = pyongyang
+	religion = cheondo
+	holding = castle_holding
 }
 2041 = {	# 고평
 	holding = none
@@ -15,26 +30,55 @@
 2043 = {	# 룡산
 	holding = none
 }
-2036 = {	# 임원
+2061 = { # 초리
 	holding = none
 }
-302 = {	# 서천
+2062 = { # 잉차
 	holding = none
 }
+###c_nakrang
 
-###c_ryokpho
-2034 = {	# 룡연
+4018 = { # 낙랑
 	culture = pyongyang
 	religion = cheondo
 	holding = castle_holding
 }
-2033 = {	# 률리
+2034 = {	# 룡연
+	holding = temple_holding
+}
+2037 = {	# 남관
+	holding = city_holding
+}
+2030 = {	# 당정
 	holding = none
 }
+###c_east_pyongyang
+4016 = { # 사동
+	culture = pyongyang
+	religion = cheondo
+	holding = city_holding
+}
+2033 = {	# 률리
+	holding = castle_holding
+}
 2032 = {	# 청룡
+	holding = temple_holding
+}
+
+###c_taedong
+2044 = {	# 김제
+	culture = pyongyang
+	religion = cheondo
+	holding = castle_holding
+}
+2045 = {	# 남형제산
+	holding = city_holding
+}
+2040 = {	# 재경리
 	holding = none
 }
 
+##d_kangdong
 ###c_ryongsong
 2039 = {	# 부산
 	culture = pyongyang
@@ -55,13 +99,16 @@
 	holding = castle_holding
 }
 2005 = {	# 삼등
-	holding = none
+	holding = temple_holding
 }
 2006 = {	# 강동
-	holding = none
+	holding = city_holding
 }
+###c_samsok
 2008 = {	# 원탄
-	holding = none
+	culture = pyongyang
+	religion = cheondo
+	holding = castle_holding
 }
 2009 = {	# 고천
 	holding = none
@@ -69,32 +116,14 @@
 304 = {	# 봉진
 	holding = none
 }
-
-###c_taedong
-2044 = {	# 김제
-	culture = pyongyang
-	religion = cheondo
-	holding = castle_holding
-}
-2042 = {	# 대보
-	holding = none
-}
-2045 = {	# 남형제산
-	holding = none
-}
-2040 = {	# 재경리
-	holding = none
-}
-
+##d_junghwa
 ###c_junghwa
 2028 = {	# 중화
 	culture = pyongyang
 	religion = cheondo
 	holding = castle_holding
 }
-2030 = {	# 당정
-	holding = none
-}
+
 2031 = {	# 양정
 	holding = none
 }
@@ -132,10 +161,10 @@
 2048 = { # 진남포
 	culture = pyongyang
 	religion = cheondo
-	holding = castle_holding
+	holding = city_holding
 }
 2046 # 다미 = {
-	holding = none
+	holding = castle_holding
 }
 2047 # 오신 = {
 	holding = none
@@ -193,12 +222,6 @@
 	holding = none
 }
 2060 = { # 보림
-	holding = none
-}
-2061 = { # 초리
-	holding = none
-}
-2062 = { # 잉차
 	holding = none
 }
 2063 = { # 동진
