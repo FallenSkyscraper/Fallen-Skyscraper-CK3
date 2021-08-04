@@ -266,7 +266,9 @@
 		birth = yes
 	}
 	2410.1.14 = {
-		death = death_suicide
+		death = {
+			death_reason = death_suicide
+		}
 	}
 }
 1055 = {
@@ -293,7 +295,7 @@
 		birth = yes
 	}
 	2411.9.8 = {
-		{
+		death = {
 			death_reason = death_murder
 			killer = 1076
 		}
@@ -331,7 +333,7 @@
 }
 1061 = {
 	name = "석쇠"
-	dynasty = 1053
+	dynasty = 1051
 	religion = mu_pagan
 	culture = wonju
 	father = 1053
@@ -348,7 +350,7 @@
 }
 1062 = {
 	name = "우"
-	dynasty = 1053
+	dynasty = 1051
 	religion = mu_pagan
 	culture = wonju
 	father = 1061

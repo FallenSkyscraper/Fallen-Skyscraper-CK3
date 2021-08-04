@@ -48,6 +48,19 @@ e_hec = {
 		#instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
 	}
 }
+
+k_n_grandduke = {
+	pattern = "pattern_solid.dds"
+	color1 = "blue_light"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_orb.dds"
+		color1 = "yellow"
+		color2 = hsv360 { 70 100 100 }
+		color3 = "green_light"
+		#instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
+	}
+}
 e_sinan = {
 	pattern = "pattern_solid.dds"
 	color1 = "yellow"
@@ -56,7 +69,6 @@ e_sinan = {
 		texture = "ce_sinan_1.dds"
 		color1 = "purple"
 		color2 = "black"
-		#instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
 	}
 }
 k_sinan = {
@@ -67,7 +79,6 @@ k_sinan = {
 		texture = "ce_sinan_2.dds"
 		color1 = "blue"
 		color2 = "black"
-		#instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
 	}
 }
 c_sinan = {
@@ -78,6 +89,16 @@ c_sinan = {
 		texture = "ce_sinan.dds"
 		color1 = "blue"
 		color2 = "white"
+	}
+}
+k_yeosu = {
+	pattern = "pattern_solid.dds"
+	color1 = "blue"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_norse_longship_shields.dds"
+		color1 = "brown"
+		color2 = "orange"
 	}
 }
 k_shen = {
@@ -107,6 +128,49 @@ k_jianzhou = {
 	colored_emblem = {
 		texture = "ce_jianzhou_2.dds"
 		color1 = "yellow"
+		color2 = "white"
+	}
+}
+k_gyeongju = {
+	pattern = "pattern_solid.dds"
+	color1 = "blue"
+	color2 = "white"
+	colored_emblem = {
+		texture = "ce_crescent_mask_02.dds"
+		color1 = "white"
+		color2 = "white"
+		instance = { scale = { -1.0 1.0 } }
+	}
+}
+k_daegu = {
+	pattern = "pattern_solid.dds"
+	color1 = "yellow"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_martlet.dds"
+		color1 = "black"
+		color2 = "yellow"
+		color3 = "white"
+		#instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
+	}
+}
+k_gaya = {
+	pattern = "pattern_solid.dds"
+	color1 = "red"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_religion_buddhism_generic.dds"
+		color1 = "yellow"
+		color2 = "white"
+	}
+}
+k_yanbian = {
+	pattern = "pattern_solid.dds"
+	color1 = "blue"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_crozier.dds"
+		color1 = "red"
 		color2 = "white"
 	}
 }
