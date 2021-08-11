@@ -83,7 +83,7 @@ maritime_government = {
 secular_republic_government = {
 
 	#fallback = 1  
-	rulers_should_have_dynasty = yes	# rulers of this government type generate a dynasty; default: no
+	rulers_should_have_dynasty = no	# rulers of this government type generate a dynasty; default: no
 	primary_holding = city_holding
 	valid_holdings = { castle_holding }	# Holdings that can be held directly by rulers of this government type. The primary holding is always valid.
 		required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
