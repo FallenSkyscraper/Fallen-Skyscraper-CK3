@@ -52,13 +52,13 @@ k_yeosu = {
 				color2 = { 255 255 255 }
 				
 				b_4020 = { # 돌산
-					province = 632
+					province = 4020
 					
 					color = { 4 132 10 }
 					color2 = { 255 255 255 }
 				}
 				b_4021 = { # 우학
-					province = 633
+					province = 4021
 					
 					color = { 4 132 10 }
 					color2 = { 255 255 255 }
@@ -70,13 +70,17 @@ k_yeosu = {
 					color2 = { 255 255 255 }
 				}
 			}
-			c_i_samsan = {
+			c_geomun = {
 				color = { 3 141 5 }
 				color2 = { 255 255 255 }
-				
-				b_3810 = { # 삼산
-					province = 632
-					
+				cultural_names = {
+					american = cn_port_hamilton
+				}
+				b_3810 = { # 거문도
+					province = 3810
+					cultural_names = {
+						american = cn_port_hamilton
+					}
 					color = { 3 141 5 }
 					color2 = { 255 255 255 }
 				}
