@@ -1,8 +1,36 @@
-proletarian_government = {
-    create_cadet_branches = yes
+### 봉건제 계통 ###
+## 군정제
+military_government = {
 
-	primary_holding = city_holding
+	rulers_should_have_dynasty = yes#지배자는 가문을 가져야함
+	dynasty_named_realms = yes#가문이 해당 백작령 이름으로 정해진다.
+	primary_holding = castle_holding#수도 백작령으로 둬야하는 남작령 종류
+	required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
+	court_generate_commanders = yes#궁정에 지휘관 생성?
+	supply_limit_mult_for_others = -0.3#다른 정부체제의 남작령에 진입시 보급한계제한
+	affected_by_development = no#부족정처럼 개발도 버프시에 영향 없음
+	regiments_prestige_as_gold = yes#상비군 구매시 명성 사용여부
+	##flag = government_can_raid_rule#해당 정부체제의 약탈 가능여부
+	
+	# 다음부터 징세 징병관련 할 때 vassal_contracts 폴더에 military 혹은 페더, 혹은 리퍼블릭 형식으로 암튼 같은 방식으로 제작할것
+	vassal_contract = {	 military_government_obligations}
+	
+	character_modifier = {
+		army_maintenance_mult = -0.5
+		development_growth = -5
+	
+		ai_war_chance = 1.5
+	}	
+	
+	color = hsv{ 130 45 55 }
+}
+## 동해 제정
+imperial_government = {
+	create_cadet_branches = yes
+	rulers_should_have_dynasty = yes
+
 	primary_holding = castle_holding
+	valid_holdings = { Metropolis_holding }
 	required_county_holdings = { castle_holding city_holding church_holding }
 
 	vassal_contract = {
@@ -18,38 +46,33 @@ proletarian_government = {
 		title_revocation_rights
 	}
 	
-	color = hsv{ 1.00 0 0 }
+	color = hsv{ 0.17 1.00 0.78 }
 }
-military_government = {
+## 관료제
+bureaucratic_government = {
+	create_cadet_branches = yes
+	rulers_should_have_dynasty = yes
 
+	primary_holding = castle_holding
+	valid_holdings = { Metropolis_holding }
+	required_county_holdings = { castle_holding city_holding church_holding }
 
-	rulers_should_have_dynasty = yes#지배자는 가문을 가져야함
-	dynasty_named_realms = yes#가문이 해당 백작령 이름으로 정해진다.
-	primary_holding = castle_holding#수도 백작령으로 둬야하는 남작령 종류
-	required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
-	court_generate_commanders = yes#궁정에 지휘관 생성?
-	supply_limit_mult_for_others = -0.3#다른 정부체제의 남작령에 진입시 보급한계제한
-	affected_by_development = no#부족정처럼 개발도 버프시에 영향 없음
-	regiments_prestige_as_gold = yes#상비군 구매시 명성 사용여부
-	##flag = government_can_raid_rule#해당 정부체제의 약탈 가능여부
+	vassal_contract = {
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		title_revocation_rights
+	}
 	
-	
-	
-	# 다음부터 징세 징병관련 할 때 vassal_contracts 폴더에 military 혹은 페더, 혹은 리퍼블릭 형식으로 암튼 같은 방식으로 제작할것
-	vassal_contract = {	 military_government_obligations}
-	
-	
-	
-	character_modifier = {
-		army_maintenance_mult = -0.5
-		development_growth = -5
-	
-		ai_war_chance = 1.5
-	}	
-	
-	color = hsv{ 130 45 55 }
+	color = hsv{ 0.17 1.00 0.78 }
 }
-##해안 제국
+## 해양 제국
 maritime_government = {
 	rulers_should_have_dynasty = yes#지배자는 가문을 가져야함
 	dynasty_named_realms = yes#가문이 해당 백작령 이름으로 정해진다.
@@ -79,16 +102,59 @@ maritime_government = {
 	
 	color = hsv{ 20 35 160 }#만약 파란색이 안나오면 	233°	88°	62°
 }
-## 세속 공화정
-secular_republic_government = {
+## 봉건 신정제
+theocratic_feudal_government = {
+	create_cadet_branches = yes
+	rulers_should_have_dynasty = yes
 
-	#fallback = 1  
-	rulers_should_have_dynasty = no	# rulers of this government type generate a dynasty; default: no
+	primary_holding = castle_holding
+	valid_holdings = { Metropolis_holding }
+	required_county_holdings = { castle_holding city_holding church_holding }
+
+	vassal_contract = {
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		title_revocation_rights
+	}
+	
+	color = hsv{ 0.17 1.00 0.78 }
+}
+## 프롤레타리아 독재제
+proletarian_government = {
+    create_cadet_branches = yes
+
+	primary_holding = castle_holding
+	valid_holdings = { city_holding }
+	required_county_holdings = { castle_holding city_holding church_holding }
+
+	vassal_contract = {
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		title_revocation_rights
+	}
+	
+	color = hsv{ 1.00 0 0 }
+}
+### 공화제 계통 ###
+## 세속 공화제
+secular_republic_government = {
 	primary_holding = city_holding
-	valid_holdings = { castle_holding }	# Holdings that can be held directly by rulers of this government type. The primary holding is always valid.
-		required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
-# Which holdings must be present in a county before more of an existing type or others can be built
-	supply_limit_mult_for_others = 0		# Army owners of different govenment type have this multiplier applied to the supply limit
+	valid_holdings = { castle_holding }
+	required_county_holdings = { castle_holding city_holding church_holding }
 
 	vassal_contract = {	 
 		feudal_government_taxes
@@ -105,17 +171,36 @@ secular_republic_government = {
 	
 	color = { 193 121 121 }
 }
+## 상인 공화제
+merchant_republic_government = {
 
-##내륙 공화정
-
-landward_republic_government = {
-
-	rulers_should_have_dynasty = yes	# rulers of this government type generate a dynasty; default: no
+	rulers_should_have_dynasty = yes
 	primary_holding = city_holding
-	valid_holdings = { castle_holding }		# Holdings that can be held directly by rulers of this government type. The primary holding is always valid.
-		required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
-# Which holdings must be present in a county before more of an existing type or others can be built
-	supply_limit_mult_for_others = 0		# Army owners of different govenment type have this multiplier applied to the supply limit
+	valid_holdings = { castle_holding }	
+	required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
+
+	vassal_contract = {	 
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		coinage_rights
+		succession_rights
+		war_declaration_rights
+		council_rights
+		##title_revocation_rights
+	}
+	
+	color = { 243 61 71 }
+}
+##과두 공화제
+oligarchic_republic_government = {
+
+	rulers_should_have_dynasty = yes
+	primary_holding = city_holding
+	valid_holdings = { castle_holding }	
+	required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
 
 	vassal_contract = {	 
 		feudal_government_taxes
@@ -131,4 +216,65 @@ landward_republic_government = {
 	}
 	
 	color = { 193 121 121 }
+}
+### 부족제 계통 ###
+## 유목제
+nomadic_government = {
+	rulers_should_have_dynasty = yes
+	affected_by_development = no
+	regiments_prestige_as_gold = yes
+	supply_limit_mult_for_others = -0.5
+	primary_holding = tribal_holding
+	required_county_holdings = { tribal_holding }
+
+	valid_holdings = { castle_holding }
+
+	prestige_opinion_override = { -10 0 3 5 10 20 }
+	always_use_patronym = yes	
+
+	vassal_contract = { tribal_government_obligations }
+	
+	character_modifier = {
+		title_creation_cost_mult = -0.5
+		army_maintenance_mult = -0.5
+
+		feudal_government_vassal_opinion = -20
+		clan_government_vassal_opinion = -20
+		republic_government_vassal_opinion = -20
+	
+		ai_war_chance = 0.25
+	}
+	
+	flag = government_can_raid_rule
+	color = hsv{ 0.02 0.75 0.66 }
+}
+## 만주 부족제
+manchu_tribal_government = {
+	rulers_should_have_dynasty = yes
+	affected_by_development = no
+	regiments_prestige_as_gold = yes
+	supply_limit_mult_for_others = -0.5
+	primary_holding = tribal_holding
+	required_county_holdings = { tribal_holding }
+
+	valid_holdings = { castle_holding }
+
+	prestige_opinion_override = { -10 0 3 5 10 20 }
+	always_use_patronym = yes	
+
+	vassal_contract = { tribal_government_obligations }
+	
+	character_modifier = {
+		title_creation_cost_mult = -0.5
+		army_maintenance_mult = -0.5
+
+		feudal_government_vassal_opinion = -20
+		clan_government_vassal_opinion = -20
+		republic_government_vassal_opinion = -20
+	
+		ai_war_chance = 0.25
+	}
+	
+	flag = government_can_raid_rule
+	color = hsv{ 0.02 0.75 0.36 }
 }
