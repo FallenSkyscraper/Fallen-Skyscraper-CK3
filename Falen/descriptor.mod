@@ -3,4 +3,4 @@ tags={
 	"Total Conversion"
 }
 name="Fallen Skyscraper"
-supported_version="1.3.1"
+supported_version="1.4.4"
