@@ -1,17 +1,8 @@
-k_jinju = {
+﻿k_jinju = {
 		color = { 126 96 134 }
 		color2 = { 255 255 255 }
 		
 		capital = c_jinju
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 		
 		d_jinju = {
 			color = { 126 96 134 }

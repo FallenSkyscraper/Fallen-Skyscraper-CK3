@@ -1,17 +1,8 @@
-k_jianzhou = { # 건주
+﻿k_jianzhou = { # 건주
 		color = { 220 155 50 }
 		color2 = { 255 255 255 }
 		
 		capital = c_tunghua
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 
 		d_tunghua = { # 퉁화
 			color = { 220 155 50 }

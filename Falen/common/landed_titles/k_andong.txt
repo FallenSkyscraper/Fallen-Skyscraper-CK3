@@ -1,18 +1,9 @@
-k_andong = {
+﻿k_andong = {
 		color = { 275 130 130 }
 		color2 = { 255 255 255 }
 		
 		capital = c_andong
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
-		
+
 		d_andong = {
 			color = { 180 25 100 }
 			color2 = { 255 255 255 }

@@ -1,17 +1,8 @@
-k_daejeon = {
+﻿k_daejeon = {
 		color = { 128 33 19 }
 		color2 = { 255 255 255 }
 		
 		capital = c_daejeon
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 
 		d_daejeon = {
 			color = { 128 33 19 }

@@ -1,17 +1,8 @@
-k_yeosu = {
+﻿k_yeosu = {
 		color = { 84 192 16 }
 		color2 = { 255 255 255 }
 		
 		capital = c_yeosu
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 		
 		d_yeosu = {
 			color = { 84 192 16 }

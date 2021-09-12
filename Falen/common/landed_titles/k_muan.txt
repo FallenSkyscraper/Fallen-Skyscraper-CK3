@@ -1,17 +1,8 @@
-k_muan = {
+﻿k_muan = {
 		color = { 84 150 201 }
 		color2 = { 255 255 255 }
 		
 		capital = c_muan
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 		
 		d_muan = {
 			color = { 84 150 201 }

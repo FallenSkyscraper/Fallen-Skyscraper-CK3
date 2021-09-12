@@ -1,17 +1,8 @@
-k_gaya = {
+﻿k_gaya = {
 		color = { 126 171 19 }
 		color2 = { 255 255 255 }
 		
 		capital = c_haman
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 		
 		d_haman = {
 			color = { 126 171 19 }

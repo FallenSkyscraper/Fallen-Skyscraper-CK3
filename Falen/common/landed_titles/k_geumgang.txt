@@ -1,17 +1,8 @@
-k_geumgang = {
+﻿k_geumgang = {
 		color = { 127 180 174 }
 		color2 = { 255 255 255 }
 		
 		capital = c_pyeonggang
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 		
 		d_gimhwa = {
 			color = { 169 153 42 }

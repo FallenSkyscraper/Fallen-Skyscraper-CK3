@@ -1,17 +1,8 @@
-k_gwangju = {
+﻿k_gwangju = {
 		color = { 86 120 161 }
 		color2 = { 255 255 255 }
 		
 		capital = c_gwangju
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 		
 		d_gwangju = {
 			color = { 86 120 161 }

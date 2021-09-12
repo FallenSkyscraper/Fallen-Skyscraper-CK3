@@ -1,17 +1,8 @@
-k_haeseo = { # 해서
+﻿k_haeseo = { # 해서
 		color = { 55 55 225 }
 		color2 = { 255 255 255 }
 		
 		capital = c_zhangchun
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 		
 		d_zhangchun = { # 장춘
 			color = { 55 55 225 }

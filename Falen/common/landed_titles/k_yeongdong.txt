@@ -1,17 +1,8 @@
-k_yeongdong = {
+﻿k_yeongdong = {
 		color = { 43 117 23 }
 		color2 = { 255 255 255 }
 		
 		capital = c_gangneung
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:gangneung
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 		
 		d_gangneung = {
 			color = { 43 117 23 }

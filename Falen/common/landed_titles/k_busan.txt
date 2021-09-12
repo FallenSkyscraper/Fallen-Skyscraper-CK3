@@ -1,17 +1,8 @@
-k_busan = {
+﻿k_busan = {
 		color = { 168 207 217 }
 		color2 = { 255 255 255 }
 		
 		capital = c_busan
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 		
 		d_busan = {
 			color = { 168 207 217 }

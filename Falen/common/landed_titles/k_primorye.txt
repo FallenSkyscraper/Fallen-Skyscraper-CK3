@@ -1,17 +1,8 @@
-k_primorye = { # 프리모리예
+﻿k_primorye = { # 프리모리예
 		color = { 102 2 60 }
 		color2 = { 255 255 255 }
 		
 		capital = c_vladivostok
-		
-		ai_primary_priority = {
-			if = {
-				limit = {
-					culture = culture:greek
-				}
-				add = @correct_culture_primary_score
-			}
-		}
 		
 		d_vladivostokski = { # 블라디보스톡스키
 			color = { 102 2 61 }
