@@ -182,8 +182,11 @@
 2052 = { # 양곡
 	holding = none
 }
+###c_haeun
 2056 = { # 해운
-	holding = none
+	culture = pyongyang
+	religion = cheondo
+	holding = castle_holding
 }
 2058 = { # 룡월
 	holding = none
@@ -242,13 +245,10 @@
 }
 
 ###c_jungsan
-2070 = { # 성태
+2071 = { # 증산
 	culture = pyongyang
 	religion = cheondo
 	holding = castle_holding
-}
-2071 = { # 증산
-	holding = none
 }
 2067 = { # 반석
 	holding = none
@@ -257,7 +257,12 @@
 	holding = none
 }
 301 = { # 적송
-	holding = none
+	culture = pyongyang
+	religion = cheondo
+	holding = castle_holding
+}
+2070 = { # 성태
+	holding = temple_holding
 }
 307 = { # 한천
 	holding = none
@@ -271,25 +276,26 @@
 	holding = castle_holding
 }
 1939 = { # 동면 - 동안주
-	holding = none
+	holding = castle_holding
 }
 1940 = { # 운곡
-	holding = none
+	holding = temple_holding
 }
-1942 = { # 대니
-	holding = none
-}
-# c_sinanju
 1943 = { # 신안주
+	holding = city_holding
+}
+# c_ryonghwa
+
+1944 = { # 룡화
 	culture = anju
 	religion = cheondo
 	holding = castle_holding
 }
-1944 = { # 룡화
-	holding = none
-}
 1945 = { # 연호
 	holding = none
+}
+1942 = { # 대니
+	holding = temple_holding
 }
 310 = { # 립석
 	holding = none
@@ -357,17 +363,21 @@
 	religion = cheondo
 	holding = castle_holding
 }
-308 = { # 사인
-	holding = none
-}
+
 1946 = { # 내남
 	holding = none
 }
 1952 = { # 자산
 	holding = none
 }
+###c_phyongsong
+308 = { # 사인
+	culture = pyongyang
+	religion = cheondo
+	holding = castle_holding
+}
 1953 = { # 후탄
-	holding = none
+	holding = city_holding
 }
 
 ###c_eunsan
@@ -398,8 +408,11 @@
 1936 = { # 북면 - 북개천
 	holding = none
 }
+###c_joyang
 1935 = { # 조양
-	holding = none
+	culture = anju
+	religion = cheondo
+	holding = castle_holding
 }
 1934 = { # 봉동
 	holding = none

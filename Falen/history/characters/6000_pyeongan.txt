@@ -175,7 +175,7 @@
 6013 = {
 	name = "철국"
 	dynasty = 6013
-	culture = pyongyang
+	culture = anju
 	religion = cheondo
 	2336.12.6 = { birth = yes }
 	2418.4.13 = { death = yes }
@@ -184,7 +184,7 @@
 	name = "경식"
 	dynasty = 6013
 	father = 6013
-	culture = pyongyang
+	culture = anju
 	religion = cheondo
 	2374.8.1 = { birth = yes }
 	2439.5.11 = { death = yes }
@@ -271,20 +271,20 @@
 	2500.1.1 = { death = yes }
 }
 6024 = {
-	name = "현성"
-	dynasty = 6024
+	name = "성"
+	dynasty = 6024 # 은
 	culture = pyongyang
 	religion = cheondo
-	2414.1.12 = { birth = yes }
+	2404.1.12 = { birth = yes }
 	2500.1.1 = { death = yes }
 }
 6025 = {
-	name = "선호"
+	name = "만석"
 	dynasty = 6025
 	culture = pyongyang
 	religion = cheondo
-	2408.5.1 = { birth = yes }
-	2500.1.1 = { death = yes }
+	2399.6.5 = { birth = yes }
+	2443.12.3 = { death = yes }
 }
 6026 = {
 	name = "준태"
@@ -320,27 +320,171 @@
 	2500.1.1 = { death = yes }
 }
 6030 = {
-	name = "태식"
-	dynasty = 6030
+	name = "선호"
+	dynasty = 6025
+	father = 6025
+	culture = pyongyang
+	religion = cheondo
+	2408.5.1 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6031 = {
+	name = "선식" # 태
+	dynasty = 6025
+	father = 6025
 	culture = pyongyang
 	religion = cheondo
 	2422.2.22 = { birth = yes }
 	2500.1.1 = { death = yes }
 }
-6031 = {
-	name = "반"
-	dynasty = 6031
+6032 = {
+	name = "경태"
+	dynasty = 6013 # 안
+	father = 6013
+	culture = anju
+	religion = cheondo
+	2383.5.11 = { birth = yes }
+	2444.8.7 = { death = yes }
+}
+6033 = {
+	name = "준구"
+	dynasty = 6033 # 석
 	culture = pyongyang
 	religion = cheondo
-	2410.5.17 = { birth = yes }
+	2405.5.17 = { birth = yes }
 	2500.1.1 = { death = yes }
 }
-6032 = {
-	name = "규"
-	dynasty = 6032
+6034 = {
+	name = "선"
+	dynasty = 6034 # 황보
 	culture = hwangju
 	religion = cheondo
-	2407.6.15 = { birth = yes }
+	2329.11.15 = { birth = yes }
+	2381.1.21 = { death = yes }
+}
+6035 = {
+	name = "무련"
+	dynasty = 6034 # 황보
+	father = 6034
+	culture = hwangju
+	religion = cheondo
+	2356.6.15 = { birth = yes }
+	2402.11.24 = { death = yes }
+}
+6036 = {
+	name = "수길"
+	dynasty = 6034 # 황보
+	father = 6035
+	culture = hwangju
+	religion = cheondo
+	2391.1.2 = { birth = yes }
+	2436.1.1 = { death = yes }
+}
+6037 = {
+	name = "규"
+	dynasty = 6034 # 황보
+	father = 6036
+	culture = hwangju
+	religion = cheondo
+	2413.6.15 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6040 = {
+	name = "구신"
+	dynasty = 6018 # 김
+	father = 6018
+	culture = pyongyang
+	religion = cheondo
+	2425.11.4 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6041 = {
+	name = "곽"
+	dynasty = 6041 # 선우
+	culture = pyongyang
+	religion = juche
+	2398.5.5 = { birth = yes }
+	2431.6.13 = { death = yes } # execution
+}
+6042 = {
+	name = "연"
+	dynasty = 6041
+	father = 6041
+	culture = pyongyang
+	religion = cheondo
+	2429.12.3 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6043 = {
+	name = "의봉"
+	dynasty = 6043
+	culture = pyongyang
+	religion = juche
+	2389.2.3 = { birth = yes }
+	2431.5.21 = { death = yes }
+}
+6044 = {
+	name = "한철"
+	dynasty = 6043
+	father = 6043
+	culture = pyongyang
+	religion = juche
+	2416.1.13 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6045 = {
+	name = "기상"
+	dynasty = 6045
+	culture = anju
+	religion = juche
+	trait = education_martial_4
+	trait = zealous
+	2389.2.23 = { birth = yes }
+	2432.1.6 = { death = yes }
+}
+6046 = {
+	name = "팔봉"
+	dynasty = 6045
+	father = 6045
+	culture = anju
+	religion = juche
+	2419.4.3 = { birth = yes }
+	2432.1.6 = { death = yes }
+}
+6047 = {
+	name = "두봉"
+	dynasty = 6045
+	father = 6045
+	culture = anju
+	religion = juche
+	2423.1.1 = { birth = yes }
+	2432.1.6 = { death = yes }
+}
+6048 = {
+	name = "명희"
+	dynasty = 6013
+	father = 6032
+	culture = anju
+	religion = cheondo
+	2409.5.15 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6049 = {
+	name = "수희"
+	female = yes
+	dynasty = 6013
+	father = 6032
+	culture = anju
+	religion = cheondo
+	2416.1.13 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6050 = {
+	name = "성창"
+	dynasty = 6050
+	culture = anju
+	religion = cheondo
+	2419.9.5 = { birth = yes }
 	2500.1.1 = { death = yes }
 }
 6501 = {
