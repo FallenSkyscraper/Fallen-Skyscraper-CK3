@@ -1,0 +1,29 @@
+###################
+# 주체 라이징
+# 검수 요함
+###################
+
+namespace = sun_from_north
+
+#왕귀 준비
+sun_from_north.1001 = {
+	type = character_event
+	title = sun_from_north.0001.t
+	desc = sun_from_north.0001.desc
+	theme = hunting
+	override_background = {
+		event_background = sitting_room
+	}
+	left_portrait = root
+
+	#trigger = {
+	#}
+
+	option = {
+		name = sun_from_north.1001.a
+		add_character_modifier = {
+			modifier = focused_on_mystical_animal_modifier
+			years = 10
+		}
+	}
+}
