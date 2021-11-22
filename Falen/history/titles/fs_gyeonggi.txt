@@ -1,5 +1,5 @@
 #경기왕
-k_geonggi = {
+k_gyeonggi = {
 	2200.1.3 = {
 		holder = 101
 	}
@@ -36,6 +36,7 @@ d_suwon = {
 c_suwon = {
 	2200.1.3 = {
 		holder = 101
+		change_development_level = 17
 	}
 	2265.7.14 = {
 	    holder = 102
@@ -55,7 +56,9 @@ c_suwon = {
 }
 c_anyang = {
 	2295.10.22 = {
+		change_development_level = 9
 	    holder = 103
+		liege = k_gyeonggi
 	}
 	2316.3.8 = {
 	    holder = 104
@@ -64,11 +67,15 @@ c_anyang = {
 	    holder = 106
 	}
 	2432.11.3 = {
-	    holder = 107
+	    holder = 183
 	}
+}
+c_namyang = {
+	2200.1.1 = { change_development_level = 6 }
 }
 c_yongin = {
 	2295.10.22 = {
+		change_development_level = 10
 	    holder = 103
 	}
 	2316.3.8 = {
@@ -84,281 +91,291 @@ c_yongin = {
 #안성공
 d_anseong = {
 	2347.5.19 = {
-	    liege = k_geonggi
+	    liege = k_gyeonggi
+		change_development_level = 9
 	    holder = 111
 	}
+}
 c_anseong = {
 	2347.5.19 = {
-	    liege = k_geonggi
 	    holder = 111
 	}
 }
 c_geumgwang = {
 	2347.5.19 = {
-	    liege = k_geonggi
 	    holder = 111
 	}
 }
-#공주백
-c_gongju = {
-	2205.6.25 = {
-	    liege = k_geonggi
-	    holder = 119
-	}
-}
-
 #천안공
 d_cheonan = {
 	2274.4.19 = {
-	    liege = k_geonggi
-	    holder = 124
+		liege = k_gyeonggi
+		holder = 124
 	}
-		2343.7.17 = {
-	    liege = k_geonggi
-	    holder = 125
+	2343.7.17 = {
+		holder = 125
 	}
-		2373.8.19 = {
-	    liege = k_geonggi
-	    holder = 126
+	2373.8.19 = {
+		holder = 126
 	}
-		2420.10.10 = {
-	    liege = k_geonggi
-	    holder = 127
+	2420.10.10 = {
+		holder = 127
+		liege = 0
 	}
 }
 c_cheonan = {
+	2200.1.1 = { change_development_level = 14 }
 	2274.4.19 = {
-	    liege = k_geonggi
-	    holder = 124
+		holder = 124
+		liege = d_cheonan
 	}
-		2343.7.17 = {
-	    liege = k_geonggi
-	    holder = 125
+	2343.7.17 = {
+		holder = 125
 	}
-		2373.8.19 = {
-	    liege = k_geonggi
-	    holder = 126
+	2373.8.19 = {
+		holder = 126
 	}
-		2420.10.10 = {
-	    liege = k_geonggi
-	    holder = 127
+	2420.10.10 = {
+		holder = 127
 	}
 }
 c_onyang = {
-		2343.7.17 = {
-	    liege = k_geonggi
-	    holder = 125
+	2200.1.1 = { change_development_level = 9 }
+	2274.4.19 = {
+		holder = 124
+		liege = d_cheonan
 	}
-		2373.8.19 = {
-	    liege = k_geonggi
-	    holder = 126
+	2343.7.17 = {
+		holder = 125
 	}
-		2420.10.10 = {
-	    liege = k_geonggi
-	    holder = 127
+	2373.8.19 = {
+		holder = 126
+	}
+	2420.10.10 = {
+		holder = 127
 	}
 }
 #병천백
 c_byeongcheon = {
-		2343.7.17 = {
-	    liege = k_geonggi
-	    holder = 125
+	2343.7.17 = {
+		liege = k_gyeonggi
+		holder = 125
+		change_development_level = 8
 	}
-		2373.8.19 = {
-	    liege = k_geonggi
-	    holder = 126
+	2373.8.19 = {
+		holder = 126
 	}
-		2385.8.9 = {
-	    liege = d_cheonan
-	    holder = 144
+	2385.8.9 = {
+		liege=  d_cheonan
+		holder = 144
 	}
 }
 c_sinchang = {
-		2343.7.17 = {
-	    liege = k_geonggi
-	    holder = 125
+	2343.7.17 = {
+		liege = k_gyeonggi
+		holder = 125
+		change_development_level = 7
 	}
-		2373.8.19 = {
-	    liege = k_geonggi
-	    holder = 126
+	2373.8.19 = {
+		holder = 126
 	}
-		2385.8.9 = {
-	    liege = d_cheonan
-	    holder = 144
+	2385.8.9 = {
+		liege=  d_cheonan
+		holder = 144
 	}
 }
 #아산백
 c_asan = {
-		2420.12.13 = {
-	    liege = d_cheonan
-	    holder = 147
+	2420.12.13 = {
+		liege = d_cheonan
+		holder = 147
+		change_development_level = 8
 	}
 }
 c_hwanseong = {
-		2420.12.13 = {
-	    liege = d_cheonan
-	    holder = 147
+	2420.12.13 = {
+		liege = d_cheonan
+		holder = 147
+		change_development_level = 7
 	}
 }
 #안산백
 c_ansan = {
-		2403.3.24 = {
-	    liege = k_geonggi
-	    holder = 148
+	2403.3.24 = {
+		liege = k_gyeonggi
+		holder = 148
+		change_development_level = 9
 	}
 }
 #향남백
 c_hyangnam = {
-		2423.4.23 = {
-	    liege = k_geonggi
-	    holder = 150
+	2423.4.23 = {
+		liege = k_gyeonggi
+		holder = 150
+		change_development_level = 8
 	}
 }
 c_anjung = {
-		2423.4.23 = {
-	    liege = k_geonggi
-	    holder = 150
+	2423.4.23 = {
+		liege = k_gyeonggi
+		holder = 150
+		change_development_level = 8
 	}
 }
 #오산백
 c_g_osan = {
-		2391.9.22 = {
-	    liege = k_geonggi
-	    holder = 152
+	2391.9.22 = {
+		liege = k_gyeonggi
+		holder = 152
+		change_development_level = 9
 	}
 	2442.5.26 = {
-	    liege = k_geonggi
-	    holder = 153
+		holder = 153
 	}
 }
 #죽산백
 c_juksan = {
-		2423.11.16 = {
-	    liege = k_geonggi
-	    holder = 154
+	2423.11.16 = {
+		liege = k_gyeonggi
+		holder = 154
+		change_development_level = 7
 	}
 }
 #평택백
 c_pyeongtaek = {
-		2419.10.18 = {
-	    liege = k_geonggi
-	    holder = 155
+	2419.10.18 = {
+		liege = k_gyeonggi
+		holder = 155
+		change_development_level = 10
 	}
 }
 #양성백
 c_yangseong = {
-		2419.10.18 = {
-	    liege = k_geonggi
-	    holder = 157
+	2419.10.18 = {
+		liege = k_gyeonggi
+		holder = 157
+		change_development_level = 9
 	}
 }
 #장호원백
 c_janghowon = {
-		2413.4.16 = {
-	    liege = k_geonggi
-	    holder = 158
+	2413.4.16 = {
+		liege = k_gyeonggi
+		holder = 158
+		change_development_level = 7
 	}
 }
-#성남백
+#성남
+d_seongnam = {
+	2366.4.20 = {
+		holder = 173
+		change_development_level = 8
+	}
+	2398.6.25 = {
+		holder = 174
+	}
+	2429.5.14 = {
+		holder = 175
+	}
+}
 c_seongnam = {
-		2301.2.3 = {
-	    liege = k_geonggi
-	    holder = 172
+	2331.2.3 = {
+		liege = k_gyeonggi
+		holder = 172
 	}
-		2326.4.20 = {
-	    holder = 173
-	}
-	2398.6.25 = {
-	    holder = 174
-	}
-	2429.5.14 = {
-	    holder = 175
-	}
-}
-#하남공
-d_hanam = {
-		2326.4.20 = {
-	    holder = 173
+	2366.4.20 = {
+		holder = 173
+		liege = d_seongnam
 	}
 	2398.6.25 = {
-	    holder = 174
+		holder = 174
 	}
 	2429.5.14 = {
-	    holder = 175
+		holder = 175
 	}
 }
 c_hanam = {
-		2326.4.20 = {
-	    holder = 173
+	2366.4.20 = {
+		holder = 173
 	}
 	2398.6.25 = {
-	    holder = 174
+		holder = 174
 	}
 	2429.5.14 = {
-	    holder = 175
+		holder = 175
 	}
 }
-#여주공
+c_kwangju = {
+	2403.5.28 = {
+		liege = d_seongnam
+		holder = 184
+	}
+}
+c_giheung = {
+	2200.1.1 = { change_development_level = 7 }
+	2430.1.1 = {
+		holder = 182
+		liege = d_seongnam
+	}
+}
+#여주
 d_yeoju = {
-		2366.11.28 = {
-	    holder = 177
+	2386.11.28 = {
+		holder = 177
+		change_development_level = 5
+	}
+	2439.8.13 = {
+		holder = 0
 	}
 }
-#이천백
 c_yeoju = {
-2366.11.28 = {
-	    holder = 177
+	2386.11.28 = {
+		holder = 177
 	}
-		2402.1.21 = {
-	    holder = 178
+	2439.8.13 = {
+		holder = 178
 	}
 }
 c_neungseo = {
-2366.11.28 = {
-	    holder = 177
+	2386.11.28 = {
+		holder = 177
 	}
-		2402.1.21 = {
-	    holder = 178
-	}
-}
-c_icheon = {
-2366.11.28 = {
-	    holder = 177
-	}
-		2402.1.21 = {
-	    holder = 178
+	2439.8.13 = {
+		holder = 178
 	}
 }
-#양평백
+c_g_icheon = {
+	6.6.6 = { holder = 187 }
+	66.6.6 = { holder = 0 }
+	2386.11.28 = {
+		holder = 177
+		change_development_level = 6
+	}
+	2439.8.13 = {
+		holder = 178
+	}
+}
 c_yangpyeong = {
-2366.11.28 = {
-	    holder = 177
+	2386.11.28 = {
+		holder = 177
 	}
-		2405.6.18 = {
-	    holder = 179
-	}
-}
-c_yangseo= {
-2366.11.28 = {
-	    holder = 177
-	}
-		2405.6.18 = {
-	    holder = 179
+	2439.8.13 = {
+		holder = 179
 	}
 }
-#지평백
+c_yangseo = {
+	2386.11.28 = {
+		holder = 177
+	}
+	2439.8.13 = {
+		holder = 179
+	}
+}
 c_jipyeong = {
-2366.11.28 = {
-	    holder = 177
+	2386.11.28 = {
+		holder = 177
 	}
-		2409.7.26 = {
-	    holder = 180
-	}
-}
-#광주백
-c_kwangju = {
-		2403.5.28 = {
-		liege = d_hanam
-	    holder = 184
+	2439.8.13 = {
+		holder = 180
 	}
 }
