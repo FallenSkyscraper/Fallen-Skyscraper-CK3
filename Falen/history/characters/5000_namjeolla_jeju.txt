@@ -581,71 +581,98 @@
 #비금(이)
 #진도(조)
 #고군(박)
-#무안
-5101 = { #고쳐넣으셈
-	name = "창득"
-	dynasty = 5101
-	religion = protestant
-	culture = muan
-	2400.2.5 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-#광주
-5201 = { #고쳐넣으셈
-	name = "베드로"
-	dynasty = 5201
-	religion = catholic
-	culture = gwangju
-	2400.2.5 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-#여수
-5301 = { #고쳐넣으셈
-	name = "바다"
-	dynasty = 5301
-	religion = protestant
-	culture = namhae
-	2400.2.5 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-#영광
-5401 = { #고쳐넣으셈
-	name = "영득"
-	dynasty = 5401
-	religion = won_buddhism
-	culture = muan
-	2400.2.5 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
 #곡성
-5501 = { #고쳐넣으셈
-	name = "종구"
-	dynasty = 5501
+5100 = {
+	name = "지우"
+	dynasty = 5100
 	religion = mu_pagan
 	culture = namwon
-	2400.2.5 = {
+	2373.1.24 = {
+		birth = yes
+	}
+	2436.7.19 = {
+		death = yes
+	}
+}
+5101 = {
+	name = "종구"
+	dynasty = 5100
+	religion = mu_pagan
+	culture = namwon
+	father = 5100
+	2401.2.12 = {
 		birth = yes
 	}
 	2500.1.1 = {
 		death = yes
 	}
 }
+5102 = {
+	name = "미나"
+	dynasty = 5102
+	religion = mu_pagan
+	culture = namwon
+	female = yes
+	2416.11.30 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+#팡주
+5103 = {
+	name = "요한"
+	dynasty = 5103
+	religion = catholic
+	culture = gwangju
+	2291.2.17 = {
+		birth = yes
+	}
+	2360.5.8 = {
+		death = yes
+	}
+}
+5104 = {
+	name = "요셉"
+	dynasty = 5103
+	religion = catholic
+	culture = gwangju
+	father = 5103
+	2331.1.29 = {
+		birth = yes
+	}
+	2378.10.16 = {
+		death = yes
+	}
+}
+5105 = {
+	name = "다윗"
+	dynasty = 5104
+	religion = catholic
+	culture = gwangju
+	father = 5104
+	2359.3.5 = {
+		birth = yes
+	}
+	2410.5.16 = {
+		death = yes
+	}
+}
+5106 = {
+	name = "여호수아"
+	dynasty = 5104
+	religion = catholic
+	culture = gwangju
+	father = 5105
+	2386.8.22 = {
+		birth = yes
+	}
+	2439.1.1 = {
+		death = yes
+	}
+}
+
 #제주
 5901 = { #예시
 	name = "정희"
