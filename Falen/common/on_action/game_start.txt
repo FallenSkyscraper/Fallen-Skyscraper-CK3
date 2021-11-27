@@ -3,14 +3,16 @@
 on_game_start = {
 	effect = {
 		
-	if = {
-			limit = { NOT = { has_global_flag = startup_settings } }
-			trigger_event = {
-			id = startup.1
-			}
+		if = {
+			limit = { NOT = { has_global_variable = startup_settings } }
+			set_global_variable = { name = election_date value = 2445 }
+			set_global_variable = { name = election_term value = 1 }
+			set_global_variable = { name = startup_settings value = yes }
 		}
 	}
 	on_actions = {
+	}
+	events = {
 	}
 }
 
