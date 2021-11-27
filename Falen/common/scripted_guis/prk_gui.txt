@@ -32,7 +32,12 @@ prk_gui_close = {
 prk_gui_abc = {
 	scope = character
 	is_shown = {
-		has_landed_title = k_prk
+		root = {
+			OR = {
+				has_title = title:k_prk
+				top_liege = { has_title = title:k_prk }
+			}
+		}
 	}
 }
 prk_get_president = {
@@ -73,15 +78,26 @@ prk_clear_list = {
 prk_run_candidate = {
 	scope = character
 	is_valid = {
-		root = { NOT = { has_variable = candidate } }
+		root = {
+			NOT = { has_variable = candidate }
+			gold >= 100
+			prestige >= 100
+			prestige_level >= 1
+			OR = {
+				has_title = title:k_prk
+				top_liege = { has_title = title:k_prk }
+			}
+		}
 	}
 	effect = {
 		root = {
 			set_variable = candidate
-			add_gold = 100
+			add_gold = -100
+			add_prestige = -100
 		}
 	}
 }
+
 prk_resign_candidate = {
 	scope = character
 	is_valid = {

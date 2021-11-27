@@ -190,6 +190,8 @@ widget = {
 							datacontext = "[GetScriptedGui('prk_run_candidate')]"
 							enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 							onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							tooltip = "RUN_CANDIDATE_TOOLTIP"
+							using = tooltip_se
 							hbox = {
 								margin = { 20 0 }
 								margin_right = 10
@@ -2707,9 +2709,7 @@ widget = {
 				datacontext = "[GetScriptedGui('prk_gui_toggle')]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				down = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-	
-			#	datacontext = "[GetScriptedGui('prk_gui_abc')]"
-			#	visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				visible = "[GetScriptedGui('prk_gui_abc').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				
 				state = {
 					name = _mouse_enter
