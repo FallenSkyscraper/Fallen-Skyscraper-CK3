@@ -18,16 +18,9 @@ yearly_global_pulse = {
 		#	}
 		#}
 		change_global_variable = { name = election_term add = -1 }
-		if = {
-			limit = {
-				global_var:election_term = { compare_value <= 0 }
-			}
-			title:k_prk = {
-				holder = {
-					trigger_event = { id = joson_election.1 }
-				}
-			}
-		}
+	}
+	events = {
+		joson_election.1
 	}
 }
 

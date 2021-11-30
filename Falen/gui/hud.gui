@@ -276,6 +276,7 @@ widget = {
 						}
 						blockoverride "button_close" {}
 					}
+					text_single = { text = "나의 표:[GetPlayer.MakeScope.Var('voting_power').GetValue|0]" }
 					text_single = { text = "후보들" }
 					hbox = {
 						using = Window_Margins
