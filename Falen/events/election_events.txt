@@ -2,14 +2,17 @@ namespace = joson_election
 
 joson_election.0001 = {
     type = charater_event
-	hidden = true
+	hidden = yes
+	trigger = {
+		global_var:election_term = { compare_value <= 0 }
+	}
 	immediate = {
 		any_realm_county = {
 			limit = {
 				development_level > 0
 			}
 			owner = {
-				add_to_variable_list = {
+				add_to_global_variable_list = {
 					name = voters
 					target = prev
 				}
@@ -29,13 +32,32 @@ joson_election.0001 = {
 		every_living_character = {
 			limit = { has_variable = candidate }
 			set_variable = { name = votes value = 0 }
+			add_to_global_variable_list = {
+				name = candidates_real
+				target = prev
+			}
+		}
 	}
 }
 joson_election.0002 = { # For AI
 	type = charater_event
 	hidden = yes
 	immediate = {
-		# AI가 후보들 중에서 자기가 갖장좋아하는놈을 하나 고름
+		set_variable = { voting_power value = 0 }
+		every_held_title = {
+			limit = {
+				tier = tier_county
+				development_level > 0
+			}
+			prev = {
+				change_variable = { name = voting_power add = prev.development_level }
+			}
+		} # 쓸수있는 표 숫자 계산
+		every_in_list = { # 후보중 누구에게 줄지
+			list = candidates_real
+			
+		}
+		# AI가 후보들 중에서 자기가 가장좋아하는놈을 하나 고름
 		# 그 후보에게 직할령 개발도만큼의 표를 더함
 	}
 }
@@ -43,6 +65,15 @@ joson_election.0003 = { # 선거 결과 계산
 	type = charater_event
 	hidden = yes
 	immediate = {
+		set_variable = {
+			name = largest
+			value = {
+				every_in_list = {
+					list = my_list
+					min = this
+				}
+			}
+		}
 		# 가장 많은 표를 받은 놈에게 k_prk 와 c_pyongyang을 넘김
 	}
 }
