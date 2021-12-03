@@ -2,21 +2,6 @@
 # Root does not exist
 yearly_global_pulse = {
 	effect = {
-	    #if = {
-		#	limit = {
-		#	    NOT = { has_global_flag = juche_rised }
-		#	}
-		#	random = {
-		#	    modifier ={
-		#			100
-		#	        current_date >= 2444.1.1
-		#		}
-		#	    trigger_event = {
-		#		    id = juche.0001
-		#			
-		#		}
-		#	}
-		#}
 		change_global_variable = { name = election_term add = -1 }
 	}
 	events = {
