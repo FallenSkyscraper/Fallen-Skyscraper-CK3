@@ -1,0 +1,60 @@
+namespace = incheon
+
+incheon.1 = {
+    type = character_event
+	title = incheon.1.t
+	desc = incheon.1.desc
+	theme = party
+	right_portrait = {
+		character = root
+		animation = personality_happiness
+	}
+	trigger = {
+		has_culture = culture:incheon
+		has_faith = faith:protestant
+		current_date > 2465.1.1
+		current_date < 2466.1.1
+	}
+	option = {
+		name = incheon.1.a
+		remove_short_term_gold = 100
+		add_prestige = 200
+		add_piety = 200
+		hidden_effect = {
+			every_living_character = {
+				limit = {
+					has_culture = culture:incheon
+					has_faith = faith:protestant
+				}
+				add_opinion = {
+					modifier = pleased_opinion
+					opinion = 15
+					target = prev
+				}
+			}
+		}
+		custom_tooltip = incheon.1.a.tt
+		ai_chance = { base = 10 }
+	}
+	option = {
+		name = incheon.1.b
+		add_prestige = -10
+		hidden_effect = {
+			every_living_character = {
+				limit = {
+					has_culture = culture:incheon
+					has_faith = faith:protestant
+				}
+				add_opinion = {
+					modifier = angry_opinion
+					opinion = -10
+					target = prev
+				}
+			}
+		}
+		custom_tooltip = incheon.1.b.tt
+		ai_chance = { base = 3 }
+	}
+}
+	
+	
