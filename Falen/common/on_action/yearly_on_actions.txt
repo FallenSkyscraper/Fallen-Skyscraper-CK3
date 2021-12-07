@@ -2,7 +2,7 @@
 # Root does not exist
 yearly_global_pulse = {
 	effect = {
-		change_global_variable = { name = election_term add = -1 }
+		change_global_variable = { name = election_term subtract = 1 }
 	}
 	events = {
 		joson_election.1

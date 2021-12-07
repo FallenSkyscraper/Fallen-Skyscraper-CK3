@@ -1,35 +1,12 @@
 namespace = joson_election
 
-joson_election.0001 = {
-    type = charater_event
-	hidden = yes
+joson_election.1 = {
+    type = empty
 	trigger = {
-		global_var:election_term = { compare_value <= 0 }
+		global_var:election_term.compare_value <= 0 
 	}
 	immediate = {
-		any_realm_county = {
-			limit = {
-				development_level > 0
-			}
-			owner = {
-				add_to_global_variable_list = {
-					name = voters
-					target = prev
-				}
-				if = {
-					limit = {
-						this = { is_ai = yes }
-					}
-					trigger_event = {
-						id = joson_election.0002
-					}
-				}
-				else = { # For Player!
-					set_variable = election_gui_toggle
-				}
-			}
-		}
-		every_living_character = {
+		every_living_character = { ## 후보자 명부 설정
 			limit = { has_variable = candidate }
 			set_variable = { name = votes value = 0 }
 			add_to_global_variable_list = {
@@ -37,50 +14,162 @@ joson_election.0001 = {
 				target = prev
 			}
 		}
-	}
-}
-joson_election.0002 = { # For AI
-	type = charater_event
-	hidden = yes
-	immediate = {
-		set_variable = { voting_power value = 0 }
-		every_held_title = {
+		any_realm_county = {
 			limit = {
-				tier = tier_county
 				development_level > 0
 			}
-			prev = {
-				change_variable = { name = voting_power add = prev.development_level }
-			}
-		} # 쓸수있는 표 숫자 계산
-		every_in_list = { # 후보중 누구에게 줄지
-			list = candidates_real
-			
-		}
-		# AI가 후보들 중에서 자기가 가장좋아하는놈을 하나 고름
-		# 그 후보에게 직할령 개발도만큼의 표를 더함
-	}
-}
-joson_election.0003 = { # 선거 결과 계산
-	type = charater_event
-	hidden = yes
-	immediate = {
-		set_variable = {
-			name = largest
-			value = {
-				every_in_list = {
-					list = my_list
-					min = this
+			holder = {
+				if = {
+					limit = {
+						this = { is_ai = yes }
+					}
+					add_to_global_variable_list = {
+					name = voters
+					target = prev
+					}
+					set_variable = { voting_power value = 0 }
+					every_held_title = {
+						limit = {
+							tier = tier_county
+							development_level > 0
+						}
+						prev = {
+							change_variable = { name = voting_power add = prev.development_level }
+						}
+					} # 쓸수있는 표 숫자 계산
+				}
+				else = { # For Player!
+					set_variable = election_gui_toggle
+					set_global_variable = player_is_elector
 				}
 			}
 		}
-		# 가장 많은 표를 받은 놈에게 k_prk 와 c_pyongyang을 넘김
+		every_in_global_list = {
+			list = voters
+				save_scope_as = prevprev
+					every_in_global_list = { # 후보중 누구에게 줄지
+						list = candidates_real
+						set_variable = { name = score value = 0 }
+						if = {
+							limit = {
+								has_same_culture_group_as = prev
+								NOT = { has_same_culture_as = prev }
+							}
+							change_variable = { name = score subtract = 10 }
+						}
+						if = {
+							limit = {
+								NOT = { has_same_culture_group_as = prev }
+							}
+							change_variable = { name = score subtract = 25 }
+						}
+						if = {
+							limit = {
+								faith = {
+									faith_hostility_level = {
+										target = scope:prevprev.faith
+										value = 1
+									}
+								}
+							}
+							change_variable = { name = score subtract = 10 }
+						}
+						if = {
+							limit = {
+								faith = {
+									faith_hostility_level = {
+										target = scope:prevprev.faith
+										value = 2
+									}
+								}
+							}
+							change_variable = { name = score subtract = 25 }
+						}
+						if = {
+							limit = {
+								faith = {
+									faith_hostility_level = {
+										target = scope:prevprev.faith
+										value = 3
+									}
+								}
+							}
+							change_variable = { name = score subtract = 50 }
+						}
+					}
+					ordered_in_global_list = {
+						list = candidates_real
+						order_by = this.score
+						position = 0
+							#너로 정했다!
+						change_variable = { name = votes add = prevprev.voting_power }
+					}
+					# AI가 후보들 중에서 자기가 가장좋아하는놈을 하나 고름
+					# 그 후보에게 직할령 개발도만큼의 표를 더함
+		}
+		if = {
+			limit = {
+				NOT = { has_global_variable = player_is_elector }
+			}
+			title:k_prk.holder = {
+				trigger_event = joson_election.3
+			}
+		}
 	}
 }
-joson_election.0004 = { # 선거 결과 발표
+#joson_election.2 = { # AI electors vote
+#	type = empty
+#	hidden = yes
+#	immediate = {	}
+#}
+joson_election.3 = { # 선거 결과 계산
 	type = charater_event
-	title = joson_election.0004.t
-	desc = joson_election.0004.desc
+	hidden = yes
+	immediate = {
+		ordered_in_list = {
+			list = candidates_real
+			order_by = this.votes
+			position = 0
+			save_scope_as = winner
+		}
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:k_prk = {
+			change_title_holder_include_vassals = {
+				holder = scope:winner
+				change = scope:change
+			}
+		}
+		title:c_pyongyang = {
+			change_title_holder = {
+				holder = scope:winner
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		every_in_global_list = {
+			list = candidates_real
+			remove_variable = votes
+			remove_variable = candidate
+		}
+		clear_global_variable_list = candidates_real
+		every_in_global_list = {
+			list = voters
+			remove_variable = voting_power
+		}
+		clear_global_variable_list = voters
+		remove_global_variable = player_is_elector
+		change_global_variable = { name = election_date add = 4 }
+		set_global_variable = { name = election_term value = 4 }
+	}
+}
+joson_election.4 = { # 선거 결과 발표
+	type = charater_event
+	title = joson_election.4.t
+	desc = joson_election.4.desc
 	theme = martial_authority_focus
 	right_portrait = {
 		character = root
@@ -90,6 +179,6 @@ joson_election.0004 = { # 선거 결과 발표
 		# 결과 발표
 	}
 	option = { # 알겟서요
-		name = joson_election.0004.a
+		name = joson_election.4.a
 	}
 }
