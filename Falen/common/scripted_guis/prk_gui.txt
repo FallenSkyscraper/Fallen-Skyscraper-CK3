@@ -92,7 +92,7 @@ prk_run_candidate = {
 	effect = {
 		root = {
 			set_variable = candidate
-			add_gold = -100
+			remove_short_term_gold = 100
 			add_prestige = -100
 		}
 	}
@@ -143,7 +143,7 @@ voting = {
 			remove_variable = voting_power
 			remove_variable = election_gui_toggle
 			trigger_event = {
-				id = joson_election.0003
+				id = joson_election.3
 			}
 		}
 	}

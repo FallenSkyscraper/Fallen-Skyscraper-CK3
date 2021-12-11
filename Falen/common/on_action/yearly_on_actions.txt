@@ -2,22 +2,7 @@
 # Root does not exist
 yearly_global_pulse = {
 	effect = {
-	    #if = {
-		#	limit = {
-		#	    NOT = { has_global_flag = juche_rised }
-		#	}
-		#	random = {
-		#	    modifier ={
-		#			100
-		#	        current_date >= 2444.1.1
-		#		}
-		#	    trigger_event = {
-		#		    id = juche.0001
-		#			
-		#		}
-		#	}
-		#}
-		change_global_variable = { name = election_term add = -1 }
+		change_global_variable = { name = election_term subtract = 1 }
 	}
 	events = {
 		joson_election.1
@@ -32,6 +17,9 @@ yearly_playable_pulse = {
 		health.3010 #Invalidate court physician
 		
 		coa.1 # Switch to another coat of arms if appropriate
+		
+		delay = { days = 60 }
+		incheon.1
 	}
 	on_actions = {
 		ai_character_pulse
