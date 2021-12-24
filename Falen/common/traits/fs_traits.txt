@@ -99,3 +99,20 @@ paektu = {
 	parent_inheritance_sex = male
 	inherit_from_real_father = no
 }
+marine = {
+	index = 305
+	fame = yes
+	
+	ruler_designer_cost = 30
+	same_opinion = 30
+	general_opinion = -5
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_marine_desc
+			}
+			desc = trait_marine_character_desc
+		}
+	}
+}
