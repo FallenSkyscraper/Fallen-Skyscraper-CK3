@@ -1,15 +1,17 @@
 k_gorlos = { # 고를로스
-		color = { 51 1 204 }
+		color = { 56 211 174 }
 		color2 = { 255 255 255 }
 		
-		capital = d_qengwaerlwass
-		
-		d_shwangliao = { # 솽랴오
+		capital = c_gorlos
+		cultural_names = {
+			yan = cn_guoerluosi
+		}
+		d_shuangliao = { # 솽랴오
 			color = { 171 6 197 }
 			color2 = { 255 255 255 }
 			
-			capital = c_shwangliao
-			c_shwangliao = { # 솽랴오 
+			capital = c_shuangliao
+			c_shuangliao = { # 솽랴오 
 				color = { 171 6 197 }
 				color2 = { 255 255 255 }
 				
@@ -38,11 +40,11 @@ k_gorlos = { # 고를로스
 					color2 = { 255 255 255 }
 				}
 			}
-			c_shuangshan = { # 수앙산
+			c_shuangshan = { # 솽산
 				color = { 171 36 202 }
 				color2 = { 255 255 255 }
 				
-				b_3349 = { # 수앙산
+				b_3349 = { # 솽산
 					province = 3349
 					
 					color = { 171 36 202 }
@@ -807,18 +809,24 @@ k_gorlos = { # 고를로스
 			}
 		}
 
-		d_qengwaerlwass = { # 첸궈얼뤄쓰
+		d_omnod_gorlos = { # 남고를로스 *몽골어 Ömnöd:남쪽이란 뜻 북고를로스는 흑룡강에 있다
 			color = { 124 241 20 }
 			color2 = { 255 255 255 }
-			
-			capital = c_qengwaerlwass
-			c_qengwaerlwass = { # 첸궈얼뤄쓰
+			cultural_names = {
+				yan = cn_qianguoerluosi #첸궈얼러쓰
+			}
+			capital = c_gorlos
+			c_gorlos = { # 고를로스
 				color = { 124 241 20 }
 				color2 = { 255 255 255 }
-				
-				b_3539 = { # 첸궈얼뤄쓰
+				cultural_names = {
+					yan = cn_qianguoerluosi
+				}
+				b_3539 = { # 고를로스
 					province = 3539
-					
+					cultural_names = {
+						yan = cn_qianguoerluosi
+					}
 					color = { 124 241 20 }
 					color2 = { 255 255 255 }
 				}
@@ -840,31 +848,19 @@ k_gorlos = { # 고를로스
 					color = { 124 241 20 }
 					color2 = { 255 255 255 }
 				}
-				b_3529 = { # 왕푸잔
-					province = 3529
-					
-					color = { 124 241 20 }
-					color2 = { 255 255 255 }
-				}
-				b_3535 = { # 홍취안
-					province = 3535
-					
-					color = { 124 241 20 }
-					color2 = { 255 255 255 }
-				}
 			}
-			c_h_musan = { # 무산
+			c_balang = { # 바랑
 				color = { 96 63 14 }
 				color2 = { 255 255 255 }
 				
-				b_3543 = { # 무산
-					province = 3543
+				b_3547 = { # 바랑
+					province = 3547
 					
 					color = { 96 63 14 }
 					color2 = { 255 255 255 }
 				}
-				b_3547 = { # 런랑
-					province = 3547
+				b_3543 = { # 창산
+					province = 3543
 					
 					color = { 96 63 14 }
 					color2 = { 255 255 255 }
@@ -882,40 +878,46 @@ k_gorlos = { # 고를로스
 					color2 = { 255 255 255 }
 				}
 			}
-			c_wangpujanqen = { # 왕푸잔첸
+			c_wangfuzhan = { # 왕푸잔
 				color = { 134 199 213 }
 				color2 = { 255 255 255 }
 				
-				b_3531 = { # 왕푸잔첸
+				b_3531 = { # 왕푸잔 
 					province = 3531
 					
 					color = { 134 199 213 }
 					color2 = { 255 255 255 }
 				}
-				b_3537 = { # 창롱
+				b_3535 = { # 홍취안
+					province = 3535
+					
+					color = { 124 241 20 }
+					color2 = { 255 255 255 }
+				}
+				b_3537 = { # 창룽
 					province = 3537
 					
 					color = { 134 199 213 }
 					color2 = { 255 255 255 }
 				}
-				b_3536 = { # 홍촨
-					province = 3536
-					
-					color = { 134 199 213 }
-					color2 = { 255 255 255 }
-				}
-				b_3530 = { # 하라마더우
+				b_3530 = { # 하라마오두
 					province = 3530
 					
 					color = { 134 199 213 }
 					color2 = { 255 255 255 }
 				}
 			}
-			c_jenjingji = { # 젠징지
+			c_ulan_tuga = { # 울란투가
 				color = { 98 176 205 }
 				color2 = { 255 255 255 }
 				
-				b_3545 = { # 젠징지
+				b_3548 = { # 울란투가
+					province = 3548
+					
+					color = { 98 176 205 }
+					color2 = { 255 255 255 }
+				}
+				b_3545 = { # 선징쯔
 					province = 3545
 					
 					color = { 98 176 205 }
@@ -927,14 +929,9 @@ k_gorlos = { # 고를로스
 					color = { 98 176 205 }
 					color2 = { 255 255 255 }
 				}
-				b_3548 = { # 울란투가
-					province = 3548
-					
-					color = { 98 176 205 }
-					color2 = { 255 255 255 }
-				}
+				
 			}
-			c_chaganhwa = { # 차간화
+			c_chaganhua = { # 차간화
 				color = { 112 246 132 }
 				color2 = { 255 255 255 }
 				
@@ -944,19 +941,19 @@ k_gorlos = { # 고를로스
 					color = { 112 246 132 }
 					color2 = { 255 255 255 }
 				}
-				b_3550 = { # 울란시두
+				b_3550 = { # 울란아오두
 					province = 3550
 					
 					color = { 112 246 132 }
 					color2 = { 255 255 255 }
 				}
-				b_3551 = { # 구디안
+				b_3551 = { # 구뎬
 					province = 3551
 					
 					color = { 112 246 132 }
 					color2 = { 255 255 255 }
 				}
-				b_3552 = { # 동산자지
+				b_3552 = { # 둥싼자지
 					province = 3552
 					
 					color = { 112 246 132 }
