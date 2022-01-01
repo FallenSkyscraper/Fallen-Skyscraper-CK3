@@ -97,7 +97,6 @@ widget = {
 		movable = yes
 		datacontext = "[GetScriptedGui('prk_gui_toggle')]"
 		visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-		
 		state = {
 			name = _show
 			using = Animation_FadeIn_Quick
@@ -116,14 +115,8 @@ widget = {
 			on_start = "[GetVariableSystem.Clear( 'right_window_open')]"
 			on_start = "[GetScriptedGui('prk_clear_list').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		}
-			widget = {
-				size = { 100% 100% }
-				using = Window_Margins
-				margin_top = 5
-				margin_bottom = 5
 				vbox = {
 					header_pattern = {
-						using = Window_Margins
 						layoutpolicy_horizontal = expanding						
 						blockoverride "header_text"
 						{
@@ -137,6 +130,7 @@ widget = {
 							onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 						}
 					}
+					
 					hbox = {
 						using = Window_Margins
 						layoutpolicy_horizontal = expanding
@@ -149,20 +143,27 @@ widget = {
 							on_start = "[GetScriptedGui('prk_get_president').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 							next = get_list
 						}
+						
 						vbox = {
-							text_single = { text = "현직:" }
+							
+							text_single_big = { text = "현직:" }
 							datacontext = "[GetPlayer.MakeScope.Var('prk_president').GetCharacter]"
 							portrait_head = {}
 							text_single = { text = "[Character.GetFirstNameNicknamedNoTooltip]" }
 						}
+						icon = {
+							texture = "gfx/interface/gui/peoples_republic_korea.dds"
+							size = { 58% 100% }
+						}
 						vbox = {
-							
-							text_single = { text = "다음 선거:" }
+							text_single_big = { text="다음 선거:"}
 							text_single = { text="[GetGlobalVariable('election_date').GetValue|0].1.1"}
+							text_single = { text = "선거까지" }
+							text_single = { text="[GetGlobalVariable('election_term').GetValue|0]년" }
 						}
 						
 					}
-					text_single = { text = "후보들" }
+					text_single_large = { text = "후보들" }
 					hbox = {
 						using = Window_Margins
 							datamodel = "[GetPlayer.MakeScope.GetList('prk_candidates')]"
@@ -226,17 +227,16 @@ widget = {
 				#		texture = "gfx/interface/component_overlay/overlay_texture.dds"
 				#	}
 				}
-			}
+			
 	}
 	window = {
 		name = "election_window"
 		parentanchor = center
 		position = { 50 100 }
-		size = { 800 600 }
+		size = { 800 400 }
 		layer = windows_layer
 		filter_mouse = all
 		alwaystransparent = no
-
 		using = Window_Background
 		using = Window_Decoration
 		movable = yes
@@ -262,24 +262,47 @@ widget = {
 			widget = {
 				size = { 100% 100% }
 				using = Window_Margins
-				margin_top = 5
+				background = {
+				texture = "gfx/interface/gui/background_peoples_republic_korea.dds"
+				spriteType = Corneredtiled
+				spriteborder = { 18 0 }
+				texture_density = 2
+				modify_texture = {
+					texture = "gfx/interface/component_overlay/overlay_effect.dds"
+					blend_mode = overlay
+				}
+				}
+				margin_top = -5
 				margin_bottom = 5
 				vbox = {
-					header_pattern = {
+					header_standard = {
 						using = Window_Margins
+						margin_bottom = 30
 						layoutpolicy_horizontal = expanding						
 						blockoverride "header_text"
 						{
 							text = "PRK_ELECTION_TITLE"
-							margin = { -10 0 }
+							margin = { -10 -10 }
 							parentanchor = center
 						}
-						blockoverride "button_close" {}
+						blockoverride "button_close" {
+							visible = "[Not(GetPlayer.IsValid)]"
+						}
 					}
-					text_single = { text = "나의 표:[GetPlayer.MakeScope.Var('voting_power').GetValue|0]" }
-					text_single = { text = "후보들" }
+					text_single_big = {
+						using = Background_Area_Dark
+						text = "나의 표: #P [GetPlayer.MakeScope.Var('voting_power').GetValue|0]#!"
+						
+					}
+					text_single_large = {
+						using = Background_Area_Dark
+						text = "후보들"
+						
+						margin_bottom = -60
+					}
 					hbox = {
 						using = Window_Margins
+
 							datamodel = "[GetPlayer.MakeScope.GetList('prk_candidates')]"
 							state = {
 										name = get_list
@@ -289,10 +312,21 @@ widget = {
 										next = get_list
 									}
 							item = {
-								button_normal = {
-									datacontext = "[Scope.GetCharacter]"
-									portrait_head_small = {}
-									onclick = "[GetScriptedGui('voting').Execute(GuiScope.SetRoot(Scope.GetCharacter.MakeScope).AddScope('player',GetPlayer.MakeScope ).End)]"
+								vbox = {
+									using = Background_Area_Dark
+									margin_right = 5
+									portrait_head_small = {datacontext = "[Scope.GetCharacter]"}
+									text_single = {
+										text = "[Scope.GetCharacter.GetFullNameNicknamedNoTooltip]"
+									}
+									button_standard = {
+										text_single_medium = { text = "#P 투표#!" }
+										size = { 35 25 }
+										using = Background_Area_Light
+											
+										enabled = "[GetScriptedGui('voting').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+										onclick = "[GetScriptedGui('voting').Execute(GuiScope.SetRoot(Scope.GetCharacter.MakeScope).AddScope('player',GetPlayer.MakeScope ).End)]"
+									}
 								}
 							}
 						

@@ -135,15 +135,19 @@ voting1 = {
 }
 voting = {
 	scope = character
+	is_valid = { always = yes }
 	effect = {
 		root = {
-			change_variable = { name = votes add = scope:player.var:voting_power }
+			change_local_variable = { name = votes add = scope:player.voting_power }
 		}
 		scope:player = {
 			remove_variable = voting_power
 			remove_variable = election_gui_toggle
+		}
+		title:k_prk.holder = {
 			trigger_event = {
 				id = joson_election.3
+				days = 1
 			}
 		}
 	}

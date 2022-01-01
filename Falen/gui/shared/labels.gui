@@ -1,0 +1,173 @@
+types LabelTypes
+{
+
+    # Normal, single-line text.
+    # Use "default_format =" to specify text color, as seen in textformatting.gui
+    type text_single = textbox {
+
+        using = Font_Type_Standard
+        using = Font_Size_Small
+        autoresize = yes
+        elide = right
+        #   text = "DEFAULT TEXT"
+        default_format = "#medium"
+        alwaystransparent = no
+        text_selectable = no
+        fontsize_min = 12
+    }
+	type text_single_very_big = textbox {
+
+        using = Font_Type_Standard
+        fontsize = 36
+		size = { 0 49 }
+        autoresize = yes
+        elide = right
+        #   text = "DEFAULT TEXT"
+        default_format = "#medium"
+        alwaystransparent = no
+        text_selectable = no
+        fontsize_min = 12
+    }
+	type text_single_large = textbox {
+
+        using = Font_Type_Flavor
+        using = Font_Size_Big
+        autoresize = yes
+        elide = right
+        #   text = "DEFAULT TEXT"
+        default_format = "#medium"
+        alwaystransparent = no
+        text_selectable = no
+        fontsize_min = 12
+    }
+	type text_single_big = textbox {
+
+        using = Font_Type_Standard
+        using = Font_Size_Big
+        autoresize = yes
+        elide = right
+        #   text = "DEFAULT TEXT"
+        default_format = "#medium"
+        alwaystransparent = no
+        text_selectable = no
+        fontsize_min = 12
+    }
+	type text_single_medium = textbox {
+
+        using = Font_Type_Standard
+        using = Font_Size_Medium
+        autoresize = yes
+        elide = right
+        #   text = "DEFAULT TEXT"
+        default_format = "#medium"
+        alwaystransparent = no
+        text_selectable = no
+        fontsize_min = 12
+    }
+    # Normal,  multi-line text.
+    type text_multi = textbox {
+
+        using = Font_Type_Standard
+        using = Font_Size_Small
+        multiline = yes
+        elide = right
+        align = top|left
+        size = { 45 45 }
+        text = "DEFAULT TEXT"
+        default_format = "#medium"
+        alwaystransparent = no
+        text_selectable = no
+        fontsize_min = 12
+    }
+
+    # Normal text with dark, centered on background label.
+    type text_label_center = text_single {
+        text = "DEFAULT TEXT"
+        default_format = "#medium"
+        align = center
+        margin_bottom = 5
+        fontsize_min = 12
+
+        background = {
+            margin_left = 40
+            margin_right = 40
+            # alpha = 0.5
+
+            texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+            spriteType = Corneredtiled
+            spriteborder = { 40 8 }
+            texture_density = 2
+
+            modify_texture = {
+                name = "mask"
+                texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+                spriteType = Corneredstretched
+                spriteborder = { 0 0 }
+                blend_mode = alphamultiply
+            }
+        }
+    }
+
+    # Normal text with dark, left-aligned on background label.
+    type text_label_left = text_single {
+        text = "DEFAULT TEXT"
+        default_format = "#medium"
+        align = left
+        margin_left = 0
+        margin_right = 40
+        fontsize_min = 12
+
+        background = {
+            margin_left = 15
+            margin_right = 5
+            margin_top = 0
+            margin_bottom = 5
+            # alpha = 0.5
+
+            texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+            spriteType = Corneredtiled
+            spriteborder = { 40 8 }
+            texture_density = 2
+
+            modify_texture = {
+                name = "mask"
+                texture = "gfx/interface/component_masks/mask_fade_horizontal_right.dds"
+                spriteType = Corneredstretched
+                spriteborder = { 0 0 }
+                blend_mode = alphamultiply
+            }
+        }
+    }
+
+    # Normal text with dark, right-aligned on background label.
+    type text_label_right = text_single {
+        text = "DEFAULT TEXT"
+        default_format = "#medium"
+        align = right
+        margin_left = 40
+        margin_right = 0
+        fontsize_min = 12
+
+        background = {
+            margin_left = 5
+            margin_right = 15
+            margin_top = 0
+            margin_bottom = 5
+            # alpha = 0.5
+            mirror = horizontal
+
+            texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+            spriteType = Corneredtiled
+            spriteborder = { 40 8 }
+            texture_density = 2
+
+            modify_texture = {
+                name = "mask"
+                texture = "gfx/interface/component_masks/mask_fade_horizontal_right.dds"
+                spriteType = Corneredstretched
+                spriteborder = { 0 0 }
+                blend_mode = alphamultiply
+            }
+        }
+    }
+}

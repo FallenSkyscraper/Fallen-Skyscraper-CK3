@@ -46,7 +46,7 @@ imperial_government = {
 		title_revocation_rights
 	}
 	
-	color = hsv{ 0.17 1.00 0.78 }
+	color = { 143 12 125 }
 }
 ## 관료제
 bureaucratic_government = {
@@ -56,7 +56,7 @@ bureaucratic_government = {
 	primary_holding = castle_holding
 	valid_holdings = { Metropolis_holding }
 	required_county_holdings = { castle_holding city_holding church_holding }
-
+	preferred_religions = { confucianism_religion }
 	vassal_contract = {
 		feudal_government_taxes
 		feudal_government_levies
@@ -70,7 +70,7 @@ bureaucratic_government = {
 		title_revocation_rights
 	}
 	
-	color = hsv{ 0.17 1.00 0.78 }
+	color = { 118 255 163 }
 }
 ## 해양 제국
 maritime_government = {
@@ -83,8 +83,9 @@ maritime_government = {
 	affected_by_development = yes#부족정처럼 개발도 버프시에 영향 없음
 	regiments_prestige_as_gold = no#상비군 구매시 명성 사용여부
 	flag = government_can_raid_rule#해당 정부체제의 약탈 가능여부
+	primary_cultures = { sinan }
 	
-	 
+	fallback = 3
 	
 	# 다음부터 징세 징병관련 할 때 vassal_contracts 폴더에 military 혹은 페더, 혹은 리퍼블릭 형식으로 암튼 같은 방식으로 제작할것
 	vassal_contract = {	 
@@ -101,7 +102,7 @@ maritime_government = {
 		ai_war_chance = 1.5
 	}	
 	
-	color = hsv{ 20 35 160 }#만약 파란색이 안나오면 	233°	88°	62°
+	color = { 20 35 160 }#만약 파란색이 안나오면 	233°	88°	62°
 }
 ## 봉건 신정제
 theocratic_feudal_government = {
@@ -125,12 +126,12 @@ theocratic_feudal_government = {
 		title_revocation_rights
 	}
 	
-	color = hsv{ 0.17 1.00 0.78 }
+	color = { 207 145 90 }
 }
 ## 프롤레타리아 독재제
 proletarian_government = {
     create_cadet_branches = yes
-
+	preferred_religions = { communism_religion }
 	primary_holding = castle_holding
 	valid_holdings = { city_holding Metropolis_holding }
 	required_county_holdings = { castle_holding city_holding } # 교회 필요없어~
@@ -148,7 +149,7 @@ proletarian_government = {
 		title_revocation_rights
 	}
 	
-	color = hsv{ 1.00 0 0 }
+	color = hsv{ 1.00 0.90 0.67 }
 }
 ### 공화제 계통 ###
 ## 세속 공화제
@@ -156,7 +157,7 @@ secular_republic_government = {
 	primary_holding = city_holding
 	valid_holdings = { castle_holding Metropolis_holding }
 	required_county_holdings = { castle_holding city_holding church_holding }
-
+	preferred_religions = { cheondoism_religion }
 	vassal_contract = {	 
 		feudal_government_taxes
 		feudal_government_levies
@@ -227,7 +228,9 @@ nomadic_government = {
 	supply_limit_mult_for_others = -0.5
 	primary_holding = tribal_holding
 	required_county_holdings = { tribal_holding }
-
+	primary_culture_groups = { mongolic_group }
+	primary_cultures = { yalu }
+	fallback = 2
 	prestige_opinion_override = { -10 0 3 5 10 20 }
 	always_use_patronym = yes	
 
@@ -245,7 +248,7 @@ nomadic_government = {
 	}
 	
 	flag = government_can_raid_rule
-	color = hsv{ 0.02 0.75 0.66 }
+	color = { 201 179 36 }
 }
 ## 만주 부족제
 manchu_tribal_government = {
@@ -258,6 +261,10 @@ manchu_tribal_government = {
 
 	valid_holdings = { castle_holding }
 
+	primary_culture_groups = { jianzhou_group haixi_group tatar_group }
+	
+	fallback = 3
+
 	prestige_opinion_override = { -10 0 3 5 10 20 }
 	always_use_patronym = yes	
 
@@ -275,5 +282,5 @@ manchu_tribal_government = {
 	}
 	
 	flag = government_can_raid_rule
-	color = hsv{ 0.02 0.75 0.36 }
+	color = hsv{ 0.12 0.85 0.36 }
 }
