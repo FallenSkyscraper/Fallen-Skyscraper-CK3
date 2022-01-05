@@ -1347,20 +1347,6 @@ doctrine_core_tenets = {
 		}
 	}
 
-	tenet_bhakti = {
-		icon = core_tenet_bhakti
-
-		piety_cost = faith_tenet_cost_mid
-
-		is_shown = {
-			religion_tag = hinduism_religion
-		}
-
-		parameters = {
-			select_personal_god_active = yes
-		}
-	}
-
 	tenet_dharmic_pacifism = { #Mix of reincarnation and pacifism rites
 		icon = core_tenet_dharmawheel
 		is_shown = {
@@ -1510,32 +1496,6 @@ doctrine_core_tenets = {
 	############################
 	# Pagan Faith Tenets  		#
 	############################
-
-	tenet_adorcism = {
-		icon = core_tenet_adorcism
-
-		piety_cost = {
-			value = faith_tenet_cost_low
-
-			# Multiplier for keeping same tenet
-			if = {
-				limit = { has_doctrine = tenet_adorcism }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-
-		is_shown = {
-			religion_tag = west_african_bori_religion
-		}
-
-		parameters = {
-			spirit_possession_active = yes
-		}
-
-		traits = {
-			virtues = { possessed = 2 }
-		}
-	}
 
 	tenet_ancestor_worship = {
 		icon = core_tenet_runestone
@@ -1730,32 +1690,6 @@ doctrine_core_tenets = {
 		}
 	}
 
-	tenet_mystical_birthright = {
-		icon = core_tenet_bhakti
-
-		piety_cost = {
-			value = faith_tenet_cost_low
-
-			# Multiplier for keeping same tenet
-			if = {
-				limit = { has_doctrine = tenet_mystical_birthright }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-
-		is_shown = {
-			religion_tag = magyar_religion
-		}
-
-		parameters = {
-			mystic_birthright_active = yes
-		}
-
-		traits = {
-			virtues = { mystic_3 = 5 }
-		}
-	}
-
 	tenet_ritual_celebrations = {
 		icon = core_tenet_festivities
 
@@ -1789,47 +1723,6 @@ doctrine_core_tenets = {
 		character_modifier = {
 			vassal_opinion = 5
 			courtier_opinion = 5
-		}
-	}
-
-	tenet_sacred_childbirth = {
-		icon = core_tenet_meditation
-		name = {
-			first_valid = {
-				triggered_desc = {
-					trigger = {
-						religion_tag = baltic_religion
-					}
-					desc = tenet_sacred_childbirth_alternate_name
-				}
-				desc = tenet_sacred_childbirth_name
-			}
-		}
-
-		piety_cost = {
-			value = faith_tenet_cost_low
-
-			# Multiplier for keeping same tenet
-			if = {
-				limit = { has_doctrine = tenet_sacred_childbirth }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-
-		is_shown = {
-			OR = {
-				religion_tag = baltic_religion
-				religion_tag = waaqism_religion
-			}
-		}
-
-		parameters = {
-			safer_childbirths_active = yes
-			healthier_children_active = yes
-		}
-
-		character_modifier = {
-			fertility = 0.1
 		}
 	}
 
@@ -1909,36 +1802,6 @@ doctrine_core_tenets = {
 		character_modifier = {
 			negate_health_penalty_add = 0.25
 		}
-	}
-
-	tenet_sun_worship = {
-		icon = core_tenet_skyshaman
-
-		piety_cost = {
-			value = faith_tenet_cost_mid
-
-			# Multiplier for keeping same tenet
-			if = {
-				limit = { has_doctrine = tenet_sun_worship }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-
-		is_shown = {
-			religion_tag = zunism_religion
-		}
-
-		parameters = {
-			summer_festivals_active = yes
-			trial_by_sun_active = yes
-		}
-
-		character_modifier = {
-			desert_attrition_mult = -0.25
-			desert_mountains_attrition_mult = -0.25
-		}
-
-		piety_cost = faith_tenet_cost_mid
 	}
 
 	tenet_warmonger = {
