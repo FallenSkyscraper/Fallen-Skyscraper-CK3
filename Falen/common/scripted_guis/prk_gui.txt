@@ -137,10 +137,10 @@ voting = {
 	scope = character
 	is_valid = { always = yes }
 	effect = {
-		root = {
-			change_local_variable = { name = votes add = scope:player.voting_power }
-		}
 		scope:player = {
+			root = {
+				change_local_variable = { name = votes add = prev.voting_power }
+			}
 			remove_variable = voting_power
 			remove_variable = election_gui_toggle
 		}

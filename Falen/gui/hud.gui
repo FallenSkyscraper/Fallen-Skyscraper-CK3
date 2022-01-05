@@ -240,8 +240,7 @@ widget = {
 		using = Window_Background
 		using = Window_Decoration
 		movable = yes
-		datacontext = "[GetScriptedGui('election_gui_toggle')]"
-		visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		visible = "[GetScriptedGui('election_gui_toggle').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 		
 		state = {
 			name = _show
@@ -323,7 +322,6 @@ widget = {
 										text_single_medium = { text = "#P 투표#!" }
 										size = { 35 25 }
 										using = Background_Area_Light
-											
 										enabled = "[GetScriptedGui('voting').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 										onclick = "[GetScriptedGui('voting').Execute(GuiScope.SetRoot(Scope.GetCharacter.MakeScope).AddScope('player',GetPlayer.MakeScope ).End)]"
 									}
