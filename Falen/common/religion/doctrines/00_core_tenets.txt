@@ -1090,69 +1090,6 @@
 		}
 	}
 
-	tenet_false_conversion_sanction = {
-		icon = core_tenet_shadyfigure
-		name = {
-			first_valid = {
-				triggered_desc = {
-					trigger = {
-						religion_tag = islam_religion
-					}
-					desc = tenet_temporal_condemnation_taqiya
-				}
-				desc = tenet_false_conversion_sanction_name
-			}
-			second_valid = {
-				triggered_desc = {
-					trigger = {
-						religion_tag = communism_religion
-					}
-					desc = tenet_endurance_warfare
-				}
-				desc = tenet_false_conversion_sanction_name
-			}
-		}
-
-		piety_cost = {
-			if = {
-				limit = {
-					OR = {
-						religion_tag = dualism_religion
-						religion_tag = hinduism_religion
-						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
-					}
-				}
-				value = faith_tenet_cost_high
-			}
-			else_if = {
-				limit = {
-					OR = {
-						religion_tag = zoroastrianism_religion
-					}
-				}
-				value = faith_tenet_cost_low
-			}
-			else = {
-				value = faith_tenet_cost_mid
-			}
-
-			# Multiplier for keeping same tenet
-			if = {
-				limit = { has_doctrine = tenet_false_conversion_sanction }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-
-		is_shown = {
-			NOT = { religion_tag = christianity_religion }
-		}
-
-		parameters = {
-			sanctioned_false_conversion = yes
-		}
-	}
-
 	tenet_tax_nonbelievers = {
 		icon = core_tenet_handcoin
 		piety_cost = {
