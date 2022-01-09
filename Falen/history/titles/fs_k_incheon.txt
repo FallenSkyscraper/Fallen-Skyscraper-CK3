@@ -5,6 +5,11 @@ k_incheon = {
 	}
 }
 
+d_incheon = {
+    2440.5.12 = {
+	    holder = 1
+	}
+}
 c_bukdo = {
     2000.1.1 = { change_development_level = 3 }
 	2440.5.12 = {
@@ -31,6 +36,11 @@ c_seogu = {
 		holder = 1
 	}
 }
+b_64 = {
+   	2440.5.12 = {
+    holder = 13
+	}
+}
 #강화도땅
 c_buleun = {
     2000.1.1 = { change_development_level = 6 }
@@ -48,22 +58,41 @@ c_hwado = {
 }
 c_seokmo = {
     2000.1.1 = { change_development_level = 4 }
+	2396.2.3 = {
+	    liege = k_UWC
+		holder = 10
+	}
+	2427.2.3 = {
+	    holder = 12
+	}
 	2440.5.12 = {
         liege = k_incheon
-		holder = 8
+		holder = 12
 	}
 }
 c_seodo = {
     2000.1.1 = { change_development_level = 2 }
+	2396.2.3 = {
+	    liege = k_UWC
+		holder = 10
+	}
+	2427.2.3 = {
+	    holder = 12
+	}
 	2440.5.12 = {
         liege = k_incheon
-		holder = 8
+		holder = 12
 	}
 }
 
 ###인천공화국
 k_UWC = {
     2443.10.3 = {
+	    holder = 2
+	}
+}
+d_bupyeong = {
+	2443.10.3 = {
 	    holder = 2
 	}
 }
@@ -124,8 +153,8 @@ c_daebu = {
 c_deokjeok = {
     2000.1.1 = { change_development_level = 5 }
     2443.10.12 = {
-	    holder = 4
-		liege = k_UWC
+	    holder = 14
+		liege = d_yeongjongdo
 	}
 }
 

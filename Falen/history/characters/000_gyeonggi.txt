@@ -1,3 +1,4 @@
+#인천
 1 = {
 	name = "광훈"
 	dynasty = 1
@@ -45,6 +46,8 @@
 	female = yes
 	religion = protestant
 	culture = incheon
+	father = 10
+	mother = 11
 	2401.3.1 = { birth = yes }
 	2500.1.1 = { death = yes }
 }
@@ -59,19 +62,67 @@
 	2500.1.1 = { death = yes }
 }
 8 = {
-	name = "설"
+	name = "영운"
 	dynasty = 6
 	religion = protestant
 	culture = incheon
+	father = 10
+	mother = 11
+	trait = twin
 	2403.3.12 = { birth = yes }
 	2500.1.1 = { death = yes }
 }
 9 = {
 	name = "경원"
 	dynasty = 9
-	religion = populism
+	religion = protestant
 	culture = incheon
 	2413.5.20 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+10 = {
+	name = "인형"
+	dynasty = 6
+	religion = protestant
+	culture = incheon
+	2371.7.12 = { birth = yes }
+	2398.4.6 = { add_spouse = 11 }
+	2427.2.3 = { death = yes }
+}
+11 = {
+	name = "수연" # wife of 10
+	dynasty = 2
+	religion = populism
+	culture = incheon
+	female = yes
+	2375.5.7 = { birth = yes }
+	2432.4.5 = { death = yes }
+}
+12 = {
+	name = "영철"
+	dynasty = 6
+	religion = populism
+	culture = incheon
+	father = 10
+	mother = 11
+	trait = twin
+	2403.3.12 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+13 = {
+	name = "이삭"
+	religion = protestant
+	culture = incheon
+	trait = Mastermind Philosopher
+	trait = Scholar
+	2395.3.14 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+14 = {
+	name = "선영"
+	religion = protestant
+	culture = incheon
+	2389.7.23 = { birth = yes }
 	2500.1.1 = { death = yes }
 }
 101 = {
