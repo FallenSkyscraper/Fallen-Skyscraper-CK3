@@ -97,4 +97,42 @@ doctrine_core_tenets = {
 			sins = { arbitrary }
 		}
 	}
+	tenet_inquiry_into_knowledge = {
+		icon = core_tenet_bhakti
+		piety_cost = {
+			if = {
+				limit = {
+					OR = {
+						religion_tag = old_world_religion
+						religion_tag = confucianism_religion
+						religion_tag = communism_religion
+					}
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_mid
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_inquiry_into_knowledge }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		can_pick = {
+			always = yes
+		}
+
+		parameters = {
+			same_faith_promote_culture_bonus_active = yes
+		}
+
+		character_modifier = {
+			name = "tenet_inquiry_into_knowledge_opinion"
+			same_faith_opinion = 10
+			learning = 1
+		}
+	}
 }
