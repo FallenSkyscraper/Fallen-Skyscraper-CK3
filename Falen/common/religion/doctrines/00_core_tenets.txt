@@ -1581,32 +1581,6 @@
 		}
 	}
 
-	tenet_mystical_birthright = {
-		icon = core_tenet_bhakti
-
-		piety_cost = {
-			value = faith_tenet_cost_low
-
-			# Multiplier for keeping same tenet
-			if = {
-				limit = { has_doctrine = tenet_mystical_birthright }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-
-		is_shown = {
-			religion_tag = magyar_religion
-		}
-
-		parameters = {
-			mystic_birthright_active = yes
-		}
-
-		traits = {
-			virtues = { mystic_3 = 5 }
-		}
-	}
-
 	tenet_ritual_celebrations = {
 		icon = core_tenet_festivities
 

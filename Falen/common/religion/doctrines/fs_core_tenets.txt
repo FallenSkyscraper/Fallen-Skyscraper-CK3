@@ -199,4 +199,41 @@ doctrine_core_tenets = {
 			sanctioned_false_conversion = yes
 		}
 	}
+	tenet_mystical_birthright = {
+		icon = core_tenet_bhakti
+
+		name = {
+			first_valid = {
+				triggered_desc = {
+					trigger = {
+						religion_tag = unitary_religion
+					}
+					desc = tenet_second_coming_lord_name
+				}
+				desc = tenet_mystical_birthright_name
+			}
+		}
+
+		piety_cost = {
+			value = faith_tenet_cost_low
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_mystical_birthright }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		is_shown = {
+			religion_tag = magyar_religion
+		}
+
+		parameters = {
+			mystic_birthright_active = yes
+		}
+
+		traits = {
+			virtues = { mystic_3 = 5 }
+		}
+	}
 }
