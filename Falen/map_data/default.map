@@ -21,7 +21,23 @@ sea_zones = RANGE { 4014 4015 }
 ###############
 # MAJOR RIVERS
 ###############
-
+#S. Korean Rivers
+river_provinces = RANGE { 4024 4036 }		# Nakdong
+river_provinces = RANGE { 4037 4041 }		# Yeongsan
+river_provinces = RANGE { 4042 4047 }		# Geum
+river_provinces = RANGE { 4048 4063 }		# Han
+river_provinces = RANGE { 4064 4067 }		# Imjin
+#N. Korean Rivers
+river_provinces = RANGE { 4068 4069 }		#Yeseong
+river_provinces = RANGE { 4070 4079 }		#Daedong
+river_provinces = RANGE { 4080 4082 }		#Cheongcheon
+river_provinces = LIST { 4083 4084 }		#Seongcheon
+river_provinces = LIST { 4085 }		# Gwangpho
+#Manchurian rivers
+river_provinces = RANGE { 4086 4098 }		#Yalu
+river_provinces = RANGE { 4099 4105 }		#Tumen
+river_provinces = RANGE { 4106 4120 }		#Liao
+#river_provinces = RANGE { 41 41 }		#Hun?
 ########
 # LAKES
 ########

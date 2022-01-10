@@ -1,0 +1,59 @@
+hec_gui_toggle = {
+	scope = character
+	
+	is_shown = {
+		has_variable = hec_gui_toggle
+	}
+
+	effect = {
+		if = {
+			limit = {
+				has_variable = hec_gui_toggle
+			}
+			remove_variable = hec_gui_toggle
+		}
+		else = {
+			set_variable = hec_gui_toggle
+		}
+	}
+}
+
+hec_gui_close = {
+	scope = character
+	
+	is_shown = {
+		always = yes
+	}
+
+	effect = {
+		remove_variable = hec_gui_toggle
+	}
+}
+hec_gui_abc = {
+	scope = character
+	is_shown = {
+		root = {
+			OR = {
+				has_title = title:k_hec
+				top_liege = { has_title = title:k_hec }
+			}
+		}
+	}
+}
+hec_get_emperor = {
+	scope = character
+	effect = {
+		title:e_hec = {
+			holder = {
+				root = {
+					set_variable = {
+						name = hec_emperor
+						 value = prev
+					}
+				}
+			}
+		}
+	}
+}
+#hec_imperial_authority_tooltip = {
+#}
