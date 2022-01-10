@@ -698,297 +698,365 @@ russian_group = {
 		}
 	}
 }
-jurchen_group = {
-	
+west_germanic_group = {
 	graphical_cultures = {
-		indian_building_gfx
-		steppe_coa_gfx
-		mongol_coa_gfx
-		mongol_clothing_gfx
-		mongol_unit_gfx
+		german_group_coa_gfx
+		western_coa_gfx
+		western_building_gfx
+		western_clothing_gfx
+		western_unit_gfx
 	}
 
-	mercenary_names = {
-		{ name = "mercenary_company_place_horde" }
-		{ name = "mercenary_company_army_under_the_sky" }
-		{ name = "mercenary_company_mongolic_riders_of_place" }
-		{ name = "mercenary_company_true_khans_faithful" }
-		{ name = "mercenary_company_company_of_the_yurt" }
-		{ name = "mercenary_company_mongolic_riders_of_place" }
-		{ name = "mercenary_company_steppe_dancers_band" }
-		{ name = "mercenary_company_mongolic_riders_of_place" }
-		{ name = "mercenary_company_chastisement_of_place" }
-		{ name = "mercenary_company_mongolic_riders_of_place" }
-		{ name = "mercenary_company_band_of_the_father" }
-		{ name = "mercenary_company_company_of_the_goad" }
-		{ name = "mercenary_company_mongolic_riders_of_place" }
-	}
+	american = {
+		graphical_cultures = {
+			english_coa_gfx
+		}
+		
+		color = { 0.8 0.2 0.2 }
 
-	jianzhou = {
-		dynasty_name_first = yes
+		cadet_dynasty_names = {
+			{ "dynnp_de" "dynn_Bohun" }
+			{ "dynnp_de" "dynn_Vere" }
+			{ "dynnp_de" "dynn_Gand" }
+			"dynn_Myall"
+			{ "dynnp_de" "dynn_Turberville" }
+			{ "dynnp_de" "dynn_Holland" }
+			"dynn_Butler"
+			{ "dynnp_of" "dynn_Thornham" }
+			{ "dynnp_de" "dynn_Camville" }
+			"dynn_Breakspear"
+			{ "dynnp_of" "dynn_Itchington" }
+			{ "dynnp_of" "dynn_Northall" }
+			{ "dynnp_de" "dynn_Montagu" }
+			{ "dynnp_de" "dynn_Umfraville" }
+			"dynn_FitzPeter"
+			"dynn_Belles-mains"
+			{ "dynnp_of" "dynn_Warwick" }
+			"dynn_FitzAlan"
+			{ "dynnp_de" "dynn_Beauchamp" }
+			{ "dynnp_of" "dynn_Ilchester" }
+			{ "dynnp_de" "dynn_Raleigh" }
+			{ "dynnp_de" "dynn_Stratford" }
+			"dynn_Becket"
+			{ "dynnp_de" "dynn_la_Pole" }
+		}
+
 		dynasty_names = {
-			"dynn_Haixi"
-			"dynn_Jilin"
-			"dynn_Odori"
-			"dynn_Amgun"
-			"dynn_Suksuhu"
-			"dynn_Mengtemu"
-			"dynn_Khingan"
-			"dynn_Wanyan"
-			"dynn_Ahanba"
-			"dynn_AiS_I_n"
-			"dynn_Aotun"
-			"dynn_Atai"
-			"dynn_BujowA_"
-			"dynn_Juhung"
-			"dynn_A_luA_"
-			"dynn_Fojomon"
-			"dynn_FuC_ian"
-			"dynn_Giagu"
-			"dynn_Giaoru"
-			"dynn_Guaiuruan"
-			"dynn_HA_rsurgia"
-			"dynn_HA_S_I_riA_"
-			"dynn_MA_nin"
-			"dynn_Nahu"
-			"dynn_Sahala"
-			"dynn_S_aron"
-			"dynn_S_I_jan"
-			"dynn_Jang"
-			"dynn_Tukdan"
-			"dynn_CA_ncun"
-			"dynn_Ugueisun"
-			"dynn_Ulyan"
-			"dynn_UndihA_n"
-			"dynn_Usaye"
-			"dynn_WangsurA_wei"
-			"dynn_Wongian"
-			"dynn_Wangiyyan"
-			"dynn_Nalan"
-			"dynn_Tushan"
-			"dynn_Pusan"
-			"dynn_S_uhu"
-			"dynn_Wugulun"
-			"dynn_Tangkuo"
-			"dynn_Wendihen"
-			"dynn_Wusazha"
-			"dynn_Pucha"
-			"dynn_Peiman"
-			"dynn_Wulinda"
-			"dynn_Tudan"
-			"dynn_HeS_ilie"
-			"dynn_Dilie"
-			"dynn_Ikderi"
-			"dynn_Aolimi"
-			"dynn_Puali"
-			"dynn_Yuelidu"
-			"dynn_Tieli"
-			"dynn_Punuli"
-			"dynn_Odoli"
-			"dynn_Huligai"
-			"dynn_Tuowen"
-			"dynn_Nianhe"
-			"dynn_S_uyaojia"
+			{ "dynnp_de" "dynn_Bohun" }
+			{ "dynnp_de" "dynn_Vere" }
+			{ "dynnp_de" "dynn_Gand" }
+			"dynn_Myall"
+			{ "dynnp_de" "dynn_Turberville" }
+			{ "dynnp_de" "dynn_Holland" }
+			"dynn_Butler"
+			{ "dynnp_of" "dynn_Thornham" }
+			{ "dynnp_de" "dynn_Camville" }
+			"dynn_Breakspear"
+			{ "dynnp_of" "dynn_Itchington" }
+			{ "dynnp_of" "dynn_Northall" }
+			{ "dynnp_de" "dynn_Montagu" }
+			{ "dynnp_de" "dynn_Umfraville" }
+			"dynn_FitzPeter"
+			"dynn_Belles-mains"
+			{ "dynnp_of" "dynn_Warwick" }
+			"dynn_FitzAlan"
+			{ "dynnp_de" "dynn_Beauchamp" }
+			{ "dynnp_of" "dynn_Ilchester" }
+			{ "dynnp_de" "dynn_Raleigh" }
+			{ "dynnp_de" "dynn_Stratford" }
+			"dynn_Becket"
+			{ "dynnp_de" "dynn_la_Pole" }
 		}
-		male_names = {			
-			Abaohan Abulang Agu Aguda Agunai Aguo Aha Ahacu Ahai Ahaibaifu AiS_I_ AiS_I_ha Ajungha AlbasE_ri Ali Alihan Alihemen Alin Alu Alubu Aludai Aluhan Aluobuhua Aluwan Ancen Ancu Andahai Aodi Asur AS_entan AS_I_ngha Bahai Bahei Bahulu Baifu Baoci Baohuoli Barha Beilu Biefoga Bugil Bulo BulE_gE_maihu Cala Cangho Caoha CenhulagE_ Cotoya Cunggelo CE_gE_ CE_jE_ CE_ndapan CE_nhulagE_ Daijuhu Daisu Dalunha DaS_I_n Digunai Diku Dili Diligi Dingge Dingju DiS_un Dorbi Dumu DuS_i Dzhin Ecu Eiyeku EiE_lu Eliduo Elu Elubu Eluguan Elun Fanca Fannu FE_nsI_ GiahucI_ Giohua Gioli Guantu Gulan GuS_a GE_cI_buhua GE_jeE_ Hacaha Hadar Hanpu HanS_I_ HasaiE_ HaE_u Heda Hela Helibo Hesun Heye Hezhe Hezhenbao HeS_i HeS_itan HuboS_u Hudun Huihou Hulijia Hulu Hulubu Hushahu Hushida Husurugai HusurE_gai Hutunla Hutuwa HuC_ienu HuS_a Ibaha IcI_gE_ IhalacI_ Iji Ilungha Inginggia IngjI_na IrnurE_u IS_iha Jabingia Jahodai Jahudai Jaligi Jogosang Juguta JulE_ JI_lunggusu Kunaha Kunuma KuS_inu Labuda Loloho LouS_i Manduhe Mangda Mapo Meng_an Mentemu MieS_I_nu Moliye Muha Mutalu Mutawuta ME_deE__E_ NaduoS_I_ Nanhe Nianhan NibucI_ NigE_ NijE_ngE_ Ninggisa Ninggujua Ningji Ningjiasu NudE_gE_ Nuhu NujE_nge NU_linai OhE_nE_gE_ Oon Pandu PociS_u Pudu Puladu Pulihei Puluhu Pusulie Sagai Sagezhou SahamieE_ Sahani Saiha Sain Salinian SatS_I_ Soli Songge Sonu Souru Suike Sungida SI_aoha Tege Telin Tudu Tugesu Tunon TuS_I_nge Cala CI_nu Uda Udaun Udisa_E_ UhuwE_ Ulu US_I_nha WeiC_in Wennu Woben Wodai Wohu Wolibu Wolie Woli_an Wolu Wolun Wosai Woye Wozhe Wucimai Wudubu Wugucu Wugunai Wulie WuyaS_u Wuzhu WE_uanjE_ YacI_nggia Yangdai Yangha Yangmudau Yansun Yawuta Yingge Yinzhuke Yongji Yunji Zhanmeihe ZhuS_ennu E_lijesE_nE_ E_ncI_E_ng E_surE_ku E_tE_ S_alungha S_angnggu S_engguo S_ensi_abu S_entumen S_iebucu S_iekude S_ielihu S_ielu S_ieyibao S_igiyanu S_igunai S_ijianu S_ilu S_ilula S_inde S_inilie S_iS_ihuan S_unian S_untC_ing S_I_bua S_I_langha S_I_lu S_I_lungha S_I_ngsI_ S_I_puni
-		}
-		female_names = {			
-			Abha Abuha AcI_buru Aihuma Alan Alihu Ambala Amban Ancun Ania Baiyang Bia Bira BoroE_ri Buctunggi Bugu Buiyemei BulE_hei BurE_ki Caca CI_cI_hei Dahumo Dala Diben Dirgara Dohomo Dorhon Dulun Dunuke DuwE_bE_ EihE_n Feicen Fonto Fontomo FulagiE_n Giahun Gluma Gorhon Guifala Gulmahai GE_tilE_ Indahong InE_nggi Jabu Jalur Jaolamai JuhE_ JE_ku JI_rijI_hE_i Liwaha LE_fu MeihE_ MiehE_ Minggan Monon Morin Mudur MudusE_ Mulan Munggan MuwE_ ME_cu ME_dE_ri ME_jI_lE_n ME_jI_lE_nbE_ Nadan Nailahu Narhun Ngauyahu NienieE_ri NiogohE_ Nionieha NongiE_n Orho Orhoda Orin Oso OS_I_ha Pula Puluhuzhi Sadugai Saimanggi Samao Sibiehung SisE_ri SogiE_n Songgi Suan Sufa SuhE_ SE_kE_ Tasha Tugi TumE_n Tunggi TuwE_ri Ulhu Ulin Ulu Ulya Unduhung Uyewun US_I_n Wanduhung Weihan Wulu Yewuju Zhusiban Zhusihui E_rdE_ S_agulizhen S_igge S_igu S_igu_er S_oun S_umu S_unja S_E_nun S_I_lasun S_I_lE_un S_I_ngE_ S_I_rha
-
-		}
-		color = { 122 114 92 }
-	
-		character_modifier = {
-			ai_war_chance = 1
-			ai_war_cooldown = -0.5
-		}
-
 		
-		
+		# Does not exist in 1066 - is the result of cultural amalgamation between Saxon and Norman through events
+		male_names = {
+			14 = { # most common
+				William
+			}
+			8 = { # second most common
+				John
+			}
+			48 = { # other common names
+				Adam Geoffrey Henry Hugh Nicholas Peter Ralph Richard Robert Roger Simon Thomas Walter
+			}
+			30 = { # everything else
+				Alan Albert Alexander Alfred Andrew Anselm Arnold Arthur Aubrey Baldrick Christopher David Edmund Edward Eric Eustace Fulk George Gerald Gilbert
+				Godfrey Gregory Guy Harold Humphrey Jocelyn Jordan Laurence Lionel Mark Martin Matthew Maurice Michael Paul Philip
+				Randolph Reginald Roderick Samuel Stephen Theobald Waleran
+			}
+			0 = { # translated versions of other culture names
+				Blethin Duncan Douglas Fergus Findlay Griffith Kenneth Patrick Teague Howell Meredith Owen Tristan Cecil Sweeney Cedric Merlin Sebastian Zachary
+			}
+			
+		}
+		female_names = {
+			Adela Adelaide Alice Amice Anne Aveline Beatrice Blanche Catherine Cecilia Constance Edith Ela Eleanor Elizabeth Emma Hawise Isabel
+			Isabella Joan Joanna Juliana Mahaut Margaret Mary Matilda Maud Philippa Sybilla
+		}
 		dynasty_of_location_prefix = "dynnp_of"
-		founder_named_dynasties = yes
+		bastard_dynasty_prefix = "dynnp_fitz"
+
+		patronym_suffix_male = "dynnpat_suf_s"
+		patronym_suffix_female = "dynnpat_suf_s"
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 30
+		mat_grf_name_chance = 10
+		father_name_chance = 25
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 20
+		mat_grm_name_chance = 40
+		mother_name_chance = 5
 		
 		ethnicities = {
-			10 = asian
+			25 = caucasian_blond
+			15 = caucasian_ginger
+			35 = caucasian_brown_hair
+			25 = caucasian_dark_hair
+		}
+
+		mercenary_names = {
+			{ name = "mercenary_company_white_company" coat_of_arms = "mc_white_company" }
+			{ name = "mercenary_company_hawkwoods_band" }
 		}
 	}
-	haixi = {
-		dynasty_name_first = yes
+	suedsee_deutsch = {
+		
+		color = { 50 50 50 }
+
+		cadet_dynasty_names = {
+			{ "dynnp_von" "dynn_Brandenburg" }
+			{ "dynnp_von" "dynn_Holstein" }
+			{ "dynnp_von" "dynn_Slesvig" }
+			{ "dynn_Wettin" }
+			{ "dynnp_von" "dynn_Wettin" }
+			{ "dynnp_von" "dynn_Versfleth" }
+			{ "dynnp_von" "dynn_Winzenburg" }
+			{ "dynn_Witte" }
+			{ "dynnp_von" "dynn_Hagen" }
+			{ "dynn_Steneke" }
+			{ "dynn_Pleskow" }
+			{ "dynnp_von" "dynn_Wunstorf" }
+			{ "dynnp_von" "dynn_Goltern" }
+			{ "dynnp_von" "dynn_WO_lpe" }
+			{ "dynnp_von" "dynn_Are" }
+			{ "dynnp_von" "dynn_Steinfurt" }
+			{ "dynnp_von" "dynn_Tecklenburg" }
+			{ "dynnp_von" "dynn_Ravensberg" }
+			{ "dynnp_von" "dynn_Weyhe" }
+			{ "dynnp_von" "dynn_Hoya" }
+			{ "dynnp_von" "dynn_Buxthoeven" }
+			{ "dynnp_von" "dynn_Schwerin" }
+			{ "dynnp_von" "dynn_Haseldorf" }
+			{ "dynnp_von" "dynn_Friesack" }
+			{ "dynnp_von" "dynn_Badewide" }
+			{ "dynnp_von" "dynn_Wassel" }
+			{ "dynnp_von" "dynn_Dassel" }
+			{ "dynnp_von" "dynn_der_Lippe" }
+			{ "dynnp_von" "dynn_Schauenburg" }
+			{ "dynnp_von" "dynn_Segeberg" }
+			{ "dynn_Pahlen" }
+			{ "dynnp_von" "dynn_Utlede" }
+			{ "dynn_Niklotid" }
+			{ "dynnp_von" "dynn_Arnsberg" }
+			{ "dynnp_von" "dynn_Liebnitz" }
+			{ "dynnp_von" "dynn_Bardewik" }
+			{ "dynn_Vorrade" }
+			{ "dynn_Warendorp" }
+			{ "dynn_LU_neburg" }
+			{ "dynn_Wittenborg" }
+			{ "dynnp_von" "dynn_Klingenberg" }
+			{ "dynnp_von" "dynn_Parchim" }
+			{ "dynnp_von" "dynn_Hanover" }
+			{ "dynnp_von" "dynn_Pommern" }
+			{ "dynnp_von" "dynn_RU_gen" }
+			{ "dynnp_von" "dynn_Wittenberg" }
+			{ "dynnp_von" "dynn_Stade" }
+			{ "dynnp_von" "dynn_Sachsen" }
+			{ "dynn_Brunswick" }
+			{ "dynn_Ydulfing" }
+			{ "dynnp_von" "dynn_Stad" }
+			{ "dynnp_von" "dynn_Ringelheim" }
+			{ "dynn_Wullenpund" }
+			{ "dynnp_von" "dynn_MO_lln" }
+			{ "dynnp_von" "dynn_Arneburg" }
+			{ "dynnp_von" "dynn_Seeburg" }
+			{ "dynnp_von" "dynn_Bocksberg" }
+			{ "dynnp_von" "dynn_Rugen" }
+			{ "dynnp_von" "dynn_Ratzeburg" }
+			{ "dynnp_von" "dynn_Schlawe" }
+			{ "dynnp_von" "dynn_Kiel" }
+			{ "dynnp_von" "dynn_Rostock" }
+			{ "dynnp_von" "dynn_Gustrow" }
+			{ "dynnp_von" "dynn_Rendsburg" }
+			{ "dynnp_von" "dynn_Neuhaus" }
+			{ "dynnp_von" "dynn_FU_rstenberg" }
+			{ "dynnp_von" "dynn_Braunschweig" }
+			{ "dynnp_von" "dynn_Celle" }
+			{ "dynnp_von" "dynn_Mecklemburg" }
+			{ "dynnp_von" "dynn_LU_beck" }
+			{ "dynnp_von" "dynn_Amsberg" }
+			{ "dynnp_von" "dynn_Altmark" }
+			{ "dynnp_von" "dynn_Anhalt" }
+			{ "dynnp_von" "dynn_Plauen" }
+			{ "dynnp_von" "dynn_Ascania" }
+			{ "dynnp_von" "dynn_Stettin" }
+			{ "dynnp_von" "dynn_Bismarck" }
+			{ "dynnp_von" "dynn_Bodeck" }
+		}
+
 		dynasty_names = {
-			"dynn_Haixi"
-			"dynn_Jilin"
-			"dynn_Odori"
-			"dynn_Amgun"
-			"dynn_Suksuhu"
-			"dynn_Mengtemu"
-			"dynn_Khingan"
-			"dynn_Wanyan"
-			"dynn_Ahanba"
-			"dynn_AiS_I_n"
-			"dynn_Aotun"
-			"dynn_Atai"
-			"dynn_BujowA_"
-			"dynn_Juhung"
-			"dynn_A_luA_"
-			"dynn_Fojomon"
-			"dynn_FuC_ian"
-			"dynn_Giagu"
-			"dynn_Giaoru"
-			"dynn_Guaiuruan"
-			"dynn_HA_rsurgia"
-			"dynn_HA_S_I_riA_"
-			"dynn_MA_nin"
-			"dynn_Nahu"
-			"dynn_Sahala"
-			"dynn_S_aron"
-			"dynn_S_I_jan"
-			"dynn_Jang"
-			"dynn_Tukdan"
-			"dynn_CA_ncun"
-			"dynn_Ugueisun"
-			"dynn_Ulyan"
-			"dynn_UndihA_n"
-			"dynn_Usaye"
-			"dynn_WangsurA_wei"
-			"dynn_Wongian"
-			"dynn_Wangiyyan"
-			"dynn_Nalan"
-			"dynn_Tushan"
-			"dynn_Pusan"
-			"dynn_S_uhu"
-			"dynn_Wugulun"
-			"dynn_Tangkuo"
-			"dynn_Wendihen"
-			"dynn_Wusazha"
-			"dynn_Pucha"
-			"dynn_Peiman"
-			"dynn_Wulinda"
-			"dynn_Tudan"
-			"dynn_HeS_ilie"
-			"dynn_Dilie"
-			"dynn_Ikderi"
-			"dynn_Aolimi"
-			"dynn_Puali"
-			"dynn_Yuelidu"
-			"dynn_Tieli"
-			"dynn_Punuli"
-			"dynn_Odoli"
-			"dynn_Huligai"
-			"dynn_Tuowen"
-			"dynn_Nianhe"
-			"dynn_S_uyaojia"
-		}
-		
-		color = { 122 114 92 }
-	
-		character_modifier = {
-			ai_war_chance = 1
-			ai_war_cooldown = -0.5
+			{ "dynnp_von" "dynn_RU_gen" }
+			{ "dynnp_von" "dynn_Mecklemburg" }
+			{ "dynnp_von" "dynn_Wittenberg" }
+			{ "dynnp_von" "dynn_Brandenburg" }
+			{ "dynnp_von" "dynn_Holstein" }
+			{ "dynnp_von" "dynn_Rendsburg" }
+			{ "dynnp_von" "dynn_Slesvig" }
+			{ "dynnp_von" "dynn_Wettin" }
+			{ "dynn_Wettin" }
+			{ "dynnp_von" "dynn_Versfleth" }
+			{ "dynnp_von" "dynn_Winzenburg" }
+			{ "dynnp_von" "dynn_Stade" }
+			{ "dynnp_von" "dynn_Stad" }
+			{ "dynnp_von" "dynn_Sachsen" }	
+			{ "dynn_Brunswick" }
+			{ "dynn_Ydulfing" }
+			{ "dynnp_von" "dynn_Ringelheim" }
+			{ "dynn_Witte" }
+			{ "dynn_Steneke" }
+			{ "dynn_Pleskow" }
+			{ "dynn_Wullenpund" }
+			{ "dynnp_von" "dynn_MO_lln" }
+			{ "dynnp_von" "dynn_Hagen" }
+			{ "dynnp_von" "dynn_Wunstorf" }
+			{ "dynnp_von" "dynn_Goltern" }
+			{ "dynnp_von" "dynn_WO_lpe" }
+			{ "dynnp_von" "dynn_Are" }
+			{ "dynnp_von" "dynn_Steinfurt" }
+			{ "dynnp_von" "dynn_Tecklenburg" }
+			{ "dynnp_von" "dynn_Ravensberg" }
+			{ "dynnp_von" "dynn_Weyhe" }
+			{ "dynnp_von" "dynn_Hoya" }
+			{ "dynnp_von" "dynn_Buxthoeven" }
+			{ "dynnp_von" "dynn_Schwerin" }
+			{ "dynnp_von" "dynn_Haseldorf" }
+			{ "dynnp_von" "dynn_Friesack" }
+			{ "dynnp_von" "dynn_Badewide" }
+			{ "dynnp_von" "dynn_Wassel" }
+			{ "dynnp_von" "dynn_Dassel" }
+			{ "dynnp_von" "dynn_Arneburg" }
+			{ "dynnp_von" "dynn_Seeburg" }
+			{ "dynnp_von" "dynn_Bocksberg" }
+			{ "dynnp_von" "dynn_Rugen" }
+			{ "dynnp_von" "dynn_Ratzeburg" }
+			{ "dynnp_von" "dynn_Schlawe" }
+			{ "dynnp_von" "dynn_Kiel" }
+			{ "dynnp_von" "dynn_Rostock" }
+			{ "dynnp_von" "dynn_Gustrow" }
+			{ "dynnp_von" "dynn_der_Lippe" }
+			{ "dynnp_von" "dynn_Schauenburg" }
+			{ "dynnp_von" "dynn_Segeberg" }
+			{ "dynn_Pahlen" }
+			{ "dynnp_von" "dynn_Neuhaus" }
+			{ "dynnp_von" "dynn_FU_rstenberg" }
+			{ "dynnp_von" "dynn_Braunschweig" }
+			{ "dynnp_von" "dynn_Celle" }
+			{ "dynnp_von" "dynn_LU_beck" }
+			{ "dynnp_von" "dynn_Amsberg" }
+			{ "dynnp_von" "dynn_Altmark" }
+			{ "dynnp_von" "dynn_Anhalt" }
+			{ "dynnp_von" "dynn_Plauen" }
+			{ "dynnp_von" "dynn_Ascania" }
+			{ "dynnp_von" "dynn_Stettin" }
+			{ "dynnp_von" "dynn_Bismarck" }
+			{ "dynnp_von" "dynn_Bodeck" }
+			{ "dynnp_von" "dynn_Utlede" }
+			{ "dynn_Niklotid" }
+			{ "dynnp_von" "dynn_Arnsberg" }
+			{ "dynnp_von" "dynn_Liebnitz" }
+			{ "dynnp_von" "dynn_Bardewik" }
+			{ "dynn_Vorrade" }
+			{ "dynn_Warendorp" }
+			{ "dynn_LU_neburg" }
+			{ "dynn_Wittenborg" }
+			{ "dynnp_von" "dynn_Klingenberg" }
+			{ "dynnp_von" "dynn_Parchim" }
+			{ "dynnp_von" "dynn_Hanover" }
 		}
 
-		male_names = {			
-			Abaohan Abulang Agu Aguda Agunai Aguo Aha Ahacu Ahai Ahaibaifu AiS_I_ AiS_I_ha Ajungha AlbasE_ri Ali Alihan Alihemen Alin Alu Alubu Aludai Aluhan Aluobuhua Aluwan Ancen Ancu Andahai Aodi Asur AS_entan AS_I_ngha Bahai Bahei Bahulu Baifu Baoci Baohuoli Barha Beilu Biefoga Bugil Bulo BulE_gE_maihu Cala Cangho Caoha CenhulagE_ Cotoya Cunggelo CE_gE_ CE_jE_ CE_ndapan CE_nhulagE_ Daijuhu Daisu Dalunha DaS_I_n Digunai Diku Dili Diligi Dingge Dingju DiS_un Dorbi Dumu DuS_i Dzhin Ecu Eiyeku EiE_lu Eliduo Elu Elubu Eluguan Elun Fanca Fannu FE_nsI_ GiahucI_ Giohua Gioli Guantu Gulan GuS_a GE_cI_buhua GE_jeE_ Hacaha Hadar Hanpu HanS_I_ HasaiE_ HaE_u Heda Hela Helibo Hesun Heye Hezhe Hezhenbao HeS_i HeS_itan HuboS_u Hudun Huihou Hulijia Hulu Hulubu Hushahu Hushida Husurugai HusurE_gai Hutunla Hutuwa HuC_ienu HuS_a Ibaha IcI_gE_ IhalacI_ Iji Ilungha Inginggia IngjI_na IrnurE_u IS_iha Jabingia Jahodai Jahudai Jaligi Jogosang Juguta JulE_ JI_lunggusu Kunaha Kunuma KuS_inu Labuda Loloho LouS_i Manduhe Mangda Mapo Meng_an Mentemu MieS_I_nu Moliye Muha Mutalu Mutawuta ME_deE__E_ NaduoS_I_ Nanhe Nianhan NibucI_ NigE_ NijE_ngE_ Ninggisa Ninggujua Ningji Ningjiasu NudE_gE_ Nuhu NujE_nge NU_linai OhE_nE_gE_ Oon Pandu PociS_u Pudu Puladu Pulihei Puluhu Pusulie Sagai Sagezhou SahamieE_ Sahani Saiha Sain Salinian SatS_I_ Soli Songge Sonu Souru Suike Sungida SI_aoha Tege Telin Tudu Tugesu Tunon TuS_I_nge Cala CI_nu Uda Udaun Udisa_E_ UhuwE_ Ulu US_I_nha WeiC_in Wennu Woben Wodai Wohu Wolibu Wolie Woli_an Wolu Wolun Wosai Woye Wozhe Wucimai Wudubu Wugucu Wugunai Wulie WuyaS_u Wuzhu WE_uanjE_ YacI_nggia Yangdai Yangha Yangmudau Yansun Yawuta Yingge Yinzhuke Yongji Yunji Zhanmeihe ZhuS_ennu E_lijesE_nE_ E_ncI_E_ng E_surE_ku E_tE_ S_alungha S_angnggu S_engguo S_ensi_abu S_entumen S_iebucu S_iekude S_ielihu S_ielu S_ieyibao S_igiyanu S_igunai S_ijianu S_ilu S_ilula S_inde S_inilie S_iS_ihuan S_unian S_untC_ing S_I_bua S_I_langha S_I_lu S_I_lungha S_I_ngsI_ S_I_puni
+		male_names = {
+			Abo Adalbero Adalbert Adalbrand Adaldag Adalgar Adalgod Adolf Aelle Albrecht Alebrand Altfrid Ansgar Arnd Arnold Asig
+			Balduin Balthasar Banzleib Beneke Benno Bernd
+			Bernhard Bertold Bertram Boddic Brun Bruno Burchard Cissa Claus Cobbo Cord Cyprian
+			Dago Dedo Dethard Detleff Detmar Diederik Donar
+			Eggerd Egilmar Ekbert Engelbert Engelhard Erik Erp Esiko Everd Ewald
+			Floribert Freawine Frederik
+			Gehrke Gelder Gero Gerold Gevert Ghert Giselher Giselmar Gosschalk Goswin Gunzelin GO_dke GU_nther
+			Hans Harthgate Hartwig Heideke Hengest Henneke Herberd Hermann Hinrik Hoger Hulderic Humfried
+			Immed Isidor
+			Jacob Jaspar Jochim Johann Juries
+			Kersten KO_pke
+			Laurentz Lembert Leuderic Liawizo Liemar Liudger Luder Ludolf Ludwig
+			Magnus Marbold Marquard Mathias Meinwerk Merten Michael
+			Norbert
+			Odo Ordulf
+			Peter Philipp
+			Radke Reginbern Reinbern Reineke Reinmar Rudigar Rudolf
+			Sigbert Sigfrid Sigward Simon Steffen
+			Thankmar Theoderic Theodoric Theodwin Thimo Thomas Tobe Tymmeke
+			Udu Otto Unwan
+			Viric Volkwin Volrad
+			Walbert Waldemar Waldered Waltard Warin Warinechin Wecta Wenzel Werneke Weybrecht Wichbert Wichmann Wicho Widukind Wigebert Wilbrand Willichin Withgils Witikind Witta Wlencing Wolter Wulff Thurgot
 		}
-		female_names = {			
-			Abha Abuha AcI_buru Aihuma Alan Alihu Ambala Amban Ancun Ania Baiyang Bia Bira BoroE_ri Buctunggi Bugu Buiyemei BulE_hei BurE_ki Caca CI_cI_hei Dahumo Dala Diben Dirgara Dohomo Dorhon Dulun Dunuke DuwE_bE_ EihE_n Feicen Fonto Fontomo FulagiE_n Giahun Gluma Gorhon Guifala Gulmahai GE_tilE_ Indahong InE_nggi Jabu Jalur Jaolamai JuhE_ JE_ku JI_rijI_hE_i Liwaha LE_fu MeihE_ MiehE_ Minggan Monon Morin Mudur MudusE_ Mulan Munggan MuwE_ ME_cu ME_dE_ri ME_jI_lE_n ME_jI_lE_nbE_ Nadan Nailahu Narhun Ngauyahu NienieE_ri NiogohE_ Nionieha NongiE_n Orho Orhoda Orin Oso OS_I_ha Pula Puluhuzhi Sadugai Saimanggi Samao Sibiehung SisE_ri SogiE_n Songgi Suan Sufa SuhE_ SE_kE_ Tasha Tugi TumE_n Tunggi TuwE_ri Ulhu Ulin Ulu Ulya Unduhung Uyewun US_I_n Wanduhung Weihan Wulu Yewuju Zhusiban Zhusihui E_rdE_ S_agulizhen S_igge S_igu S_igu_er S_oun S_umu S_unja S_E_nun S_I_lasun S_I_lE_un S_I_ngE_ S_I_rha
+		female_names = {
+			Addila Adelheid Alof Agnes Anna Athela
+			Beatrix Bertha Bertrada Bia Bisina Bithild Brigida
+			Christina
+			Diedke
+			Eilika Elisabeth Enda
+			Frederuna
+			Geilana Gerberga Gertrud Gisela Glismod
+			Hadwig Hasala Heilwig Helene Hildegard Hrothwina
+			Ida Imma Irmgard Irminburg
+			Jutta
+			Katharina Kunigunde
+			Luitgard
+			Margarete Mathilde Mechthild
+			Oda Othelindis
+			Radegund Reginlint Richardis Rodelinda
+			Sophia Suanhilde
+			Theodrada Thiedburga
+			Wienke Wiltrud Wulfhild
+		}
+		dynasty_of_location_prefix = "dynnp_von"
 
-		}
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 5
+		father_name_chance = 10
+		patronym_suffix_male = "dynnpat_suf_son"
+		patronym_suffix_female = "dynnpat_suf_son"
 		
-		dynasty_of_location_prefix = "dynnp_of"
-		founder_named_dynasties = yes
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
 		
 		ethnicities = {
-			10 = asian
-		}
-	}
-	manchu = { #만주 통합, 고대 만주족, 여진족은 jurchen 씁시다
-		dynasty_name_first = yes
-		dynasty_names = {
-			"dynn_Haixi"
-			"dynn_Jilin"
-			"dynn_Odori"
-			"dynn_Amgun"
-			"dynn_Suksuhu"
-			"dynn_Mengtemu"
-			"dynn_Khingan"
-			"dynn_Wanyan"
-			"dynn_Ahanba"
-			"dynn_AiS_I_n"
-			"dynn_Aotun"
-			"dynn_Atai"
-			"dynn_BujowA_"
-			"dynn_Juhung"
-			"dynn_A_luA_"
-			"dynn_Fojomon"
-			"dynn_FuC_ian"
-			"dynn_Giagu"
-			"dynn_Giaoru"
-			"dynn_Guaiuruan"
-			"dynn_HA_rsurgia"
-			"dynn_HA_S_I_riA_"
-			"dynn_MA_nin"
-			"dynn_Nahu"
-			"dynn_Sahala"
-			"dynn_S_aron"
-			"dynn_S_I_jan"
-			"dynn_Jang"
-			"dynn_Tukdan"
-			"dynn_CA_ncun"
-			"dynn_Ugueisun"
-			"dynn_Ulyan"
-			"dynn_UndihA_n"
-			"dynn_Usaye"
-			"dynn_WangsurA_wei"
-			"dynn_Wongian"
-			"dynn_Wangiyyan"
-			"dynn_Nalan"
-			"dynn_Tushan"
-			"dynn_Pusan"
-			"dynn_S_uhu"
-			"dynn_Wugulun"
-			"dynn_Tangkuo"
-			"dynn_Wendihen"
-			"dynn_Wusazha"
-			"dynn_Pucha"
-			"dynn_Peiman"
-			"dynn_Wulinda"
-			"dynn_Tudan"
-			"dynn_HeS_ilie"
-			"dynn_Dilie"
-			"dynn_Ikderi"
-			"dynn_Aolimi"
-			"dynn_Puali"
-			"dynn_Yuelidu"
-			"dynn_Tieli"
-			"dynn_Punuli"
-			"dynn_Odoli"
-			"dynn_Huligai"
-			"dynn_Tuowen"
-			"dynn_Nianhe"
-			"dynn_S_uyaojia"
-		}
-		
-		color = { 122 114 92 }
-	
-		character_modifier = {
-			ai_war_chance = 1
-			ai_war_cooldown = -0.5
+			25 = caucasian_blond
+			15 = caucasian_ginger
+			35 = caucasian_brown_hair
+			25 = caucasian_dark_hair
 		}
 
-		male_names = {			
-			Abaohan Abulang Agu Aguda Agunai Aguo Aha Ahacu Ahai Ahaibaifu AiS_I_ AiS_I_ha Ajungha AlbasE_ri Ali Alihan Alihemen Alin Alu Alubu Aludai Aluhan Aluobuhua Aluwan Ancen Ancu Andahai Aodi Asur AS_entan AS_I_ngha Bahai Bahei Bahulu Baifu Baoci Baohuoli Barha Beilu Biefoga Bugil Bulo BulE_gE_maihu Cala Cangho Caoha CenhulagE_ Cotoya Cunggelo CE_gE_ CE_jE_ CE_ndapan CE_nhulagE_ Daijuhu Daisu Dalunha DaS_I_n Digunai Diku Dili Diligi Dingge Dingju DiS_un Dorbi Dumu DuS_i Dzhin Ecu Eiyeku EiE_lu Eliduo Elu Elubu Eluguan Elun Fanca Fannu FE_nsI_ GiahucI_ Giohua Gioli Guantu Gulan GuS_a GE_cI_buhua GE_jeE_ Hacaha Hadar Hanpu HanS_I_ HasaiE_ HaE_u Heda Hela Helibo Hesun Heye Hezhe Hezhenbao HeS_i HeS_itan HuboS_u Hudun Huihou Hulijia Hulu Hulubu Hushahu Hushida Husurugai HusurE_gai Hutunla Hutuwa HuC_ienu HuS_a Ibaha IcI_gE_ IhalacI_ Iji Ilungha Inginggia IngjI_na IrnurE_u IS_iha Jabingia Jahodai Jahudai Jaligi Jogosang Juguta JulE_ JI_lunggusu Kunaha Kunuma KuS_inu Labuda Loloho LouS_i Manduhe Mangda Mapo Meng_an Mentemu MieS_I_nu Moliye Muha Mutalu Mutawuta ME_deE__E_ NaduoS_I_ Nanhe Nianhan NibucI_ NigE_ NijE_ngE_ Ninggisa Ninggujua Ningji Ningjiasu NudE_gE_ Nuhu NujE_nge NU_linai OhE_nE_gE_ Oon Pandu PociS_u Pudu Puladu Pulihei Puluhu Pusulie Sagai Sagezhou SahamieE_ Sahani Saiha Sain Salinian SatS_I_ Soli Songge Sonu Souru Suike Sungida SI_aoha Tege Telin Tudu Tugesu Tunon TuS_I_nge Cala CI_nu Uda Udaun Udisa_E_ UhuwE_ Ulu US_I_nha WeiC_in Wennu Woben Wodai Wohu Wolibu Wolie Woli_an Wolu Wolun Wosai Woye Wozhe Wucimai Wudubu Wugucu Wugunai Wulie WuyaS_u Wuzhu WE_uanjE_ YacI_nggia Yangdai Yangha Yangmudau Yansun Yawuta Yingge Yinzhuke Yongji Yunji Zhanmeihe ZhuS_ennu E_lijesE_nE_ E_ncI_E_ng E_surE_ku E_tE_ S_alungha S_angnggu S_engguo S_ensi_abu S_entumen S_iebucu S_iekude S_ielihu S_ielu S_ieyibao S_igiyanu S_igunai S_ijianu S_ilu S_ilula S_inde S_inilie S_iS_ihuan S_unian S_untC_ing S_I_bua S_I_langha S_I_lu S_I_lungha S_I_ngsI_ S_I_puni
-		}
-		female_names = {			
-			Abha Abuha AcI_buru Aihuma Alan Alihu Ambala Amban Ancun Ania Baiyang Bia Bira BoroE_ri Buctunggi Bugu Buiyemei BulE_hei BurE_ki Caca CI_cI_hei Dahumo Dala Diben Dirgara Dohomo Dorhon Dulun Dunuke DuwE_bE_ EihE_n Feicen Fonto Fontomo FulagiE_n Giahun Gluma Gorhon Guifala Gulmahai GE_tilE_ Indahong InE_nggi Jabu Jalur Jaolamai JuhE_ JE_ku JI_rijI_hE_i Liwaha LE_fu MeihE_ MiehE_ Minggan Monon Morin Mudur MudusE_ Mulan Munggan MuwE_ ME_cu ME_dE_ri ME_jI_lE_n ME_jI_lE_nbE_ Nadan Nailahu Narhun Ngauyahu NienieE_ri NiogohE_ Nionieha NongiE_n Orho Orhoda Orin Oso OS_I_ha Pula Puluhuzhi Sadugai Saimanggi Samao Sibiehung SisE_ri SogiE_n Songgi Suan Sufa SuhE_ SE_kE_ Tasha Tugi TumE_n Tunggi TuwE_ri Ulhu Ulin Ulu Ulya Unduhung Uyewun US_I_n Wanduhung Weihan Wulu Yewuju Zhusiban Zhusihui E_rdE_ S_agulizhen S_igge S_igu S_igu_er S_oun S_umu S_unja S_E_nun S_I_lasun S_I_lE_un S_I_ngE_ S_I_rha
-
-		}
-		
-		dynasty_of_location_prefix = "dynnp_of"
-		founder_named_dynasties = yes
-		
-		ethnicities = {
-			10 = asian
+		mercenary_names = {
+			{ name = "mercenary_company_teutonic_brotherhood" }
+			{ name = "mercenary_company_saxon_steelbearers" }
+			{ name = "mercenary_company_hansa_guard" }
+			{ name = "mercenary_company_sons_of_widukind" }
+			{ name = "mercenary_company_veterans_of_the_marches" }
 		}
 	}
 }
