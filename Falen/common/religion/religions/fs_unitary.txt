@@ -198,7 +198,7 @@
 			
 			# 주요 교리
 			doctrine = doctrine_no_head	# 교계 지도자: 
-			doctrine = doctrine_gender_equal	# 성별에 대한 관점: 
+			doctrine = doctrine_gender_male_dominant	# 성별에 대한 관점: 
 			doctrine = doctrine_pluralism_pluralistic	# 종교적 태도: 
 			doctrine = doctrine_theocracy_temporal	# 전통: 
 
@@ -218,7 +218,7 @@
 
 			# 성직자 교리
 			doctrine = doctrine_clerical_function_alms_and_pacification	# 성직자의 기능: 
-			doctrine = doctrine_clerical_gender_either	# 성직자의 성별: 
+			doctrine = doctrine_clerical_gender_male_only	# 성직자의 성별: 
 			doctrine = doctrine_clerical_marriage_allowed	# 성직자의 결혼: 
 			doctrine = doctrine_clerical_succession_spiritual_fixed_appointment	# 성직자의 지위: 
 			
@@ -226,13 +226,13 @@
 			
 			doctrine = tenet_sacred_childbirth # 원리 설정
 			doctrine = tenet_mystical_birthright
-			doctrine = tenet_pacifism
+			doctrine = tenet_communal_identity
 			
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
 			# localization = {}	# localization 변경 가능
 		}
-		famliar = {	# 하위 종교
+		familiar = {	# 하위 종교
 			color = { 16 64 128 }	# 지도 상에서 표시될 색깔
 			icon = default_custom	# 종교 아이콘
 			# reformed_icon = 	# 파간 종교개혁 시 아이콘 대체 가능
@@ -250,36 +250,36 @@
 			holy_site = site5
 			
 			# 주요 교리
-			# doctrine = 	# 교계 지도자: 
-			# doctrine = 	# 성별에 대한 관점: 
-			# doctrine = 	# 종교적 태도: 
-			# doctrine = 	# 전통: 
+			doctrine = doctrine_no_head	# 교계 지도자: 
+			doctrine = doctrine_gender_equal	# 성별에 대한 관점: 
+			doctrine = doctrine_pluralism_pluralistic	# 종교적 태도: 
+			doctrine = doctrine_theocracy_temporal	# 전통: 
 
 			# 결혼 교리
-			# doctrine = 	# 결혼 형식: 
-			# doctrine = 	# 이혼: 
-			# doctrine = 	# 적서제: 
-			# doctrine = 	# 근친 관계: 
+			doctrine = doctrine_monogamy	# 결혼 형식: 
+			doctrine = doctrine_divorce_disallowed	# 이혼: 
+			doctrine = doctrine_bastardry_legitimization	# 적서제: 
+			doctrine = doctrine_consanguinity_restricted	# 근친 관계: 
 
 			# 범죄 교리
-			# doctrine = 	# 동성연애: 
-			# doctrine = 	# 남성의 간통: 
-			# doctrine = 	# 여성의 간통: 
-			# doctrine = 	# 친족 살해: 
-			# doctrine = 	# 이상성욕: 
-			# doctrine = 	# 마술: 
+			doctrine = doctrine_homosexuality_crime	# 동성연애: 
+			doctrine = doctrine_adultery_men_accepted	# 남성의 간통: 
+			doctrine = doctrine_adultery_women_accepted	# 여성의 간통: 
+			doctrine = doctrine_kinslaying_any_dynasty_member_crime	# 친족 살해: 
+			doctrine = doctrine_deviancy_shunned	# 이상성욕: 
+			doctrine = doctrine_witchcraft_shunned	# 마술: 
 
 			# 성직자 교리
-			# doctrine = 	# 성직자의 기능: 
-			# doctrine = 	# 성직자의 성별: 
-			# doctrine = 	# 성직자의 결혼: 
-			# doctrine = 	# 성직자의 지위: 
+			doctrine = doctrine_clerical_function_alms_and_pacification	# 성직자의 기능: 
+			doctrine = doctrine_clerical_gender_either	# 성직자의 성별: 
+			doctrine = doctrine_clerical_marriage_allowed	# 성직자의 결혼: 
+			doctrine = doctrine_clerical_succession_spiritual_fixed_appointment	# 성직자의 지위: 
 			
 			# doctrine = 	# 교리 변경이나 추가 가능
 			
-			# doctrine = tenet	# 원리 설정
-			# doctrine = tenet
-			# doctrine = tenet
+			doctrine = tenet_mystical_birthright	# 원리 설정
+			doctrine = tenet_polyamory
+			doctrine = tenet_sacred_childbirth
 			
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
