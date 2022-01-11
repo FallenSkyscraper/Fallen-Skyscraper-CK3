@@ -271,4 +271,42 @@ doctrine_core_tenets = {
 			virtues = { mystic_3 = 5 }
 		}
 	}
+	tenet_new_world = {
+		icon = core_tenet_cabal
+		piety_cost = {
+			if = {
+				limit = {
+						religion_tag = new_world_religion
+				}
+				value = faith_tenet_cost_low
+			}
+			else= {
+				value = faith_tenet_cost_high
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_new_world }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		
+		is_shown = { religion_tag = new_world_religion }
+		
+		can_pick = {
+			custom_description = {
+				NOT = { flag:doctrine_tenet_adaptive = { is_in_list = selected_doctrines } }
+			}
+		}
+
+		parameters = {
+			tenet_adaptive_conversion_resistance = yes
+			same_culture_conversion_bonus_active = yes
+		}
+
+		character_modifier = {
+			tolerance_advantage_mod = 3
+			faith_creation_piety_cost_mult = -0.49
+		}
+	}
 }

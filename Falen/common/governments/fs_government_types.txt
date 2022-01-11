@@ -154,6 +154,7 @@ chinese_bureaucracy_government = {
 	primary_holdings = castle_holding
 	valid_holdings = { Metropolis_holding city_holding}
 	required_county_holdings = { castle_holding city_holding church_holding }
+	preferred_religions = { chinese_confucianism_religion legalist_religion new_world_religion }
 
 	vassal_contract = {
 		feudal_government_taxes
@@ -174,7 +175,7 @@ chinese_bureaucracy_government = {
 			monthly_income_mult = 0.5
 			levy_size = 0.5
 			monthly_prestige_gain_mult = 0.5
-			vassel_opinion = 5
+			vassal_opinion = 5
 		}
 		else_if = {
 			limit = {
