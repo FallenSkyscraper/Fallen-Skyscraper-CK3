@@ -4,6 +4,15 @@ succession_order_laws = {
 	confederate_partition_succession_law = {
 		can_keep = {
 			always = yes
+			NOR = {
+				has_government = imperial_government
+				has_government = proletarian_government 
+				has_government = military_government 
+				has_government = oligarchic_republic_government
+				has_government = merchant_republic_government
+				has_government = nomadic_government
+				has_government = manchu_tribal_government
+			}
 		}
 		can_pass = {
 			can_change_partition_succession_law_trigger = yes
@@ -23,11 +32,11 @@ succession_order_laws = {
 						has_government = feudal_government
 						has_government = clan_government
 							#fs_모드의 것들
-						has_government = proletarian_government 
-						has_government = military_government 
+						has_government = bureaucratic_government
 						has_government = maritime_government 
-							has_government = secular_republic_government  
-								has_government = landward_republic_government  
+						has_government = theocratic_feudal_government
+						has_government = secular_republic_government  
+
 					}
 					culture = {
 						NOR = {
@@ -77,11 +86,10 @@ succession_order_laws = {
 				has_government = feudal_government
 				has_government = clan_government
 				#fs_모드의
-				has_government = proletarian_government 
-				has_government = military_government 
-				has_government = maritime_government 
-				has_government = secular_republic_government  
-				has_government = landward_republic_government 
+				has_government = bureaucratic_government
+						has_government = maritime_government 
+						has_government = theocratic_feudal_government
+						has_government = secular_republic_government  
 			}
 			culture = {
 				has_innovation = innovation_hereditary_rule
@@ -380,6 +388,55 @@ succession_order_laws = {
 		succession = {
 			order_of_succession = generate
 			pool_character_config = pool_city_succession
+		}
+	}
+	
+	#republic election
+	oligarchic_republic_elective_succession_law = {
+		can_have = {
+			OR = {
+				has_government = bureaucratic_government
+				has_government = maritime_government 
+				has_government = theocratic_feudal_government
+				has_government = secular_republic_government
+			}
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes
+			OR = {
+				has_government = bureaucratic_government
+				has_government = maritime_government 
+				has_government = theocratic_feudal_government
+				has_government = secular_republic_government
+			}
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+			OR = {
+				has_government = bureaucratic_government
+				has_government = maritime_government 
+				has_government = theocratic_feudal_government
+				has_government = secular_republic_government
+			}
+		}
+		should_start_with = {
+			OR = {
+				has_government = bureaucratic_government
+				has_government = maritime_government 
+				has_government = theocratic_feudal_government
+				has_government = secular_republic_government
+			}
+		}
+		succession = {
+			order_of_succession = election
+			election_type = feudal_elective
+		}
+		flag = elective_succession_law
+		revoke_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+		pass_cost = {
+			prestige = change_title_succession_law_prestige_cost
 		}
 	}
 }
