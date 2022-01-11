@@ -2,7 +2,7 @@
 # A Flavorization will apply if ALL specified categories have ANY of their entries
 # represented in the character/title
 # So for example:
-# governments = { feudal_government }
+# governments = { feudal_government maritime_government  }
 # culture_groups = { mongolic_group central_germanic_group }
 # religions = { christianity_religion }
 # cultures = { norse }
@@ -64,15 +64,31 @@ president_female = {
 	governments = { secular_republic_government }
 	top_liege = no
 }
-peoples_republic = {
-	type = title
+
+# Religious Titles
+
+ecumenical_patriarch = {
+	type = character
+	gender = male
+	special = holder
 	tier = kingdom
-	governments = { secular_republic_government }
-	priority = 47
+	priority = 301
+	titles = { k_orthodox }
 	top_liege = no
 }
 
-# Religious Titles
+ecumenical_matriarch = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 301
+	titles = { k_orthodox }
+	top_liege = no
+}
+
+
+
 head_of_faith_male = {
 	type = character
 	gender = male
@@ -132,6 +148,115 @@ realm_priest_female = {
 
 # Bon
 
+##############################################
+# Special cultural titles (sorted by culture, then government special).
+### Mongol ###
+# Feudal
+baron_nomadic_male_mongol = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+baron_nomadic_female_mongol = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+barony_nomadic_mongol = {
+	type = title
+	tier = barony
+	priority = 8
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+count_nomadic_male_mongol = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 19
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+count_nomadic_female_mongol = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 19
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+duke_nomadic_male_mongol = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+duke_nomadic_female_mongol = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+king_nomadic_male_mongol = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 49
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+king_nomadic_female_mongol = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 49
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+kingdom_nomadic_mongol = {
+	type = title
+	tier = kingdom
+	priority = 49
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+emperor_nomadic_male_mongol = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+emperor_nomadic_female_mongol = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongol }
+}
+
  #############################################
  # Default titles by Government. This list should always be below any custom localization that is tied to specific cultures/religion.
  #Default Feudal tiers
@@ -153,7 +278,7 @@ baron_feudal_male = {
 	special = holder
 	tier = barony
 	priority = 5
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 baron_feudal_female = {
 	type = character
@@ -161,13 +286,13 @@ baron_feudal_female = {
 	special = holder
 	tier = barony
 	priority = 5
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 barony_feudal = {
 	type = title
 	tier = barony
 	priority = 5
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 count_feudal_male = {
 	type = character
@@ -175,7 +300,7 @@ count_feudal_male = {
 	special = holder
 	tier = county
 	priority = 16
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 count_feudal_female = {
 	type = character
@@ -183,13 +308,13 @@ count_feudal_female = {
 	special = holder
 	tier = county
 	priority = 16
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 county_feudal = {
 	type = title
 	tier = county
 	priority = 16
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 duke_feudal_male = {
 	type = character
@@ -197,7 +322,7 @@ duke_feudal_male = {
 	special = holder
 	tier = duchy
 	priority = 26
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 duke_feudal_female = {
 	type = character
@@ -205,12 +330,12 @@ duke_feudal_female = {
 	special = holder
 	tier = duchy
 	priority = 26
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 duchy_feudal = {
 	type = title
 	tier = duchy
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 	priority = 27
 }
 king_feudal_male = {
@@ -219,7 +344,7 @@ king_feudal_male = {
 	special = holder
 	tier = kingdom
 	priority = 46
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 king_feudal_female = {
 	type = character
@@ -227,13 +352,13 @@ king_feudal_female = {
 	special = holder
 	tier = kingdom
 	priority = 46
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 kingdom_feudal = {
 	type = title
 	tier = kingdom
 	priority = 46
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 emperor_feudal_male = {
 	type = character
@@ -241,7 +366,7 @@ emperor_feudal_male = {
 	special = holder
 	tier = empire
 	priority = 101
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 emperor_feudal_female = {
 	type = character
@@ -249,13 +374,13 @@ emperor_feudal_female = {
 	special = holder
 	tier = empire
 	priority = 101
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 empire_feudal = {
 	type = title
 	tier = empire
 	priority = 101
-	governments = { feudal_government }
+	governments = { feudal_government maritime_government  }
 }
 
  #Default Republic tiers
@@ -266,7 +391,7 @@ baron_republic_male = {
 	tier = barony
 	priority = 7
 	top_liege = no
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 baron_republic_female = {
 	type = character
@@ -275,14 +400,14 @@ baron_republic_female = {
 	tier = barony
 	priority = 7
 	top_liege = no
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 barony_republic = {
 	type = title
 	tier = barony
 	top_liege = no
 	priority = 7
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 count_republic_male = {
 	type = character
@@ -291,7 +416,7 @@ count_republic_male = {
 	tier = county
 	priority = 17
 	top_liege = no
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 count_republic_female = {
 	type = character
@@ -300,14 +425,14 @@ count_republic_female = {
 	tier = county
 	priority = 17
 	top_liege = no
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 county_republic = {
 	type = title
 	tier = county
 	priority = 17
 	top_liege = no
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 duke_republic_male = {
 	type = character
@@ -316,7 +441,7 @@ duke_republic_male = {
 	tier = duchy
 	priority = 27
 	top_liege = no
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 duke_republic_female = {
 	type = character
@@ -325,14 +450,14 @@ duke_republic_female = {
 	tier = duchy
 	priority = 27
 	top_liege = no
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 duchy_republic = {
 	type = title
 	tier = duchy
 	priority = 28
 	top_liege = no
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 king_republic_male = {
 	type = character
@@ -340,7 +465,7 @@ king_republic_male = {
 	special = holder
 	tier = kingdom
 	priority = 47
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 king_republic_female = {
 	type = character
@@ -348,14 +473,14 @@ king_republic_female = {
 	special = holder
 	tier = kingdom
 	priority = 47
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 kingdom_republic = {
 	type = title
 	tier = kingdom
 	top_liege = no
 	priority = 47
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 emperor_republic_male = {
 	type = character
@@ -364,7 +489,7 @@ emperor_republic_male = {
 	tier = empire
 	priority = 102
 	top_liege = no
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 emperor_republic_female = {
 	type = character
@@ -373,16 +498,139 @@ emperor_republic_female = {
 	tier = empire
 	priority = 102
 	top_liege = no
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
 empire_republic = {
 	type = title
 	tier = empire
 	top_liege = no
 	priority = 102
-	governments = { republic_government }
+	governments = { republic_government oligarchic_republic_government }
 }
-
+ #Default Merchant Republic tiers
+baron_merchant_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 7
+	top_liege = no
+	governments = { merchant_republic_government }
+}
+baron_merchant_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 7
+	top_liege = no
+	governments = { merchant_republic_government }
+}
+barony_merchant_republic = {
+	type = title
+	tier = barony
+	top_liege = no
+	priority = 7
+	governments = { merchant_republic_government }
+}
+count_merchant_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 17
+	top_liege = no
+	governments = { merchant_republic_government }
+}
+count_merchant_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 17
+	top_liege = no
+	governments = { merchant_republic_government }
+}
+county_merchant_republic = {
+	type = title
+	tier = county
+	priority = 17
+	top_liege = no
+	governments = { merchant_republic_government }
+}
+duke_merchant_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 27
+	top_liege = no
+	governments = { merchant_republic_government }
+}
+duke_merchant_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 27
+	top_liege = no
+	governments = { merchant_republic_government }
+}
+duchy_merchant_republic = {
+	type = title
+	tier = duchy
+	priority = 28
+	top_liege = no
+	governments = { merchant_republic_government }
+}
+king_merchant_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 47
+	governments = { merchant_republic_government }
+}
+king_merchant_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 47
+	governments = { merchant_republic_government }
+}
+kingdom_merchant_republic = {
+	type = title
+	tier = kingdom
+	top_liege = no
+	priority = 47
+	governments = { merchant_republic_government }
+}
+emperor_merchant_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 102
+	top_liege = no
+	governments = { merchant_republic_government }
+}
+emperor_merchant_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 102
+	top_liege = no
+	governments = { merchant_republic_government }
+}
+empire_merchant_republic = {
+	type = title
+	tier = empire
+	top_liege = no
+	priority = 102
+	governments = { merchant_republic_government }
+}
  #Default Theocracy tiers
 baron_theocracy_male = {
 	type = character
@@ -391,7 +639,7 @@ baron_theocracy_male = {
 	tier = barony
 	priority = 6
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 baron_theocracy_female = {
 	type = character
@@ -400,7 +648,7 @@ baron_theocracy_female = {
 	tier = barony
 	priority = 6
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 barony_theocracy = {
 	type = title
@@ -416,7 +664,7 @@ count_theocracy_male = {
 	tier = county
 	priority = 16
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 count_theocracy_female = {
 	type = character
@@ -425,14 +673,14 @@ count_theocracy_female = {
 	tier = county
 	priority = 16
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 county_theocracy = {
 	type = title
 	tier = county
 	top_liege = no
 	priority = 16
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 duke_theocracy_male = {
 	type = character
@@ -441,7 +689,7 @@ duke_theocracy_male = {
 	tier = duchy
 	priority = 26
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 duke_theocracy_female = {
 	type = character
@@ -450,14 +698,14 @@ duke_theocracy_female = {
 	tier = duchy
 	priority = 26
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 duchy_theocracy = {
 	type = title
 	tier = duchy
 	top_liege = no
 	priority = 26
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 king_theocracy_male = {
 	type = character
@@ -466,7 +714,7 @@ king_theocracy_male = {
 	tier = kingdom
 	priority = 46
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 king_theocracy_female = {
 	type = character
@@ -475,14 +723,14 @@ king_theocracy_female = {
 	tier = kingdom
 	priority = 46
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 kingdom_theocracy = {
 	type = title
 	tier = kingdom
 	top_liege = no
 	priority = 46
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 emperor_theocracy_male = {
 	type = character
@@ -491,7 +739,7 @@ emperor_theocracy_male = {
 	tier = empire
 	priority = 101
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 emperor_theocracy_female = {
 	type = character
@@ -500,14 +748,14 @@ emperor_theocracy_female = {
 	tier = empire
 	priority = 101
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 empire_theocracy = {
 	type = title
 	tier = empire
 	priority = 101
 	top_liege = no
-	governments = { theocracy_government }
+	governments = { theocracy_government theocratic_feudal_government maritime_government  }
 }
 
  #Default Clan tiers
@@ -1020,6 +1268,763 @@ faction_leader_female = {
 	special = holder
 }
 
+#### Fallen Skyscraper Titles ####
+#Default Miliary Gov. tiers
+baron_military_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { military_government }
+}
+baron_military_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { military_government }
+}
+barony_military = {
+	type = title
+	tier = barony
+	top_liege = no
+	priority = 6
+	governments = { military_government }
+}
+count_military_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { military_government }
+}
+count_military_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { military_government }
+}
+county_military = {
+	type = title
+	tier = county
+	top_liege = no
+	priority = 16
+	governments = { military_government }
+}
+duke_military_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { military_government }
+}
+duke_military_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { military_government }
+}
+duchy_military = {
+	type = title
+	tier = duchy
+	top_liege = no
+	priority = 26
+	governments = { military_government }
+}
+king_military_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { military_government }
+}
+king_military_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { military_government }
+}
+kingdom_military = {
+	type = title
+	tier = kingdom
+	top_liege = no
+	priority = 46
+	governments = { military_government }
+}
+emperor_military_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { military_government }
+}
+emperor_military_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { military_government }
+}
+empire_military = {
+	type = title
+	tier = empire
+	top_liege = no
+	priority = 101
+	governments = { military_government }
+}
+#Default PT Dictactorship tiers
+baron_proletarian_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { proletarian_government }
+}
+baron_proletarian_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { proletarian_government }
+}
+barony_proletarian = {
+	type = title
+	tier = barony
+	top_liege = no
+	priority = 6
+	governments = { proletarian_government }
+}
+count_proletarian_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { proletarian_government }
+}
+count_proletarian_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { proletarian_government }
+}
+county_proletarian = {
+	type = title
+	tier = county
+	top_liege = no
+	priority = 16
+	governments = { proletarian_government }
+}
+duke_proletarian_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { proletarian_government }
+}
+duke_proletarian_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { proletarian_government }
+}
+duchy_proletarian = {
+	type = title
+	tier = duchy
+	top_liege = no
+	priority = 26
+	governments = { proletarian_government }
+}
+king_proletarian_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { proletarian_government }
+}
+king_proletarian_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { proletarian_government }
+}
+kingdom_proletarian = {
+	type = title
+	tier = kingdom
+	top_liege = no
+	priority = 46
+	governments = { proletarian_government }
+}
+emperor_proletarian_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { proletarian_government }
+}
+emperor_proletarian_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { proletarian_government }
+}
+empire_proletarian = {
+	type = title
+	tier = empire
+	top_liege = no
+	priority = 101
+	governments = { proletarian_government }
+}
+#Default Chinese Bureaucracy tiers
+baron_chinese_bureaucracy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { chinese_bureaucracy_government }
+}
+baron_chinese_bureaucracy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { chinese_bureaucracy_government }
+}
+barony_chinese_bureaucracy = {
+	type = title
+	tier = barony
+	top_liege = no
+	priority = 6
+	governments = { chinese_bureaucracy_government }
+}
+count_chinese_bureaucracy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { chinese_bureaucracy_government }
+}
+count_chinese_bureaucracy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { chinese_bureaucracy_government }
+}
+county_chinese_bureaucracy = {
+	type = title
+	tier = county
+	top_liege = no
+	priority = 16
+	governments = { chinese_bureaucracy_government }
+}
+duke_chinese_bureaucracy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { chinese_bureaucracy_government }
+}
+duke_chinese_bureaucracy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { chinese_bureaucracy_government }
+}
+duchy_chinese_bureaucracy = {
+	type = title
+	tier = duchy
+	top_liege = no
+	priority = 26
+	governments = { chinese_bureaucracy_government }
+}
+king_chinese_bureaucracy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { chinese_bureaucracy_government }
+}
+king_chinese_bureaucracy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { chinese_bureaucracy_government }
+}
+kingdom_chinese_bureaucracy = {
+	type = title
+	tier = kingdom
+	top_liege = no
+	priority = 46
+	governments = { chinese_bureaucracy_government }
+}
+emperor_chinese_bureaucracy_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { chinese_bureaucracy_government }
+}
+emperor_chinese_bureaucracy_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { chinese_bureaucracy_government }
+}
+empire_chinese_bureaucracy = {
+	type = title
+	tier = empire
+	top_liege = no
+	priority = 101
+	governments = { chinese_bureaucracy_government }
+}
+#Default Nomadic tiers
+baron_nomadic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { nomadic_government tribal_government }
+}
+baron_nomadic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { nomadic_government tribal_government }
+}
+barony_nomadic = {
+	type = title
+	tier = barony
+	top_liege = no
+	priority = 6
+	governments = { nomadic_government tribal_government }
+}
+count_nomadic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { nomadic_government tribal_government }
+}
+count_nomadic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { nomadic_government tribal_government }
+}
+county_nomadic = {
+	type = title
+	tier = county
+	top_liege = no
+	priority = 16
+	governments = { nomadic_government tribal_government }
+}
+duke_nomadic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { nomadic_government tribal_government }
+}
+duke_nomadic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { nomadic_government tribal_government }
+}
+duchy_nomadic = {
+	type = title
+	tier = duchy
+	top_liege = no
+	priority = 26
+	governments = { nomadic_government tribal_government }
+}
+king_nomadic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { nomadic_government tribal_government }
+}
+king_nomadic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { nomadic_government tribal_government }
+}
+kingdom_nomadic = {
+	type = title
+	tier = kingdom
+	top_liege = no
+	priority = 46
+	governments = { nomadic_government tribal_government }
+}
+emperor_nomadic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { nomadic_government tribal_government }
+}
+emperor_nomadic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { nomadic_government tribal_government }
+}
+empire_nomadic = {
+	type = title
+	tier = empire
+	top_liege = no
+	priority = 101
+	governments = { nomadic_government tribal_government }
+}
+#Default Manchu Tribal tiers
+baron_manchu_tribal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { manchu_tribal_government }
+}
+baron_manchu_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { manchu_tribal_government }
+}
+barony_manchu_tribal = {
+	type = title
+	tier = barony
+	top_liege = no
+	priority = 6
+	governments = { manchu_tribal_government }
+}
+count_manchu_tribal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { manchu_tribal_government }
+}
+count_manchu_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { manchu_tribal_government }
+}
+county_manchu_tribal = {
+	type = title
+	tier = county
+	top_liege = no
+	priority = 16
+	governments = { manchu_tribal_government }
+}
+duke_manchu_tribal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { manchu_tribal_government }
+}
+duke_manchu_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { manchu_tribal_government }
+}
+duchy_manchu_tribal = {
+	type = title
+	tier = duchy
+	top_liege = no
+	priority = 26
+	governments = { manchu_tribal_government }
+}
+king_manchu_tribal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { manchu_tribal_government }
+}
+king_manchu_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { manchu_tribal_government }
+}
+kingdom_manchu_tribal = {
+	type = title
+	tier = kingdom
+	top_liege = no
+	priority = 46
+	governments = { manchu_tribal_government }
+}
+emperor_manchu_tribal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { manchu_tribal_government }
+}
+emperor_manchu_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { manchu_tribal_government }
+}
+empire_manchu_tribal = {
+	type = title
+	tier = empire
+	top_liege = no
+	priority = 101
+	governments = { manchu_tribal_government }
+}
+#Default Secular Republic tiers
+baron_secular_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { secular_republic_government }
+}
+baron_secular_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { secular_republic_government }
+}
+barony_secular_republic = {
+	type = title
+	tier = barony
+	top_liege = no
+	priority = 6
+	governments = { secular_republic_government }
+}
+count_secular_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { secular_republic_government }
+}
+count_secular_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { secular_republic_government }
+}
+county_secular_republic = {
+	type = title
+	tier = county
+	top_liege = no
+	priority = 16
+	governments = { secular_republic_government }
+}
+duke_secular_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { secular_republic_government }
+}
+duke_secular_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { secular_republic_government }
+}
+duchy_secular_republic = {
+	type = title
+	tier = duchy
+	top_liege = no
+	priority = 26
+	governments = { secular_republic_government }
+}
+king_secular_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { secular_republic_government }
+}
+king_secular_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { secular_republic_government }
+}
+kingdom_secular_republic = {
+	type = title
+	tier = kingdom
+	top_liege = no
+	priority = 46
+	governments = { secular_republic_government }
+}
+emperor_secular_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { secular_republic_government }
+}
+emperor_secular_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { secular_republic_government }
+}
+empire_secular_republic = {
+	type = title
+	tier = empire
+	top_liege = no
+	priority = 101
+	governments = { secular_republic_government }
+}
  #############################################
 #Fallback titles (should ideally never appear):
 
