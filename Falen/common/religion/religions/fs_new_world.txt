@@ -1,0 +1,227 @@
+new_world_religion = {
+	family = rf_eastern	# 소속 종교 패밀리
+	# graphical_faith = religion_gfx	# 종교 gfx 설정
+	# piety_icon_group = 	# 신앙심 아이콘 설정
+	# doctrine_background_icon = 	# 교리 배경 설정
+	
+	doctrine = eastern_hostility_doctrine	# 종교 적대 시 소속
+	# doctrine = unreformed_faith_doctrine	# 파간 설정
+	# pagan_roots = yes
+
+
+# 주요 교리
+		 doctrine = doctrine_no_head	# 교계 지도자: 
+		 doctrine = doctrine_gender_male_dominated	# 성별에 대한 관점: 
+		 doctrine = doctrine_pluralism_righteous# 종교적 태도: 
+		 doctrine = doctrine_theocracy_lay_clergy	# 전통: 
+
+			# 결혼 교리
+			doctrine = doctrine_concubines# 결혼 형식: 
+			doctrine = doctrine_divorce_disallowed	# 이혼: 
+			doctrine = doctrine_bastardry_all	# 적서제: 
+			doctrine = doctrine_consanguinity_restricted	# 근친 관계: 
+
+			# 범죄 교리
+			doctrine = doctrine_homosexuality_crime	# 동성연애: 
+			doctrine = doctrine_adultery_men_shunned	# 남성의 간통: 
+			doctrine = doctrine_adultery_women_crime	# 여성의 간통: 
+			doctrine = doctrine_kinslaying_any_dynasty_member_crime	# 친족 살해: 
+			doctrine = doctrine_deviancy_crime	# 이상성욕: 
+			doctrine = doctrine_witchcraft_shunned# 마술: 
+
+			# 성직자 교리
+			doctrine = doctrine_clerical_function_taxation	# 성직자의 기능: 
+			doctrine = doctrine_clerical_gender_male_only	# 성직자의 성별: 
+			doctrine = doctrine_clerical_marriage_allowed	# 성직자의 결혼: 
+			doctrine = doctrine_clerical_succession_temporal_appointment	# 성직자의 지위: 
+			
+
+
+
+	
+
+
+
+	traits = {	# 트레잇
+		virtues = {generous   humble honest }	 # 미덕
+		sins = { greedy   arrogant deceitful}	# 죄악
+	}
+	
+	reserved_male_names = {	# 남성 이름
+	}
+	reserved_female_names = {	# 여성 이름
+	}
+	
+	custom_faith_icons = {	# 분파 생성 용 아이콘 목록
+	}
+	
+	localization = {
+		#HighGod
+		HighGodName = new_world_high_god_name	# 신 이름
+		HighGodNamePossessive = new_world_high_god_name_possessive	# 신 이름 소유격
+		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = new_world_high_god_name_alternate	# 최고신은 이명 사용 가능
+		HighGodNameAlternatePossessive = new_world_high_god_name_alternate_possessive
+
+		#CreatorName
+		CreatorName = new_world_creator_god_name
+		CreatorNamePossessive = new_world_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+
+		#HealthGod
+		HealthGodName = new_world_health_god_name
+		HealthGodNamePossessive = new_world_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		
+		#FertilityGod
+		FertilityGodName = new_world_fertility_god_name
+		FertilityGodNamePossessive = new_world_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WealthGod
+		WealthGodName = new_world_wealth_god_name
+		WealthGodNamePossessive = new_world_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		#HouseholdGod
+		HouseholdGodName = new_world_household_god_name
+		HouseholdGodNamePossessive = new_world_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_HE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+		#FateGod
+		FateGodName = new_world_fate_god_name
+		FateGodNamePossessive = new_world_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+
+		#Knowledge
+		KnowledgeGodName = new_world_knowledge_god_name
+		KnowledgeGodNamePossessive = new_world_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WarGod
+		WarGodName = new_world_war_god_name
+		WarGodNamePossessive = new_world_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		#TricksterGod
+		TricksterGodName = new_world_trickster_god_name
+		TricksterGodNamePossessive = new_world_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		#NightGod
+		NightGodName = new_world_night_god_name
+		NightGodNamePossessive = new_world_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WaterGod
+		WaterGodName = new_world_water_god_name
+		WaterGodNamePossessive = new_world_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+		PantheonTerm = new_world_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {	# 선신 이름들
+			new_world_high_god_name
+		}
+		
+		DevilName = new_world_devil_name
+		DevilNamePossessive = new_world_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {	# 악신 이름들
+			new_world_devil_name
+		}
+		
+		HouseOfWorship = new_world_house_of_worship
+		HouseOfWorshipPlural = new_world_house_of_worship_plural
+		ReligiousSymbol = new_world_religious_symbol
+		ReligiousText = new_world_religious_text
+		ReligiousHeadName = new_world_religious_head_title
+		ReligiousHeadTitleName = new_world_religious_head_title_name
+		
+		DevoteeMale = new_world_devotee_male
+		DevoteeMalePlural = new_world_devotee_male_plural
+		DevoteeFemale = new_world_devotee_female
+		DevoteeFemalePlural = new_world_devotee_female_plural
+		DevoteeNeuter = new_world_devotee_neuter
+		DevoteeNeuterPlural = new_world_devotee_neuter_plural
+		
+		PriestMale = new_world_priest_male
+		PriestMalePlural = new_world_priest_male_plural
+		PriestFemale = new_world_priest_male
+		PriestFemalePlural = new_world_priest_male_plural
+		PriestNeuter = new_world_priest_male
+		PriestNeuterPlural = new_world_priest_male_plural
+		AltPriestTermPlural = new_world_priest_alternate_plural
+		
+		BishopMale = new_world_bishop
+		BishopMalePlural = new_world_bishop_plural
+		BishopFemale = new_world_bishop
+		BishopFemalePlural = new_world_bishop_plural
+		BishopNeuter = new_world_bishop
+		BishopNeuterPlural = new_world_bishop_plural
+		
+		DivineRealm = new_world_positive_afterlife
+		PositiveAfterLife = new_world_positive_afterlife
+		NegativeAfterLife = new_world_negative_afterlife
+		DeathDeityName = new_world_death_deity_name
+		DeathDeityNamePossessive = new_world_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		
+		WitchGodName = new_world_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+
+
+		GHWName = ghw_crusade	# 대성전 이름
+		GHWNamePlural = ghw_crusades
+	}
+	faiths = {
+		new_world_orders = {	#신천명
+			color = { 250, 250, 150 }
+			#icon = 
+
+			doctrine = tenet_armed_pilgrimages
+			doctrine = tenet_unrelenting_faith
+			doctrine = tenet_new_world
+		}
+		new_world_land = {	#신천하
+			color = { 150 150 250 }
+			#icon =
+
+			doctrine = tenet_communal_identity
+			doctrine = tenet_new_world
+			doctrine = tenet_pacifism
+		}
+	}
+}
