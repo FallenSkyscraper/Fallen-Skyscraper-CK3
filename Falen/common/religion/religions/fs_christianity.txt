@@ -219,45 +219,17 @@
 	}
 	
 	faiths = {
-		catholic = {	# 하위 종교
-			color = { 255 255 0 }	# 지도 상에서 표시될 색깔
-			graphical_faith = catholic_gfx	# 종교 gfx 설정
-			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
-			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
-		
-			# religion_head = 	# 종교 수장 작위
-		
-			# holy_site = site1	# 성지 설정
-			# holy_site = site2
-			# holy_site = site3
-			# holy_site = site4
-			# holy_site = site5
+		catholic = {
+			color = { 0.8 0.8 0.6 }
+			religious_head = k_catholic
+			graphical_faith = "catholic_gfx"
 			
-			# 주요 교리
-			# doctrine = 	# 교계 지도자: 
-			# doctrine = 	# 성별에 대한 관점: 
-			# doctrine = 	# 종교적 태도: 
-			# doctrine = 	# 전통: 
-
-			# 결혼 교리
-			# doctrine = 	# 결혼 형식: 
-			# doctrine = 	# 이혼: 
-			# doctrine = 	# 적서제: 
-			# doctrine = 	# 근친 관계: 
-
-			# 범죄 교리
-			# doctrine = 	# 동성연애: 
-			# doctrine = 	# 남성의 간통: 
-			# doctrine = 	# 여성의 간통: 
-			# doctrine = 	# 친족 살해: 
-			# doctrine = 	# 이상성욕: 
-			# doctrine = 	# 마술: 
-
-			# 성직자 교리
-			# doctrine = 	# 성직자의 기능: 
-			# doctrine = 	# 성직자의 성별: 
-			# doctrine = 	# 성직자의 결혼: 
-			# doctrine = 	# 성직자의 지위: 
+			holy_site = jongno
+			holy_site = solmoe
+			holy_site = haemi
+			holy_site = daegu
+			holy_site = junggu
+			holy_site = naju
 			
 			#Special Tolerance
 			doctrine = special_doctrine_ecumenical_christian
@@ -266,10 +238,59 @@
 			doctrine = tenet_communion
 			doctrine = tenet_armed_pilgrimages
 			doctrine = tenet_monasticism
-			
-			# reserved_male_names = {} # 남성 이름 추가 가능
-			# reserved_female_names = {} # 여성 이름 추가 가능
-			# localization = {}	# localization 변경 가능
+
+			holy_order_names = {
+				{ name = "holy_order_knights_templar" coat_of_arms = "ho_knights_templar" }
+				{ name = "holy_order_knights_hospitaller" coat_of_arms = "ho_knights_hospitaller"  }
+				{ name = "holy_order_teutonic_order" coat_of_arms = "ho_teutonic_order"  }
+				{ name = "holy_order_order_of_calatrava" coat_of_arms = "ho_order_of_calatrava"  }
+				{ name = "holy_order_order_of_alcantara" coat_of_arms = "ho_order_of_alcantara"  }
+				{ name = "holy_order_knights_of_santiago" coat_of_arms = "ho_knights_of_santiago"  }
+			}
+
+			localization = { # Utilizes the 'West Christian' Saints, shared by Catholics and Orthodox
+				#FertilityGod
+				FertilityGodName = west_christian_fertility_god_name
+				FertilityGodNamePossessive = west_christian_fertility_god_name_possessive
+				FertilityGodSheHe = CHARACTER_SHEHE_SHE
+				FertilityGodHerHis = CHARACTER_HERHIS_HER
+				FertilityGodHerHim = CHARACTER_HERHIM_HER
+
+				#WealthGod
+				WealthGodName = west_christian_wealth_god_name
+				WealthGodNamePossessive = west_christian_wealth_god_name_possessive
+				WealthGodSheHe = CHARACTER_SHEHE_HE
+				WealthGodHerHis = CHARACTER_HERHIS_HIS
+				WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+				#HouseholdGod
+				HouseholdGodName = west_christian_household_god_name
+				HouseholdGodNamePossessive = west_christian_household_god_name_possessive
+				HouseholdGodSheHe = CHARACTER_SHEHE_HE
+				HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+				HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+				#KnowledgeGod
+				KnowledgeGodName = west_christian_knowledge_god_name
+				KnowledgeGodNamePossessive = west_christian_knowledge_god_name_possessive
+				KnowledgeGodSheHe = CHARACTER_SHEHE_SHE
+				KnowledgeGodHerHis = CHARACTER_HERHIS_HER
+				KnowledgeGodHerHim = CHARACTER_HERHIM_HER
+
+				#WarGod
+				WarGodName = west_christian_war_god_name
+				WarGodNamePossessive = west_christian_war_god_name_possessive
+				WarGodSheHe = CHARACTER_SHEHE_HE
+				WarGodHerHis = CHARACTER_HERHIS_HIS
+				WarGodHerHim = CHARACTER_HERHIM_HIM
+
+				#WaterGod
+				WaterGodName = west_christian_water_god_name
+				WaterGodNamePossessive = west_christian_water_god_name_possessive
+				WaterGodSheHe = CHARACTER_SHEHE_HE
+				WaterGodHerHis = CHARACTER_HERHIS_HIS
+				WaterGodHerHim = CHARACTER_HERHIM_HIM
+			}
 		}
 		coptic = {
 			color = { 210 235 87 }
