@@ -117,7 +117,6 @@ theocratic_feudal_government = {
 		feudal_government_taxes
 		feudal_government_levies
 		special_contract
-		religious_rights
 		fortification_rights
 		coinage_rights
 		succession_rights
@@ -139,14 +138,9 @@ proletarian_government = {
 	vassal_contract = {
 		feudal_government_taxes
 		feudal_government_levies
-		special_contract
-		religious_rights
 		fortification_rights
-		coinage_rights
-		succession_rights
 		war_declaration_rights
 		council_rights
-		title_revocation_rights
 	}
 	
 	color = hsv{ 1.00 0.90 0.67 }
@@ -161,11 +155,7 @@ secular_republic_government = {
 	vassal_contract = {	 
 		feudal_government_taxes
 		feudal_government_levies
-		special_contract
-		religious_rights
 		fortification_rights
-		coinage_rights
-		succession_rights
 		war_declaration_rights
 		council_rights
 		##title_revocation_rights
@@ -184,11 +174,8 @@ merchant_republic_government = {
 	vassal_contract = {	 
 		feudal_government_taxes
 		feudal_government_levies
-		special_contract
 		religious_rights
 		fortification_rights
-		coinage_rights
-		succession_rights
 		war_declaration_rights
 		council_rights
 		##title_revocation_rights
@@ -211,7 +198,6 @@ oligarchic_republic_government = {
 		religious_rights
 		fortification_rights
 		coinage_rights
-		succession_rights
 		war_declaration_rights
 		council_rights
 		##title_revocation_rights
@@ -273,7 +259,7 @@ manchu_tribal_government = {
 	prestige_opinion_override = { -10 0 3 5 10 20 }
 	always_use_patronym = yes	
 
-	vassal_contract = { tribal_government_obligations }
+	vassal_contract = { clan_government_obligations }
 	
 	character_modifier = {
 		title_creation_cost_mult = -0.5
