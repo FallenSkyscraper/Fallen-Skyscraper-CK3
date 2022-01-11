@@ -239,12 +239,17 @@ nomadic_government = {
 	character_modifier = {
 		title_creation_cost_mult = -0.5
 		army_maintenance_mult = -0.5
+		men_at_arms_maintenance = -0.5
+		men_at_arms_cap = 3
+		domain_tax_mult = -0.7
+		levy_size = -0.7
 
 		feudal_government_vassal_opinion = -20
 		clan_government_vassal_opinion = -20
 		republic_government_vassal_opinion = -20
 	
 		ai_war_chance = 0.25
+		domain_limit = 7
 	}
 	
 	flag = government_can_raid_rule
@@ -259,7 +264,7 @@ manchu_tribal_government = {
 	primary_holding = tribal_holding
 	required_county_holdings = { tribal_holding }
 
-	valid_holdings = { castle_holding }
+	valid_holdings = { tribal_holding castle_holding city_holding church_holding }
 
 	primary_culture_groups = { jianzhou_group haixi_group tatar_group }
 	
@@ -277,6 +282,10 @@ manchu_tribal_government = {
 		feudal_government_vassal_opinion = -20
 		clan_government_vassal_opinion = -20
 		republic_government_vassal_opinion = -20
+		men_at_arms_cap = 1
+		domain_tax_mult = -0.3
+		domain_limit = 2
+		levy_size = -0.3
 	
 		ai_war_chance = 0.25
 	}
