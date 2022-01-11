@@ -145,6 +145,57 @@ proletarian_government = {
 	
 	color = hsv{ 1.00 0.90 0.67 }
 }
+
+##중화 관료제##
+chinese_bureaucracy_government = {
+ 	create_cadet_branches = yes
+	rulers_should_have_dynasty = yes
+	
+	primary_holdings = castle_holding
+	valid_holdings = { Metropolis_holding city_holding}
+	required_county_holdings = { castle_holding city_holding church_holding }
+
+	vassal_contract = {
+		feudal_government_taxes
+		feudal_government_levies
+		special_contract
+		religious_rights
+		fortification_rights
+		succession_rights
+		council_rights
+	}
+
+	character_modifier = {
+		if = {
+			limit = {
+				highest_held_title_tier = tier_empire
+			}
+			domain_limit = 4
+			monthly_income_mult = 0.5
+			levy_size = 0.5
+			monthly_prestige_gain_mult = 0.5
+			vassel_opinion = 5
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier = tier_kingdom
+			}
+			domain_limit = 2
+			monthly_income_mult = 0.25
+			levy_size = 0.25
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier = tier_duchy
+			}
+			domain_limit = 1
+		}
+	}
+			
+
+	color = hsv{ 0.60 1.00 1.00 }
+}
+
 ### 공화제 계통 ###
 ## 세속 공화제
 secular_republic_government = {
