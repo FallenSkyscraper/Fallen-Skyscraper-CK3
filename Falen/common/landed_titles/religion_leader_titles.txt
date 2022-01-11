@@ -11,3 +11,53 @@ k_imperial_church = {
 	destroy_if_invalid_heir = yes
 
 }
+d_cheondo = {
+	color = { 255 249 48 }
+	color2 = { 220 220 0 }
+	
+	capital = c_pyongyang
+	definite_form = yes
+	ruler_uses_title_name = no
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+
+}
+k_catholic = {
+	color = { 255 249 198 }
+	color2 = { 220 220 0 }
+	definite_form = yes
+	ruler_uses_title_name = no
+	landless = yes
+	
+	capital = c_jongno
+	
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	destroy_if_invalid_heir = yes
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	de_jure_drift_disabled = yes
+
+	male_names = { Alexander Anastasius Benedictus Caelestinus Callistus Clemens Eugenius Leo Gregorius Hadrianus Honorius Innocentius Ioannes Lucius Marinus Martinus Nicolaus Sergius Silvester Stephanus Urbanus Victor }
+}
+
+k_orthodox = {
+	landless = yes
+	capital = c_vladivostok # Constantinople
+	definite_form = yes
+	ruler_uses_title_name = no
+	
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+
+	#color = { 150 90 30 }
+	color = { 183 60 155 }
+	color2 = { 220 220 0 }
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
