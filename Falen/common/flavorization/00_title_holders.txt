@@ -195,6 +195,13 @@ count_nomadic_female_mongol = {
 	governments = { nomadic_government tribal_government }
 	culture_groups = { mongolic_group }
 }
+county_nomadic_mongol = {
+	type = title
+	tier = county
+	priority = 19
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongolic_group }
+}
 duke_nomadic_male_mongol = {
 	type = character
 	gender = male
@@ -208,6 +215,13 @@ duke_nomadic_female_mongol = {
 	type = character
 	gender = female
 	special = holder
+	tier = duchy
+	priority = 29
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongolic_group }
+}
+duchy_nomadic_mongol = {
+	type = title
 	tier = duchy
 	priority = 29
 	governments = { nomadic_government tribal_government }
@@ -256,7 +270,13 @@ emperor_nomadic_female_mongol = {
 	governments = { nomadic_government tribal_government }
 	culture_groups = { mongolic_group }
 }
-
+empire_nomadic_mongol = {
+	type = title
+	tier = empire
+	priority = 150
+	governments = { nomadic_government tribal_government }
+	culture_groups = { mongolic_group }
+}
  #############################################
  # Default titles by Government. This list should always be below any custom localization that is tied to specific cultures/religion.
  #Default Feudal tiers
