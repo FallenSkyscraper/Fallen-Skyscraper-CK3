@@ -8,12 +8,12 @@ title_succession_laws = {
 			has_government = military_government 
 			has_government = maritime_government 
 			has_government = secular_republic_government 
-			has_government = landward_republic_government  
+			has_government = oligarchic_republic_government  
 			highest_held_title_tier >= tier_duchy#이걸로 어디부터 해당 상속제를 실시할수 있는지 결정하는듯
-			NOR = { #Cultures have their special flavor.
-				culture = culture:anglo_saxon
-				has_culture_group = culture_group:north_germanic_group
-			}
+			#NOR = { #Cultures have their special flavor.
+			#	culture = culture:anglo_saxon
+			#	has_culture_group = culture_group:north_germanic_group
+			#}
 		}
 		can_pass = {
 			can_change_title_law_trigger = yes
@@ -49,7 +49,7 @@ title_succession_laws = {
 		}
 		can_title_have = {
 			tier >= tier_duchy
-			this = title:e_hre
+			this = title:e_hec
 		}
 		succession = {
 			order_of_succession = election
@@ -76,7 +76,7 @@ title_succession_laws = {
 				has_government = tribal_government
 				##fs_모드의
 				has_government = secular_republic_government 
-			has_government = landward_republic_government  
+			has_government = oligarchic_republic_government  
 			}
 			highest_held_title_tier >= tier_kingdom
 		}

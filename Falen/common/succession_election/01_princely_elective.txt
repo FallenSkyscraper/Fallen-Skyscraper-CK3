@@ -89,31 +89,31 @@ princely_elective = { #HRE Elective.
 				}
 				faith = scope:holder.faith
 				OR = { # To make sure they are still de jure vassals of HRE #TODO_CD:Replace with dynamic version once creating the HRE is made into a dynamic decision.
-					title:c_cologne = {
+					title:d_iksan = {
 						holder = root
 						scope:title = { is_de_jure_liege_or_above_target = prev }
 					}
-					title:c_mainz = {
+					title:d_namwon = {
 						holder = root
 						scope:title = { is_de_jure_liege_or_above_target = prev }
 					}
-					title:c_trier = {
+					title:d_gongju = {
 						holder = root
 						scope:title = { is_de_jure_liege_or_above_target = prev }
 					}
-					title:d_bohemia = {
+					title:d_jeonju = {
 						holder = root
 						scope:title = { is_de_jure_liege_or_above_target = prev }
 					}
-					title:d_east_franconia = {
+					title:d_buyeo = {
 						holder = root
 						scope:title = { is_de_jure_liege_or_above_target = prev }
 					}
-					title:d_ostfalen = { #Saxony
+					title:d_jeongeup = { #Saxony
 						holder = root
 						scope:title = { is_de_jure_liege_or_above_target = prev }
 					}
-					title:d_ostmark = { #Brandenburg
+					title:d_nonsan = { #Brandenburg
 						holder = root
 						scope:title = { is_de_jure_liege_or_above_target = prev }
 					}
