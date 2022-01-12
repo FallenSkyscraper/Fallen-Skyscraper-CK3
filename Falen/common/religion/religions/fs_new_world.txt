@@ -1,12 +1,12 @@
 new_world_religion = {
-	family = rf_eastern	# 소속 종교 패밀리
+	family = rf_pagan	# 소속 종교 패밀리
 	# graphical_faith = religion_gfx	# 종교 gfx 설정
 	# piety_icon_group = 	# 신앙심 아이콘 설정
 	# doctrine_background_icon = 	# 교리 배경 설정
 	
-	doctrine = eastern_hostility_doctrine	# 종교 적대 시 소속
-	# doctrine = unreformed_faith_doctrine	# 파간 설정
-	# pagan_roots = yes
+	doctrine = pagan_hostility_doctrine	# 종교 적대 시 소속
+	doctrine = unreformed_faith_doctrine	# 파간 설정
+	pagan_roots = yes
 
 
 # 주요 교리
@@ -200,7 +200,7 @@ new_world_religion = {
 		GHWNamePlural = ghw_crusades
 	}
 	faiths = {
-		new_world_orders = {	#신천명
+		new_world_destiny = {	#신천명
 			color = { 250 250 150 }
 			icon = default_custom
 
