@@ -476,7 +476,7 @@ baron_feudal_female_gwanbuk = {
 	governments = { feudal_government }
 	culture_groups = { gwanbuk_group }
 }
-barony_gwanbuk_gyeonggi = {
+barony_gwanbuk_gwanbuk = {
 	type = title
 	tier = barony
 	priority = 8
@@ -582,6 +582,277 @@ empire_feudal_gwanbuk = {
 	priority = 150
 	governments = { feudal_government }
 	culture_groups = { gwanbuk_group }
+}
+
+#
+
+baron_feudal_male_russian = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+baron_feudal_female_russian = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+barony_gwanbuk_russian = {
+	type = title
+	tier = barony
+	priority = 8
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+count_feudal_male_russian = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 19
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+count_feudal_female_russian = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 19
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+county_feudal_russian = {
+	type = title
+	tier = county
+	priority = 19
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+duke_feudal_male_russian = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+duke_feudal_female_russian = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+duchy_feudal_russian = {
+	type = title
+	tier = duchy
+	priority = 29
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+king_feudal_male_russian = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 49
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+king_feudal_female_russian = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 49
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+kingdom_feudal_russian = {
+	type = title
+	tier = kingdom
+	priority = 49
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+emperor_feudal_male_russian = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+emperor_feudal_female_russian = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+empire_feudal_russian = {
+	type = title
+	tier = empire
+	priority = 150
+	governments = { feudal_government }
+	culture_groups = { russian_group }
+}
+
+#
+
+baron_manchu_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+baron_feudal_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	top_liege = no
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+barony_feudal_tribal = {
+	type = title
+	tier = barony
+	top_liege = no
+	priority = 6
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+count_manchu_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+count_manchu_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	top_liege = no
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+county_manchu_feudal = {
+	type = title
+	tier = county
+	top_liege = no
+	priority = 16
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+duke_manchu_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+duke_manchu_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	top_liege = no
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+duchy_manchu_feudal = {
+	type = title
+	tier = duchy
+	top_liege = no
+	priority = 26
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+king_manchu_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+king_manchu_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	top_liege = no
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+kingdom_manchu_feudal = {
+	type = title
+	tier = kingdom
+	top_liege = no
+	priority = 46
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+emperor_manchu_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+emperor_manchu_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	top_liege = no
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
+}
+empire_manchu_feudal = {
+	type = title
+	tier = empire
+	top_liege = no
+	priority = 101
+	governments = { feudal_government }
+	culture_groups = { haixi_group jianzhou_group }
 }
  #############################################
  # Default titles by Government. This list should always be below any custom localization that is tied to specific cultures/religion.
