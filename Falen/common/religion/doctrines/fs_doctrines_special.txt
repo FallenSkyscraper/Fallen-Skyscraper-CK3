@@ -1,0 +1,43 @@
+terror_governing = {
+	group = "main_group"
+	is_available_on_create = {
+		has_doctrine = terror_governing_doctrine
+	}
+	special_doctrine_terror_governing = {
+		parameters = {
+			other_culture_conversion_penalty_active = yes
+		}
+		character_modifier = {
+			monthly_income_mult = 0.05
+			levy_size = 0.05
+			dread_baseline_add = 20
+			monthly_county_control_change_factor = 0.05
+		}
+	}
+}
+
+path_of_saint = {
+	group = "special"
+	is_available_on_create = {
+		always = no
+	}
+	special_doctrine_path_of_saint = {
+		character_modifier = {
+			faith_creation_piety_cost_mult = 1
+			same_faith_opinion = 15
+		}
+	}
+}
+
+hundred_days_of_reform = {
+	group = "special"
+	is_available_on_create = {
+		has_doctrine = hundred_days_of_reform_doctrine
+	}
+	special_doctrine_hundred_days_of_reform = {
+		parameters = {
+			same_faith_promote_culture_bonus_active = yes
+		}
+	}
+}
+			
