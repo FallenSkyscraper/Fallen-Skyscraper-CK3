@@ -1,0 +1,222 @@
+legalist_religion = {
+	family = rf_eastern	# 소속 종교 패밀리
+	# graphical_faith = religion_gfx	# 종교 gfx 설정
+	# piety_icon_group = 	# 신앙심 아이콘 설정
+	# doctrine_background_icon = 	# 교리 배경 설정
+	
+	doctrine = eastern_hostility_doctrine	# 종교 적대 시 소속
+	# doctrine = unreformed_faith_doctrine	# 파간 설정
+	# pagan_roots = yes
+
+
+# 주요 교리
+		 doctrine = doctrine_no_head	# 교계 지도자: 
+		 doctrine = doctrine_gender_male_dominated	# 성별에 대한 관점: 
+		 doctrine = doctrine_pluralism_righteous# 종교적 태도: 
+		 doctrine = doctrine_theocracy_lay_clergy	# 전통: 
+
+			# 결혼 교리
+			doctrine = doctrine_concubines# 결혼 형식: 
+			doctrine = doctrine_divorce_disallowed	# 이혼: 
+			doctrine = doctrine_bastardry_all	# 적서제: 
+			doctrine = doctrine_consanguinity_restricted	# 근친 관계: 
+
+			# 범죄 교리
+			doctrine = doctrine_homosexuality_crime	# 동성연애: 
+			doctrine = doctrine_adultery_men_shunned	# 남성의 간통: 
+			doctrine = doctrine_adultery_women_crime	# 여성의 간통: 
+			doctrine = doctrine_kinslaying_any_dynasty_member_crime	# 친족 살해: 
+			doctrine = doctrine_deviancy_crime	# 이상성욕: 
+			doctrine = doctrine_witchcraft_shunned# 마술: 
+
+			# 성직자 교리
+			doctrine = doctrine_clerical_function_taxation	# 성직자의 기능: 
+			doctrine = doctrine_clerical_gender_male_only	# 성직자의 성별: 
+			doctrine = doctrine_clerical_marriage_allowed	# 성직자의 결혼: 
+			doctrine = doctrine_clerical_succession_temporal_appointment	# 성직자의 지위: 
+			
+
+
+
+	
+
+
+
+	traits = {	# 트레잇
+		virtues = {generous   humble honest }	 # 미덕
+		sins = { greedy   arrogant deceitful}	# 죄악
+	}
+	
+	reserved_male_names = {	# 남성 이름
+	}
+	reserved_female_names = {	# 여성 이름
+	}
+	
+	custom_faith_icons = {	# 분파 생성 용 아이콘 목록
+	}
+	
+	localization = {
+		#HighGod
+		HighGodName = legalist_high_god_name	# 신 이름
+		HighGodNamePossessive = legalist_high_god_name_possessive	# 신 이름 소유격
+		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = legalist_high_god_name_alternate	# 최고신은 이명 사용 가능
+		HighGodNameAlternatePossessive = legalist_high_god_name_alternate_possessive
+
+		#CreatorName
+		CreatorName = legalist_creator_god_name
+		CreatorNamePossessive = legalist_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+
+		#HealthGod
+		HealthGodName = legalist_health_god_name
+		HealthGodNamePossessive = legalist_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		
+		#FertilityGod
+		FertilityGodName = legalist_fertility_god_name
+		FertilityGodNamePossessive = legalist_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WealthGod
+		WealthGodName = legalist_wealth_god_name
+		WealthGodNamePossessive = legalist_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		#HouseholdGod
+		HouseholdGodName = legalist_household_god_name
+		HouseholdGodNamePossessive = legalist_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_HE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+		#FateGod
+		FateGodName = legalist_fate_god_name
+		FateGodNamePossessive = legalist_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+
+		#Knowledge
+		KnowledgeGodName = legalist_knowledge_god_name
+		KnowledgeGodNamePossessive = legalist_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WarGod
+		WarGodName = legalist_war_god_name
+		WarGodNamePossessive = legalist_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		#TricksterGod
+		TricksterGodName = legalist_trickster_god_name
+		TricksterGodNamePossessive = legalist_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		#NightGod
+		NightGodName = legalist_night_god_name
+		NightGodNamePossessive = legalist_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WaterGod
+		WaterGodName = legalist_water_god_name
+		WaterGodNamePossessive = legalist_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+		PantheonTerm = legalist_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {	# 선신 이름들
+			confucianism_high_god_name
+		}
+		
+		DevilName = legalist_devil_name
+		DevilNamePossessive = legalist_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {	# 악신 이름들
+			confucianism_devil_name
+		}
+		
+		HouseOfWorship = legalist_house_of_worship
+		HouseOfWorshipPlural = legalist_house_of_worship_plural
+		ReligiousSymbol = legalist_religious_symbol
+		ReligiousText = legalist_religious_text
+		ReligiousHeadName = legalist_religious_head_title
+		ReligiousHeadTitleName = legalist_religious_head_title_name
+		
+		DevoteeMale = legalist_devotee_male
+		DevoteeMalePlural = legalist_devotee_male_plural
+		DevoteeFemale = legalist_devotee_female
+		DevoteeFemalePlural = legalist_devotee_female_plural
+		DevoteeNeuter = legalist_devotee_neuter
+		DevoteeNeuterPlural = legalist_devotee_neuter_plural
+		
+		PriestMale = legalist_priest_male
+		PriestMalePlural = legalist_priest_male_plural
+		PriestFemale = legalist_priest_male
+		PriestFemalePlural = legalist_priest_male_plural
+		PriestNeuter = legalist_priest_male
+		PriestNeuterPlural = legalist_priest_male_plural
+		AltPriestTermPlural = legalist_priest_alternate_plural
+		
+		BishopMale = legalist_bishop
+		BishopMalePlural = legalist_bishop_plural
+		BishopFemale = legalist_bishop
+		BishopFemalePlural = legalist_bishop_plural
+		BishopNeuter = legalist_bishop
+		BishopNeuterPlural = legalist_bishop_plural
+		
+		DivineRealm = legalist_positive_afterlife
+		PositiveAfterLife = legalist_positive_afterlife
+		NegativeAfterLife = legalist_negative_afterlife
+		DeathDeityName = legalist_death_deity_name
+		DeathDeityNamePossessive = legalist_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		
+		WitchGodName = legalist_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+
+
+		GHWName = ghw_crusade	# 대성전 이름
+		GHWNamePlural = ghw_crusades
+	}
+
+	faiths = {
+		neofajia = {	#신법가
+			color = { 34, 128, 0 }
+			#icon = 
+
+			doctrine = tenet_literalism
+			doctrine = tenet_legalism
+			doctrine = tenet_religious_legal_pronouncements
+
+			doctrine = special_doctrine_terror_governing
+		}
+	}
+}
