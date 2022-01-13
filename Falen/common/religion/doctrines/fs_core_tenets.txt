@@ -97,7 +97,7 @@ doctrine_core_tenets = {
 			sins = { arbitrary }
 		}
 	}
-	tenet_inquiry_into_knowledge = {
+	tenet_inquiry_into_knowledge = { #격물치지
 		icon = core_tenet_bhakti
 		name = {
 			first_valid = {
@@ -116,7 +116,7 @@ doctrine_core_tenets = {
 					trigger = {
 						religion_tag = communism_religion
 					}
-					desc = tenet_materialism_desc
+					desc = tenet_materialism_desc #유물론
 				}
 				desc = tenet_inquiry_into_knowledge_desc
 			}
@@ -168,7 +168,7 @@ doctrine_core_tenets = {
 					trigger = {
 						religion_tag = communism_religion
 					}
-					desc = tenet_protracted_warfare_name
+					desc = tenet_protracted_warfare_name #지구전
 				}
 				desc = tenet_false_conversion_sanction_name
 			}
@@ -232,7 +232,7 @@ doctrine_core_tenets = {
 					trigger = {
 						religion_tag = unitary_religion
 					}
-					desc = tenet_second_coming_lord_name
+					desc = tenet_second_coming_lord_name #재림주
 				}
 				desc = tenet_mystical_birthright_name
 			}
@@ -271,7 +271,7 @@ doctrine_core_tenets = {
 			virtues = { mystic_3 = 5 }
 		}
 	}
-	tenet_new_world = {
+	tenet_new_world = { #신천
 		icon = core_tenet_cabal
 		piety_cost = {
 			if = {
@@ -309,4 +309,84 @@ doctrine_core_tenets = {
 			faith_creation_piety_cost_mult = -0.49
 		}
 	}
+
+	tenet_communism_syncretism = { # 공산주의 포용주의
+		icon = core_tenet_followers
+
+		piety_cost = {
+			if = {
+				limit = {
+					OR = {
+						religion_tag = chinese_confucianism_religion
+					}
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_high
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_communism_syncretism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		is_shown = {
+			NOT = { religion_tag = communism_religion }
+		}
+		can_pick = {
+			custom_description = {
+				text = incompatible_tenet_other_syncretism_trigger
+				NOR = {
+					flag:tenet_eastern_syncretism = { is_in_list = selected_doctrines }
+					flag:tenet_unreformed_syncretism = { is_in_list = selected_doctrines }
+					flag:tenet_christian_syncretism = { is_in_list = selected_doctrines }
+					flag:tenet_islamic_syncretism = { is_in_list = selected_doctrines }
+					flag:tenet_jewish_syncretism = { is_in_list = selected_doctrines }
+				}
+			}
+		}
+
+		parameters = {
+			hostility_override_special_doctrine_is_communism_faith = 1
+			communism_syncretic_actor_opinion_active = yes
+			opinion_of_communism_syncretic_recipient_opinion_active = 30 #Sync this to syncretic_mutual_opinion_bonus_value
+		}
+
+		traits = {
+			virtues = {}
+			sins = {}
+		}
+	}
+
+	populism = { #민중주의
+		icon = core_tenet_followers
+
+		piety_cost = {
+			value = faith_tenet_cost_high
+			if = {
+				limit ={ has_doctrine = tenet_populism }
+				multiply = faith_unchanged_doctrine_cost
+			}
+		can_pick = {
+			custom_description = {
+				text = "can not select this tenet when there is already authoritaric doctrine selected"
+				NOR = {
+					flag:doctrine_spiritual_head = { is_in_list = selected_doctrines }
+					flag:doctrine_temporal_head = { is_in_list = selected_doctrines }
+					flag:doctrine_theocracy_temporal = { is_in_list = selected_doctrines }
+					flag:doctrine_tenet_pentarchy = { is_in_list = selected_doctrines }
+					flag:doctrine_tenet_pentarchy_alternative = { is_in_list = selected_doctrines }
+				}
+			}
+		
+		character_modifier = {
+			dread_baseline_add = -20
+			monthly_county_control_change_factor = -0.1
+			county_opinion_add = 50
+		}
+	}
+		
 }
