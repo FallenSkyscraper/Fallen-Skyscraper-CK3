@@ -22,6 +22,12 @@ path_of_saint = {
 		always = no
 	}
 	special_doctrine_path_of_saint = {
+		parameters = {
+			hostility_others=3
+			hostility_same_family = 3
+			hostility_same_religion = 3
+			hostility_override_special_doctrine_hundred_days_of_reform = 1
+		}
 		character_modifier = {
 			faith_creation_piety_cost_mult = 1
 			same_faith_opinion = 15
@@ -40,4 +46,19 @@ hundred_days_of_reform = {
 		}
 	}
 }
-			
+
+is_communism_faith = {
+	group = "special"
+
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_communism_faith
+	}
+	
+	special_doctrine_is_communism_faith = {
+		parameters = {
+			hostility_override_tenet_communism_syncretism = 1
+			communism_syncretic_recipient_opinion_active = yes
+			opinion_of_communism_syncretic_actor_opinion_active = 30
+		}
+	}
+}
