@@ -1,0 +1,67 @@
+﻿namespace = donghae
+
+donghae.1 = {
+	type = character_event
+	title = donghae.1.t
+    desc = donghae.1.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = war_attacker
+	}
+	trigger = {
+		root = { has_title = title:e_donghae }
+	}
+	immediate = {
+		title:k_sobornost.holder = {
+			save_scope_as = sobornost
+		}
+		trigger_event = {
+			id = donghae.2
+			days = 18
+		}
+		title:k_cprf.holder = {
+			save_scope_as = communist
+		}
+		trigger_event = {
+			id = donghae.3
+			days = 36
+		}
+	}
+	option = {
+		name = donghae.1.a
+	}
+}
+donghae.2 = {
+	type = character_event
+	title = donghae.2.t
+    desc = donghae.2.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		charac ter = scope:sobornost
+		animation = war_attacker
+	}
+	immediate = {
+	}
+	option = {
+		name = donghae.2.a
+	}
+}
+donghae.3 = {
+	type = character_event
+	title = donghae.3.t
+    desc = donghae.3.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = scope:communist
+		animation = war_attacker
+	}
+	trigger = {
+		has_title = title:e_donghae
+	}
+	immediate = {
+	}
+	option = {
+		name = donghae.3.a
+	}
+}

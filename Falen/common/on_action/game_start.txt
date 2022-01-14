@@ -67,6 +67,12 @@ on_game_start_after_lobby = {
 				VALUE = yes
 			}
 		}
+		every_player = {
+			trigger_event = startup.1
+		}
+		title:e_donghae.holder = {
+			trigger_event = donghae.1
+		}
 	}
 
 	events = {
