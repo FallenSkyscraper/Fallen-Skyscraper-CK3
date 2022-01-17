@@ -983,12 +983,15 @@
 	2278.12.25 = { death = yes }
 }
 213 = {
-	name = "무함마드"
+	name = "Muhammad"
 	dynasty = 213
-	religion = islam
-	culture = bedouin
+	father = 309
+	mother = 317
+	religion = muttahida
+	culture = kuriyn
 	2425.9.16 = { birth = yes }
-	2278.12.25 = { death = yes }
+	2443.4.14 = { add_spouse = 319 }
+	2500.12.25 = { death = yes }
 }
 214 = {
 	name = "정은"
@@ -1836,11 +1839,227 @@
 	2400.1.2 = { birth = yes }
 	2500.1.1 = { death = yes }
 }
-295 = {
+296 = {
 	name = "갑식"
-	dynasty = 295
+	dynasty = 296
 	religion = seoulism
 	culture = seoul
 	2420.1.1 = { birth = yes }
 	2500.1.1 = { death = yes }
+}
+297 = {
+	name = "핫산"
+	dynasty = 213
+	religion = ashari
+	culture = bedouin
+	2127.6.3 = { birth = yes }
+	2172.8.22 = { death = yes }
+}
+298 = {
+	name = "Mansur"
+	dynasty = 213
+	father = 297
+	religion = ashari
+	culture = bedouin
+	2145.9.23 = { birth = yes }
+	2183.1.17 = { death = yes }
+}
+299 = {
+	name = "시나"
+	dynasty = 213
+	father = 298
+	religion = ashari
+	culture = bedouin
+	2164.11.2 = { birth = yes }
+	2219.6.1 = { death = yes }
+}
+300 = {
+	name = "Yunus"
+	dynasty = 213
+	father = 299
+	religion = ashari
+	culture = kuriyn
+	2190.2.5 = { birth = yes }
+	2251.3.22 = { death = yes }
+}
+301 = {
+	name = "Muhammad"
+	dynasty = 213
+	father = 300
+	religion = muttahida
+	culture = kuriyn
+	diplomacy = 7
+	martial = 6
+	stewardship = 10
+	intrigue = 9
+	learning = 15
+	trait = education_learning_4
+	trait = theologian
+	2217.1.6 = { birth = yes }
+	2299.8.31 = { death = yes }
+}
+302 = {
+	name = "Ayyub"
+	dynasty = 213
+	father = 301
+	religion = muttahida
+	culture = kuriyn
+	2243.6.5 = { birth = yes }
+	2290.5.3 = { death = yes }
+}
+303 = {
+	name = "Yusuf"
+	dynasty = 213
+	father = 302
+	religion = muttahida
+	culture = kuriyn
+	2269.1.23= { birth = yes }
+	2341.8.11 = { death = yes }
+}
+304 = {
+	name = "알아키르"
+	dynasty = 213
+	father = 303
+	religion = muttahida
+	culture = kuriyn
+	2299.1.2 = { birth = yes }
+	2357.12.5 = { death = yes }
+}
+305 = {
+	name = "Hussayn"
+	dynasty = 213
+	father = 304
+	religion = muttahida
+	culture = kuriyn
+	2347.7.21 = { birth = yes }
+	2395.1.14 = { death = yes }
+}
+306 = {
+	name = "Dawud"
+	dynasty = 213
+	father = 305
+	religion = muttahida
+	culture = kuriyn
+	2375.5.6 = { birth = yes }
+	2433.1.18 = { death = yes }
+}
+307 = {
+	name = "자이드"
+	dynasty = 213
+	father = 305
+	religion = muttahida
+	culture = kuriyn
+	2377.9.18 = { birth = yes }
+	2441.7.16 = { death = yes }
+}
+308 = {
+	name = "Abdullah"
+	dynasty = 213
+	father = 305
+	religion = muttahida
+	culture = kuriyn
+	2380.11.3 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+309 = {
+	name = "압둘아지즈"
+	dynasty = 213
+	father = 306
+	religion = muttahida
+	culture = kuriyn
+	2399.3.11 = { birth = yes }
+	2421.6.20 = { add_spouse = 317 }
+	2443.6.1 = { death = yes }
+}
+310 = {
+	name = "암룰라"
+	dynasty = 213
+	father = 306
+	religion = muttahida
+	culture = kuriyn
+	2413.12.7 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+311 = {
+	name = "Uthman"
+	dynasty = 213
+	father = 307
+	religion = muttahida
+	culture = kuriyn
+	2409.5.13 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+312 = {
+	name = "Maryam"
+	dynasty = 213
+	female = yes
+	father = 308
+	religion = muttahida
+	culture = kuriyn
+	2419.6.16 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+313 = {
+	name = "Ali"
+	dynasty = 313
+	religion = muttahida
+	culture = kuriyn
+	2317.9.23 = { birth = yes }
+	2359.9.11 = { death = yes }
+}
+314 = {
+	name = "Sulayman"
+	dynasty = 313
+	father = 313
+	religion = muttahida
+	culture = kuriyn
+	2340.9.5 = { birth = yes }
+	2398.7.5 = { death = yes }
+}
+315 = {
+	name = "Sadiq"
+	dynasty = 313
+	father = 314
+	religion = muttahida
+	culture = kuriyn
+	2378.1.13 = { birth = yes }
+	2439.11.6 = { death = yes }
+}
+316 = {
+	name = "Harun"
+	dynasty = 313
+	father = 315
+	religion = muttahida
+	culture = kuriyn
+	2400.1.28 = { birth = yes }
+	2443.12.28 = { death = yes }
+}
+317 = {
+	name = "Fatimah"
+	dynasty = 313
+	female = yes
+	father = 315
+	religion = muttahida
+	culture = kuriyn
+	2404.5.5 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+318 = {
+	name = "Ahmad"
+	dynasty = 313
+	father = 316
+	religion = muttahida
+	culture = kuriyn
+	2420.2.5 = { birth = yes }
+	2437.1.7 = { add_spouse = 312 }
+	2500.1.1 = { death = yes }
+}
+319 = {
+	name = "성아"
+	dynasty = 319
+	female = yes
+	religion = muttahida
+	culture = seoul
+	2427.7.1 = { birth = yes }
+	2500.1. = { death = yes }
 }
