@@ -500,8 +500,8 @@ haemi = {
 		monthly_prestige_gain_mult = 0.1
 	}
 }
-naju = {
-	county = c_naju
+chuncheon = {
+	county = c_chuncheon
 	character_modifier = {
 		monthly_piety_gain_mult = 0.15
 		monthly_county_control_change_factor = 0.05
@@ -722,5 +722,19 @@ boksugung = {
 suseonggung = {
 	county = c_ulju
 	character_modifier = {
+	}
+}
+yongsan = {
+	county = c_yongsan
+	character_modifier = {
+		learning_per_piety_level = 1
+		same_faith_opinion = 5
+	}
+}
+ansan = {
+	county = c_ansan
+	character_modifier = {
+		stress_loss_mult = 0.1
+		stewardship = 1
 	}
 }
