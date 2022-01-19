@@ -1,0 +1,287 @@
+namespace = yalu_civil_war
+
+
+yalu_civil_war.0001 = { # 쿠릴타이 초대장
+	type = character_event
+	theme = death
+	title = yalu_civil_war.0001.t
+	desc = yalu_civil_war.0001.desc
+
+	trigger = {
+		AND = {
+			NOT = { is_alive = character:9001 }
+			OR = {
+				is_child_of = character:9001
+				is_vassal_of = character:9001
+			}
+		}
+	}
+	override_background = {
+		event_background = throne_room_tribal
+	}
+
+	left_portrait = { 
+		character = root
+	}
+	
+	right_portrait = {
+		character = character:9001
+		animation = sick
+	}
+
+	option = { #쿠릴타이로!
+		name = yalu_civil_war.0001.a
+		add_character_flag = quriltai
+	}
+}
+
+yalu_civil_war.0002 = { #쿠릴타이의 개최
+	type = character_event
+	theme = feast_activity
+	title = yalu_civil_war.0002.t
+	desc = yalu_civil_war.0002.desc
+	trigger = {
+		has_character_flag = quriltai
+	}
+
+	override_background = {
+		event_background = throne_room_tribal
+	}
+
+	left_portrait = {
+		character = root
+	}
+	lower_left_portrait = {
+		character = character:9011
+	}
+	lower_center_portrait = {
+		character = character:9021
+	}
+	lower_right_portrait = {
+		character = character:9031
+	}
+
+	option = {
+		name = yalu_civil_war.0002.a
+		trigger_event = {
+			id = yalu_civil_war.0003
+			delay = { days = { 1 1 } }
+		}
+	}
+}
+
+yalu_civil_war.0003 = { #쿠릴타이의 파행
+	type = character_event
+	theme = war
+	title = yalu_civil_war.0003.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					root = character:9011
+				}
+				desc = yalu_civil_war.0003.alt.desc
+			}
+			desc = yalu_civil_war.0003.desc
+		}
+	}
+
+	trigger = {
+		has_character_flag = quriltai
+	}
+
+	background_override = {
+		event_background = throne_room_tribal
+	}
+
+	left_portrait = {
+		character = root
+		animation = scheme
+	}
+	lower_left_portrait = {
+		character = character:9011
+	}
+	lower_center_portrait = {
+		character = character:9021
+	}
+	lower_right_portrait = {
+		character = character:9031
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_title = { target = character:9011 title = title:e_yalu }
+			}
+			change_title_holder_include_vassals = {
+				holder = character:9011
+				change = title:e_yalu
+			}
+		}
+	}
+
+	option = { #정형기를 따른다
+		name = yalu_civil_war.0003.a
+		trigger = {
+			opinion = { target = character:9011 >= 50 }
+			NOR = {
+				root = character:9011
+				root = character:9021
+				root = character:9031
+				is_vassal_or_below_of = character:9021
+				is_vassal_or_below_of = character:9031
+			}
+		}
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 10
+				opinion = { target = character:9011 >= 75 }
+			}
+			modifier = {
+				factor = 0.01
+				highest_held_title_tier = tier_kingdom
+			}
+		}
+	}
+	option = { #정상기를 따른다
+		name = yalu_civil_war.0003.b
+		trigger = {
+			opinion = { target = character:9021 >=50 }
+			NOR = {
+				root = character:9011
+				root = character:9021
+				root = character:9031
+				is_vassal_or_below_of = character:9011
+				is_vassal_or_below_of = character:9021
+				is_vassal_or_below_of = character:9031
+			}
+		}
+		
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 10
+				opinion = { target = character:9021 >= 75 }
+			}
+			modifier = {
+				factor = 0.01
+				highest_held_title_tier = tier_kingdom
+			}
+		}
+	}
+	option = { #정만기를 따른다
+		name = yalu_civil_war.0003.c
+		trigger = {
+			opinion = { target = character:9031 >=50 }
+			NOR = {
+				root = character:9011
+				root = character:9021
+				root = character:9031
+				is_vassal_or_below_of = character:9011
+				is_vassal_or_below_of = character:9021
+				is_vassal_or_below_of = character:9031
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				factor = 10
+				opinion = { target = character:9031 >= 75 }
+			}
+			modifier = {
+				factor = 0.01
+				highest_held_title_tier = tier_kingdom
+			}
+		}
+	}
+	option = { #관망한다
+		name = yalu_civil_war.0003.d
+		trigger = {
+			NOR = {
+				root = character:9011
+				root = character:9021
+				root = character:9031
+				is_vassal_or_below_of = character:9011
+				is_vassal_or_below_of = character:9021
+				is_vassal_or_below_of = character:9031
+			}
+		}
+		
+		add_character_flag = neutral_watchers
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = { #정형기
+		name = yalu_civil_war.0003.e
+		trigger = {
+			root = character:9011
+		}
+		trigger_event = {
+			id = unhappy_jianzhou.0001
+			days = { 15 365 }
+		}
+	}
+	option = { #정상기 & 정민기
+		name = yalu_civil_war.0003.f
+		trigger = {
+			OR = {
+				root = character:9021
+				root = character:9031
+			}
+		}
+	}
+}
+
+unhappy_jianzhou.0001 = {
+	type = character_events
+	theme = unfriendly
+	title = unhappy_jianzhou.0001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					root = character:9011
+				}
+				desc = unhappy_jianzhou.0001.alt.desc
+			}
+			desc = unhappy_jianzhou.0001.desc
+		}
+	}
+
+	if = {
+		limit = {
+			root = character:9011
+		}
+		left_portrait = {
+			character = root
+		}
+	}
+	else = {
+		left_portrait = {
+			character = character:9011
+		}
+		right_portrait = {
+			character = root
+		}
+	}
+	option = { #정형기가 건주를 풀어줌
+		name = unhappy_jianzhou.0001.a
+		limit = {
+			root= character:9011
+		}
+		change_liege = {
+		}
+	}
+	option = { #정형기가 건주를 풀어주지 않음
+		limit = {
+			root= character:9011
+		}
+		name = unhappy_jianzhou.0001.b
+	}
+	option = { #건주의 관점
+		name = unhappy_jianzhou.0001.c
+	}
+}
