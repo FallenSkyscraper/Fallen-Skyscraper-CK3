@@ -33,7 +33,7 @@ gyeongju  = {
 	}
 }
 
-hapcheon = {
+haeinsa = {
 	county = c_hapcheon
 	
 	character_modifier = {
@@ -94,7 +94,7 @@ juam   = {
 	 
 } 
 
- jeonju     = { #전주
+ jeonjusadang     = { #전주 사당. 신유교용
 	county = c_jeonju  
 	
 	character_modifier = {
@@ -179,8 +179,9 @@ gwangyang = {
 	} 
 }
 
-ulsan = {
-	county = c_ulsan
+donggu = {
+	county = c_incheon
+	barony = b_65
 	
 	character_modifier = {
 		monthly_piety_gain_per_knight_add = 0.1
@@ -197,6 +198,11 @@ dangjin ={
 	} 
 }
 
+kimchaek = {
+	county = c_cheongjin
+	character_modifier = {
+	}
+}
 
 
 #####
@@ -392,7 +398,7 @@ hetu_ala = {
 	}
 }
 mukden = {
-	county = c_simyang
+	county = c_shen
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
@@ -407,6 +413,16 @@ changbai = {
 	county = c_changbai
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
+	}
+}
+samjeondo = {
+	county = c_songpa
+	character_modifier = {
+	}
+}
+harbin = {
+	county = c_harbin
+	character_modifier = {
 	}
 }
 # ningguta
@@ -484,10 +500,241 @@ haemi = {
 		monthly_prestige_gain_mult = 0.1
 	}
 }
-naju = {
-	county = c_naju
+chuncheon = {
+	county = c_chuncheon
 	character_modifier = {
 		monthly_piety_gain_mult = 0.15
 		monthly_county_control_change_factor = 0.05
+	}
+}
+#tibet
+gwangsungsa = {
+	county = c_west_busan
+	barony = b_774
+	character_modifier = {
+		monthly_prestige_gain_mult = 0.1
+		monthly_piety_gain_mult = 0.1
+		same_faith_opinion = 10
+	}
+}
+samhaksa = {
+	county = c_eunpyeong
+	character_modifier = {
+		same_faith_opinion = 15
+		other_faith_opinion = 5
+	}
+}
+miaoyinsi = {
+	county = c_chaganhua
+	character_modifier = {
+		learning_per_piety_level = 1
+	}
+}
+
+hueguepalungung = {
+	county = c_shen
+	character_modifier = {
+	}
+}
+
+###민중파###
+
+228 = {
+	county = c_daegu
+	character_modifier = {
+	}
+}
+
+gwangju = {
+	county = c_gwangju
+	character_modifier = {
+	}
+}
+
+tabgol = {
+	county = c_jongno
+	character_modifier = {
+	}
+}
+
+changwon = {
+	county = c_changwon
+	character_modifier = {
+	}
+}
+
+###권위파###
+
+suseong = {
+	county = c_suseong
+	character_modifier = {
+	}
+}
+
+subangsa = {
+	county = c_gwanak
+	character_modifier = {
+	}
+}
+
+gumi = {
+	county = c_gumi
+	character_modifier = {
+	}
+}
+
+hapcheon = {
+	county = c_hapcheon
+	character_modifier = {
+	}
+}
+
+###서울파###
+
+gwanaksan = {
+	county = c_gwanak
+	character_modifier = {
+	}
+}
+
+gangnam = {
+	county = c_gangnam
+	character_modifier = {
+	}
+}
+
+mapo = {
+	county = c_mapo
+	character_modifier = {
+	}
+}
+
+dobong = {
+	county = c_dobong
+	character_modifier = {
+	}
+}
+
+sejong = {
+	county = c_yeongi
+	barony = b_2587
+	character_modifier = {
+	}
+}
+
+###텡그리###
+
+jolbon = {
+	county = c_huanren
+	character_modifier = {
+	}
+}
+liaoyang = {
+	county = c_liaoyang
+	character_modifier = {
+	}
+}
+dongmosan = {
+	county = c_dunhwa
+	character_modifier = {
+	}
+}
+
+###주체교###
+aoji = {
+	county = c_najin
+	barony = b_2370
+	character_modifier = {
+	}
+}
+
+###기계교###
+ktec = {
+	county = c_yuseong
+	character_modifier = {
+	}
+}
+
+pyeongtaek = {
+	county = c_pyeongtaek
+	character_modifier = {
+	}
+}
+
+ulsan = {
+	county = c_ulsan
+	character_modifier = {
+	}
+}
+
+###통합파###
+
+panmunjom = {
+	county = c_gangsang
+	character_modifier = {
+	}
+}
+
+gwangjustd = {
+	county = c_hyodeok
+	character_modifier = {
+	}
+}
+
+###정교회###
+arsenyev = {
+	county = c_arsenyev
+	character_modifier = {
+	}
+}
+
+wonsan = {
+	county = c_wonsan
+	character_modifier = {
+	}
+}
+
+###러정###
+spasskiy_monastyr = {
+	county = c_gapyeong
+	character_modifier = {
+	}
+}
+
+###함흥 정교회###
+hamheung = {
+	county = c_hamheung
+	character_modifier = {
+	}
+}
+
+###도교###
+bukjeonsa = {
+	county = c_beijen
+	character_modifier = {
+	}
+}
+boksugung = {
+	county = c_liaoyuan
+	character_modifier = {
+	}
+}
+suseonggung = {
+	county = c_ulju
+	character_modifier = {
+	}
+}
+yongsan = {
+	county = c_yongsan
+	character_modifier = {
+		learning_per_piety_level = 1
+		same_faith_opinion = 5
+	}
+}
+ansan = {
+	county = c_ansan
+	character_modifier = {
+		stress_loss_mult = 0.1
+		stewardship = 1
 	}
 }

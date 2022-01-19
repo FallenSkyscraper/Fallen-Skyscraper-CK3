@@ -1,0 +1,44 @@
+yalu_civil_war_event_start = {
+	if = {
+		limit = {
+			NOT = { is_alive = character:9001 }
+			OR = {
+				is_vassal_of = title:e_yalu
+				has_title = title:e_yalu
+			}
+		}
+			trigger_event = {
+				id = yalu_civil_war.0001
+			}
+			trigger_event = {
+				on_action = yalu_quriltai
+				delay = { days = { 15 60 }
+			}
+		}
+	}
+}
+
+yalu_quriltai = {
+	if = {
+		limit = {
+			has_character_flag = quriltai
+		}
+		trigger_event = {
+			id = yalu_civil_war.0002
+		}
+		trigger_event = {
+			on_action = yalu_fracture
+			delay = { days = 1 }
+		}
+}
+
+yalu_fracture = {
+	if = {
+		limit = {
+			has_character_flag = quriltai
+		}
+		trigger_event = {
+			id = yalu_civil_war.0003
+		}
+	}
+}
