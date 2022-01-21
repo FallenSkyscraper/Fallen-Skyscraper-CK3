@@ -361,7 +361,7 @@ doctrine_core_tenets = {
 		}
 	}
 
-	populism = { #민중주의
+	tenet_populism = { #민중주의
 		icon = core_tenet_followers
 
 		piety_cost = {
@@ -370,6 +370,7 @@ doctrine_core_tenets = {
 				limit ={ has_doctrine = tenet_populism }
 				multiply = faith_unchanged_doctrine_cost
 			}
+		}
 		can_pick = {
 			custom_description = {
 				text = "can not select this tenet when there is already authoritaric doctrine selected"
@@ -381,7 +382,10 @@ doctrine_core_tenets = {
 					flag:doctrine_tenet_pentarchy_alternative = { is_in_list = selected_doctrines }
 				}
 			}
-		
+		}
+		parameters = {
+			hostility_override_tenet_populism = 1
+		}
 		character_modifier = {
 			dread_baseline_add = -20
 			monthly_county_control_change_factor = -0.1
