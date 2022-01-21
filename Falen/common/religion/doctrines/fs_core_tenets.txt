@@ -380,16 +380,45 @@ doctrine_core_tenets = {
 					flag:doctrine_theocracy_temporal = { is_in_list = selected_doctrines }
 					flag:doctrine_tenet_pentarchy = { is_in_list = selected_doctrines }
 					flag:doctrine_tenet_pentarchy_alternative = { is_in_list = selected_doctrines }
+					flag:doctrine_tenet_authoritism = { is_in_list = selected_doctrines }
 				}
 			}
 		}
 		parameters = {
 			hostility_override_tenet_populism = 1
+			hostility_override_tenet_authoritism = 3
 		}
 		character_modifier = {
 			dread_baseline_add = -20
 			monthly_county_control_change_factor = -0.1
 			county_opinion_add = 50
+		}
+	}
+
+	tenet_authoritism = {
+		icon = core_tenet_sword
+		piety_cost = {
+			value = faith_tenet_cost_low
+			if = {
+				limit = { has_doctrine = tenet_authoritism }
+				multiply = faith_unchanged_doctrine_cost
+			}
+		}
+		can_pick = {
+			custom_description = {
+				text = "can not select this tenet when there is already populistic doctrine selected"
+				NOR = {
+					flag:doctrine_tenet_populism = { is_in_list = selected_doctrines }
+				}
+			}
+		}
+		parameters = {
+			hostility_override_tenet_populism = 3
+		}
+		character_modifier = {
+			dread_baseline_add = 10
+			monthly_county_control_change_factor = 0.05
+			county_opinion_add = -50
 		}
 	}
 		
