@@ -62,3 +62,30 @@ is_communism_faith = {
 		}
 	}
 }
+
+is_manchurian_faith = {
+	group = "special"
+
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_manchurian_faith
+	}
+
+	special_doctrine_is_manchurian_faith = {
+		parameters = {
+			hostility_override_tenet_plain_faith_syncretism = 2
+		}
+	}
+}
+
+is_tengri_faith = {
+	group = "special"
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_tengri_faith
+	}
+	
+	special_doctrine_is_tengri_faith = {
+		parameters = {
+			hostility_override_tenet_plain_faith_syncretism = 2
+		}
+	}
+}
