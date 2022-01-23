@@ -29,13 +29,20 @@ e_joseon = {
 	color2 = { 255 255 255 }
 	
 	capital = c_jongno
-	
 	definite_form = yes
-
-	k_joseon_king = {
-		color = { 20 30 255 }
-		color2 = { 255 255 23 }
-		
-		capital = c_jongno
-	}
+	ruler_uses_title_name = no
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+}
+k_joseon_king = {
+	color = { 20 30 255 }
+	color2 = { 255 255 23 }
+	
+	capital = c_jongno
+	definite_form = yes
+	ruler_uses_title_name = no
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
 }
