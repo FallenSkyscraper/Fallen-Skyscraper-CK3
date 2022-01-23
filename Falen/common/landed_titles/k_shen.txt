@@ -2,8 +2,18 @@
 		color = { 87 39 196 }
 		color2 = { 255 255 255 }
 		
-		capital = c_shen
-		
+		capital = c_shenyang
+		cultural_names = {
+			mukden = cn_mukden
+			greater_xingan = cn_mukden
+			dongliao = cn_mukden
+			jilin = cn_mukden
+			songhua = cn_mukden
+			yalu_manchu = cn_mukden
+			west_changbai = cn_mukden
+			liaoyuan = cn_mukden
+			shangjing = cn_mukden
+		}
 		ai_primary_priority = {
 			if = {
 				limit = {
@@ -13,18 +23,57 @@
 			}
 		}
 
-		d_shen = { # 심양
+		d_shenyang = { # 심양
 			color = { 87 39 196 }
 			color2 = { 255 255 255 }
-			
-			capital = c_shen
-			c_shen = { # 심양
+			cultural_names = {
+				mukden = cn_mukden
+				greater_xingan = cn_mukden
+				dongliao = cn_mukden
+				jilin = cn_mukden
+				songhua = cn_mukden
+				yalu_manchu = cn_mukden
+				west_changbai = cn_mukden
+				liaoyuan = cn_mukden
+				shangjing = cn_mukden
+				yan = cn_shenyang
+				liaoshen = cn_shenyang
+				jiaoliao = cn_shenyang
+			}
+			capital = c_shenyang
+			c_shenyang = { # 심양
 				color = { 87 39 196 }
 				color2 = { 255 255 255 }
-				
+				cultural_names = {
+					mukden = cn_mukden
+					greater_xingan = cn_mukden
+					dongliao = cn_mukden
+					jilin = cn_mukden
+					songhua = cn_mukden
+					yalu_manchu = cn_mukden
+					west_changbai = cn_mukden
+					liaoyuan = cn_mukden
+					shangjing = cn_mukden
+					yan = cn_shenyang
+					liaoshen = cn_shenyang
+					jiaoliao = cn_shenyang
+				}
 				b_3137 = { # 심양
 					province = 3137
-					
+					cultural_names = {
+						mukden = cn_mukden
+						greater_xingan = cn_mukden
+						dongliao = cn_mukden
+						jilin = cn_mukden
+						songhua = cn_mukden
+						yalu_manchu = cn_mukden
+						west_changbai = cn_mukden
+						liaoyuan = cn_mukden
+						shangjing = cn_mukden
+						yan = cn_shenyang
+						liaoshen = cn_shenyang
+						jiaoliao = cn_shenyang
+					}
 					color = { 87 39 196 }
 					color2 = { 255 255 255 }
 				}
@@ -47,7 +96,7 @@
 					color2 = { 255 255 255 }
 				}
 			}
-			c_tyeshi = { # 톄시
+			c_tieshi = { # 톄시
 				color = { 129 42 69 }
 				color2 = { 255 255 255 }
 				
@@ -76,7 +125,7 @@
 					color2 = { 255 255 255 }
 				}
 			}
-			c_sunbei = { # 선베이
+			c_shenbei = { # 선베이
 				color = { 87 147 51 }
 				color2 = { 255 255 255 }
 				
@@ -134,7 +183,7 @@
 					color2 = { 255 255 255 }
 				}
 			}
-			c_ssujatun = { # 쑤자툰
+			c_sujiatun = { # 쑤자툰
 				color = { 129 120 174 }
 				color2 = { 255 255 255 }
 				
@@ -157,35 +206,35 @@
 					color2 = { 255 255 255 }
 				}
 			}
-			c_qenxiangtun = { # 첸시앙툰
+			c_qianxiangtun = { # 첸샹툰
 				color = { 171 138 177 }
 				color2 = { 255 255 255 }
 				
-				b_3099 = { # 첸시앙툰
+				b_3099 = { # 첸샹툰
 					province = 3099
 					
 					color = { 171 138 177 }
 					color2 = { 255 255 255 }
 				}
-				b_3096 = { # 사헤칭푸
+				b_3096 = { # 사허칭푸
 					province = 3096
 					
 					color = { 171 138 177 }
 					color2 = { 255 255 255 }
 				}
-				b_3097 = { # 린셍바오
+				b_3097 = { # 린성바오
 					province = 3097
 					
 					color = { 171 138 177 }
 					color2 = { 255 255 255 }
 				}
-				b_3098 = { # 시리헤
+				b_3098 = { # 시리허
 					province = 3098
 					
 					color = { 171 138 177 }
 					color2 = { 255 255 255 }
 				}
-				b_3106 = { # 야오치안후툰
+				b_3106 = { # 야오첸후툰
 					province = 3106
 					
 					color = { 171 138 177 }
@@ -557,12 +606,12 @@
 			}
 		}
 
-		d_tyeling = { # 톄링
+		d_tieling = { # 톄링
 			color = { 87 24 66 }
 			color2 = { 255 255 255 }
 			
-			capital = c_tyeling
-			c_tyeling = { # 톄링
+			capital = c_tieling
+			c_tieling = { # 톄링
 				color = { 87 24 66 }
 				color2 = { 255 255 255 }
 				
@@ -602,7 +651,7 @@
 					color2 = { 255 255 255 }
 				}
 			}
-			c_caiwian = { # 카이위안
+			c_kaiyuan = { # 카이위안
 				color = { 3 18 65 }
 				color2 = { 255 255 255 }
 				
@@ -619,17 +668,17 @@
 					color2 = { 255 255 255 }
 				}
 			}
-			c_siaobao = { # 시아오바오
+			c_xiaobao = { # 샤오바오
 				color = { 129 12 64 }
 				color2 = { 255 255 255 }
 				
-				b_3128 = { # 시아오바오
+				b_3128 = { # 샤오바오
 					province = 3128
 					
 					color = { 129 12 64 }
 					color2 = { 255 255 255 }
 				}
-				b_3127 = { # 윤다오
+				b_3127 = { # 윈다오
 					province = 3127
 					
 					color = { 129 12 64 }
