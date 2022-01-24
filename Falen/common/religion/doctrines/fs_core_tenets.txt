@@ -5,6 +5,7 @@ doctrine_core_tenets = {
 		icon = core_tenet_altar
 		piety_cost = {
 			# Multiplier for keeping same tenet
+			value = faith_tenet_cost_high
 			if = {
 				limit = { has_doctrine = tenet_aniconism }
 				multiply = faith_unchanged_doctrine_cost_mult
