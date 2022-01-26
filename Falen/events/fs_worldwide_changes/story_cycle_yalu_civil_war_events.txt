@@ -9,10 +9,10 @@ yalu_civil_war.0001 = { # 쿠릴타이 초대장
 
 	trigger = {
 		AND = {
-			NOT = { is_alive = character:9001 }
+			NOT = { is_alive = character:9008 }
 			OR = {
-				is_child_of = character:9001
-				is_vassal_of = character:9001
+				is_child_of = character:9008
+				is_vassal_of = character:9008
 			}
 		}
 	}
@@ -25,7 +25,7 @@ yalu_civil_war.0001 = { # 쿠릴타이 초대장
 	}
 	
 	right_portrait = {
-		character = character:9001
+		character = character:9008
 		animation = sick
 	}
 
@@ -52,13 +52,13 @@ yalu_civil_war.0002 = { #쿠릴타이의 개최
 		character = root
 	}
 	lower_left_portrait = {
-		character = character:9011
+		character = character:9012
 	}
 	lower_center_portrait = {
-		character = character:9021
+		character = character:9013
 	}
 	lower_right_portrait = {
-		character = character:9031
+		character = character:9014
 	}
 
 	option = {
@@ -78,7 +78,7 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 		first_valid = {
 			triggered_desc = {
 				trigger = {
-					root = character:9011
+					root = character:9012
 				}
 				desc = yalu_civil_war.0003.alt.desc
 			}
@@ -99,22 +99,22 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 		animation = scheme
 	}
 	lower_left_portrait = {
-		character = character:9011
+		character = character:9012
 	}
 	lower_center_portrait = {
-		character = character:9021
+		character = character:9013
 	}
 	lower_right_portrait = {
-		character = character:9031
+		character = character:9014
 	}
 
 	immediate = {
 		if = {
 			limit = {
-				NOT = { has_title = { target = character:9011 title = title:e_yalu }
+				NOT = { has_title = { target = character:9012 title = title:e_yalu }
 			}
 			change_title_holder_include_vassals = {
-				holder = character:9011
+				holder = character:9012
 				change = title:e_yalu
 			}
 		}
@@ -123,13 +123,13 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 	option = { #정형기를 따른다
 		name = yalu_civil_war.0003.a
 		trigger = {
-			opinion = { target = character:9011 >= 50 }
+			opinion = { target = character:9012 >= 50 }
 			NOR = {
-				root = character:9011
-				root = character:9021
-				root = character:9031
-				is_vassal_or_below_of = character:9021
-				is_vassal_or_below_of = character:9031
+				root = character:9012
+				root = character:9013
+				root = character:9014
+				is_vassal_or_below_of = character:9013
+				is_vassal_or_below_of = character:9014
 			}
 		}
 		ai_chance = {
@@ -147,14 +147,14 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 	option = { #정상기를 따른다
 		name = yalu_civil_war.0003.b
 		trigger = {
-			opinion = { target = character:9021 >=50 }
+			opinion = { target = character:9013 >=50 }
 			NOR = {
-				root = character:9011
-				root = character:9021
-				root = character:9031
-				is_vassal_or_below_of = character:9011
-				is_vassal_or_below_of = character:9021
-				is_vassal_or_below_of = character:9031
+				root = character:9012
+				root = character:9013
+				root = character:9014
+				is_vassal_or_below_of = character:9012
+				is_vassal_or_below_of = character:9013
+				is_vassal_or_below_of = character:9014
 			}
 		}
 		
@@ -162,7 +162,7 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 			base = 1
 			modifier = {
 				factor = 10
-				opinion = { target = character:9021 >= 75 }
+				opinion = { target = character:9013 >= 75 }
 			}
 			modifier = {
 				factor = 0.01
@@ -173,14 +173,14 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 	option = { #정만기를 따른다
 		name = yalu_civil_war.0003.c
 		trigger = {
-			opinion = { target = character:9031 >=50 }
+			opinion = { target = character:9014 >=50 }
 			NOR = {
-				root = character:9011
-				root = character:9021
-				root = character:9031
-				is_vassal_or_below_of = character:9011
-				is_vassal_or_below_of = character:9021
-				is_vassal_or_below_of = character:9031
+				root = character:9012
+				root = character:9013
+				root = character:9014
+				is_vassal_or_below_of = character:9012
+				is_vassal_or_below_of = character:9013
+				is_vassal_or_below_of = character:9014
 			}
 		}
 		
@@ -188,7 +188,7 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 			base = 0
 			modifier = {
 				factor = 10
-				opinion = { target = character:9031 >= 75 }
+				opinion = { target = character:9014 >= 75 }
 			}
 			modifier = {
 				factor = 0.01
@@ -200,12 +200,12 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 		name = yalu_civil_war.0003.d
 		trigger = {
 			NOR = {
-				root = character:9011
-				root = character:9021
-				root = character:9031
-				is_vassal_or_below_of = character:9011
-				is_vassal_or_below_of = character:9021
-				is_vassal_or_below_of = character:9031
+				root = character:9012
+				root = character:9013
+				root = character:9014
+				is_vassal_or_below_of = character:9012
+				is_vassal_or_below_of = character:9013
+				is_vassal_or_below_of = character:9014
 			}
 		}
 		
@@ -217,7 +217,7 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 	option = { #정형기
 		name = yalu_civil_war.0003.e
 		trigger = {
-			root = character:9011
+			root = character:9012
 		}
 		trigger_event = {
 			id = unhappy_jianzhou.0001
@@ -228,8 +228,8 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 		name = yalu_civil_war.0003.f
 		trigger = {
 			OR = {
-				root = character:9021
-				root = character:9031
+				root = character:9013
+				root = character:9014
 			}
 		}
 	}
@@ -243,7 +243,7 @@ unhappy_jianzhou.0001 = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
-					root = character:9011
+					root = character:9012
 				}
 				desc = unhappy_jianzhou.0001.alt.desc
 			}
@@ -253,7 +253,7 @@ unhappy_jianzhou.0001 = {
 
 	if = {
 		limit = {
-			root = character:9011
+			root = character:9012
 		}
 		left_portrait = {
 			character = root
@@ -261,7 +261,7 @@ unhappy_jianzhou.0001 = {
 	}
 	else = {
 		left_portrait = {
-			character = character:9011
+			character = character:9012
 		}
 		right_portrait = {
 			character = root
@@ -270,14 +270,14 @@ unhappy_jianzhou.0001 = {
 	option = { #정형기가 건주를 풀어줌
 		name = unhappy_jianzhou.0001.a
 		limit = {
-			root= character:9011
+			root= character:9012
 		}
 		change_liege = {
 		}
 	}
 	option = { #정형기가 건주를 풀어주지 않음
 		limit = {
-			root= character:9011
+			root= character:9012
 		}
 		name = unhappy_jianzhou.0001.b
 	}

@@ -1,7 +1,72 @@
 #얄루
-9001 = { #예시
+#환인 정씨
+9001 = {
+	name = "홍렬"
+	dynasty = 9001
+	religion = mu_pagan
+	culture = chaoxian
+	2247.6.7 = { birth = yes }
+	2290.6.19 = { death = yes }
+}
+9002 = {
+	name = "우평"
+	dynasty = 9001
+	father = 9001
+	religion = mu_pagan
+	culture = chaoxian
+	2276.5.23 = { birth = yes }
+	2336.10.22 = { death = yes }
+}
+9003 = {
+	name = "달규"
+	dynasty = 9001
+	father = 9002
+	religion = mu_pagan
+	culture = chaoxian
+	2306.3.5 = { birth = yes }
+	2351.8.16 = { death = yes } # 9105가 처형
+}
+9004 = {
+	name = "억출"
+	dynasty = 9001
+	father = 9003
+	religion = mu_pagan
+	culture = chaoxian
+	2337.12.5 = { birth = yes }
+	2400.3.2 = { death = yes } # 건주침입때 사망
+}
+9005 = {
+	name = "두예"
+	dynasty = 9001
+	father = 9004
+	religion = mu_pagan
+	culture = chaoxian
+	2360.6.5 = { birth = yes }
+	2400.3.2 = { death = yes } # 건주침입때 사망
+}
+9006 = {
+	name = "두식"
+	dynasty = 9001
+	father = 9004
+	religion = mu_pagan
+	culture = chaoxian
+	2367.8.5 = { birth = yes }
+	2400.3.2 = { death = yes } # 똑같음
+}
+9007 = {
+	name = "수현"
+	female = yes
+	dynasty = 9001
+	father = 9004
+	religion = mu_pagan
+	culture = chaoxian
+	2374.11.16 = { birth = yes }
+	2400.3.2 = { death = yes } # 똑같음
+}
+9008 = {
 	name = "일남"
 	dynasty = 9001
+	father = 9006
 	religion = tengri_pagan
 	culture = yalu
 	diplomacy = 8
@@ -20,115 +85,201 @@
 	2382.3.14 = {
 		birth = yes
 	}
+	2402.8.13 = { add_spouse = 9028 }
 	2500.1.1 = {
 		death = yes
 	}
+}
+9009 = {
+	name = "일성"
+	dynasty = 9001
+	father = 9006
+	religion = mu_pagan
+	culture = chaoxian
+	2383.5.14 = { birth = yes }
+	2400.3.2 = { death = yes } # 건주가 죽였어
+}
+9010 = {
+	name = "서린"
+	female = yes
+	dynasty = 9001
+	father = 9006
+	religion = mu_pagan
+	culture = chaoxian
+	2387.6.15 = { birth = yes }
+	2500.1.1 = { death = yes }
 }
 9011 = {
+	name = "민지"
+	female = yes
+	dynasty = 9001
+	father = 9006
+	religion = mu_pagan
+	culture = chaoxian
+	2392.12.7 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9012 = {
 	name = "형기"
 	dynasty = 9001
+	father = 9008
+	mother = 9028
 	religion = tengri_pagan
 	culture = yalu
-	father = 9001
-	trait = ambitious
-	2402.7.9 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
+	2403.7.9 = { birth = yes }
+	2500.1.1 = { death = yes }
 }
 9013 = {
-	name = "천호"
-	dynasty = 9001
-	religion = tengri_pagan
-	culture = yalu
-	father = 9011
-	2420.5.16 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-9014 = {
-	name = "승덕"
-	dynasty = 9001
-	religion = tengri_pagan
-	culture = yalu
-	father = 9011
-	2424.8.3 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-9015 = {
-	name = "민철"
-	dynasty = 9001
-	religion = tengri_pagan
-	culture = yalu
-	father = 9011
-	2431.8.9 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-9021 = {
 	name = "상기"
 	dynasty = 9001
+	father = 9008
+	mother = 9028
 	religion = tengri_pagan
 	culture = yalu
-	father = 9001
-	trait = vengeful
-	2405.1.23 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
+	2407.1.23 = { birth = yes }
+	2500.1.1 = { death = yes }
 }
-9023 = {
-	name = "철"
-	dynasty = 9001
-	religion = tengri_pagan
-	culture = yalu
-	father = 9021
-	2427.9.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-9024 = {
-	name = "장군"
-	dynasty = 9001
-	religion = tengri_pagan
-	culture = yalu
-	father = 9021
-	2433.3.5 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-9031 = {
+9014 = {
 	name = "만기"
 	dynasty = 9001
+	father = 9008
+	mother = 9028
 	religion = tengri_pagan
 	culture = yalu
-	father = 9001
-	2408.9.30 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
+	2413.8.30 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9015 = {
+	name = "숙희"
+	female = yes
+	dynasty = 9001
+	father = 9008
+	mother = 9124
+	religion = tengri_pagan
+	culture = yalu
+	2423.11.25 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9016 = {
+	name = "선우"
+	dynasty = 9001
+	father = 9012
+	religion = tengri_pagan
+	culture = yalu
+	2429.12.28 = { birth = yes }
+	2444.1.1 = { add_spouse = 9041 }
+	2500.1.1 = { death = yes }
+}
+9017 = {
+	name = "선덕"
+	dynasty = 9001
+	father = 9012
+	religion = tengri_pagan
+	culture = yalu
+	2436.12.27 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9018 = {
+	name = "선미"
+	female = yes
+	dynasty = 9001
+	father = 9013
+	mother = 9125
+	religion = tengri_pagan
+	culture = yalu
+	2433.9.12 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9019 = {
+	name = "선철"
+	dynasty = 9001
+	father = 9013
+	religion = tengri_pagan
+	culture = yalu
+	2437.7.17 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9020 = {
+	name = "선명"
+	dynasty = 9001
+	father = 9014
+	religion = tengri_pagan
+	culture = yalu
+	2430.8.6 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9021 = {
+	name = "선탁"
+	dynasty = 9001
+	father = 9014
+	religion = tengri_pagan
+	culture = yalu
+	2441.1.17 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+#본계 박씨
+9022 = {
+	name = "성옥"
+	dynasty = 9022
+	religion = mu_pagan
+	culture = chaoxian
+	2240.9.1 = { birth = yes }
+	2299.9.11 = { death = yes }
+}
+9023 = {
+	name = "계춘"
+	dynasty = 9022
+	father = 9022
+	religion = mu_pagan
+	culture = chaoxian
+	2277.3.19 = { birth = yes }
+	2345.6.23 = { death = yes }
+}
+9024 = {
+	name = "웅"
+	dynasty = 9022
+	father = 9023
+	religion = mu_pagan
+	culture = chaoxian
+	2312.2.23 = { birth = yes }
+	2351.8.16 = { death = yes }
+}
+9025 = {
+	name = "중특"
+	dynasty = 9022
+	father = 9024
+	religion = mu_pagan
+	culture = chaoxian
+	2338.9.3 = { birth = yes }
+	2372.5.3 = { death = yes }
+}
+9026 = {
+	name = "진개"
+	dynasty = 9022
+	father = 9025
+	religion = mu_pagan
+	culture = chaoxian
+	2360.1.24 = { birth = yes }
+	2399.6.16 = { death = yes }
+}
+9027 = {
+	name = "순찬"
+	dynasty = 9022
+	father = 9026
+	religion = mu_pagan
+	culture = chaoxian
+	2382.6.27 = { birth = yes }
+	2400.3.2 = { death = yes }
+}
+9028 = {
+	name = "향매"
+	female = yes
+	dynasty = 9022
+	father = 9026
+	religion = tengri_pagan
+	culture = yalu
+	2383.6.3 = { birth = yes }
+	2443.12.29 = { death = yes }
 }
 #9100 : 옛 중국인 지도자들
 #9200 : 요동의 옛 만주와 조선계
