@@ -555,6 +555,12 @@
 				text = incompatible_tenet_armed_pilgrimages_trigger
 				NOT = { flag:tenet_armed_pilgrimages = { is_in_list = selected_doctrines } }
 			}
+			custom_description = {
+				text = incompatible_tenet_gruesome_festivals_trigger
+				NOT = {
+					flag:tenet_gruesome_festivals = { is_in_list = selected_doctrines }
+				}
+			}
 		}
 
 		parameters = {
@@ -582,7 +588,12 @@
 			first_valid = {
 				triggered_desc = {
 					trigger = {
-						religion_tag = christianity_religion
+						OR = {
+							religion_tag = christianity_religion
+							religion_tag = orthodox_religion
+							religion_tag = imperial_religion
+							religion_tag = protestant_religion
+						}
 					}
 					desc = tenet_pentarchy_alternate_name
 				}
@@ -595,6 +606,9 @@
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
+						religion_tag = orthodox_religion
+						religion_tag = imperial_religion
+						religion_tag = protestant_religion
 						religion_tag = hinduism_religion
 						religion_tag = zoroastrianism_religion
 					}
@@ -675,9 +689,10 @@
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = dualism_religion
+						religion_tag = orthodox_religion
+						religion_tag = imperial_religion
+						religion_tag = protestant_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -720,7 +735,12 @@
 		icon = core_tenet_holytree
 
 		is_shown = {
-			religion_tag = christianity_religion
+			OR = {
+				religion_tag = christianity_religion
+				religion_tag = orthodox_religion
+				religion_tag = imperial_religion
+				religion_tag = protestant_religion
+			}
 		}
 		can_pick = {
 			custom_description = {
@@ -768,6 +788,9 @@
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
+						religion_tag = orthodox_religion
+						religion_tag = imperial_religion
+						religion_tag = protestant_religion
 						religion_tag = islam_religion
 					}
 				}
@@ -801,7 +824,6 @@
 				NOR = {
 					flag:doctrine_pluralism_fundamentalist = { is_in_list = selected_doctrines }
 					flag:doctrine_pluralism_righteous = { is_in_list = selected_doctrines }
-					flag:doctrine_tente_new_world = { is_in_list = selected_doctrines }
 				}
 			}
 		}
@@ -825,6 +847,9 @@
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
+						religion_tag = orthodox_religion
+						religion_tag = imperial_religion
+						religion_tag = protestant_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -987,6 +1012,7 @@
 		is_shown = {
 			NOR = {
 				religion_tag = christianity_religion
+				religion_tag = orthodox_religion
 				religion_tag = judaism_religion
 				religion_tag = zoroastrianism_religion
 			}
@@ -1005,6 +1031,9 @@
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
+						religion_tag = orthodox_religion
+						religion_tag = imperial_religion
+						religion_tag = protestant_religion
 						religion_tag = hinduism_religion
 						religion_tag = zoroastrianism_religion
 						has_doctrine = pagan_hostility_doctrine
@@ -1091,6 +1120,60 @@
 		}
 	}
 
+	tenet_false_conversion_sanction = {
+		icon = core_tenet_shadyfigure
+		name = {
+			first_valid = {
+				triggered_desc = {
+					trigger = {
+						religion_tag = islam_religion
+					}
+					desc = tenet_temporal_condemnation_taqiya
+				}
+				desc = tenet_false_conversion_sanction_name
+			}
+		}
+
+		piety_cost = {
+			if = {
+				limit = {
+					OR = {
+						religion_tag = dualism_religion
+						religion_tag = hinduism_religion
+						religion_tag = buddhism_religion
+						religion_tag = jainism_religion
+					}
+				}
+				value = faith_tenet_cost_high
+			}
+			else_if = {
+				limit = {
+					OR = {
+						religion_tag = zoroastrianism_religion
+					}
+				}
+				value = faith_tenet_cost_low
+			}
+			else = {
+				value = faith_tenet_cost_mid
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_false_conversion_sanction }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		is_shown = {
+			NOT = { religion_tag = christianity_religion }
+		}
+
+		parameters = {
+			sanctioned_false_conversion = yes
+		}
+	}
+
 	tenet_tax_nonbelievers = {
 		icon = core_tenet_handcoin
 		piety_cost = {
@@ -1098,6 +1181,9 @@
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
+						religion_tag = orthodox_religion
+						religion_tag = imperial_religion
+						religion_tag = protestant_religion
 						religion_tag = dualism_religion
 					}
 				}
@@ -1162,6 +1248,9 @@
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
+						religion_tag = orthodox_religion
+						religion_tag = imperial_religion
+						religion_tag = protestant_religion
 						religion_tag = dualism_religion
 						religion_tag = buddhism_religion
 						religion_tag = jainism_religion
@@ -1200,12 +1289,25 @@
 	}
 
 	tenet_bhakti = {
+		name = {
+			first_valid = {
+				triggered_desc = {
+					trigger = { religion_tag = hinduism_religion }
+					desc = tenet_bhakti_name
+				}
+				desc = tenet_bhakti_patron_god_name
+			}
+		}
 		icon = core_tenet_bhakti
 
 		piety_cost = faith_tenet_cost_mid
 
 		is_shown = {
-			religion_tag = hinduism_religion
+			OR = {
+				religion_tag = hinduism_religion
+				# With FP1, Germanics also get personal deities.
+				#religion_tag = germanic_religion
+			}
 		}
 
 		parameters = {
@@ -1249,6 +1351,12 @@
 			custom_description = {
 				text = incompatible_tenet_armed_pilgrimages_trigger
 				NOT = { flag:tenet_armed_pilgrimages = { is_in_list = selected_doctrines } }
+			}
+			custom_description = {
+				text = incompatible_tenet_gruesome_festivals_trigger
+				NOT = {
+					flag:tenet_gruesome_festivals = { is_in_list = selected_doctrines }
+				}
 			}
 		}
 		
@@ -1426,6 +1534,9 @@
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
+						religion_tag = orthodox_religion
+						religion_tag = imperial_religion
+						religion_tag = protestant_religion
 						religion_tag = judaism_religion
 						religion_tag = islam_religion
 					}
@@ -1468,6 +1579,7 @@
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
+						religion_tag = orthodox_religion
 						religion_tag = buddhism_religion
 						religion_tag = jainism_religion
 					}
@@ -1487,6 +1599,7 @@
 				limit = {
 					OR = {
 						religion_tag = hinduism_religion
+						religion_tag = protestant_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -1558,9 +1671,12 @@
 		}
 
 		is_shown = {
+			# No HumSac for Abrahamics: 'tis literally the religion-namer.
 			NOR = {
 				religion_tag = christianity_religion
-				religion_tag = judaism_religion
+				religion_tag = orthodox_religion
+				religion_tag = imperial_religion
+				religion_tag = protestant_religion
 				religion_tag = islam_religion
 			}
 		}
@@ -1574,11 +1690,43 @@
 				text = incompatible_tenet_dharmic_pacifism_trigger
 				NOT = { flag:tenet_dharmic_pacifism = { is_in_list = selected_doctrines } }
 			}
+			custom_description = {
+				text = incompatible_tenet_gruesome_festivals_trigger
+				NOT = {
+					flag:tenet_gruesome_festivals = { is_in_list = selected_doctrines }
+				}
+			}
 		}
 
 		parameters = {
 			human_sacrifice_active = yes
 			flower_war_cb_active = yes
+		}
+	}
+
+	tenet_mystical_birthright = {
+		icon = core_tenet_bhakti
+
+		piety_cost = {
+			value = faith_tenet_cost_low
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_mystical_birthright }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		is_shown = {
+			religion_tag = magyar_religion
+		}
+
+		parameters = {
+			mystic_birthright_active = yes
+		}
+
+		traits = {
+			virtues = { mystic_3 = 5 }
 		}
 	}
 
@@ -1774,7 +1922,7 @@
 				limit = {
 					OR = {
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
+						religion_tag = cheondoism_religion
 						religion_tag = taoism_religion
 					}
 				}
@@ -1794,9 +1942,9 @@
 		is_shown = {
 			NOR = {
 				religion_tag = christianity_religion
+				religion_tag = protestant_religion
+				religion_tag = imperial_religion
 				religion_tag = islam_religion
-				religion_tag = judaism_religion
-				religion_tag = dualism_religion
 			}
 		}
 
@@ -1822,6 +1970,86 @@
 		character_modifier = {
 			ai_war_chance = 0.5
 			ai_war_cooldown = -0.25
+		}
+	}
+
+	tenet_gruesome_festivals = {
+		name = {
+			first_valid = {
+				triggered_desc = {
+					trigger = { religion_tag = germanic_religion }
+					desc = tenet_gruesome_festivals_blot_name
+				}
+				desc = tenet_gruesome_festivals_name
+			}
+		}
+
+		icon = core_tenet_blood_bowl
+
+		piety_cost = {
+			# If you've already got human sacrifice, this is a nice and easy jump.
+			if = {
+				limit = { has_doctrine = tenet_human_sacrifice }
+				value = faith_tenet_cost_low
+			}
+			# Otherwise, follow the same pricing tiers as tenet_human_sacrifice.
+			else_if = {
+				limit = {
+					has_doctrine = pagan_hostility_doctrine
+				}
+				value = faith_tenet_cost_mid
+			}
+			else_if = {
+				limit = {
+					religion_tag = hinduism_religion
+				}
+				value = faith_tenet_cost_high
+			}
+			else = {
+				value = faith_tenet_cost_massive
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_gruesome_festivals }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		is_shown = {
+			# No HumSac for Abrahamics: 'tis literally the religion-namer.
+			NOR = {
+				religion_tag = christianity_religion
+				religion_tag = protestant_religion
+				religion_tag = imperial_religion
+				religion_tag = islam_religion
+			}
+		}
+
+		can_pick = {
+			custom_description = {
+				text = incompatible_tenet_pacifism_trigger
+				NOT = {
+					flag:tenet_pacifism = { is_in_list = selected_doctrines }
+				}
+			}
+			custom_description = {
+				text = incompatible_tenet_dharmic_pacifism_trigger
+				NOT = {
+					flag:tenet_dharmic_pacifism = { is_in_list = selected_doctrines }
+				}
+			}
+			custom_description = {
+				text = incompatible_tenet_human_sacrifice_trigger
+				NOT = {
+					flag:tenet_human_sacrifice = { is_in_list = selected_doctrines }
+				}
+			}
+		}
+
+		parameters = {
+			human_sacrifice_active = yes
+			gruesome_festivals_active = yes
 		}
 	}
 
@@ -1878,8 +2106,6 @@
 					flag:tenet_christian_syncretism = { is_in_list = selected_doctrines }
 					flag:tenet_islamic_syncretism = { is_in_list = selected_doctrines }
 					flag:tenet_jewish_syncretism = { is_in_list = selected_doctrines }
-					flag:tenet_communism_syncretism = { is_in_list = selected_doctrines }
-					flag:tenet_plain_faith_syncretism = { is_in_list = selected_doctrines }
 				}
 			}
 		}
@@ -1926,8 +2152,6 @@
 					flag:tenet_christian_syncretism = { is_in_list = selected_doctrines }
 					flag:tenet_islamic_syncretism = { is_in_list = selected_doctrines }
 					flag:tenet_jewish_syncretism = { is_in_list = selected_doctrines }
-					flag:tenet_communism_syncretism = { is_in_list = selected_doctrines }
-					flag:tenet_plain_faith_syncretism = { is_in_list = selected_doctrines }
 				}
 			}
 		}
@@ -1978,8 +2202,6 @@
 					flag:tenet_unreformed_syncretism = { is_in_list = selected_doctrines }
 					flag:tenet_islamic_syncretism = { is_in_list = selected_doctrines }
 					flag:tenet_jewish_syncretism = { is_in_list = selected_doctrines }
-					flag:tenet_communism_syncretism = { is_in_list = selected_doctrines }
-					flag:tenet_plain_faith_syncretism = { is_in_list = selected_doctrines }
 				}
 			}
 		}
@@ -2033,8 +2255,6 @@
 					flag:tenet_unreformed_syncretism = { is_in_list = selected_doctrines }
 					flag:tenet_christian_syncretism = { is_in_list = selected_doctrines }
 					flag:tenet_jewish_syncretism = { is_in_list = selected_doctrines }
-					flag:tenet_communism_syncretism = { is_in_list = selected_doctrines }
-					flag:tenet_plain_faith_syncretism = { is_in_list = selected_doctrines }
 				}
 			}
 		}
@@ -2087,8 +2307,6 @@
 					flag:tenet_unreformed_syncretism = { is_in_list = selected_doctrines }
 					flag:tenet_christian_syncretism = { is_in_list = selected_doctrines }
 					flag:tenet_islamic_syncretism = { is_in_list = selected_doctrines }
-					flag:tenet_communism_syncretism = { is_in_list = selected_doctrines }
-					flag:tenet_plain_faith_syncretism = { is_in_list = selected_doctrines }
 				}
 			}
 		}
@@ -2104,8 +2322,6 @@
 			sins = { cynical greedy }
 		}
 	}
-
-	
 
 	#############################
 	# Custom Faith Tenets		#
