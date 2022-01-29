@@ -111,7 +111,10 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 	immediate = {
 		if = {
 			limit = {
-				NOT = { has_title = { target = character:9012 title = title:e_yalu } }
+				NOT = { has_title = { 
+					target = character:9012
+				 	title = title:e_yalu } 
+				}
 			}
 			change_title_holder_include_vassals = {
 				holder = character:9012
