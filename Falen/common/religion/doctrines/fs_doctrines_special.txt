@@ -93,3 +93,189 @@ is_tengri_faith = {
 		}
 	}
 }
+
+pantheon = {
+	group = "main_group"
+	is_available_on_create = {
+		OR = {
+			has_doctrine = special_doctrine_aisingioro_worship
+			has_doctrine = special_doctrine_wanyan_worship
+			has_doctrine = special_doctrine_otchigin_worship
+			has_doctrine = special_doctrine_khan_worship
+			has_doctrine = special_doctrine_cheewoo_worship
+			has_doctrine = special_doctrine_munsunjae_worship
+			has_doctrine = special_doctrine_yingzhao_worship
+			has_doctrine = special_doctrine_sinnong_worship
+			has_doctrine = special_doctrine_pantheon
+		}
+	}
+
+	special_doctrine_aisingioro_worship = { #아이신기오로 숭배
+		piety_cost = {
+			value = faith_tenet_cost_mid
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = special_doctrine_aisingioro_worship }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			if = {
+				limit = { dynasty = }
+			}
+		}
+		character_modifier= {
+			knight_limit = 2
+			knight_effectiveness_mult = 0.1
+			dynasty_house_opinion = -10
+			faith_creation_piety_cost_mult = -0.25
+			monthly_piety_gain = -0.15
+		}
+	}
+	special_doctrine_wanyan_worship = { # 완안 숭배
+		piety_cost = {
+			value = faith_tenet_cost_mid
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = special_doctrine_wanyan_worship }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		character_modifier = {
+			faith_creation_piety_cost_mult = -0.25
+			monthly_piety_gain = -0.15
+			men_at_arms_limit = 1
+			men_at_arms_cap = 1
+			levy_size = -0.1
+		}
+	}
+	special_doctrine_khan_worship = { # 징기스칸 숭배
+		piety_cost = {
+			value = faith_tenet_cost_mid
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = special_doctrine_khan_worship }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		character_modifier = {
+			army_maintenance_mult = -0.25
+			fertility = 0.1
+			levy_size = 0.15
+			faith_creation_piety_cost_mult = -0.25
+			independent_ruler_opinion = -25
+			monthly_piety_gain = -0.15
+		}
+	}
+	special_doctrine_cheewoo_worship = { # 치우 숭배
+		piety_cost = {
+			value = faith_tenet_cost_mid
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = special_doctrine_cheewoo_worship }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		character_modifier = {
+			martial_per_piety_level = 1
+			prowess_per_piety_level = 2
+			monthly_income_mult = -0.2
+			faith_creation_piety_cost_mult = -0.25
+			monthly_piety_gain = -0.15
+		}
+	}
+	special_doctrine_munsunjae_worship = { # 공자 숭배
+		piety_cost = {
+			value = faith_tenet_cost_mid
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = special_doctrine_munsunjae_worship }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		character_modifier = {
+			learning_per_piety_level = 1
+			county_opinion_add = 15
+			tyranny_gain_mult = 0.3
+			faith_creation_piety_cost_mult = -0.25
+			monthly_piety_gain = -0.15
+		}
+	}
+	special_doctrine_yingzhao_worship = { # 진시황 숭배
+		piety_cost = {
+			value = faith_tenet_cost_mid
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = special_doctrine_yingzhao_worship }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		character_modifier = {
+			dread_baseline_add = 5
+			dread_gain_mult = 0.1
+			direct_vassel_opinion = -10
+			faith_creation_piety_cost_mult = -0.25
+			monthly_piety_gain = -0.15
+		}
+	}
+	special_doctrine_sinnong_worship = { # 신농 숭배
+		piety_cost = {
+			value = faith_tenet_cost_mid
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = special_doctrine_sinnong_worship }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		character_modifier = {
+			development_growth_factor = 0.2
+			health = 0.1
+			life_expectancy = 2
+			martial = -2
+			prowess = -2
+			faith_creation_piety_cost_mult = -0.25
+			monthly_piety_gain = -0.15
+		}
+	}
+	special_doctrine_pantheon = { # 만신전
+		can_pick = {
+			OR = {
+				has_character_flag = restore_the_pantheon
+				has_doctrine = special_doctrine_pantheon
+			}
+		}
+		piety_cost = {
+			value = faith_tenet_cost_mid
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = special_doctrine_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		character_modifier = {
+			opinion_of_different_faith = 15
+			differnet_faith_opinion = 15
+			different_faith_county_opinion_mult = 0.15
+			faith_conversion_piety_cost_mult = -0.25
+			faith_creation_piety_cost_mult = -0.25
+			monthly_income_mult = -0.1
+			monthly_prestige_gain_mult = -0.1
+			monthly_piety_gain = -0.3
+		}
+	}
+	special_doctrine_purge_the_pantheon = { #조상숭배 해체
+		can_pick = {
+			AND = {
+				NOT = { has_doctrine = tenet_ancestor_worship }
+				has_doctrine = tenet_aniconism
+			}
+		}
+		piety_cost = {
+			value = faith_tenet_cost_high
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = special_doctrine_purge_the_pantheon }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+	}
+}
