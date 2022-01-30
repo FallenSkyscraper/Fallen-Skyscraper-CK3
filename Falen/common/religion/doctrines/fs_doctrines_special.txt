@@ -6,6 +6,8 @@ terror_governing = {
 	special_doctrine_terror_governing = {
 		parameters = {
 			other_culture_conversion_penalty_active = yes
+			hostility_same_family = 2
+			hostility_override_special_doctrine_yingzhao_worship = 1
 		}
 		character_modifier = {
 			monthly_income_mult = 0.05
@@ -94,7 +96,21 @@ is_tengri_faith = {
 	}
 }
 
-pantheon = {
+is_confucian_faith = {
+	group = "special"
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_confusian_faith
+	}
+
+	special_doctrine_is_confusian_faith = {
+		parameters = {
+			hostility_same_family = 2
+			hostility_override_special_doctrine_munsunjae_worship = 1
+		}
+	}
+}
+
+the_pantheon = {
 	group = "main_group"
 	is_available_on_create = {
 		OR = {
@@ -111,6 +127,9 @@ pantheon = {
 	}
 
 	special_doctrine_aisingioro_worship = { #아이신기오로 숭배
+		can_pick = {
+			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
 			# Multiplier for keeping same tenet
@@ -131,6 +150,9 @@ pantheon = {
 		}
 	}
 	special_doctrine_wanyan_worship = { # 완안 숭배
+		can_pick = {
+			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
 			# Multiplier for keeping same tenet
@@ -148,6 +170,9 @@ pantheon = {
 		}
 	}
 	special_doctrine_khan_worship = { # 징기스칸 숭배
+		can_pick = {
+			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
 			# Multiplier for keeping same tenet
@@ -166,6 +191,9 @@ pantheon = {
 		}
 	}
 	special_doctrine_cheewoo_worship = { # 치우 숭배
+		can_pick = {
+			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
 			# Multiplier for keeping same tenet
@@ -183,6 +211,9 @@ pantheon = {
 		}
 	}
 	special_doctrine_munsunjae_worship = { # 공자 숭배
+		can_pick = {
+			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
 			# Multiplier for keeping same tenet
@@ -190,6 +221,9 @@ pantheon = {
 				limit = { has_doctrine = special_doctrine_munsunjae_worship }
 				multiply = faith_unchanged_doctrine_cost_mult
 			}
+		}
+		parameters = {
+			hostility_override_special_doctrine_is_confucian_faith = 1
 		}
 		character_modifier = {
 			learning_per_piety_level = 1
@@ -200,6 +234,9 @@ pantheon = {
 		}
 	}
 	special_doctrine_yingzhao_worship = { # 진시황 숭배
+		can_pick = {
+			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
 			# Multiplier for keeping same tenet
@@ -207,6 +244,9 @@ pantheon = {
 				limit = { has_doctrine = special_doctrine_yingzhao_worship }
 				multiply = faith_unchanged_doctrine_cost_mult
 			}
+		}
+		parameters = {
+			hostility_override_special_doctrine_terror_governing = 1
 		}
 		character_modifier = {
 			dread_baseline_add = 5
@@ -217,6 +257,9 @@ pantheon = {
 		}
 	}
 	special_doctrine_sinnong_worship = { # 신농 숭배
+		can_pick = {
+			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
 			# Multiplier for keeping same tenet
@@ -241,6 +284,7 @@ pantheon = {
 				has_character_flag = restore_the_pantheon
 				has_doctrine = special_doctrine_pantheon
 			}
+			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
 		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
