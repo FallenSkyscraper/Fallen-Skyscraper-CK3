@@ -266,8 +266,8 @@ pantheon = {
 	special_doctrine_purge_the_pantheon = { #조상숭배 해체
 		can_pick = {
 			AND = {
-				NOT = { has_doctrine = tenet_ancestor_worship }
-				has_doctrine = tenet_aniconism
+				NOT = { flag:tenet_ancestor_worship = { is_in_list = selected_doctrines } }
+				flag:tenet_aniconism = { is_in_list = selected_doctrines}
 			}
 		}
 		piety_cost = {
