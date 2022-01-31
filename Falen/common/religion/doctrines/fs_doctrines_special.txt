@@ -278,9 +278,9 @@ the_pantheon = {
 	special_doctrine_pantheon = { # 만신전
 		can_pick = {
 			OR = {
-				ROOT = {
-					has_character_flag = restore_the_pantheon
-				}
+				#ROOT = {
+				#	has_character_flag = restore_the_pantheon
+				#}
 				has_doctrine = special_doctrine_pantheon
 			}
 			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
