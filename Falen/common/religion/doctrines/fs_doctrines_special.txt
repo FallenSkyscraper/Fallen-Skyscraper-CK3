@@ -99,10 +99,10 @@ is_tengri_faith = {
 is_confucian_faith = {
 	group = "special"
 	is_available_on_create = {
-		has_doctrine = special_doctrine_is_confusian_faith
+		has_doctrine = special_doctrine_is_confucian_faith
 	}
 
-	special_doctrine_is_confusian_faith = {
+	special_doctrine_is_confucian_faith = {
 		parameters = {
 			hostility_same_family = 2
 			hostility_override_special_doctrine_munsunjae_worship = 1
@@ -136,9 +136,6 @@ the_pantheon = {
 			if = {
 				limit = { has_doctrine = special_doctrine_aisingioro_worship }
 				multiply = faith_unchanged_doctrine_cost_mult
-			}
-			if = {
-				limit = { dynasty = }
 			}
 		}
 		character_modifier= {
@@ -281,7 +278,9 @@ the_pantheon = {
 	special_doctrine_pantheon = { # 만신전
 		can_pick = {
 			OR = {
-				has_character_flag = restore_the_pantheon
+				ROOT = {
+					has_character_flag = restore_the_pantheon
+				}
 				has_doctrine = special_doctrine_pantheon
 			}
 			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }

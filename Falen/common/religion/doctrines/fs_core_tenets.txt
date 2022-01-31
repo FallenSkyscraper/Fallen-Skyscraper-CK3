@@ -385,20 +385,21 @@ doctrine_core_tenets = {
 			}
 		}
 		can_pick = {
-			text = incompatible_tenet_other_syncretism_trigger
-			NOR = {
-				flag:tenet_eastern_syncretism = { is_in_list = selected_doctrines }
-				flag:tenet_unreformed_syncretism = { is_in_list = selected_doctrines }
-				flag:tenet_christian_syncretism = { is_in_list = selected_doctrines }
-				flag:tenet_islamic_syncretism = { is_in_list = selected_doctrines }
-				flag:tenet_jewish_syncretism = { is_in_list = selected_doctrines }
-				flag:tenet_communism_syncretism = { is_in_list = selected_doctrines }
+			custom_description = {
+				text = incompatible_tenet_other_syncretism_trigger
+				NOR = {
+					flag:tenet_eastern_syncretism = { is_in_list = selected_doctrines }
+					flag:tenet_unreformed_syncretism = { is_in_list = selected_doctrines }
+					flag:tenet_christian_syncretism = { is_in_list = selected_doctrines }
+					flag:tenet_islamic_syncretism = { is_in_list = selected_doctrines }
+					flag:tenet_jewish_syncretism = { is_in_list = selected_doctrines }
+					flag:tenet_communism_syncretism = { is_in_list = selected_doctrines }
+				}
 			}
 		}
-
 		parameters = {
 			hostility_override_special_doctrine_is_manchurian_faith = 2
-			hostility_override_special_doctrine_is_tengrism_faith = 2
+			hostility_override_special_doctrine_is_tengri_faith = 2
 			plain_faith_syncretic_actor_opinion_active = yes
 			opinion_of_plain_faith_syncretic_recipient_opinion_active = 30 #Sync this to syncretic_mutual_opinion_bonus_value
 		}
@@ -411,7 +412,7 @@ doctrine_core_tenets = {
 			value = faith_tenet_cost_high
 			if = {
 				limit ={ has_doctrine = tenet_populism }
-				multiply = faith_unchanged_doctrine_cost
+				multiply = faith_unchanged_doctrine_cost_mult
 			}
 		}
 		can_pick = {
@@ -444,7 +445,7 @@ doctrine_core_tenets = {
 			value = faith_tenet_cost_low
 			if = {
 				limit = { has_doctrine = tenet_authoritism }
-				multiply = faith_unchanged_doctrine_cost
+				multiply = faith_unchanged_doctrine_cost_mult
 			}
 		}
 		can_pick = {
