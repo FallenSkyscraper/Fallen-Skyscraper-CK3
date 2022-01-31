@@ -78,9 +78,10 @@ doctrine_core_tenets = {
 			tenet_adaptive_conversion_resistance = yes
 			great_holy_wars_active = yes
 			ghw_no_hof_conversion_buffs_active = yes
+		#	
 		}
 		character_modifier = {
-			different_faith_county_opinion_mult = 1
+			#different_faith_county_opinion_mult = 1
 		}
 		name = {
 			first_valid = {
@@ -158,7 +159,8 @@ doctrine_core_tenets = {
 			development_growth_factor = 0.15
 		}
 		traits = {
-			sins = {lazy}
+			virtues = { diligent }
+			sins = { lazy }
 		}
 	}
 	tenet_false_conversion_sanction = {
@@ -437,6 +439,10 @@ doctrine_core_tenets = {
 			monthly_county_control_change_factor = -0.1
 			county_opinion_add = 50
 		}
+		traits = {
+			virtues = { just compassionate }
+			sins = { arbitrary sadistic }
+		}
 	}
 
 	tenet_authoritism = {
@@ -463,6 +469,10 @@ doctrine_core_tenets = {
 			dread_baseline_add = 10
 			monthly_county_control_change_factor = 0.05
 			county_opinion_add = -25
+		}
+		traits = {
+			virtues = { arbitrary sadistic }
+			sins = { just compassionate }
 		}
 	}
 		
