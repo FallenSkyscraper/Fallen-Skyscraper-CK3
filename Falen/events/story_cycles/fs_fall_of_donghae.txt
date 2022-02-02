@@ -7,7 +7,7 @@ donghae.1 = {
 	theme = martial_authority_focus
 	right_portrait = {
 		character = root
-		animation = war_attacker
+		animation = worry
 	}
 	trigger = {
 		root = { has_title = title:e_donghae }
@@ -15,6 +15,7 @@ donghae.1 = {
 	immediate = {
 		title:k_sobornost.holder = {
 			save_scope_as = sobornost
+			trigger_event = donghae.2
 		}
 		trigger_event = {
 			id = donghae.2
@@ -22,10 +23,15 @@ donghae.1 = {
 		}
 		title:k_cprf.holder = {
 			save_scope_as = communist
+			trigger_event = donghae.3
 		}
 		trigger_event = {
 			id = donghae.3
 			days = 36
+		}
+		trigger_event = {
+			id = donghae.4
+			months = 3
 		}
 	}
 	option = {
@@ -38,16 +44,21 @@ donghae.2 = {
     desc = donghae.2.desc
 	theme = martial_authority_focus
 	right_portrait = {
-		charac ter = scope:sobornost
+		character = scope:sobornost
 		animation = war_attacker
 	}
 	immediate = {
 	}
 	option = {
 		name = donghae.2.a
+		trigger = { NOT = { character = scope:sobornost } }
+	}
+	option = {
+		name = donghae.2.b
+		trigger = { character = scope:sobornost }
 	}
 }
-donghae.3 = {
+donghae.3 = { 
 	type = character_event
 	title = donghae.3.t
     desc = donghae.3.desc
@@ -56,12 +67,162 @@ donghae.3 = {
 		character = scope:communist
 		animation = war_attacker
 	}
-	trigger = {
-		has_title = title:e_donghae
-	}
-	immediate = {
-	}
 	option = {
 		name = donghae.3.a
+		trigger = { NOT = { character = scope:communist } }
+	}
+	option = {
+		name = donghae.3.b
+		trigger = { character = scope:communist }
+	}
+}
+donghae.4 = { # All vassals in Korea break up
+	type = character_event
+	title = donghae.4.t
+	desc = donghae.4.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = worry
+	}
+	immediate = {
+		root = {
+			every_vassal = {
+				limit = {
+                    highest_held_title_tier >= tier_county
+					NOT = { highest_held_title_tier = tier_kingdom }
+					capital_county = {
+						NOT = { target_is_de_jure_liege_or_above = k_primorye }
+					}
+				}
+				create_title_and_vassal_change = {
+					type = independency
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				becomes_independent = { change = scope:change }
+				resolve_title_and_vassal_change = scope:change
+				trigger_event = donghae.5
+			}
+		}
+		scope:sobornost = {
+			trigger_event = {
+				id = donghae.6
+				days = 60
+			}
+		}
+		scope:communist = {
+			trigger_event = {
+				id = donghae.6
+				days = 60
+			}
+		}
+	}
+	option = {
+		name = donghae.4.a
+		prestige = -1000
+	}
+}
+donghae.5 = { # Informs to vassal player
+	type = character_event
+	title = donghae.5.t
+	desc = donghae.5.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = happiness
+	}
+	trigger = {
+		is_ai = no
+	}
+	option = { name = donghae.5.a }
+}
+donghae.6 = {
+	type = character_event
+	title = donghae.6.t
+	desc = donghae.6.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = war_attacker
+	}
+	immediate = {
+		add_pressed_claim = e_donghae
+		start_war = {
+			casus_belli = claim_cb
+			target = character:10002
+			claimant = root
+			target_title = e_donghae
+		}
+		
+	}
+	option = {
+		name = donghae.6.a
+		trigger = {
+			character = scope:sobornost
+		}
+		add_prestige = 500
+		add_gold = 300
+		hidden_tooltip = {
+			if = {
+				limit = { NOT = { has_global_variable = donghae_civilwar_started } }
+				title:e_donghae.holder = { trigger_event = donghae.7 }
+				set_global_varibale = donghae_civilwar_started
+			}
+		}
+	}
+	option = {
+		name = donghae.6.b
+		trigger = {
+			NOT = { character = scope:sobornost }
+		}
+		add_prestige = 500
+		add_gold = 300
+		hidden_tooltip = {
+			if = {
+				limit = { NOT = { has_global_variable = donghae_civilwar_started } }
+				title:e_donghae.holder = { trigger_event = donghae.7 }
+				set_global_varibale = donghae_civilwar_started
+			}
+		}
+	}
+}
+donghae.7 = { # Rebels declared war on me!
+	type = character_event
+	title = donghae.7.t
+	desc = donghae.7.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = war_attacker
+	}
+	immediate = {
+		any
+	option = {
+		name = donghae.7.a
+	}
+}
+donghae.8 = { # Not Work
+	type = character_event
+	title = donghae.8.t
+	desc = donghae.8.desc
+	theme = martial_authority_focus
+	right_portrait = {
+		character = root
+		animation = happiness
+	}
+	trigger = {
+		root = {
+			has_title = title:e_donghae
+			has_global_variable = donghae_civilwar_started
+			is_civil_war = no
+		}
+	}
+	immediate = {
+		remove_global_variable = donghae_civilwar_started
+	}
+	option = {
+		name = donghae.8.a
+		add_prestige = 8000
 	}
 }
