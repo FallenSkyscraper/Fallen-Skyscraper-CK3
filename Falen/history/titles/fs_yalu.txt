@@ -4,6 +4,11 @@ e_yalu = {
 		government = nomadic_government
 	}
 }
+c_dandung = {
+	2398.11.7 = {
+		holder = 9008
+	}
+}
 k_shen = {
 	2390.1.1 = {
 		holder = 9126
@@ -19,6 +24,24 @@ k_shen = {
 }
 k_liaodong = {
 	2425.1.1 = { holder = 9012 liege = e_yalu government = nomadic_government }
+}
+d_wafangdian = {
+	2430.1.1 = {
+		holder = 9130
+		liege = k_liaodong
+	}
+}
+c_faanchian = {
+	2430.1.1 = {
+		holder = 9131
+		liege = k_liaodong
+	}
+}
+d_zhuanghe = {
+	2430.1.1 = {
+		holder = 9132
+		liege = k_liaodong
+	}
 }
 k_liaoyang = {
 	2230.1.1 = {
@@ -45,9 +68,9 @@ k_liaoyang = {
 	2410.1.15 = {
 		holder = 9120
 	}
-	2410.7.15 = {
-		liege = e_liao
-	}
+	#2410.7.15 = {
+	#	liege = e_liao
+	#}
 	2421.9.13 = {
 		holder = 9123
 	}
@@ -60,11 +83,63 @@ k_liaoyang = {
 		government = nomadic_government
 	}
 }
-k_liaoxi = {
-	2420.1.1 = { holder = 9008 }
+d_benxi = {
+	2315.1.2 = {
+		holder = 9046
+		liege = k_liaoyang
+	}
+	2350.5.12 = {
+		holder = 9047
+	}
+	2395.1.13 = {
+		holder = 9048
+	}
+	2400.12.1 = {
+		holder = 9049
+	}
+	2429.4.14 = {
+		holder = 9050
+	}
 }
-c_dandung = {
-	2398.11.7 = {
-		holder = 9008
+d_xiaoshi = {
+	2360.1.1 = {
+		holder = 9052
+		liege = k_liaoyang
+	}
+	2399.9.14 = {
+		holder = 9054
+	}
+	2421.11.16 = {
+		holder = 9055
+	}
+}
+d_anshan = {
+	2400.1.1 = {
+		holder = 9137
+		liege = k_liaoyang
+	}
+	2438.5.14 = {
+		holder = 9138
+	}
+}
+d_ingkou = {
+	2400.1.1 = {
+		holder = 9139
+		liege = k_liaoyang
+	}
+	2440.12.2 = {
+		holder = 9140
+	}
+}
+c_tonggeolbao = {
+	2399.9.12 = {
+		holder = 9036
+	}
+	2434.9.21 = {
+		holder = 9037
+	}
+	2443.4.14 = {
+		holder = 9038
+		liege = k_liaoyang
 	}
 }
