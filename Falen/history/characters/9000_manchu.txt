@@ -24,7 +24,12 @@
 	religion = mu_pagan
 	culture = chaoxian
 	2306.3.5 = { birth = yes }
-	2351.8.16 = { death = yes } # 9105가 처형
+	2351.8.16 = {
+		death = {
+			death_reason = death_execution
+			killer = 9105
+		}
+	}
 }
 9004 = {
 	name = "억출"
@@ -86,6 +91,8 @@
 		birth = yes
 	}
 	2402.8.13 = { add_spouse = 9028 }
+	2422.1.1 = { add_concubine = 9124 }
+	2423.1.1 = { add_concubine = 9127 }
 	2500.1.1 = {
 		death = yes
 	}
@@ -242,7 +249,12 @@
 	religion = mu_pagan
 	culture = chaoxian
 	2312.2.23 = { birth = yes }
-	2351.8.16 = { death = yes }
+	2351.8.16 = {
+		death = {
+			death_reason = death_execution
+			killer = 9105
+		}
+	}
 }
 9025 = {
 	name = "중특"
@@ -279,10 +291,646 @@
 	religion = tengri_pagan
 	culture = yalu
 	2383.6.3 = { birth = yes }
-	2443.12.29 = { death = yes }
+	2444.12.29 = { death = yes }
+}
+# 료양 고씨
+9029 = {
+	name = "연"
+	dynasty = 9029
+	religion = mu_pagan
+	culture = chaoxian
+	2200.5.1 = { birth = yes }
+	2273.7.17 = { death = yes }
+}
+9030 = {
+	name = "덕문"
+	dynasty = 9029
+	father = 9029
+	religion = mu_pagan
+	culture = chaoxian
+	2219.9.7 = { birth = yes }
+	2280.9.1 = { death = yes }
+}
+9031 = {
+	name = "대흥"
+	dynasty = 9029
+	father = 9030
+	religion = mu_pagan
+	culture = chaoxian
+	2243.8.13 = { birth = yes }
+	2315.7.16 = { death = yes }
+}
+9032 = {
+	name = "승덕"
+	dynasty = 9029
+	father = 9031
+	religion = mu_pagan
+	culture = chaoxian
+	2270.7.17 = { birth = yes }
+	2312.3.15 = { death = yes }
+}
+9033 = {
+	name = "덕배"
+	dynasty = 9029
+	father = 9032
+	religion = mu_pagan
+	culture = chaoxian
+	2290.12.23 = { birth = yes }
+	2353.5.5 = { death = yes }
+}
+9034 = {
+	name = "현덕"
+	dynasty = 9029
+	father = 9033
+	religion = mu_pagan
+	culture = chaoxian
+	2321.6.17 = { birth = yes }
+	2374.1.12 = { death = yes }
+}
+9035 = {
+	name = "중목"
+	dynasty = 9029
+	father = 9034
+	religion = mu_pagan
+	culture = chaoxian
+	2344.1.5 = { birth = yes }
+	2399.9.12 = { death = yes }
+}
+9036 = {
+	name = "방흥"
+	dynasty = 9029
+	father = 9035
+	religion = mu_pagan
+	culture = chaoxian
+	2370.1.17 = { birth = yes }
+	2434.9.21 = { death = yes }
+}
+9037 = {
+	name = "연무"
+	dynasty = 9029
+	father = 9036
+	religion = mu_pagan
+	culture = chaoxian
+	2390.6.3 = { birth = yes }
+	2320.1.1 = { add_spouse = 9010 }
+	2443.4.14 = { death = yes }
+}
+9038 = {
+	name = "궁"
+	dynasty = 9029
+	father = 9036
+	religion = mu_pagan
+	culture = chaoxian
+	2401.8.3 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9039 = {
+	name = "연수"
+	dynasty = 9029
+	father = 9037
+	mother = 9010
+	religion = mu_pagan
+	culture = chaoxian
+	2426.10.7 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9040 = {
+	name = "거련"
+	dynasty = 9029
+	father = 9038
+	religion = mu_pagan
+	culture = chaoxian
+	2428.12.30 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9041 = {
+	name = "연하"
+	female = yes
+	dynasty = 9029
+	father = 9037
+	mother = 9010
+	religion = mu_pagan
+	culture = chaoxian
+	2429.11.11 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9042 = {
+	name = "수련"
+	female = yes
+	dynasty = 9029
+	father = 9038
+	religion = mu_pagan
+	culture = chaoxian
+	2435.5.15 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9043 = {
+	name = "원영"
+	female = yes
+	dynasty = 9001
+	father = 9008
+	mother = 9028
+	religion = tengri_pagan
+	culture = yalu
+	2404.7.17 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9044 = {
+	name = "민영"
+	female = yes
+	dynasty = 9001
+	father = 9008
+	mother = 9028
+	religion = tengri_pagan
+	culture = yalu
+	2409.6.13 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9045 = {
+	name = "하영"
+	female = yes
+	dynasty = 9001
+	father = 9008
+	mother = 9028
+	religion = tengri_pagan
+	culture = yalu
+	2411.12.3 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+#오'씨
+9046 = {
+	name = "무흔"
+	dynasty = 9046
+	religion = mu_pagan
+	culture = chaoxian
+	2294.5.15 = { birth = yes }
+	2350.5.12 = { death = yes }
+}
+9047 = {
+	name = "자인"
+	dynasty = 9046
+	father = 9046
+	religion = cheondo
+	culture = chaoxian
+	2320.7.14 = { birth = yes }
+	2395.1.13 = { death = yes }
+}
+9048 = {
+	name = "주식"
+	dynasty = 9046
+	father = 9047
+	religion = cheondo
+	culture = chaoxian
+	2367.7.17 = { birth = yes }
+	2395.1.13 = { death = yes }
+}
+9049 = {
+	name = "득신"
+	dynasty = 9046
+	father = 9048
+	religion = cheondo
+	culture = chaoxian
+	2390.5.15 = { birth = yes }
+	2429.4.14 = { death = yes }
+}
+9050 = {
+	name = "학철"
+	dynasty = 9046
+	father = 9049
+	religion = cheondo
+	culture = chaoxian
+	2409.1.12 = { birth = yes }
+	2429.1.1 = { add_spouse = 9044 }
+	2500.1.1 = { death = yes }
+}
+9051 = {
+	name = "정희"
+	dynasty = 9046
+	father = 9050
+	mother = 9044
+	religion = cheondo
+	culture = chaoxian
+	2430.3.16 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+#신씨
+9052 = {
+	name ="두식"
+	dynasty = 9052
+	religion = cheondo
+	culture = chaoxian
+	2319.4.5 = { birth = yes }
+	2399.9.14 = { death = yes }
+}
+9053 = {
+	name = "탁삼"
+	dynasty = 9052
+	father = 9052
+	religion = cheondo
+	culture = chaoxian
+	2345.5.16 = { birth = yes }
+	2380.1.14 = { death = yes }
+}
+9054 = {
+	name = "신현"
+	dynasty = 9052
+	father = 9053
+	religion = cheondo
+	culture = chaoxian
+	2365.12.24 = { birth = yes }
+	2421.11.16= { death = yes }
+}
+9055 = {
+	name = "금철"
+	dynasty = 9052
+	father = 9054
+	religion = cheondo
+	culture = chaoxian
+	2400.8.1 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9056 = {
+	name = "광사"
+	dynasty = 9052
+	father = 9055
+	religion = cheondo
+	culture = chaoxian
+	2429.9.9 = { birth = yes }
+	2500.1.1 = { death = yes }
 }
 #9100 : 옛 중국인 지도자들
-#9200 : 요동의 옛 만주와 조선계
+#Liang Dynasty of Liaoyang
+9101 = {
+	name = "후스"#Hushi"
+	dynasty = 9101
+	religion = zhengyi
+	culture = liaoshen
+	2217.6.1 = { birth = yes }
+	2260.6.12 = { death = yes }
+}
+9102 = {
+	name = "웨이팡"#Weifang"
+	dynasty = 9101
+	father = 9101
+	religion = zhengyi
+	culture = liaoshen
+	2240.1.12 = { birth = yes }
+	2299.9.16 = { death = yes }
+}
+9103 = {
+	name = "제쯔"#Jiezi"
+	dynasty = 9101
+	father = 9102
+	religion = zhengyi
+	culture = liaoshen
+	2261.5.13 = { birth = yes }
+	2304.1.22 = { death = yes }
+}
+9104 = {
+	name = "치양"#Qiyang"
+	dynasty = 9101
+	father = 9103
+	religion = zhengyi
+	culture = liaoshen
+	2283.1.16 = { birth = yes }
+	2342.6.15 = { death = yes }
+}
+9105 = {
+	name = "구이샹"#Guixiang"
+	dynasty = 9101
+	father = 9104
+	religion = zhengyi
+	culture = liaoshen
+	2301.12.5 = { birth = yes }
+	2360.3.7 = { death = yes }
+}
+9106 = {
+	name = "펑디"#Fengdi"
+	dynasty = 9101
+	father = 9105
+	religion = zhengyi
+	culture = liaoshen
+	2333.1.11 = { birth = yes }
+	2385.5.14 = { death = yes }
+}
+9107 = {
+	name = "둥마오"#Dongmao"
+	dynasty = 9101
+	father = 9106
+	religion = zhengyi
+	culture = liaoshen
+	2354.7.7 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+9108 = {
+	name = "차오반"#Caoban"
+	dynasty = 9101
+	father = 9107
+	religion = zhengyi
+	culture = liaoshen
+	2382.5.3 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+9109 = {
+	name = "첸푸"#Qianfu"
+	dynasty = 9101
+	father = 9108
+	religion = zhengyi
+	culture = liaoshen
+	2400.5.12 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+
+9110 = {
+	name = "첸디"#Qiandi"
+	dynasty = 9101
+	father = 9108
+	religion = zhengyi
+	culture = liaoshen
+	2403.9.12 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+
+9111 = {
+	name = "후이쯔"#Huizi"
+	dynasty = 9101
+	female = yes
+	father = 9108
+	religion = zhengyi
+	culture = liaoshen
+	2408.12.3 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+
+9112 = {
+	name = "차오밍"#Caoming"
+	dynasty = 9101
+	father = 9107
+	religion = zhengyi
+	culture = liaoshen
+	2390.6.16 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+
+9113 = {
+	name = "차오슈"#Caoxiu"
+	dynasty = 9101
+	father = 9107
+	religion = zhengyi
+	culture = liaoshen
+	2393.5.15 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+
+9114 = {
+	name = "바이쩌"#Baize"
+	dynasty = 9101
+	father = 9112
+	religion = zhengyi
+	culture = liaoshen
+	2406.5.15 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+
+9115 = {
+	name = "바이린"#Bailin"
+	dynasty = 9101
+	female = yes
+	father = 9112
+	religion = zhengyi
+	culture = liaoshen
+	2408.9.12 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+
+9116 = {
+	name = "궈푸"#Guofu"
+	dynasty = 9101
+	father = 9113
+	religion = zhengyi
+	culture = liaoshen
+	2407.7.13 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+
+9117 = {
+	name = "궈딩"#Guoding"
+	dynasty = 9101
+	father = 9113
+	religion = zhengyi
+	culture = liaoshen
+	2409.1.9 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+
+9118 = {
+	name = "커민"#Kemin"
+	dynasty = 9101
+	father = 9107
+	religion = zhengyi
+	culture = liaoshen
+	2408.12.5 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+9119 = {
+	name = "커창"#Keqiang"
+	dynasty = 9101
+	father = 9107
+	religion = zhengyi
+	culture = liaoshen
+	2408.12.5 = { birth = yes }
+	2410.1.15 = {
+		death = {
+			death_reason = death_murder
+			killer = 9120
+		}
+	}
+}
+# Liao Dynasty of Great Liao Empire
+9120 = {
+	name = "쑹즈"#Songzhi"
+	dynasty = 9120
+	religion = zhengyi
+	culture = liaoshen
+	trait = ambitious
+	trait = diligent
+	trait = vengeful
+	trait = strategist
+	trait = education_martial_4
+	trait = intellect_good_1
+	2383.4.15 = { birth = yes }
+	2421.9.13 = {
+		death = {
+			death_reason = death_battle
+			killer = 9008
+		}
+	}
+}
+9121 = {
+	name = "쉰"#Xun"
+	dynasty = 9120
+	father = 9120
+	religion = zhengyi
+	culture = liaoshen
+	2400.3.5 = { birth = yes }
+	2421.9.13 = {
+		death = {
+			death_reason = death_battle
+			killer = 9008
+		}
+	}
+}
+9122 = {
+	name = "타이시"#Taixi"
+	dynasty = 9120
+	father = 9120
+	religion = zhengyi
+	culture = liaoshen
+	2402.11.7 = { birth = yes }
+	2421.9.13 = {
+		death = {
+			death_reason = death_battle
+			killer = 9008
+		}
+	}
+}
+9123 = {
+	name = "지양"#Jiyang"
+	dynasty = 9120
+	father = 9120
+	religion = zhengyi
+	culture = liaoshen
+	2406.6.16 = { birth = yes }
+	2422.8.5 = {
+		death = {
+			death_reason = death_murder
+			killer = 9139
+		}
+	}
+}
+9124 = {
+	name = "슈"#Xiu"
+	dynasty = 9120
+	female = yes
+	father = 9120
+	religion = tengri_pagan
+	culture = liaoshen
+	2404.9.15 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9125 = {
+	name = "밍"#Ming"
+	dynasty = 9120
+	female = yes
+	father = 9120
+	religion = tengri_pagan
+	culture = liaoshen
+	2411.5.12 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9126 = {
+	name = "원타이"#Wentai"
+	dynasty = 9126
+	religion = tibetan
+	culture = mukden
+	trait = arbitrary
+	2376.6.13 = { birth = yes }
+	2422.11.3 = {
+		death = {
+			death_reason = death_execution
+			killer = 9008
+		}
+	}
+}
+9127 = {
+	name = "오르게"
+	dynasty = 9126
+	female = yes
+	father = 9126
+	religion = tibetan
+	culture = mukden
+	2412.1.12 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+9128 = {
+	name = "오보이"
+	dynasty = 9128 # 아디옌
+	religion = tibetan
+	culture = mukden
+	2405.5.17 = { birth = yes }
+	2425.5.1 = { add_spouse = 9043 }
+	2500.1.1 = { death = yes }
+}
+9129 = {
+	name = "오르트"
+	dynasty = 9128
+	father = 9128
+	mother = 9043
+	religion = tibetan
+	culture = mukden
+	2430.4.3 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
 #건주
 9401 = {
 	name = "UhuwE_"
