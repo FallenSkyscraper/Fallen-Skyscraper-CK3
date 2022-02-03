@@ -10,8 +10,6 @@ succession_order_laws = {
 				has_government = military_government 
 				has_government = oligarchic_republic_government
 				has_government = merchant_republic_government
-				has_government = nomadic_government
-				has_government = manchu_tribal_government
 			}
 		}
 		can_pass = {
@@ -87,16 +85,18 @@ succession_order_laws = {
 				has_government = clan_government
 				#fs_모드의
 				has_government = bureaucratic_government
-						has_government = maritime_government 
-						has_government = theocratic_feudal_government
-						has_government = secular_republic_government  
+				has_government = maritime_government 
+				has_government = theocratic_feudal_government
+				has_government = secular_republic_government
+				has_government = manchu_tribal_government
+				historical_succession_access_partition_succession_law_trigger = yes
 			}
-			culture = {
-				has_innovation = innovation_hereditary_rule
-				NOT = {
-					has_innovation = innovation_heraldry
-				}
-			}
+			#culture = {
+			#	has_innovation = innovation_hereditary_rule
+			#	NOT = {
+			#		has_innovation = innovation_heraldry
+			#	}
+			#}
 		}
 		succession = {
 			order_of_succession = inheritance
@@ -171,6 +171,158 @@ succession_order_laws = {
 					OR = {
 						has_realm_law = confederate_partition_succession_law
 						has_realm_law = partition_succession_law
+					}
+				}
+				value = 2
+			}
+		}
+	}
+
+	youngest_confederate_partition_succession_law = {
+		can_keep = {
+			always = yes
+			NOR = {
+				has_government = imperial_government
+				has_government = proletarian_government 
+				has_government = military_government 
+				has_government = oligarchic_republic_government
+				has_government = merchant_republic_government
+			}
+		}
+		can_have = {
+			can_have_youngest_confederate_partition_succession_law_trigger = yes
+		}
+		can_pass = {
+			can_change_partition_succession_law_trigger = no
+			OR = {
+				has_government = manchu_tribal_government
+				has_government = nomadic_government
+			}	
+		}
+		should_start_with = {
+			NOR = {
+				historical_succession_access_partition_succession_law_trigger = yes
+			}
+			has_government = nomadic_government
+		}
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			rank = youngest
+			title_division = partition
+			create_primary_tier_titles = yes
+		}
+		flag = partition_succession_law
+		modifier = {
+			direct_vassal_opinion = 5
+			dynasty_house_opinion = 5
+			eligible_child_opinion = 10
+		}
+		pass_cost = {
+			prestige = change_succession_law_prestige_cost
+		}
+	}
+
+	youngest_partition_succession_law = {#말자 분할 상속제
+		can_keep = {
+			can_keep_youngest_partition_succession_law_trigger = yes
+		}
+		can_pass = {
+			can_change_partition_succession_law_trigger = no
+			NOT = { has_realm_law = crown_authority_0 }
+			NOT = { has_realm_law = tribal_authority_0 }
+			OR = {
+				has_government = manchu_tribal_government
+				has_government = nomadic_government
+			}
+		}
+		can_have = {
+			can_have_youngest_partition_succession_law_trigger
+		}
+		should_start_with = {
+			NOR = {
+				historical_succession_access_partition_succession_law_trigger = yes
+			}
+			OR = {
+				has_government = manchu_tribal_government
+				has_government = nomadic_government
+			}
+		}
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			rank = youngest
+			title_division = partition
+		}
+		flag = partition_succession_law
+		modifier = {
+			direct_vassal_opinion = 5
+			player_heir_opinion = 10
+			eligible_child_except_player_heir_opinion = 5
+		}
+		pass_cost = {
+			prestige = change_succession_law_prestige_cost
+		}
+		ai_will_do = {
+			if = {
+				limit = {has_realm_law = youngest_confederate_partition_succession_law}
+				value = 1
+			}
+		}
+	}
+
+	high_youngest_partition_succession_law = {
+		can_keep = {
+			can_keep_high_youngest_partition_succession_law_trigger = yes
+		}
+		can_pass = {
+			can_change_partition_succession_law_trigger = no
+			OR = {
+				has_government = nomadic_government
+				has_government = manchu_tribal_government
+			}
+			NOT = {has_realm_law = crown_authority_0}
+			NOT = {has_realm_law = tribal_authority_0}
+		}
+		can_have = {
+			can_have_high_youngest_partition_succession_law_trigger = yes
+		}
+		should_start_with = {
+			NOR = {
+				historical_succession_access_partition_succession_law_trigger = yes
+			}
+			OR = {
+				has_government = manchu_tribal_government
+				has_government = nomadic_government
+			}
+			culture = {
+				has_innovation = innovation_heraldry
+				NOT = {
+					has_innovation = innovation_hereditary_rule
+				}
+			}
+		}
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			rank = youngest
+			title_division = partition
+			primary_heir_minimum_share = 0.5
+		}
+		flag = partition_succession_law
+		modifier = {
+			direct_vassal_opinion = 5
+			player_heir_opinion = 15
+		}
+		pass_cost = {
+			prestige = change_succession_law_prestige_cost
+		}
+		ai_will_do = {
+			if = {
+				limit = {
+					OR = {
+						has_realm_law = youngest_confederate_partition_succession_law
+						has_realm_law = youngest_partition_succession_law
 					}
 				}
 				value = 2
