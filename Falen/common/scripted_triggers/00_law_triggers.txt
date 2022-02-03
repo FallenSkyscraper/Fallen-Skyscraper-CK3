@@ -53,15 +53,25 @@ has_partition_succession_realm_law_trigger = {
 		has_realm_law = confederate_partition_succession_law
 		has_realm_law = partition_succession_law
 		has_realm_law = high_partition_succession_law
+		has_realm_law = youngest_confederate_partition_succession_law
+		has_realm_law = youngest_partition_succession_law
+		has_realm_law = high_youngest_partition_succession_law
 	}
 }
 
 realm_law_use_crown_authority = {
-	NOT = { has_government = tribal_government }
+	NOR = { 
+		has_government = tribal_government
+		has_government = nomadic_government
+		has_government = manchu_tribal_government
+	}
 }
 
 can_have_confederate_partition_succession_law_trigger = {
-	has_government = tribal_government
+	OR = {
+		has_government = tribal_government
+		has_government = nomadic_government
+	}
  
 }
 
@@ -86,6 +96,8 @@ can_have_partition_succession_law_trigger = {
 			has_government = feudal_government
 			has_government = tributary_government
 			has_government = clan_government
+			has_government = manchu_tribal_government
+			has_government = nomadic_government
 		}
 	}
 }
@@ -106,6 +118,48 @@ can_have_high_partition_succession_law_trigger = {
 		has_government = feudal_government
 		has_government = tributary_government
 		has_government = clan_government
+		has_government = manchu_tribal_government
+		has_government = nomadic_government
+	}
+}
+
+can_have_youngest_confederate_partition_succession_law_trigger = {
+	OR = {
+		has_government = nomadic_government
+		has_government = manchu_tribal_government
+	}
+}
+
+can_have_youngest_partition_succession_law_trigger = {
+	OR = {
+		has_government = nomadic_government
+		has_government = manchu_tribal_government
+	}
+}
+
+can_keep_youngest_partition_succession_law_trigger = {
+	trigger_if = {
+		limit = {
+			has_realm_law = youngest_partition_law
+		}
+		can_have_youngest_partition_law_trigger = yes
+	}
+}
+
+can_have_high_youngest_partition_succession_law_trigger = {
+	OR = {
+		culture = { has_innovation = innovation_kingship }
+		has_government = nomadic_government
+		has_government = manchu_tribal_government
+	}
+}
+
+can_keep_high_youngest_partition_succession_law_trigger = {
+	trigger_if = {
+		limit = {
+			has_realm_law = high_youngest_partition_succession_law
+		}
+		can_have_high_youngest_partition_succession_law_trigger = yes
 	}
 }
 
