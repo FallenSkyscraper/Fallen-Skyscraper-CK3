@@ -1,53 +1,129 @@
-﻿bm_2000_test = {
+﻿bm_2444_fallen_skyscraper = {
 	start_date = 2444.1.1
 	is_playable = yes
-
+	recommended = yes
 	character = {
-		name = "bookmark_test_chosen"
-		dynasty = 6001
+		name = "bookmark_fallen_skyscraper_seoul"
+		dynasty = 206
+		dynasty_splendor_level = 2
+		type = male
+		birth = 2397.5.15
+		title = k_seoul
+		government = feudal_government
+		culture = seoul
+		religion = seoulism
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = 223
+		position = { 850 300 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bookmark_fallen_skyscraper_gyeonggi"
+		dynasty = 101
+		dynasty_splendor_level = 2
+		type = male
+		birth = 2386.6.13
+		title = k_gyeonggi
+		government = feudal_government
+		culture = suwon
+		religion = mechanism
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = 107
+		position = { 950 680 }
+		animation = disapproval
+	}
+	character = {
+		name = "bookmark_fallen_skyscraper_incheon"
+		dynasty = 1
 		dynasty_splendor_level = 1
 		type = male
-		birth = 2416.1.12
-		title = k_prk
-		government = secular_republic_government
-		culture = pyongyang
-		religion = cheondo
-		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
-		history_id = 6002
-		position = { 300 400 }
-
-		animation = disapproval
-	}
-	character = {
-		name = "bookmark_test_juche"
-		dynasty = 8001
-		dynasty_splendor_level = 4
-		type = male
-		birth = 2398.1.1
-		title = e_north_korea
+		birth = 2397.4.28
+		title = k_incheon
 		government = feudal_government
-		culture = baekdu
-		religion = juche
-		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_HARD"
-		history_id = 8001
-		position = { 700 300 }
-
-		animation = disapproval
-	}
-	character = {
-		name = "bookmark_test_hec"
-		dynasty = 100101
-		dynasty_splendor_level = 6
-		type = male
-		birth = 2375.1.1
-		title = e_hec
-		government = feudal_government
-		culture = jeonju
-		religion = imperial_church
+		culture = incheon
+		religion = protestant
 		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
-		history_id = 4005
-		position = { 500 790 }
-
-		animation = disapproval
+		history_id = 1
+		position = { 500 600 }
+		animation = personality_bold
 	}
+	character = {
+		name = "bookmark_fallen_skyscraper_seohaean"
+		dynasty = 2
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2394.6.25
+		title = k_UWC
+		government = oligarchic_republic_government
+		culture = incheon
+		religion = protestant
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = 2
+		position = { 700 400 }
+		animation = personality_bold
+	}
+	character = {
+		name = "bookmark_fallen_skyscraper_gaeseong"
+		dynasty = 802
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2386.9.10
+		title = k_gaeseong
+		government = feudal_government
+		culture = gaeseong
+		religion = populism
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = 806
+		position = { 500 100 }
+		animation = shame
+	}
+	character = {
+		name = "bookmark_fallen_skyscraper_cheonan"
+		dynasty = 127
+		dynasty_splendor_level = 2
+		type = male
+		birth = 2382.12.26
+		title = d_cheonan
+		government = feudal_government
+		culture = cheonan
+		religion = mechanism
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = 124
+		position = { 1100 860 }
+		animation = worry
+	}
+	character = {
+		name = "bookmark_fallen_skyscraper_seongnam"
+		dynasty = 171
+		dynasty_splendor_level = 1
+		type = female
+		birth = 2400.7.1
+		title = d_seongnam
+		government = feudal_government
+		culture = icheon
+		religion = populism
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = 175
+		position = { 1200 560 }
+		animation = personality_cynical
+	}
+	character = {
+		name = "bookmark_fallen_skyscraper_yongsan"
+		dynasty = 213
+		dynasty_splendor_level = 2
+		type = male
+		birth = 2425.9.16
+		title = c_yongsan
+		government = feudal_government
+		culture = kuriyn
+		religion = muttahida
+		difficulty = "BOOKMARK_CHARACTER_DIFFICULTY_EASY"
+		history_id = 213
+		position = { 1100 400 }
+		animation = personality_bold
+	}
+}
+bm_2000_test = {
+	start_date = 2444.1.1
+	is_playable = yes
 }
