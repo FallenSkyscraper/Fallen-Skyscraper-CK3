@@ -6,24 +6,126 @@
 namespace = sun_from_north
 
 #왕귀 준비
-sun_from_north.1001 = {
+sun_from_north.1 = {
 	type = character_event
-	title = sun_from_north.0001.t
-	desc = sun_from_north.0001.desc
+	title = sun_from_north.1.t
+	desc = sun_from_north.1.desc
 	theme = hunting
 	override_background = {
 		event_background = sitting_room
 	}
 	left_portrait = root
 
-	#trigger = {
-	#}
-
+	trigger = {
+		NOT = { has_global_variable = nk_rising }
+		has_title = title:e_north_korea
+	}
+	immediate = {
+		set_global_variable = nk_rising
+		root = { save_scope_as = avgvstvs }
+	}
 	option = {
-		name = sun_from_north.1001.a
-		add_character_modifier = {
-			modifier = focused_on_mystical_animal_modifier
-			years = 10
+		name = sun_from_north.1.a
+		every_independent_ruler = {
+			limit = {
+				NOT = { character = root }
+			}
+			trigger_event = {
+				id = sun_from_north.2
+				days = 1
+			}
 		}
+		every_player = {
+			trigger_event = {
+				id = sun_from_north.3
+				days = 2
+			}
+		}
+	}
+}
+sun_from_north.2 = {
+	type = letter_event
+	opening = {
+		desc = sun_from_north.2.t
+	}
+	sender = scope:avgvstvs
+	desc = sun_from_north.2.desc
+	option = {
+		trigger = {
+			OR = {
+				root.faith = faith:juche
+				root.faith = faith:haeseoan
+			}
+		}
+		name = sun_from_north.2.a
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		root = {
+			change_liege = {
+				liege = scope:avgvstvs
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+	}
+	option = {
+		trigger = {
+			root.faith = faith:inmin_juche
+			is_ai = no
+		}
+		name = sun_from_north.2.b
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		root = {
+			change_liege = {
+				liege = scope:avgvstvs
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+			set_character_faith = faith:juche
+		}
+	}
+	option = {
+		trigger = {
+			root.faith = faith:inmin_juche
+		}
+		name = sun_from_north.2.c
+		add_prestige = 200
+	}
+	option = {
+		trigger = {
+			NOT = {
+				root.religion = religion:juche_religion
+			}
+		}
+		name = sun_from_north.2.d
+	}
+}
+sun_from_north.3 = {
+	type = character_event
+	title = sun_from_north.3.t
+	desc = sun_from_north.3.desc
+	theme = hunting
+	right_portrait = scope:avgvstvs
+	immediate = {
+		play_music_cue = mx_aegukka
+	}
+	option = {
+		trigger = {
+			top_liege = scope:avgvstvs
+		}
+		name = sun_from_north.3.a
+	}
+	option = {
+		trigger = {
+			NOT = { top_liege = scope:avgvstvs }
+		}
+		name = sun_from_north.3.b
 	}
 }
