@@ -83,7 +83,6 @@ e_hec = {
 		color1 = "black"
 		color2 = "white"
 		color3 = "green_light"
-		#instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
 	}
 }
 e_donghae = {
@@ -156,6 +155,15 @@ c_buyeo = {
 	colored_emblem = {
 		texture = "ce_incense_burner.dds"
 		color1 = "yellow_light"
+	}
+}
+k_jeonju = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	colored_emblem = {
+		texture = "ce_jeonbuk.dds"
+		color1 = "green_light"
+		color2 = "yellow"
 	}
 }
 k_gaeseong = {
@@ -287,6 +295,14 @@ k_daegu = {
 		#instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
 	}
 }
+d_daegu = {
+	pattern = "pattern_solid.dds"
+	color1 = "blue"
+	colored_emblem = {
+		texture = "ce_daegu.dds"
+		color1 = "white"
+	}
+}
 k_gaya = {
 	pattern = "pattern_solid.dds"
 	color1 = "red"
@@ -369,6 +385,24 @@ k_muan = {
 		color3 = "blue"
 	}
 }
+k_gwangju = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	colored_emblem = {
+		texture = "ce_gwangju_2.dds"
+		color1 = "blue"
+	}
+}
+d_gwangju = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	colored_emblem = {
+		texture = "ce_gwangju_1.dds"
+		color1 = "green"
+		color2 = "yellow"
+		color3 = "orange"
+	}
+}
 d_yeosu = {
 	pattern = "pattern_solid.dds"
 	color1 = "blue_light"
@@ -377,5 +411,67 @@ d_yeosu = {
 		color1 = "white"
 		color2 = "brown"
 		color3 = "black"
+	}
+}
+k_gyeonggi = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	colored_emblem = {
+		texture = "ce_gyeonggi_mechanism.dds"
+		color1 = "blue_light"
+		color2 = "white"
+		color3 = "black"
+		instance = { position = { 0.5 0.45 } scale = { 0.8 0.8 } }
+	}
+}
+k_gonghong = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	colored_emblem = {
+		texture = "ce_chungnam.dds"
+		color1 = "blue_light"
+		instance = { position = { 0.5 0.45 } scale = { 1.0 1.0 } }
+	}
+}
+k_busan = {
+	pattern = "pattern_solid.dds"
+	color1 = "blue"
+	colored_emblem = {
+		texture = "ce_busan.dds"
+		color1 = "yellow"
+	}
+}
+k_chungcheong = {
+	pattern = "pattern_solid.dds"
+	color1 = "purple"
+	colored_emblem = {
+		texture = "ce_chungbuk.dds"
+		color1 = "yellow_light"
+		instance = { position = { 0.5 0.45 } scale = { 0.9 0.9 } }
+	}
+}
+k_andong = {
+	pattern = "pattern_solid.dds"
+	color1 = "orange"
+	colored_emblem = {
+		texture = "ce_zhou.dds"
+		color1 = "black"
+	}
+}
+k_cprf = {
+	pattern = "pattern_solid.dds"
+	color1 = "red"
+	colored_emblem = {
+		texture = "ce_lenin.dds"
+		color1 = "yellow"
+		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+	}
+}
+k_sobornost = {
+	pattern = "pattern_solid.dds"
+	color1 = "purple"
+	colored_emblem = {
+		texture = "ce_cross_patriarchal.dds"
+		color1 = "yellow"
 	}
 }
