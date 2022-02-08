@@ -215,11 +215,12 @@ donghae.8 = { # Not Work
 		root = {
 			has_title = title:e_donghae
 			has_global_variable = donghae_civilwar_started
+			NOT = { has_global_variable = donghae_civilwar_ended }
 			is_civil_war = no
 		}
 	}
 	immediate = {
-		remove_global_variable = donghae_civilwar_started
+		set_global_variable = donghae_civilwar_ended
 	}
 	option = {
 		name = donghae.8.a

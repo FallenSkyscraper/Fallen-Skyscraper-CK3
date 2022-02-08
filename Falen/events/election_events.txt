@@ -1,4 +1,4 @@
-namespace = joson_election
+﻿namespace = joson_election
 
 joson_election.1 = {
     type = empty
@@ -26,8 +26,8 @@ joson_election.1 = {
 						is_ai = yes
 					}
 					add_to_global_variable_list = {
-					name = voters
-					target = this
+						name = voters
+						target = this
 					}
 					set_variable = { name = voting_power value = 0 }
 					every_held_title = {
@@ -50,73 +50,71 @@ joson_election.1 = {
 		}
 		}
 		every_in_global_list = {
-			list = voters
-				save_scope_as = prevprev
-					every_in_global_list = { # 후보중 누구에게 줄지
-						list = candidates_real
-						set_variable = { name = score value = 100 }
-						scope:prevprev = {
-							save_temporary_opinion_value_as = { name = opinion target = prev }
-						}
-						change_variable = { name = score add = scope:opinion }
-						if = {
-							limit = {
-								has_same_culture_group_as = prev
-								NOT = { has_same_culture_as = prev }
+			variable = voters
+			save_scope_as = elector
+			every_in_global_list = { # 후보중 누구에게 줄지
+				variable = candidates_real
+				set_variable = { name = score value = 100 }
+				scope:elector = {
+					save_opinion_value_as = { name = opinion target = prev }
+				}
+				change_variable = { name = score add = scope:opinion }
+				if = {
+					limit = {
+						has_same_culture_group_as = prev
+						NOT = { has_same_culture_as = prev }
+					}
+					change_variable = { name = score subtract = 10 }
+				}
+				if = {
+					limit = {
+						NOT = { has_same_culture_group_as = prev }
+					}
+					change_variable = { name = score subtract = 25 }
+				}
+				if = {
+					limit = {
+						faith = {
+							faith_hostility_level = {
+								target = scope:elector.faith
+								value = 1
 							}
-							change_variable = { name = score subtract = 10 }
-						}
-						if = {
-							limit = {
-								NOT = { has_same_culture_group_as = prev }
-							}
-							change_variable = { name = score subtract = 25 }
-						}
-						if = {
-							limit = {
-								faith = {
-									faith_hostility_level = {
-										target = scope:prevprev.faith
-										value = 1
-									}
-								}
-							}
-							change_variable = { name = score subtract = 10 }
-						}
-						if = {
-							limit = {
-								faith = {
-									faith_hostility_level = {
-										target = scope:prevprev.faith
-										value = 2
-									}
-								}
-							}
-							change_variable = { name = score subtract = 25 }
-						}
-						if = {
-							limit = {
-								faith = {
-									faith_hostility_level = {
-										target = scope:prevprev.faith
-										value = 3
-									}
-								}
-							}
-							change_variable = { name = score subtract = 50 }
 						}
 					}
-					ordered_in_global_list = {
-						list = candidates_real
-						order_by = this.score
-						position = 0
-						save_scope_as = aye
+					change_variable = { name = score subtract = 10 }
+				}
+				if = {
+					limit = {
+						faith = {
+							faith_hostility_level = {
+								target = scope:elector.faith
+								value = 2
+							}
+						}
 					}
-					scope:aye = {
-						change_variable = { name = votes add = prevprev.voting_power }
+					change_variable = { name = score subtract = 25 }
+				}
+				if = {
+					limit = {
+						faith = {
+							faith_hostility_level = {
+								target = scope:elector.faith
+								value = 3
+							}
+						}
 					}
-					# AI가 후보들 중에서 자기가 가장좋아하는놈을 하나 고름
-					# 그 후보에게 직할령 개발도만큼의 표를 더함
+					change_variable = { name = score subtract = 50 }
+				}
+			}
+			ordered_in_global_list = {
+				variable = candidates_real
+				order_by = var:score.compare_value
+				position = 0
+				change_variable = { name = votes add = { value = prev.var:voting_power } }
+			}
+			remove_variable = voting_power
+			# AI가 후보들 중에서 자기가 가장좋아하는놈을 하나 고름
+			# 그 후보에게 직할령 개발도만큼의 표를 더함
 		}
 		if = {
 			limit = {
@@ -131,18 +129,14 @@ joson_election.1 = {
 		}
 	}
 }
-#joson_election.2 = { # AI electors vote
-#	type = empty
-#	hidden = yes
-#	immediate = { title:k_prk.holder = { add_gold = 1000 }	}
-#}
+#joson_election.2
 joson_election.3 = { # 선거 결과 계산
-	type = charater_event
+	type = character_event
 	hidden = yes
 	immediate = {
-		ordered_in_list = {
-			list = candidates_real
-			order_by = this.votes
+		ordered_in_global_list = {
+			variable = candidates_real
+			order_by = var:votes.compare_value
 			position = 0
 			save_scope_as = winner
 		}
@@ -152,6 +146,9 @@ joson_election.3 = { # 선거 결과 계산
 			add_claim_on_loss = no
 		}
 		title:k_prk = {
+			holder = {
+				save_scope_as = former_president
+			}
 			change_title_holder_include_vassals = {
 				holder = scope:winner
 				change = scope:change
@@ -164,17 +161,27 @@ joson_election.3 = { # 선거 결과 계산
 			}
 		}
 		resolve_title_and_vassal_change = scope:change
-		set_global_variable = { name = winner_vote value = scope:winner.votes }
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:former_president = {
+			change_liege = {
+				liege = scope:winner
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+		clear_saved_scope = former_president
+		set_global_variable = { name = winner_vote value = scope:winner.var:votes }
+		set_global_variable = { name = winner value = scope:winner }
 		every_in_global_list = {
-			list = candidates_real
+			variable = candidates_real
 			remove_variable = votes
 			remove_variable = candidate
 		}
 		clear_global_variable_list = candidates_real
-		every_in_global_list = {
-			list = voters
-			remove_variable = voting_power
-		}
 		clear_global_variable_list = voters
 		if = {
 			limit = {
@@ -182,18 +189,18 @@ joson_election.3 = { # 선거 결과 계산
 			}
 			remove_global_variable = player_is_elector	
 		}
-		every_playable_character = {
-			limit = { is_ai = no }
+		every_player = {
 			trigger_event = {
 				id = joson_election.4
 				days = 1
 			}
 		}
-		
+		change_global_variable = { name = election_date add = 4 }
+		set_global_variable = { name = election_term value = 3 }
 	}
 }
 joson_election.4 = { # 선거 결과 발표
-	type = charater_event
+	type = character_event
 	title = joson_election.4.t
 	desc = joson_election.4.desc
 	theme = martial_authority_focus
@@ -201,15 +208,16 @@ joson_election.4 = { # 선거 결과 발표
 		reference = "gfx/interface/icons/event_types/type_election.dds"
 	}
 	right_portrait = {
-		character = root
-		animation = war_attacker
+		character = scope:winner
+		animation = happiness
 	}
 	option = { # 알겟서요
 		name = joson_election.4.b
-		hidden_tooltip = {
+		hidden_effect = {
 			remove_global_variable = winner_vote
-			change_global_variable = { name = election_date add = 4 }
-			set_global_variable = { name = election_term value = 3 }
+			remove_global_variable = winner
+			clear_saved_scope = winner
+			
 		}
 	}
 }
