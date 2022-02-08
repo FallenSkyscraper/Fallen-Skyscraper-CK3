@@ -129,7 +129,14 @@ joson_election.1 = {
 		}
 	}
 }
-#joson_election.2
+joson_election.2 = {
+	type = character_event
+	hidden = yes
+	immediate = {
+		change_global_variable = { name = election_date add = 4 }
+		set_global_variable = { name = election_term value = 3 }
+	}
+}
 joson_election.3 = { # 선거 결과 계산
 	type = character_event
 	hidden = yes
@@ -195,8 +202,10 @@ joson_election.3 = { # 선거 결과 계산
 				days = 1
 			}
 		}
-		change_global_variable = { name = election_date add = 4 }
-		set_global_variable = { name = election_term value = 3 }
+		trigger_event = {
+			id = joson_election.2
+			days = 4
+		}
 	}
 }
 joson_election.4 = { # 선거 결과 발표
