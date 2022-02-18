@@ -197,6 +197,13 @@ yongsan_default = {
 		same_faith_opinion = 5
 	}
 }
+yeoncheon_default = {
+	county = c_yeoncheon
+	character_modifier = {
+		monthly_piety_gain_mult = 0.05
+		learning = 1
+	}
+}
 ###충청###
 gyeryong_default_gyeryongsan = {
 	county = c_gyeryong
@@ -344,6 +351,12 @@ yangsan_default = {
 	county = c_yangsan
 	character_modifier = {
 		learning = 2
+	}
+}
+busan_default = {
+	county = c_busan
+	character_modifier = {
+
 	}
 }
 busan_yeongdo_default = {
@@ -497,7 +510,7 @@ songpa_manchu_samjeondo = {
 	character_modifier = {
 	}
 }
-changbai_manchu_golminsanganarin = {
+changbai_manchu_golminsangyanarin = {
 	county = c_changbai
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
