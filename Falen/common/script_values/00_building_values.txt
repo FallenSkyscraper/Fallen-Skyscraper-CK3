@@ -77,14 +77,14 @@
 
 
 # Tier values
-@building_garrison_reinforcement_factor_tier_1 = @[base_garrison_reinforcement_factor]
-@building_garrison_reinforcement_factor_tier_2 = @[building_garrison_reinforcement_factor_tier_1 + garrison_reinforcement_factor_addition_per_tier]
-@building_garrison_reinforcement_factor_tier_3 = @[building_garrison_reinforcement_factor_tier_2 + garrison_reinforcement_factor_addition_per_tier]
-@building_garrison_reinforcement_factor_tier_4 = @[building_garrison_reinforcement_factor_tier_3 + garrison_reinforcement_factor_addition_per_tier]
-@building_garrison_reinforcement_factor_tier_5 = @[building_garrison_reinforcement_factor_tier_4 + garrison_reinforcement_factor_addition_per_tier]
-@building_garrison_reinforcement_factor_tier_6 = @[building_garrison_reinforcement_factor_tier_5 + garrison_reinforcement_factor_addition_per_tier]
-@building_garrison_reinforcement_factor_tier_7 = @[building_garrison_reinforcement_factor_tier_6 + garrison_reinforcement_factor_addition_per_tier]
-@building_garrison_reinforcement_factor_tier_8 = @[building_garrison_reinforcement_factor_tier_7 + garrison_reinforcement_factor_addition_per_tier]
+@garrison_reinforcement_factor_tier_1 = @[base_garrison_reinforcement_factor]
+@garrison_reinforcement_factor_tier_2 = @[garrison_reinforcement_factor_tier_1 + garrison_reinforcement_factor_addition_per_tier]
+@garrison_reinforcement_factor_tier_3 = @[garrison_reinforcement_factor_tier_2 + garrison_reinforcement_factor_addition_per_tier]
+@garrison_reinforcement_factor_tier_4 = @[garrison_reinforcement_factor_tier_3 + garrison_reinforcement_factor_addition_per_tier]
+@garrison_reinforcement_factor_tier_5 = @[garrison_reinforcement_factor_tier_4 + garrison_reinforcement_factor_addition_per_tier]
+@garrison_reinforcement_factor_tier_6 = @[garrison_reinforcement_factor_tier_5 + garrison_reinforcement_factor_addition_per_tier]
+@garrison_reinforcement_factor_tier_7 = @[garrison_reinforcement_factor_tier_6 + garrison_reinforcement_factor_addition_per_tier]
+@garrison_reinforcement_factor_tier_8 = @[garrison_reinforcement_factor_tier_7 + garrison_reinforcement_factor_addition_per_tier]
 
 ###############
 # Fort Levels #
@@ -775,3 +775,17 @@ upgrade_building_chance = {
 		multiply = combined_building_level
 	}
 }
+
+#################################
+# Garrison Reinforcement Values #
+#################################
+
+building_garrison_reinforcement_factor_tier_1 = @[garrison_reinforcement_factor_tier_1]
+building_garrison_reinforcement_factor_tier_2 = @[garrison_reinforcement_factor_tier_2]
+building_garrison_reinforcement_factor_tier_3 = @[garrison_reinforcement_factor_tier_3]
+building_garrison_reinforcement_factor_tier_4 = @[garrison_reinforcement_factor_tier_4]
+building_garrison_reinforcement_factor_tier_5 = @[garrison_reinforcement_factor_tier_5]
+building_garrison_reinforcement_factor_tier_6 = @[garrison_reinforcement_factor_tier_6]
+building_garrison_reinforcement_factor_tier_7 = @[garrison_reinforcement_factor_tier_7]
+building_garrison_reinforcement_factor_tier_8 = @[garrison_reinforcement_factor_tier_8]
+
