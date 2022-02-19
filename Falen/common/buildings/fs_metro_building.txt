@@ -90,7 +90,7 @@ Palace_01 = {
 	    monthly_piety = 0.8
 		monthly_income = -1
 		fort_level = 0.3
-		monthly_province_control_change_factor = 0.05
+		monthly_county_control_change_factor = 0.05
 	}
 	
 	next_building = Palace_02
@@ -113,8 +113,8 @@ parade_ground_01 = {
 	
 	province_modifier = {
 		monthly_income = -0.7
-		levy = 350
-	    garrison = 50
+		levy_size = 350
+	    max_garrison = 50
 	}
 	
 	next_building = parade_ground_02

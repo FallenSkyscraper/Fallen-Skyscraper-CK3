@@ -63,7 +63,8 @@ castle_01 = {
 	next_building = castle_02 #다음 단계 성
 	
 	levy = normal_building_levy_tier_2 #티어 1은 아마 부족정건물인듯?
-	garrison = good_building_garrison_tier_1
+	max_garrison = good_building_max_garrison_tier_1
+	garrion_reinforcement_factor = building_garrison_reinforcement_factor_tier_1
 	province_modifier = {
 		monthly_income = poor_building_tax_tier_2 #이것도 부족건물 때문에 티어 2같음 아마
 		fort_level = great_building_fort_level_tier_1
