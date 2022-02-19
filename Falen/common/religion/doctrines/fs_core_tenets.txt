@@ -191,10 +191,10 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = dualism_religion
-						religion_tag = hinduism_religion
+						#religion_tag = dualism_religion
+						#religion_tag = hinduism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
+						#religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -202,7 +202,7 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = zoroastrianism_religion
+						#religion_tag = zoroastrianism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -262,9 +262,9 @@ doctrine_core_tenets = {
 			}
 		}
 
-		is_shown = {
-			religion_tag = magyar_religion
-		}
+		#is_shown = {
+		#	religion_tag = magyar_religion
+		#}
 
 		parameters = {
 			mystic_birthright_active = yes
