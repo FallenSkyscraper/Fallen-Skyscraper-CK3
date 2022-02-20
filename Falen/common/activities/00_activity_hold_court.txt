@@ -1,24 +1,17 @@
-activity_go_on_siberia = {
+﻿activity_hold_court = {
+	expiration_days = 100
 	solo = yes
-	frame = 1
 	color = { 0.253906 0.867188 0.105469 1 }
+	start_immediately = yes
 	on_spawn = {
-		set_variable = {
-			name = journey_event_counter
-			value = 0
-		}
 		invite_character_to_activity = activity_owner
 		accept_invitation_for_character = activity_owner
-
 	}
 	on_activate = {
-		activity_owner = {
-			trigger_event = {
-				on_action = go_on_siberia_setup
-			}
-		}
+		activity_owner = { trigger_event = hold_court.0011 }
 	}
 	on_complete = {
-
+	}
+	on_expire = {
 	}
 }
