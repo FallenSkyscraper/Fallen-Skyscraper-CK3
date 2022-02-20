@@ -150,7 +150,7 @@ proletarian_government = {
 chinese_bureaucracy_government = {
  	create_cadet_branches = yes
 	rulers_should_have_dynasty = yes
-	primary_holdings = castle_holding
+	primary_holding = castle_holding
 	valid_holdings = { metropolis_holding city_holding}
 	required_county_holdings = { castle_holding city_holding church_holding }
 	preferred_religions = { chinese_confucianism_religion legalist_religion new_world_religion }
@@ -166,32 +166,32 @@ chinese_bureaucracy_government = {
 	}
 
 	character_modifier = {
-		effect = {
-			if = {
-				limit = {
-					highest_held_title_tier = tier_empire
-				}
-				domain_limit = 4
-				monthly_income_mult = 0.1
-				levy_size = 0.1
-				monthly_prestige_gain_mult = 0.1
-				vassal_opinion = 5
-			}
-			else_if = {
-				limit = {
-					highest_held_title_tier = tier_kingdom
-				}
-				domain_limit = 2
-				monthly_income_mult = 0.25
-				levy_size = 0.25
-			}
-			else_if = {
-				limit = {
-					highest_held_title_tier = tier_duchy
-				}
-				domain_limit = 1
-			}
-		}
+		#effect = {
+		#	if = {
+		#		limit = {
+		#			highest_held_title_tier = tier_empire
+		#		}
+		#		domain_limit = 4
+		#		monthly_income_mult = 0.1
+		#		levy_size = 0.1
+		#		monthly_prestige_gain_mult = 0.1
+		#		vassal_opinion = 5
+		#	}
+		#	else_if = {
+		#		limit = {
+		#			highest_held_title_tier = tier_kingdom
+		#		}
+		#		domain_limit = 2
+		#		monthly_income_mult = 0.25
+		#		levy_size = 0.25
+		#	}
+		#	else_if = {
+		#		limit = {
+		#			highest_held_title_tier = tier_duchy
+		#		}
+		#		domain_limit = 1
+		#	}
+		#}
 	}
 			
 
