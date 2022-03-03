@@ -1,9 +1,9 @@
-﻿# Accepted categories are: governments, cultures, culture_groups, faiths, religions
+﻿# Accepted categories are: governments, cultures, heritages, faiths, religions
 # A Flavorization will apply if ALL specified categories have ANY of their entries
 # represented in the character/title
 # So for example:
 # governments = { feudal_government maritime_government  }
-# culture_groups = { mongolic_group central_germanic_group }
+# heritages = { mongolic_group central_germanic_group }
 # religions = { christianity_religion }
 # cultures = { norse }
 # faiths = { catholicism }
@@ -159,7 +159,7 @@ baron_nomadic_male_mongol = {
 	tier = barony
 	priority = 8
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 baron_nomadic_female_mongol = {
 	type = character
@@ -168,14 +168,14 @@ baron_nomadic_female_mongol = {
 	tier = barony
 	priority = 8
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 barony_nomadic_mongol = {
 	type = title
 	tier = barony
 	priority = 8
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 count_nomadic_male_mongol = {
 	type = character
@@ -184,7 +184,7 @@ count_nomadic_male_mongol = {
 	tier = county
 	priority = 19
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 count_nomadic_female_mongol = {
 	type = character
@@ -193,14 +193,14 @@ count_nomadic_female_mongol = {
 	tier = county
 	priority = 19
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 county_nomadic_mongol = {
 	type = title
 	tier = county
 	priority = 19
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 duke_nomadic_male_mongol = {
 	type = character
@@ -209,7 +209,7 @@ duke_nomadic_male_mongol = {
 	tier = duchy
 	priority = 29
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 duke_nomadic_female_mongol = {
 	type = character
@@ -218,14 +218,14 @@ duke_nomadic_female_mongol = {
 	tier = duchy
 	priority = 29
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 duchy_nomadic_mongol = {
 	type = title
 	tier = duchy
 	priority = 29
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 king_nomadic_male_mongol = {
 	type = character
@@ -234,7 +234,7 @@ king_nomadic_male_mongol = {
 	tier = kingdom
 	priority = 49
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 king_nomadic_female_mongol = {
 	type = character
@@ -243,14 +243,14 @@ king_nomadic_female_mongol = {
 	tier = kingdom
 	priority = 49
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 kingdom_nomadic_mongol = {
 	type = title
 	tier = kingdom
 	priority = 49
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 emperor_nomadic_male_mongol = {
 	type = character
@@ -259,7 +259,7 @@ emperor_nomadic_male_mongol = {
 	tier = empire
 	priority = 150
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 emperor_nomadic_female_mongol = {
 	type = character
@@ -268,14 +268,14 @@ emperor_nomadic_female_mongol = {
 	tier = empire
 	priority = 150
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 empire_nomadic_mongol = {
 	type = title
 	tier = empire
 	priority = 150
 	governments = { nomadic_government tribal_government }
-	culture_groups = { mongolic_group }
+	heritages = { heritage_mongolic }
 }
 
 #
@@ -437,7 +437,7 @@ duke_tribal_male_gangwon = {
 	tier = duchy
 	priority = 29
 	governments = { tribal_government }
-	culture_groups = { gangwon_group gwanbuk_group }
+	heritages = { heritage_gwandong heritage_gwanbuk }
 }
 duke_tribal_female_gangwon = {
 	type = character
@@ -446,14 +446,14 @@ duke_tribal_female_gangwon = {
 	tier = duchy
 	priority = 29
 	governments = { tribal_government }
-	culture_groups = { gangwon_group gwanbuk_group }
+	heritages = { heritage_gwandong heritage_gwanbuk }
 }
 duchy_tribal_gangwon = {
 	type = title
 	tier = duchy
 	priority = 29
 	governments = { tribal_government }
-	culture_groups = { gangwon_group gwanbuk_group }
+	heritages = { heritage_gwandong heritage_gwanbuk }
 }
 
 #
@@ -465,7 +465,7 @@ baron_feudal_male_gwanbuk = {
 	tier = barony
 	priority = 8
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 baron_feudal_female_gwanbuk = {
 	type = character
@@ -474,14 +474,14 @@ baron_feudal_female_gwanbuk = {
 	tier = barony
 	priority = 8
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 barony_gwanbuk = {
 	type = title
 	tier = barony
 	priority = 8
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 count_feudal_male_gwanbuk = {
 	type = character
@@ -490,7 +490,7 @@ count_feudal_male_gwanbuk = {
 	tier = county
 	priority = 19
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 count_feudal_female_gwanbuk = {
 	type = character
@@ -499,14 +499,14 @@ count_feudal_female_gwanbuk = {
 	tier = county
 	priority = 19
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 county_feudal_gwanbuk = {
 	type = title
 	tier = county
 	priority = 19
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 duke_feudal_male_gwanbuk = {
 	type = character
@@ -515,7 +515,7 @@ duke_feudal_male_gwanbuk = {
 	tier = duchy
 	priority = 29
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 duke_feudal_female_gwanbuk = {
 	type = character
@@ -524,14 +524,14 @@ duke_feudal_female_gwanbuk = {
 	tier = duchy
 	priority = 29
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 duchy_feudal_gwanbuk = {
 	type = title
 	tier = duchy
 	priority = 29
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 king_feudal_male_gwanbuk = {
 	type = character
@@ -540,7 +540,7 @@ king_feudal_male_gwanbuk = {
 	tier = kingdom
 	priority = 49
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 king_feudal_female_gwanbuk = {
 	type = character
@@ -549,14 +549,14 @@ king_feudal_female_gwanbuk = {
 	tier = kingdom
 	priority = 49
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 kingdom_feudal_gwanbuk = {
 	type = title
 	tier = kingdom
 	priority = 49
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 emperor_feudal_male_gwanbuk = {
 	type = character
@@ -565,7 +565,7 @@ emperor_feudal_male_gwanbuk = {
 	tier = empire
 	priority = 150
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 emperor_feudal_female_gwanbuk = {
 	type = character
@@ -574,14 +574,14 @@ emperor_feudal_female_gwanbuk = {
 	tier = empire
 	priority = 150
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 empire_feudal_gwanbuk = {
 	type = title
 	tier = empire
 	priority = 150
 	governments = { feudal_government }
-	culture_groups = { gwanbuk_group }
+	heritages = { heritage_gwanbuk }
 }
 
 #
@@ -593,7 +593,7 @@ baron_feudal_male_russian = {
 	tier = barony
 	priority = 8
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 baron_feudal_female_russian = {
 	type = character
@@ -602,14 +602,14 @@ baron_feudal_female_russian = {
 	tier = barony
 	priority = 8
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 barony_gwanbuk_russian = {
 	type = title
 	tier = barony
 	priority = 8
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 count_feudal_male_russian = {
 	type = character
@@ -618,7 +618,7 @@ count_feudal_male_russian = {
 	tier = county
 	priority = 19
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 count_feudal_female_russian = {
 	type = character
@@ -627,14 +627,14 @@ count_feudal_female_russian = {
 	tier = county
 	priority = 19
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 county_feudal_russian = {
 	type = title
 	tier = county
 	priority = 19
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 duke_feudal_male_russian = {
 	type = character
@@ -643,7 +643,7 @@ duke_feudal_male_russian = {
 	tier = duchy
 	priority = 29
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 duke_feudal_female_russian = {
 	type = character
@@ -652,14 +652,14 @@ duke_feudal_female_russian = {
 	tier = duchy
 	priority = 29
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 duchy_feudal_russian = {
 	type = title
 	tier = duchy
 	priority = 29
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 king_feudal_male_russian = {
 	type = character
@@ -668,7 +668,7 @@ king_feudal_male_russian = {
 	tier = kingdom
 	priority = 49
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 king_feudal_female_russian = {
 	type = character
@@ -677,14 +677,14 @@ king_feudal_female_russian = {
 	tier = kingdom
 	priority = 49
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 kingdom_feudal_russian = {
 	type = title
 	tier = kingdom
 	priority = 49
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 emperor_feudal_male_russian = {
 	type = character
@@ -693,7 +693,7 @@ emperor_feudal_male_russian = {
 	tier = empire
 	priority = 150
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 emperor_feudal_female_russian = {
 	type = character
@@ -702,14 +702,14 @@ emperor_feudal_female_russian = {
 	tier = empire
 	priority = 150
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 empire_feudal_russian = {
 	type = title
 	tier = empire
 	priority = 150
 	governments = { feudal_government }
-	culture_groups = { russian_group }
+	heritages = { heritage_east_slavic }
 }
 
 #
@@ -722,7 +722,7 @@ baron_manchu_feudal_male = {
 	priority = 6
 	top_liege = no
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 baron_feudal_tribal_female = {
 	type = character
@@ -732,7 +732,7 @@ baron_feudal_tribal_female = {
 	priority = 6
 	top_liege = no
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 barony_feudal_tribal = {
 	type = title
@@ -740,7 +740,7 @@ barony_feudal_tribal = {
 	top_liege = no
 	priority = 6
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 count_manchu_feudal_male = {
 	type = character
@@ -750,7 +750,7 @@ count_manchu_feudal_male = {
 	priority = 16
 	top_liege = no
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 count_manchu_feudal_female = {
 	type = character
@@ -760,7 +760,7 @@ count_manchu_feudal_female = {
 	priority = 16
 	top_liege = no
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 county_manchu_feudal = {
 	type = title
@@ -768,7 +768,7 @@ county_manchu_feudal = {
 	top_liege = no
 	priority = 16
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 duke_manchu_feudal_male = {
 	type = character
@@ -778,7 +778,7 @@ duke_manchu_feudal_male = {
 	priority = 26
 	top_liege = no
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 duke_manchu_feudal_female = {
 	type = character
@@ -788,7 +788,7 @@ duke_manchu_feudal_female = {
 	priority = 26
 	top_liege = no
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 duchy_manchu_feudal = {
 	type = title
@@ -796,7 +796,7 @@ duchy_manchu_feudal = {
 	top_liege = no
 	priority = 26
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 king_manchu_feudal_male = {
 	type = character
@@ -806,7 +806,7 @@ king_manchu_feudal_male = {
 	priority = 46
 	top_liege = no
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 king_manchu_feudal_female = {
 	type = character
@@ -816,7 +816,7 @@ king_manchu_feudal_female = {
 	priority = 46
 	top_liege = no
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 kingdom_manchu_feudal = {
 	type = title
@@ -824,7 +824,7 @@ kingdom_manchu_feudal = {
 	top_liege = no
 	priority = 46
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 emperor_manchu_feudal_male = {
 	type = character
@@ -834,7 +834,7 @@ emperor_manchu_feudal_male = {
 	priority = 101
 	top_liege = no
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 emperor_manchu_feudal_female = {
 	type = character
@@ -844,7 +844,7 @@ emperor_manchu_feudal_female = {
 	priority = 101
 	top_liege = no
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 empire_manchu_feudal = {
 	type = title
@@ -852,7 +852,7 @@ empire_manchu_feudal = {
 	top_liege = no
 	priority = 101
 	governments = { feudal_government }
-	culture_groups = { haixi_group jianzhou_group }
+	heritages = { heritage_manchu }
 }
 baron_feudal_male_seoul = {
 	type = character

@@ -1,65 +1,450 @@
-##성지 이름 명명 방식
-##백작령명_(선택)남작령명_공용/전용_로컬
-##공용(default)는 지명, 산 등 종교와 거리가 있는 것들
-##전용은 해당 종교의 이름(전문이냐 축약이냐는 케바케)가 들어가며, 보통 로컬을 종교건물 등으로 해야하는 경우
+﻿
+
+#################
+## 불교 buddhism ##
+#################
+
+#####이거 전부 복붙하고 적용만 되도록 한거니까 나중에 flag좀 바꿔주셈
+#####만약 성지 효과 겹치는 곳에서 다르게 하고 싶으면 하위 남작령을 성지로 하든지 해야함.
+#####종로가 겹치는 곳 많으니까 종교마다 성능 다르게하고 싶으면 
+#####남작령 1개 정해주셈. 안 그럼 맨 아래의 종로로 될듯
+#####
+#####
+#####
+ 
+
+#####종로는 한국의 예루살렘이니 예루살렘 효과
+jongno = {
+	county = c_jongno
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	##flag = jerusalem_conversion_bonus # +20% County Conversion
+}
+
+gyeongju  = {
+	county = c_gyeongju 
+	 
+	
+	character_modifier = {
+		##name = holy_site_bodh_gaya_effect_name
+		stress_loss_mult = 0.2
+	}
+}
+
+haeinsa = {
+	county = c_hapcheon
+	
+	character_modifier = {
+		##name = holy_site_kusinagara_effect_name
+		fertility = 0.10
+		monthly_lifestyle_xp_gain_mult = 0.15
+	}
+}
+
+yangsan = {
+	county =  c_yangsan
+	
+	character_modifier = {
+		##name = holy_site_sarnath_effect_name
+		learning = 2
+	}
+}
+
+juam   = {
+	county = c_juam  
+	barony = b_Songgwang
+	
+	character_modifier = {
+		##name = holy_site_ajanta_effect_name
+		negate_learning_penalty_add = 2
+		learning_per_piety_level = 1
+	}
+}
+
+
+#############
+###신유교 c_andong 
+###########
+ andong  = { #안동
+	county = c_andong 
+	
+	character_modifier = {
+	defender_advantage = 5
+		diplomacy = 1
+	}
+	 
+}
+ junggu    = { #중구
+	county = c_junggu  
+	
+	character_modifier = {
+		learning = 1
+	}
+	 
+}
+ pyongyang    = { #평양
+	county = c_pyongyang  
+	
+	character_modifier = {
+	learning_per_piety_level = 1
+		monthly_prestige_gain_mult = 0.2
+	}
+	 
+} 
+
+ jeonjusadang     = { #전주 사당. 신유교용
+	county = c_jeonju  
+	
+	character_modifier = {
+			same_faith_opinion = 10
+	}
+	 
+}
+
+ yeongju     = { #영주
+	county = c_yeongju   
+	
+	character_modifier = {
+		cultural_head_fascination_mult = 0.05
+		monthly_county_control_change_factor = 0.05
+	}
+	 
+}
 
 
 
 
-###중국###
-###만주###
-wangching_default_wangkyeong = {
+#제국국교회
+#편의상 예루살렘효과 그대로 적용함 추후 수정바람
+
+incheon = { #인천
+	county = c_incheon
+	
+	character_modifier = {
+		cultural_head_fascination_mult = 0.05
+		monthly_county_control_change_factor = 0.05
+	}
+	 
+}
+
+pyeongyang = {
+	county = c_pyongyang
+	
+	character_modifier = {
+		development_growth_factor = 0.1
+		stewardship = 1
+	}
+	 
+}
+
+jeonju = {
+	county = c_jeonju
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	 
+}
+
+iksan = {
+	county = c_iksan
+	
+	character_modifier = {
+		supply_duration = 0.2
+		holy_order_hire_cost_mult = -0.1
+	} 
+}
+
+
+###태철교
+##이쪽도 편의상 위와 동일
+pohang = {
+	county = c_pohang
+	
+	character_modifier = {
+		martial_per_piety_level = 1
+		knight_effectiveness_mult = 0.2
+	}
+	 
+}
+ 
+gwangyang = {
+	county = c_gwangyang
+	
+	character_modifier = {
+		controlled_province_advantage = 5
+		stress_loss_mult = 0.1
+	} 
+}
+
+donggu = {
+	county = c_incheon
+	barony = b_65
+	
+	character_modifier = {
+		monthly_piety_gain_per_knight_add = 0.1
+		skirmishers_toughness_mult = 0.1
+	} 
+}
+  
+
+dangjin ={ 
+	county = c_dangjin #####공홍에 있다.
+	
+	character_modifier = {
+		dread_baseline_add = 5
+	} 
+}
+
+kimchaek = {
+	county = c_cheongjin
+	character_modifier = {
+	}
+}
+
+
+#####
+#####하르방교
+#####c_jeju
+
+
+
+jeju     = {
+	county = c_jeju 
+	character_modifier = {
+supply_duration = 0.25
+		prowess = 1
+	}
+	 
+}
+
+
+hankyeong    = {
+	county = c_hankyeong   
+	barony = b_452  ##대정  
+	character_modifier = {
+		stewardship = 1
+		close_relative_opinion = 5
+	}
+	 
+}
+
+busan      = {
+	county = c_busan 
+	barony= b_763 ###Yeongdo 영도
+	character_modifier = {
+monthly_piety_gain_per_happy_powerful_vassal_mult = 0.02
+	}
+	 
+}
+
+sinan      = {
+	county = c_sinan 
+	character_modifier = {
+prowess_per_piety_level = 1
+
+	naval_movement_speed_mult = 0.1
+	}
+	 
+}
+
+
+ganghwa       = {
+	county = c_ganghwa 
+	character_modifier = {
+	monthly_piety_gain_mult = 0.1
+	
+	knight_effectiveness_mult = 0.2
+	}
+	 
+}
+
+#############
+####자연교#####
+#############
+
+
+##이쪽도 편의상 위와 동일
+hyesan   = {
+	county = c_hyesan  
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+dynasty_house_opinion = 5
+	}
+	 
+}
+
+
+hamyang  = {
+	county = c_hamyang 
+	
+	character_modifier = {
+		 
+		men_at_arms_maintenance = -0.2
+
+	}
+	 
+}
+ 
+hoeyang = {
+	county = c_hoeyang
+	
+	character_modifier = {
+		monthly_piety_gain_per_knight_mult = 0.02
+		knight_effectiveness_mult = 0.1
+		 
+	}
+	 
+}
+
+yeoncheon = {
+	county = c_yeoncheon
+	
+	character_modifier = {
+	monthly_piety_gain_mult = 0.05
+		learning = 1
+	}
+	 
+}
+  
+
+gaeseong ={ 
+	county = c_gaeseong
+	
+	character_modifier = {
+	movement_speed = 0.05
+	
+		clergy_opinion = 5
+	}
+	 
+}
+
+#해서주체
+
+haeju = {
+	county = c_haeju
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	 
+}
+
+gwail = {
+	county = c_phungchon
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	 
+}
+
+#대종교
+
+wangching = {
 	county = c_wangching
+	
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
+	 
 }
-hwaryong_default = {
+
+hwaryong = {
 	county = c_hwaryong
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	 
+}
+
+chamseongdan = { #참성단, 단군의 성지
+	county = c_hwado
+	
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+	 
+}
+
+# cheondo : 종로, 평양, 경주는 기존파일 그대로 사용
+gobu = { # 고부 농민 봉기
+	county = c_jeongeup
+	barony = b_982 # 고부
+	character_modifier = {
+		stress_loss_mult = 0.15
+		monthly_prestige_gain_mult = 0.1
+	}
+}
+ugeumti = { # 우금티(우금치) 전투
+	county = c_gongju
+	character_modifier = {
+		knight_effectiveness_mult = 0.15
+		monthly_prestige_gain_mult = 0.1
+	}
+}
+
+# Manchuria
+
+hetu_ala = {
+	county = c_xinbin
+	barony = b_3212 # 융링(영릉)
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
 }
-girin_default = {
+mukden = {
+	county = c_shenyang
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+}
+girin = {
 	county = c_jirin
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
 }
-harbin_default = {
+changbai = {
+	county = c_changbai
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+}
+samjeondo = {
+	county = c_songpa
+	character_modifier = {
+	}
+}
+harbin = {
 	county = c_harbin
 	character_modifier = {
 	}
 }
-liaoyang_default = {
-	county = c_liaoyang
-	character_modifier = {
-	}
-}
-###연해주###
-vladivostok_default = {
+# ningguta
+
+## Marxists
+
+vladivostok = {
 	county = c_vladivostok
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
 }
-usurisk_default = {
+usurisk = {
 	county = c_usurisk
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
 }
-arsenyev_default = {
-	county = c_arsenyev
+daegu = {
+	county = c_daegu
 	character_modifier = {
-	}
-}
-###평안###
-pyongyang_default = {
-	county = c_pyongyang
-	character_modifier = {
-		development_growth_factor = 0.1
-		stewardship=1
+		monthly_piety_gain_mult = 0.2
 	}
 }
 sinuiju = {
@@ -68,456 +453,36 @@ sinuiju = {
 		monthly_piety_gain_mult = 0.2
 	}
 }
-jeongju_default = {
-	county = c_jeongju
-	character_modifier ={
-	}
-}
-anju_default = {
-	county = c_anju
-	character_modifier = {
-	}
-}
-###자강-함경###
-hyesan_default_baekdusan = {
-	county= c_hyesan
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-		dynasty_house_opinion = 5
-	}
-}
-najin_aoji_default = {
-	county = c_najin
-	barony = b_2370
-	character_modifier = {
-	}
-}
-wonsan_default = {
-	county = c_wonsan
-	character_modifier = {
-	}
-}
-hamheung = {
-	county = c_hamheung
-	character_modifier = {
-	}
-}
-###황해###
-haeju_default = {
-	county = c_haeju
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-phungchon_gwail_default = {
-	county = c_phungchon
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-###강원###
-hoeyang_default = {
-	county = c_hoeyang
-	character_modifier = {
-		monthly_piety_gain_per_knight_mult = 0.02
-		knight_effectiveness_mult = 0.1
-	}
-}
-taebaek_default_taebaeksan = {
-	county = c_taebaek
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-chuncheon_default = {
-	county = c_chuncheon
-	character_modifier = {
-	}
-}
-###경기###
-jongno_default = {
-	county = c_jongno
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-junggu_default = {
-	county = c_junggu
-	character_modifier = {
-		learning = 1
-	}
-}
-incheon_default = {
-	county = c_incheon
-	character_modifier = {
-		cultural_head_fascination_mult = 0.05
-		monthly_county_control_change_factor = 0.05
-	}
-}
-ganghwa_default = {
-	county = c_ganghwa
-	character_modifier = {
-		monthly_piety_gain_mult = 0.1
-		knight_effectiveness_mult = 0.2
-	}
-}
-gaeseong_default = {
-	county = c_gaeseong
-	character_modifier = {
-		movement_speed = 0.05
-		clergy_opinion = 5
-	}
-}
-gangnam_default = {
-	county = c_gangnam
-	character_modifier = {
-	}
-}
-mapo_default = {
-	county = c_mapo
-	character_modifier = {
-	}
-}
-pyeongtaek_default = {
-	county = c_pyeongtaek
-	character_modifier = {
-	}
-}
-ansan_default = {
-	county = c_ansan
-	character_modifier = {
-		stress_loss_mult = 0.1
-		stewardship = 1
-	}
-}
-yongsan_default = {
-	county = c_yongsan
-	character_modifier = {
-		learning_per_piety_level = 1
-		same_faith_opinion = 5
-	}
-}
-yeoncheon_default = {
-	county = c_yeoncheon
-	character_modifier = {
-		monthly_piety_gain_mult = 0.05
-		learning = 1
-	}
-}
-###충청###
-gyeryong_default_gyeryongsan = {
-	county = c_gyeryong
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-haemi_default = {
-	county = c_haemi
-	character_modifier = {
-		stress_loss_mult = 0.15
-		monthly_piety_gain_per_knight_add = 0.1
-		monthly_prestige_gain_mult = 0.1
-	}
-}
-yeongi_sejong_default = {
-	county = c_yeongi
-	barony = b_2587
-	character_modifier = {
-	}
-}
-daejeon_default = {
-	county = c_daejeon
-	character_modifier = {
-	}
-}
-###경상북###
-gyeongju_default = {
-	county = c_gyeongju
-	character_modifier = {
-		stress_loss_mult = 0.2
-	}
-}
-andong_default = {
-	county = c_andong
-	character_modifier = {
-		defender_advantage = 5
-		diplomacy = 1
-	}
-}
-yeongju_default = {
-	county = c_yeongju
-	character_modifier = {
-		cultural_head_fascination_mult = 0.05
-		monthly_county_control_change_factor = 0.05
-	}
-}
-pohang_default = {
-	county = c_pohang
-	character_modifier = {
-	}
-}
-yeongcheon_default = {
-	county = c_yeongcheon
-	monthly_piety_gain_mult = 0.05
-	learning = 1
-}
-daegu_default = {
-	county = c_daegu
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-gumi_default = {
-	county = c_gumi
-	character_modifier = {
-	}
-}
-seongju_default = {
-	county = c_seongju
-	character_modifier = {
-	}
-}
-###전라###
-juam_default = {
-	county = c_juam
-	barony = b_Songgwang
-	character_modifier = {
-		negate_learning_penalty_add = 2
-		learning_per_piety_level = 1
-	}
-}
-jeonju_default = {
-	county = c_jeonju
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-iksan_default = {
-	county = c_iksan
-	character_modifier = {
-		supply_duration = 0.2
-		holy_order_hire_cost_mult = -0.1
-	}
-}
-jeongeup_gobu_default = {
-	county = c_jeongeup
-	barony = b_982#고부
-	character_modifier = {
-		stress_loss_mult = 0.15
-		monthly_prestige_gain_mult = 0.1
-	}
-}
-haenam_default = {
+haenam = {
 	county = c_haenam
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
 }
-unbong_default_jirisan = {
+
+# Muism
+
+gyeryong = {
+	county = c_gyeryong
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+}
+taebaek = {
+	county = c_taebaek
+	character_modifier = {
+		monthly_piety_gain_mult = 0.2
+	}
+}
+jirisan = {
 	county = c_unbong
 	character_modifier = {
 		monthly_piety_gain_mult = 0.2
 	}
 }
-naju_default = {
-	county = c_naju
-	character_modifier = {
-		monthly_piety_gain_mult = 0.15
-		monthly_county_control_change_factor = 0.05
-	}
-}
-gwangju_default = {
-	county = c_gwangju
-	character_modifier = {
-	}
-}
-byeonsan_default = {
-	county = c_byeonsan
-	character_modifier = {
-	}
-}
-yeonggwang_default_yeongsan = {
-	county = c_yeonggwang
-	character_modifier = {
-	}
-}
-jinan_default_manduksan = {
-	county = c_jinan
-	character_modifier ={
-	}
-}
-###경상남###
-yangsan_default = {
-	county = c_yangsan
-	character_modifier = {
-		learning = 2
-	}
-}
-busan_default = {
-	county = c_busan
-	character_modifier = {
 
-	}
-}
-busan_yeongdo_default = {
-	county = c_busan
-	barony = b_763#영도
-	character_modifier = {
-		monthly_piety_gain_per_happy_powerful_vassal_mult = 0.02
-	}
-}
-hamyang_default = {
-	county = c_hamyang
-	character_modifier = {
-		men_at_arms_maintenance = -0.2
-	}
-}
-ulsan_default = {
-	county = c_ulsan
-	character_modifier ={
-	}
-}
-busan_donggu_default = {
-	county = c_busan
-	barony = b_780
-	character_modifier = {
-	}
-}
-###도서###
-jeju_default = {
-	county = c_jeju
-	character_modifier = {
-		supply_duration = 0.25
-		prowess = 1
-	}
-}
-hankyeong_daejeong_default = {
-	county = c_hankyeong
-	barony = b_452#대정
-	character_modifier = {
-		stewardship = 1
-		close_relative_opinion = 5
-	}
-}
-geomun_default = {
-	county = c_geomun
-	character_modifier = {
-	}
-}
-sinan_default = {
-	county = c_sinan
-	character_modifier = {
-		prowess_per_piety_level =1
-		naval_movement_speed_mult = 0.1
-	}
-}
-pyoseon_namwon_default = {
-	county = c_pyoseon
-	barony = b_468
-	character_modifier = {
-	}
-}
-###일본###
-#####특정 종교 전용#####
-###불교###
-hapcheon_buddism_haeinsa = {#해인사
-	county = c_hapcheon
-	character_modifier = {
-		fertility = 0.1
-		monthly_lifestyle_xp_gain_mult = 0.15
-	}
-}
-###신유교###
-jeonju_neocon_jeonjusadang = {#전주 사당
-	county = c_jeonju
-	character_modifier = {
-		same_faith_opinion = 10
-	}
-
-}
-pyongyang_neocon = {
-	county = c_pyongyang
-	character_modifier = {
-		learning_per_piety_level = 1
-		monthly_prestige_gain_mult = 0.2
-	}
-}
-###태철교###
-pohang_iron_pohangjaechul = {# 포항 제철소
-	county = c_pohang
-	character_modifier = {
-		martial_per_piety_level = 1
-		knight_effectiveness_mult = 0.2
-	}
-}
-gwangyang_iron_gwangyangjaechul = {#광양 제철소
-	county = c_gwangyang
-	character_modifier = {
-		controlled_province_advantage = 5
-		stress_loss_mult = 0.1
-	}
-}
-incheon_iron_donggujaechul = {#인천 동구 제철소
-	county = c_incheon
-	barony = b_65
-	character_modifier = {
-		monthly_piety_gain_per_knight_add = 0.1
-		skirmishers_toughness_mult = 0.1
-	}
-}
-dangjin_iron_dangjinjaechul = {#당진 제철소
-	county = c_dangjin
-	character_modifier = {
-		dread_baseline_add = 5
-	}
-}
-cheongjin_iron_kimchaekjaechul = {#김책 제철소
-	county = c_cheongjin
-	character_modifier = {
-	}
-}
-###대종교###
-hwado_daejong_chamseongdan = {#참성단
-	county = c_hwado
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-###천도교###
-gongju_cheondo_ugeumti = {#우금치
-	county = c_gongju
-	character_modifier = {
-		knight_effectiveness_mult = 0.15
-		monthly_prestige_gain_mult = 0.1
-	}
-}
-###만주신앙###
-xinbin_yunling_manchu_hetuala = {
-	county = c_xinbin
-	barony = b_3212#융링./영릉
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-shenyang_manchu_mukden = {
-	county = c_shenyang
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-songpa_manchu_samjeondo = {
-	county = c_songpa
-	character_modifier = {
-	}
-}
-changbai_manchu_golminsangyanarin = {
-	county = c_changbai
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-###가톨릭###
-myeoncheon_catholic_solmoe = {
+# Catholic
+solmoe = {
 	county = c_myeoncheon
 	barony = b_2575
 	character_modifier = {
@@ -526,8 +491,24 @@ myeoncheon_catholic_solmoe = {
 		same_faith_opinion = 5
 	}
 }
-###티베트 불교###
-westbusan_tibet_gwangseongsa = {
+haemi = {
+	county = c_haemi
+	barony = b_2559
+	character_modifier = {
+		stress_loss_mult = 0.15
+		monthly_piety_gain_per_knight_add = 0.1
+		monthly_prestige_gain_mult = 0.1
+	}
+}
+naju = {
+	county = c_naju
+	character_modifier = {
+		monthly_piety_gain_mult = 0.15
+		monthly_county_control_change_factor = 0.05
+	}
+}
+#tibet
+gwangsungsa = {
 	county = c_west_busan
 	barony = b_774
 	character_modifier = {
@@ -536,105 +517,295 @@ westbusan_tibet_gwangseongsa = {
 		same_faith_opinion = 10
 	}
 }
-eunpyeong_tibet_samhaksa = {
+samhaksa = {
 	county = c_eunpyeong
 	character_modifier = {
 		same_faith_opinion = 15
 		other_faith_opinion = 5
 	}
 }
-chaganhua_tibet_miaoyinsi = {
+miaoyinsi = {
 	county = c_chaganhua
 	character_modifier = {
 		learning_per_piety_level = 1
 	}
 }
-shenyang_tibet_hueguepalungung = {
+
+hueguepalungung = {
 	county = c_shenyang
 	character_modifier = {
 	}
 }
+
+###서울파###
+
+gangnam = {
+	county = c_gangnam
+	character_modifier = {
+	}
+}
+
+mapo = {
+	county = c_mapo
+	character_modifier = {
+	}
+}
+
+sejong = {
+	county = c_yeongi
+	barony = b_2587
+	character_modifier = {
+	}
+}
+
 ###텡그리###
-huanren_tengri_jolbon = {
+
+jolbon = {
 	county = c_huanren
 	character_modifier = {
 	}
 }
-dunhwa_tengri_dongmosan = {
+liaoyang = {
+	county = c_liaoyang
+	character_modifier = {
+	}
+}
+dongmosan = {
 	county = c_dunhwa
 	character_modifier = {
 	}
 }
+
+###주체교###
+aoji = {
+	county = c_najin
+	barony = b_2370
+	character_modifier = {
+	}
+}
+
 ###기계교###
-yuseong_mech_kaist = {
+ktec = {
 	county = c_yuseong
 	character_modifier = {
 	}
 }
-###러시아 정교회###
-gapyeong_rusorth_spasskiymonastyr = {
+
+pyeongtaek = {
+	county = c_pyeongtaek
+	character_modifier = {
+	}
+}
+
+ulsan = {
+	county = c_ulsan
+	character_modifier = {
+	}
+}
+
+gumi = {
+	county = c_gumi
+	character_modifier = {
+	}
+}
+
+###한국교###
+gwangju = {
+	county = c_gwangju
+	character_modifier = {
+	}
+}
+
+###정교회###
+arsenyev = {
+	county = c_arsenyev
+	character_modifier = {
+	}
+}
+
+wonsan = {
+	county = c_wonsan
+	character_modifier = {
+	}
+}
+
+###러정###
+spasskiy_monastyr = {
 	county = c_gapyeong
 	character_modifier = {
 	}
 }
+
+###함흥 정교회###
+hamheung = {
+	county = c_hamheung
+	character_modifier = {
+	}
+}
+
 ###도교###
-beijen_tao_bukjeonsa = {
+bukjeonsa = {
 	county = c_beijen
 	character_modifier = {
 	}
 }
-liaoyuan_tao_boksugung = {
+boksugung = {
 	county = c_liaoyuan
 	character_modifier = {
 	}
 }
-ulju_tao_suseonggung = {
+suseonggung = {
 	county = c_ulju
 	character_modifier = {
 	}
 }
-###원자교/야명교###
-gampo_atomic_wolseong = {
+
+### 야명교 ###
+
+wolsung = {
 	county = c_gampo
 	barony = b_919
 	character_modifier = {
 	}
 }
-gijang_atomic_gori = {
+
+gori = {
 	county = c_gijang
 	barony = b_178
 	character_modifier = {
 	}
 }
-hongnong_atomic_hanbit = {
+
+hanbit = {
 	county = c_hongnong
 	character_modifier = {
 	}
 }
-shianjian_atomic_hongyanhe = {
+
+hongyanhe = {
 	county = c_shianjian
 	character_modifier = {
 	}
 }
-yeongbyeon_atomic_atomiclab = {
+
+yeongbyeon = {
 	county = c_yeongbyeon
 	character_modifier = {
 	}
 }
-uljin_atomic_hanul = {
+
+###원자교###
+
+hanul = {
 	county = c_uljin
 	barony = b_2510
 	character_modifier = {
 	}
 }
-yuseong_atomic_kstar = {
+
+kstar = {
 	county = c_yuseong
 	character_modifier = {
 	}
 }
+
 ###합일교###
-gapyeong_unitary_cheonseongsan = {
+cheonsungsan = {
 	county = c_gapyeong
+	character_modifier = {
+	}
+}
+
+jeongju = {
+	county = c_jeongju
+	character_modifier = {
+	}
+}
+
+busandonggu = {
+	county = c_busan
+	barony = b_780
+	character_modifier = {
+	}
+}
+
+geomundo = {
+	county = c_geomun
+	character_modifier = {
+	}
+}
+
+namwon = {
+	county = c_pyoseon
+	barony = b_468
+	character_modifier = {
+	}
+}
+
+###원불교###
+
+byeonsan = {
+	county = c_byeonsan
+	character_modifier = {
+	}
+}
+
+yeongsan = {
+	county = c_yeonggwang
+	character_modifier = {
+	}
+}
+
+manduksan = {
+	county = c_jinan
+	character_modifier = {
+	}
+}
+
+seongju = {
+	county = c_seongju
+	character_modifier = {
+	}
+}
+	
+###고대 한국교###
+
+daejeon = {
+	county = c_daejeon
+	character_modifier ={
+	}
+}
+
+###이슬람###
+
+ansan = {
+	county = c_ansan
+	character_modifier = {
+		stress_loss_mult = 0.1
+		stewardship = 1
+	}
+}
+
+yongsan = {
+	county = c_yongsan
+	character_modifier = {
+		learning_per_piety_level = 1
+		same_faith_opinion = 5
+	}
+}
+
+###카톨릭###
+
+chuncheon = {
+	county = c_chuncheon
+	character_modifier = {
+	}
+}
+
+###가정교###
+
+anju = {
+	county = c_anju
 	character_modifier = {
 	}
 }

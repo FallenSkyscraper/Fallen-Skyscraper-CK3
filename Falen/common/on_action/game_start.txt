@@ -9,6 +9,147 @@ on_game_start = {
 			set_global_variable = { name = election_term value = 1 }
 			set_global_variable = { name = startup_settings value = yes }
 		}
+		### HRE SETUP ###
+		if = {
+			limit = { exists = title:e_hec.holder }
+			title:e_hec.holder = {
+				every_vassal = {
+					limit = {
+						vassal_contract_has_modifiable_obligations = yes
+					}
+					vassal_contract_decrease_obligation_level = feudal_government_taxes
+					vassal_contract_decrease_obligation_level = feudal_government_levies
+					set_vassal_contract_modification_blocked = no
+				}
+			}
+			add_to_global_variable_list = {
+				name = hre_elector_list
+				target = title:c_iksan
+			}
+			add_to_global_variable_list = {
+				name = hre_elector_list
+				target = title:d_namwon
+			}
+			add_to_global_variable_list = {
+				name = hre_elector_list
+				target = title:c_gongju
+			}
+			add_to_global_variable_list = {
+				name = hre_elector_list
+				target = title:d_jeonju
+			}
+			add_to_global_variable_list = {
+				name = hre_elector_list
+				target = title:d_buyeo
+			}
+			add_to_global_variable_list = {
+				name = hre_elector_list
+				target = title:d_jeongeup
+			}
+			add_to_global_variable_list = {
+				name = hre_elector_list
+				target = title:d_nonsan
+			}
+			hre_elector_list_save_effect = yes
+		}
+		### RELIGIOUS THINGS ###
+		religion:islam_religion = { # Set up Holy Site Buildings to be buildable in Holy Sites
+			every_faith = {
+				every_holy_site = {
+					limit = {
+						title_province = {
+							has_special_building_slot = no
+						}
+					}
+					title_province = {
+						add_special_building_slot = holy_site_mosque_01
+					}
+				}
+			}
+		}
+		
+		religion:christianity_religion = {
+			every_faith = {
+				every_holy_site = {
+					limit = {
+						title_province = {
+							has_special_building_slot = no
+						}
+					}
+					title_province = {
+						add_special_building_slot = holy_site_cathedral_01
+					}
+				}
+			}
+		}
+		every_religion_global = {
+			limit = {
+				OR = {
+					this = religion:buddhism_religion
+					this = religion:cheondoism_religion
+				}
+			}
+			every_faith = {
+				every_holy_site = {
+					limit = {
+						title_province = {
+							has_special_building_slot = no
+						}
+					}
+					title_province = {
+						add_special_building_slot = holy_site_indian_grand_temple_01
+					}
+				}
+			}
+		}
+		
+		every_religion_global = {
+			limit = {
+				is_in_family = rf_pagan
+			}
+			every_faith = {
+				every_holy_site = {
+					limit = {
+						title_province = {
+							has_special_building_slot = no
+						}
+					}
+					title_province = {
+						add_special_building_slot = holy_site_pagan_grand_temple_01
+					}
+				}
+			}
+		}
+		
+		every_religion_global = {
+			every_faith = {
+				every_holy_site = {
+					limit = {
+						title_province = {
+							has_special_building_slot = no
+						}
+					}
+					title_province = {
+						add_special_building_slot = holy_site_other_grand_temple_01
+					}
+				}
+			}
+		}
+		#Royal Court: Set starting Grandeur to be the same as Expected
+		if = {
+			limit = {
+				has_dlc_feature = royal_court
+			}
+			every_character_with_royal_court = {
+				set_current_court_grandeur = court_grandeur_minimum_expected
+				apply_hold_court_grace_effect = yes
+				# Stops Hold Court reminders at game start
+				set_variable = {
+					name = last_hold_court_date
+					value = current_year
+				}
+			}
+		}
 	}
 	on_actions = {
 	}
@@ -75,6 +216,13 @@ on_game_start_after_lobby = {
 		}
 		title:e_north_korea.holder = {
 			trigger_event = sun_from_north.1
+		}
+		### HOLD COURT STARTING GRACE
+		every_character_with_royal_court = {
+			set_variable = {
+				name = hold_court_cooldown
+	 			days = standard_hold_court_cooldown_time
+	 		}
 		}
 	}
 

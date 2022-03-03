@@ -59,19 +59,19 @@ joson_election.1 = {
 					save_opinion_value_as = { name = opinion target = prev }
 				}
 				change_variable = { name = score add = scope:opinion }
-				if = {
-					limit = {
-						has_same_culture_group_as = prev
-						NOT = { has_same_culture_as = prev }
-					}
-					change_variable = { name = score subtract = 10 }
-				}
-				if = {
-					limit = {
-						NOT = { has_same_culture_group_as = prev }
-					}
-					change_variable = { name = score subtract = 25 }
-				}
+				#if = {
+				#	limit = {
+				#		has_same_culture_group_as = prev
+				#		NOT = { has_same_culture_as = prev }
+				#	}
+				#	change_variable = { name = score subtract = 10 }
+				#}
+				#if = {
+				#	limit = {
+				#		NOT = { has_same_culture_group_as = prev }
+				#	}
+				#	change_variable = { name = score subtract = 25 }
+				#}
 				if = {
 					limit = {
 						faith = {

@@ -83,7 +83,7 @@ maritime_government = {
 	affected_by_development = yes#부족정처럼 개발도 버프시에 영향 없음
 	regiments_prestige_as_gold = no#상비군 구매시 명성 사용여부
 	flag = government_can_raid_rule#해당 정부체제의 약탈 가능여부
-	primary_cultures = { sinan }
+	#primary_cultures = { sinan }
 	
 	fallback = 3
 	
@@ -150,7 +150,8 @@ proletarian_government = {
 chinese_bureaucracy_government = {
  	create_cadet_branches = yes
 	rulers_should_have_dynasty = yes
-	primary_holding = castle_holding
+	
+	primary_holdings = castle_holding
 	valid_holdings = { metropolis_holding city_holding}
 	required_county_holdings = { castle_holding city_holding church_holding }
 	preferred_religions = { chinese_confucianism_religion legalist_religion new_world_religion }
@@ -166,32 +167,30 @@ chinese_bureaucracy_government = {
 	}
 
 	character_modifier = {
-		#effect = {
-		#	if = {
-		#		limit = {
-		#			highest_held_title_tier = tier_empire
-		#		}
-		#		domain_limit = 4
-		#		monthly_income_mult = 0.1
-		#		levy_size = 0.1
-		#		monthly_prestige_gain_mult = 0.1
-		#		vassal_opinion = 5
-		#	}
-		#	else_if = {
-		#		limit = {
-		#			highest_held_title_tier = tier_kingdom
-		#		}
-		#		domain_limit = 2
-		#		monthly_income_mult = 0.25
-		#		levy_size = 0.25
-		#	}
-		#	else_if = {
-		#		limit = {
-		#			highest_held_title_tier = tier_duchy
-		#		}
-		#		domain_limit = 1
-		#	}
-		#}
+		if = {
+			limit = {
+				highest_held_title_tier = tier_empire
+			}
+			domain_limit = 4
+			monthly_income_mult = 0.1
+			levy_size = 0.1
+			monthly_prestige_gain_mult = 0.1
+			vassal_opinion = 5
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier = tier_kingdom
+			}
+			domain_limit = 2
+			monthly_income_mult = 0.25
+			levy_size = 0.25
+		}
+		else_if = {
+			limit = {
+				highest_held_title_tier = tier_duchy
+			}
+			domain_limit = 1
+		}
 	}
 			
 
@@ -267,8 +266,7 @@ nomadic_government = {
 	supply_limit_mult_for_others = -0.5
 	primary_holding = tribal_holding
 	required_county_holdings = { tribal_holding }
-	primary_culture_groups = { mongolic_group }
-	primary_cultures = { yalu }
+	primary_heritages = { heritage_mongolic }
 	fallback = 2
 	prestige_opinion_override = { -10 0 3 5 10 20 }
 	always_use_patronym = yes	
@@ -305,7 +303,7 @@ manchu_tribal_government = {
 
 	valid_holdings = { tribal_holding castle_holding city_holding church_holding }
 
-	primary_culture_groups = { jianzhou_group haixi_group }
+	primary_heritages = { heritage_manchu }
 
 	prestige_opinion_override = { -10 0 3 5 10 20 }
 	always_use_patronym = yes	

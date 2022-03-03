@@ -32,6 +32,7 @@ princely_elective = { #HRE Elective.
 			}
 			NOT = { this = scope:holder }
 			is_powerful_vassal = yes
+			liege = scope:holder
 		}
 		modifier = { #Clerical Influence
 			desc = tooltip_feudal_vote_strength_theocrat
@@ -71,6 +72,14 @@ princely_elective = { #HRE Elective.
 					is_vassal_of = scope:holder
 					is_independent_ruler = yes
 				}
+				trigger_if = { #Must be true priests
+					limit = { has_government = theocracy_government }
+					trigger_if = {
+						limit = { is_female = yes }
+						faith_dominant_gender_female_or_equal = yes
+					}
+					trigger_else = { faith_dominant_gender_male_or_equal = yes }
+				}
 			}
 		}
 		priority = {
@@ -81,43 +90,8 @@ princely_elective = { #HRE Elective.
 			}
 			modifier = { # Prince-Electors. (specific titles, held by rulers of the same faith as the current holder)
 				add = 75
-				scope:title = { #Either title is higher than Duke-tier, or must be primary.
-					OR = {
-						tier >= tier_kingdom
-						holder = { has_primary_title = prev }
-					}
-				}
 				faith = scope:holder.faith
-				OR = { # To make sure they are still de jure vassals of HRE #TODO_CD:Replace with dynamic version once creating the HRE is made into a dynamic decision.
-					title:d_iksan = {
-						holder = root
-						scope:title = { is_de_jure_liege_or_above_target = prev }
-					}
-					title:d_namwon = {
-						holder = root
-						scope:title = { is_de_jure_liege_or_above_target = prev }
-					}
-					title:d_gongju = {
-						holder = root
-						scope:title = { is_de_jure_liege_or_above_target = prev }
-					}
-					title:d_jeonju = {
-						holder = root
-						scope:title = { is_de_jure_liege_or_above_target = prev }
-					}
-					title:d_buyeo = {
-						holder = root
-						scope:title = { is_de_jure_liege_or_above_target = prev }
-					}
-					title:d_jeongeup = { #Saxony
-						holder = root
-						scope:title = { is_de_jure_liege_or_above_target = prev }
-					}
-					title:d_nonsan = { #Brandenburg
-						holder = root
-						scope:title = { is_de_jure_liege_or_above_target = prev }
-					}
-				}
+				is_target_in_global_variable_list = { name = hre_elector_list target = primary_title }
 			}
 
 			modifier = { #Fallback Electors
@@ -222,7 +196,6 @@ princely_elective = { #HRE Elective.
 			type = holder_close_or_extended_family
 			limit = {
 				is_close_family_of = scope:holder
-				dynasty = scope:holder.dynasty
 				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
 			}
 		}
