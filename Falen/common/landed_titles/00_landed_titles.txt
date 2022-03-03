@@ -46,3 +46,7 @@ k_joseon_king = {
 	always_follows_primary_heir = yes
 	destroy_if_invalid_heir = yes
 }
+# These mock titles cut hundreds of errors from logs. Additional titles could further reduce logs at the cost of tedium and bloat in this file.
+e_hre = { landless = yes }
+e_byzantium = { landless = yes }
+e_roman_empire = { landless = yes }
