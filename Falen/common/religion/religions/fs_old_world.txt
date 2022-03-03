@@ -8,10 +8,10 @@
 	doctrine = unreformed_faith_doctrine	# 파간 설정
 	pagan_roots = yes
 	
-	traits = {	# 트레잇
-		virtues = { trait1 trait2 trait3 }	# 미덕
-		sins = { trait4 trait5 trait6 }	# 죄악
-	}
+	#traits = {	# 트레잇
+	#	virtues = { trait1 trait2 trait3 }	# 미덕
+	#	sins = { trait4 trait5 trait6 }	# 죄악
+	#}
 	
 	reserved_male_names = {	# 남성 이름
 	}
@@ -184,11 +184,11 @@
 		
 			# religious_head = 	# 종교 수장 작위
 		
-			holy_site = pohang	# 성지 설정
-			holy_site = gwangyang
-			holy_site = dangjin
-			holy_site = donggu
-			holy_site = kimchaek
+			holy_site = pohang_iron_pohangjaechul	# 성지 설정
+			holy_site = gwangyang_iron_gwangyangjaechul
+			holy_site = dangjin_iron_dangjinjaechul
+			holy_site = incheon_iron_donggujaechul
+			holy_site = cheongjin_iron_kimchaekjaechul
 			
 			# 주요 교리
 			doctrine = doctrine_temporal_head	# 교계 지도자: 
@@ -236,11 +236,11 @@
 		
 			# religious_head = 	# 종교 수장 작위
 		
-			holy_site = ktec	# 성지 설정
-			holy_site = jeonju
-			holy_site = gumi
-			holy_site = pyeongtaek
-			holy_site = ulsan
+			holy_site = yuseong_mech_kaist	# 성지 설정
+			holy_site = jeonju_default
+			holy_site = gumi_default
+			holy_site = pyeongtaek_default
+			holy_site = ulsan_default
 			
 			# 주요 교리
 			doctrine = doctrine_no_head	# 교계 지도자: 
@@ -288,11 +288,11 @@
 		
 			# religious_head = 	# 종교 수장 작위
 		
-			holy_site = wolsung	# 성지 설정
-			holy_site = gori
-			holy_site = hanbit
-			holy_site = hanul
-			holy_site = kstar
+			holy_site = gampo_atomic_wolsung	# 성지 설정
+			holy_site = gijang_atomic_gori
+			holy_site = hongnong_atomic_hanbit
+			holy_site = uljin_atomic_hanul
+			holy_site = yuseong_atomic_kstar
 			
 			# 주요 교리
 			doctrine = doctrine_spiritual_head	# 교계 지도자: 
