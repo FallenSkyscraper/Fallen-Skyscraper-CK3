@@ -15,6 +15,8 @@
 @weapons_and_armor_01 = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_01.dds"
 @weapons_and_armor_02 = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_02.dds"
 @knight = "gfx/interface/icons/culture_innovations/innovation_knight.dds"
+@hird = "gfx/interface/icons/culture_innovations/innovation_hird.dds"
+@longboats = "gfx/interface/icons/culture_innovations/innovation_longboats.dds"
 @majesty_01 = "gfx/interface/icons/culture_innovations/innovation_majesty_01.dds"
 @majesty_02 = "gfx/interface/icons/culture_innovations/innovation_majesty_02.dds"
 @majesty_03 = "gfx/interface/icons/culture_innovations/innovation_majesty_03.dds"
@@ -90,6 +92,7 @@ innovation_knighthood = {
 		direct_vassal_opinion = 5
 		knight_effectiveness_mult = 0.2
 	}
+	custom = students_of_knighthood
 
 	flag = global_regular
 	flag = high_medieval_era_regular
@@ -225,3 +228,72 @@ innovation_currency_03 = {
 }
 
 #culture_group_regional
+innovation_east_settling = {
+	group = culture_group_regional
+	culture_era = culture_era_high_medieval
+	region = custom_europe_eastern_germany
+	icon = @misc_inventions
+
+	custom = promote_culture_speed
+	modifier = {
+		development_growth_factor = 0.15
+	}
+
+	flag = global_regional
+	flag = high_medieval_era_regional
+}
+
+innovation_seigneurialism = {
+	group = culture_group_regional
+	culture_era = culture_era_high_medieval
+	region = world_europe_west_francia
+	icon = @administration_1
+
+	modifier = {
+		domain_tax_mult = 0.05
+	}
+
+	flag = global_regional
+	flag = high_medieval_era_regional
+}
+
+innovation_muladi = {
+	group = culture_group_regional
+	culture_era = culture_era_high_medieval
+	region = world_africa_north
+	icon = @nobility_02
+
+	modifier = {
+		different_culture_opinion = 10
+		development_growth_factor = 0.10
+	}
+
+	flag = global_regional
+	flag = high_medieval_era_regional
+}
+
+innovation_french_peerage = {
+	group = culture_group_regional
+	culture_era = culture_era_high_medieval
+	region = world_europe_west_francia
+	icon = @nobility_03
+
+	can_progress = { #Unlocked by event.
+		custom_description = {
+			text = "innovation_unlocked_by_decision_trigger"
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_promoted_gothic_innovations
+			}
+		}
+	}
+
+	modifier = {
+		direct_vassal_opinion = 5
+		fellow_vassal_opinion = -10
+		vassal_tax_contribution_mult = 0.1
+	}
+
+	flag = global_regional
+	flag = high_medieval_era_regional
+}

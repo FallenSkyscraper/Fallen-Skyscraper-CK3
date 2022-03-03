@@ -15,6 +15,8 @@
 @weapons_and_armor_01 = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_01.dds"
 @weapons_and_armor_02 = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_02.dds"
 @knight = "gfx/interface/icons/culture_innovations/innovation_knight.dds"
+@hird = "gfx/interface/icons/culture_innovations/innovation_hird.dds"
+@longboats = "gfx/interface/icons/culture_innovations/innovation_longboats.dds"
 @majesty_01 = "gfx/interface/icons/culture_innovations/innovation_majesty_01.dds"
 @majesty_02 = "gfx/interface/icons/culture_innovations/innovation_majesty_02.dds"
 @majesty_03 = "gfx/interface/icons/culture_innovations/innovation_majesty_03.dds"
@@ -211,3 +213,52 @@ innovation_currency_04 = {
 }
 
 #culture_group_regional
+ innovation_wierdijks = {
+	group = culture_group_regional
+	culture_era = culture_era_late_medieval
+	region = custom_netherlands
+	icon = @civil_construction_2
+	
+	modifier = {
+		levy_size = 0.01 #Not that kind of levee!
+		city_holding_build_speed = -0.1
+		city_holding_holding_build_speed = -0.1
+		development_growth_factor = 0.1
+
+	}
+
+	flag = global_regional
+	flag = late_medieval_era_regional
+}
+
+innovation_condottieri = {
+	group = culture_group_regional
+	culture_era = culture_era_late_medieval
+	region = world_europe_south_italy
+	icon = @maa_01
+	
+	modifier = {
+		same_culture_mercenary_hire_cost_mult = -0.25
+	}
+
+	culture_modifier = {
+		mercenary_count_mult = 1
+	}
+
+	flag = global_regional
+	flag = late_medieval_era_regional
+}
+
+innovation_deccan_unity = {
+	group = culture_group_regional
+	culture_era = culture_era_late_medieval
+	region = world_india_deccan
+	icon = @nobility_04
+	
+	modifier = {
+		same_faith_opinion = 5
+	}
+
+	flag = global_regional
+	flag = late_medieval_era_regional
+}

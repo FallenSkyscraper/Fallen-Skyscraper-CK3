@@ -1,562 +1,137 @@
-mongolic_group = {
+mongol = {
+	color = mongol
 	
-	graphical_cultures = {
-		indian_building_gfx
-		steppe_coa_gfx
-		mongol_coa_gfx
-		mongol_clothing_gfx
-		mongol_unit_gfx
+	ethos = ethos_bellicose
+	heritage = heritage_mongolic
+	language = language_mongolic
+	martial_custom = martial_custom_male_only
+	traditions = {
+		tradition_horse_lords
+		tradition_hunters
+		tradition_steppe_tolerance
 	}
-
-	mercenary_names = {
-		{ name = "mercenary_company_place_horde" }
-		{ name = "mercenary_company_army_under_the_sky" }
-		{ name = "mercenary_company_mongolic_riders_of_place" }
-		{ name = "mercenary_company_true_khans_faithful" }
-		{ name = "mercenary_company_company_of_the_yurt" }
-		{ name = "mercenary_company_mongolic_riders_of_place" }
-		{ name = "mercenary_company_steppe_dancers_band" }
-		{ name = "mercenary_company_mongolic_riders_of_place" }
-		{ name = "mercenary_company_chastisement_of_place" }
-		{ name = "mercenary_company_mongolic_riders_of_place" }
-		{ name = "mercenary_company_band_of_the_father" }
-		{ name = "mercenary_company_company_of_the_goad" }
-		{ name = "mercenary_company_mongolic_riders_of_place" }
+	
+	dlc_tradition = {
+		trait = tradition_malleable_invaders
+		requires_dlc_flag = hybridize_culture
 	}
+	
+	name_list = name_list_mongol
 
-	mongol = {
-		
-		color = { 0.4 0.4 1.0 }
+	coa_gfx = { mongol_coa_gfx steppe_coa_gfx } 
+	building_gfx = { steppe_building_gfx } 
+	clothing_gfx = { mongol_clothing_gfx } 
+	unit_gfx = { mongol_unit_gfx } 	
 
-		character_modifier = {
-			ai_war_chance = 1
-			ai_war_cooldown = -0.5
-		}
-
-		dynasty_names = {
-			"dynn_Sartaq"
-			"dynn_Mengu-Timur"
-			"dynn_Timurid"
-			"dynn_Uriankhai"
-			"dynn_Bujakhin"
-			"dynn_Besud"
-			"dynn_Noyan"
-			"dynn_Jochid"
-			"dynn_Chagatayid"
-			"dynn_Borjigin"
-			"dynn_Chupanid"
-			"dynn_Injuid"
-			"dynn_Toluid"
-			"dynn_Ganbold"
-			"dynn_Bolormaa"
-			"dynn_Otgonbayar"
-			"dynn_Enkhtuyaa"
-			"dynn_Gantulga"
-			"dynn_LkhagvasU_ren"
-			"dynn_Enkhjargal"
-			"dynn_Ganzorig"
-			"dynn_Narantsetseg"
-			"dynn_PU_revsU_ren"
-			"dynn_Ganbaatar"
-			"dynn_MO_nkhtsetseg"
-			"dynn_MO_nkhbat"
-			"dynn_MO_nkh-Erdene"
-			"dynn_Jalair"
-			"dynn_Sartuul"
-			"dynn_Olkhunut"
-			"dynn_Khatagin"
-			"dynn_Iljigin"
-			"dynn_Tsookhor"
-			"dynn_Onggirat"
-			"dynn_Onggirat"
-			"dynn_Khunggirad"
-			"dynn_Mergid"
-			"dynn_Telingid"
-			"dynn_Borjigin"
-			"dynn_Aralkum"
-			"dynn_Dana"
-			"dynn_AqtO_be"
-			"dynn_Bailjar"
-			"dynn_Kaztal"
-			"dynn_Pecha"
-			"dynn_Kangly"
-			"dynn_Jadaran"
-			"dynn_Baarin"
-			"dynn_Bargujin"
-			"dynn_Borogchin"
-			"dynn_Mongoljin"
-			"dynn_Quralas"
-			#"dynn_Uvas_Mergid"
-			"dynn_Tatar"
-			"dynn_ZU_bU_"
-			"dynn_Ikheres"
-			"dynn_Eljigin"
-			"dynn_Bairam"
-			"dynn_Orduk"
-			"dynn_Arpardi"
-			"dynn_Barlas"
-			"dynn_Khorchi"
-			"dynn_Qaraunas"
-			"dynn_Arlat"
-			"dynn_Dughlat"
-			"dynn_Kereyit"
-			"dynn_Begchik"
-			"dynn_Sunit"
-			"dynn_Keshmiti"
-			"dynn_Uduyid"
-			"dynn_Uvas"
-			"dynn_Khaad"
-			"dynn_Khalka"
-		}
-
-		male_names = {
-			Abagha Achigh Aguchu Ajai Ajinai Akhutai Alagh Alchi Alchidai Altan Ambaghai Arkhai Arasen Babur Badai Bagaridai Bala Barghujin Bartan Batu Bedugun Begter Belgutei
-			Belgunutei Bilge Berke Bodonchar Bogen Bogorchu Bolkhadar Borjigidai Boroghul Bughu Bugidai Bugunutei Bujeg Bukha Bulughan Buri Burkhan Burundai Chagatai Chaghagan Chanai Chigu
-			Chidukhul Chilagun Chiledu Chormakhan Chulgetei Dagun Daritai Dayir Dodai Duua Eljigedei Ghazan Ghunan Guchu Gughlug Guyug Harghasun Horkhudagh Hulegu Husun Inalchi Inancha Iturgen
-			Jajiradai Jamugha Jebe Jochi Jurchedei Khabichi Khachi Khachigun Khadagh Khagatai Khaidu Khal Khorchi Khorilartai Khubilai Khudu Khutula Khuyildar Kogsegu Kokochu Megetu Megujin
-			Menggei Mongke Morokha Munglig Nakhu Narin Nayaga Nogai Odchigin Ogodei Okhotur Oljaitu Oronartai Shiraghul Shirgugetu Subetei Suyiketu Taghai Tamachi Targhutai Temuge Temujin Temur
-			Todogen Toghoril Toghtoga Tokhtamis Tolui Torolchi Tumen Uighurtai Ukhuna Usun Yedi Yegu Yeke Yesugei Yesunge Yokhunan Kadan Godan
-			Bukhatu_Salji Bukha_Khatagi Bodonchar_Munkhag BelgU_nU_tei BegU_nU_tei Baaridai Habich_Baghatur Jeguredei Menen_TU_dU_n Hachi_HU_lU_g Baishinkhor_Dogshin Chirhya_Lynhua
-			Chaujin_Ortagai Tumbinai_Setsen Sengun_Bilge Khabul Semsochule
-		}
-		female_names = {
-			Aigiarn Al-Alta Alan Alan_Gua Altani Borte Botokhui Bulughan Chabi Chagur Chakha Checheyigen Chotan Conchaka Dokez Doregene Doquz Ebegei Goland Gurbesu Hogelun Holuikhan Ibakha
-			Khadagan Khogaghchin Khojin Khorijin Khugurchin Khulan Khutulan Khutulun Kokachin Mandukhai Mongoljin Nomolun Oghul Orbei Orqina Sokhatai Sorkhaghatani Tekine Temulun TO_regene Yesugun Yesui Hoelun
-		}
-		
-		dynasty_of_location_prefix = "dynnp_of"
-		founder_named_dynasties = yes
-
-		ethnicities = {
-			10 = asian
-		}
+	ethnicities = {
+		10 = asian
 	}
-	kharchin = {
-		
-		color = { 1.0 0.4 0.7 }
-
-		character_modifier = {
-			ai_war_chance = 1
-			ai_war_cooldown = -0.5
-		}
-
-		dynasty_names = {
-			"dynn_Sartaq"
-			"dynn_Mengu-Timur"
-			"dynn_Timurid"
-			"dynn_Uriankhai"
-			"dynn_Bujakhin"
-			"dynn_Besud"
-			"dynn_Noyan"
-			"dynn_Jochid"
-			"dynn_Chagatayid"
-			"dynn_Borjigin"
-			"dynn_Chupanid"
-			"dynn_Injuid"
-			"dynn_Toluid"
-			"dynn_Ganbold"
-			"dynn_Bolormaa"
-			"dynn_Otgonbayar"
-			"dynn_Enkhtuyaa"
-			"dynn_Gantulga"
-			"dynn_LkhagvasU_ren"
-			"dynn_Enkhjargal"
-			"dynn_Ganzorig"
-			"dynn_Narantsetseg"
-			"dynn_PU_revsU_ren"
-			"dynn_Ganbaatar"
-			"dynn_MO_nkhtsetseg"
-			"dynn_MO_nkhbat"
-			"dynn_MO_nkh-Erdene"
-			"dynn_Jalair"
-			"dynn_Sartuul"
-			"dynn_Olkhunut"
-			"dynn_Khatagin"
-			"dynn_Iljigin"
-			"dynn_Tsookhor"
-			"dynn_Onggirat"
-			"dynn_Onggirat"
-			"dynn_Khunggirad"
-			"dynn_Mergid"
-			"dynn_Telingid"
-			"dynn_Borjigin"
-			"dynn_Aralkum"
-			"dynn_Dana"
-			"dynn_AqtO_be"
-			"dynn_Bailjar"
-			"dynn_Kaztal"
-			"dynn_Pecha"
-			"dynn_Kangly"
-			"dynn_Jadaran"
-			"dynn_Baarin"
-			"dynn_Bargujin"
-			"dynn_Borogchin"
-			"dynn_Mongoljin"
-			"dynn_Quralas"
-			#"dynn_Uvas_Mergid"
-			"dynn_Tatar"
-			"dynn_ZU_bU_"
-			"dynn_Ikheres"
-			"dynn_Eljigin"
-			"dynn_Bairam"
-			"dynn_Orduk"
-			"dynn_Arpardi"
-			"dynn_Barlas"
-			"dynn_Khorchi"
-			"dynn_Qaraunas"
-			"dynn_Arlat"
-			"dynn_Dughlat"
-			"dynn_Kereyit"
-			"dynn_Begchik"
-			"dynn_Sunit"
-			"dynn_Keshmiti"
-			"dynn_Uduyid"
-			"dynn_Uvas"
-			"dynn_Khaad"
-			"dynn_Khalka"
-		}
-
-		male_names = {
-			Abagha Achigh Aguchu Ajai Ajinai Akhutai Alagh Alchi Alchidai Altan Ambaghai Arkhai Arasen Babur Badai Bagaridai Bala Barghujin Bartan Batu Bedugun Begter Belgutei
-			Belgunutei Bilge Berke Bodonchar Bogen Bogorchu Bolkhadar Borjigidai Boroghul Bughu Bugidai Bugunutei Bujeg Bukha Bulughan Buri Burkhan Burundai Chagatai Chaghagan Chanai Chigu
-			Chidukhul Chilagun Chiledu Chormakhan Chulgetei Dagun Daritai Dayir Dodai Duua Eljigedei Ghazan Ghunan Guchu Gughlug Guyug Harghasun Horkhudagh Hulegu Husun Inalchi Inancha Iturgen
-			Jajiradai Jamugha Jebe Jochi Jurchedei Khabichi Khachi Khachigun Khadagh Khagatai Khaidu Khal Khorchi Khorilartai Khubilai Khudu Khutula Khuyildar Kogsegu Kokochu Megetu Megujin
-			Menggei Mongke Morokha Munglig Nakhu Narin Nayaga Nogai Odchigin Ogodei Okhotur Oljaitu Oronartai Shiraghul Shirgugetu Subetei Suyiketu Taghai Tamachi Targhutai Temuge Temujin Temur
-			Todogen Toghoril Toghtoga Tokhtamis Tolui Torolchi Tumen Uighurtai Ukhuna Usun Yedi Yegu Yeke Yesugei Yesunge Yokhunan Kadan Godan
-			Bukhatu_Salji Bukha_Khatagi Bodonchar_Munkhag BelgU_nU_tei BegU_nU_tei Baaridai Habich_Baghatur Jeguredei Menen_TU_dU_n Hachi_HU_lU_g Baishinkhor_Dogshin Chirhya_Lynhua
-			Chaujin_Ortagai Tumbinai_Setsen Sengun_Bilge Khabul Semsochule
-		}
-		female_names = {
-			Aigiarn Al-Alta Alan Alan_Gua Altani Borte Botokhui Bulughan Chabi Chagur Chakha Checheyigen Chotan Conchaka Dokez Doregene Doquz Ebegei Goland Gurbesu Hogelun Holuikhan Ibakha
-			Khadagan Khogaghchin Khojin Khorijin Khugurchin Khulan Khutulan Khutulun Kokachin Mandukhai Mongoljin Nomolun Oghul Orbei Orqina Sokhatai Sorkhaghatani Tekine Temulun TO_regene Yesugun Yesui Hoelun
-		}
-		
-		dynasty_of_location_prefix = "dynnp_of"
-		founder_named_dynasties = yes
-
-		ethnicities = {
-			10 = asian
-		}
+}
+kharchin = {
+	color = { 1.0 0.4 0.7 }
+	created = 1400.1.1
+	parents = { mongol }
+	
+	ethos = ethos_bellicose
+	heritage = heritage_mongolic
+	language = language_mongolic
+	martial_custom = martial_custom_male_only
+	traditions = {
+		tradition_horse_lords
+		tradition_loyal_soldiers
+		tradition_hunters
 	}
-	khorchin = {
-		
-		color = { 0.9 0.4 0.8 }
+	
+	name_list = name_list_mongol
 
-		character_modifier = {
-			ai_war_chance = 1
-			ai_war_cooldown = -0.5
-		}
+	coa_gfx = { mongol_coa_gfx steppe_coa_gfx } 
+	building_gfx = { steppe_building_gfx } 
+	clothing_gfx = { mongol_clothing_gfx } 
+	unit_gfx = { mongol_unit_gfx } 		
 
-		dynasty_names = {
-			"dynn_Sartaq"
-			"dynn_Mengu-Timur"
-			"dynn_Timurid"
-			"dynn_Uriankhai"
-			"dynn_Bujakhin"
-			"dynn_Besud"
-			"dynn_Noyan"
-			"dynn_Jochid"
-			"dynn_Chagatayid"
-			"dynn_Borjigin"
-			"dynn_Chupanid"
-			"dynn_Injuid"
-			"dynn_Toluid"
-			"dynn_Ganbold"
-			"dynn_Bolormaa"
-			"dynn_Otgonbayar"
-			"dynn_Enkhtuyaa"
-			"dynn_Gantulga"
-			"dynn_LkhagvasU_ren"
-			"dynn_Enkhjargal"
-			"dynn_Ganzorig"
-			"dynn_Narantsetseg"
-			"dynn_PU_revsU_ren"
-			"dynn_Ganbaatar"
-			"dynn_MO_nkhtsetseg"
-			"dynn_MO_nkhbat"
-			"dynn_MO_nkh-Erdene"
-			"dynn_Jalair"
-			"dynn_Sartuul"
-			"dynn_Olkhunut"
-			"dynn_Khatagin"
-			"dynn_Iljigin"
-			"dynn_Tsookhor"
-			"dynn_Onggirat"
-			"dynn_Onggirat"
-			"dynn_Khunggirad"
-			"dynn_Mergid"
-			"dynn_Telingid"
-			"dynn_Borjigin"
-			"dynn_Aralkum"
-			"dynn_Dana"
-			"dynn_AqtO_be"
-			"dynn_Bailjar"
-			"dynn_Kaztal"
-			"dynn_Pecha"
-			"dynn_Kangly"
-			"dynn_Jadaran"
-			"dynn_Baarin"
-			"dynn_Bargujin"
-			"dynn_Borogchin"
-			"dynn_Mongoljin"
-			"dynn_Quralas"
-			#"dynn_Uvas_Mergid"
-			"dynn_Tatar"
-			"dynn_ZU_bU_"
-			"dynn_Ikheres"
-			"dynn_Eljigin"
-			"dynn_Bairam"
-			"dynn_Orduk"
-			"dynn_Arpardi"
-			"dynn_Barlas"
-			"dynn_Khorchi"
-			"dynn_Qaraunas"
-			"dynn_Arlat"
-			"dynn_Dughlat"
-			"dynn_Kereyit"
-			"dynn_Begchik"
-			"dynn_Sunit"
-			"dynn_Keshmiti"
-			"dynn_Uduyid"
-			"dynn_Uvas"
-			"dynn_Khaad"
-			"dynn_Khalka"
-		}
-
-		male_names = {
-			Abagha Achigh Aguchu Ajai Ajinai Akhutai Alagh Alchi Alchidai Altan Ambaghai Arkhai Arasen Babur Badai Bagaridai Bala Barghujin Bartan Batu Bedugun Begter Belgutei
-			Belgunutei Bilge Berke Bodonchar Bogen Bogorchu Bolkhadar Borjigidai Boroghul Bughu Bugidai Bugunutei Bujeg Bukha Bulughan Buri Burkhan Burundai Chagatai Chaghagan Chanai Chigu
-			Chidukhul Chilagun Chiledu Chormakhan Chulgetei Dagun Daritai Dayir Dodai Duua Eljigedei Ghazan Ghunan Guchu Gughlug Guyug Harghasun Horkhudagh Hulegu Husun Inalchi Inancha Iturgen
-			Jajiradai Jamugha Jebe Jochi Jurchedei Khabichi Khachi Khachigun Khadagh Khagatai Khaidu Khal Khorchi Khorilartai Khubilai Khudu Khutula Khuyildar Kogsegu Kokochu Megetu Megujin
-			Menggei Mongke Morokha Munglig Nakhu Narin Nayaga Nogai Odchigin Ogodei Okhotur Oljaitu Oronartai Shiraghul Shirgugetu Subetei Suyiketu Taghai Tamachi Targhutai Temuge Temujin Temur
-			Todogen Toghoril Toghtoga Tokhtamis Tolui Torolchi Tumen Uighurtai Ukhuna Usun Yedi Yegu Yeke Yesugei Yesunge Yokhunan Kadan Godan
-			Bukhatu_Salji Bukha_Khatagi Bodonchar_Munkhag BelgU_nU_tei BegU_nU_tei Baaridai Habich_Baghatur Jeguredei Menen_TU_dU_n Hachi_HU_lU_g Baishinkhor_Dogshin Chirhya_Lynhua
-			Chaujin_Ortagai Tumbinai_Setsen Sengun_Bilge Khabul Semsochule
-		}
-		female_names = {
-			Aigiarn Al-Alta Alan Alan_Gua Altani Borte Botokhui Bulughan Chabi Chagur Chakha Checheyigen Chotan Conchaka Dokez Doregene Doquz Ebegei Goland Gurbesu Hogelun Holuikhan Ibakha
-			Khadagan Khogaghchin Khojin Khorijin Khugurchin Khulan Khutulan Khutulun Kokachin Mandukhai Mongoljin Nomolun Oghul Orbei Orqina Sokhatai Sorkhaghatani Tekine Temulun TO_regene Yesugun Yesui Hoelun
-		}
-		
-		dynasty_of_location_prefix = "dynnp_of"
-		founder_named_dynasties = yes
-
-		ethnicities = {
-			10 = asian
-		}
+	ethnicities = {
+		10 = asian
 	}
-	gorlos = {
-		
-		color = { 0.4 0.65 0.9 }
+}
 
-		character_modifier = {
-			ai_war_chance = 1
-			ai_war_cooldown = -0.5
-		}
-
-		dynasty_names = {
-			"dynn_Sartaq"
-			"dynn_Mengu-Timur"
-			"dynn_Timurid"
-			"dynn_Uriankhai"
-			"dynn_Bujakhin"
-			"dynn_Besud"
-			"dynn_Noyan"
-			"dynn_Jochid"
-			"dynn_Chagatayid"
-			"dynn_Borjigin"
-			"dynn_Chupanid"
-			"dynn_Injuid"
-			"dynn_Toluid"
-			"dynn_Ganbold"
-			"dynn_Bolormaa"
-			"dynn_Otgonbayar"
-			"dynn_Enkhtuyaa"
-			"dynn_Gantulga"
-			"dynn_LkhagvasU_ren"
-			"dynn_Enkhjargal"
-			"dynn_Ganzorig"
-			"dynn_Narantsetseg"
-			"dynn_PU_revsU_ren"
-			"dynn_Ganbaatar"
-			"dynn_MO_nkhtsetseg"
-			"dynn_MO_nkhbat"
-			"dynn_MO_nkh-Erdene"
-			"dynn_Jalair"
-			"dynn_Sartuul"
-			"dynn_Olkhunut"
-			"dynn_Khatagin"
-			"dynn_Iljigin"
-			"dynn_Tsookhor"
-			"dynn_Onggirat"
-			"dynn_Onggirat"
-			"dynn_Khunggirad"
-			"dynn_Mergid"
-			"dynn_Telingid"
-			"dynn_Borjigin"
-			"dynn_Aralkum"
-			"dynn_Dana"
-			"dynn_AqtO_be"
-			"dynn_Bailjar"
-			"dynn_Kaztal"
-			"dynn_Pecha"
-			"dynn_Kangly"
-			"dynn_Jadaran"
-			"dynn_Baarin"
-			"dynn_Bargujin"
-			"dynn_Borogchin"
-			"dynn_Mongoljin"
-			"dynn_Quralas"
-			#"dynn_Uvas_Mergid"
-			"dynn_Tatar"
-			"dynn_ZU_bU_"
-			"dynn_Ikheres"
-			"dynn_Eljigin"
-			"dynn_Bairam"
-			"dynn_Orduk"
-			"dynn_Arpardi"
-			"dynn_Barlas"
-			"dynn_Khorchi"
-			"dynn_Qaraunas"
-			"dynn_Arlat"
-			"dynn_Dughlat"
-			"dynn_Kereyit"
-			"dynn_Begchik"
-			"dynn_Sunit"
-			"dynn_Keshmiti"
-			"dynn_Uduyid"
-			"dynn_Uvas"
-			"dynn_Khaad"
-			"dynn_Khalka"
-		}
-
-		male_names = {
-			Abagha Achigh Aguchu Ajai Ajinai Akhutai Alagh Alchi Alchidai Altan Ambaghai Arkhai Arasen Babur Badai Bagaridai Bala Barghujin Bartan Batu Bedugun Begter Belgutei
-			Belgunutei Bilge Berke Bodonchar Bogen Bogorchu Bolkhadar Borjigidai Boroghul Bughu Bugidai Bugunutei Bujeg Bukha Bulughan Buri Burkhan Burundai Chagatai Chaghagan Chanai Chigu
-			Chidukhul Chilagun Chiledu Chormakhan Chulgetei Dagun Daritai Dayir Dodai Duua Eljigedei Ghazan Ghunan Guchu Gughlug Guyug Harghasun Horkhudagh Hulegu Husun Inalchi Inancha Iturgen
-			Jajiradai Jamugha Jebe Jochi Jurchedei Khabichi Khachi Khachigun Khadagh Khagatai Khaidu Khal Khorchi Khorilartai Khubilai Khudu Khutula Khuyildar Kogsegu Kokochu Megetu Megujin
-			Menggei Mongke Morokha Munglig Nakhu Narin Nayaga Nogai Odchigin Ogodei Okhotur Oljaitu Oronartai Shiraghul Shirgugetu Subetei Suyiketu Taghai Tamachi Targhutai Temuge Temujin Temur
-			Todogen Toghoril Toghtoga Tokhtamis Tolui Torolchi Tumen Uighurtai Ukhuna Usun Yedi Yegu Yeke Yesugei Yesunge Yokhunan Kadan Godan
-			Bukhatu_Salji Bukha_Khatagi Bodonchar_Munkhag BelgU_nU_tei BegU_nU_tei Baaridai Habich_Baghatur Jeguredei Menen_TU_dU_n Hachi_HU_lU_g Baishinkhor_Dogshin Chirhya_Lynhua
-			Chaujin_Ortagai Tumbinai_Setsen Sengun_Bilge Khabul Semsochule
-		}
-		female_names = {
-			Aigiarn Al-Alta Alan Alan_Gua Altani Borte Botokhui Bulughan Chabi Chagur Chakha Checheyigen Chotan Conchaka Dokez Doregene Doquz Ebegei Goland Gurbesu Hogelun Holuikhan Ibakha
-			Khadagan Khogaghchin Khojin Khorijin Khugurchin Khulan Khutulan Khutulun Kokachin Mandukhai Mongoljin Nomolun Oghul Orbei Orqina Sokhatai Sorkhaghatani Tekine Temulun TO_regene Yesugun Yesui Hoelun
-		}
-		
-		dynasty_of_location_prefix = "dynnp_of"
-		founder_named_dynasties = yes
-
-		ethnicities = {
-			10 = asian
-		}
+khorchin = {
+	color = { 0.9 0.4 0.8 }
+	created = 1400.1.1
+	parents = { mongol }
+	
+	ethos = ethos_bellicose
+	heritage = heritage_mongolic
+	language = language_mongolic
+	martial_custom = martial_custom_male_only
+	traditions = {
+		tradition_horse_lords
+		tradition_horse_breeder
+		tradition_pastoralists
+		tradition_dryland_dwellers
 	}
-	chahar = {
-		
-		color = { 0.3 0.9 0.8 }
+	
+	name_list = name_list_mongol
 
-		character_modifier = {
-			ai_war_chance = 1
-			ai_war_cooldown = -0.5
-		}
+	coa_gfx = { mongol_coa_gfx steppe_coa_gfx } 
+	building_gfx = { steppe_building_gfx } 
+	clothing_gfx = { mongol_clothing_gfx } 
+	unit_gfx = { mongol_unit_gfx } 		
 
-		dynasty_names = {
-			"dynn_Sartaq"
-			"dynn_Mengu-Timur"
-			"dynn_Timurid"
-			"dynn_Uriankhai"
-			"dynn_Bujakhin"
-			"dynn_Besud"
-			"dynn_Noyan"
-			"dynn_Jochid"
-			"dynn_Chagatayid"
-			"dynn_Borjigin"
-			"dynn_Chupanid"
-			"dynn_Injuid"
-			"dynn_Toluid"
-			"dynn_Ganbold"
-			"dynn_Bolormaa"
-			"dynn_Otgonbayar"
-			"dynn_Enkhtuyaa"
-			"dynn_Gantulga"
-			"dynn_LkhagvasU_ren"
-			"dynn_Enkhjargal"
-			"dynn_Ganzorig"
-			"dynn_Narantsetseg"
-			"dynn_PU_revsU_ren"
-			"dynn_Ganbaatar"
-			"dynn_MO_nkhtsetseg"
-			"dynn_MO_nkhbat"
-			"dynn_MO_nkh-Erdene"
-			"dynn_Jalair"
-			"dynn_Sartuul"
-			"dynn_Olkhunut"
-			"dynn_Khatagin"
-			"dynn_Iljigin"
-			"dynn_Tsookhor"
-			"dynn_Onggirat"
-			"dynn_Onggirat"
-			"dynn_Khunggirad"
-			"dynn_Mergid"
-			"dynn_Telingid"
-			"dynn_Borjigin"
-			"dynn_Aralkum"
-			"dynn_Dana"
-			"dynn_AqtO_be"
-			"dynn_Bailjar"
-			"dynn_Kaztal"
-			"dynn_Pecha"
-			"dynn_Kangly"
-			"dynn_Jadaran"
-			"dynn_Baarin"
-			"dynn_Bargujin"
-			"dynn_Borogchin"
-			"dynn_Mongoljin"
-			"dynn_Quralas"
-			#"dynn_Uvas_Mergid"
-			"dynn_Tatar"
-			"dynn_ZU_bU_"
-			"dynn_Ikheres"
-			"dynn_Eljigin"
-			"dynn_Bairam"
-			"dynn_Orduk"
-			"dynn_Arpardi"
-			"dynn_Barlas"
-			"dynn_Khorchi"
-			"dynn_Qaraunas"
-			"dynn_Arlat"
-			"dynn_Dughlat"
-			"dynn_Kereyit"
-			"dynn_Begchik"
-			"dynn_Sunit"
-			"dynn_Keshmiti"
-			"dynn_Uduyid"
-			"dynn_Uvas"
-			"dynn_Khaad"
-			"dynn_Khalka"
-		}
+	ethnicities = {
+		10 = asian
+	}
+}
+gorlos = {
+	color = { 0.4 0.65 0.9 }
+	created = 1400.1.1
+	parents = { mongol }
+	
+	ethos = ethos_bellicose
+	heritage = heritage_mongolic
+	language = language_mongolic
+	martial_custom = martial_custom_male_only
+	traditions = {
+		tradition_horse_lords
+		tradition_steppe_tolerance
+		tradition_pastoralists
+		tradition_dryland_dwellers
+	}
+	
+	name_list = name_list_mongol
 
-		male_names = {
-			Abagha Achigh Aguchu Ajai Ajinai Akhutai Alagh Alchi Alchidai Altan Ambaghai Arkhai Arasen Babur Badai Bagaridai Bala Barghujin Bartan Batu Bedugun Begter Belgutei
-			Belgunutei Bilge Berke Bodonchar Bogen Bogorchu Bolkhadar Borjigidai Boroghul Bughu Bugidai Bugunutei Bujeg Bukha Bulughan Buri Burkhan Burundai Chagatai Chaghagan Chanai Chigu
-			Chidukhul Chilagun Chiledu Chormakhan Chulgetei Dagun Daritai Dayir Dodai Duua Eljigedei Ghazan Ghunan Guchu Gughlug Guyug Harghasun Horkhudagh Hulegu Husun Inalchi Inancha Iturgen
-			Jajiradai Jamugha Jebe Jochi Jurchedei Khabichi Khachi Khachigun Khadagh Khagatai Khaidu Khal Khorchi Khorilartai Khubilai Khudu Khutula Khuyildar Kogsegu Kokochu Megetu Megujin
-			Menggei Mongke Morokha Munglig Nakhu Narin Nayaga Nogai Odchigin Ogodei Okhotur Oljaitu Oronartai Shiraghul Shirgugetu Subetei Suyiketu Taghai Tamachi Targhutai Temuge Temujin Temur
-			Todogen Toghoril Toghtoga Tokhtamis Tolui Torolchi Tumen Uighurtai Ukhuna Usun Yedi Yegu Yeke Yesugei Yesunge Yokhunan Kadan Godan
-			Bukhatu_Salji Bukha_Khatagi Bodonchar_Munkhag BelgU_nU_tei BegU_nU_tei Baaridai Habich_Baghatur Jeguredei Menen_TU_dU_n Hachi_HU_lU_g Baishinkhor_Dogshin Chirhya_Lynhua
-			Chaujin_Ortagai Tumbinai_Setsen Sengun_Bilge Khabul Semsochule
-		}
-		female_names = {
-			Aigiarn Al-Alta Alan Alan_Gua Altani Borte Botokhui Bulughan Chabi Chagur Chakha Checheyigen Chotan Conchaka Dokez Doregene Doquz Ebegei Goland Gurbesu Hogelun Holuikhan Ibakha
-			Khadagan Khogaghchin Khojin Khorijin Khugurchin Khulan Khutulan Khutulun Kokachin Mandukhai Mongoljin Nomolun Oghul Orbei Orqina Sokhatai Sorkhaghatani Tekine Temulun TO_regene Yesugun Yesui Hoelun
-		}
-		
-		dynasty_of_location_prefix = "dynnp_of"
-		founder_named_dynasties = yes
+	coa_gfx = { mongol_coa_gfx steppe_coa_gfx } 
+	building_gfx = { steppe_building_gfx } 
+	clothing_gfx = { mongol_clothing_gfx } 
+	unit_gfx = { mongol_unit_gfx } 		
 
-		ethnicities = {
-			10 = asian
-		}
+	ethnicities = {
+		10 = asian
+	}
+}
+chahar = {
+	color = { 0.3 0.9 0.8 }
+	created = 1400.1.1
+	parents = { mongol }
+	
+	ethos = ethos_bellicose
+	heritage = heritage_mongolic
+	language = language_mongolic
+	martial_custom = martial_custom_male_only
+	traditions = {
+		tradition_horse_lords
+		tradition_hunters
+		tradition_steppe_tolerance
+		tradition_pastoralists
+	}
+	
+	name_list = name_list_mongol
+
+	coa_gfx = { mongol_coa_gfx steppe_coa_gfx } 
+	building_gfx = { steppe_building_gfx } 
+	clothing_gfx = { mongol_clothing_gfx } 
+	unit_gfx = { mongol_unit_gfx } 		
+
+	ethnicities = {
+		10 = asian
 	}
 }

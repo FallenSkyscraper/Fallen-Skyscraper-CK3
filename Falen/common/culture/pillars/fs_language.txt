@@ -1,0 +1,594 @@
+## Koreanic Languages
+language_old_korean = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_old_korean
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_old_korean }
+			multiply = 10
+		}
+	}
+	
+	color = english
+}
+language_central_korean = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_central_korean
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_central_korean }
+			multiply = 10
+		}
+	}
+	
+	color = english
+}
+language_southeast_korean = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_southeast_korean
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_southeast_korean }
+			multiply = 10
+		}
+	}
+	
+	color = english
+}
+language_southwest_korean = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_southwest_korean
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_southwest_korean }
+			multiply = 10
+		}
+	}
+	
+	color = english
+}
+language_northeast_korean = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_northeast_korean
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_northeast_korean }
+			multiply = 10
+		}
+	}
+	
+	color = english
+}
+language_northwest_korean = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_northwest_korean
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_northwest_korean }
+			multiply = 10
+		}
+	}
+	
+	color = english
+}
+language_yukjin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_yukjin
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_yukjin }
+			multiply = 10
+		}
+	}
+	
+	color = nepali
+}
+language_jeju = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_jeju
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_jeju }
+			multiply = 10
+		}
+	}
+	
+	color = nepali
+}
+language_chaoxian = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_chaoxian
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_chaoxian }
+			multiply = 10
+		}
+	}
+	
+	color = nepali
+}
+language_koryo_mar = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_koryo_mar
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_koryo_mar }
+			multiply = 10
+		}
+	}
+	
+	color = nepali
+}
+## Mandarin Sinitic Languages
+language_chinese_classical = { # 漢文, historic liturgical language in east asia
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_chinese_classical
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_chinese_classical }
+			multiply = 10
+		}
+	}
+	
+	color = han
+}
+language_mandarin_northeast = { # Used in Manchuria and Beijing
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_mandarin_northeast
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_mandarin_northeast }
+			multiply = 10
+		}
+	}
+	
+	color = han
+}
+language_mandarin_jiaoliao = { # Used in Eastern Shandong and Liaodong peninsula
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_mandarin_jiaoliao
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_mandarin_jiaoliao }
+			multiply = 10
+		}
+	}
+	
+	color = han
+}
+language_mandarin_jilu = { # Used in Hebei and Western Shandong
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_mandarin
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_mandarin }
+			multiply = 10
+		}
+	}
+	
+	color = han
+}
+language_jin = { # Jin Chinese, Mostly Used in Shanxi
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_jin
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_jin }
+			multiply = 10
+		}
+	}
+	
+	color = han
+}
+## Japonic Languages
+# Higashi-Nihon
+language_edo = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_edo
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_edo }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+# Nishi-Nihon
+language_kyoto = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_kyoto
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_kyoto }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+language_osaka = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_osaka
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_osaka }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+language_shikoku = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_shikoku
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_shikoku }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+language_sanin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_sanin
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_sanin }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+language_west_chugoku = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_west_chugoku
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_west_chugoku }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+# Kyushu
+language_hichiku = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_hichiku
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_hichiku }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+language_honichi = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_honichi
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_honichi }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+language_satsugu = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_satsugu
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_satsugu }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+language_tsushima = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_tsushima
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_tsushima }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+language_kaikyo = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_kaikyo
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_kaikyo }
+			multiply = 10
+		}
+	}
+	
+	color = hausa
+}
+# Vanilla Languages
+language_anglic = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_anglic
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_anglic }
+			multiply = 10
+		}
+	}
+	
+	color = english
+}
+
+language_arabic = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_arabic
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_arabic }
+			multiply = 10
+		}
+		if = {
+			limit = {
+				scope:character = {
+					religion = religion:islam_religion
+				}
+			}
+			multiply = 2
+		}
+	}
+	
+	color = bedouin
+}
+language_east_slavic = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_east_slavic
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_east_slavic }
+			multiply = 10
+		}
+	}
+	
+	color = russian
+}
+language_high_german = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_high_german
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_high_german }
+			multiply = 10
+		}
+	}
+	
+	color = swabian
+}
+language_latin = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_latin
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_latin }
+			multiply = 10
+		}
+	}
+	
+	color = italian
+}
+language_mongolic = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_mongolic
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_mongolic }
+			multiply = 10
+		}
+	}
+	
+	color = mongol
+}
+language_greek = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_greek
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_greek }
+			multiply = 10
+		}
+	}
+	
+	color = greek
+}
+language_tungusic = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_tungusic
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_tungusic }
+			multiply = 10
+		}
+	}
+	
+	color = jurchen
+}
