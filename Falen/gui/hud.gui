@@ -338,6 +338,133 @@ widget = {
 				}
 			}
 	}
+	
+	window = {
+		name = "hec_window"
+		parentanchor = center
+		position = { 50 100 }
+		size = { 800 1000 }
+		layer = windows_layer
+		filter_mouse = all
+		alwaystransparent = no
+		using = Window_Background
+		using = Window_Decoration
+		movable = yes
+		visible = "[GetScriptedGui('hec_gui_toggle').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			using = Sound_WindowShow_Standard
+			using = Window_Position_MainTab
+			
+			#on_start = "[GetScriptedGui('zz').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		}
+		
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			using = Sound_WindowHide_Standard
+			using = Window_Position_MainTab_Hide
+		
+		}
+		widget = {
+			size = { 100% 100% }
+			using = Window_Margins
+			margin_top = -5
+			margin_bottom = 5
+
+			vbox = {
+				header_standard = {
+					using = Window_Margins
+					margin_bottom = 30
+					layoutpolicy_horizontal = expanding								
+					blockoverride "header_text"
+					{
+						text = "[GetTitleByKey('e_hec').GetName]"
+						margin = { -10 0 }
+						parentanchor = center
+					}
+					blockoverride "button_close"
+					{
+						datacontext = "[GetScriptedGui('hec_gui_close')]"
+						onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					}
+				}
+				icon = {
+					texture = "gfx/interface/icons/culture_innovations/innovation_majesty_03.dds"
+				}
+				hbox = {
+					datacontext = "[GetTitleByKey('e_hec').GetHolder]"
+					
+					coa_realm_huge_crown = {
+						datacontext = "[Character]"
+						scale = 1.0
+						#parentanchor = top|center
+						#position = { 0 90 }
+					}
+					vbox = {
+						margin_left = 100
+						margin_right = 100
+						text_single_big = {
+							text = "Who_is_HEC_Emperor"
+							
+						}
+						text_single = { text = "Imperial_Authority" tooltip = "Tooltip_Imperial_Authority" } # Imperial Authority
+					}
+					portrait_head = { datacontext = "[Character]" }
+				}
+				hbox = {
+					vbox = {
+						text_single_medium = {
+							text = "Reforms"
+							tooltip = "Tooltip_Reforms"
+						}
+						margin_right = 200
+					} # reform list
+					vbox = {
+						hbox = {
+							icon = {
+								texture = "gfx/interface/icons/council_task_types/task_bestow_royal_favor.dds"
+								size = { 60 60 }
+							}
+							icon = {
+								texture = "gfx/interface/icons/council_task_types/task_religious_relations.dds"
+								size = { 60 60 }
+							}
+							icon = {
+								texture = "gfx/interface/icons/council_task_types/task_increase_control.dds"
+								size = { 60 60 }
+							}
+							tooltip = "Tooltip_Electors_Stance"
+						}
+						text_single_big = { text = "ELECTORS" }
+						fixedgridbox = {
+							name = "hec_electors"
+							flipdirection = yes
+							addrow = 30
+							addcolumn = 40
+							datamodel_wrap = 4
+
+							datamodel = "[GetGlobalList('hre_elector_list')]"
+							item = {
+								flowcontainer = {
+									
+									coa_title_small_crown = {
+										datacontext = "[Title.GetHolder]"
+									}
+									#portrait_head_small = { datacontext = "[Title.GetHolder]" }
+									text_single = { text = "AA" }
+								
+									#margin = { 20 20 30 30 }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	######################################################
 	#################### TOP RIGHT #######################
 	######################################################
@@ -2485,7 +2612,6 @@ widget = {
 					}
 				}
 			}
-			
 			button_normal = {
 				name = "prk_button"
 				tooltip = "PRK_BUTTON"
@@ -2498,6 +2624,60 @@ widget = {
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				down = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				visible = "[GetScriptedGui('prk_gui_abc').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				
+				state = {
+					name = _mouse_enter
+					duration = 0.03
+					scale = 1.2
+
+					using = Animation_Curve_Default
+
+					modify_texture = {
+						name = "glow"
+						translate_uv = { 0 0 }
+						alpha = 0.4
+					}
+				}
+
+				state = {
+					name = _mouse_leave
+					duration = 0.1
+					scale = 1
+
+					using = Animation_Curve_Default
+
+					modify_texture = {
+						name = "glow"
+						translate_uv = { 1 0 }
+						alpha = 0
+					}
+				}
+
+				state = {
+					name = _mouse_press
+
+					using = Animation_Curve_Default
+				}
+
+				state = {
+					name = _mouse_release
+					duration = 0.15
+
+					using = Animation_Curve_Default
+				}
+			}
+			button_normal = {
+				name = "hec_button"
+				tooltip = "HEC_BUTTON"
+				size = { 50 50 }
+				icon = {
+					texture = "gfx/interface/icons/floating_hre.dds"
+					size = { 100% 100% }
+				}
+				datacontext = "[GetScriptedGui('hec_gui_toggle')]"
+				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				down = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				visible = "[GetScriptedGui('hec_gui_abc').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				
 				state = {
 					name = _mouse_enter
