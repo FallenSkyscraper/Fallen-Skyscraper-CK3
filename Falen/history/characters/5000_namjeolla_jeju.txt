@@ -179,7 +179,7 @@
 	dynasty = 5004 # Kim
 	culture = sinan
 	religion = protestant
-	trait = kinslayer
+	trait = kinslayer_3
 	2318.6.5 = { birth = yes }
 	2377.9.18 = { death = yes }
 }
@@ -212,7 +212,7 @@
 	dynasty = 5004 # Kim
 	culture = sinan
 	religion = protestant
-	trait = kinslayer
+	trait = kinslayer_3
 	2319.7.28 = { birth = yes }
 	2341.1.23 = {
 		death = {
@@ -360,12 +360,12 @@
 	dynasty = 5004 # Kim
 	culture = sinan
 	religion = protestant
-	trait = stressed
+	trait = depressed_1
 	2398.4.5 = { birth = yes }
 	2428.5.3 = {
-		death = {
-			death_reason = death_trait
-		}
+		death = yes #{
+			#death_reason = death_trait
+		#}
 	}
 }
 5033 = {
@@ -540,10 +540,12 @@
 	dynasty = 5001 # Seo
 	culture = sinan
 	religion = protestant
-	trait = depressed
+	trait = depressed_1
 	2401.12.13 = { birth = yes }
 	2418.1.1 = { add_spouse = 5038 }
-	2443.11.15 = { death = { death_reason = death_trait } }
+	2443.11.15 = { 
+		death = yes #{ death_reason = death_trait }
+	}
 }
 5051 = {
 	name = "정만"
@@ -553,7 +555,10 @@
 	culture = sinan
 	religion = protestant
 	2419.5.13 = { birth = yes }
-	2443.10.2 = { death = { death_reason = death_poor_health } }
+	2443.10.2 = {
+		 death = yes
+	#{ death_reason = death_poor_health }
+ 	}
 }
 5052 = {
 	name = "수정"
@@ -1193,7 +1198,7 @@
 	religion = protestant
 	culture = namhae
 	father = 5143
-	mo	ther = 5147
+	mother = 5147
 	2416.1.28 = {
 		birth = yes
 	}
