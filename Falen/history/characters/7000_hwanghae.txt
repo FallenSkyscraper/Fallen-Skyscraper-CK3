@@ -1,15 +1,418 @@
-#7001 = { #예시
-#	name = "상헌"
-#	dynasty = 7001 #왕 대가문 수장
-#	religion = populism
-#	culture = hwanghae
-#	2419.11.15 = {
-#		birth = yes
-#	}
-#	2500.1.1 = {
-#		death = yes
-#	}
-#}
+7001 = { #예시
+	name = "상헌"
+	dynasty = 801 #왕 대가문 수장
+	religion = populism
+	culture = icheon
+	2230.3.15 = {
+		birth = yes
+	}
+	2292.11.9 = {
+		death = yes
+	}
+}
+7002 = { #예시
+	name = "지성"
+	dynasty = 801 #왕 대가문 수장
+	religion = populism
+	culture = icheon
+	father = 7001
+	2263.6.11 = {
+		birth = yes
+	}
+	2292.2.7 = {
+		death = {
+			death_reason = death_battle
+		}
+	}
+}
+7003 = {
+	name = "지민"
+	dynasty = 801 #왕 대가문 수장
+	religion = populism
+	culture = gaeseong
+	father = 7001
+	2268.2.6 = {
+		birth = yes
+	}
+	2289.6.10 = {
+		add_spouse = 7153
+	}
+	2311.2.5 = {
+		death = yes
+	}
+}
+7004 = {
+	name = "지훈"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7001
+	2270.8.7 = {
+		birth = yes
+	}
+	2327.4.10 = {
+		death = yes
+	}
+}
+7005 = {
+	name = "혜영"
+	female = yes
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7001
+	2270.8.7 = {
+		birth = yes
+	}
+	2332.1.19 = {
+		death = yes
+	}
+}
+7006 = {
+	name = "형진"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7003
+	mother = 7153
+	2294.6.8 = {
+		birth = yes
+	}
+	2319.2.3 = {
+		death = {
+			death_reason = death_battle
+		}
+	}
+}
+7007 = {
+	name = "욱"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7006
+	2315.6.22 = {
+		birth = yes
+	}
+	2403.2.16 = {
+		death = {
+			death_reason = death_old_age
+		}
+	}
+}
+7008 = {
+	name = "성준"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7004
+	2298.12.10 = {
+		birth = yes
+	}
+	2367.2.15 = {
+		death = yes
+	}
+}
+7009 = {
+	name = "언록"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7004
+	2301.3.16 = {
+		birth = yes
+	}
+	#XXXX.XX.XX = {
+	#	add_spouse = ?
+	#}
+	2320.9.2 = {
+		death = {
+			death_reason = death_suicide
+		}
+	}
+}
+7010 = {
+	name = "영복"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7008
+	2327.4.25 = {
+		birth = yes
+	}
+	#XXXX.XX.XX = {
+	#	add_spouse = ?
+	#}
+	2359.12.5 = {
+		death = yes
+	}
+}
+7011 = {
+	name = "남성"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7008
+	2330.12.10 = {
+		birth = yes
+	}
+	2392.5.4 = {
+		death = yes
+	}
+}
+7012 = {
+	name = "길성"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7011
+	2357.2.11 = {
+		birth = yes
+	}
+	2421.10.22 = {
+		death = yes
+	}
+}
+
+7101 = {
+	name = "해성"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7102
+	2265.7.19 = {
+		birth = yes
+	}
+	2294.8.5 = {
+		add_spouse = 7005
+	}
+	2314.6.19 = {
+		death = yes
+	}
+}
+7102 = {
+	name = "창웅"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	2228.3.6 = {
+		birth = yes
+	}
+	2275.9.14 = {
+		death = yes
+	}
+}
+7103 = {
+	name = "하진"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7102
+	2249.3.10 = {
+		birth = yes
+	}
+	2273.6.7 = {
+		death = {
+			death_reason = death_suicide
+		}
+	}
+}
+7104 = {
+	name = "천식"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7102
+	2253.6.3 = {
+		birth = yes
+	}
+	2295.6.10 = {
+		death = {
+			death_reason = death_ill
+		}
+	}
+}
+7105 = {
+	name = "구호"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7102
+	2254.12.19 = {
+		birth = yes
+	}
+	2297.5.10 = {
+		death = {
+			death_reason = death_ill
+		}
+	}
+}
+7106 = {
+	name = "성"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7102
+	2258.9.19 = {
+		birth = yes
+	}
+	2291.2.5 = {
+		death = {
+			death_reason = death_battle
+			killer = 7104
+		}
+	}
+}
+7107 = {
+	name = "철성"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7101
+	mother = 7105
+	2293.5.12 = {
+		birth = yes
+	}
+	2327.5.9 = {
+		add_spouse = 7015
+	}
+	2351.8.3 = {
+		death = yes
+	}
+}
+7108 = {
+	name = "화일"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7107
+	mother = 7515
+	2329.2.6 = {
+		birth = yes
+	}
+	2397.7.7 = {
+		death = yes
+	}
+}
+7109 = {
+	name = "필음"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7101
+	mother = 7505
+	2301.12.8 = {
+		birth = yes
+	}
+	2380.12.6 = {
+		death = yes
+	}
+}
+7110 = {
+	name = "율"
+	female = yes
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7101
+	mother = 7505
+	2297.5.5 = {
+		birth = yes
+	}
+	2341.7.5 = {
+		death = yes
+	}
+}
+7111 = {
+	name = "학진"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7109
+	2342.5.6 = {
+		birth = yes
+	}
+	2391.5.6 = {
+		death = yes
+	}
+}
+7112 = {
+	name = "현철"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7111
+	2371.6.5 = {
+		birth = yes
+	}
+	2398.2.10 = {
+		death = yes
+	}
+}
+7113 = {
+	name = "훈"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7111
+	2373.9.19 = {
+		birth = yes
+	}
+	2424.3.6 = {
+		death = yes
+	}
+}
+7114 = {
+	name = "훈"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7111
+	2373.9.19 = {
+		birth = yes
+	}
+	2398.1.13 = {
+		add_spouse = 7802
+	}
+	2432.9.4 = {
+		death = {
+			death_reason = death_suicide
+		}
+	}
+}
+7115 = {
+	name = "예"
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7114
+	mother = 7802
+	2425.7.3 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+7116 = {
+	name = "은"
+	female = yes
+	dynasty = 7101
+	religion = cheondo
+	culture = haeju
+	father = 7114
+	mother = 7802
+	2425.7.3 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+
+
+
+
+
 #7101 = {
 #	name = "동민"
 #	dynasty = 7101
@@ -34,18 +437,8 @@
 #		death = yes
 #	}
 #}
-#7191 = {
-#	name = "예"
-#	dynasty = 7191
-#	religion = cheondo
-#	culture = hwanghae
-#	2425.7.3 = {
-#		birth = yes
-#	}
-#	2500.1.1 = {
-#		death = yes
-#	}
-#}
+
+
 7201 = { #예시
 	name = "종명"
 	dynasty = 7201 #들
@@ -58,7 +451,19 @@
 		death = yes
 	}
 }
-7301 = { #예시
+7301 = {
+	name = "현진"
+	dynasty = 7301
+	religion = cheondo
+	culture = haeju
+	2325.6.16 = {
+		birth = yes
+	}
+	2412.6.9 = {
+		death = yes
+	}
+}
+7302 = { #예시
 	name = "문현"
 	dynasty = 7301
 	religion = cheondo
@@ -70,12 +475,12 @@
 		death = yes
 	}
 }
-7302 = {
+7303 = {
 	name = "성일"
 	dynasty = 7301
 	religion = cheondo
 	culture = haeju
-	father = 7301
+	father = 7302
 	2412.8.2 = {
 		birth = yes
 	}
@@ -83,12 +488,12 @@
 		death = yes
 	}
 }
-7303 = {
+7304 = {
 	name = "학세"
 	dynasty = 7301
 	religion = cheondo
 	culture = haeju
-	father = 7302
+	father = 7303
 	2441.2.28 = {
 		birth = yes
 	}
@@ -120,32 +525,19 @@
 		death = yes
 	}
 }
-7313 = {
-	name = "림"
-	dynasty = 7313
-	religion = cheondo
+
+7321 = {
+	name = "정이"
+	dynasty = 7321
+	religion = naturalism_pagan
 	culture = haeju
-	2398.4.15 = {
+	2409.2.25 = {
 		birth = yes
 	}
 	2500.1.1 = {
 		death = yes
 	}
 }
-#
-#7321 = {
-#	name = "정이"
-#	dynasty = 7321
-#	religion = test_faith
-#	#religion = naturalism
-#	culture = haeju
-#	2409.2.25 = {
-#		birth = yes
-#	}
-#	2500.1.1 = {
-#		death = yes
-#	}
-#}
 7401 = { #예시
 	name = "영록"
 	dynasty = 7401 #태
@@ -278,13 +670,56 @@
 }
 7451 = { #예시
 	name = "태명"
-	dynasty = 7451 #황보, 황보 대가문 휘하 황보 가문
+	dynasty = 7401 
 	religion = haeseoan
 	culture = haeju
+	father = 7452
+	mother = 7456
 	2391.5.8 = {
 		birth = yes
 	}
+	2417.10.22 = {
+		add_spouse = 7502
+	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+7452 = {
+	name = "우석"
+	dynasty = 7401 
+	religion = cheondo
+	culture = haeju
+	father = 7453
+	2365.6.9 = {
+		birth = yes
+	}
+	2407.2.5 = {
+		death = yes
+	}
+}
+7453 = {
+	name = "성현"
+	dynasty = 7401 
+	religion = cheondo
+	culture = haeju
+	father = 7108
+	2329.2.6 = {
+		birth = yes
+	}
+	2398.5.4 = {
+		death = yes
+	}
+}
+7456 = {
+	name = "연순"
+	female = yes
+	religion = juche
+	culture = hwangju
+	2367.3.9 = {
+		birth = yes
+	}
+	2391.5.9 = {
 		death = yes
 	}
 }
@@ -293,10 +728,23 @@
 	dynasty = 7461
 	religion = haeseoan
 	culture = haeju
+	father = 7462
 	2394.7.20 = {
 		birth = yes
 	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+7462 = {
+	name = "유성"
+	dynasty = 7461
+	religion = cheondo
+	culture = haeju
+	2357.2.6 = {
+		birth = yes
+	}
+	2415.2.8 = {
 		death = yes
 	}
 }
@@ -305,18 +753,49 @@
 	dynasty = 7501
 	religion = haeseoan
 	culture = haeju
-	2416.12.18 = {
+	father = 7503
+	2404.12.18 = {
 		birth = yes
 	}
 	2500.1.1 = {
 		death = yes
 	}
 }
+7502 = {
+	name = "순길"
+	female = yes
+	dynasty = 7501
+	religion = haeseoan
+	culture = haeju
+	father = 7503
+	2397.12.23 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+7503 = {
+	name = "용국"
+	dynasty = 7501
+	religion = cheondo
+	culture = haeju
+	2368.6.19 = {
+		birth = yes
+	}
+	2432.8.6 = {
+		death = {
+			death_reason = death_suicide
+		}
+	}
+}
+
 7511 = {
 	name = "령성"
 	dynasty = 7511
 	religion = cheondo
 	culture = haeju
+	father = 7512
 	2429.6.21 = {
 		birth = yes
 	}
@@ -329,7 +808,7 @@
 	dynasty = 7801
 	religion = cheondo
 	culture = haeju
-	2399.7.21 = {
+	2387.7.21 = {
 		birth = yes
 	}
 	2500.1.1 = {
