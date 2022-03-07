@@ -1543,9 +1543,9 @@
 	}
 }
 #포항
-3401 = {
+3301 = {
     name = "문휴"
-	dynasty = 3401
+	dynasty = 3301
 	religion = steeler_pagan
 	culture = pohang
 	2395.7.11 = {
@@ -1555,9 +1555,9 @@
 		death = yes
 	}
 }
-3402 = {
+3302 = {
     name = "장원"
-	dynasty = 3402
+	dynasty = 3302
 	religion = steeler_pagan
 	culture = pohang
 	2395.7.11 = {
@@ -1567,9 +1567,9 @@
 		death = yes
 	}
 }
-3403 = {
+3303 = {
     name = "문예"
-	dynasty = 3401
+	dynasty = 3301
 	religion = steeler_pagan
 	culture = pohang
 	2395.7.11 = {
@@ -1579,9 +1579,9 @@
 		death = yes
 	}
 }
-3404 = {
+3304 = {
     name = "승철"
-	dynasty = 3404
+	dynasty = 3304
 	religion = steeler_pagan
 	culture = pohang
 	2395.7.11 = {
@@ -1591,9 +1591,9 @@
 		death = yes
 	}
 }
-3405 = {
+3305 = {
     name = "영수"
-	dynasty = 3405
+	dynasty = 3305
 	religion = steeler_pagan
 	culture = pohang
 	2395.7.11 = {
@@ -1603,139 +1603,205 @@
 		death = yes
 	}
 }
-#불국토
-3406 = {
-    name = "명길"
-	dynasty = 3406
-	religion = jogye
-	culture = gyeongju
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
+
+#남해
+3403 = {
+	name = "joshua"
+	dynasty = 3401
+	religion = protestant
+	culture = sud_see
+	2423.4.5 = { birth = yes }
+	#2443.01.01 = { add_spouse = 3410 }
+	2500.01.01 = { death = yes }
 }
-3407 = {
-    name = "병진"
-	dynasty = 3407
-	religion = jogye
-	culture = gyeongju
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-3408 = {
-    name = "임"
-	dynasty = 3408 #고
-	religion = jogye
-	culture = gyeongju
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-3409 = {
-    name = "형민"
-	dynasty = 3409 #박
-	religion = jogye
-	culture = miryang
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-3410 = {
-    name = "우내"
-	dynasty = 3410 #석
-	religion = jogye
-	culture = miryang
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-3411 = {
-    name = "찬성"
-	dynasty = 3411 #배
-	religion = jogye
-	culture = miryang
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-3412 = {
-    name = "하음"
-	dynasty = 3412 #이
-	religion = jogye
-	culture = miryang
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-3413 = {
-    name = "형수"
-	dynasty = 3413 #박
-	religion = jogye
-	culture = miryang
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
+#진주
+#진주 소씨
 3414 = {
-    name = "민석"
-	dynasty = 3414 #설
+	name = "myeongung"
+	dynasty = 3414
 	religion = jogye
-	culture = miryang
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
+	culture = jinju
+	2357.9.1 = { birth = yes }
+	2384.10.8 = {
+		death = yes 
+		#전사 추가 필요
 	}
 }
+
 3415 = {
-    name = "철수"
-	dynasty = 3415 #김
+	name = "sangjin"
+	dynasty = 3414
+	father = 3414
 	religion = jogye
-	culture = miryang
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
+	culture = jinju
+	2383.7.1 = { birth = yes }
+	2437.9.15 = { death = yes }
 }
+
 3416 = {
-    name = "지훈"
-	dynasty = 3416 #강
+	name = "chani"
+	dynasty = 3414
+	father = 3415
 	religion = jogye
-	culture = miryang
-	2395.7.11 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
+	culture = jinju
+	2417.6.3 = { birth = yes }
+	2437.06.03 = { add_spouse = 3423 }
+	2500.01.01 = { death = yes }
 }
+
+3417 = {
+	name = "taeseob"
+	dynasty = 3414
+	father = 3416
+	mother = 3423
+	religion = jogye
+	culture = jinju
+	2440.9.19 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+
+3418 = {
+	name = "yeonga"
+	dynasty = 3414
+	father = 3416
+	mother = 3423
+	religion = jogye
+	culture = jinju
+	2443.1.18 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+
+#반남 박씨
+3419 = {
+	name = "yeongdeok"
+	dynasty = 3419
+	religion = jogye
+	culture = jinju
+	2381.6.30 = { birth = yes }
+	2439.1.15 = { death = yes }
+}
+
+3420 = {
+	name = "jimyeong"
+	dynasty = 3419
+	father = 3419
+	religion = jogye
+	culture = jinju
+	2405.1.16 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+
+#진주 강씨
+3421 = {
+	name = "jeongmin"
+	dynasty = 3421
+	religion = jogye
+	culture = jinju
+	2382.4.20 = { birth = yes }
+	2427.12.9 = { death = yes }
+}
+
+3422 = {
+	name = "changseok"
+	dynasty = 3421
+	father = 3421
+	religion = jogye
+	culture = jinju
+	2417.1.6 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+
+3423 = {
+	name = "nara"
+	dynasty = 3421
+	father = 3421
+	religion = jogye
+	culture = jinju
+	female = yes
+	2430.9.6 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+
+#예천 권씨
+3424 = {
+	name = "taemyeong"
+	dynasty = 3424
+	religion = jogye
+	culture = jinju
+	2371.9.1 = { birth = yes }
+	2425.6.17 = { death = yes }
+}
+
+3425 = {
+	name = "haeksu"
+	dynasty = 3424
+	father = 3424
+	religion = jogye
+	culture = jinju
+	2391.5.19 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+
+#김해 김씨
+3426 = {
+	name = "eonsu"
+	dynasty = 3426
+	religion = jogye
+	culture = jinju
+	2357.3.17 = { birth = yes }
+	2419.3.9 = { death = yes }
+}
+
+3427 = {
+	name = "hyochan"
+	dynasty = 3426
+	father = 3426
+	religion = jogye
+	culture = jinju
+	2375.1.2 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+
+#진주 강씨, 사천파
+3428 = {
+	name = "gunyeong"
+	dynasty = 3428
+	religion = jogye
+	culture = jinju
+	2391.12.9 = { birth = yes }
+	2430.9.30 = { death = yes }
+}
+
+3429 = {
+	name = "dongmin"
+	dynasty = 3428
+	father = 3428
+	religion = jogye
+	culture = jinju
+	2415.7.9 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+
+#밀양 박씨
+3430 = {
+	name = "najin"
+	dynasty = 3430
+	religion = jogye
+	culture = jinju
+	2396.3.25 = { birth = yes }
+	2441.4.12 = { death = yes }
+}
+
+3431 = {
+	name = "gangsu"
+	dynasty = 3430
+	father = 3430
+	religion = jogye
+	culture = jinju
+	2420.9.6 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+
 #대구
 3501 = {
 	name = "알프레드"
@@ -1797,7 +1863,7 @@
 	2287.7.29 = {
 		birth = yes
 	}
-	2331.1.26 = {
+	2351.1.26 = {
 		death = yes
 	}
 }
@@ -1809,7 +1875,7 @@
 	2297.5.1 = {
 		birth = yes
 	}
-	2335.1.6 = {
+	2355.1.6 = {
 		death = yes
 	}
 }
@@ -2018,6 +2084,139 @@
 	religion = jogye
 	culture = gaya
 	2398.12.7 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+#불국토
+3706 = {
+    name = "명길"
+	dynasty = 3706
+	religion = jogye
+	culture = gyeongju
+	2395.7.11 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+3707 = {
+    name = "병진"
+	dynasty = 3707
+	religion = jogye
+	culture = gyeongju
+	2395.7.11 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+3708 = {
+    name = "임"
+	dynasty = 3708 #고
+	religion = jogye
+	culture = gyeongju
+	2395.7.11 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+3709 = {
+    name = "형민"
+	dynasty = 3709 #박
+	religion = jogye
+	culture = miryang
+	2395.7.11 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+3710 = {
+    name = "우내"
+	dynasty = 3710 #석
+	religion = jogye
+	culture = miryang
+	2395.7.11 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+3711 = {
+    name = "찬성"
+	dynasty = 3711 #배
+	religion = jogye
+	culture = miryang
+	2395.7.11 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+3712 = {
+    name = "하음"
+	dynasty = 3712 #이
+	religion = jogye
+	culture = miryang
+	2395.7.11 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+3713 = {
+    name = "형수"
+	dynasty = 3713 #박
+	religion = jogye
+	culture = miryang
+	2395.7.11 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+3714 = {
+    name = "민석"
+	dynasty = 3714 #설
+	religion = jogye
+	culture = miryang
+	2395.7.11 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+3715 = {
+    name = "철수"
+	dynasty = 3715 #김
+	religion = jogye
+	culture = miryang
+	2395.7.11 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+3716 = {
+    name = "지훈"
+	dynasty = 3716 #강
+	religion = jogye
+	culture = miryang
+	2395.7.11 = {
 		birth = yes
 	}
 	2500.1.1 = {
