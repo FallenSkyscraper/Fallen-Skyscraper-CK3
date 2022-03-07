@@ -86,23 +86,7 @@ c_gwangdo = {
 	}
 }
 
-c_namhae = {
-	2441.3.6 = {
-		holder = 3071
-	}
-}
 
-c_mulgeon = {
-	2441.3.6 = {
-		holder = 3071
-	}
-}
-
-c_changseon = {
-	2441.3.6 = {
-		holder = 3071
-	}
-}
 
 #부산
 k_busan = {
@@ -379,6 +363,50 @@ c_changnyeong = {
     2443.1.1 = {
 	    liege = d_gyeongsan
 	    holder = 3716
+	}
+}
+
+d_namhae = {
+	2400.01.01 = {
+		holder = 3401
+	}
+	2417.9.5 = {
+		holder = 3402
+	}
+	2443.9.15 = {
+        holder = 3403
+    }
+}
+
+c_namhae = {
+	2400.01.01 = {
+		holder = 3401
+	}
+	2417.9.5 = {
+		holder = 3402
+	}
+	2443.9.15 = {
+        holder = 3403
+    }
+}
+
+c_mulgeon = {
+	2400.01.01 = {
+		holder = 3407
+		liege = d_namhae
+	}
+	2440.9.6 = {
+		holder = 3408
+	}
+}
+
+c_changseon = {
+	2400.01.01 = {
+		holder = 3411
+		liege = d_namhae
+	}
+	2440.9.6 = {
+		holder = 3412
 	}
 }
 #한울국

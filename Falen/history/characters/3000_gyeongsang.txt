@@ -1605,13 +1605,126 @@
 }
 
 #남해
+#폰 쥐트 씨
+3401 = {
+	name = "beckenhauer"
+	dynasty = 3401
+	religion = protestant
+	culture = sudsee_deutsch
+	2367.6.18 = { birth = yes }
+	2417.9.5 = { death = yes }
+}
+3402 = {
+	name = "herman"
+	dynasty = 3401
+	father = 3401
+	religion = protestant
+	culture = sudsee_deutsch
+	2398.1.4 = { birth = yes }
+	2443.9.15 = { death = yes }
+}
 3403 = {
 	name = "joshua"
 	dynasty = 3401
+	father = 3402
 	religion = protestant
-	culture = sud_see
+	culture = sudsee_deutsch
 	2423.4.5 = { birth = yes }
-	#2443.01.01 = { add_spouse = 3410 }
+	2443.01.01 = { add_spouse = 3410 }
+	2500.01.01 = { death = yes }
+}
+3404 = {
+	name = "maximilian"
+	dynasty = 3401
+	father = 3403
+	mother = 3410
+	religion = protestant
+	culture = sudsee_deutsch
+	2444.09.06 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+3405 = {
+	name = "christina"
+	dynasty = 3401
+	father = 3043
+	mother = 3410
+	religion = protestant
+	culture = sudsee_deutsch
+	female = yes
+	2444.09.06 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+3406 = {
+	name = "daniel"
+	dynasty = 3401
+	father = 3402
+	religion = protestant
+	culture = sudsee_deutsch
+	2425.9.12 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+#프리드리히
+3407 = {
+	name = "hans"
+	dynasty = 3407
+	religion = protestant
+	culture = sudsee_deutsch
+	2382.9.11 = { birth = yes }
+	2440.9.6 = { death = yes }
+}
+3408 = {
+	name = "schumacher"
+	dynasty = 3407
+	father = 3407
+	religion = protestant
+	culture = sudsee_deutsch
+	2401.6.9 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+3409 = {
+	name = "joseph"
+	dynasty = 3407
+	father = 3408
+	religion = protestant
+	culture = sudsee_deutsch
+	2421.8.6 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+3410 = {
+	name = "amalia"
+	dynasty = 3407
+	father = 3408
+	religion = protestant
+	culture = sudsee_deutsch
+	female = yes
+	2426.1.12 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+3411 = {
+	name = "michael"
+	dynasty = 3411
+	religion = protestant
+	culture = sudsee_deutsch
+	2386.4.7 = { birth = yes }
+	2438.10.30 = { death = yes }
+}
+3412 = {
+	name = "otto"
+	dynasty = 3411
+	father = 3411
+	religion = protestant
+	culture = sudsee_deutsch
+	2411.9.15 = { birth = yes }
+	2500.01.01 = { death = yes }
+}
+3413 = {
+	name = "theresia"
+	dynasty = 3411
+	father = 3411
+	religion = protestant
+	culture = sudsee_deutsch
+	female = yes
+	2415.9.6 = { birth = yes }
 	2500.01.01 = { death = yes }
 }
 #진주
