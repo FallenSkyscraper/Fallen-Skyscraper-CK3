@@ -62,10 +62,10 @@ manchu = {
 yalu_manchu = {
 	color = { 16 82 147 }
 	created = 2340.1.1
-	parents = { manchu han }
+	parents = { huabei_manchu residental_manchu }
 	
 	ethos = ethos_spiritual
-	heritage = heritage_manchu
+	heritage = heritage_jianzhou
 	language = language_mandarin_northeast
 	martial_custom = martial_custom_male_only
 	traditions = {
@@ -89,10 +89,10 @@ yalu_manchu = {
 west_changbai = {
 	color = { 76 64 28 }
 	created = 2340.1.1
-	parents = { manchu han }
+	parents = { huabei_manchu residental_manchu }
 	
 	ethos = ethos_spiritual
-	heritage = heritage_manchu
+	heritage = heritage_jianzhou
 	language = language_mandarin_northeast
 	martial_custom = martial_custom_male_only
 	traditions = {
@@ -116,10 +116,10 @@ west_changbai = {
 liaoyuan = {
 	color = { 46 193 78 }
 	created = 2340.1.1
-	parents = { manchu han }
+	parents = { huabei_manchu residental_manchu }
 	
 	ethos = ethos_spiritual
-	heritage = heritage_manchu
+	heritage = heritage_jianzhou
 	language = language_mandarin_northeast
 	martial_custom = martial_custom_male_only
 	traditions = {
@@ -142,11 +142,39 @@ liaoyuan = {
 mukden = {
 	color = { 216 224 128 }
 	created = 2340.1.1
+	parents = { residental_manchu }
+	
+	ethos = ethos_bureaucratic
+	heritage = heritage_manchu
+	language = language_tungusic
+	martial_custom = martial_custom_male_only
+	traditions = {
+		tradition_agrarian
+		tradition_stalwart_defenders
+		tradition_mystical_ancestors
+		tradition_tribe_unity
+	}
+	
+	name_list = name_list_jurchen
+
+	coa_gfx = { mongol_coa_gfx steppe_coa_gfx } 
+	building_gfx = { steppe_building_gfx } 
+	clothing_gfx = { mongol_clothing_gfx } 
+	unit_gfx = { mongol_unit_gfx } 		
+
+	ethnicities = {
+		10 = asian
+	}
+}
+
+residental_manchu = {
+	color = { 216 224 128 }
+	created = 2200.1.1
 	parents = { manchu han }
 	
 	ethos = ethos_bureaucratic
 	heritage = heritage_manchu
-	language = language_mandarin_northeast
+	language = language_tungusic
 	martial_custom = martial_custom_male_only
 	traditions = {
 		tradition_agrarian
