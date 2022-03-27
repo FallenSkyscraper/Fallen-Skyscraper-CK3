@@ -2,17 +2,16 @@ title_succession_laws = {
 	#Default Feudal Elective
 	feudal_elective_succession_law = {
 		can_have = {
-			has_government = feudal_government
-			#fs_모드의
-			has_government = proletarian_government 
-			has_government = military_government 
-			has_government = maritime_government 
-			has_government = secular_republic_government 
-			has_government = oligarchic_republic_government  
-			highest_held_title_tier >= tier_duchy#이걸로 어디부터 해당 상속제를 실시할수 있는지 결정하는듯
-			#NOR = { #Cultures have their special flavor.
-			#	culture = culture:anglo_saxon
-			#}
+			OR = {
+				has_government = feudal_government
+				#fs_모드의
+				has_government = proletarian_government 
+				has_government = military_government 
+				has_government = maritime_government 
+				has_government = secular_republic_government 
+				has_government = oligarchic_republic_government 
+			}
+			highest_held_title_tier >= tier_duchy #이걸로 어디부터 해당 상속제를 실시할수 있는지 결정하는듯
 		}
 		can_pass = {
 			can_change_title_law_trigger = yes
@@ -61,6 +60,37 @@ title_succession_laws = {
 		}
 		revoke_cost = {
 			prestige = change_hre_title_succession_law_prestige_cost
+		}
+		pass_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+	}
+
+	federal_elective_succession_law = {
+		can_have = {
+			OR = {
+				has_government = feudal_government
+				has_government = tribal_government
+			}
+			highest_held_title_tier >= tier_duchy
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes
+			any_in_list = { list = traits this = flag:tradition_federation }
+		}
+		can_title_have = {
+			tier >= tier_duchy
+		}
+		succession = {
+			order_of_succession = election
+			election_type = federal_elective
+		}
+		flag = elective_succession_law
+		modifier = {
+			direct_vassal_opinion = 5
+		}
+		revoke_cost = {
+			prestige = change_title_succession_law_prestige_cost
 		}
 		pass_cost = {
 			prestige = change_title_succession_law_prestige_cost
