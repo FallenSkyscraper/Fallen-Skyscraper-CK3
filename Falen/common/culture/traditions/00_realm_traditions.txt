@@ -3375,9 +3375,9 @@ tradition_monastic_communities = {
 	category = realm
 
 	layers = {
-		0 = intrigue
-		1 = mediterranean
-		4 = temple.dds
+		0 = diplo
+		1 = western
+		4 = king.dds
 	}
 	
 	can_pick = {
@@ -3437,6 +3437,52 @@ tradition_monastic_communities = {
 				NOT = { has_cultural_pillar = heritage_goidelic }
 			}
 			multiply = 0
+		}
+	}
+}
+tradition_federation = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = indian
+		4 = crown.dds
+	}
+	
+	can_pick = {
+		scope:character = {
+			has_government = feudal_government
+		}
+	}
+	
+	parameters = {
+		development_growth_factor = 0.15
+	}
+	character_modifier = {
+		tyranny_gain_mult = 0.5
+		opinion_of_liege = -10
+		dread_baseline_add = -10
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	
+	ai_will_do = {
+		value = 25
+		if = {
+			limit = {
+				NOR = {
+					has_cultural_pillar = heritage_gyeonggi
+				}
+			}
+			multiply = 0.5
 		}
 	}
 }
