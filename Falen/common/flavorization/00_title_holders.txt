@@ -287,7 +287,7 @@ baron_tribal_male_gyeonggi = {
 	tier = barony
 	priority = 8
 	governments = { tribal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 baron_tribal_female_gyeonggi = {
 	type = character
@@ -296,14 +296,14 @@ baron_tribal_female_gyeonggi = {
 	tier = barony
 	priority = 8
 	governments = { tribal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 barony_tribal_gyeonggi = {
 	type = title
 	tier = barony
 	priority = 8
 	governments = { tribal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 baron_feudal_male_gyeonggi = {
 	type = character
@@ -312,7 +312,7 @@ baron_feudal_male_gyeonggi = {
 	tier = barony
 	priority = 8
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 baron_feudal_female_gyeonggi = {
 	type = character
@@ -321,14 +321,14 @@ baron_feudal_female_gyeonggi = {
 	tier = barony
 	priority = 8
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 barony_feudal_gyeonggi = {
 	type = title
 	tier = barony
 	priority = 8
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 count_feudal_male_gyeonggi = {
 	type = character
@@ -337,7 +337,7 @@ count_feudal_male_gyeonggi = {
 	tier = county
 	priority = 19
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 count_feudal_female_gyeonggi = {
 	type = character
@@ -346,14 +346,14 @@ count_feudal_female_gyeonggi = {
 	tier = county
 	priority = 19
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 county_feudal_gyeonggi = {
 	type = title
 	tier = county
 	priority = 19
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 duke_feudal_male_gyeonggi = {
 	type = character
@@ -362,7 +362,7 @@ duke_feudal_male_gyeonggi = {
 	tier = duchy
 	priority = 29
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 duke_feudal_female_gyeonggi = {
 	type = character
@@ -371,39 +371,39 @@ duke_feudal_female_gyeonggi = {
 	tier = duchy
 	priority = 29
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 duchy_feudal_gyeonggi = {
 	type = title
 	tier = duchy
 	priority = 29
-	governments = { feudal_government 
-	cultures = { suwon cheonan daejeon }
+	governments = { feudal_government }
+	heritages = { heritage_suwon }
 }
 king_feudal_male_gyeonggi = {
 	type = character
 	gender = male
 	special = holder
 	tier = kingdom
-	priority = 49
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
+	priority = 49	
 }
 king_feudal_female_gyeonggi = {
 	type = character
 	gender = female
 	special = holder
 	tier = kingdom
-	priority = 49
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
+	priority = 49
 }
 kingdom_feudal_gyeonggi = {
 	type = title
 	tier = kingdom
-	priority = 49
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
+	priority = 49
 }
 emperor_feudal_male_gyeonggi = {
 	type = character
@@ -412,7 +412,7 @@ emperor_feudal_male_gyeonggi = {
 	tier = empire
 	priority = 150
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 emperor_feudal_female_gyeonggi = {
 	type = character
@@ -421,14 +421,14 @@ emperor_feudal_female_gyeonggi = {
 	tier = empire
 	priority = 150
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 empire_feudal_gyeonggi = {
 	type = title
 	tier = empire
 	priority = 150
 	governments = { feudal_government }
-	cultures = { suwon cheonan daejeon }
+	heritages = { heritage_suwon }
 }
 duke_tribal_male_gangwon = {
 	type = character
@@ -804,7 +804,6 @@ king_manchu_feudal_male = {
 	special = holder
 	tier = kingdom
 	priority = 46
-	top_liege = no
 	governments = { feudal_government }
 	heritages = { heritage_manchu }
 }
@@ -821,7 +820,6 @@ king_manchu_feudal_female = {
 kingdom_manchu_feudal = {
 	type = title
 	tier = kingdom
-	top_liege = no
 	priority = 46
 	governments = { feudal_government }
 	heritages = { heritage_manchu }
@@ -861,7 +859,7 @@ baron_feudal_male_seoul = {
 	tier = barony
 	priority = 9
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 baron_feudal_female_seoul = {
 	type = character
@@ -870,14 +868,14 @@ baron_feudal_female_seoul = {
 	tier = barony
 	priority = 9
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 barony_feudal_seoul = {
 	type = title
 	tier = barony
 	priority = 9
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 count_feudal_male_seoul = {
 	type = character
@@ -886,7 +884,7 @@ count_feudal_male_seoul = {
 	tier = county
 	priority = 20
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 count_feudal_female_seoul = {
 	type = character
@@ -895,14 +893,14 @@ count_feudal_female_seoul = {
 	tier = county
 	priority = 20
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 county_feudal_seoul = {
 	type = title
 	tier = county
 	priority = 20
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 duke_feudal_male_seoul = {
 	type = character
@@ -911,7 +909,7 @@ duke_feudal_male_seoul = {
 	tier = duchy
 	priority = 30
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 duke_feudal_female_seoul = {
 	type = character
@@ -920,14 +918,14 @@ duke_feudal_female_seoul = {
 	tier = duchy
 	priority = 30
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 duchy_feudal_seoul = {
 	type = title
 	tier = duchy
 	priority = 30
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 king_feudal_male_seoul = {
 	type = character
@@ -936,7 +934,7 @@ king_feudal_male_seoul = {
 	tier = kingdom
 	priority = 50
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 king_feudal_female_seoul = {
 	type = character
@@ -945,14 +943,14 @@ king_feudal_female_seoul = {
 	tier = kingdom
 	priority = 50
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 kingdom_feudal_seoul = {
 	type = title
 	tier = kingdom
 	priority = 50
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 emperor_feudal_male_seoul = {
 	type = character
@@ -961,7 +959,7 @@ emperor_feudal_male_seoul = {
 	tier = empire
 	priority = 151
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 emperor_feudal_female_seoul = {
 	type = character
@@ -970,17 +968,17 @@ emperor_feudal_female_seoul = {
 	tier = empire
 	priority = 151
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
 empire_feudal_seoul = {
 	type = title
 	tier = empire
 	priority = 151
 	governments = { feudal_government }
-	cultures = { seoul }
+	heritages = { heritage_seoul }
 }
  #############################################
- # Default titles by Government. This list should always be below any custom localization that is tied to specific cultures/religion.
+ # Default titles by Government. This list should always be below any custom localization that is tied to specific culturess/religion.
  #Default Feudal tiers
  #Default Republic tiers
  #Default Theocracy tiers
