@@ -76,7 +76,7 @@ title_succession_laws = {
 		}
 		can_pass = {
 			can_change_title_law_trigger = yes
-			any_in_list = { list = traits this = flag:tradition_federation }
+			has_cultural_tradition = tradition_federation
 		}
 		can_title_have = {
 			tier >= tier_duchy
