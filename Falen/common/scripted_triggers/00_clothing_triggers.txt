@@ -1,0 +1,345 @@
+﻿should_be_naked_trigger = {
+	# Character must be an adult.
+	exists = this
+	is_adult = yes
+
+	# Character must have a valid reasion to be naked.
+	OR = {
+		faith = {
+			has_doctrine_parameter = naked_adherents_active
+		}
+		AND = {
+			faith = {
+				has_doctrine_parameter = naked_priests_active
+			}
+			OR = {
+				ai_zeal >= 50
+				has_trait = devoted
+				has_trait = zealous
+				has_government = theocracy_government
+				has_council_position = councillor_court_chaplain
+			}
+		}
+		has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier # Lunatic event where character goes naked instead of buying new clothes.
+		has_character_flag = is_naked # Special flag used in certain events.
+	}
+
+}
+
+# Can only be checked in the interface since the setting isn't synced
+should_be_fully_naked_portrait_trigger = {
+	should_be_naked_trigger = yes
+	should_show_nudity = yes
+}
+
+should_be_topless_portrait_trigger = {
+	exists = this
+	has_character_flag = single_combat_stripped_to_waist
+	should_show_nudity = yes
+}
+
+portrait_wear_armor_trigger = {
+	exists = this
+	OR = {
+		AND = {
+			is_ruler = yes
+			has_government = mercenary_government
+		}
+		is_commanding_army = yes
+		exists = knight_army
+		AND = {
+			is_knight = yes
+			is_councillor = no
+			OR = {
+				is_landed = no
+				liege = {
+					is_at_war = yes
+				}
+			}
+		}
+		AND = {
+			has_council_position = councillor_marshal
+			OR = {
+				is_landed = no
+				primary_title.tier < tier_kingdom
+			}
+		}
+		has_character_flag = is_currently_varangian
+		has_character_flag = single_combat_duel_armor
+	}
+}
+
+portrait_wear_armor_currently_in_army_trigger = {
+	exists = this
+	OR = {
+		is_commanding_army = yes
+		exists = knight_army
+	}
+}
+
+
+portrait_wear_helmet_trigger = { # Different from Armor, as Counts+ should show their crowns!
+	exists = this
+	OR = {
+		AND = {
+			is_ruler = yes
+			has_government = mercenary_government
+		}
+		AND = {
+			is_ruler = yes
+			has_government = holy_order_government
+		}
+		has_trait = order_member
+		AND = {
+			is_commanding_army = yes
+			OR = {
+				is_landed = no
+				AND = {
+					exists = primary_title
+					primary_title.tier < tier_duchy
+				}
+			}
+		}
+		exists = knight_army
+		AND = {
+			is_knight = yes
+			is_councillor = no
+			OR = {
+				is_landed = no
+				AND = {
+					exists = primary_title
+					primary_title.tier < tier_duchy
+					liege = {
+						is_at_war = yes
+					}
+				}
+			}
+		}
+		AND = {
+			has_council_position = councillor_marshal
+			OR = {
+				is_landed = no
+				primary_title.tier < tier_duchy
+			}
+		}	
+		has_character_flag = is_currently_varangian
+		has_character_flag = single_combat_duel_armor
+	}
+	NAND = {
+		has_trait = peasant_leader
+		OR = {
+			is_ruler = no
+			is_leading_faction_type = peasant_faction
+			AND = {
+				is_ruler = yes
+				is_landed = no
+				OR = {
+					has_government = feudal_government
+					has_government = clan_government
+				}
+			}
+		}
+	}
+}
+
+portrait_has_trait_trigger = {
+	any_in_list = {
+		list = traits
+		this = flag:$TRAIT$
+	}
+}
+
+is_dwarf_height = {
+	OR = {
+		portrait_has_trait_trigger = { TRAIT = dwarf }
+		morph_gene_attribute = {
+			category = gene_height
+			attribute = body_height
+			value < -0.26
+		}
+	}
+}
+
+portrait_byzantine_clothing_trigger = {
+	scope:culture = {
+		portrait_byzantine_clothing_contents_trigger = yes
+	}
+}
+
+portrait_byzantine_clothing_spouse_trigger = {
+	culture = {
+		portrait_byzantine_clothing_contents_trigger = yes
+	}
+}
+
+portrait_byzantine_clothing_contents_trigger = {
+	has_clothing_gfx = byzantine_clothing_gfx
+}
+
+portrait_indian_clothing_trigger = {
+	scope:culture = {
+		portrait_indian_clothing_contents_trigger = yes
+	}
+}
+
+portrait_indian_clothing_spouse_trigger = {
+	culture = {
+		portrait_indian_clothing_contents_trigger = yes
+	}
+}
+
+portrait_indian_clothing_contents_trigger = {
+	has_clothing_gfx = indian_clothing_gfx
+}
+
+portrait_mena_clothing_trigger = {
+	scope:culture = {
+		portrait_mena_clothing_contents_trigger = yes
+	}
+}
+
+portrait_mena_clothing_spouse_trigger = {
+	culture = {
+		portrait_mena_clothing_contents_trigger = yes
+	}
+}
+
+portrait_mena_clothing_contents_trigger = {
+	has_clothing_gfx = mena_clothing_gfx
+}
+
+portrait_african_clothing_trigger = {
+	scope:culture = {
+		portrait_african_clothing_contents_trigger = yes
+	}
+}
+
+portrait_african_clothing_spouse_trigger = {
+	culture = {
+		portrait_african_clothing_contents_trigger = yes
+	}
+}
+
+portrait_african_clothing_contents_trigger = {
+	has_clothing_gfx = african_clothing_gfx
+}
+
+portrait_northern_clothing_trigger = {
+	scope:culture = {
+		portrait_northern_clothing_contents_trigger = yes
+	}
+}
+
+portrait_northern_clothing_spouse_trigger = {
+	culture = {
+		portrait_northern_clothing_contents_trigger = yes
+	}
+}
+
+portrait_northern_clothing_contents_trigger = {
+	has_clothing_gfx = northern_clothing_gfx
+}
+
+portrait_fp1_norse_clothing_trigger = {
+	has_fp1_dlc_trigger = yes
+	scope:culture = { portrait_fp1_norse_clothing_contents_trigger = yes }
+}
+
+portrait_fp1_norse_clothing_spouse_trigger = {
+	culture = {
+		portrait_fp1_norse_clothing_contents_trigger = yes
+	}
+}
+
+portrait_fp1_norse_clothing_contents_trigger = {
+	has_clothing_gfx = fp1_norse_clothing_gfx
+}
+
+portrait_steppe_clothing_trigger = {
+	scope:culture = {
+		portrait_steppe_clothing_contents_trigger = yes
+	}
+}
+
+portrait_steppe_clothing_spouse_trigger = {
+	culture = {
+		portrait_steppe_clothing_contents_trigger = yes
+	}
+}
+
+portrait_steppe_clothing_contents_trigger = {
+	has_clothing_gfx = mongol_clothing_gfx
+}
+
+portrait_western_clothing_trigger = {
+	scope:culture = {
+		portrait_western_clothing_contents_trigger = yes
+	}
+}
+
+portrait_western_clothing_spouse_trigger = {
+	culture = {
+		portrait_western_clothing_contents_trigger = yes
+	}
+}
+
+portrait_western_clothing_contents_trigger = {
+	has_clothing_gfx = western_clothing_gfx
+	NOR = {
+		has_clothing_gfx = byzantine_clothing_gfx
+		has_clothing_gfx = northern_clothing_gfx
+	}
+}
+
+portrait_dde_hre_clothing_trigger = {
+	scope:culture = {
+		portrait_dde_hre_clothing_contents_trigger = yes
+	}
+	has_dlc = "Garments of the Holy Roman Empire"
+}
+
+portrait_dde_hre_clothing_spouse_trigger = {
+	culture = {
+		portrait_dde_hre_clothing_contents_trigger = yes
+	}
+	has_dlc = "Garments of the Holy Roman Empire"
+}
+
+portrait_dde_hre_clothing_contents_trigger = {
+	has_clothing_gfx = dde_hre_clothing_gfx
+}
+
+portrait_dde_abbasid_clothing_trigger = {
+	scope:culture = {
+		portrait_dde_abbasid_clothing_contents_trigger = yes
+	}
+	has_dlc = "Fashion of the Abbasid Court"
+}
+
+portrait_dde_abbasid_clothing_spouse_trigger = {
+	culture = {
+		portrait_dde_abbasid_clothing_contents_trigger = yes
+	}
+	has_dlc = "Fashion of the Abbasid Court"
+}
+
+portrait_dde_abbasid_clothing_contents_trigger = {
+	has_clothing_gfx = dde_abbasid_clothing_gfx
+}
+
+portrait_can_use_noble_headgear_trigger = {
+	NAND = {
+		portrait_has_trait_trigger = { TRAIT = peasant_leader }
+		OR = {
+			is_ruler = no
+			is_leading_faction_type = peasant_faction
+			AND = {
+				is_landed = no
+				OR = {
+					has_government = feudal_government
+					has_government = clan_government
+				}
+			}
+		}
+	}
+}
