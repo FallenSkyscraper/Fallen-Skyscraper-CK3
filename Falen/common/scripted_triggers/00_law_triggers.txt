@@ -57,7 +57,11 @@ has_partition_succession_realm_law_trigger = {
 }
 
 realm_law_use_crown_authority = {
-	NOT = { has_government = tribal_government }
+	NOR = { 
+		has_government = tribal_government
+		has_government = manchu_tribal_government
+		has_government = nomadic_government
+	}
 }
 
 can_have_confederate_partition_succession_law_trigger = {
@@ -65,6 +69,11 @@ can_have_confederate_partition_succession_law_trigger = {
 		has_government = feudal_government
 		has_government = tribal_government
 		has_government = clan_government
+#fs_모드의
+		has_government = proletarian_government 
+		has_government = military_government 
+		has_government = maritime_government 
+		has_government = secular_republic_government  
 	}
 }
 
@@ -76,17 +85,7 @@ can_keep_partition_succession_law_trigger = {
 		}
 		OR = {
 			can_have_partition_succession_law_trigger = yes
-
-			# Mongol Empires
-			has_title = title:e_mongol_empire
-			has_title = title:e_ilkhanate
-			has_title = title:e_golden_horde
-			has_title = title:e_chagatai
-			has_title = title:e_black_horde
-			has_title = title:e_white_horde
-			has_title = title:e_aarlud_khanate
-			has_title = title:e_togskol_khanate
-			has_title = title:e_baruun_khanate
+			has_government = tribal_government
 		}
 	}
 }
@@ -100,6 +99,11 @@ can_have_partition_succession_law_trigger = {
 		OR = {
 			has_government = feudal_government
 			has_government = clan_government
+			#fs_모드의
+			has_government = proletarian_government 
+			has_government = military_government 
+			has_government = maritime_government 
+			has_government = secular_republic_government  
 		}
 	}
 }
@@ -112,17 +116,6 @@ can_keep_high_partition_succession_law_trigger = {
 		}
 		OR = {
 			can_have_high_partition_succession_law_trigger = yes
-
-			# Mongol Empires
-			has_title = title:e_mongol_empire
-			has_title = title:e_ilkhanate
-			has_title = title:e_golden_horde
-			has_title = title:e_chagatai
-			has_title = title:e_black_horde
-			has_title = title:e_white_horde
-			has_title = title:e_aarlud_khanate
-			has_title = title:e_togskol_khanate
-			has_title = title:e_baruun_khanate
 		}
 	}
 }
@@ -141,6 +134,76 @@ can_have_high_partition_succession_law_trigger = {
 		OR = {
 			has_government = feudal_government
 			has_government = clan_government
+			#fs_모드의
+			has_government = proletarian_government 
+			has_government = military_government 
+			has_government = maritime_government 
+			has_government = secular_republic_government  
+		}
+	}
+}
+
+can_have_youngest_confederate_partition_succession_law_trigger = {
+	OR = {
+		has_government = tribal_government
+		has_government = manchu_tribal_government
+		has_government = nomadic_government
+	}
+}
+
+can_keep_youngest_partition_succession_law_trigger = {
+	trigger_if = {
+		limit = {
+			has_realm_law = youngest_partition_succession_law
+		}
+		OR = {
+			can_have_youngest_partition_succession_law_trigger = yes
+			has_government = tribal_government
+			has_government = manchu_tribal_government
+			has_government = nomadic_government
+		}
+	}
+}
+
+can_have_youngest_partition_succession_law_trigger = {
+	culture = {
+		has_innovation = innovation_hereditary_rule
+	}
+	custom_description = {
+		text = succession_laws_must_have_nomadic_government_tooltip
+		OR = {
+			has_government = tribal_government
+			has_government = manchu_tribal_government
+			has_government = nomadic_government
+		}
+	}
+}
+
+can_keep_high_youngest_partition_succession_law_trigger = {
+	trigger_if = {
+		limit = {
+			has_realm_law = high_youngest_partition_succession_law
+		}
+		OR = {
+			can_have_high_youngest_partition_succession_law_trigger = yes
+		}
+	}
+}
+
+can_have_high_youngest_partition_succession_law_trigger = {
+	trigger_if = {
+		limit = {
+			NOT = { 
+				culture = { has_cultural_parameter = can_enact_high_partition_succession_law }
+			}
+		}
+		culture = { has_innovation = innovation_heraldry }
+	}
+	custom_description = {
+		text = succession_laws_must_have_organised_nomadic_government_tooltip
+		OR = {
+			has_government = manchu_tribal_government
+			has_government = nomadic_government
 		}
 	}
 }
@@ -169,6 +232,11 @@ can_have_single_heir_succession_law_trigger = {
 		OR = {
 			has_government = feudal_government
 			has_government = clan_government
+#fs_모드의
+			has_government = proletarian_government 
+			has_government = military_government 
+			has_government = maritime_government 
+			has_government = secular_republic_government   
 		}
 	}
 }
@@ -196,6 +264,11 @@ can_have_single_heir_youngest_succession_law_trigger = {
 		OR = {
 			has_government = feudal_government
 			has_government = clan_government
+#fs_모드의
+			has_government = proletarian_government 
+			has_government = military_government 
+			has_government = maritime_government 
+			has_government = secular_republic_government  
 		}
 	}
 }
@@ -238,6 +311,11 @@ can_have_single_heir_dynasty_house_trigger = {
 		OR = {
 			has_government = feudal_government
 			has_government = clan_government
+#fs_모드의
+			has_government = proletarian_government 
+			has_government = military_government 
+			has_government = maritime_government 
+			has_government = secular_republic_government  
 		}
 	}
 }
