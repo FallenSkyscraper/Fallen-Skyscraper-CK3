@@ -297,7 +297,7 @@ bm_2444_age_of_kings = {
 		type = female
 		birth = 2416.3.7
 		title = k_busan
-		government = republic_government
+		government = oligarchic_republic_government
 		culture = busan
 		religion = populism
 		history_id = 3001
@@ -311,21 +311,73 @@ bm_2444_northern_star = {
 	recommended = yes
 	character = {
 		name = "bookmark_northern_star_prk"
+		dynasty = 6001
+		dynasty_splendor_level = 2
+		type = male
+		birth = 2416.1.12
+		title = k_prk
+		government = secular_republic_government
+		culture = pyongyang
+		religion = cheondo
+		history_id = 6002
+		position = { 900 500 }
+		animation = personality_bold
 	}
 	character = {
 		name = "bookmark_northern_star_hwanghae"
+		dynasty = 7401
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2386.4.20
+		title = k_haeju
+		government = feudal_government
+		culture = pyongyang
+		religion = haeseoan
+		history_id = 7401
+		position = { 700 800 }
+		animation = personality_bold
 	}
 	character = {
 		name = "bookmark_northern_star_north_korea"
+		dynasty = 8001
+		dynasty_splendor_level = 2
+		type = male
+		birth = 2412.4.4
+		title = e_north_korea
+		government = feudal_government
+		culture = baekdu
+		religion = juche
+		history_id = 8001
+		position = { 1700 100 }
+		animation = personality_bold
 	}
 	character = {
 		name = "bookmark_northern_star_peoples_army"
+		dynasty = 1031
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2408.1.3
+		title = k_peoples_army
+		government = military_government
+		culture = geumgang
+		religion = inmin_juche
+		history_id = 1026
+		position = { 1700 600 }
+		animation = personality_cynical
 	}
 	character = {
 		name = "bookmark_northern_star_national_army"
-	}
-	character = {
-		name = "bookmark_northern_star_hoengseong"
+		dynasty = 1002
+		dynasty_splendor_level = 1
+		type = male
+		birth = 2384.12.3
+		title = k_rok_armed_forces
+		government = military_government
+		culture = chuncheon
+		religion = authoritarianism
+		history_id = 1006
+		position = { 1700 800 }
+		animation = personality_bold
 	}
 }
 
