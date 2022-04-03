@@ -1,0 +1,65 @@
+﻿BaronyTownType = {
+	type = landed_title
+
+	text = {
+		trigger = {
+			title_province = {
+				county = {
+					development_level > medium_development_level
+				}
+			}
+		}
+		localization_key = barony_town_type_city
+	}
+
+	text = {
+		trigger = {
+			title_province = {
+				fort_level > 0
+			}
+		}
+		localization_key = barony_town_type_castle_town
+	}
+
+	text = {
+		trigger = {
+			title_province = {
+				county = {
+					development_level <= medium_development_level
+					development_level >= bad_development_level
+				}
+			}
+		}
+		localization_key = barony_town_type_town
+	}
+
+	text = {
+		trigger = {
+			title_province = {
+				county = {
+					development_level < bad_development_level
+				}
+			}
+		}
+		localization_key = barony_town_type_village
+	}
+}
+
+GetFaithGrandTemple = { # Get name of Grand Temple in religion
+	type = character
+
+	text = {
+		trigger = { religion = religion:christianity_religion }
+		localization_key = building_holy_site_cathedral_01
+	}
+
+	text = {
+		trigger = { religion = religion:islam_religion }
+		localization_key = building_holy_site_mosque_01
+	}
+
+	text = {
+		trigger = { always = yes }
+		localization_key = building_type_holy_site_other_grand_temple_01
+	}
+}
