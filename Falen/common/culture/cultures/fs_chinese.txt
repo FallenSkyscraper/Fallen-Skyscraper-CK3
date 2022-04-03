@@ -6,9 +6,8 @@
 	language = language_chinese
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_family_entrepreneurship
-		tradition_mystical_ancestors
-		tradition_court_eunuchs
+		tradition_strength_in_numbers
+		tradition_agarian
 		tradition_philosopher_culture
 	}
 	
@@ -111,15 +110,18 @@ huabei_manchu = {
 	created = 2000.01.01
 	parents = { han manchu }
 	
-	ethos = ethos_courtly
+	ethos = ethos_spiritual
 	heritage = heritage_chinese
 	language = language_mandarin_northeast
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_family_entrepreneurship
+		tradition_horse_breeder
 		tradition_mystical_ancestors
-		tradition_court_eunuchs
-		tradition_philosopher_culture
+		tradition_tribe_unity
+	}
+	dlc_tradition = {
+		trait = tradition_malleable_invaders
+		requires_dlc_flag = hybridize_culture
 	}
 	
 	name_list = name_list_jurchen

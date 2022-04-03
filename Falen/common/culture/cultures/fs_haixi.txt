@@ -3,14 +3,18 @@
 	created = 2340.1.1
 	parents = { huabei_manchu }
 	
-	ethos = ethos_spiritual
+	ethos = ethos_communal
 	heritage = heritage_haixi
 	language = language_mandarin_northeast
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_agrarian
+		tradition_horse_breeder
 		tradition_mystical_ancestors
 		tradition_tribe_unity
+	}
+	dlc_tradition = {
+		trait = tradition_malleable_invaders
+		requires_dlc_flag = hybridize_culture
 	}
 	
 	name_list = name_list_jurchen
@@ -60,9 +64,13 @@ songhua = {
 	language = language_mandarin_northeast
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_agrarian
+		tradition_horse_breeder
 		tradition_mystical_ancestors
-		tradition_tribe_unity
+		tradition_fp1_trials_by_combat
+	}
+	dlc_tradition = {
+		trait = tradition_malleable_invaders
+		requires_dlc_flag = hybridize_culture
 	}
 	
 	name_list = name_list_jurchen
@@ -86,9 +94,10 @@ jilin = {
 	language = language_mandarin_northeast
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_agrarian
+		tradition_horse_breeder
 		tradition_mystical_ancestors
 		tradition_tribe_unity
+		tradition_swords_for_hire
 	}
 	
 	name_list = name_list_jurchen
@@ -112,11 +121,14 @@ shangjing = {
 	language = language_mandarin_northeast
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_agrarian
-		tradition_mystical_ancestors
+		tradition_horse_breeder
 		tradition_tribe_unity
+		tradition_winter_warriors
 	}
-	
+	dlc_tradition = {
+		trait = tradition_malleable_invaders
+		requires_dlc_flag = hybridize_culture
+	}
 	name_list = name_list_jurchen
 
 	coa_gfx = { mongol_coa_gfx steppe_coa_gfx } 
@@ -138,7 +150,7 @@ taepyeongho = {
 	language = language_mandarin_northeast
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_agrarian
+		tradition_horse_breeder
 		tradition_mystical_ancestors
 		tradition_tribe_unity
 	}
