@@ -18,18 +18,6 @@ activity_pilgrimage = {
 			name = journey_event_counter
 			value = 0
 		}
-		# Check if it's a Hajj
-		if = {
-			limit = { activity_province.barony = title:b_makka }
-			set_variable = {
-				name = is_hajj
-				value = yes
-			}
-		}
-		set_variable = { #For event background
-			name = pilgrimage_arrived
-			value = no
-		}
 		invite_character_to_activity = activity_owner
 		accept_invitation_for_character = activity_owner
 

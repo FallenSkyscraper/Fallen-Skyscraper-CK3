@@ -916,7 +916,7 @@ doges_palace_01 = { # Should technically be burnt down/rebuilt, but this is most
 		garrison_size = 1
 		fort_level = 3
 		levy_size = 1
-		defender_advantage = 10
+		defender_holding_advantage = 10
 	}
 	
 	ai_value = {
@@ -942,7 +942,7 @@ walls_of_genoa_01 = {
 	cost_gold = 1000
 	
 	county_modifier = {
-		defender_advantage = 5
+		defender_holding_advantage = 5
 		development_growth_factor = 0.1
 		development_growth = 0.2
 		tax_mult = 0.1
@@ -983,7 +983,7 @@ visby_ringmur_01 = {
 	cost_gold = 500
 	
 	county_modifier = {
-		defender_advantage = 5
+		defender_holding_advantage = 5
 		development_growth_factor = 0.15
 		development_growth = 0.2
 		tax_mult = 0.15
@@ -1020,7 +1020,7 @@ walls_of_benin_01 = {
 	
 	county_modifier = {
 		levy_size = 0.5
-		defender_advantage = 5
+		defender_holding_advantage = 5
 		development_growth_factor = 0.75
 		development_growth = 0.2
 		tax_mult = 0.2
@@ -1308,7 +1308,7 @@ offas_dyke_01 = { # For Matt Frary
 	cost_gold = 3000
 
 	province_modifier = {
-		defender_advantage = normal_building_advantage_tier_1
+		defender_holding_advantage = normal_building_advantage_tier_1
 	}
 	
 	ai_value = {
@@ -1439,9 +1439,9 @@ alhambra_01 = {
 	cost_gold = 3000
 
 	max_garrison = good_building_max_garrison_tier_1
-	garrison_reinforcement_factor = garrison_reinforcement_factor_tier_1
+	garrison_reinforcement_factor = building_garrison_reinforcement_factor_tier_1
 	province_modifier = {
-		defender_advantage = normal_building_advantage_tier_1
+		defender_holding_advantage = normal_building_advantage_tier_1
 		fort_level = good_building_fort_level_tier_1
 	}
 	
@@ -1475,9 +1475,9 @@ alhambra_02 = {
 		monthly_prestige_gain_mult = 0.10
 	}
 	max_garrison = good_building_max_garrison_tier_4
-	garrison_reinforcement_factor = garrison_reinforcement_factor_tier_4
+	garrison_reinforcement_factor = building_garrison_reinforcement_factor_tier_4
 	province_modifier = {
-		defender_advantage = normal_building_advantage_tier_4
+		defender_holding_advantage = normal_building_advantage_tier_4
 		fort_level = good_building_fort_level_tier_4
 	}
 	county_modifier = {
@@ -1513,9 +1513,9 @@ citadel_of_aleppo_01 = {
 	}
 	
 	max_garrison = good_building_max_garrison_tier_1
-	garrison_reinforcement_factor = garrison_reinforcement_factor_tier_1
+	garrison_reinforcement_factor = building_garrison_reinforcement_factor_tier_1
 	province_modifier = {
-		defender_advantage = normal_building_advantage_tier_1
+		defender_holding_advantage = normal_building_advantage_tier_1
 		fort_level = good_building_fort_level_tier_1
 	}
 	
@@ -1550,9 +1550,9 @@ citadel_of_aleppo_02 = {
 		prowess_per_piety_level = 2
 	}
 	max_garrison = good_building_max_garrison_tier_3
-	garrison_reinforcement_factor = garrison_reinforcement_factor_tier_3
+	garrison_reinforcement_factor = building_garrison_reinforcement_factor_tier_3
 	province_modifier = {
-		defender_advantage = normal_building_advantage_tier_3
+		defender_holding_advantage = normal_building_advantage_tier_3
 		fort_level = good_building_fort_level_tier_3
 	}
 	county_modifier = {
@@ -1633,9 +1633,9 @@ the_tower_of_london_01 = {
 		dread_gain_mult = 0.3
 	}
 	max_garrison = good_building_max_garrison_tier_3
-	garrison_reinforcement_factor = garrison_reinforcement_factor_tier_3
+	garrison_reinforcement_factor = building_garrison_reinforcement_factor_tier_3
 	province_modifier = {
-		defender_advantage = normal_building_advantage_tier_3
+		defender_holding_advantage = normal_building_advantage_tier_3
 		fort_level = good_building_fort_level_tier_3
 	}
 	county_modifier = {
