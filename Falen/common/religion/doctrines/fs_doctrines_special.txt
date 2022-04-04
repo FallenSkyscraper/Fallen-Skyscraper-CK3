@@ -1,7 +1,7 @@
 terror_governing = {
 	group = "special"
 	is_available_on_create = {
-		has_doctrine = terror_governing_doctrine
+		has_doctrine = special_doctrine_terror_governing
 	}
 	special_doctrine_terror_governing = {
 		parameters = {
@@ -40,7 +40,7 @@ path_of_saint = {
 hundred_days_of_reform = {
 	group = "special"
 	is_available_on_create = {
-		has_doctrine = hundred_days_of_reform_doctrine
+		has_doctrine = special_doctrine_hundred_days_of_reform
 	}
 	special_doctrine_hundred_days_of_reform = {
 		parameters = {
@@ -116,7 +116,6 @@ the_pantheon = {
 		OR = {
 			has_doctrine = special_doctrine_aisingioro_worship
 			has_doctrine = special_doctrine_wanyan_worship
-			has_doctrine = special_doctrine_otchigin_worship
 			has_doctrine = special_doctrine_khan_worship
 			has_doctrine = special_doctrine_cheewoo_worship
 			has_doctrine = special_doctrine_munsunjae_worship

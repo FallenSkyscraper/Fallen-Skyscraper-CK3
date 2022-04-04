@@ -59,7 +59,7 @@ doctrine_core_tenets = {
 			}
 			# Multiplier for keeping same tenet
 			if = {
-				limit = { has_doctrine = tenet_donghak_revolt }
+				limit = { has_doctrine = tenet_righteous_army }
 				multiply = faith_unchanged_doctrine_cost_mult
 			}
 		}
@@ -192,21 +192,10 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = dualism_religion
-						religion_tag = hinduism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_high
-			}
-			else_if = {
-				limit = {
-					OR = {
-						religion_tag = zoroastrianism_religion
-					}
-				}
-				value = faith_tenet_cost_low
 			}
 			else = {
 				value = faith_tenet_cost_mid
@@ -261,10 +250,6 @@ doctrine_core_tenets = {
 				limit = { has_doctrine = tenet_mystical_birthright }
 				multiply = faith_unchanged_doctrine_cost_mult
 			}
-		}
-
-		is_shown = {
-			religion_tag = magyar_religion
 		}
 
 		parameters = {

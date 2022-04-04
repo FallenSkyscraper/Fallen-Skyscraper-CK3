@@ -260,8 +260,10 @@ pohang_default = {
 }
 yeongcheon_default = {
 	county = c_yeongcheon
-	monthly_piety_gain_mult = 0.05
-	learning = 1
+	character_modifier = {
+		monthly_piety_gain_mult = 0.05
+		learning = 1
+	}
 }
 daegu_default = {
 	county = c_daegu
@@ -542,7 +544,7 @@ eunpyeong_tibet_samhaksa = {
 	county = c_eunpyeong
 	character_modifier = {
 		same_faith_opinion = 15
-		other_faith_opinion = 5
+		different_faith_opinion = 5
 	}
 }
 chaganhua_tibet_miaoyinsi = {
