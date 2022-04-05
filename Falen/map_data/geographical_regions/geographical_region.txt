@@ -78,9 +78,6 @@ world_africa_north_west = {
 world_africa_north_east = {}
 world_africa_sahara = {}
 world_africa_north = {
-	regions = {
-		world_africa_north_west
-	}
 }
 world_africa_west = {}
 world_africa_east = {}
@@ -116,10 +113,12 @@ world_steppe_manchuria = {
 }
 world_jianzhou = {
 	duchies = {
+		d_tunghua d_jian d_xinbin d_huanren d_baishan d_linzhang d_pussung d_liaoyuan
 	}
 }
 world_haixi = {
 	duchies = {
+		d_zhangchun d_nungan d_jutai d_dehui d_wisu d_jirin d_harbin d_puwi
 	}
 }
 world_steppe_mongolia = {
@@ -162,9 +161,21 @@ world_steppe = {
 		world_steppe_manchuria world_steppe_mongolia world_steppe_primorye
 	}
 }
+world_korea_south = {
+	regions = {
+		world_gyeonggigwon world_gwandong world_hoseo world_honam world_yeongnam world_doseo
+	}
+}
+
+world_korea_north = {
+	regions = {
+		world_haeseo world_gwanseo world_gwanbuk
+	}
+}
+
 world_korea = {
 	regions = {
-		world_jeju
+		world_korea_north world_korea_south
 	}
 }
 
@@ -174,6 +185,206 @@ world_jeju = {
 	}
 }
 
+world_namjeonlla = {
+	duchies = {
+		#신안 왕국
+		d_sinan d_jindo
+		#여수 왕국
+		d_yeosu d_gwangyang d_gokseong d_hwasun
+		#무안 왕국
+		d_muan d_yeonggwang d_yeongam d_haenam d_naju
+		#고흥 왕국
+		d_goheung d_wando d_boseong
+		#광주 왕국
+		d_gwangju d_damyang
+	}
+}
+
+world_bukjeonlla = {
+	duchies = {
+		#전주 왕국
+		d_jeonju d_jinan d_namwon d_imsil
+		#익산 왕국
+		d_iksan d_gunsan d_gimje d_gochang d_jeongeup
+	}
+}
+
+world_chungcheong = {
+	duchies = {
+		#충청 왕국
+		d_cheongju d_chungju d_jecheon d_chungseo d_cheongbuk d_boeun
+		#공홍 왕국
+		d_cheonan d_onyang d_seosan d_hongju d_gongju d_boryeong d_seocheon d_buyeo d_nonsan
+		#대전 왕국
+		d_daejeon d_jinsan d_okcheon
+
+	}
+}
+
+world_namgyeongsang = {
+	duchies = {
+		#포항 왕국
+		d_ulsan
+		#경주 왕국
+		d_miryang
+		#부산 왕국
+		d_busan d_gimhae
+		#창원 왕국
+		d_changwon d_geoje d_tongyeong
+		#가야 왕국
+		d_haman d_hapcheon d_geochang d_sancheong 
+		#진주 왕국
+		d_jinju d_sacheon
+	}
+}
+
+world_bukgyeongsang = {
+	duchies = {
+		#상주 왕국
+		d_sangju d_mungyeong d_gimcheon
+		#대구 왕국
+		d_daegu d_seongju d_chilgok
+		#경주 왕국
+		d_gyeongju d_yeongcheon d_gyeongsan
+		#포항 왕국
+		d_pohang d_uljin
+		#안동 왕국
+		d_andong d_cheongsong d_yeongju d_bonghwa d_uiseong
+	}
+}
+
+world_gangwon = {
+	duchies = {
+		#영서 왕국
+		d_wonju d_yeongwol d_pyeongchang d_chuncheon
+		#영동 왕국
+		d_gangneung d_donghae d_sokcho d_tongcheon
+		#철원 왕국
+		d_gimhwa d_inje d_icheon d_cheolwon d_hoeyang
+	}
+}
+
+world_gyeonggi = {
+	duchies = {
+		#서울 왕국
+		d_seoul d_mapo d_northeast d_fareast d_gangnam d_yongdungpo
+		#인천 왕국
+		d_incheon d_bupyeong d_ganghwado d_yeongjongdo d_gimpo
+		#개성 왕국
+		d_uijeongbu d_goyang d_pocheon d_yeoncheon d_gaeseong d_jangdan
+		#경기 왕국
+		d_suwon d_seongnam d_ansan d_pyeongtaek d_yongin d_anseong d_yeoju
+	}
+}
+
+world_hwanghae = {
+	duchies = {
+		#해주 왕국
+		d_haeju d_ongjin d_taetan d_yeonan d_bongcheon d_west_isles
+		#황주 왕국
+		d_hwangju d_sariwon d_Insan d_singye d_kumchon d_suan d_holdong
+		#안악 왕국
+		d_songhwa d_jangyeon d_jaeryeong d_anak d_euncheon
+	}
+}
+
+world_nampyeongan = {
+	duchies = {
+		#묘향 왕국
+		d_maengsan d_songchon
+		#평양 왕국
+		d_pyongyang d_kangdong d_junghwa d_nampho d_kangso d_anju d_sunchon
+	}
+}
+
+world_bukpyeongan = {
+	duchies = {
+		#자성 왕국
+		d_jaseong d_ganggye d_wiwon
+		#의주 왕국
+		d_sinuiju d_cheolsan d_jeongju d_uiju d_guseong d_bakcheon
+		#영변 왕국
+		d_yeongbyeon d_sakju d_huicheon d_byeokdong
+	}
+}
+
+world_namhamgyeong = {
+	duchies = {
+		#원산 왕국
+		d_wonsan d_jeongpyeong d_yeongheung
+		#함흥 왕국
+		d_hamheung d_bukcheong d_dancheon
+	}
+}
+
+world_bukhamgyeong = {
+	duchies = {
+		#청진 왕국
+		d_cheongjin d_najin d_seongjin
+		#백두 왕국
+		d_sinheung d_gapsan d_samsu d_musan
+	}
+}
+
+world_ulleung = {
+	duchies = {
+		d_ulleung
+	}
+}
+
+world_gwanbuk = {
+	regions = {
+		world_namhamgyeong world_bukhamgyeong
+	}
+}
+
+world_gwanseo = {
+	regions = {
+		world_bukpyeongan world_nampyeongan
+	}
+}
+
+world_haeseo = {
+	regions = {
+		world_hwanghae
+	}
+}
+
+world_gyeonggigwon = {
+	regions = {
+		world_gyeonggi
+	}
+}
+
+world_gwandong = {
+	regions = {
+		world_gangwon
+	}
+}
+
+world_hoseo = {
+	regions = {
+		world_chungcheong
+	}
+}
+
+world_honam = {
+	regions = {
+		world_namjeonlla world_bukjeonlla
+	}
+}
+
+world_yeongnam = {
+	regions = {
+		world_namgyeongsang world_bukgyeongsang
+	}
+}
+
+world_doseo = {
+	regions = {
+		world_jeju world_ulleung
+	}
+}
 
 ###########################################################################
 # Material Regions
