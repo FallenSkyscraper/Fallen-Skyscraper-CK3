@@ -272,6 +272,26 @@ building_hill_forts_requirement_terrain = {
 	}
 }
 
+building_road_requirement_terrain = {
+	OR = {
+		terrain = plains
+		terrain = farmlands
+		terrain = hills
+		terrain = mountains
+		terrain = desert
+		terrain = desert_mountains
+		terrain = oasis
+		terrain = jungle
+		terrain = forest
+		terrain = taiga
+		terrain = wetlands
+		terrain = steppe
+		terrain = floodplains
+		terrain = drylands
+		terrain = ruined_city
+	}
+}
+
 ######################################################################
 # Baronies that cannot have a holding (intended for Sahara)
 ######################################################################
