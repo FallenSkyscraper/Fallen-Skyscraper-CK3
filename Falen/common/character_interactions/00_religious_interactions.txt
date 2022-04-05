@@ -185,7 +185,6 @@ ask_for_conversion_courtier_interaction = {
 		
 		modifier = { # The AI doesn't really want to convert Diasporic culture courtiers
 			scope:recipient = {
-				faith.religion = religion:judaism_religion
 				culture = {
 					has_cultural_tradition = tradition_diasporic
 				}
