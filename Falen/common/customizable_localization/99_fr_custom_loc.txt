@@ -1016,7 +1016,7 @@ FR_le_Char = {
 					highest_held_title_tier = tier_duchy
 					has_government = theocracy_government
 					OR = {
-						religion = religion:paganism_religion
+						scope:character.religion = {is_in_family = rf_pagan}
 						religion = religion:taoism_religion
 						religion = religion:tengrism_religion
 					}
@@ -1282,7 +1282,7 @@ FR_du_Char = {
 					highest_held_title_tier = tier_duchy
 					has_government = theocracy_government
 					OR = {
-						religion = religion:paganism_religion
+						scope:character.religion = {is_in_family = rf_pagan}
 						religion = religion:taoism_religion
 						religion = religion:tengrism_religion
 					}
@@ -1548,7 +1548,7 @@ FR_au_Char = {
 					highest_held_title_tier = tier_duchy
 					has_government = theocracy_government
 					OR = {
-						religion = religion:paganism_religion
+						scope:character.religion = {is_in_family = rf_pagan}
 						religion = religion:taoism_religion
 						religion = religion:tengrism_religion
 					}
