@@ -2375,83 +2375,83 @@ tradition_artisans = {
 	}
 }
 
-tradition_hundred_of_schools = {
-	layers = {
-		0 = learning
-		1 = indian
-		4 = philosopher.dds
-	}
-
-	is_shown = {
-		OR = {
-			region = china_huabei
-			region = china_sandung
-		}
-	}
-
-	can_pick = {
-		NOT = { has_cultural_tradition = tradition_warrior_culture }
-	}
-
-	parameters = {
-		pensive_trait_more_common = yes
-		rowdy_trait_less_common = yes
-		innovation_from_learning_traits = yes
-		mystic_trait_more_common = yes
-		mendicant_mystics_may_appear = yes
-	}
-
-	county_modifier = {
-	}
-
-	cost = {
-		prestige = {
-			add = {
-				value = tradition_base_cost
-				desc = BASE
-				format = "BASE_VALUE_FORMAT"
-			}
-			if = {
-				limit = {
-					NOR = {
-						any_in_list = { list = traits this = flag:ethos_courtly }
-						any_in_list = { list = traits this = flag:ethos_communal }
-						any_in_list = { list = traits this = flag:ethos_spiritual }
-					}
-				}
-				add = {
-					value = tradition_incompatible_ethos_penalty
-					desc = not_courtly_communal_or_spiritual_desc
-				}
-			}
-			if = {
-				limit = {
-					trigger_if = {
-						limit = {
-							scope:character = {
-								is_ai = no
-							}
-						}
-						NOT = {
-							any_ruler = {
-								count >= 5
-								culture = prev
-								primary_title.tier >= tier_county
-								has_trait = scholar
-							}
-						}
-					}
-					trigger_else = {
-						always = no
-					}
-				}
-				add = {
-					value = tradition_unfulfilled_criteria_penalty
-					desc = rulers_with_scholar_desc
-				}
-			}
-			
-			multiply = tradition_replacement_cost_if_relevant
-		}
-	}
-}
+#tradition_hundred_of_schools = {
+#	layers = {
+#		0 = learning
+#		1 = indian
+#		4 = philosopher.dds
+#	}
+#
+#	is_shown = {
+#		OR = {
+#			region = china_huabei
+#			region = china_sandung
+#		}
+#	}
+#
+#	can_pick = {
+#		NOT = { has_cultural_tradition = tradition_warrior_culture }
+#	}
+#
+#	parameters = {
+#		pensive_trait_more_common = yes
+#		rowdy_trait_less_common = yes
+#		innovation_from_learning_traits = yes
+#		mystic_trait_more_common = yes
+#		mendicant_mystics_may_appear = yes
+#	}
+#
+#	county_modifier = {
+#	}
+#
+#	cost = {
+#		prestige = {
+#			add = {
+#				value = tradition_base_cost
+#				desc = BASE
+#				format = "BASE_VALUE_FORMAT"
+#			}
+#			if = {
+#				limit = {
+#					NOR = {
+#						any_in_list = { list = traits this = flag:ethos_courtly }
+#						any_in_list = { list = traits this = flag:ethos_communal }
+#						any_in_list = { list = traits this = flag:ethos_spiritual }
+#					}
+#				}
+#				add = {
+#					value = tradition_incompatible_ethos_penalty
+#					desc = not_courtly_communal_or_spiritual_desc
+#				}
+#			}
+#			if = {
+#				limit = {
+#					trigger_if = {
+#						limit = {
+#							scope:character = {
+#								is_ai = no
+#							}
+#						}
+#						NOT = {
+#							any_ruler = {
+#								count >= 5
+#								culture = prev
+#								primary_title.tier >= tier_county
+#								has_trait = scholar
+#							}
+#						}
+#					}
+#					trigger_else = {
+#						always = no
+#					}
+#				}
+#				add = {
+#					value = tradition_unfulfilled_criteria_penalty
+#					desc = rulers_with_scholar_desc
+#				}
+#			}
+#			
+#			multiply = tradition_replacement_cost_if_relevant
+#		}
+#	}
+#}
