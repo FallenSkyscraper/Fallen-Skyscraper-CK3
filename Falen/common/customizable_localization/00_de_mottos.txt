@@ -13,7 +13,6 @@ DE_1_GetAppropriateGodname = {
 				OR = {
 					religion_tag = christianity_religion
 					religion_tag = islam_religion
-					religion_tag = judaism_religion
 				}
 			}
 		}
@@ -32,25 +31,11 @@ DE_1_GetAppropriateGodname = {
 	text = {
 		trigger = {
 			house.last_house_head.faith = {
-				OR = {
-					religion_tag = dualism_religion
-					religion_tag = zoroastrianism_religion
-				}
-			}
-		}
-		localization_key = CustomLoc_DE_1_motto_the_divine
-	}
-
-	text = {
-		trigger = {
-			house.last_house_head.faith = {
 				NOR = {
-					religion_tag = dualism_religion
-					religion_tag = zoroastrianism_religion
 					religion_tag = buddhism_religion
 					religion_tag = christianity_religion
 					religion_tag = islam_religion
-					religion_tag = judaism_religion
+
 				}
 			}
 		}
@@ -76,7 +61,6 @@ DE_2_GetAppropriateGodname = {
 				OR = {
 					religion_tag = christianity_religion
 					religion_tag = islam_religion
-					religion_tag = judaism_religion
 				}
 			}
 		}
@@ -95,25 +79,10 @@ DE_2_GetAppropriateGodname = {
 	text = {
 		trigger = {
 			house.last_house_head.faith = {
-				OR = {
-					religion_tag = dualism_religion
-					religion_tag = zoroastrianism_religion
-				}
-			}
-		}
-		localization_key = CustomLoc_DE_2_motto_the_divine
-	}
-
-	text = {
-		trigger = {
-			house.last_house_head.faith = {
 				NOR = {
-					religion_tag = dualism_religion
-					religion_tag = zoroastrianism_religion
 					religion_tag = buddhism_religion
 					religion_tag = christianity_religion
 					religion_tag = islam_religion
-					religion_tag = judaism_religion
 				}
 			}
 		}

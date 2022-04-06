@@ -23,10 +23,6 @@ GetRegionalArcherMAA = {
 		localization_key = chu_ko_nu
 	}
 	text = {
-		trigger = { culture = { has_innovation = innovation_bamboo_bows } } #Paiks
-		localization_key = paiks
-	}
-	text = {
 		trigger = { always = no }
 		fallback = yes
 		localization_key = bowmen
@@ -66,20 +62,8 @@ GetRegionalInfantryMAA = {
 		localization_key = huscarl
 	}
 	text = {
-		trigger = { culture = { has_cultural_parameter = unlock_maa_mountaineer } }
-		localization_key = mountaineer
-	}
-	text = {
-		trigger = { culture = { has_cultural_parameter = unlock_maa_zbrojnosh } }
-		localization_key = zbrojnosh
-	}
-	text = {
 		trigger = { culture = { has_innovation = innovation_sarawit } } #Sarawit - Later Era MAA
 		localization_key = sarawit
-	}
-	text = {
-		trigger = { culture = { has_innovation = innovation_legionnaires } } #Praetorian
-		localization_key = praetorian
 	}
 	text = {
 		trigger = { culture = { has_innovation = innovation_rectilinear_schiltron } } #Schiltron - Later Era MAA
@@ -88,10 +72,6 @@ GetRegionalInfantryMAA = {
 	text = {
 		trigger = { culture = { has_innovation = innovation_pike_columns } } #Picchieri - Later Era MAA
 		localization_key = picchieri
-	}
-	text = {
-		trigger = { culture = { has_innovation = innovation_zweihanders } } #Later Era MAA
-		localization_key = landsknecht
 	}
 	text = {
 		trigger = { always = no }
@@ -115,22 +95,6 @@ GetRegionalCavalryMAA = {
 	text = {
 		trigger = { culture = { has_innovation = innovation_desert_tactics } } #Chasseur
 		localization_key = chasseur
-	}
-	text = {
-		trigger = { culture = { has_innovation = innovation_caballeros } } #Caballero
-		localization_key = caballero
-	}
-	text = {
-		trigger = { culture = { has_innovation = innovation_hobbies } } #Hobelar
-		localization_key = hobelar
-	}
-	text = {
-		trigger = { culture = { has_innovation = innovation_sahel_horsemen } } #Sahel Horsemen
-		localization_key = sahel_horsemen
-	}
-	text = {
-		trigger = { culture = { has_cultural_parameter = unlock_maa_cataphract } }
-		localization_key = cataphract
 	}
 	text = {
 		trigger = { culture = { has_cultural_parameter = unlock_maa_monaspa } }
