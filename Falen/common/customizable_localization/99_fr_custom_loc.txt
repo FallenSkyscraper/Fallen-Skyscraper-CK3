@@ -1000,8 +1000,6 @@ FR_le_Char = {
 				AND = { # emperor (Empereur), emperor_female (Impératrice)
 					highest_held_title_tier = tier_empire
 					NOT = {
-						culture = { has_cultural_pillar = heritage_central_germanic } # Kaiser
-						culture = { has_name_list = name_list_greek } # Basileus
 						AND = { # emperor_feudal_male_altaic_group (Khagan)
 							OR = {
 								has_government = feudal_government
@@ -1010,7 +1008,6 @@ FR_le_Char = {
 							}
 							OR = {
 								culture = { has_cultural_pillar = heritage_mongolic }
-								culture = { has_cultural_pillar = heritage_turkic }
 							}
 						}
 					}
@@ -1021,82 +1018,7 @@ FR_le_Char = {
 					OR = {
 						religion = religion:paganism_religion
 						religion = religion:taoism_religion
-						religion = religion:bon_religion
-						religion = religion:germanic_religion
 						religion = religion:tengrism_religion
-						religion = religion:west_african_religion
-						religion = religion:west_african_bori_religion
-						religion = religion:west_african_roog_religion
-						religion = religion:zunism_religion
-					}
-				}
-				AND = { # king_feudal_male_uyghur (Idiqut), king_feudal_female_uyghur (Idiqut)
-					highest_held_title_tier = tier_kingdom
-					culture = { has_name_list = name_list_uyghur }
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
-					}
-				}
-				AND = { # duke_feudal_male_turkish (Atabeg), duke_feudal_female_turkish (Atabegum)
-					highest_held_title_tier = tier_duchy
-					OR = {
-						AND = { 
-							exists = top_liege
-							top_liege = {
-								OR = {
-									has_government = feudal_government
-									has_government = clan_government
-								}
-								culture = { has_name_list = name_list_turkish }
-							}
-						}
-						AND = {
-							NOT = { exists = top_liege }
-							OR = {
-								has_government = feudal_government
-								has_government = clan_government
-							}
-							culture = { has_name_list = name_list_turkish }
-						}
-					}
-				}
-				AND = { # duke_feudal_male_sogdian (Ikhshide)
-					is_female = no
-					culture = { has_name_list = name_list_sogdian }
-					highest_held_title_tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = {
-					trigger_if = {
-						limit = { 
-							exists = top_liege
-						}
-						top_liege = {
-							OR = {
-								culture = { has_cultural_pillar = heritage_berber } # duke_feudal_male_berber_group (Émir), duke_feudal_female_berber_group (Émira)
-								culture = { has_name_list = name_list_beja } # duke_feudal_male_beja (Émir), duke_feudal_female_beja (Émira)
-							}
-							OR = {
-								has_government = feudal_government
-								has_government = clan_government
-								has_government = tribal_government
-							}
-						}
-					}
-					OR = {
-						culture = { has_cultural_pillar = heritage_berber } # duke_feudal_male_berber_group (Émir), duke_feudal_female_berber_group (Émira)
-						culture = { has_name_list = name_list_beja } # duke_feudal_male_beja (Émir), duke_feudal_female_beja (Émira)
-					}
-					highest_held_title_tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
 					}
 				}
 				AND = { # duke_feudal_male_arabic_group (Émir), duke_feudal_female_arabic_group (Émira)
@@ -1120,24 +1042,6 @@ FR_le_Char = {
 					highest_held_title_tier = tier_duchy
 					OR = {
 						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = { # duke_clan_male_iberian_group (Émir), duke_clan_female_iberian_group (Émira)
-					trigger_if = {
-						limit = { 
-							exists = top_liege
-						}
-						top_liege = {
-							culture = { has_cultural_pillar = heritage_iberian }
-							has_government = clan_government
-						}
-					}
-					OR = {
-						culture = { has_cultural_pillar = heritage_iberian }
-					}
-					highest_held_title_tier = tier_duchy
-					OR = {
 						has_government = clan_government
 					}
 				}
@@ -1168,24 +1072,6 @@ FR_le_Char = {
 					has_government = theocracy_government
 					faith = faith:ismaili
 				}
-				AND = { # baron_theocracy_male_christianity_religion (Évêque), baron_theocracy_female_christianity_religion (Évêque)
-					highest_held_title_tier = tier_barony
-					has_government = theocracy_government
-					OR = {
-						religion = religion:christianity_religion
-						religion = religion:dualism_religion
-					}
-				}
-				AND = { # baron_theocracy_male_zoroastrianism_religion (Ervad), baron_theocracy_female_zoroastrianism_religion (Ervad)
-					highest_held_title_tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:zoroastrianism_religion
-				}
-				AND = { # baron_theocracy_male_west_african_bori_religion (Adjingi)
-					highest_held_title_tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:west_african_bori_religion
-				}
 				AND = { # baron_feudal_male_iranian_group (Argbadh)
 					highest_held_title_tier = tier_barony
 					OR = {
@@ -1194,7 +1080,6 @@ FR_le_Char = {
 					}
 					culture = { has_cultural_pillar = heritage_iranian }
 				}
-				primary_title = title:k_austria # archduke (Archiduc), archduchess (Archiduchesse)
 			}
 		}
 		localization_key = CustomLoc_FR_l
@@ -1381,8 +1266,6 @@ FR_du_Char = {
 				AND = { # emperor (Empereur), emperor_female (Impératrice)
 					highest_held_title_tier = tier_empire
 					NOT = {
-						culture = { has_cultural_pillar = heritage_central_germanic } # Kaiser
-						culture = { has_name_list = name_list_greek } # Basileus
 						AND = { # emperor_feudal_male_altaic_group (Khagan)
 							OR = {
 								has_government = feudal_government
@@ -1391,7 +1274,6 @@ FR_du_Char = {
 							}
 							OR = {
 								culture = { has_cultural_pillar = heritage_mongolic }
-								culture = { has_cultural_pillar = heritage_turkic }
 							}
 						}
 					}
@@ -1402,82 +1284,7 @@ FR_du_Char = {
 					OR = {
 						religion = religion:paganism_religion
 						religion = religion:taoism_religion
-						religion = religion:bon_religion
-						religion = religion:germanic_religion
 						religion = religion:tengrism_religion
-						religion = religion:west_african_religion
-						religion = religion:west_african_bori_religion
-						religion = religion:west_african_roog_religion
-						religion = religion:zunism_religion
-					}
-				}
-				AND = { # king_feudal_male_uyghur (Idiqut), king_feudal_female_uyghur (Idiqut)
-					highest_held_title_tier = tier_kingdom
-					culture = { has_name_list = name_list_uyghur }
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
-					}
-				}
-				AND = { # duke_feudal_male_turkish (Atabeg), duke_feudal_female_turkish (Atabegum)
-					highest_held_title_tier = tier_duchy
-					OR = {
-						AND = { 
-							exists = top_liege
-							top_liege = {
-								OR = {
-									has_government = feudal_government
-									has_government = clan_government
-								}
-								culture = { has_name_list = name_list_turkish }
-							}
-						}
-						AND = {
-							NOT = { exists = top_liege }
-							OR = {
-								has_government = feudal_government
-								has_government = clan_government
-							}
-							culture = { has_name_list = name_list_turkish }
-						}
-					}
-				}
-				AND = { # duke_feudal_male_sogdian (Ikhshide)
-					is_female = no
-					culture = { has_name_list = name_list_sogdian }
-					highest_held_title_tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = {
-					trigger_if = {
-						limit = { 
-							exists = top_liege
-						}
-						top_liege = {
-							OR = {
-								culture = { has_cultural_pillar = heritage_berber } # duke_feudal_male_berber_group (Émir), duke_feudal_female_berber_group (Émira)
-								culture = { has_name_list = name_list_beja } # duke_feudal_male_beja (Émir), duke_feudal_female_beja (Émira)
-							}
-							OR = {
-								has_government = feudal_government
-								has_government = clan_government
-								has_government = tribal_government
-							}
-						}
-					}
-					OR = {
-						culture = { has_cultural_pillar = heritage_berber } # duke_feudal_male_berber_group (Émir), duke_feudal_female_berber_group (Émira)
-						culture = { has_name_list = name_list_beja } # duke_feudal_male_beja (Émir), duke_feudal_female_beja (Émira)
-					}
-					highest_held_title_tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
 					}
 				}
 				AND = { # duke_feudal_male_arabic_group (Émir), duke_feudal_female_arabic_group (Émira)
@@ -1501,24 +1308,6 @@ FR_du_Char = {
 					highest_held_title_tier = tier_duchy
 					OR = {
 						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = { # duke_clan_male_iberian_group (Émir), duke_clan_female_iberian_group (Émira)
-					trigger_if = {
-						limit = { 
-							exists = top_liege
-						}
-						top_liege = {
-							culture = { has_cultural_pillar = heritage_iberian }
-							has_government = clan_government
-						}
-					}
-					OR = {
-						culture = { has_cultural_pillar = heritage_iberian }
-					}
-					highest_held_title_tier = tier_duchy
-					OR = {
 						has_government = clan_government
 					}
 				}
@@ -1549,24 +1338,6 @@ FR_du_Char = {
 					has_government = theocracy_government
 					faith = faith:ismaili
 				}
-				AND = { # baron_theocracy_male_christianity_religion (Évêque), baron_theocracy_female_christianity_religion (Évêque)
-					highest_held_title_tier = tier_barony
-					has_government = theocracy_government
-					OR = {
-						religion = religion:christianity_religion
-						religion = religion:dualism_religion
-					}
-				}
-				AND = { # baron_theocracy_male_zoroastrianism_religion (Ervad), baron_theocracy_female_zoroastrianism_religion (Ervad)
-					highest_held_title_tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:zoroastrianism_religion
-				}
-				AND = { # baron_theocracy_male_west_african_bori_religion (Adjingi)
-					highest_held_title_tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:west_african_bori_religion
-				}
 				AND = { # baron_feudal_male_iranian_group (Argbadh)
 					highest_held_title_tier = tier_barony
 					OR = {
@@ -1575,7 +1346,6 @@ FR_du_Char = {
 					}
 					culture = { has_cultural_pillar = heritage_iranian }
 				}
-				primary_title = title:k_austria # archduke (Archiduc), archduchess (Archiduchesse)
 			}
 		}
 		localization_key = CustomLoc_FR_del
@@ -1762,8 +1532,6 @@ FR_au_Char = {
 				AND = { # emperor (Empereur), emperor_female (Impératrice)
 					highest_held_title_tier = tier_empire
 					NOT = {
-						culture = { has_cultural_pillar = heritage_central_germanic } # Kaiser
-						culture = { has_name_list = name_list_greek } # Basileus
 						AND = { # emperor_feudal_male_altaic_group (Khagan)
 							OR = {
 								has_government = feudal_government
@@ -1772,7 +1540,6 @@ FR_au_Char = {
 							}
 							OR = {
 								culture = { has_cultural_pillar = heritage_mongolic }
-								culture = { has_cultural_pillar = heritage_turkic }
 							}
 						}
 					}
@@ -1783,82 +1550,7 @@ FR_au_Char = {
 					OR = {
 						religion = religion:paganism_religion
 						religion = religion:taoism_religion
-						religion = religion:bon_religion
-						religion = religion:germanic_religion
 						religion = religion:tengrism_religion
-						religion = religion:west_african_religion
-						religion = religion:west_african_bori_religion
-						religion = religion:west_african_roog_religion
-						religion = religion:zunism_religion
-					}
-				}
-				AND = { # king_feudal_male_uyghur (Idiqut), king_feudal_female_uyghur (Idiqut)
-					highest_held_title_tier = tier_kingdom
-					culture = { has_name_list = name_list_uyghur }
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
-					}
-				}
-				AND = { # duke_feudal_male_turkish (Atabeg), duke_feudal_female_turkish (Atabegum)
-					highest_held_title_tier = tier_duchy
-					OR = {
-						AND = { 
-							exists = top_liege
-							top_liege = {
-								OR = {
-									has_government = feudal_government
-									has_government = clan_government
-								}
-								culture = { has_name_list = name_list_turkish }
-							}
-						}
-						AND = {
-							NOT = { exists = top_liege }
-							OR = {
-								has_government = feudal_government
-								has_government = clan_government
-							}
-							culture = { has_name_list = name_list_turkish }
-						}
-					}
-				}
-				AND = { # duke_feudal_male_sogdian (Ikhshide)
-					is_female = no
-					culture = { has_name_list = name_list_sogdian }
-					highest_held_title_tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = {
-					trigger_if = {
-						limit = { 
-							exists = top_liege
-						}
-						top_liege = {
-							OR = {
-								culture = { has_cultural_pillar = heritage_berber } # duke_feudal_male_berber_group (Émir), duke_feudal_female_berber_group (Émira)
-								culture = { has_name_list = name_list_beja } # duke_feudal_male_beja (Émir), duke_feudal_female_beja (Émira)
-							}
-							OR = {
-								has_government = feudal_government
-								has_government = clan_government
-								has_government = tribal_government
-							}
-						}
-					}
-					OR = {
-						culture = { has_cultural_pillar = heritage_berber } # duke_feudal_male_berber_group (Émir), duke_feudal_female_berber_group (Émira)
-						culture = { has_name_list = name_list_beja } # duke_feudal_male_beja (Émir), duke_feudal_female_beja (Émira)
-					}
-					highest_held_title_tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
 					}
 				}
 				AND = { # duke_feudal_male_arabic_group (Émir), duke_feudal_female_arabic_group (Émira)
@@ -1882,24 +1574,6 @@ FR_au_Char = {
 					highest_held_title_tier = tier_duchy
 					OR = {
 						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = { # duke_clan_male_iberian_group (Émir), duke_clan_female_iberian_group (Émira)
-					trigger_if = {
-						limit = { 
-							exists = top_liege
-						}
-						top_liege = {
-							culture = { has_cultural_pillar = heritage_iberian }
-							has_government = clan_government
-						}
-					}
-					OR = {
-						culture = { has_cultural_pillar = heritage_iberian }
-					}
-					highest_held_title_tier = tier_duchy
-					OR = {
 						has_government = clan_government
 					}
 				}
@@ -1930,24 +1604,6 @@ FR_au_Char = {
 					has_government = theocracy_government
 					faith = faith:ismaili
 				}
-				AND = { # baron_theocracy_male_christianity_religion (Évêque), baron_theocracy_female_christianity_religion (Évêque)
-					highest_held_title_tier = tier_barony
-					has_government = theocracy_government
-					OR = {
-						religion = religion:christianity_religion
-						religion = religion:dualism_religion
-					}
-				}
-				AND = { # baron_theocracy_male_zoroastrianism_religion (Ervad), baron_theocracy_female_zoroastrianism_religion (Ervad)
-					highest_held_title_tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:zoroastrianism_religion
-				}
-				AND = { # baron_theocracy_male_west_african_bori_religion (Adjingi)
-					highest_held_title_tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:west_african_bori_religion
-				}
 				AND = { # baron_feudal_male_iranian_group (Argbadh)
 					highest_held_title_tier = tier_barony
 					OR = {
@@ -1956,7 +1612,6 @@ FR_au_Char = {
 					}
 					culture = { has_cultural_pillar = heritage_iranian }
 				}
-				primary_title = title:k_austria # archduke (Archiduc), archduchess (Archiduchesse)
 			}
 		}
 		localization_key = CustomLoc_FR_al
@@ -1995,9 +1650,7 @@ FR_only_de_HouseOfWorshipPlural = {
 			OR = {
 				AND = {
 					has_religion = religion:christianity_religion # église, abbaye
-					NOT = { faith = faith:bosnian_church } # hiža
 				}
-				has_religion = religion:magyar_religion # egyház
 			}
 		}
 		localization_key = CustomLoc_FR_d

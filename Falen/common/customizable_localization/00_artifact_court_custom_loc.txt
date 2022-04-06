@@ -316,28 +316,6 @@ BuddhismRelicName = {
 	}
 }
 
-JudaismRelicName = {
-	type = character
-
-	text = {
-		trigger = {
-			scope:judaism_relic_name = flag:menorah
-		}
-		localization_key = artifact_pedestal_menorah_name
-	}
-}
-
-JudaismRelic = {
-	type = character
-
-	text = {
-		trigger = {
-			scope:judaism_relic_name = flag:menorah
-		}
-		localization_key = artifact_pedestal_menorah_description
-	}
-}
-
 RandomSaint = { # Used for statue artifact
 	type = character
 
@@ -356,7 +334,6 @@ RandomSaint = { # Used for statue artifact
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
 			}
 		}
 		localization_key = west_christian_fertility_god_name
@@ -367,7 +344,6 @@ RandomSaint = { # Used for statue artifact
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
 			}
 		}
 		localization_key = west_christian_wealth_god_name
@@ -378,7 +354,6 @@ RandomSaint = { # Used for statue artifact
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
 			}
 		}
 		localization_key = west_christian_household_god_name
@@ -389,7 +364,6 @@ RandomSaint = { # Used for statue artifact
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
 			}
 		}
 		localization_key = west_christian_knowledge_god_name
@@ -400,7 +374,7 @@ RandomSaint = { # Used for statue artifact
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_war_god_name
@@ -411,102 +385,10 @@ RandomSaint = { # Used for statue artifact
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_water_god_name
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_fertility_god_name
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_wealth_god_name
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_household_god_name
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_knowledge_god_name
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_war_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_fertility_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_wealth_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_household_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_knowledge_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_war_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_water_god_name
 	}
 }
 
@@ -520,7 +402,7 @@ RandomSaintName = { # Used for other artifacts
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_fertility_god_name
@@ -531,7 +413,7 @@ RandomSaintName = { # Used for other artifacts
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_wealth_god_name
@@ -542,7 +424,7 @@ RandomSaintName = { # Used for other artifacts
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_household_god_name
@@ -553,7 +435,7 @@ RandomSaintName = { # Used for other artifacts
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_knowledge_god_name
@@ -564,7 +446,7 @@ RandomSaintName = { # Used for other artifacts
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_war_god_name
@@ -575,102 +457,10 @@ RandomSaintName = { # Used for other artifacts
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_water_god_name
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_fertility_god_name
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_wealth_god_name
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_household_god_name
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_knowledge_god_name
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_war_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_fertility_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_wealth_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_household_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_knowledge_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_war_god_name
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_water_god_name
 	}
 }
 
@@ -684,7 +474,7 @@ RandomSaintNamePossessive = {
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_fertility_god_name_possessive
@@ -695,7 +485,7 @@ RandomSaintNamePossessive = {
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_wealth_god_name_possessive
@@ -706,7 +496,7 @@ RandomSaintNamePossessive = {
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_household_god_name_possessive
@@ -717,7 +507,7 @@ RandomSaintNamePossessive = {
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_knowledge_god_name_possessive
@@ -728,7 +518,7 @@ RandomSaintNamePossessive = {
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_war_god_name_possessive
@@ -739,102 +529,10 @@ RandomSaintNamePossessive = {
 			OR = {
 				faith = faith:catholic
 				faith = faith:orthodox
-				faith = faith:nestorian
+				
 			}
 		}
 		localization_key = west_christian_water_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_fertility_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_wealth_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_household_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_knowledge_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:coptic
-				faith = faith:armenian_apostolic
-			}
-		}
-		localization_key = east_christian_war_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_fertility_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_wealth_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_household_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_knowledge_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_war_god_name_possessive
-	}
-
-	text = {
-		trigger = {
-			faith = faith:insular_celtic
-		}
-		localization_key = insular_celtic_water_god_name_possessive
 	}
 }
 
@@ -907,112 +605,10 @@ MuhammadSword = {
 	}
 }
 
-BranchTree = {
-	type = character
-
-	random_valid = yes
-
-	text = {
-		trigger = {
-			scope:branch_name = flag:haoma
-		}
-		localization_key = artifact_pedestal_branch_haoma
-	}
-
-	text = {
-		trigger = {
-			scope:branch_name = flag:cypress
-		}
-		localization_key = artifact_pedestal_branch_cypress
-	}
-
-	text = {
-		trigger = {
-			scope:branch_name = flag:thor
-		}
-		localization_key = artifact_pedestal_branch_thor
-	}
-
-	text = {
-		trigger = {
-			scope:branch_name = flag:uppsala
-		}
-		localization_key = artifact_pedestal_branch_uppsala
-	}
-
-	text = {
-		trigger = {
-			scope:branch_name = flag:alatyr
-		}
-		localization_key = artifact_pedestal_branch_alatyr
-	}
-
-	text = {
-		trigger = {
-			scope:branch_name = flag:somb
-		}
-		localization_key = artifact_pedestal_branch_somb
-	}
-
-	text = {
-		trigger = {
-			scope:branch_name = flag:kalpavriksha
-		}
-		localization_key = artifact_pedestal_branch_kalpavriksha
-	}
-
-	text = {
-		trigger = {
-			scope:branch_name = flag:general
-		}
-		localization_key = artifact_pedestal_branch_general
-	}
-}
-
 GetFarRegion = {
 	type = character
 
 	random_valid = yes
-
-	text = {
-		trigger = {
-			NOT = {
-				any_county_in_region = {
-					region = world_tibet
-					this = scope:owner.capital_county 
-				}
-			}
-		}
-		localization_key = artifact_book_topic_travels_china
-	}
-
-	text = {
-		trigger = {
-			NOR = {
-				any_county_in_region = {
-					region = world_africa_west
-					this = scope:owner.capital_county 	
-				}
-				any_county_in_region = {
-					region = world_africa_east
-					this = scope:owner.capital_county
-				}
-			}
-		}
-		localization_key = artifact_book_topic_travels_africa
-	}
-
-	text = {
-		trigger = {
-			NOT = {
-				any_county_in_region = {
-					region = world_india
-					this = scope:owner.capital_county 
-				}
-			}
-		}
-		localization_key = artifact_book_topic_travels_india
-	}
 
 	text = {
 		trigger = {
@@ -2486,22 +2082,5 @@ RandomDuelTitle4 = {	#artifact.4080 - expanding a weapon's name through duels wo
 	text = { localization_key = artifact_title_immortal }
 }
 
-EpistleReciever = { #For Muhammads Letters
-	type = artifact
-	random_valid = yes
-	text = {
-		localization_key = epistle_syria
-	}
-	text = {
-		localization_key = epistle_arabia
-	}
-	text = {
-		localization_key = epistle_persia
-	}
-	text = {
-		localization_key = epistle_byzantium
-	}
-	text = {
-		localization_key = epistle_bahrain
-	}
-}
+#EpistleReciever = { #For Muhammads Letters
+#}

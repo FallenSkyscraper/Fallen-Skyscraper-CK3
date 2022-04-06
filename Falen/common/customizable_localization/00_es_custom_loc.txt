@@ -2515,88 +2515,7 @@ ES_only_el_GetTitledFirstName = {
 					holds_landed_title = yes
 					primary_title.tier = tier_empire
 					NOT = {
-						culture = { has_cultural_pillar = heritage_central_germanic } # Kaiser
-						culture = { has_name_list = name_list_greek } # Basileus
-						has_title = title:d_shiite # Califa
-						has_title = title:d_sunni # Califa
-						has_title = title:k_papal_state
 						has_title = title:k_orthodox
-						has_title = title:d_iconoclast
-						has_title = title:d_rabbinism
-						has_title = title:d_conversos
-						has_title = title:d_karaism
-						has_title = title:d_haymanot
-						has_title = title:d_malabarism
-						has_title = title:d_samaritan
-						has_title = title:d_kabarism
-						has_title = title:d_mazdayasna
-						has_title = title:d_zurvanism
-						has_title = title:d_gayomarthianism
-						has_title = title:d_khurmazta
-						has_title = title:d_mazdakism
-						has_title = title:d_khurramism
-						has_title = title:d_urartuism
-					}
-				}
-				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
-					holds_landed_title = yes
-					primary_title.tier = tier_duchy
-					has_government = theocracy_government
-					religion = religion:paganism_religion
-					religion = religion:taoism_religion
-					religion = religion:bon_religion
-					religion = religion:germanic_religion
-					religion = religion:tengrism_religion
-					religion = religion:west_african_religion
-					religion = religion:west_african_bori_religion
-					religion = religion:west_african_roog_religion
-					religion = religion:zunism_religion
-				}
-				AND = { # king_feudal_male_uyghur (Idiqut), king_feudal_female_uyghur (Idiqut)
-					holds_landed_title = yes
-					primary_title.tier = tier_kingdom
-					culture = { has_name_list = name_list_uyghur }
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
-					}
-				}
-				AND = { # prince_male_iberian_group (Infante), prince_female_iberian_group (Infanta)
-					age < 16
-					holds_landed_title = yes
-					primary_title.tier >= tier_kingdom
-					culture = { has_cultural_pillar = heritage_iberian }
-					has_government = feudal_government
-				}
-				AND = { # duke_feudal_male_sogdian (Ikhshide)
-					is_female = no
-					culture = { has_name_list = name_list_sogdian }
-					holds_landed_title = yes
-					primary_title.tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = {
-					is_female = no
-					holds_landed_title = yes
-					primary_title.tier = tier_county
-					OR = {
-						AND = { # count_feudal_male_english (Earl)
-							has_government = feudal_government
-							primary_title = { target_is_de_jure_liege_or_above = title:e_britannia }
-						}
-						AND = { # count_feudal_male_e_britannia (Earl)
-							OR = {
-								has_government = feudal_government
-								has_government = tribal_government
-							}
-							culture = { has_name_list = name_list_english }
-							culture = { has_name_list = name_list_anglo_saxon }
-							culture = { has_name_list = name_list_scottish }
-						}
 					}
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
@@ -2605,28 +2524,6 @@ ES_only_el_GetTitledFirstName = {
 					has_government = theocracy_government
 					faith = faith:ismaili
 				}
-				AND = { # baron_theocracy_male_zoroastrianism_religion (Ervad), baron_theocracy_female_zoroastrianism_religion (Ervad)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:zoroastrianism_religion
-				}
-				AND = { # baron_theocracy_male_west_african_bori_religion (Adjingi)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:west_african_bori_religion
-				}
-				AND = { # baron_feudal_male_iranian_group (Argbadh)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-					culture = { has_cultural_pillar = heritage_iranian }
-				}
-				primary_title = title:k_austria # archduke (Archiduque), archduchess (Archiduquesa)
 			}
 		}
 		localization_key = CustomLoc_ES_el
@@ -2718,89 +2615,15 @@ ES_only_del_GetTitledFirstName = {
 					holds_landed_title = yes
 					primary_title.tier = tier_empire
 					NOT = {
-						culture = { has_cultural_pillar = heritage_central_germanic } # Kaiser
-						culture = { has_name_list = name_list_greek } # Basileus
-						has_title = title:d_shiite # Califa
-						has_title = title:d_sunni # Califa
-						has_title = title:k_papal_state
 						has_title = title:k_orthodox
-						has_title = title:d_iconoclast
-						has_title = title:d_rabbinism
-						has_title = title:d_conversos
-						has_title = title:d_karaism
-						has_title = title:d_haymanot
-						has_title = title:d_malabarism
-						has_title = title:d_samaritan
-						has_title = title:d_kabarism
-						has_title = title:d_mazdayasna
-						has_title = title:d_zurvanism
-						has_title = title:d_gayomarthianism
-						has_title = title:d_khurmazta
-						has_title = title:d_mazdakism
-						has_title = title:d_khurramism
-						has_title = title:d_urartuism
 					}
 				}
 				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
 					holds_landed_title = yes
 					primary_title.tier = tier_duchy
 					has_government = theocracy_government
-					religion = religion:paganism_religion
+					scope:character.faith = {is_in_family = rf_pagan}
 					religion = religion:taoism_religion
-					religion = religion:bon_religion
-					religion = religion:germanic_religion
-					religion = religion:tengrism_religion
-					religion = religion:west_african_religion
-					religion = religion:west_african_bori_religion
-					religion = religion:west_african_roog_religion
-					religion = religion:zunism_religion
-				}
-				AND = { # king_feudal_male_uyghur (Idiqut), king_feudal_female_uyghur (Idiqut)
-					holds_landed_title = yes
-					primary_title.tier = tier_kingdom
-					culture = { has_name_list = name_list_uyghur }
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
-					}
-				}
-				AND = { # prince_male_iberian_group (Infante), prince_female_iberian_group (Infanta)
-					age < 16
-					holds_landed_title = yes
-					primary_title.tier >= tier_kingdom
-					culture = { has_cultural_pillar = heritage_iberian }
-					has_government = feudal_government
-				}
-				AND = { # duke_feudal_male_sogdian (Ikhshide)
-					is_female = no
-					culture = { has_name_list = name_list_sogdian }
-					holds_landed_title = yes
-					primary_title.tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = {
-					is_female = no
-					holds_landed_title = yes
-					primary_title.tier = tier_county
-					OR = {
-						AND = { # count_feudal_male_english (Earl)
-							has_government = feudal_government
-							primary_title = { target_is_de_jure_liege_or_above = title:e_britannia }
-						}
-						AND = { # count_feudal_male_e_britannia (Earl)
-							OR = {
-								has_government = feudal_government
-								has_government = tribal_government
-							}
-							culture = { has_name_list = name_list_english }
-							culture = { has_name_list = name_list_anglo_saxon }
-							culture = { has_name_list = name_list_scottish }
-						}
-					}
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
@@ -2808,28 +2631,6 @@ ES_only_del_GetTitledFirstName = {
 					has_government = theocracy_government
 					faith = faith:ismaili
 				}
-				AND = { # baron_theocracy_male_zoroastrianism_religion (Ervad), baron_theocracy_female_zoroastrianism_religion (Ervad)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:zoroastrianism_religion
-				}
-				AND = { # baron_theocracy_male_west_african_bori_religion (Adjingi)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:west_african_bori_religion
-				}
-				AND = { # baron_feudal_male_iranian_group (Argbadh)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-					culture = { has_cultural_pillar = heritage_iranian }
-				}
-				primary_title = title:k_austria # archduke (Archiduque), archduchess (Archiduquesa)
 			}
 		}
 		localization_key = CustomLoc_ES_del
@@ -2921,89 +2722,15 @@ ES_only_al_GetTitledFirstName = {
 					holds_landed_title = yes
 					primary_title.tier = tier_empire
 					NOT = {
-						culture = { has_cultural_pillar = heritage_central_germanic } # Kaiser
-						culture = { has_name_list = name_list_greek } # Basileus
-						has_title = title:d_shiite # Califa
-						has_title = title:d_sunni # Califa
-						has_title = title:k_papal_state
 						has_title = title:k_orthodox
-						has_title = title:d_iconoclast
-						has_title = title:d_rabbinism
-						has_title = title:d_conversos
-						has_title = title:d_karaism
-						has_title = title:d_haymanot
-						has_title = title:d_malabarism
-						has_title = title:d_samaritan
-						has_title = title:d_kabarism
-						has_title = title:d_mazdayasna
-						has_title = title:d_zurvanism
-						has_title = title:d_gayomarthianism
-						has_title = title:d_khurmazta
-						has_title = title:d_mazdakism
-						has_title = title:d_khurramism
-						has_title = title:d_urartuism
 					}
 				}
 				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
 					holds_landed_title = yes
 					primary_title.tier = tier_duchy
 					has_government = theocracy_government
-					religion = religion:paganism_religion
+					scope:character.faith = {is_in_family = rf_pagan}
 					religion = religion:taoism_religion
-					religion = religion:bon_religion
-					religion = religion:germanic_religion
-					religion = religion:tengrism_religion
-					religion = religion:west_african_religion
-					religion = religion:west_african_bori_religion
-					religion = religion:west_african_roog_religion
-					religion = religion:zunism_religion
-				}
-				AND = { # king_feudal_male_uyghur (Idiqut), king_feudal_female_uyghur (Idiqut)
-					holds_landed_title = yes
-					primary_title.tier = tier_kingdom
-					culture = { has_name_list = name_list_uyghur }
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
-					}
-				}
-				AND = { # prince_male_iberian_group (Infante), prince_female_iberian_group (Infanta)
-					age < 16
-					holds_landed_title = yes
-					primary_title.tier >= tier_kingdom
-					culture = { has_cultural_pillar = heritage_iberian }
-					has_government = feudal_government
-				}
-				AND = { # duke_feudal_male_sogdian (Ikhshide)
-					is_female = no
-					culture = { has_name_list = name_list_sogdian }
-					holds_landed_title = yes
-					primary_title.tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = {
-					is_female = no
-					holds_landed_title = yes
-					primary_title.tier = tier_county
-					OR = {
-						AND = { # count_feudal_male_english (Earl)
-							has_government = feudal_government
-							primary_title = { target_is_de_jure_liege_or_above = title:e_britannia }
-						}
-						AND = { # count_feudal_male_e_britannia (Earl)
-							OR = {
-								has_government = feudal_government
-								has_government = tribal_government
-							}
-							culture = { has_name_list = name_list_english }
-							culture = { has_name_list = name_list_anglo_saxon }
-							culture = { has_name_list = name_list_scottish }
-						}
-					}
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
@@ -3011,28 +2738,6 @@ ES_only_al_GetTitledFirstName = {
 					has_government = theocracy_government
 					faith = faith:ismaili
 				}
-				AND = { # baron_theocracy_male_zoroastrianism_religion (Ervad), baron_theocracy_female_zoroastrianism_religion (Ervad)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:zoroastrianism_religion
-				}
-				AND = { # baron_theocracy_male_west_african_bori_religion (Adjingi)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:west_african_bori_religion
-				}
-				AND = { # baron_feudal_male_iranian_group (Argbadh)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-					culture = { has_cultural_pillar = heritage_iranian }
-				}
-				primary_title = title:k_austria # archduke (Archiduque), archduchess (Archiduquesa)
 			}
 		}
 		localization_key = CustomLoc_ES_al
@@ -3130,89 +2835,15 @@ ES_only_el_GetShortUIName = {
 					holds_landed_title = yes
 					primary_title.tier = tier_empire
 					NOT = {
-						culture = { has_cultural_pillar = heritage_central_germanic } # Kaiser
-						culture = { has_name_list = name_list_greek } # Basileus
-						has_title = title:d_shiite # Califa
-						has_title = title:d_sunni # Califa
-						has_title = title:k_papal_state
 						has_title = title:k_orthodox
-						has_title = title:d_iconoclast
-						has_title = title:d_rabbinism
-						has_title = title:d_conversos
-						has_title = title:d_karaism
-						has_title = title:d_haymanot
-						has_title = title:d_malabarism
-						has_title = title:d_samaritan
-						has_title = title:d_kabarism
-						has_title = title:d_mazdayasna
-						has_title = title:d_zurvanism
-						has_title = title:d_gayomarthianism
-						has_title = title:d_khurmazta
-						has_title = title:d_mazdakism
-						has_title = title:d_khurramism
-						has_title = title:d_urartuism
 					}
 				}
 				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
 					holds_landed_title = yes
 					primary_title.tier = tier_duchy
 					has_government = theocracy_government
-					religion = religion:paganism_religion
+					scope:character.faith = {is_in_family = rf_pagan}
 					religion = religion:taoism_religion
-					religion = religion:bon_religion
-					religion = religion:germanic_religion
-					religion = religion:tengrism_religion
-					religion = religion:west_african_religion
-					religion = religion:west_african_bori_religion
-					religion = religion:west_african_roog_religion
-					religion = religion:zunism_religion
-				}
-				AND = { # king_feudal_male_uyghur (Idiqut), king_feudal_female_uyghur (Idiqut)
-					holds_landed_title = yes
-					primary_title.tier = tier_kingdom
-					culture = { has_name_list = name_list_uyghur }
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
-					}
-				}
-				AND = { # prince_male_iberian_group (Infante), prince_female_iberian_group (Infante)
-					age < 16
-					holds_landed_title = yes
-					primary_title.tier >= tier_kingdom
-					culture = { has_cultural_pillar = heritage_iberian }
-					has_government = feudal_government
-				}
-				AND = { # duke_feudal_male_sogdian (Ikhshide)
-					is_female = no
-					culture = { has_name_list = name_list_sogdian }
-					holds_landed_title = yes
-					primary_title.tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = {
-					is_female = no
-					holds_landed_title = yes
-					primary_title.tier = tier_county
-					OR = {
-						AND = { # count_feudal_male_english (Earl)
-							has_government = feudal_government
-							primary_title = { target_is_de_jure_liege_or_above = title:e_britannia }
-						}
-						AND = { # count_feudal_male_e_britannia (Earl)
-							OR = {
-								has_government = feudal_government
-								has_government = tribal_government
-							}
-							culture = { has_name_list = name_list_english }
-							culture = { has_name_list = name_list_anglo_saxon }
-							culture = { has_name_list = name_list_scottish }
-						}
-					}
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
@@ -3220,28 +2851,6 @@ ES_only_el_GetShortUIName = {
 					has_government = theocracy_government
 					faith = faith:ismaili
 				}
-				AND = { # baron_theocracy_male_zoroastrianism_religion (Ervad), baron_theocracy_female_zoroastrianism_religion (Ervad)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:zoroastrianism_religion
-				}
-				AND = { # baron_theocracy_male_west_african_bori_religion (Adjingi)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:west_african_bori_religion
-				}
-				AND = { # baron_feudal_male_iranian_group (Argbadh)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-					culture = { has_cultural_pillar = heritage_iranian }
-				}
-				primary_title = title:k_austria # archduke (Archiduque), archduchess (Archiduquesa)
 			}
 		}
 		localization_key = CustomLoc_ES_el
@@ -3339,89 +2948,15 @@ ES_only_de_GetShortUIName = {
 					holds_landed_title = yes
 					primary_title.tier = tier_empire
 					NOT = {
-						culture = { has_cultural_pillar = heritage_central_germanic } # Kaiser
-						culture = { has_name_list = name_list_greek } # Basileus
-						has_title = title:d_shiite # Califa
-						has_title = title:d_sunni # Califa
-						has_title = title:k_papal_state
 						has_title = title:k_orthodox
-						has_title = title:d_iconoclast
-						has_title = title:d_rabbinism
-						has_title = title:d_conversos
-						has_title = title:d_karaism
-						has_title = title:d_haymanot
-						has_title = title:d_malabarism
-						has_title = title:d_samaritan
-						has_title = title:d_kabarism
-						has_title = title:d_mazdayasna
-						has_title = title:d_zurvanism
-						has_title = title:d_gayomarthianism
-						has_title = title:d_khurmazta
-						has_title = title:d_mazdakism
-						has_title = title:d_khurramism
-						has_title = title:d_urartuism
 					}
 				}
 				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
 					holds_landed_title = yes
 					primary_title.tier = tier_duchy
 					has_government = theocracy_government
-					religion = religion:paganism_religion
+					scope:character.faith = {is_in_family = rf_pagan}
 					religion = religion:taoism_religion
-					religion = religion:bon_religion
-					religion = religion:germanic_religion
-					religion = religion:tengrism_religion
-					religion = religion:west_african_religion
-					religion = religion:west_african_bori_religion
-					religion = religion:west_african_roog_religion
-					religion = religion:zunism_religion
-				}
-				AND = { # king_feudal_male_uyghur (Idiqut), king_feudal_female_uyghur (Idiqut)
-					holds_landed_title = yes
-					primary_title.tier = tier_kingdom
-					culture = { has_name_list = name_list_uyghur }
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
-					}
-				}
-				AND = { # prince_male_iberian_group (Infante), prince_female_iberian_group (Infante)
-					age < 16
-					holds_landed_title = yes
-					primary_title.tier >= tier_kingdom
-					culture = { has_cultural_pillar = heritage_iberian }
-					has_government = feudal_government
-				}
-				AND = { # duke_feudal_male_sogdian (Ikhshide)
-					is_female = no
-					culture = { has_name_list = name_list_sogdian }
-					holds_landed_title = yes
-					primary_title.tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = {
-					is_female = no
-					holds_landed_title = yes
-					primary_title.tier = tier_county
-					OR = {
-						AND = { # count_feudal_male_english (Earl)
-							has_government = feudal_government
-							primary_title = { target_is_de_jure_liege_or_above = title:e_britannia }
-						}
-						AND = { # count_feudal_male_e_britannia (Earl)
-							OR = {
-								has_government = feudal_government
-								has_government = tribal_government
-							}
-							culture = { has_name_list = name_list_english }
-							culture = { has_name_list = name_list_anglo_saxon }
-							culture = { has_name_list = name_list_scottish }
-						}
-					}
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
@@ -3429,28 +2964,6 @@ ES_only_de_GetShortUIName = {
 					has_government = theocracy_government
 					faith = faith:ismaili
 				}
-				AND = { # baron_theocracy_male_zoroastrianism_religion (Ervad), baron_theocracy_female_zoroastrianism_religion (Ervad)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:zoroastrianism_religion
-				}
-				AND = { # baron_theocracy_male_west_african_bori_religion (Adjingi)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:west_african_bori_religion
-				}
-				AND = { # baron_feudal_male_iranian_group (Argbadh)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-					culture = { has_cultural_pillar = heritage_iranian }
-				}
-				primary_title = title:k_austria # archduke (Archiduque), archduchess (Archiduquesa)
 			}
 		}
 		localization_key = CustomLoc_ES_del
@@ -3548,89 +3061,15 @@ ES_only_a_GetShortUIName = {
 					holds_landed_title = yes
 					primary_title.tier = tier_empire
 					NOT = {
-						culture = { has_cultural_pillar = heritage_central_germanic } # Kaiser
-						culture = { has_name_list = name_list_greek } # Basileus
-						has_title = title:d_shiite # Califa
-						has_title = title:d_sunni # Califa
-						has_title = title:k_papal_state
 						has_title = title:k_orthodox
-						has_title = title:d_iconoclast
-						has_title = title:d_rabbinism
-						has_title = title:d_conversos
-						has_title = title:d_karaism
-						has_title = title:d_haymanot
-						has_title = title:d_malabarism
-						has_title = title:d_samaritan
-						has_title = title:d_kabarism
-						has_title = title:d_mazdayasna
-						has_title = title:d_zurvanism
-						has_title = title:d_gayomarthianism
-						has_title = title:d_khurmazta
-						has_title = title:d_mazdakism
-						has_title = title:d_khurramism
-						has_title = title:d_urartuism
 					}
 				}
 				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
 					holds_landed_title = yes
 					primary_title.tier = tier_duchy
 					has_government = theocracy_government
-					religion = religion:paganism_religion
+					scope:character.faith = {is_in_family = rf_pagan}
 					religion = religion:taoism_religion
-					religion = religion:bon_religion
-					religion = religion:germanic_religion
-					religion = religion:tengrism_religion
-					religion = religion:west_african_religion
-					religion = religion:west_african_bori_religion
-					religion = religion:west_african_roog_religion
-					religion = religion:zunism_religion
-				}
-				AND = { # king_feudal_male_uyghur (Idiqut), king_feudal_female_uyghur (Idiqut)
-					holds_landed_title = yes
-					primary_title.tier = tier_kingdom
-					culture = { has_name_list = name_list_uyghur }
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-						has_government = tribal_government
-					}
-				}
-				AND = { # prince_male_iberian_group (Infante), prince_female_iberian_group (Infante)
-					age < 16
-					holds_landed_title = yes
-					primary_title.tier >= tier_kingdom
-					culture = { has_cultural_pillar = heritage_iberian }
-					has_government = feudal_government
-				}
-				AND = { # duke_feudal_male_sogdian (Ikhshide)
-					is_female = no
-					culture = { has_name_list = name_list_sogdian }
-					holds_landed_title = yes
-					primary_title.tier = tier_duchy
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-				}
-				AND = {
-					is_female = no
-					holds_landed_title = yes
-					primary_title.tier = tier_county
-					OR = {
-						AND = { # count_feudal_male_english (Earl)
-							has_government = feudal_government
-							primary_title = { target_is_de_jure_liege_or_above = title:e_britannia }
-						}
-						AND = { # count_feudal_male_e_britannia (Earl)
-							OR = {
-								has_government = feudal_government
-								has_government = tribal_government
-							}
-							culture = { has_name_list = name_list_english }
-							culture = { has_name_list = name_list_anglo_saxon }
-							culture = { has_name_list = name_list_scottish }
-						}
-					}
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
@@ -3638,28 +3077,6 @@ ES_only_a_GetShortUIName = {
 					has_government = theocracy_government
 					faith = faith:ismaili
 				}
-				AND = { # baron_theocracy_male_zoroastrianism_religion (Ervad), baron_theocracy_female_zoroastrianism_religion (Ervad)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:zoroastrianism_religion
-				}
-				AND = { # baron_theocracy_male_west_african_bori_religion (Adjingi)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					has_government = theocracy_government
-					religion = religion:west_african_bori_religion
-				}
-				AND = { # baron_feudal_male_iranian_group (Argbadh)
-					holds_landed_title = yes
-					primary_title.tier = tier_barony
-					OR = {
-						has_government = feudal_government
-						has_government = clan_government
-					}
-					culture = { has_cultural_pillar = heritage_iranian }
-				}
-				primary_title = title:k_austria # archduke (Archiduque), archduchess (Archiduquesa)
 			}
 		}
 		localization_key = CustomLoc_ES_al
