@@ -562,15 +562,6 @@ succession_order_laws = {
 				has_government = secular_republic_government
 			}
 		}
-		can_title_have = {
-			can_title_have_law_general_trigger = yes
-			OR = {
-				has_government = bureaucratic_government
-				has_government = maritime_government 
-				has_government = theocratic_feudal_government
-				has_government = secular_republic_government
-			}
-		}
 		should_start_with = {
 			OR = {
 				has_government = bureaucratic_government
@@ -686,31 +677,7 @@ succession_gender_laws = {
 		}
 		can_keep = {
 			trigger_if = {
-				limit = {
-					OR = {
-						culture = culture:occitan
-						culture = culture:basque
-						culture = culture:aragonese
-						culture = culture:catalan
-					}
-					NOT = {
-						faith = { has_doctrine = doctrine_gender_equal }
-					}
-				}
-				culture = { has_innovation = innovation_visigothic_codes }
-			}
-			trigger_else = {
-				limit = {
-					NOT = {
-						OR = {
-							culture = culture:hausa
-							culture = culture:sumpa
-						}
-					}
-				}
-				faith = {
-					has_doctrine = doctrine_gender_equal
-				}
+				scope:character.faith = {has_doctrine = doctrine_gender_equal}
 			}
 		}
 		can_pass = {

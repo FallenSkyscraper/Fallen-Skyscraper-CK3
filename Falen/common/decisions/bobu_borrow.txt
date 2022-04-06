@@ -29,7 +29,7 @@ borrow_from_bobu_decision = {
 	ai_will_do = {
 		base = 0
 		ai_value_modifier = {
-			ai_greed = +5
+			ai_greed = 5
 		}
 	}
 }
@@ -84,7 +84,7 @@ expel_bobu_decision = {
 	cooldown = { days = 1000 }
 
 	is_shown = {
-		in_ruler = yes
+		is_ruler = yes
 		NOT = {
 			has_character_flag = expel_bobu
 		}
@@ -98,7 +98,7 @@ expel_bobu_decision = {
 	ai_will_do = {
 		base = 0
 		ai_value_modifier = {
-			ai_greed = +2
+			ai_greed = 2
 		}
 	}
 }
@@ -113,7 +113,7 @@ cancel_expel_bobu_decision = {
 	ai_check_interval = 72
 
 	is_shown = {
-		in_ruler = yes
+		is_ruler = yes
 		has_character_flag = expel_bobu
 	}
 
