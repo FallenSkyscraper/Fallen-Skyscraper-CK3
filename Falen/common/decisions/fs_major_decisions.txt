@@ -536,20 +536,39 @@ found_university_decision = {
 		highest_held_title_tier >= tier_duchy
 		any_sub_realm_barony = {
 			OR = { #A place where universities historically existed early
+			        this = title:b_933#경북대
+				this = title:b_50#서울대
+				this = title:b_2636#카이스트
+				this = title:b_777#부산대
+				this = title:b_963#포스텍
+				this = title:b_26#연세대
+				this = title:b_460#제주대
+				this = title:b_1046#전주대
+				this = title:b_564#광주대
+				this = title:b_1619#강원대
+				this = title:b_1362#청주대
 			}
 			title_province = {
 				NOR = {
 					exists = var:university
-					has_building = al_azhar_university
-					has_building = sankore_university
-					has_building = nalanda_university
+					has_building = seoul_national_university
+					has_building = kyungpook_national_university
+					has_building = KAIST
+				        has_building = pusan_national_university
+					has_building = POSTECH
+					has_building = yonsei_university
+					has_building = jeju_national_university
+					has_building = jeonju_university
+					has_building = gwangju_university
+					has_building = gangwon_university
+					has_building = cheongju_university
 				}
 			}
 		}
 	}
 
 	is_valid = {
-		prestige_level >= 4
+		prestige_level >= 3
 
 		OR = {
 		}
@@ -580,7 +599,7 @@ found_university_decision = {
 	}
 	
 	ai_potential = {
-		always = no
+		always = yes
 	}
 
 	ai_will_do = {
