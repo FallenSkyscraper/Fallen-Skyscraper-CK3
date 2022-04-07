@@ -32,31 +32,6 @@
 @special_maa_02 = "gfx/interface/icons/culture_innovations/innovation_special_maa_02.dds"
 
 
-# Culture-Specific Innovations
-innovation_varangian_adventurers = {
-	group = culture_group_regional
-	culture_era = culture_era_tribal
-	icon = @hird
-	
-	potential = {
-		has_fp1_dlc_trigger = yes
-		OR = {
-			has_cultural_pillar = heritage_north_germanic
-			
-			# Frankish
-			this = culture:norman
-			any_parent_culture_or_above = {
-				this = culture:norse #Norman
-			}
-		}
-		NOT = { has_cultural_era_or_later = culture_era_early_medieval }
-	}
-	
-	custom = unlock_varangian_adventurer_cb
-	
-	flag = global_regional
-	flag = tribal_era_regional
-}
 
 # Regional Innovations
 innovation_all_things = {
