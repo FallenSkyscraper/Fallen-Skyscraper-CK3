@@ -257,8 +257,8 @@ jeju_national_university = {
 	type = special
 }
 
-#전주대
-jeonju_university = {
+#전북대
+jeonbuk_university = {
 	construction_time = very_slow_construction_time
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
@@ -294,8 +294,8 @@ jeonju_university = {
 	type = special
 }
 
-#광주대
-gwangju_university = {
+#전남대
+jeonnam_university = {
 	construction_time = very_slow_construction_time
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
@@ -368,8 +368,8 @@ gangwon_university = {
 	type = special
 }
 
-#청주대
-cheongju_university = {
+#충북대
+chungbuk_university = {
 	construction_time = very_slow_construction_time
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
@@ -405,8 +405,119 @@ cheongju_university = {
 	type = special
 }
 
-#인천대
-incheon_university = {
+#인하대
+inha_university = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_the_university_of_sankore.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	can_construct = {
+		building_university_requirement = yes
+	}
+
+	show_disabled = yes
+
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		martial_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		monthly_dynasty_prestige = 0.25
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.2
+		development_growth = 0.1
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+}
+
+#아주대
+aju_university = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_the_university_of_sankore.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	can_construct = {
+		building_university_requirement = yes
+	}
+
+	show_disabled = yes
+
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		martial_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		monthly_dynasty_prestige = 0.25
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.2
+		development_growth = 0.1
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+}
+
+#안동 태학
+andong_taehak = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_the_university_of_sankore.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	can_construct = {
+		building_university_requirement = yes
+	}
+
+	show_disabled = yes
+
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		martial_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		monthly_dynasty_prestige = 0.25
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.2
+		development_growth = 0.1
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+}
+
+#경상대
+gyeongsang_university = {
 	construction_time = very_slow_construction_time
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
