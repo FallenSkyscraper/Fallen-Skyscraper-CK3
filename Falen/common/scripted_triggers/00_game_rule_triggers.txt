@@ -1,29 +1,3 @@
-﻿hungarian_migration_valid_ai_mogyer_ruler_trigger = {
-	culture = culture:mogyer
-	is_ai = yes
-	has_government = tribal_government
-	is_at_war = no
-	highest_held_title_tier <= tier_kingdom
-	OR = {
-		is_independent_ruler = yes
-		NOT = {
-			liege = { culture = culture:mogyer }
-		}
-	}
-}
-
-hungarian_migration_valid_pannonian_target_trigger = {
-	NOR = {
-		culture = culture:mogyer
-		any_liege_or_above = { culture = culture:mogyer }
-	}
-	is_ai = yes
-	any_realm_county = {
-		count >= $COUNT$
-		title_province = { geographical_region = custom_hungary }
-	}
-}
-
 exclave_independence_trigger = {
 	is_independent_ruler = yes
 	NOT = { has_title = title:k_papal_state }
