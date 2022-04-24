@@ -49,13 +49,14 @@ hamheung = {
 	created = 2000.1.1
 	parents = { old_korean }
 	
-	ethos = ethos_spiritual
+	ethos = ethos_bellicose
 	heritage = heritage_gwanbuk
 	language = language_northeast_korean
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_xenophilic
-		tradition_hit_and_run
+		tradition_seafarers
+		tradition_adaptive_skirmishers
+		tradition_stalwart_defenders
 	}
 	
 	dlc_tradition = {
@@ -76,19 +77,18 @@ gyeongseong = {
 	created = 2000.1.1
 	parents = { old_korean }
 	
-	ethos = ethos_spiritual
+	ethos = ethos_communal
 	heritage = heritage_gwanbuk
 	language = language_northeast_korean
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_xenophilic
-		tradition_hit_and_run
+		tradition_metal_craftsmanship
+		tradition_adaptive_skirmishers
+		tradition_isolationist
+		tradition_stalwart_defenders
+		
 	}
 	
-	dlc_tradition = {
-		trait = tradition_artisans
-		requires_dlc_flag = royal_court
-	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
 	building_gfx = { western_building_gfx }
@@ -103,13 +103,15 @@ yukjin = {
 	created = 2000.1.1
 	parents = { old_korean }
 	
-	ethos = ethos_spiritual
+	ethos = ethos_egalitarian
 	heritage = heritage_gwanbuk
 	language = language_yukjin
 	martial_custom = martial_custom_male_only
 	traditions = {
+		tradition_maritime_mercantilism
 		tradition_xenophilic
-		tradition_hit_and_run
+		tradition_city_keepers
+		tradition_culture_blending
 	}
 	
 	dlc_tradition = {
