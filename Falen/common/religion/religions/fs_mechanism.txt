@@ -1,4 +1,4 @@
-﻿old_world_religion = {
+mechanism_religion = {
 	family = rf_pagan	# 소속 종교 패밀리
 	# graphical_faith = religion_gfx	# 종교 gfx 설정
 	# piety_icon_group = 	# 신앙심 아이콘 설정
@@ -172,61 +172,9 @@
 		GHWName = ghw_crusade	# 대성전 이름
 		GHWNamePlural = ghw_crusades
 	}
-	
-	faiths = {
-		steeler_pagan = {	# 하위 종교
-			color = { 221 221 221 }	# 지도 상에서 표시될 색깔
-			icon = steeler_pagan	# 종교 아이콘
-		
-			# graphical_faith = 	# 종교 gfx 설정
-			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
-			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
-		
-			# religious_head = 	# 종교 수장 작위
-		
-			holy_site = pohang_iron_pohangjaechul	# 성지 설정
-			holy_site = gwangyang_iron_gwangyangjaechul
-			holy_site = dangjin_iron_dangjinjaechul
-			holy_site = incheon_iron_donggujaechul
-			holy_site = cheongjin_iron_kimchaekjaechul
-			
-			# 주요 교리
-			doctrine = doctrine_temporal_head	# 교계 지도자: 
-			doctrine = doctrine_gender_male_dominated	# 성별에 대한 관점: 
-			doctrine = doctrine_pluralism_fundamentalist	# 종교적 태도: 
-			doctrine = doctrine_theocracy_temporal	# 전통: 
 
-			# 결혼 교리
-			doctrine = doctrine_polygamy	# 결혼 형식: 
-			doctrine = doctrine_divorce_approval	# 이혼: 
-			doctrine = doctrine_bastardry_all	# 적서제: 
-			doctrine = doctrine_consanguinity_cousins	# 근친 관계: 
-
-			# 범죄 교리
-			doctrine = doctrine_homosexuality_accepted	# 동성연애: 
-			doctrine = doctrine_adultery_men_shunned	# 남성의 간통: 
-			doctrine = doctrine_adultery_women_shunned	# 여성의 간통: 
-			doctrine = doctrine_kinslaying_shunned	# 친족 살해: 
-			doctrine = doctrine_deviancy_accepted	# 이상성욕: 
-			doctrine = doctrine_witchcraft_accepted	# 마술: 
-
-			# 성직자 교리
-			doctrine = doctrine_clerical_function_taxation	# 성직자의 기능: 
-			doctrine = doctrine_clerical_gender_male_only	# 성직자의 성별: 
-			doctrine = doctrine_clerical_marriage_allowed	# 성직자의 결혼: 
-			doctrine = doctrine_clerical_succession_spiritual_appointment	# 성직자의 지위: 
-			
-			# doctrine = 	# 교리 변경이나 추가 가능
-			
-			 doctrine = tenet_warmonger	# 원리 설정
-			 doctrine = tenet_pursuit_of_power
-			 doctrine = tenet_communal_identity
-			
-			# reserved_male_names = {} # 남성 이름 추가 가능
-			# reserved_female_names = {} # 여성 이름 추가 가능
-			# localization = {}	# localization 변경 가능
-		}
-		mechanism = {	# 하위 종교
+    faiths = {
+        mechanism = {	# 하위 종교
 			color = { 82 51 255 }	# 지도 상에서 표시될 색깔
 			icon = mechanism	# 종교 아이콘
 		
@@ -278,57 +226,5 @@
 			# reserved_female_names = {} # 여성 이름 추가 가능
 			# localization = {}	# localization 변경 가능
 		}
-		atomism = {	# 하위 종교
-			color = { 4 255 0 }	# 지도 상에서 표시될 색깔
-			icon = atomism	# 종교 아이콘
-		
-			# graphical_faith = 	# 종교 gfx 설정
-			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
-			# doctrine_background_icon = 	# 교리 배경 설정 대체 가능
-		
-			# religious_head = 	# 종교 수장 작위
-		
-			holy_site = gampo_atomic_wolseong	# 성지 설정
-			holy_site = gijang_atomic_gori
-			holy_site = hongnong_atomic_hanbit
-			holy_site = uljin_atomic_hanul
-			holy_site = yuseong_atomic_kstar
-			
-			# 주요 교리
-			doctrine = doctrine_spiritual_head	# 교계 지도자: 
-			doctrine = doctrine_gender_equal	# 성별에 대한 관점: 
-			doctrine = doctrine_pluralism_righteous	# 종교적 태도: 
-			doctrine = doctrine_theocracy_temporal	# 전통: 
-
-			# 결혼 교리
-			doctrine = doctrine_monogamy	# 결혼 형식: 
-			doctrine = doctrine_divorce_approval	# 이혼: 
-			doctrine = doctrine_bastardry_none	# 적서제: 
-			doctrine = doctrine_consanguinity_cousins	# 근친 관계: 
-
-			# 범죄 교리
-			doctrine = doctrine_homosexuality_shunned	# 동성연애: 
-			doctrine = doctrine_adultery_men_shunned	# 남성의 간통: 
-			doctrine = doctrine_adultery_women_shunned	# 여성의 간통: 
-			doctrine = doctrine_kinslaying_shunned	# 친족 살해: 
-			doctrine = doctrine_deviancy_shunned	# 이상성욕: 
-			doctrine = doctrine_witchcraft_accepted	# 마술: 
-
-			# 성직자 교리
-			doctrine = doctrine_clerical_function_taxation	# 성직자의 기능: 
-			doctrine = doctrine_clerical_gender_either	# 성직자의 성별: 
-			doctrine = doctrine_clerical_marriage_allowed	# 성직자의 결혼: 
-			doctrine = doctrine_clerical_succession_spiritual_fixed_appointment	# 성직자의 지위: 
-			
-			# doctrine = 	# 교리 변경이나 추가 가능
-			
-			 doctrine = tenet_inquiry_into_knowledge# 원리 설정
-			 doctrine = tenet_asceticism
-			 doctrine = tenet_esotericism
-			
-			# reserved_male_names = {} # 남성 이름 추가 가능
-			# reserved_female_names = {} # 여성 이름 추가 가능
-			# localization = {}	# localization 변경 가능
-		}
-	}
+    }
 }
