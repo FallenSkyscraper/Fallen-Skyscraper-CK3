@@ -1,6 +1,78 @@
+###더 해야할거:프로빈스 지정 못한 대학들 다 지정하기,종교 지정하기,못 넣은 대학들 마저 넣기###
+
+#서울지역
+
 #서울대
 seoul_national_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
+
+	type_icon = "icon_structure_the_university_of_sankore.dds"
+
+	can_construct_potential = {
+	        title_province = b_50
+		building_requirement_tribal = no
+	}
+
+	show_disabled = yes
+
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		martial_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		monthly_dynasty_prestige = 0.25
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.2
+		development_growth = 0.1
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+}
+
+#연세대(개신)
+yonsei_university = {
+	construction_time = 2500
+
+	type_icon = "icon_structure_the_university_of_sankore.dds"
+
+	can_construct_potential = {
+		title_province = b_26
+		building_requirement_tribal = no
+	}
+
+	show_disabled = yes
+
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		martial_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		monthly_dynasty_prestige = 0.25
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.2
+		development_growth = 0.1
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+}
+
+#동국대(불교)
+dongguk_university = {
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
@@ -8,8 +80,103 @@ seoul_national_university = {
 		building_requirement_tribal = no
 	}
 
-	can_construct = {
-		building_university_requirement = yes
+	show_disabled = yes
+
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		martial_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		monthly_dynasty_prestige = 0.25
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.2
+		development_growth = 0.1
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+}
+
+#서강대(천주교)
+sogang_university = {
+	construction_time = 2500
+
+	type_icon = "icon_structure_the_university_of_sankore.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	show_disabled = yes
+
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		martial_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		monthly_dynasty_prestige = 0.25
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.2
+		development_growth = 0.1
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+}
+
+#성균관대(유교)
+sungkyunkwan_university = {
+	construction_time = 2500
+
+	type_icon = "icon_structure_the_university_of_sankore.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+
+	show_disabled = yes
+
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		martial_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		monthly_dynasty_prestige = 0.25
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.2
+		development_growth = 0.1
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+}
+
+#고려대(천도교)
+korea_university = {
+	construction_time = 2500
+
+	type_icon = "icon_structure_the_university_of_sankore.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
 	}
 
 	show_disabled = yes
@@ -37,16 +204,13 @@ seoul_national_university = {
 
 #경북대
 kyungpook_national_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
+	        title_province = b_933
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -74,16 +238,13 @@ kyungpook_national_university = {
 
 #카이스트
 KAIST = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
+	        title_province = b_2636
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -111,16 +272,13 @@ KAIST = {
 
 #부산대
 pusan_national_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
+		title_province = b_777
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -148,53 +306,13 @@ pusan_national_university = {
 
 #포스텍
 POSTECH = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
+		title_province = b_963
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
-	}
-
-	show_disabled = yes
-
-	cost_gold = 1000
-
-	character_modifier = {
-		learning_per_prestige_level = 1
-		martial_per_prestige_level = 1
-		monthly_lifestyle_xp_gain_mult = 0.1
-		monthly_dynasty_prestige = 0.25
-	}
-
-	county_modifier = {
-		development_growth_factor = 0.2
-		development_growth = 0.1
-	}
-
-	ai_value = {
-		base = 100
-	}
-
-	type = special
-}
-
-#연세대
-yonsei_university = {
-	construction_time = very_slow_construction_time
-
-	type_icon = "icon_structure_the_university_of_sankore.dds"
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -222,16 +340,13 @@ yonsei_university = {
 
 #제주대
 jeju_national_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
+		title_province = b_460
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -259,16 +374,12 @@ jeju_national_university = {
 
 #전북대
 jeonbuk_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -296,16 +407,12 @@ jeonbuk_university = {
 
 #전남대
 jeonnam_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -333,16 +440,13 @@ jeonnam_university = {
 
 #강원대
 gangwon_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
+		title_province = b_1619
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -370,16 +474,12 @@ gangwon_university = {
 
 #충북대
 chungbuk_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -407,16 +507,12 @@ chungbuk_university = {
 
 #인하대
 inha_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -444,16 +540,12 @@ inha_university = {
 
 #아주대
 aju_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -481,16 +573,12 @@ aju_university = {
 
 #안동 태학
 andong_taehak = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
@@ -518,16 +606,12 @@ andong_taehak = {
 
 #경상대
 gyeongsang_university = {
-	construction_time = very_slow_construction_time
+	construction_time = 2500
 
 	type_icon = "icon_structure_the_university_of_sankore.dds"
 
 	can_construct_potential = {
 		building_requirement_tribal = no
-	}
-
-	can_construct = {
-		building_university_requirement = yes
 	}
 
 	show_disabled = yes
