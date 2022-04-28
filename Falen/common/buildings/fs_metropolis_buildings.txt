@@ -29,11 +29,152 @@ Metropolis_01 = {
 	max_garrison = 100
 	
 	province_modifier = {
-		monthly_income = 3.5
-		fort_level = 4
+		monthly_income = 2.5
+		fort_level = 3
+	}
+	
+	next_building = Metropolis_02
+	
+	ai_value = {
+		base = 50
+	}
+}
+
+Metropolis_02 = {
+    construction_time = 2400
+	cost_gold = 1000
+	
+	type_icon = "icon_building_hunting_grounds.dds"
+	asset = {
+		type = pdxmesh
+		names = {
+			"Metropolis_02_mesh"
+			"Metropolis_02_b_mesh"
+		}
+		illustration = @holding_illustration_western
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+	}
+	
+	flag = Metropolis
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+		barony_cannot_construct_holding = no
+	}
+	
+	can_construct = {
+		culture = {
+			has_innovation = innovation_metorpolis_building
+		}
+	}
+	
+	can_construct_showing_failures_only = {
+		building_requirement_tribal_holding_in_county = no
+	}
+	
+	levy = 400
+	max_garrison = 200
+	
+	province_modifier = {
+		monthly_income = 4
+		fort_level = 4.5
+	}
+	
+	next_building = Metropolis_03
+	
+	ai_value = {
+		base = 30
+	}
+}
+
+Metropolis_03 = {
+    construction_time = 2400
+	cost_gold = 1000
+	
+	type_icon = "icon_building_hunting_grounds.dds"
+	asset = {
+		type = pdxmesh
+		names = {
+			"Metropolis_03_mesh"
+			"Metropolis_03_b_mesh"
+		}
+		illustration = @holding_illustration_western
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+	}
+	
+	flag = Metropolis
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+		barony_cannot_construct_holding = no
+	}
+	
+	can_construct = {
+		culture = {
+			has_innovation = innovation_metorpolis_building
+		}
+	}
+	
+	can_construct_showing_failures_only = {
+		building_requirement_tribal_holding_in_county = no
+	}
+	
+	levy = 600
+	max_garrison = 300
+	
+	province_modifier = {
+		monthly_income = 6
+		fort_level = 6
+	}
+	
+	next_building = Metropolis_04
+	
+	ai_value = {
+		base = 50
+	}
+}
+
+Metropolis_04 = {
+    construction_time = 2400
+	cost_gold = 1000
+	
+	type_icon = "icon_building_hunting_grounds.dds"
+	asset = {
+		type = pdxmesh
+		names = {
+			"Metropolis_04_mesh"
+			"Metropolis_04_b_mesh"
+		}
+		illustration = @holding_illustration_western
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+	}
+	
+	flag = Metropolis
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+		barony_cannot_construct_holding = no
+	}
+	
+	can_construct_showing_failures_only = {
+		building_requirement_tribal_holding_in_county = no
+	}
+	
+	can_construct = {
+		culture = {
+			has_innovation = innovation_metorpolis_building
+		}
+	}
+	
+	levy = 800
+	max_garrison = 400
+	
+	province_modifier = {
+		monthly_income = 8
+		fort_level = 7.5
 	}
 	
 	ai_value = {
-		base = 100
+		base = 50
 	}
 }
