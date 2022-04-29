@@ -25,8 +25,14 @@ run_for_presidency_decision = {
 	}
 	is_valid = {
 		prestige_level >= 1
+		NOT = {
+			any_living_character = {
+				count > 8
+				has_variable = candidate
+			}
+		}
 	}
-	cost = { gold = 50 prestige = 100 }
+	cost = { gold = 100 prestige = 100 }
 	effect = {
 		set_variable = candidate
 	}
@@ -34,7 +40,7 @@ run_for_presidency_decision = {
 		always = yes
 	}
 	ai_will_do = {
-		base = 30
+		base = 5
 
 		ai_value_modifier = {
 			ai_brave = 20
