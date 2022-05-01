@@ -71,3 +71,77 @@ national_guard = { #국민방위대
 	ai_quality = { value = @cultural_maa_extra_ai_score }
 	icon = skirmishers
 }
+
+ROK_army = {
+	type = archers
+	
+	damage = 18
+	toughness = 20
+	pursuit = 0
+	screen = 22
+	
+	can_recruit = {
+		culture = { has_cultural_parameter = unlock_maa_ROK_army }
+	}
+	
+	terrain_bonus = {
+		hills = { damage = 4 screen = 6 }
+		mountains = { damage = 6 screen = 4 toughness = 4 }
+		desert_mountains = { damage = 6 screen = 4 toughness = 4 }
+		​ruined_city = { damage = 10 screen = 6 toughness = 6 }
+	}
+
+	counters = {
+		skirmishers = 1
+	}
+
+	winter_bonus = {
+		normal_winter = { toughness = 3 screen = 5 }
+		harsh_winter = { toughness = 3 screen = 5 }
+	}
+
+	buy_cost = { gold = vigmen_recruitment_cost }
+	low_maintenance_cost = { gold = vigmen_low_maint_cost }
+	high_maintenance_cost = { gold = vigmen_high_maint_cost }
+	
+	stack = 100
+	ai_quality = { value = culture_ai_weight_vigmen }
+	icon = vigmen
+}
+
+peoples_army = {
+	type = archers
+	
+	damage = 18
+	toughness = 20
+	pursuit = 0
+	screen = 22
+	
+	can_recruit = {
+		culture = { has_cultural_parameter = unlock_maa_peoples_army }
+	}
+	
+	terrain_bonus = {
+		hills = { damage = 4 screen = 6 }
+		mountains = { damage = 6 screen = 4 toughness = 4 }
+		desert_mountains = { damage = 6 screen = 4 toughness = 4 }
+		​ruined_city = { damage = 10 screen = 6 toughness = 6 }
+	}
+
+	counters = {
+		skirmishers = 1
+	}
+
+	winter_bonus = {
+		normal_winter = { toughness = 3 screen = 5 }
+		harsh_winter = { toughness = 3 screen = 5 }
+	}
+
+	buy_cost = { gold = vigmen_recruitment_cost }
+	low_maintenance_cost = { gold = vigmen_low_maint_cost }
+	high_maintenance_cost = { gold = vigmen_high_maint_cost }
+	
+	stack = 100
+	ai_quality = { value = culture_ai_weight_vigmen }
+	icon = vigmen
+}
