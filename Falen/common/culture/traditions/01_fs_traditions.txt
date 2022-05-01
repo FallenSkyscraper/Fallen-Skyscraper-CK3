@@ -568,3 +568,83 @@ tradition_federation = {
 		}
 	}
 }
+
+tradition_jakun_gusa = {
+	category = combat
+
+	layers = {
+		0 = martial
+		1 = western
+		4 = viking.dds
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_manchu
+	}
+	
+	parameters = {
+		unlock_mma_jakun_gusa
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			# Ethos requirement.
+			if = {
+				limit = {
+					any_in_list = {
+						list = traits
+						this = flag:ethos_bellicose
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = culture_not_bellicose
+				}
+			}
+			# Gotta be a heavily coastal culture not to get a surcharge.
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								is_coastal = yes
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = coastal_percentage_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						any_sub_realm_county = {
+							percent >= 0.3
+							any_county_province = {
+								is_coastal = yes
+							}
+						}
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}
