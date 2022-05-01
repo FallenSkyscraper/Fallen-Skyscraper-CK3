@@ -328,3 +328,242 @@ tradition_sinocentrism = {
 		}
 	}
 }
+
+tradition_korean_succession = {
+	category = realm
+
+	layers = {
+		0 = diplo
+		1 = western
+		4 = king.dds
+	}
+	
+	can_pick = {
+		scope:character = {
+			has_government = feudal_government
+		}
+	}
+	
+	parameters = {
+		poorly_educated_leaders_distrusted = yes
+		peasant_and_populist_factions_less_common = yes
+		cheaper_to_change_laws = yes
+	}
+	character_modifier = {
+		castle_holding_holding_build_gold_cost = -0.15
+		feudal_government_tax_contribution_mult = 0.1
+		long_reign_bonus_mult = 0.25
+		tyranny_loss_mult = -0.75
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_courtly }
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_courtly_or_spiritual_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:character = {
+							primary_title.tier >= tier_kingdom
+							any_vassal = {
+								count >= 10
+								primary_title.tier >= tier_county
+								has_government = feudal_government
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = king_with_vassals_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					scope:character.primary_title.tier >= tier_kingdom
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+tradition_legacy_of_north_joseon = {
+	category = realm
+
+	layers = {
+		0 = intrigue
+		1 = mediterranean
+		4 = king.dds
+	}
+	
+	parameters = {
+		peasant_and_populist_factions_less_common = yes
+		expensive_convert_to_local_culture = yes
+		harder_to_hybridize = yes
+	}
+	culture_modifier = {
+		cultural_acceptance_gain_mult = -0.25
+
+	}
+	character_modifier = {
+		dread_per_tyranny_add = 0.3
+		dread_decay_mult = -0.3
+		revolting_siege_morale_loss_mult = 0.25
+		monthly_county_control_change_add = 0.3
+		cultural_head_fascination_mult = -0.1
+
+	}
+
+	can_pick = {
+		has_trait = paektu
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_courtly }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_spiritual_or_courtly_desc
+				}
+			}
+			if = {
+				limit = {
+					scope:character = {
+						any_councillor = {
+							NOR = {
+								culture = scope:character.culture
+								is_spouse_of = scope:character # Might be hard to have the right culture for the Spouse; but we can remove this helper if needed
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = has_other_cultures_in_council_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = { 
+		value = 100
+		if = {
+			limit = {
+				scope:character.dread < 25
+			}
+			multiply = 0.5
+		}
+		if = {
+			limit = {
+				scope:character.tyranny < 25
+			}
+			multiply = 0.5
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_divergent_culture = yes
+				}
+			}
+			multiply = 0.25
+		}
+		if = {
+			limit = {
+				any_in_list = { list = traits this = flag:ethos_egalitarian }
+			}
+			multiply = 0.25
+		}
+		if = {
+			limit = {
+				scope:character = {
+					has_trait = paektu 
+				}
+			}
+			multiply = 10
+		}
+	}
+}
+
+tradition_federation = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = indian
+		4 = crown.dds
+	}
+	
+	can_pick = {
+		scope:character = {
+			has_government = feudal_government
+		}
+	}
+	
+	parameters = {
+	}
+	character_modifier = {
+		development_growth_factor = 0.15
+		tyranny_gain_mult = 0.5
+		opinion_of_liege = -10
+		dread_baseline_add = -10
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	
+	ai_will_do = {
+		value = 25
+		if = {
+			limit = {
+				NOR = {
+					has_cultural_pillar = heritage_gyeonggi
+				}
+			}
+			multiply = 0.5
+		}
+	}
+}
