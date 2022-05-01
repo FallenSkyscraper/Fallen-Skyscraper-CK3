@@ -439,7 +439,6 @@ tradition_legacy_of_north_joseon = {
 		cultural_head_fascination_mult = -0.1
 
 	}
-
 	can_pick = {
 		has_trait = paektu
 	}
@@ -648,5 +647,42 @@ tradition_jakun_gusa = {
 			}
 			multiply = 0
 		}
+	}
+}
+
+tradition_peoples_army = {
+	category = societal
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = soldiers3.dds
+	}
+	
+	parameters = {
+		unlock_maa_peoples_army = yes
+	}
+	
+	
+	is_shown = {
+		has_cultural_pillar = heritage_gwandong
+	}
+	
+	character_modifier = {
+		knight_limit = +1
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	
+	ai_will_do = { 
+		value = 0
 	}
 }
