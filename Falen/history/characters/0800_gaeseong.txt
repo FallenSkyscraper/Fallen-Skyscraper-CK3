@@ -147,6 +147,485 @@
 		death = yes
 	}
 }
+
+832 = {
+	name = "호"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7012
+	2386.8.9 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+833 = {
+	name = "금"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 832
+	2409.8.9 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+834 = {
+	name = "운"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 833
+	2437.8.9 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+835 = {
+	name = "용"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 833
+	2439.7.29 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+836 = {
+	name = "윤"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 833
+	female = yes
+	2431.2.9 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+
+837 = {
+	name = "안"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 832
+	2410.1.8 = {
+		birth = yes
+	}
+	2431.1.1 = {
+		add_spouse = 838
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+838 = {
+	name = "양아"
+	religion = populism
+	culture = gaeseong
+	female = yes
+	2410.1.8 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+839 = {
+	name = "은"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 837
+	mother = 838
+	female = yes
+	2436.2.8 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+####
+840 = {
+	name = "엽"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7008
+	2333.9.6 = {
+		birth = yes
+	}
+	2371.9.6 = {
+		add_spouse = 841
+	}
+	2401.8.12 = {
+		death = yes
+	}
+}
+841 = {
+	name = "은아"
+	#dynasty = 801
+	religion = populism
+	culture = gaeseong
+	female = yes
+	2348.9.6 = {
+		birth = yes
+	}
+	2371.9.6 = {
+	}
+	2421.6.14 = {
+		death = yes
+	}
+}
+842 = {
+	name = "량"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 840
+	mother = 841
+	2375.9.6 = {
+		birth = yes
+		effect = {
+			set_real_father = 7012
+		}	
+	}
+	2411.11.7 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+843 = {
+	name = "궁"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 842
+	2402.8.2 = {
+		birth = yes
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+844 = {
+	name = "약"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 842
+	2405.8.7 = {
+		birth = yes
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+845 = {
+	name = "탕"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 842
+	female = yes
+	2409.8.7 = {
+		birth = yes
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+846 = {
+	name = "야"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 840
+	mother = 841
+	2378.4.16 = {
+		birth = yes
+		effect = {
+			set_real_father = 7012
+		}
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+847 = {
+	name = "의"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 846
+	2410.6.13 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+#
+848 = {
+	name = "회"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7012
+	2381.6.13 = {
+		birth = yes
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+849 = {
+	name = "아영"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 848
+	female = yes
+	2403.2.9 = {
+		birth = yes
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+850 = {
+	name = "유영"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 848
+	female = yes
+	2405.9.8 = {
+		birth = yes
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+851 = {
+	name = "서"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7012
+	2385.7.23 = {
+		birth = yes
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+852 = {
+	name = "수윤"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7012
+	female = yes
+	2387.11.7 = {
+		birth = yes
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+853 = {
+	name = "수연"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7012
+	female = yes
+	trait = bastard
+	2392.4.21 = {
+		birth = yes
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+854 = {
+	name = "옹"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7012
+	trait = bastard
+	2395.4.21 = {
+		birth = yes
+	}
+	2409.1.7 = {
+		add_spouse = 855
+	}
+	2411.10.22 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+855 = {
+	name = "해아"
+	#dynasty = 801
+	religion = populism
+	culture = gaeseong
+	female = yes
+	2391.2.2 = {
+		birth = yes
+	}
+	2415.6.1 = {
+		death = {
+			death_reason = death_execution
+			killer = 801
+		}
+	}
+}
+856 = {
+	name = "긍"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 854
+	mother = 855
+	2412.1.18 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+857 = {
+	name = "안"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 856
+	2437.1.18 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+858 = {
+	name = "요"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 951
+	female = yes
+	2410.2.8 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+859 = {
+	name = "계"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 951
+	female = yes
+	2411.5.19 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+860 = {
+	name = "음"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 951
+	2432.8.8 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+861 = {
+	name = "휼"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7012
+	trait = bastard
+	2397.3.2 = {
+		birth = yes
+	}
+	2431.1.1 = {
+		death = yes
+	}
+}
+862 = {
+	name = "단"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 861
+	2422.8.22 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+
 901 = {
 	name = "천주"
 	dynasty = 901
@@ -465,12 +944,12 @@
 	dynasty = 801
 	religion = naturalism_pagan
 	culture = gapyeong
-	father = 7007
+	father = 996
 	2413.2.20 = {
 		birth = yes
 	}
 	2430.1.2 = {
-		add_spouse = 953
+		add_spouse = 954
 	}
 	2500.1.1 = {
 		death = yes
@@ -482,7 +961,7 @@
 	dynasty = 801
 	religion = naturalism_pagan
 	culture = gapyeong
-	father = 7007
+	father = 997
 	2413.2.20 = {
 		birth = yes
 	}
@@ -685,6 +1164,333 @@
 		birth = yes
 	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+#######
+976 = {
+	name = "명송"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 7009
+	mother = 808
+	2321.1.19 = {
+		birth = yes
+	}
+	2381.2.21 = {
+		death = yes
+	}
+}
+977 = {
+	name = "청"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 976
+	2348.8.18 = {
+		birth = yes
+	}
+	2369.1.7 = {
+		death = yes
+	}
+}
+978 = {
+	name = "옹"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 977
+	2367.12.1 = {
+		birth = yes
+	}
+	2417.7.8 = {
+		death = yes
+	}
+}
+979 = {
+	name = "균"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 978
+	2391.7.15 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+980 = {
+	name = "첩"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 979
+	2421.4.8 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+981 = {
+	name = "해"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 979
+	2423.7.1 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+982 = {
+	name = "명"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 979
+	female = yes
+	2432.9.7 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+983 = {
+	name = "규"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 979
+	2436.3.17 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+984 = {
+	name = "혈"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 978
+	2393.5.11 = {
+		birth = yes
+	}
+	2442.1.1 = {
+		death = yes
+	}
+}
+985 = {
+	name = "안"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 984
+	female = yes
+	2421.2.1 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+986 = {
+	name = "형"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 984
+	2424.6.23 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+987 = {
+	name = "휘"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 980
+	2443.2.8 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+#
+988 = {
+	name = "희"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 977
+	female = yes
+	2369.12.1 = {
+		birth = yes
+	}
+	2401.1.1 = {
+		death = yes
+	}
+}
+989 = {
+	name = "예"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 977
+	female = yes
+	2372.12.1 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+990 = {
+	name = "혼"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 977
+	2377.8.12 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+991 = {
+	name = "곤"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 990
+	2400.10.17 = {
+		birth = yes
+	}
+	2412.1.1 = {
+		death = yes
+	}
+}
+992 = {
+	name = "역"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 990
+	2403.3.7 = {
+		birth = yes
+	}
+	2418.1.1 = {
+		death = yes
+	}
+}
+993 = {
+	name = "은"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 990
+	female = yes
+	2403.3.7 = {
+		birth = yes
+	}
+	2431.7.1 = {
+		effect = {
+			set_immortal_age = 21
+		}
+	}	
+	2500.1.1 = {
+		death = yes
+	}
+}
+994 = {
+	name = "흔"
+	dynasty = 801
+	religion = populism
+	culture = gaeseong
+	father = 990
+	2419.6.1 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+#
+995 = {
+	name = "급"
+	dynasty = 801
+	religion = naturalism_pagan
+	culture = gapyeong
+	father = 7007
+	2348.1.1 = {
+		birth = yes
+	}
+	2417.1.1 = {
+		death = yes
+	}
+}
+996 = {
+	name = "익"
+	dynasty = 801
+	religion = naturalism_pagan
+	culture = gapyeong
+	father = 995
+	2381.2.1 = {
+		birth = yes
+	}
+	2435.1.1 = {
+		death = yes
+	}
+}
+997 = {
+	name = "홀"
+	dynasty = 801
+	religion = naturalism_pagan
+	culture = gapyeong
+	father = 995
+	2381.2.1 = {
+		birth = yes
+	}
+	2438.1.1 = {
+		death = yes
+	}
+}
+998 = {
+	name = "열"
+	dynasty = 801
+	religion = naturalism_pagan
+	culture = gapyeong
+	father = 995
+	female = yes
+	2398.2.1 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+999 = {
+	name = "궁"
+	dynasty = 801
+	religion = naturalism_pagan
+	culture = gapyeong
+	father = 997
+	2423.2.1 = {
+		birth = yes
+	}
+	2438.1.1 = {
 		death = yes
 	}
 }

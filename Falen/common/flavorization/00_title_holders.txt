@@ -65,6 +65,79 @@ president_female = {
 	top_liege = no
 }
 
+joseon_king = {
+	type = character
+	gender = male
+	special = holder
+	titles = { e_joseon }
+	governments = { }
+	priority = 1394
+	top_liege = no
+}
+joseon_hwanghoo = {
+	type = character
+	gender = female
+	special = holder
+	titles = { e_joseon }
+	governments = { }
+	priority = 1394
+	top_liege = no
+}
+joseon_old_king = {
+	type = character
+	gender = male
+	special = ruler_heir
+	titles = { k_joseon_king }
+	governments = { }
+	priority = 1393
+	top_liege = no
+}
+joseon_sun = {
+	type = character
+	gender = male
+	special = ruler_child
+	titles = { e_joseon k_joseon_king }
+	governments = { }
+	priority = 1392
+	top_liege = no
+}
+joseon_daughter = {
+	type = character
+	gender = female
+	special = ruler_child
+	titles = { e_joseon k_joseon_king }
+	governments = { }
+	priority = 1392
+	top_liege = no
+}
+
+goryeo_king = {
+	type = character
+	gender = male
+	special = holder
+	titles = { e_goryeo }
+	governments = { }
+	priority = 1391
+	top_liege = no
+}
+goryeo_hwanghoo = {
+	type = character
+	gender = female
+	special = holder
+	titles = { e_goryeo }
+	governments = { }
+	priority = 1391
+	top_liege = no
+}
+goryeo_sun = {
+	type = character
+	gender = male
+	special = ruler_child
+	titles = { e_goryeo }
+	governments = { }
+	priority = 1390
+	top_liege = no
+}
 # Religious Titles
 
 ecumenical_patriarch = {
