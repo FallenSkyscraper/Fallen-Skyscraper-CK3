@@ -249,7 +249,7 @@
 			icon = imperial
 			
 			color = { 122 96 66 }
-		#	religious_head = k_imperial_state #법왕령
+			religious_head = k_yanbian
 			graphical_faith = "catholic_gfx"
 			
 			holy_site = iksan_default
@@ -263,6 +263,47 @@
 			doctrine = tenet_armed_pilgrimages
 			doctrine = tenet_aniconism
 
+			localization = {
+				HighGodName = holy_spirit_high_god_name
+				HighGodName2 = holy_spirit_high_god_name_2
+				HighGodNamePossessive = holy_spirit_high_god_name_possessive
+				HighGodNameSheHe = CHARACTER_SHEHE_HE
+				HighGodHerselfHimself = CHARACTER_HIMSELF
+				HighGodHerHis = CHARACTER_HERHIS_HIS
+
+				#WealthGod
+				WealthGodName = holy_spirit_wealth_god_name
+				WealthGodNamePossessive = holy_spirit_wealth_god_name_possessive
+				WealthGodSheHe = CHARACTER_SHEHE_SHE
+				WealthGodHerHis = CHARACTER_HERHIS_HER
+				WealthGodHerHim = CHARACTER_HERHIM_HER
+
+				#KnowledgeGod
+				KnowledgeGodName = holy_spirit_knowledge_god_name
+				KnowledgeGodNamePossessive = holy_spirit_knowledge_god_name_possessive
+				KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+				KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+				KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+				#WarGod
+				WarGodName = holy_spirit_war_god_name
+				WarGodNamePossessive = holy_spirit_war_god_name_possessive
+				WarGodSheHe = CHARACTER_SHEHE_HE
+				WarGodHerHis = CHARACTER_HERHIS_HIS
+				WarGodHerHim = CHARACTER_HERHIM_HIM
+
+				#TricksterGod
+				TricksterGodName = holy_spirit_trickster_god_name
+				TricksterGodNamePossessive = holy_spirit_trickster_god_name_possessive
+				TricksterGodSheHe = CHARACTER_SHEHE_HE
+				TricksterGodHerHis = CHARACTER_HERHIS_HIS
+				TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+				GoodGodNames = {
+					holy_spirit_high_god_name
+				}
+			}
+			
 			holy_order_names = { # 추후 수정바람
 				{ name = "holy_order_knights_templar" coat_of_arms = "ho_knights_templar" }
 				{ name = "holy_order_knights_hospitaller" coat_of_arms = "ho_knights_hospitaller"  }

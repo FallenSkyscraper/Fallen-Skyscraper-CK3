@@ -229,6 +229,154 @@
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
 			# localization = {}	# localization 변경 가능
+			
+			localization = {
+		#HighGod
+		HighGodName = aisin_gioro_high_god_name	# 신 이름
+		HighGodNamePossessive = aisin_gioro_high_god_name_possessive	# 신 이름 소유격
+		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = manchurian_high_god_name_alternate	# 최고신은 이명 사용 가능
+		HighGodNameAlternatePossessive = manchurian_high_god_name_alternate_possessive
+
+		#CreatorName
+		CreatorName = aisin_gioro_creator_god_name
+		CreatorNamePossessive = aisin_gioro_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+
+		#HealthGod
+		HealthGodName = aisin_gioro_health_god_name
+		HealthGodNamePossessive = aisin_gioro_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		
+		#FertilityGod
+		FertilityGodName = aisin_gioro_fertility_god_name
+		FertilityGodNamePossessive = aisin_gioro_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WealthGod
+		WealthGodName = aisin_gioro_wealth_god_name
+		WealthGodNamePossessive = aisin_gioro_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		#HouseholdGod
+		HouseholdGodName = aisin_gioro_household_god_name
+		HouseholdGodNamePossessive = aisin_gioro_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_HE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+		#FateGod
+		FateGodName = aisin_gioro_fate_god_name
+		FateGodNamePossessive = aisin_gioro_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+
+		#Knowledge
+		KnowledgeGodName = aisin_gioro_knowledge_god_name
+		KnowledgeGodNamePossessive = aisin_gioro_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WarGod
+		WarGodName = aisin_gioro_war_god_name
+		WarGodNamePossessive = aisin_gioro_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		#TricksterGod
+		TricksterGodName = aisin_gioro_trickster_god_name
+		TricksterGodNamePossessive = aisin_gioro_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		#NightGod
+		NightGodName = aisin_gioro_night_god_name
+		NightGodNamePossessive = aisin_gioro_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WaterGod
+		WaterGodName = aisin_gioro_water_god_name
+		WaterGodNamePossessive = aisin_gioro_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+		PantheonTerm = aisin_gioro_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {	# 선신 이름들
+			aisin_gioro_high_god_name
+		}
+		
+		DevilName = aisin_gioro_devil_name
+		DevilNamePossessive = aisin_gioro_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {	# 악신 이름들
+			aisin_gioro_devil_name
+		}
+		
+		HouseOfWorship = manchurian_house_of_worship
+		HouseOfWorshipPlural = manchurian_house_of_worship_plural
+		ReligiousSymbol = aisin_gioro_religious_symbol
+		ReligiousText = aisin_gioro_religious_text
+		ReligiousHeadName = manchurian_religious_head_title
+		ReligiousHeadTitleName = manchurian_religious_head_title_name
+		
+		DevoteeMale = manchurian_devotee_male
+		DevoteeMalePlural = manchurian_devotee_male_plural
+		DevoteeFemale = manchurian_devotee_female
+		DevoteeFemalePlural = manchurian_devotee_female_plural
+		DevoteeNeuter = manchurian_devotee_neuter
+		DevoteeNeuterPlural = manchurian_devotee_neuter_plural
+		
+		PriestMale = aisin_gioro_priest_male
+		PriestMalePlural = aisin_gioro_priest_male_plural
+		PriestFemale = aisin_gioro_priest_male
+		PriestFemalePlural = aisin_gioro_priest_male_plural
+		PriestNeuter = aisin_gioro_priest_male
+		PriestNeuterPlural = aisin_gioro_priest_male_plural
+		AltPriestTermPlural = aisin_gioro_priest_alternate_plural
+		
+		BishopMale = aisin_gioro_bishop
+		BishopMalePlural = aisin_gioro_bishop_plural
+		BishopFemale = aisin_gioro_bishop
+		BishopFemalePlural = aisin_gioro_bishop_plural
+		BishopNeuter = aisin_gioro_bishop
+		BishopNeuterPlural = aisin_gioro_bishop_plural
+		
+		DivineRealm = aisin_gioro_positive_afterlife
+		PositiveAfterLife = aisin_gioro_positive_afterlife
+		NegativeAfterLife = aisin_gioro_negative_afterlife
+		DeathDeityName = manchurian_death_deity_name
+		DeathDeityNamePossessive = manchurian_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		
+		WitchGodName = manchurian_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+	}
 		}
 		wanyan = {	# 하위 종교
 			color = { 136 164 228 }	# 지도 상에서 표시될 색깔
@@ -285,6 +433,134 @@
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
 			# localization = {}	# localization 변경 가능
+			
+			localization = {
+		#HighGod
+		HighGodName = wanyan_high_god_name	# 신 이름
+		HighGodNamePossessive = wanyan_high_god_name_possessive	# 신 이름 소유격
+		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = manchurian_high_god_name_alternate	# 최고신은 이명 사용 가능
+		HighGodNameAlternatePossessive = manchurian_high_god_name_alternate_possessive
+
+		#CreatorName
+		CreatorName = wanyan_creator_god_name
+		CreatorNamePossessive = wanyan_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+
+		#HealthGod
+		HealthGodName = wanyan_health_god_name
+		HealthGodNamePossessive = wanyan_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		
+		#FertilityGod
+
+		#WealthGod
+		WealthGodName = wanyan_wealth_god_name
+		WealthGodNamePossessive = wanyan_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		#HouseholdGod
+		
+		#FateGod
+		FateGodName = wanyan_fate_god_name
+		FateGodNamePossessive = wanyan_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+
+		#Knowledge
+
+		#WarGod
+		WarGodName = wanyan_war_god_name
+		WarGodNamePossessive = wanyan_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		#TricksterGod
+		TricksterGodName = wanyan_trickster_god_name
+		TricksterGodNamePossessive = wanyan_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		#NightGod
+		NightGodName = wanyan_night_god_name
+		NightGodNamePossessive = wanyan_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WaterGod
+
+		PantheonTerm = wanyan_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {	# 선신 이름들
+			wanyan_high_god_name
+		}
+		
+		DevilName = wanyan_devil_name
+		DevilNamePossessive = wanyan_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {	# 악신 이름들
+			wanyan_devil_name
+		}
+		
+		HouseOfWorship = manchurian_house_of_worship
+		HouseOfWorshipPlural = manchurian_house_of_worship_plural
+		ReligiousSymbol = manchurian_religious_symbol
+		ReligiousText = wanyan_religious_text
+		ReligiousHeadName = manchurian_religious_head_title
+		ReligiousHeadTitleName = manchurian_religious_head_title_name
+		
+		DevoteeMale = manchurian_devotee_male
+		DevoteeMalePlural = manchurian_devotee_male_plural
+		DevoteeFemale = manchurian_devotee_female
+		DevoteeFemalePlural = manchurian_devotee_female_plural
+		DevoteeNeuter = manchurian_devotee_neuter
+		DevoteeNeuterPlural = manchurian_devotee_neuter_plural
+		
+		PriestMale = wanyan_priest_male
+		PriestMalePlural = wanyan_priest_male_plural
+		PriestFemale = wanyan_priest_male
+		PriestFemalePlural = wanyan_priest_male_plural
+		PriestNeuter = wanyan_priest_male
+		PriestNeuterPlural = wanyan_priest_male_plural
+		AltPriestTermPlural = wanyan_priest_alternate_plural
+		
+		BishopMale = wanyan_bishop
+		BishopMalePlural = wanyan_bishop_plural
+		BishopFemale = wanyan_bishop
+		BishopFemalePlural = wanyan_bishop_plural
+		BishopNeuter = wanyan_bishop
+		BishopNeuterPlural = wanyan_bishop_plural
+		
+		DivineRealm = wanyan_positive_afterlife
+		PositiveAfterLife = wanyan_positive_afterlife
+		NegativeAfterLife = wanyan_negative_afterlife
+		DeathDeityName = manchurian_death_deity_name
+		DeathDeityNamePossessive = manchurian_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		
+		WitchGodName = manchurian_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+	}
 		}
 	}
 }

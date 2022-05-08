@@ -28,8 +28,8 @@
 	
 	localization = {
 		#HighGod
-		HighGodName = unitary_high_god_name	# 신 이름
-		HighGodNamePossessive = unitary_high_god_name_possessive	# 신 이름 소유격
+		HighGodName = christianity_high_god_name	# 신 이름
+		HighGodNamePossessive = christianity_high_god_name_possessive	# 신 이름 소유격
 		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
 		HighGodHerselfHimself = CHARACTER_HIMSELF
 		HighGodHerHis = CHARACTER_HERHIS_HIS
@@ -37,15 +37,15 @@
 		HighGodNameAlternatePossessive = unitary_high_god_name_alternate_possessive
 
 		#CreatorName
-		CreatorName = unitary_creator_god_name
-		CreatorNamePossessive = unitary_creator_god_name_possessive
+		CreatorName = christianity_creator_god_name
+		CreatorNamePossessive = christianity_creator_god_name_possessive
 		CreatorSheHe = CHARACTER_SHEHE_HE
 		CreatorHerHis = CHARACTER_HERHIS_HIS
 		CreatorHerHim = CHARACTER_HERHIM_HIM
 
 		#HealthGod
-		HealthGodName = unitary_health_god_name
-		HealthGodNamePossessive = unitary_health_god_name_possessive
+		HealthGodName = christianity_health_god_name
+		HealthGodNamePossessive = christianity_health_god_name_possessive
 		HealthGodSheHe = CHARACTER_SHEHE_HE
 		HealthGodHerHis = CHARACTER_HERHIS_HIS
 		HealthGodHerHim = CHARACTER_HERHIM_HIM
@@ -58,8 +58,8 @@
 		FertilityGodHerHim = CHARACTER_HERHIM_HIM
 
 		#WealthGod
-		WealthGodName = unitary_wealth_god_name
-		WealthGodNamePossessive = unitary_wealth_god_name_possessive
+		WealthGodName = christianity_wealth_god_name
+		WealthGodNamePossessive = christianity_wealth_god_name_possessive
 		WealthGodSheHe = CHARACTER_SHEHE_HE
 		WealthGodHerHis = CHARACTER_HERHIS_HIS
 		WealthGodHerHim = CHARACTER_HERHIM_HIM
@@ -72,22 +72,22 @@
 		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
 
 		#FateGod
-		FateGodName = unitary_fate_god_name
-		FateGodNamePossessive = unitary_fate_god_name_possessive
+		FateGodName = christianity_fate_god_name
+		FateGodNamePossessive = christianity_fate_god_name_possessive
 		FateGodSheHe = CHARACTER_SHEHE_HE
 		FateGodHerHis = CHARACTER_HERHIS_HIS
 		FateGodHerHim = CHARACTER_HERHIM_HIM
 
 		#Knowledge
-		KnowledgeGodName = unitary_knowledge_god_name
-		KnowledgeGodNamePossessive = unitary_knowledge_god_name_possessive
+		KnowledgeGodName = christianity_knowledge_god_name
+		KnowledgeGodNamePossessive = christianity_knowledge_god_name_possessive
 		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
 		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
 		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
 
 		#WarGod
-		WarGodName = unitary_war_god_name
-		WarGodNamePossessive = unitary_war_god_name_possessive
+		WarGodName = christianity_war_god_name
+		WarGodNamePossessive = christianity_war_god_name_possessive
 		WarGodSheHe = CHARACTER_SHEHE_HE
 		WarGodHerHis = CHARACTER_HERHIS_HIS
 		WarGodHerHim = CHARACTER_HERHIM_HIM
@@ -107,16 +107,17 @@
 		NightGodHerHim = CHARACTER_HERHIM_HIM
 
 		#WaterGod
-		WaterGodName = unitary_water_god_name
-		WaterGodNamePossessive = unitary_water_god_name_possessive
+		WaterGodName = christianity_water_god_name
+		WaterGodNamePossessive = christianity_water_god_name_possessive
 		WaterGodSheHe = CHARACTER_SHEHE_HE
 		WaterGodHerHis = CHARACTER_HERHIS_HIS
 		WaterGodHerHim = CHARACTER_HERHIM_HIM
 
-		PantheonTerm = unitary_high_god_name
+		PantheonTerm = christianity_high_god_name
 		PantheonTermHasHave = pantheon_term_has
 		GoodGodNames = {	# 선신 이름들
-			unitary_high_god_name
+			protestant_good_god_jesus # 예수
+			protestant_good_god_christ #그리스도
 		}
 		
 		DevilName = unitary_devil_name
@@ -129,40 +130,39 @@
 			unitary_devil_name
 		}
 		
-		HouseOfWorship = unitary_house_of_worship
-		HouseOfWorshipPlural = unitary_house_of_worship_plural
+		HouseOfWorship = protestant_house_of_worship
+		HouseOfWorshipPlural = protestant_house_of_worship_plural
 		ReligiousSymbol = unitary_religious_symbol
 		ReligiousText = unitary_religious_text
 		ReligiousHeadName = unitary_religious_head_title
 		ReligiousHeadTitleName = unitary_religious_head_title_name
 		
-		DevoteeMale = unitary_devotee_male
-		DevoteeMalePlural = unitary_devotee_male_plural
-		DevoteeFemale = unitary_devotee_female
-		DevoteeFemalePlural = unitary_devotee_female_plural
-		DevoteeNeuter = unitary_devotee_neuter
-		DevoteeNeuterPlural = unitary_devotee_neuter_plural
+		DevoteeMale = protestant_devotee_male
+		DevoteeMalePlural = protestant_devotee_male_plural
+		DevoteeFemale = protestant_devotee_female
+		DevoteeFemalePlural = protestant_devotee_female_plural
+		DevoteeNeuter = protestant_devotee_neuter
+		DevoteeNeuterPlural = protestant_devotee_neuter_plural
 		
-		PriestMale = unitary_priest_male
-		PriestMalePlural = unitary_priest_male_plural
-		PriestFemale = unitary_priest_male
-		PriestFemalePlural = unitary_priest_male_plural
-		PriestNeuter = unitary_priest_male
-		PriestNeuterPlural = unitary_priest_male_plural
-		AltPriestTermPlural = unitary_priest_alternate_plural
+		PriestMale = protestant_priest_male
+		PriestMalePlural = protestant_priest_male_plural
+		PriestFemale = protestant_priest_male
+		PriestFemalePlural = protestant_priest_male_plural
+		PriestNeuter = protestant_priest_male
+		PriestNeuterPlural = protestant_priest_male_plural
 		
-		BishopMale = unitary_bishop
-		BishopMalePlural = unitary_bishop_plural
-		BishopFemale = unitary_bishop
-		BishopFemalePlural = unitary_bishop_plural
-		BishopNeuter = unitary_bishop
-		BishopNeuterPlural = unitary_bishop_plural
+		BishopMale = protestant_bishop
+		BishopMalePlural = protestant_bishop_plural
+		BishopFemale = protestant_bishop
+		BishopFemalePlural = protestant_bishop_plural
+		BishopNeuter = protestant_bishop
+		BishopNeuterPlural = protestant_bishop_plural
 		
-		DivineRealm = unitary_positive_afterlife
-		PositiveAfterLife = unitary_positive_afterlife
-		NegativeAfterLife = unitary_negative_afterlife
-		DeathDeityName = unitary_death_deity_name
-		DeathDeityNamePossessive = unitary_death_deity_name_possessive
+		DivineRealm = protestant_positive_afterlife
+		PositiveAfterLife = protestant_positive_afterlife
+		NegativeAfterLife = protestant_negative_afterlife
+		DeathDeityName = protestant_death_deity_name
+		DeathDeityNamePossessive = protestant_death_deity_name_possessive
 		DeathDeitySheHe = CHARACTER_SHEHE_HE
 		DeathDeityHerHis = CHARACTER_HERHIS_HIS
 		
