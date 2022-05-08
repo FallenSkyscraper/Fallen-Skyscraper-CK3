@@ -30,7 +30,7 @@ jakun_gusa = { #팔기군
 	}
 	
 	can_recruit = {
-		heritages = { has_cultural_parameter = unlock_maa_jakun_gusa }
+		culture = { has_cultural_parameter = unlock_maa_jakun_gusa }
 	}
 
 	buy_cost = { gold = cataphract_recruitment_cost }
@@ -60,7 +60,7 @@ national_guard = { #국민방위대
 	}
 	
 	can_recruit = {
-		heritages = { has_cultural_parameter = unlock_maa_national_guard }
+		culture = { has_cultural_parameter = unlock_maa_national_guard }
 	}
 
 	buy_cost = { gold = guinea_warrior_recruitment_cost }
