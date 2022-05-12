@@ -1,0 +1,51 @@
+vietnam = {
+	color = { 200 156 20 }
+	
+	ethos = ethos_spiritual
+	heritage = heritage_honam
+	language = language_vietnamese
+	martial_custom = martial_custom_male_only
+	traditions = {
+		tradition_xenophilic
+		tradition_hit_and_run
+	}
+	
+	dlc_tradition = {
+		trait = tradition_artisans
+		requires_dlc_flag = royal_court
+	}
+	name_list = name_list_vietnam
+	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
+	building_gfx = { western_building_gfx }
+	clothing_gfx = { mongol_clothing_gfx }
+	unit_gfx = { mongol_unit_gfx }
+	ethnicities = {
+		10 = asian
+	}
+}
+wolnam = {
+	color = { 200 156 20 }
+	created = 2410.12.16
+	parents = { namhae vietnam }
+	
+	ethos = ethos_spiritual
+	heritage = heritage_honam
+	language = language_vietnamese
+	martial_custom = martial_custom_male_only
+	traditions = {
+		tradition_xenophilic
+	}
+	
+	dlc_tradition = {
+		trait = tradition_artisans
+		requires_dlc_flag = royal_court
+	}
+	name_list = name_list_wolnam
+	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
+	building_gfx = { western_building_gfx }
+	clothing_gfx = { mongol_clothing_gfx }
+	unit_gfx = { mongol_unit_gfx }
+	ethnicities = {
+		10 = asian
+	}
+}
