@@ -323,3 +323,49 @@ the_pantheon = {
 
 	}
 }
+
+path_divided = {
+	group = "main_group"
+	is_available_on_create = {
+			OR = {
+				has_doctrine = special_doctrine_path_of_peoeples
+				has_doctrine = special_doctrine_path_of_seoul
+				has_doctrine = special_doctrine_path_of_authority
+				has_doctrine = special_doctrine_path_of_unity
+			}
+	}
+	special_doctrine_path_of_peoples = {
+		can_pick = {
+			flag:special_doctrine_path_of_peoples = { is_in_list = selected_doctrines }
+		}
+		parameter = {
+			hostility_override_special_doctrine_path_of_seoul = 3
+			hostility_override_special_doctrine_path_of_authority = 1
+		}
+	}
+	special_doctrine_path_of_seoul = {
+		can_pick = {
+			flag:special_doctrine_path_of_seoul = { is_in_list = selected_doctrines }
+		}
+		parameter = {
+			hostility_override_special_doctrine_path_of_peoples = 3
+			hostility_override_special_doctrine_path_of_unity = 1
+		}
+	}
+	special_doctrine_path_of_authority = {
+		can_pick = {
+			flag:special_doctrine_path_of_authority = { is_in_list = selected_doctrines }
+		}
+		parameter = {
+			hostility_override_special_doctrine_path_of_peoples = 1
+		}
+	}
+	special_doctrine_path_of_unity = {
+		can_pick = {
+			flag:special_doctrine_path_of_unity = { is_in_list = selected_doctrines }
+		}
+		parameter = {
+			hostiltiy_override_special_doctrine_path_of_seoul = 1
+		}
+	}
+}

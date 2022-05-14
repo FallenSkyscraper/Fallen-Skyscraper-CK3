@@ -101,43 +101,8 @@ doctrine_core_tenets = {
 	}
 	tenet_inquiry_into_knowledge = { #격물치지
 		icon = core_tenet_bhakti
-		name = {
-			first_valid = {
-				triggered_desc = {
-					trigger = {
-						religion_tag = communism_religion
-					}
-					desc = tenet_materialism_name
-				}
-				desc = tenet_inquiry_into_knowledge_name
-			}
-		}
-		desc = {
-			first_valid = {
-				triggered_desc = {
-					trigger = {
-						religion_tag = communism_religion
-					}
-					desc = tenet_materialism_desc #유물론
-				}
-				desc = tenet_inquiry_into_knowledge_desc
-			}
-		}
 		piety_cost = {
-			if = {
-				limit = {
-					OR = {
-						religion_tag = old_world_religion
-						religion_tag = confucianism_religion
-						religion_tag = communism_religion
-					}
-				}
-				value = faith_tenet_cost_low
-			}
-			else = {
-				value = faith_tenet_cost_mid
-			}
-
+			value = faith_tenet_cost_mid
 			# Multiplier for keeping same tenet
 			if = {
 				limit = { has_doctrine = tenet_inquiry_into_knowledge }
@@ -146,12 +111,13 @@ doctrine_core_tenets = {
 		}
 
 		can_pick = {
-			always = yes
+			religion_tag = mechanism_religion
 		}
 
 		parameters = {
 			same_faith_promote_culture_bonus_active = yes
 			innovation_from_learning_traits = yes
+			great_holy_wars_active = yes
 		}
 
 		character_modifier = {
