@@ -740,3 +740,55 @@ tradition_seoul = {
 		value = 100
 	}
 }
+
+tradition_talchum = {
+	category = societal
+
+	layers = {
+		0 = societal
+		1 = mediterranean
+		4 = musician.dds
+	}
+	
+	parameters = {
+		guardians_can_transfer_commander_traits = yes
+		gregarious_trait_gives_bonuses = yes
+		characters_are_better_court_musicians = yes # Also hooked in to increase the Feast opinion bonus
+		unlock_maa_hahoe_warrior = yes
+	}
+	
+	is_shown = {
+		has_cultural_pillar = heritage_yeongnam
+	}
+	can_pick = {
+		has_cultural_pillar = heritage_yeongnam
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_communal }
+						any_in_list = { list = traits this = flag:ethos_egalitarian }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_communal_or_egalitatrian_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = { # Generally good & flavorful
+		value = 100
+	}
+}
