@@ -686,3 +686,57 @@ tradition_peoples_army = {
 		value = 0
 	}
 }
+
+tradition_seoul = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = mena
+		4 = crown.dds
+	}
+	
+	is_shown = {
+		OR ={
+			this = culture:seoul
+			any_parent_culture_or_above = {
+				this = culture:seoul
+			}
+		}
+	}
+	can_pick = {
+		OR ={
+			this = culture:seoul
+			any_parent_culture_or_above = {
+				this = culture:seoul
+			}
+		}
+	}
+	
+	parameters = {
+	   development_growth_factor = 0.2
+	   unlock_maa_seoul_bike = yes
+	   
+	}
+	character_modifier = {
+		light_cavalry_damage_mult = 0.1
+		light_cavalry_screen_mult = 0.1
+		supply_duration = 0.25
+		light_cavalry_maintenance_mult = -0.15
+		light_cavalry_recruitment_cost_mult = -0.15
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+	}
+}
