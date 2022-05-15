@@ -206,3 +206,28 @@ hahoe_warrior = {
 	ai_quality = { value = @[cultural_maa_extra_ai_score - 20] }
 	icon = heavy_infantry
 }
+
+paengbaesu = {
+	type = heavy_infantry
+	
+	damage = 35
+	toughness = 22
+	pursuit = 12
+	screen = 0
+	
+	counters = {
+		pikemen = 1
+	}
+
+	can_recruit = {
+		culture = { has_cultural_parameter = unlock_maa_paengbaesu }
+	}
+	
+	buy_cost = { gold = ayyar_recruitment_cost }
+	low_maintenance_cost = { gold = ayyar_low_maint_cost }
+	high_maintenance_cost = { gold = ayyar_high_maint_cost }
+	
+	stack = 100
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = heavy_infantry
+}
