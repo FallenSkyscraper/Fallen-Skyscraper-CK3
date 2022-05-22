@@ -338,6 +338,12 @@ tradition_korean_succession = {
 		4 = king.dds
 	}
 	
+	is_shown = {
+		scope:character = {
+			has_religion = religion:koreanism_religion
+		}
+	}
+	
 	can_pick = {
 		scope:character = {
 			has_government = feudal_government
@@ -531,6 +537,14 @@ tradition_federation = {
 		4 = crown.dds
 	}
 	
+	is_shown = {
+		OR = {
+			has_cultural_pillar = heritage_gyeonggi
+			has_cultural_pillar = heritage_hoseo
+		}
+	}
+		
+	
 	can_pick = {
 		scope:character = {
 			has_government = feudal_government
@@ -665,7 +679,9 @@ tradition_peoples_army = {
 	
 	
 	is_shown = {
-		has_cultural_pillar = heritage_gwandong
+		scope:character = {
+			has_religion = religion:juche_religion
+		}
 	}
 	
 	character_modifier = {
@@ -716,7 +732,12 @@ tradition_seoul = {
 	parameters = {
 	   development_growth_factor = 0.2
 	   unlock_maa_seoul_bike = yes
+		courtiers_less_likely_to_leave_same_culture_court = yes
+		harder_to_hybridize = yes
 	   
+	}
+	culture_modifier = {
+		cultural_acceptance_gain_mult = -0.35
 	}
 	character_modifier = {
 		light_cavalry_damage_mult = 0.1
@@ -807,9 +828,7 @@ tradition_paengbaesu = {
 	category = combat
 
 	is_shown = {
-		NOR = { #Replaced by Mobile Guards
-			has_cultural_pillar = heritage_israelite
-			has_cultural_tradition = tradition_mobile_guards
+		OR = {
 			has_cultural_pillar = heritage_yeongnam
 		}
 	}
@@ -822,9 +841,7 @@ tradition_paengbaesu = {
 	
 	character_modifier = {
 		heavy_infantry_toughness_mult = 0.1
-		heavy_infantry_maintenance_mult = 0.2
 		hard_casualty_modifier = 0.1
-		defender_advantage = 2
 	}
 	
 	parameters = {
@@ -837,19 +854,6 @@ tradition_paengbaesu = {
 				value = tradition_base_cost
 				desc = BASE
 				format = "BASE_VALUE_FORMAT"
-			}
-			if = {
-				limit = {
-					NOR = {
-						any_in_list = { list = traits this = flag:ethos_bellicose }
-						any_in_list = { list = traits this = flag:ethos_spiritual }
-						any_in_list = { list = traits this = flag:ethos_stoic }
-					}
-				}
-				add = {
-					value = tradition_incompatible_ethos_penalty
-					desc = not_bellicose_spiritual_or_stoic_desc
-				}
 			}
 			if = {
 				limit = {
