@@ -143,8 +143,10 @@ namhae = {
 	language = language_southwest_korean
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_xenophilic
-		tradition_hit_and_run
+		tradition_battlefield_looters
+		tradition_fishermen
+		tradition_maritime_imperialist
+		tradition_maritime_mercantilism
 	}
 	
 	dlc_tradition = {
@@ -170,14 +172,12 @@ gwangju = {
 	language = language_southwest_korean
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_xenophilic
+		tradition_faith_bound
 		tradition_hit_and_run
+		tradition_isolationist
+		tradition_citizen_army
 	}
 	
-	dlc_tradition = {
-		trait = tradition_artisans
-		requires_dlc_flag = royal_court
-	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
 	building_gfx = { western_building_gfx }
@@ -197,14 +197,11 @@ muan = {
 	language = language_southwest_korean
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_xenophilic
-		tradition_hit_and_run
+		tradition_battlefield_looters
+		tradition_maritime_imperialist
+		tradition_welcoming
 	}
 	
-	dlc_tradition = {
-		trait = tradition_artisans
-		requires_dlc_flag = royal_court
-	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
 	building_gfx = { western_building_gfx }
@@ -227,7 +224,7 @@ sinan = {
 		tradition_battlefield_looters
 		tradition_fishermen
 		tradition_seafaring
-		tradition_practiced_pirates
+		tradition_maritime_imperialist
 		tradition_ruling_caste
 	}
 	name_list = name_list_korean
@@ -249,15 +246,10 @@ jeju = {
 	language = language_jeju
 	martial_custom = martial_custom_equal
 	traditions = {
-		tradition_nubian_warrior_queens
 		tradition_runestones
-		
+		tradition_maritime_imperialist
 	}
 	
-	dlc_tradition = {
-		trait = tradition_fp1_coastal_warriors
-		requires_dlc_flag = royal_court
-	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
 	building_gfx = { western_building_gfx indian_building_gfx }
