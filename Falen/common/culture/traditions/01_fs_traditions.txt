@@ -907,7 +907,7 @@ tradition_maritime_imperialist = {
 	parameters = {
 		culture_can_raid_at_sea_even_if_feudal = yes
 		can_travel_along_rivers = yes
-		unlock_maa_ = yes
+		unlock_maa_huscarls = yes
 	}
 	
 	character_modifier = {
@@ -990,6 +990,95 @@ tradition_citizen_army = {
 	}
 	province_modifier = {
 		garrison_size = 0.15
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_sambyeolcho = {
+	category = combat
+
+	layers = {
+		0 = martial
+		1 = mediterranean
+		4 = horses.dds
+	}
+	
+	is_shown = {
+		OR ={
+			this = culture:gaeseong
+			any_parent_culture_or_above = {
+				this = culture:gaeseong
+			}
+			limit = {
+				OR = {
+					NOT = { exists = scope:replacing }
+					NOT = { scope:replacing = flag:tradition_hit_and_run }
+				}	
+			}
+		}
+	}
+	parameters = {
+		unlock_maa_national_sinuigun = yes
+	}
+	
+	character_modifier = {
+		light_cavalry_screen_mult = 0.1
+		siege_weapon_siege_value_mult = -0.2
+		retreat_losses = -0.1
+		hard_casualty_modifier = -0.1
+		advantage = -2
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+	}
+	
+	ai_will_do = {
+		value = 100
+	}
+}
+
+tradition_rightous_army = {
+	category = combat
+
+	layers = {
+		0 = martial
+		1 = mediterranean
+		4 = battle.dds
+	}
+	is_shown = {
+		has_cultural_pillar = heritage_haeseo
+	}
+	parameters = {
+		unlock_maa_rightous_army = yes
+	}
+	province_modifier = {
+		levy_size = 0.25
+	}
+	character_modifier = {
+		knight_limit = -2
+		skirmishers_recruitment_cost_mult = -0.25
+	}
+	province_modifier = {
+		garrison_size = 0.25
 	}
 	
 	cost = {
