@@ -351,7 +351,6 @@ tradition_korean_succession = {
 	}
 	
 	parameters = {
-		poorly_educated_leaders_distrusted = yes
 		peasant_and_populist_factions_less_common = yes
 		cheaper_to_change_laws = yes
 		unlock_maa_ROK_army = yes
@@ -737,7 +736,7 @@ tradition_seoul = {
 	   
 	}
 	culture_modifier = {
-		cultural_acceptance_gain_mult = -0.35
+		cultural_acceptance_gain_mult = -0.9
 	}
 	character_modifier = {
 		light_cavalry_damage_mult = 0.1
@@ -828,9 +827,7 @@ tradition_paengbaesu = {
 	category = combat
 
 	is_shown = {
-		OR = {
-			has_cultural_pillar = heritage_yeongnam
-		}
+		has_cultural_pillar = heritage_yeongnam
 	}
 
 	layers = {
