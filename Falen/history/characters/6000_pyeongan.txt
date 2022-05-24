@@ -547,7 +547,87 @@
 	dynasty = 6050
 	culture = anju
 	religion = cheondo
-	2419.9.5 = { birth = yes }
+	2349.8.1 = { birth = yes }
+	2411.5.4 = { death = yes }
+}
+6051 = {
+	name = "정식"
+	dynasty = 6051
+	culture = pyongyang
+	religion = cheondo
+	2370.6.5 = { birth = yes }
+	2390.1.1 = { add_spouse = 6052 }
+	2433.12.3 = { death = yes }
+}
+6052 = {
+	name = "가을"
+	dynasty = 6050
+	father = 6050
+	culture = anju
+	religion = cheondo
+	2371.1.5 = { birth = yes }
+	2443.6.7 = { death = yes }
+}
+6053 = {
+	name = "보해"
+	dynasty = 6051
+	father = 6051
+	mother = 6052
+	culture = pyongyang
+	religion = cheondo
+	2392.7.9 = { birth = yes }
+	2432.7.5 = { death = yes } #처형
+}
+6054 = {
+	name = "보창"
+	dynasty = 6051
+	father = 6051
+	mother = 6052
+	culture = pyongyang
+	religion = cheondo
+	2398.8.24 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6055 = {
+	name = "선애"
+	dynasty = 6051
+	female = yes
+	father = 6051
+	mother = 6052
+	culture = pyongyang
+	religion = cheondo
+	2404.5.1 = { birth = yes }
+	2443.12.23 = { death = yes }
+}
+6056 = {
+	name = "운"
+	dynasty = 6051
+	father = 6054
+	mother = 9045
+	culture = pyongyang
+	religion = cheondo
+	2434.5.6 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6057 = {
+	name = "돌"
+	dynasty = 6051
+	father = 6054
+	mother = 9045
+	culture = pyongyang
+	religion = cheondo
+	2436.6.1 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+6058 = {
+	name = "샛별"
+	dynasty = 6051
+	female = yes
+	father = 6054
+	mother = 9045
+	culture = pyongyang
+	religion = cheondo
+	2438.7.7 = { birth = yes }
 	2500.1.1 = { death = yes }
 }
 6501 = {
