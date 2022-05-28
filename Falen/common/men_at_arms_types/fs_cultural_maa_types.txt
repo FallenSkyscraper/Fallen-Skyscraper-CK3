@@ -404,7 +404,7 @@ citizen_skirmishers = {
 	}
 
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_horn_warrior }
+		culture = { has_cultural_parameter = unlock_maa_citizen_skirmishers }
 	}
 
 	buy_cost = { gold = horn_warrior_recruitment_cost }
@@ -435,6 +435,10 @@ foreign_legion = {
 		light_cavalry = 2
 		heavy_cavalry = 2
 	}
+	
+	can_recruit = {
+		culture = { has_cultural_parameter = unlock_maa_foreign_legion }
+	}
 
 	buy_cost = { gold = landsknecht_recruitment_cost }
 	low_maintenance_cost = { gold = landsknecht_low_maint_cost }
@@ -443,4 +447,34 @@ foreign_legion = {
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
 	icon = pikemen
+}
+
+hwarang = { #Nile Archers
+	type = archers
+	
+	damage = 30
+	toughness = 14
+	pursuit = 10
+	screen = 10
+	
+	terrain_bonus = {
+		forest = { damage = 10 toughness = 10 }
+		hills = { damage = 10 toughness = 10 }
+	}
+
+	counters = {
+		skirmishers = 1
+	}
+
+	can_recruit = {
+		culture = { has_cultural_parameter = unlock_maa_hwarang }
+	}
+
+	buy_cost = { gold = archers_of_the_nile_recruitment_cost }
+	low_maintenance_cost = { gold = archers_of_the_nile_low_maint_cost }
+	high_maintenance_cost = { gold = archers_of_the_nile_high_maint_cost }
+	
+	stack = 100
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = bowmen
 }
