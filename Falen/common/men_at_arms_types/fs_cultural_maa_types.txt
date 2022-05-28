@@ -385,7 +385,7 @@ freikorps = {
 	allowed_in_hired_troops = no
 }
 
-horn_warrior = {
+citizen_skirmishers = {
 	type = skirmishers
 	
 	damage = 12
@@ -414,4 +414,33 @@ horn_warrior = {
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
 	icon = skirmishers
+}
+
+foreign_legion = {
+	type = pikemen
+	
+	damage = 30
+	toughness = 24
+	pursuit = 0
+	screen = 0
+	
+	terrain_bonus = {
+		mountains = { damage = 5 toughness = 12 }
+		desert_mountains = { damage = 5 toughness = 12 }
+		hills = { damage = 3 toughness = 8 }
+	}
+
+	counters = {
+		pikemen = 0.5
+		light_cavalry = 2
+		heavy_cavalry = 2
+	}
+
+	buy_cost = { gold = landsknecht_recruitment_cost }
+	low_maintenance_cost = { gold = landsknecht_low_maint_cost }
+	high_maintenance_cost = { gold = landsknecht_high_maint_cost }
+	
+	stack = 100
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = pikemen
 }
