@@ -80,7 +80,7 @@ fp1_varangian_adventurer_conquest = {
 	allowed_against_character = {
 		# Cannot adventure against other adventuring cultures.
 		NOT = {
-			culture = { has_innovation = innovation_varangian_adventurers }
+			culture = { has_innovation = innovation_bushido }
 		}
 		# Players vs. AI filtering.
 		OR = {
@@ -380,7 +380,7 @@ fp1_varangian_adventurer_conquest = {
 							limit = { varangian_adventurers_bonus_levies_value = 1 }
 							spawn_army = {
 								men_at_arms = {
-									type = varangian_veterans
+									type = samurai
 									stacks = 1
 								}
 								levies = 100
@@ -397,7 +397,7 @@ fp1_varangian_adventurer_conquest = {
 							limit = { varangian_adventurers_bonus_levies_value = 2 }
 							spawn_army = {
 								men_at_arms = {
-									type = varangian_veterans
+									type = samurai
 									stacks = 3
 								}
 								levies = 100
@@ -409,16 +409,16 @@ fp1_varangian_adventurer_conquest = {
 								name = scandi_adventurer_event_troops
 							}
 						}
-						# +200 Bondi
+						# +200 light_footmen
 						if = {
 							limit = { varangian_adventurers_bonus_levies_value = 3 }
 							spawn_army = {
 								men_at_arms = {
-									type = varangian_veterans
+									type = samurai
 									stacks = 3
 								}
 								men_at_arms = {
-									type = bondi
+									type = light_footmen
 									stacks = 2
 								}
 								levies = 100
@@ -435,11 +435,11 @@ fp1_varangian_adventurer_conquest = {
 							limit = { varangian_adventurers_bonus_levies_value = 4 }
 							spawn_army = {
 								men_at_arms = {
-									type = varangian_veterans
+									type = samurai
 									stacks = 3
 								}
 								men_at_arms = {
-									type = bondi
+									type = light_footmen
 									stacks = 4
 								}
 								levies = 100
@@ -456,16 +456,12 @@ fp1_varangian_adventurer_conquest = {
 							limit = { varangian_adventurers_bonus_levies_value = 5 }
 							spawn_army = {
 								men_at_arms = {
-									type = varangian_veterans
+									type = samurai
 									stacks = 3
 								}
 								men_at_arms = {
-									type = bondi
-									stacks = 4
-								}
-								men_at_arms = {
-									type = vigmen
-									stacks = 2
+									type = light_footmen
+									stacks = 6
 								}
 								levies = 100
 								inheritable = yes
@@ -481,15 +477,15 @@ fp1_varangian_adventurer_conquest = {
 							limit = { varangian_adventurers_bonus_levies_value = 6 }
 							spawn_army = {
 								men_at_arms = {
-									type = varangian_veterans
+									type = samurai
 									stacks = 3
 								}
 								men_at_arms = {
-									type = bondi
+									type = light_footmen
 									stacks = 4
 								}
 								men_at_arms = {
-									type = vigmen
+									type = bowmen
 									stacks = 4
 								}
 								levies = 100
@@ -506,15 +502,15 @@ fp1_varangian_adventurer_conquest = {
 							limit = { varangian_adventurers_bonus_levies_value = 7 }
 							spawn_army = {
 								men_at_arms = {
-									type = varangian_veterans
+									type = samurai
 									stacks = 3
 								}
 								men_at_arms = {
-									type = bondi
+									type = light_footmen
 									stacks = 4
 								}
 								men_at_arms = {
-									type = vigmen
+									type = bowmen
 									stacks = 6
 								}
 								levies = 100
@@ -531,15 +527,15 @@ fp1_varangian_adventurer_conquest = {
 							limit = { varangian_adventurers_bonus_levies_value = 8 }
 							spawn_army = {
 								men_at_arms = {
-									type = varangian_veterans
+									type = samurai
 									stacks = 3
 								}
 								men_at_arms = {
-									type = bondi
+									type = light_footmen
 									stacks = 4
 								}
 								men_at_arms = {
-									type = vigmen
+									type = bowmen
 									stacks = 8
 								}
 								levies = 100
@@ -556,19 +552,19 @@ fp1_varangian_adventurer_conquest = {
 							limit = { varangian_adventurers_bonus_levies_value = 9 }
 							spawn_army = {
 								men_at_arms = {
-									type = varangian_veterans
+									type = samurai
 									stacks = 3
 								}
 								men_at_arms = {
-									type = bondi
+									type = light_footmen
 									stacks = 4
 								}
 								men_at_arms = {
-									type = vigmen
+									type = bowmen
 									stacks = 8
 								}
 								men_at_arms = {
-									type = huscarl
+									type = light_horsemen
 									stacks = 2
 								}
 								levies = 100
@@ -585,19 +581,19 @@ fp1_varangian_adventurer_conquest = {
 							limit = { varangian_adventurers_bonus_levies_value >= 10 }
 							spawn_army = {
 								men_at_arms = {
-									type = varangian_veterans
+									type = samurai
 									stacks = 3
 								}
 								men_at_arms = {
-									type = bondi
+									type = light_footmen
 									stacks = 4
 								}
 								men_at_arms = {
-									type = vigmen
+									type = bowmen
 									stacks = 8
 								}
 								men_at_arms = {
-									type = huscarl
+									type = light_horsemen
 									stacks = 4
 								}
 								levies = 100
@@ -618,15 +614,15 @@ fp1_varangian_adventurer_conquest = {
 						}
 						spawn_army = {
 							men_at_arms = {
-								type = varangian_veterans
+								type = samurai
 								stacks = 4
 							}
 							men_at_arms = {
-								type = vigmen
+								type = light_footmen
 								stacks = 4
 							}
 							men_at_arms = {
-								type = bondi
+								type = bowmen
 								stacks = 1
 							}
 							levies = 100
