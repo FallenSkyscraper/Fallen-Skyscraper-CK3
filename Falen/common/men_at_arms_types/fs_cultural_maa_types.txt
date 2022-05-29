@@ -565,7 +565,7 @@ imperial_guard = {
 	}
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_imperial_guard }
+		culture = { has_cultural_parameter = unlock_mma_imperial_guard }
 	}
 
 	buy_cost = { gold = gendarme_recruitment_cost }
@@ -597,6 +597,35 @@ taekwondo = {
 	buy_cost = { gold = goedendag_recruitment_cost }
 	low_maintenance_cost = { gold = goedendag_low_maint_cost }
 	high_maintenance_cost = { gold = goedendag_high_maint_cost }
+	
+	can_recruit = {
+		culture = { has_cultural_parameter = unlock_maa_taekwondo }
+	}
+	
+	stack = 100
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = skirmishers
+}
+
+inquisitor = {
+	type = skirmishers
+	
+	damage = 20
+	toughness = 16
+	pursuit = 20
+	screen = 10
+	
+	counters = {
+		skirmishers = 1
+	}
+
+	can_recruit = {
+		culture = { has_cultural_parameter = unlock_maa_inquisitor }
+	}
+	
+	buy_cost = { gold = abudrar_recruitment_cost }
+	low_maintenance_cost = { gold = abudrar_low_maint_cost }
+	high_maintenance_cost = { gold = abudrar_high_maint_cost }
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
