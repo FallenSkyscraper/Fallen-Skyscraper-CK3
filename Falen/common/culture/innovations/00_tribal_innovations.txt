@@ -225,3 +225,18 @@ innovation_war_camels = {
 	flag = global_regional
 	flag = tribal_era_regional
 }
+
+innovation_bushido = {
+	group = culture_group_civic
+	culture_era = culture_era_tribal
+	icon = @maa_02
+
+	modifier = {
+		men_at_arms_maintenance = -0.15
+	}
+
+	unlock_maa = samurai
+	
+	flag = global_regular
+	flag = early_medieval_era_regular
+}

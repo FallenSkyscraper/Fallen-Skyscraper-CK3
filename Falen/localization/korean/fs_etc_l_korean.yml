@@ -1,0 +1,7 @@
+l_korean:
+ game_concept_fp1_samurai_invasion:0 "왜구 침공"
+ game_concept_samurai_invasions:0 "왜구 침공"
+ game_concept_samurai_invasioning:0 "침공"
+ game_concept_samurai_invasion_adventure:0 "침공"
+ game_concept_samurai_invasion_desc:0 "왜구 침공은 공격 측이 자신의 [realm|E]을 [war_target|E]가 위치한 지역으로 옮기고자 할 경우에 진행되는 특수한 유형의 [war|E]입니다.\n\n해당 전쟁에서 승리한 공격 측은 즉시 적합한 [Concept( 'counties', '영지' )]를 합병하여 그곳을 자신들의 [capital|E]로 삼습니다. 이에 따라 그들을 섬겼던 옛 봉신들은 독립 상태가 되며, 그들이 보유했던 옛 [Concept( 'counties', '영지' )]는 최근에 두각을 드러낸 지역 군벌이 차지하게 됩니다. $game_concept_samurai_invasions$은 [duke|E]과 $game_concept_count$ 등급의 [rulers|E]만 진행할 수 있으며, $game_concept_samurai_invasion_adventure$을 성공적으로 끝마칠 경우마다 점진적으로 비용이 증가합니다.\n\n해당 [casus_belli|E]은 [Concept( 'tribal', '부족' )|E] [era|E]가 지난 시점에서는 #EMP 활용할 수 없으며#!, $game_concept_varangian_adventure_adventure$을 진행할 수 있는 문화나 인접한 $game_concept_rulers$을 대상으로는 유효하지 않습니다.\n\n처음으로 $game_concept_samurai_invasion$을 진행하는 $japanese_group_collective_noun$에게는 최대 [EmptyScope.ScriptValue('varangian_adventurers_standard_levy_cap_value')|0]기의 [special_troops|E]가 주어집니다. 해당 병력의 규모는 [GetGeographicalRegion('dlc_fp1_region_core_mainland_scandinavia').GetName] 내에서 동일한 [faith|E]과 [culture|E]를 영지를 얼만큼 완전 점령했는지에 따라 달라집니다."
+ 
