@@ -3,18 +3,16 @@ hongseong = {
 	created = 2000.1.1
 	parents = { old_korean }
 	
-	ethos = ethos_spiritual
-	heritage = heritage_hoseo
+	ethos = ethos_bureaucratic
+	heritage = heritage_suwon
 	language = language_central_korean
-	martial_custom = martial_custom_male_only
+	martial_custom = martial_custom_equal
 	traditions = {
+		tradition_metal_craftsmanship
+		tradition_equal_inheritance
+		tradition_city_keepers
+		tradition_federation
 		tradition_xenophilic
-		tradition_hit_and_run
-	}
-	
-	dlc_tradition = {
-		trait = tradition_artisans
-		requires_dlc_flag = royal_court
 	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
@@ -30,18 +28,16 @@ seosan = {
 	created = 2000.1.1
 	parents = { old_korean }
 	
-	ethos = ethos_spiritual
-	heritage = heritage_hoseo
+	ethos = ethos_bureaucratic
+	heritage = heritage_suwon
 	language = language_central_korean
-	martial_custom = martial_custom_male_only
+	martial_custom = martial_custom_equal
 	traditions = {
-		tradition_xenophilic
-		tradition_hit_and_run
-	}
-	
-	dlc_tradition = {
-		trait = tradition_artisans
-		requires_dlc_flag = royal_court
+		tradition_metal_craftsmanship
+		tradition_equal_inheritance
+		tradition_city_keepers
+		tradition_federation
+		tradition_maritime_mercantilism
 	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
@@ -87,14 +83,11 @@ cheongju = {
 	language = language_central_korean
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_xenophilic
-		tradition_hit_and_run
+		tradition_chivalry
+		tradition_by_the_sword
+		tradition_korean_succession
 	}
 	
-	dlc_tradition = {
-		trait = tradition_artisans
-		requires_dlc_flag = royal_court
-	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
 	building_gfx = { western_building_gfx }
@@ -114,14 +107,11 @@ chungju = {
 	language = language_central_korean
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_xenophilic
-		tradition_hit_and_run
+		tradition_isolationist
+		tradition_by_the_sword
+		tradition_korean_succession
 	}
 	
-	dlc_tradition = {
-		trait = tradition_artisans
-		requires_dlc_flag = royal_court
-	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
 	building_gfx = { western_building_gfx }

@@ -57,18 +57,15 @@ jeonju = {
 	created = 2000.1.1
 	parents = { old_korean }
 	
-	ethos = ethos_spiritual
+	ethos = ethos_courtly
 	heritage = heritage_honam
 	language = language_southwest_korean
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_xenophilic
-		tradition_hit_and_run
-	}
-	
-	dlc_tradition = {
-		trait = tradition_artisans
-		requires_dlc_flag = royal_court
+		tradition_romanticism
+		tradition_ruling_caste
+		tradition_hereditary_hierarchy
+		tradition_religious_patronage
 	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
@@ -89,13 +86,12 @@ muju = {
 	language = language_southwest_korean
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_xenophilic
+		tradition_taekwondo
 		tradition_hit_and_run
 	}
-	
 	dlc_tradition = {
-		trait = tradition_artisans
-		requires_dlc_flag = royal_court
+		trait = tradition_fp1_trials_by_combat
+		requires_dlc_flag = the_northern_lords
 	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }

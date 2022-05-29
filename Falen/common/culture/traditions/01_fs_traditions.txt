@@ -537,11 +537,7 @@ tradition_federation = {
 	}
 	
 	is_shown = {
-		OR = {
-			has_cultural_pillar = heritage_gyeonggi
-			has_cultural_pillar = heritage_hoseo
-			has_cultural_pillar = heritage_suwon
-		}
+		has_cultural_pillar = heritage_suwon
 	}
 		
 	
@@ -1353,30 +1349,6 @@ tradition_hwarangdo = {
 	}
 }
 
-tradition_cheongdam = {
-	category = societal
-
-	layers = {
-		0 = societal
-		1 = mediterranean
-		4 = quill.dds
-	}
-	
-	parameters = {
-		poet_trait_gives_bonuses = yes
-		poet_trait_more_common = yes
-		characters_are_better_court_poets = yes
-		unlock_maa_sinuigun = yes
-	}
-	
-	character_modifier = {
-		light_cavalry_screen_mult = 0.1
-		siege_weapon_siege_value_mult = -0.2
-		retreat_losses = -0.1
-		hard_casualty_modifier = -0.1
-		advantage = -2
-	}
-}
 tradition_laicite = {
 	category = regional
 
@@ -1612,3 +1584,192 @@ tradition_bushido = {
 	ai_will_do = { value = 100 }
 }
 
+tradition_romanticism = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = indian
+		4 = knight.dds
+	}
+	
+	is_shown = {
+		OR ={
+			this = culture:gwangju
+			any_parent_culture_or_above = {
+				this = culture:gwangju
+			}
+		}
+		NOR = { #Replaces Martial Admiration
+			has_cultural_tradition = tradition_futuwaa
+			has_cultural_tradition = tradition_druzhina
+			has_cultural_tradition = tradition_martial_admiration
+		}
+	}
+
+	parameters = {
+		unlock_mma_imperial_guard = yes
+		poet_trait_gives_bonuses = yes
+		poet_trait_more_common = yes
+		martial_education_more_valued = yes
+		prowess_traits_more_valued = yes
+		blademaster_trait_bonuses = yes
+		craven_and_content_traits_looked_down_upon = yes
+		knights_slightly_more_prone_to_injury = yes
+		can_duel_rivals = yes
+	}
+	character_modifier = {
+		knight_limit = 2
+		negate_prowess_penalty_add = 5 # Wounded knights fight better!
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+						any_in_list = { list = traits this = flag:ethos_courtly }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_stoic_or_courtly_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:character = {
+							any_knight = {
+								count >= 6
+								prowess >= 12
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = knights_with_prowess_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = { value = 100 }
+}
+
+tradition_taekwondo = {
+	category = regional
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = viking.dds
+	}
+	
+	is_shown = {
+		NOR = {
+			has_cultural_tradition = tradition_warrior_culture
+			has_cultural_tradition = tradition_fp1_coastal_warriors
+		}
+		OR = {
+			any_parent_culture_or_above = {
+				OR = {
+					this = culture:muju
+				}
+			}
+		}
+	}
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	
+	parameters = {
+		unlock_maa_taekwondo = yes
+		strong_traits_more_valued = yes
+		strong_traits_more_common = yes
+		weak_traits_looked_down_upon = yes
+		rowdy_trait_more_common = yes
+		pensive_trait_less_common = yes
+	}
+	character_modifier = {
+		cultural_head_fascination_mult = -0.15
+		knight_limit = 1
+		prowess = 2
+		ai_boldness = 25
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_bellicose }
+						any_in_list = { list = traits this = flag:ethos_courtly }
+						any_in_list = { list = traits this = flag:ethos_communal }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NOT = {
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier >= tier_county
+								OR = {	
+									has_trait = strong
+									has_trait = physique_good
+								}
+							}
+						}
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = strong_rulers_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					any_in_list = { list = traits this = flag:ethos_bellicose }
+				}
+			}
+			multiply = 0
+		}
+	}
+}
