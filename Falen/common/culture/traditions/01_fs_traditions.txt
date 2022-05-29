@@ -1007,6 +1007,56 @@ tradition_citizen_army = {
 	}
 }
 
+tradition_sambyeolcho = {
+	category = combat
+
+	layers = {
+		0 = martial
+		1 = mediterranean
+		4 = horses.dds
+	}
+	
+	is_shown = {
+		OR ={
+			this = culture:gaeseong
+			any_parent_culture_or_above = {
+				this = culture:gaeseong
+			}
+			limit = {
+				OR = {
+					NOT = { exists = scope:replacing }
+					NOT = { scope:replacing = flag:tradition_hit_and_run }
+				}	
+			}
+		}
+	}
+	parameters = {
+		unlock_maa_sinuigun = yes
+	}
+	
+	character_modifier = {
+		light_cavalry_screen_mult = 0.1
+		siege_weapon_siege_value_mult = -0.2
+		retreat_losses = -0.1
+		hard_casualty_modifier = -0.1
+		advantage = -2
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+	}
+}
+
 tradition_rightous_army = {
 	category = combat
 
@@ -1102,6 +1152,9 @@ tradition_foreign_legion = {
 	
 	is_shown = {
 		has_cultural_pillar = heritage_gwandong
+		NOT = {
+			has_cultural_tradition = tradition_sword_for_hire
+		}
 	}
 	
 	parameters = {
@@ -1373,6 +1426,45 @@ tradition_cheongdam = {
 		hard_casualty_modifier = -0.1
 		advantage = -2
 	}
+}
+tradition_laicite = {
+	category = regional
+
+	layers = {
+		0 = diplo
+		1 = mena
+		4 = diplomat.dds
+	}
+	
+	is_shown = {
+		OR ={
+			this = culture:yeongbyeon
+			this = culture:uiju
+			any_parent_culture_or_above = {
+				this = culture:yeongbyeon
+				this = culture:uiju
+			}
+		}
+	}
+	can_pick = {
+		OR ={
+			this = culture:yeongbyeon
+			this = culture:uiju
+			any_parent_culture_or_above = {
+				this = culture:yeongbyeon
+				this = culture:uiju
+			}
+		}
+	}
+	
+	parameters = {
+		less_likely_to_force_conversion = yes
+		unlock_maa_freecarpenter = yes
+	}
+	character_modifier = {
+		different_faith_opinion = 10
+		different_faith_county_opinion_mult = -0.25
+	}
 	
 	cost = {
 		prestige = {
@@ -1384,14 +1476,13 @@ tradition_cheongdam = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_stoic }
-						any_in_list = { list = traits this = flag:ethos_bureaucratic }
-						any_in_list = { list = traits this = flag:ethos_spiritual }
+						any_in_list = { list = traits this = flag:ethos_egalitarian }
+						any_in_list = { list = traits this = flag:ethos_communal }
 					}
 				}
 				add = {
 					value = tradition_incompatible_ethos_penalty
-					desc = not_stoic_bureaucratic_or_spiritual_desc
+					desc = not_communal_or_egalitarian_desc
 				}
 			}
 			if = {
@@ -1403,11 +1494,9 @@ tradition_cheongdam = {
 							}
 						}
 						NOT = {
-							any_ruler = {
-								count >= 3
-								culture = prev
-								primary_title.tier >= tier_county
-								has_trait = poet
+							any_culture_global = {
+								count >= 5
+								cultural_acceptance = { target = prev value >= 50 }
 							}
 						}
 					}
@@ -1417,21 +1506,24 @@ tradition_cheongdam = {
 				}
 				add = {
 					value = tradition_unfulfilled_criteria_penalty
-					desc = rulers_with_poet_desc
+					desc = five_accepted_cultures_desc
 				}
 			}
+			
 			multiply = tradition_replacement_cost_if_relevant
 		}
-		
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
-			limit = { # AI should avoid stacking traditions for courtly court positions
-				any_in_list = { list = traits this = flag:tradition_music_theory }
+			limit = {
+				OR = {
+					any_in_list = { list = traits this = flag:tradition_zealous_people }
+					any_in_list = { list = traits this = flag:tradition_by_the_sword }
+				}
 			}
-			multiply = 0.25
+			multiply = 0
 		}
 	}
 }
