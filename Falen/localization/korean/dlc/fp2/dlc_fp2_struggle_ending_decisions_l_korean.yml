@@ -1,4 +1,4 @@
-l_korean:
+﻿l_korean:
  ##### Hostility #####
  struggle_juche_ending_hostility_decision:1 "[ROOT.Char.GetPrimaryTitle.GetAdjectiveNoTooltip]의 권세"
  struggle_juche_ending_hostility_decision_desc:0 "이제는 정말 때가 되었다. 강인한 지도자가 앞장서서 이 반도를 전쟁과 분열의 진창에서 끌어내야 한다. 북조선은 펄럭이는 [ROOT.Char.GetFaith.GetAdjectiveNoTooltip] [ROOT.Char.Custom('GetQueenKing')|l]의 깃발 아래 통일될 것이다!"
@@ -20,14 +20,14 @@ l_korean:
  fp2_struggle_hostility_culture_cb_tt:0 "다른 [struggle_involved|E]된 [cultures|E]에 대한 $CONQUEST_DUCHY_CB_NAME$ [casus_bellis|E]: #positive_value -50%#!"
  fp2_struggle_hostility_culture_tt:0 "모든 [struggle_involved|E]된 [cultures|E]가 서로에 대한 [cultural_acceptance|E]을 #negative_value [SCOPE.ScriptValue('fp2_struggle_hostility_culture_acceptance_value')]%#!만큼 상실함"
  fp2_struggle_hostility_culture_large_tt:0 "모든 [struggle_involved|E]된 [cultures|E]가 서로에 대한 [cultural_acceptance|E]을 #negative_value [SCOPE.ScriptValue('fp2_struggle_hostility_culture_acceptance_large_value')]%#!만큼 상실함"
- fp2_struggle_hostility_acceptance_tt:0 "북조선 내 적대도"
+ fp2_struggle_hostility_acceptance_tt:0 "이베리아 내 적대도"
  # Modifiers
  fp2_struggle_hostility_house_faith_modifier:1 "신앙 적대도"
- fp2_struggle_hostility_house_faith_modifier_desc:0 "해당 집안은 자신들 신앙의 이름으로 북조선 대부분을 정복하였습니다."
+ fp2_struggle_hostility_house_faith_modifier_desc:0 "해당 집안은 자신들 신앙의 이름으로 이베리아 대부분을 정복하였습니다."
  fp2_struggle_hostility_house_culture_modifier:1 "문화 적대도"
- fp2_struggle_hostility_house_culture_modifier_desc:0 "해당 집안은 자신들 민족의 이름으로 북조선 대부분을 정복하였습니다."
+ fp2_struggle_hostility_house_culture_modifier_desc:0 "해당 집안은 자신들 민족의 이름으로 이베리아 대부분을 정복하였습니다."
  fp2_struggle_hostility_house_combined_modifier:1 "정복 적대도"
- fp2_struggle_hostility_house_combined_modifier_desc:0 "해당 집안은 자신들 신앙과 민족의 이름으로 북조선 대부분을 정복하였습니다."
+ fp2_struggle_hostility_house_combined_modifier_desc:0 "해당 집안은 자신들 신앙과 민족의 이름으로 이베리아 대부분을 정복하였습니다."
  fp2_struggle_hostility_faith_conversion_task_desc:0 "$fp2_struggle_hostility_house_faith_modifier$"
  fp2_struggle_hostility_culture_conversion_task_desc:0 "$fp2_struggle_hostility_house_culture_modifier$"
  ##### Compromise #####
@@ -62,7 +62,7 @@ l_korean:
  struggle_juche_ending_conciliation_decision_tooltip:0 "$struggle_iberia_ending_hostility_decision_tooltip$"
  struggle_juche_ending_conciliation_decision_confirm:0 "$struggle_iberia_ending_hostility_decision_confirm$"
  # Triggers
- struggle_iberia_ending_conciliation_decision_alliance_tt:0 "다른 모든 [struggle_involved|E]된 [independent|E] [rulers|E]가 당신과 [alliance|E]을 맺음 ([SCOPE.ScriptValue('struggle_iberia_ending_conciliation_decision_alliance_counter_value')|0]/[SCOPE.ScriptValue('struggle_iberia_ending_ending_decision_foreign_realm_total_value')|0])"
+ struggle_juche_ending_conciliation_decision_alliance_tt:0 "다른 모든 [struggle_involved|E]된 [independent|E] [rulers|E]가 당신과 [alliance|E]을 맺음 ([SCOPE.ScriptValue('struggle_iberia_ending_conciliation_decision_alliance_counter_value')|0]/[SCOPE.ScriptValue('struggle_iberia_ending_ending_decision_foreign_realm_total_value')|0])"
  #Effects
  fp2_struggle_conciliation_marriage_unlocked_tt:1 "모든 [struggle_involved|E]된 [cultures|E] 간의 종교 간 [marriage|E]을 영구적으로 #positive_value 허용함#!"
  fp2_struggle_conciliation_holy_war_disabled_tt:1 "모든 [struggle_involved|E] [cultures|E] 간의 공격적인 [holy_wars|E]이 영구적으로 #negative_value 비활성화됨#!"
@@ -78,9 +78,9 @@ l_korean:
 
  CB_COST_FP2_STRUGGLE_HOSTILITY_CULTURE_DISCOUNT:0 "이베리아 적대"
  CB_COST_FP2_STRUGGLE_HOSTILITY_FAITH_DISCOUNT:0 "$CB_COST_FP2_STRUGGLE_HOSTILITY_CULTURE_DISCOUNT$"
- struggle_iberia_ending_hostility_decision_correct_phase_tt:1 "현재 [struggle_phase|E]이 [struggle_phase_iberia_hostility|E]임"
- struggle_iberia_ending_compromise_decision_correct_phase_tt:1 "현재 [struggle_phase|E]이 [struggle_phase_iberia_compromise|E]임"
- struggle_iberia_ending_conciliation_decision_correct_phase_tt:1 "현재 [struggle_phase|E]이 [struggle_phase_iberia_conciliation|E]임"
+ struggle_juche_ending_hostility_decision_correct_phase_tt:1 "현재 [struggle_phase|E]이 [struggle_phase_iberia_hostility|E]임"
+ struggle_juche_ending_compromise_decision_correct_phase_tt:1 "현재 [struggle_phase|E]이 [struggle_phase_iberia_compromise|E]임"
+ struggle_juche_ending_conciliation_decision_correct_phase_tt:1 "현재 [struggle_phase|E]이 [struggle_phase_iberia_conciliation|E]임"
  fp2_struggle_house_tt:1 "모든 [house|E] 구성원:"
  fp2_struggle_compromise_war_cost_tt:0 "다른 [struggle_involved|E]된 [cultures|E] [faiths|E]에 대한 $HOLY_WAR_DUCHY_NAME$(와)과 $CONQUEST_DUCHY_CB_NAME$: #negative_value +50%#!"
  CB_COST_FP2_STRUGGLE_COMPROMISE_MULTIPLIER:0 "타협"
