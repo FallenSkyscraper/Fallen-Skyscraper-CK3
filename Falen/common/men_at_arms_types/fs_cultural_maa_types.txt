@@ -269,7 +269,7 @@ sinuigun = {
 	icon = light_cavalry
 }
 
-huscarl = {
+privateer = {
 	type = heavy_infantry
 
 	damage = 40
@@ -626,6 +626,37 @@ inquisitor = {
 	buy_cost = { gold = abudrar_recruitment_cost }
 	low_maintenance_cost = { gold = abudrar_low_maint_cost }
 	high_maintenance_cost = { gold = abudrar_high_maint_cost }
+	
+	stack = 100
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = skirmishers
+}
+
+mudflater = {
+	type = skirmishers
+	
+	damage = 13
+	toughness = 18
+	pursuit = 0
+	screen = 16
+	
+	counters = {
+		heavy_infantry = 1
+		heavy_cavalry = 1
+	}
+	
+	terrain_bonus = {
+		wetlands = { damage = 30 }
+		plains = { damage = 5 }
+	}
+	
+	can_recruit = {
+		culture = { has_cultural_parameter = unlock_maa_mudflater }
+	}
+
+	buy_cost = { gold = goedendag_recruitment_cost }
+	low_maintenance_cost = { gold = goedendag_low_maint_cost }
+	high_maintenance_cost = { gold = goedendag_high_maint_cost }
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }

@@ -903,7 +903,7 @@ tradition_maritime_imperialist = {
 	parameters = {
 		culture_can_raid_at_sea_even_if_feudal = yes
 		can_travel_along_rivers = yes
-		unlock_maa_huscarls = yes
+		unlock_maa_privateer = yes
 	}
 	
 	character_modifier = {
@@ -1871,4 +1871,207 @@ tradition_inquisitor = {
 			multiply = 0.1
 		}
 	}
+}
+
+tradition_mudflat = {
+	category = realm
+
+	layers = {
+		0 = steward
+		1 = mena
+		4 = svamp.dds
+	}
+
+	is_shown = {
+		OR ={
+			this = culture:saemangeum
+			this = culture:gunsan
+			any_parent_culture_or_above = {
+				this = culture:saemangeum
+				this = culture:gunsan
+			}
+		}
+	}
+	can_pick = {
+		custom_description = {
+			text = culture_on_coast_desc
+			any_culture_county = {
+				any_county_province = {
+					is_coastal = yes
+				}
+			}
+		}
+	}
+	
+	parameters = {
+		unlock_maa_mudflater = yes
+		coastal_agriculture_building_bonuses = yes
+		coastal_holding_bonuses = yes
+	}
+	character_modifier = {
+		skirmishers_damage_mult = 0.05
+		skirmishers_screen_mult = 0.1
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						any_in_list = { list = traits this = flag:ethos_communal }
+						any_in_list = { list = traits this = flag:ethos_bureaucratic }
+						any_in_list = { list = traits this = flag:ethos_stoic }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_communal_bureaucratic_or_stoic_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								is_coastal = yes
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = coastal_percentage_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						any_sub_realm_county = {
+							percent >= 0.3
+							any_county_province = {
+								is_coastal = yes
+							}
+						}
+					}
+				}
+			}
+			multiply = 0
+		}
+		if = {
+			limit = {
+				scope:character = {
+					any_sub_realm_county = {
+						percent >= 0.6
+						any_county_province = {
+							is_coastal = yes
+						}
+					}
+				}
+			}
+			multiply = 3
+		}
+	}
+}
+
+tradition_nubian_warrior_queens = {
+	category = regional
+
+	layers = {
+		0 = intrigue
+		1 = mediterranean
+		4 = crown.dds
+	}
+	
+	is_shown = {
+		any_parent_culture_or_above = {
+			OR = {
+				this = culture:jeju
+			}
+		}
+	}
+	can_pick = {
+		any_parent_culture_or_above = {
+			OR = {
+				this = culture:jeju
+			}
+		}
+	}
+
+	parameters = {
+		gender_equal_inheritance = yes
+		female_only_inheritance = yes
+		female_preference_inheritance = yes
+		prowess_from_martial_education = yes
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_in_list = { list = traits this = flag:ethos_egalitarian }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_egalitarian_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NAND = {
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier > tier_barony
+								is_male = yes
+							}
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier > tier_barony
+								is_female = yes
+							}
+						}
+					}
+					trigger_else = {
+						always = yes
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = three_gender_rulers_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = { value = 100 }
 }
