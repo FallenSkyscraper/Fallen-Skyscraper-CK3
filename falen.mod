@@ -8,5 +8,5 @@ replace_path=history/cultures
 replace_path=history/titles
 replace_path=history/provinces
 name="Fallen Skyscraper"
-supported_version="1.4.4"
+supported_version="1.6.0"
 path="mod/Fallen-Skyscraper-CK3/Falen"
