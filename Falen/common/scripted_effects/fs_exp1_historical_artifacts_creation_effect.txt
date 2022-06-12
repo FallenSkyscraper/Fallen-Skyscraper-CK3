@@ -1,0 +1,48 @@
+create_artifact_crown_industrial_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+
+	set_artifact_rarity_famed = yes
+
+	# Create the artifact
+	create_artifact = {	
+		name = crown_industrial_name
+		description = crown_industrial_description
+		type = helmet
+		visuals = industrial_crown
+		wealth = scope:wealth
+		quality = scope:quality
+		template = industrial_crown_template
+		history = {
+			type = created
+			date = 2232.1.1
+			recipient = character:130 #대전왕
+			location = province:84 #수원
+			
+		}
+		modifier = crown_industrial_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+
+	scope:newly_created_artifact = {
+		set_variable = { name = historical_unique_artifact value = yes }
+		set_variable = industrial_crown
+		#set_variable = {
+		#	name = artifact_succession_title
+		#	value = title:k_gyeonggi
+		#}
+		#add_artifact_title_history = {
+		#	target = title:k_gyeonggi
+		#	date = 2432.11.3
+		#}
+		add_artifact_history = {
+			type = given
+			date = 2443.2.1
+			recipient = character:107
+			location = province:84
+		}
+		save_scope_as = epic
+	}
+	
+}
