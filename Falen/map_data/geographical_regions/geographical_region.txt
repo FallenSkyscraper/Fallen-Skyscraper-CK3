@@ -184,13 +184,13 @@ world_steppe = {
 }
 world_korea_south = {
 	regions = {
-		world_gyeonggigwon world_gwandong world_hoseo world_honam world_yeongnam world_doseo
+		world_gyeonggi_south world_gangwon_south world_hoseo world_honam world_yeongnam world_doseo
 	}
 }
 
 world_korea_north = {
 	regions = {
-		world_haeseo world_gwanseo world_gwanbuk
+		world_haeseo world_gwanseo world_gwanbuk world_gyeonggi_north world_gangwon_north
 	}
 }
 
@@ -275,24 +275,53 @@ world_bukgyeongsang = {
 }
 
 world_gangwon = {
+	regions = {
+		world_gangwon_north world_gangwon_south
+	}
+}
+
+world_gangwon_north = {
 	duchies = {
 		#영서 왕국
-		d_wonju d_yeongwol d_pyeongchang d_chuncheon
+		d_wonju
 		#영동 왕국
-		d_gangneung d_donghae d_sokcho d_tongcheon
+		d_tongcheon
 		#철원 왕국
-		d_gimhwa d_inje d_icheon d_cheolwon d_hoeyang
+		d_icheon d_hoeyang
+	}
+}
+
+world_gangwon_south = {
+	duchies = {
+		#영서 왕국
+		d_yeongwol d_pyeongchang d_chuncheon
+		#영동 왕국
+		d_gangneung d_donghae d_sokcho
+		#철원 왕국
+		d_gimhwa d_inje d_cheolwon
 	}
 }
 
 world_gyeonggi = {
+	regions = {
+		world_gyeonggi_north world_gyeonggi_south
+	}
+}
+
+world_gyeonggi_north = {
+	duchies = {
+		d_gaeseong
+	}
+}
+
+world_gyeonggi_south = {
 	duchies = {
 		#서울 왕국
 		d_seoul d_mapo d_northeast d_fareast d_gangnam d_yongdungpo
 		#인천 왕국
 		d_incheon d_bupyeong d_ganghwado d_yeongjongdo d_gimpo
 		#개성 왕국
-		d_uijeongbu d_goyang d_pocheon d_yeoncheon d_gaeseong d_jangdan
+		d_uijeongbu d_goyang d_pocheon d_yeoncheon d_jangdan
 		#경기 왕국
 		d_suwon d_seongnam d_ansan d_pyeongtaek d_yongin d_anseong d_yeoju
 	}
