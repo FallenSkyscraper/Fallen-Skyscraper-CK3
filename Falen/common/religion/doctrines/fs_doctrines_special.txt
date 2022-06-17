@@ -368,4 +368,36 @@ path_divided = {
 			hostiltiy_override_special_doctrine_path_of_seoul = 1
 		}
 	}
-}
+	tenet_mixed = {
+		icon = core_tenet_followers
+
+		is_shown = {
+			# We also only want people with existing spiritual HoFs.
+			exists = religious_head
+		}
+
+		can_pick = {
+			# Must have a theocratic HoF.
+			custom_description = {
+				text = doctrine_requires_theocratic_head_of_faith_trigger
+				flag:doctrine_spiritual_head = { is_in_list = selected_doctrines }
+			}
+
+		piety_cost = {
+			value = faith_tenet_cost_low
+		}
+
+		parameters = {
+			maintains_head_of_faith_on_creation = yes
+			# For loc:
+			ecumenical_christians_keep_ecumenism = yes
+			# TIT-32195: same-HoF hostility override to be added later, potentially.
+		}
+
+		character_modifier = {
+			faith_creation_piety_cost_mult = -0.25
+			opinion_of_same_faith = 5
+			religious_head_opinion = -10
+		}
+		}
+	}
