@@ -33,3 +33,19 @@ war = {
 	defenders = { 7401 }
 
 }
+#고를로스-해서 전쟁
+war = {
+	name = "gorlos_mongol_invasion"
+	start_date =2443.10.11
+	end_date = 2500.1.1
+	targeted_titles = {
+		c_nungan
+		c_longwang
+		c_shansengyu
+		c_gaojiadian
+		c_huangyuquan
+	}
+	casus_belli = invasion_war
+	attackers = { 9672 9675 9685 9699 }
+	defenders = { 9611 }
+}
