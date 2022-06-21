@@ -2,6 +2,17 @@
 k_incheon = {
     2440.5.12 = {
 	    holder = 1
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 

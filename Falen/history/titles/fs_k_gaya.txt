@@ -2,6 +2,17 @@
 k_gaya = {
 	2444.1.1 = {
 		holder = 3601
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_diplomatic
+				}
+			}
+		}
 	}
 }
 #함안

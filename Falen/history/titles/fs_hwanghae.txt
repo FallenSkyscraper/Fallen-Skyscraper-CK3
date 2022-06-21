@@ -23,7 +23,23 @@ k_haeju = {
 	}
 	2433.11.11 = {
 		holder = 7401
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_language = language_northwest_korean
+					if = {
+						limit = { NOT = { knows_court_language_of = this } }
+						learn_court_language_of = this
+					}
+				}
+			}
 	}
+	}
+	
 }
 d_haeju = {
 	2433.11.11 = {

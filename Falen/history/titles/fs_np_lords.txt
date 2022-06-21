@@ -1,6 +1,17 @@
 k_sinuiju = {
 	2439.8.7 = {
 		holder = 6601
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_administrative
+				}
+			}
+		}
 	}
 }
 d_sinuiju = {

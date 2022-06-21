@@ -1,5 +1,18 @@
 k_liaoxi = {
-	2420.1.1 = { holder = 9008 }
+	2420.1.1 = { 
+	holder = 9008 
+	effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_diplomatic
+				}
+			}
+		}
+		}
 }
 d_beizhen = {
 	2430.1.1 = {

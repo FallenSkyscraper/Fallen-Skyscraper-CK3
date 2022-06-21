@@ -4,6 +4,17 @@ k_jeju = {
 	}
 	2439.6.17 = {
 		holder = 5901
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_tribal
+				}
+			}
+		}
 	}
 
 }

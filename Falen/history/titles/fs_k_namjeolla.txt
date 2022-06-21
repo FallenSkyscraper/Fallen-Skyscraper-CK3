@@ -6,6 +6,17 @@ k_yeosu = {
 	2444.1.1 = {
 		holder = 5130
 		government = maritime_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_scholarly
+				}
+			}
+		}
 	}
 }
 d_yeosu = {

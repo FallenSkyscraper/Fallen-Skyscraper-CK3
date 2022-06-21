@@ -37,6 +37,17 @@ e_north_korea = {
 				}
 			}		
 		}
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 c_jangjin = {
@@ -300,6 +311,17 @@ k_myohyang = {
 	2431.12.4 = {
 		holder = 6501
 	}
+	effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 }
 d_songchon = {
 	2416.12.4 = {

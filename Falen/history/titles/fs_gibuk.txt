@@ -28,6 +28,17 @@ k_gaeseong = {
 	}
 	2411.10.22 = {
 		holder = 801
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_intrigue
+				}
+			}
+		}
 	}
 }
 d_gaeseong = {

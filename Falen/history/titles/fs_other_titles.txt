@@ -17,6 +17,17 @@ e_hec = { #신성복음연합
 	}
 	2414.1.1 = {
 		holder = 4005
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_administrative
+				}
+			}
+		}
 	}
 }
 
@@ -42,5 +53,16 @@ k_n_grandduke = { # 북부대공령
 	}
 	2402.1.1 = {
 		holder = 4248
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_administrative
+				}
+			}
+		}
 	}
 }

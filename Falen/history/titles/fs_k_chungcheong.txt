@@ -3,6 +3,17 @@ k_airforce_central_command = {
 	2443.1.1 = {
 		holder = 2101
 		government = military_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 d_chungju = {

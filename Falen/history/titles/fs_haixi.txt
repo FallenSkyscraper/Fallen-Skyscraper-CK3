@@ -5,6 +5,17 @@ k_haeseo = {
 	}
 	2435.2.19 = {
 		holder = 9611
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_tribal
+				}
+			}
+		}
 	}
 }
 d_zhangchun = {

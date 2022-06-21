@@ -33,6 +33,17 @@ e_sinan = {
 	}
 	2425.8.29 = { # 양위
 		holder = 5033
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 k_sinan = {

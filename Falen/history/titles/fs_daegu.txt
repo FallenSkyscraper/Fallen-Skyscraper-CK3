@@ -1,6 +1,17 @@
 k_daegu = {
 	2420.2.8 = {
 		holder = 3501
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 d_daegu = {

@@ -35,6 +35,17 @@ k_andong = {
     }
     2441.01.03 = {
         holder = 3127
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_administrative
+				}
+			}
+		}
     }
 }
 

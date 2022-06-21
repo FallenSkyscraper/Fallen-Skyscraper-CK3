@@ -5,6 +5,17 @@ e_donghae = {
 	}
 	2443.7.15 = {
 		holder = 10002
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 k_primorye = {
@@ -204,6 +215,17 @@ k_cprf = {
 	2440.11.18 = {
 		holder = 10008
 		liege = e_donghae
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_intrigue
+				}
+			}
+		}
 	}
 }
 d_usuriski = {
@@ -374,6 +396,17 @@ k_sobornost = {
 	2400.1.1 = {
 		holder = 10015
 		liege = e_donghae
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 	2438.3.19 = {
 		holder = 10016

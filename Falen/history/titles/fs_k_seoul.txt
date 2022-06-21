@@ -20,6 +20,21 @@ k_seoul = {
 	}
 	2397.5.15 = {
 		holder = 223
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_language = language_old_korean
+					if = {
+						limit = { NOT = { knows_court_language_of = this } }
+						learn_court_language_of = this
+					}
+				}
+			}
+	}
 	}
 }
 c_jongno = {

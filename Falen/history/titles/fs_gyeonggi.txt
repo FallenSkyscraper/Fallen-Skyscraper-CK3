@@ -30,6 +30,17 @@ k_gyeonggi = {
 	}
 	2432.11.3 = {
 	    holder = 107
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_scholarly
+				}
+			}
+		}
 	}
 }
 d_suwon = {

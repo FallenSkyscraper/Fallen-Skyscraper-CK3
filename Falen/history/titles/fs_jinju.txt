@@ -7,7 +7,18 @@ k_jinju = {
     }
     2437.9.15 = {
         holder = 3416
-    } 
+    }
+	effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_diplomatic
+				}
+			}
+		}
 }
 
 d_jinju = {

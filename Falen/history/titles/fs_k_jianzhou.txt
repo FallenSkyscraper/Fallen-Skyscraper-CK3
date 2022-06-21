@@ -9,6 +9,17 @@ k_jianzhou = {
 	}
 	2437.2.12 = {
 		holder = 9411
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_tribal
+				}
+			}
+		}
 	}
 }
 c_zingwi = {

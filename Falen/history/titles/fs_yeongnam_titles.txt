@@ -3,6 +3,17 @@ k_changwon = {
 	2419.4.20 = {
 		holder = 3051
 		government = military_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 
 }
@@ -96,6 +107,17 @@ k_busan = {
 	}
 	2441.2.10 = {
 		holder = 3001
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_administrative
+				}
+			}
+		}
 	}
 }
 
@@ -159,6 +181,17 @@ c_jinyeong = {
 k_pohang = {
     2443.1.1 = {
 	    holder = 3301
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_intrigue
+				}
+			}
+		}
 	}
 }
 d_pohang = {
@@ -222,6 +255,17 @@ d_uljin = {
 k_gyeongju = {
     2443.1.1 = {
 	    holder = 3706
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_intrigue
+				}
+			}
+		}
 	}
 }
 d_gyeongju = {

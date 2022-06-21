@@ -2,6 +2,17 @@ k_gorlos = {
 	2435.9.5 = {
 		holder = 9672
 		government = nomadic_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_tribal
+				}
+			}
+		}
 	}
 }
 d_omnod_gorlos = {

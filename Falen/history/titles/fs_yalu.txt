@@ -2,6 +2,17 @@ e_yalu = {
 	2423.6.15 = {
 		holder = 9008
 		government = nomadic_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 d_dandung = {
@@ -26,10 +37,33 @@ k_shen = {
 	2428.1.1 = {
 		holder = 9128
 		liege = e_yalu
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 k_liaodong = {
-	2425.1.1 = { holder = 9012 liege = e_yalu government = nomadic_government }
+	2425.1.1 = { holder = 9012 liege = e_yalu government = nomadic_government 
+	effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
+		}
 }
 k_liaoyang = {
 	2230.1.1 = {
@@ -69,6 +103,17 @@ k_liaoyang = {
 		holder = 9013
 		liege = e_yalu
 		government = nomadic_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 d_benxi = {
@@ -127,6 +172,17 @@ k_balhae = {
 	2442.5.3 = {
 		holder = 6054
 		liege = e_yalu
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_intrigue
+				}
+			}
+		}
 	}
 }
 

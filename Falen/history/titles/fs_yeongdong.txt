@@ -250,6 +250,17 @@ k_rok_armed_forces = {
 	}
 	2412.12.14 = {
 		holder = 1006
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 c_cheolwon = {
@@ -322,6 +333,17 @@ k_peoples_army = {
 	}
 	2427.3.3 = {
 		holder = 1026
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
 	}
 }
 c_hoeyang = {

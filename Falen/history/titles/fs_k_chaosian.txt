@@ -7,6 +7,17 @@ k_yanbian = {
 	}
 	2435.10.16 = {
 		holder = 9901
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_tribal
+				}
+			}
+		}
 	}
 }
 d_yanji = {

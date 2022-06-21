@@ -33,6 +33,17 @@ k_prk = {
 	}
 	2442.6.28 = {
 		holder = 6002
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_administrative
+				}
+			}
+		}
 	}
 }
 d_pyongyang = {
