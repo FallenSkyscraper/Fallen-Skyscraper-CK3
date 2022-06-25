@@ -5,6 +5,7 @@
 	dynasty = 3001 #남궁
 	religion = populism
 	culture = busan
+	father = 3005
 	2416.3.7 = {
 		birth = yes
 	}
@@ -55,11 +56,37 @@
 		death = yes
 	}
 }
+3005 = {
+	name = "천"
+	dynasty = 3001
+	religion = populism
+	culture = busan
+	father = 3006
+	2386.5.6 = {
+		birth = yes
+	}
+	2436.4.20 = {
+		death = yes
+	}
+}
+3006 = {
+	name = "창섭"
+	dynasty = 3001
+	religion = populism
+	culture = busan
+	2342.1.2 = {
+		birth = yes
+	}
+	2401.3.6 = {
+		death = yes
+	}
+}
 3011 = {
 	name = "영원"
 	dynasty = 3011
 	religion = populism
 	culture = busan
+	father = 3013
 	2397.1.12 = {
 		birth = yes
 	}
@@ -80,13 +107,24 @@
 		death = yes
 	}
 }
-
+3013 = {
+	name = "지성"
+	dynasty = 3011
+	religion = populism
+	culture = busan
+	2357.8.6 = {
+		birth = yes
+	}
+	2426.1.2 = {
+		death = yes
+	}
+}
 3021 = {
 	name = "성화"
 	dynasty = 3021
 	religion = populism
 	culture = busan
-	2421.6.5 = {
+	2345.6.5 = {
 		birth = yes
 	}
 	2500.1.1 = {
@@ -122,10 +160,23 @@
 	dynasty = 3051
 	religion = authoritarianism
 	culture = jinhae
+	father = 3052
 	2391.12.15 = {
 		birth = yes
 	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+3052 = {
+	name = "수창"
+	dynasty = 3051
+	religion = authoritarianism
+	culture = jinhae
+	2349.10.3 = {
+		birth = yes
+	}
+	2419.4.20 = {
 		death = yes
 	}
 }
@@ -134,10 +185,23 @@
 	dynasty = 3061
 	religion = authoritarianism
 	culture = jinhae
+	father = 3062
 	2426.9.22 = {
 		birth = yes
 	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+3062 = {
+	name = "지혁"
+	dynasty = 3061
+	religion = authoritarianism
+	culture = jinhae
+	2381.6.22 = {
+		birth = yes
+	}
+	2443.2.2 = {
 		death = yes
 	}
 }
@@ -146,10 +210,23 @@
 	dynasty = 3071
 	religion = authoritarianism
 	culture = jinhae
+	father = 3072
 	2418.5.7 = {
 		birth = yes
 	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+3072 = {
+	name = "성진"
+	dynasty = 3071
+	religion = authoritarianism
+	culture = jinhae
+	2369.1.4 = {
+		birth = yes
+	}
+	2431.3.6 = {
 		death = yes
 	}
 }
@@ -158,10 +235,36 @@
 	dynasty = 3081
 	religion = authoritarianism
 	culture = jinhae
+	father = 3082
 	2401.6.9 = {
 		birth = yes
 	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+3082 = {
+	name = "재성"
+	dynasty = 3081
+	religion = authoritarianism
+	culture = jinhae
+	father = 3083
+	2381.10.2 = {
+		birth = yes
+	}
+	2436.5.5 = {
+		death = yes
+	}
+}
+3083 = {
+	name = "일현"
+	dynasty = 3081
+	religion = authoritarianism
+	culture = jinhae
+	2357.5.1 = {
+		birth = yes
+	}
+	2403.6.15 = {
 		death = yes
 	}
 }
@@ -945,7 +1048,7 @@
 3168 = {
 	name = "baekseok"
 	dynasty = 3163 #김
-	fahter = 3165
+	father = 3165
 	religion = neocon
 	culture = andong
 	2415.01.20 = {
@@ -1023,7 +1126,7 @@
 3174 = {
 	name = "eunsu"
 	dynasty = 3171 #이
-	fahter = 3172
+	father = 3172
 	religion = neocon
 	culture = andong
 	2412.6.12 = {
@@ -1039,7 +1142,7 @@
 3175 = {
 	name = "dongsu"
 	dynasty = 3171 #이
-	fahter = 3172
+	father = 3172
 	female = yes
 	religion = neocon
 	culture = andong
@@ -1603,6 +1706,18 @@
 		death = yes
 	}
 }
+3351 = {
+    name = "자성"
+	dynasty = 3305
+	religion = atomism
+	culture = pohang
+	2381.4.20 = {
+		birth = yes
+	}
+	2421.5.1 = {
+		death = yes
+	}
+}
 
 #남해
 #폰 쥐트 씨
@@ -2048,12 +2163,25 @@
 	name = "보은"
 	female = yes
 	dynasty = 3521
-	religion = church_of_saints
+	religion = catholic
 	culture = daegu
+	father = 3522
 	2407.12.5 = {
 		birth = yes
 	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+3522 = {
+	name = "문재"
+	dynasty = 3521
+	religion = catholic
+	culture = daegu
+	2379.1.2 = {
+		birth = yes
+	}
+	2435.6.1 = {
 		death = yes
 	}
 }
@@ -2062,11 +2190,26 @@
 	dynasty = 3526
 	religion = church_of_saints
 	culture = daegu
+	father = 3527
 	2419.5.25 = {
 		birth = yes
 	}
 	2500.1.1 = {
 		death = yes
+	}
+}
+3527 = {
+	name = "요셉"
+	dynasty = 3526
+	religion = church_of_saints
+	culture = daegu
+	2368.5.2 = {
+		birth = yes
+	}
+	2401.2.3 = {
+		death = {
+			death_reason = death_battle
+		}
 	}
 }
 3531 = {

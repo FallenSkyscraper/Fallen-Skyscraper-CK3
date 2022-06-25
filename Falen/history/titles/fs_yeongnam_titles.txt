@@ -1,7 +1,7 @@
 #진해
 k_changwon = {
-	2419.4.20 = {
-		holder = 3051
+	2376.5.1 = {
+		holder = 3052
 		government = military_government
 		effect = {
 			if = {
@@ -14,6 +14,9 @@ k_changwon = {
 				}
 			}
 		}
+	}
+	2419.4.20 = {
+		holder = 3051
 	}
 
 }
@@ -39,12 +42,28 @@ c_jinhae = {
 }
 
 c_hoewon = {
+	2386.1.2 = {
+		holder = 3083
+		liege = d_changwon
+	}
+	2403.6.15 = {
+		holder = 3082
+		liege = d_changwon
+	}
 	2436.5.5 = {
 		holder = 3081
 		liege = d_changwon
 	}
 }
 c_masan = {
+	2386.1.2 = {
+		holder = 3083
+		liege = d_changwon
+	}
+	2403.6.15 = {
+		holder = 3082
+		liege = d_changwon
+	}
 	2436.5.5 = {
 		holder = 3081
 		liege = d_changwon
@@ -53,6 +72,10 @@ c_masan = {
 
 
 d_geoje = {
+	2398.5.1 = {
+		holder = 3062
+		liege = k_changwon
+	}
 	2443.2.2 = {
 		holder = 3061
 		liege = k_changwon
@@ -79,20 +102,24 @@ c_yeoncho = {
 
 
 d_tongyeong = {
-	2441.3.6 = {
+	2391.12.3 = {
+		holder = 3072
+		liege = k_changwon
+	}
+	2431.3.6 = {
 		holder = 3071
 		liege = k_changwon
 	}
 }
 
 c_tongyeong = {
-	2441.3.6 = {
+	2431.3.6 = {
 		holder = 3071
 	}
 }
 
 c_gwangdo = {
-	2441.3.6 = {
+	2431.3.6 = {
 		holder = 3071
 	}
 }
@@ -101,11 +128,8 @@ c_gwangdo = {
 
 #부산
 k_busan = {
-	2391.5.4 = {
-		government = republic_government
-		holder = 3031
-	}
 	2441.2.10 = {
+		government = republic_government
 		holder = 3001
 		effect = {
 			if = {
@@ -122,18 +146,36 @@ k_busan = {
 }
 
 c_busan = {
+	2389.5.3 = {
+		holder = 3006
+	}
+	2401.3.6 = {
+		holder = 3005
+	}
 	2436.4.20 = {
 		holder = 3001
 	}
 }
 
 c_westernbusan = {
+	2389.5.3 = {
+		holder = 3006
+	}
+	2401.3.6 = {
+		holder = 3005
+	}
 	2436.4.20 = {
 		holder = 3001
 	}
 }
 c_dongrae = {
-	2408.4.20 = {
+	2389.5.3 = {
+		holder = 3006
+	}
+	2401.3.6 = {
+		holder = 3005
+	}
+	2436.4.20 = {
 		holder = 3001
 	}
 }
@@ -146,17 +188,27 @@ d_busan = {
 	}
 }
 c_easternbusan = {
+	2374.5.11 = {
+		holder = 3002
+	}
 	2436.4.20 = {
 		holder = 3002
 	}
 }
 c_gijang = {
+	2374.5.11 = {
+		holder = 3002
+	}
 	2436.4.20 = {
 		holder = 3002
 	}
 }
 d_gimhae = {
-	2419.5.6 = {
+	2379.5.1 = {
+		holder = 3013
+		liege = k_busan
+	}
+	2426.1.2 = {
 		holder = 3011
 		liege = k_busan
 	}
@@ -176,10 +228,20 @@ c_jinyeong = {
 		holder = 3011
 	}
 }
-
+#원자교
+c_uljin = {
+	2398.5.2 = {
+		holder = 3351
+	}
+}
+c_pyeonghae = {
+	2398.5.2 = {
+		holder = 3351
+	}
+}
 #포항
 k_pohang = {
-    2443.1.1 = {
+    2399.1.1 = {
 	    holder = 3301
 		effect = {
 			if = {
@@ -419,11 +481,13 @@ c_changnyeong = {
 }
 
 d_namhae = {
-	2400.01.01 = {
+	2381.5.1 = {
 		holder = 3401
+		liege = e_sinan
 	}
 	2417.9.5 = {
 		holder = 3402
+		liege = 0
 	}
 	2443.9.15 = {
         holder = 3403
@@ -431,7 +495,7 @@ d_namhae = {
 }
 
 c_namhae = {
-	2400.01.01 = {
+	2381.5.1 = {
 		holder = 3401
 	}
 	2417.9.5 = {
@@ -443,7 +507,7 @@ c_namhae = {
 }
 
 c_mulgeon = {
-	2400.01.01 = {
+	2398.2.17 = {
 		holder = 3407
 		liege = d_namhae
 	}
@@ -453,7 +517,7 @@ c_mulgeon = {
 }
 
 c_changseon = {
-	2400.01.01 = {
+	2399.2.1 = {
 		holder = 3411
 		liege = d_namhae
 	}
@@ -461,31 +525,3 @@ c_changseon = {
 		holder = 3412
 	}
 }
-#한울국
-#k_uljin = {
-    #2443.1.1 = {
-	    #holder = 3410
-#	}
-#}
-#d_uljin = {
-    #2443.1.1 = {
-	   # holder = 3410
-#	}
-#}
-#c_uljin = {
-    #2443.1.1 = {
-	    #holder = 3410
-#	}
-#}
-#c_pyeonghae = {
-    #2443.1.1 = {
-	   #liege = k_uljin
-	    #holder = 3411
-#	}
-#}
-#c_yeonghae = {
-   #2443.1.1 = {
-	    #liege = k_uljin
-	   #holder = 3412
-#	}
-#}
