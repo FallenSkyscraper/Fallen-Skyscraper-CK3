@@ -1,0 +1,40 @@
+us_army_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	ai_check_interval = 60
+
+	cooldown = { days = 3650 }
+
+
+	desc = us_army_decision_desc
+	selection_tooltip = us_army_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		is_imprisoned = no
+		is_at_war = yes
+		has_title = title:d_gunsan
+	}
+	effect = {
+		spawn_army = {
+			men_at_arms = {
+				type = imperial_guard
+				stacks = 4
+			}
+		inheritable = yes
+		location = capital_province
+		war = war
+		name = us_army_troops
+		}
+	}
+	cost = {
+		gold = 200
+	}
+	ai_will_do = {
+		base = 10
+
+		ai_value_modifier = {
+			ai_ambitious = 10
+		}
+	}
+}
