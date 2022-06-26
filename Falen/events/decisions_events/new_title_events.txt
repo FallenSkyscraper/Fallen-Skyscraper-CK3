@@ -1,0 +1,52 @@
+new_title.0001 = { #by Fraternite
+	type = character_event
+	title = new_title.0001.t
+	desc = {
+		desc = new_title.0001.start.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					faith = { religion_tag = juche_religion }
+				}
+				desc = new_title.0001.juche.desc
+			}
+			triggered_desc = {
+				trigger = {
+					faith = { religion_tag = koreanism_religion }
+				}
+				desc = new_title.0001.koreanism.desc
+			}
+		}
+		desc = iberia_north_africa.0001.end.desc
+	}
+	theme = realm
+	left_portrait = {
+		character = scope:gangwon_former
+		animation = admiration
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_positive_effect"
+		add_prestige = medium_prestige_gain
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = new_gangwon
+			add_claim_on_loss = no
+		}
+		title:e_gangwon = {
+			change_title_holder = {
+				holder = root
+				change = scope:new_gangwon
+			}
+		}
+		title:k_cherwon = { set_de_jure_liege_title = title:e_gangwon }
+		title:k_yeongseo = { set_de_jure_liege_title = title:e_gangwon }
+		title:k_yeongdong = { set_de_jure_liege_title = title:e_gangwon }
+	resolve_title_and_vassal_change = scope:new_gangwon
+	hidden_effect = { set_primary_title_to = title:e_gangwon }
+	}
+
+	option = {
+		name = new_title.0001.a
+	}
+}
