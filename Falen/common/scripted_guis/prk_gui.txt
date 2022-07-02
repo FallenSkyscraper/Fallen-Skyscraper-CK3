@@ -80,7 +80,7 @@ prk_run_candidate = {
 	is_valid = {
 		root = {
 			NOT = { has_variable = candidate }
-			gold >= 100
+			gold >= 80
 			prestige >= 100
 			prestige_level >= 1
 			OR = {
@@ -152,3 +152,16 @@ voting = {
 		}
 	}
 }
+voting_absent = {
+	scope = character
+	effect = {
+		remove_variable = election_gui_toggle
+		remove_variable = voting_power
+		title:k_prk.holder = {
+			trigger_event = {
+				id = joson_election.3
+				days = 1
+			}
+		}
+	}
+} 

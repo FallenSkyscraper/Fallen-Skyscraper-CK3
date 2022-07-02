@@ -336,6 +336,22 @@ widget = {
 							}
 						
 					}
+					button_standard = {
+							name = "resign_candidate"
+							size = { 100 25 }
+							datacontext = "[GetScriptedGui('voting_absent')]"
+							onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							hbox = {
+								margin = { 20 0 }
+								margin_right = 10
+
+								text_single = {
+									layoutpolicy_horizontal = growing
+									text = "기권"
+									align = nobaseline
+								}
+							}
+						}
 				}
 			}
 	}

@@ -27,12 +27,12 @@ run_for_presidency_decision = {
 		prestige_level >= 1
 		NOT = {
 			any_living_character = {
-				count > 8
 				has_variable = candidate
+				count > 8
 			}
 		}
 	}
-	cost = { gold = 100 prestige = 100 }
+	cost = { gold = 60 prestige = 100 }
 	effect = {
 		set_variable = candidate
 	}
