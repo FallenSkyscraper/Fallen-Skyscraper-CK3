@@ -15,12 +15,12 @@ form_gangwon_decision = {
 	}
 
 	is_valid = {
-		culture = { has_cultural_pillar = heritage_gangwon }
+		culture = { has_cultural_pillar = heritage_gwandong }
 		is_independent_ruler = yes
 
 		highest_held_title_tier =< tier_kingdom
 
-		OR = {
+		AND = {
 			completely_controls = title:k_cherwon
 			completely_controls = title:k_yeongseo
 			completely_controls = title:k_yeongdong
