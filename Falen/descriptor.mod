@@ -1,4 +1,4 @@
-version="0.0.2"
+version="0.1"
 tags={
 	"Total Conversion"
 }
@@ -12,4 +12,5 @@ replace_path="history/provinces"
 replace_path="history/titles"
 replace_path="map_data"
 #picture="thumbnail.png"
-supported_version="1.6.0"
+supported_version="1.6.1.*"
+path="mod/Fallen-Skyscraper-CK3/Falen"
