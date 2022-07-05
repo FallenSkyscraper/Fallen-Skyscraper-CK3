@@ -618,7 +618,7 @@ great_holy_war.0010 = {
 		}
 		exists = religious_head
 		religious_head = { is_imprisoned = no }
-		num_county_followers >= 35 # Faith must have at least SOME legitimacy.
+		num_county_followers >= 20 # Faith must have at least SOME legitimacy.
 		OR = {
 			AND = { # Historical setup.
 				title:c_jerusalem.holder = {

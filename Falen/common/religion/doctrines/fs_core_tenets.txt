@@ -130,56 +130,56 @@ doctrine_core_tenets = {
 			sins = { lazy }
 		}
 	}
-	tenet_false_conversion_sanction = {
+	tenet_protracted_warfare = { # 지구전
 		icon = core_tenet_shadyfigure
-		name = {
-			first_valid = {
-				triggered_desc = {
-					trigger = {
-						religion_tag = communism_religion
-					}
-					desc = tenet_protracted_warfare_name #지구전
-				}
-				desc = tenet_false_conversion_sanction_name
-			}
-		}
-		desc = {
-			first_valid = {
-				triggered_desc = {
-					trigger = {
-						religion_tag = communism_religion
-					}
-					desc = tenet_protracted_warfare_desc
-				}
-				desc = tenet_false_conversion_sanction_desc
-			}
-		}
 		piety_cost = {
-			if = {
-				limit = {
-					OR = {
-						religion_tag = buddhism_religion
-					}
-				}
-				value = faith_tenet_cost_high
-			}
-			else = {
-				value = faith_tenet_cost_mid
-			}
+		
+			value = faith_tenet_cost_mid
 
 			# Multiplier for keeping same tenet
 			if = {
-				limit = { has_doctrine = tenet_false_conversion_sanction }
+				limit = { has_doctrine = tenet_protracted_warfare }
 				multiply = faith_unchanged_doctrine_cost_mult
 			}
 		}
 
 		is_shown = {
-			NOT = { religion_tag = christianity_religion }
+			religion_tag = communism_religion
 		}
 
 		parameters = {
-			sanctioned_false_conversion = yes
+			
+			great_holy_wars_active = yes
+		}
+	}
+	tenet_world_revolution = { # 세계혁명
+		icon = core_tenet_revolution
+		piety_cost = {
+		
+			if = {
+				limit = {
+					religion_tag = communism_religion
+				}
+				value = faith_tenet_cost_low
+			}
+			else= {
+				value = faith_tenet_cost_high
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_protracted_warfare }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		is_shown = {
+			religion_tag = communism_religion
+		}
+
+		parameters = {
+			great_holy_wars_active = yes
+			clergy_can_fight = yes
 		}
 	}
 	tenet_mystical_birthright = {
@@ -2310,6 +2310,7 @@ doctrine_core_tenets = {
 				religion_tag = protestant_religion
 				religion_tag = imperial_religion
 				religion_tag = islam_religion
+				religion_tag = communism_religion
 			}
 		}
 

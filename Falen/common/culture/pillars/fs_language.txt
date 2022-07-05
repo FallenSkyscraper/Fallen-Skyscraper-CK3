@@ -603,25 +603,7 @@ language_vietnamese = {
 	ai_will_do = {
 		value = 10
 		if = {
-			limit = { has_cultural_pillar = language_veitnamese }
-			multiply = 10
-		}
-	}
-	
-	color = russian
-}
-
-language_west_japanese = {
-	type = language
-	is_shown = {
-		language_is_shown_trigger = {
-			LANGUAGE = language_west_japanese
-		}
-	}
-	ai_will_do = {
-		value = 10
-		if = {
-			limit = { has_cultural_pillar = language_west_japanese }
+			limit = { has_cultural_pillar = language_vietnamese }
 			multiply = 10
 		}
 	}
