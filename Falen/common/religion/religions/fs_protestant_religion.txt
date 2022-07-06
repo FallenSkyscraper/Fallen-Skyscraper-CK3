@@ -218,7 +218,7 @@
 	piety_icon_group = "christian" #수정바람
 
 	faiths = {
-		protestant = {
+		anglicanism = { #성공회
 			icon = protestant
 			
 			color = { 153 217 234 }
@@ -236,15 +236,82 @@
 			doctrine = tenet_communion
 			doctrine = tenet_protestantism
 			doctrine = tenet_aniconism
+		}
+		methodism = { #감리회
+			icon = protestant
+			
+			color = { 153 217 234 }
+			religious_head = d_protestant_assembly #개신교총회
+			graphical_faith = "catholic_gfx" # 수정바람
+			
+			#나중에 성지 따로 작업할때 수정바람 각각 서대문, 안동, 신안, 여수, 인천
+			holy_site = iksan_default
+			holy_site = jeonju_default
+			holy_site = incheon_default
+			holy_site = pyongyang_default
+			holy_site = jongno_default
 
-			holy_order_names = { # 추후 수정바람
-				{ name = "holy_order_knights_templar" coat_of_arms = "ho_knights_templar" }
-				{ name = "holy_order_knights_hospitaller" coat_of_arms = "ho_knights_hospitaller"  }
-				{ name = "holy_order_teutonic_order" coat_of_arms = "ho_teutonic_order"  }
-				{ name = "holy_order_order_of_calatrava" coat_of_arms = "ho_order_of_calatrava"  }
-				{ name = "holy_order_order_of_alcantara" coat_of_arms = "ho_order_of_alcantara"  }
-				{ name = "holy_order_knights_of_santiago" coat_of_arms = "ho_knights_of_santiago"  }
-			}
+			#Tenets
+			doctrine = tenet_communion
+			doctrine = tenet_protestantism
+			doctrine = tenet_aniconism
+		}
+		presbyterianism = { #장로회
+			icon = protestant
+			
+			color = { 153 217 234 }
+			religious_head = d_protestant_assembly #개신교총회
+			graphical_faith = "catholic_gfx" # 수정바람
+			
+			#나중에 성지 따로 작업할때 수정바람 각각 서대문, 안동, 신안, 여수, 인천
+			holy_site = iksan_default
+			holy_site = jeonju_default
+			holy_site = incheon_default
+			holy_site = pyongyang_default
+			holy_site = jongno_default
+
+			#Tenets
+			doctrine = tenet_communion
+			doctrine = tenet_protestantism
+			doctrine = tenet_aniconism
+		}
+		baptists = { #침례회
+			icon = protestant
+			
+			color = { 153 217 234 }
+			religious_head = d_protestant_assembly #개신교총회
+			graphical_faith = "catholic_gfx" # 수정바람
+			
+			#나중에 성지 따로 작업할때 수정바람 각각 서대문, 안동, 신안, 여수, 인천
+			holy_site = iksan_default
+			holy_site = jeonju_default
+			holy_site = incheon_default
+			holy_site = pyongyang_default
+			holy_site = jongno_default
+
+			#Tenets
+			doctrine = tenet_communion
+			doctrine = tenet_protestantism
+			doctrine = tenet_aniconism
+		}
+		lutheran = { #루터교회
+			icon = protestant
+			
+			color = { 153 217 234 }
+			religious_head = d_protestant_assembly #개신교총회
+			graphical_faith = "catholic_gfx" # 수정바람
+			
+			#나중에 성지 따로 작업할때 수정바람 각각 서대문, 안동, 신안, 여수, 인천
+			holy_site = iksan_default
+			holy_site = jeonju_default
+			holy_site = incheon_default
+			holy_site = pyongyang_default
+			holy_site = jongno_default
+
+			#Tenets
+			doctrine = tenet_communion
+			doctrine = tenet_protestantism
+			doctrine = tenet_aniconism
 		}
 	}
 }
