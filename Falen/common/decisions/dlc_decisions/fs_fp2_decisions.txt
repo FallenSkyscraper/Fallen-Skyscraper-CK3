@@ -20,7 +20,7 @@ struggle_juche_ending_hostility_decision = {
 			any_character_struggle = {
 				involvement = involved
 				is_struggle_type = juche_struggle
-				is_struggle_phase = struggle_iberia_phase_hostility
+				is_struggle_phase = struggle_juche_phase_hostility
 			}
 		}
 
@@ -61,7 +61,7 @@ struggle_juche_ending_hostility_decision = {
 		custom_tooltip = {
 			text = struggle_juche_ending_hostility_decision_region_tt
 			NOT = {
-				struggle:iberian_struggle = {
+				struggle:juche_struggle = {
 					any_involved_ruler = {
 						NOT = { this = root }
 						is_independent_ruler = yes
@@ -166,7 +166,7 @@ struggle_juche_ending_compromise_decision = {
 			any_character_struggle = {
 				involvement = involved
 				is_struggle_type = juche_struggle
-				is_struggle_phase = struggle_iberia_phase_compromise
+				is_struggle_phase = struggle_juche_phase_compromise
 			}
 		}
 		OR = {
@@ -278,7 +278,7 @@ struggle_juche_ending_compromise_decision = {
 		# Independent/Split De Jure Duchies will become De Jure Kingdoms
 		if = {
 			limit = {
-				title:e_spain = {
+				title:e_north_korea = {
 					any_in_de_jure_hierarchy = { fp2_struggle_ending_compromise_independent_duchy_trigger = yes }
 				}
 			}
@@ -344,8 +344,8 @@ struggle_juche_ending_conciliation_decision = {
 			text = struggle_juche_ending_conciliation_decision_correct_phase_tt
 			any_character_struggle = {
 				involvement = involved
-				is_struggle_type = iberian_struggle
-				is_struggle_phase = struggle_iberia_phase_conciliation
+				is_struggle_type = juche_struggle
+				is_struggle_phase = struggle_juche_phase_conciliation
 			}
 		}
 
