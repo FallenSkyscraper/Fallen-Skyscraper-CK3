@@ -4,7 +4,7 @@
  game_concept_struggle_desc:2 "$game_concept_struggle_struggles$은 수많은 [faiths|E]과 [cultures|E]가 혼재하는 대형 [struggle_region_regions|E]에서 발생하는 장기적인 갈등을 일컫는 말입니다. $game_concept_struggle$이 벌어지는 국경 내에서는 지속적으로 변화하는 특수 규칙과 [modifiers|E]가 적용됩니다. 짧게는 수십 년에서, 길게는 수백 년까지 유지되는 투쟁의 특성상 $game_concept_struggle$ 내 모든 [characters|E]이 항상 [war|E]을 벌이진 않습니다.\n\n각 $game_concept_struggle$은 여러 [struggle_phase_phases|E]으로 구성됩니다. [struggle_region|E] 내 $game_concept_characters$의 행동(예: $game_concept_war$ 선언 또는 [marrying|E])에 따라 $game_concept_struggle_phase_phases$을 진행시키는 [struggle_catalyst_catalysts|E]가 활성화되곤 합니다.\n\n분쟁 지역에 [land|E]를 보유한 $game_concept_characters$은 $game_concept_struggle$에 얼마나 관여하고 있는지 그 정도에 따라 [struggle_involved|E], [struggle_interloper_interlopers|E], 또는 [struggle_uninvolved|E] 상태로 간주됩니다. 이때 관여 정도는 해당 인물을 향한 다른 분쟁 참여자들의 관점에 따라 결정됩니다."
 
  game_concept_juche_struggle:1 "조국통일전쟁"
- game_concept_juche_struggle_desc:2 "$game_concept_iberian_struggle$은 수백년만에 일어난 북한 지역의 대투쟁을 다루고 있습니다. 북조선 [struggle|E]은 증오가 만연하는 폭력, 조심스러운 휴전, 실리적인 협력에 이르는 여러 [struggle_phase_phases|E]을 오갔습니다. 이러한 밝아오는 새로운 나날에는 영원한 동맹은 찾아보기 어렵습니다. 그렇기에 [rulers|E]는 순전히 [faith|E]이나 [culture|E]가 같다고 해서 의존하지 않도록 조심해야 합니다."
+ game_concept_juche_struggle_desc:2 "$game_concept_juche_struggle$은 수백년만에 일어난 북한 지역의 대투쟁을 다루고 있습니다. 북조선 [struggle|E]은 증오가 만연하는 폭력, 조심스러운 휴전, 실리적인 협력에 이르는 여러 [struggle_phase_phases|E]을 오갔습니다. 이러한 밝아오는 새로운 나날에는 영원한 동맹은 찾아보기 어렵습니다. 그렇기에 [rulers|E]는 순전히 [faith|E]이나 [culture|E]가 같다고 해서 의존하지 않도록 조심해야 합니다."
  game_concept_struggle_phase:1 "투쟁 국면"
  game_concept_struggle_phase_phase:1 "투쟁 국면"
  game_concept_struggle_phase_phases:0 "투쟁 국면"
@@ -13,7 +13,7 @@
  game_concept_struggle_catalyst:1 "투쟁 촉매"
  game_concept_struggle_catalyst_catalyst:1 "촉매"
  game_concept_struggle_catalyst_catalysts:0 "촉매"
- game_concept_struggle_catalyst_desc:2 "특정한 행동이 이루어져 [struggle_region|E]의 여론이 특정한 분위기로 기울면 [struggle_struggles|E]의 [struggle_phase_phases|E]이 전환됩니다. $game_concept_struggle$ 창에서 어떤 행동이 어느 $game_concept_struggle_phase_phase$에서 중요한 작용을 하는지 일목요연하게 확인하실 수 있습니다.\n\n#weak 예시: [juche_struggle|E]의 [struggle_phase_iberia_opportunity|E]은 [struggle_phase_iberia_hostility|E] 또는 [struggle_phase_iberia_conciliation|E]으로 진행될 수 있습니다. 중요한 [character|E]을 살해할 경우 전자로, [faith|E]이 다른 인물과 [marriage|E] [alliance|E]을 맺는다면 후자로 진행될 가능성이 큽니다."
+ game_concept_struggle_catalyst_desc:2 "특정한 행동이 이루어져 [struggle_region|E]의 여론이 특정한 분위기로 기울면 [struggle_struggles|E]의 [struggle_phase_phases|E]이 전환됩니다. $game_concept_struggle$ 창에서 어떤 행동이 어느 $game_concept_struggle_phase_phase$에서 중요한 작용을 하는지 일목요연하게 확인하실 수 있습니다.\n\n#weak 예시: [juche_struggle|E]의 [struggle_phase_juche_opportunity|E]은 [struggle_phase_juche_hostility|E] 또는 [struggle_phase_juche_conciliation|E]으로 진행될 수 있습니다. 중요한 [character|E]을 살해할 경우 전자로, [faith|E]이 다른 인물과 [marriage|E] [alliance|E]을 맺는다면 후자로 진행될 가능성이 큽니다."
 
  game_concept_struggle_involved:1 "연루"
  game_concept_struggle_involved_desc:1 "어느 한 [character|E]이나 [Concept( 'counties', '영지' )|E]가 $game_concept_struggle_involved$ 상태가 될 경우, 이는 해당 대상이 특정 [struggle_region|E] 주민들 사이에서 [struggle|E]의 필수적이고 자연적인 일부로 여겨지고 있음을 뜻합니다. 연루 상태가 된 대상은 [struggle_phase_phases|E]의 유동적인 혜택을 온전히 받으며 [struggle_catalyst_catalysts|E]의 주요 촉발자가 됩니다.\n\n$game_concept_struggle_involved$ 상태로 간주되는 [cultures|E]와 [faiths|E]은 $game_concept_struggle_region_region$에서 강한 영향력을 행사하고 있거나, 행사했음을 나타냅니다.\n\n#weak $game_concept_character$이 $game_concept_struggle_involved$ 상태가 되려면 $game_concept_culture$와 $game_concept_faith$ 둘 다 $game_concept_struggle_involved$되어 있어야 하고, #EMP 추가로#! $game_concept_struggle_region$ 내에서 [unlanded|E]이거나 해당 지역에 [capital|E]를 보유하고 있어야 합니다.#!"
@@ -38,17 +38,17 @@
  game_concept_struggle_conquest_conquests:0 "충돌"
  game_concept_struggle_conquest_desc:2 "[struggle|E]에 연루된 [rulers|E]가 현재 [struggle_phase|E]의 변화에 따라 국경 분쟁이나 사소한 다툼에 휘말리는 것은 지극히 흔한 일입니다. 소소한 지역 분쟁이 손쉽게 일어나는 덕택에 $game_concept_rulers$는 작은 규모로 토지를 수탈 또는 정복하거나, 목표를 봉신화할 수 있습니다.\n\n$game_concept_struggle_conquest_conquests$은 $game_concept_struggle$의 여건에 따라 달라지므로, [prestige|E] 비용은 현재 $game_concept_struggle_phase$에 비례하여 산정됩니다."
 
- game_concept_struggle_phase_iberia_opportunity:1 "기회 국면"
- game_concept_struggle_phase_iberia_opportunity_desc:2 "[struggle_phase_iberia_conciliation|E]의 비교적 평화로운 공존이 오랜 시간 이어지다 보면 어느 순간 지금의 상황에 만족하는 시기가 옵니다. 농노와 귀족 모두 그럭저럭 #EMP 괜찮은#! 물정에 편안함을 느껴, 셈이 빠른 [characters|E]이 사람들의 순진함을 파고들 틈이 생깁니다.\n\n민중의 틈을 노린 오남용은 결국 [struggle_phase_iberia_hostility|E]으로의 확대를 초래하거나, 수완 좋은 정치 공작 끝에 [struggle_phase_iberia_conciliation|E]을 통한 불편한 균형 상태에 도달하게 됩니다."
+ game_concept_struggle_phase_juche_opportunity:1 "기회 국면"
+ game_concept_struggle_phase_juche_opportunity_desc:2 "[struggle_phase_juche_conciliation|E]의 비교적 평화로운 공존이 오랜 시간 이어지다 보면 어느 순간 지금의 상황에 만족하는 시기가 옵니다. 농노와 귀족 모두 그럭저럭 #EMP 괜찮은#! 물정에 편안함을 느껴, 셈이 빠른 [characters|E]이 사람들의 순진함을 파고들 틈이 생깁니다.\n\n민중의 틈을 노린 오남용은 결국 [struggle_phase_juche_hostility|E]으로의 확대를 초래하거나, 수완 좋은 정치 공작 끝에 [struggle_phase_juche_conciliation|E]을 통한 불편한 균형 상태에 도달하게 됩니다."
 
- game_concept_struggle_phase_iberia_hostility:1 "적대 국면"
- game_concept_struggle_phase_iberia_hostility_desc:2 "이 $game_concept_struggle_phase_phase$에서는 긴장감이 고조되고 갈등이 격화됩니다. [struggle_phase_iberia_opportunity|E]에 악의 어린 행동과 극심한 오해가 반복되면서 [cultures|E]나 [faiths|E], #EMP 한발 더 나아가#! 두 가지 모두가 다른 [characters|E]에 대한 증오가 하늘을 찌르게 된 상황입니다.\n\n그러나 피비린내가 진동하는 유혈극이 언제까지고 계속되진 않습니다. 결국 사람들이 냉정을 되찾거나 단순히 지쳐버리면서 반도는 [struggle_phase_iberia_compromise|E]에 이르게 됩니다."
+ game_concept_struggle_phase_juche_hostility:1 "적대 국면"
+ game_concept_struggle_phase_juche_hostility_desc:2 "이 $game_concept_struggle_phase_phase$에서는 긴장감이 고조되고 갈등이 격화됩니다. [struggle_phase_juche_opportunity|E]에 악의 어린 행동과 극심한 오해가 반복되면서 [cultures|E]나 [faiths|E], #EMP 한발 더 나아가#! 두 가지 모두가 다른 [characters|E]에 대한 증오가 하늘을 찌르게 된 상황입니다.\n\n그러나 피비린내가 진동하는 유혈극이 언제까지고 계속되진 않습니다. 결국 사람들이 냉정을 되찾거나 단순히 지쳐버리면서 반도는 [struggle_phase_juche_compromise|E]에 이르게 됩니다."
 
- game_concept_struggle_phase_iberia_compromise:1 "타협 국면"
- game_concept_struggle_phase_iberia_compromise_desc:2 "[struggle_phase_iberia_hostility|E]으로 인한 갈등이든 [struggle_phase_iberia_conciliation|E] 도중 급격하게 고조된 상황이든, 결국 사람들은 지칠 대로 지치게 됩니다. $game_concept_struggle_phase_iberia_compromise$은 이베리아 주민 간의 포용력이 점점 상승하고 있음을 나타냅니다. 차이점은 잠시 옆으로 밀어놓고 역사와 명맥을 공유함을 인지하여, 한때 적이었던 이들이 결속을 다지는 셈입니다.\n\n이 시점에서 반도는 기로에 서게 됩니다. 다시 분쟁이 발생할 경우, [struggle_phase_iberia_opportunity|E]으로 이어집니다."
+ game_concept_struggle_phase_juche_compromise:1 "타협 국면"
+ game_concept_struggle_phase_juche_compromise_desc:2 "[struggle_phase_juche_hostility|E]으로 인한 갈등이든 [struggle_phase_juche_conciliation|E] 도중 급격하게 고조된 상황이든, 결국 사람들은 지칠 대로 지치게 됩니다. $game_concept_struggle_phase_juche_compromise$은 이베리아 주민 간의 포용력이 점점 상승하고 있음을 나타냅니다. 차이점은 잠시 옆으로 밀어놓고 역사와 명맥을 공유함을 인지하여, 한때 적이었던 이들이 결속을 다지는 셈입니다.\n\n이 시점에서 반도는 기로에 서게 됩니다. 다시 분쟁이 발생할 경우, [struggle_phase_iberia_opportunity|E]으로 이어집니다."
 
- game_concept_struggle_phase_iberia_conciliation:1 "회유 국면"
- game_concept_struggle_phase_iberia_conciliation_desc:1 "이 $game_concept_struggle_phase_phase$은 [struggle_phase_iberia_compromise|E]이 잘 풀렸을 때 발생합니다. 이베리아 주민들 간의 관계가 극한의 화합을 이루게 되어 외부인들이 이런 관대함을 분석하는 데 어려움을 겪을 정도가 되죠. [faith|E]이 다른 사람들끼리 [Concept( 'marriages', '혼인' )|E]하는 경우도 빈번합니다.\n\n하지만 이 국면이 영원히 지속되진 않습니다. 신뢰의 오남용은 결국 [iberian_struggle|E]을 [struggle_phase_iberia_compromise|E]으로 돌려놓게 됩니다."
+ game_concept_struggle_phase_juche_conciliation:1 "회유 국면"
+ game_concept_struggle_phase_juche_conciliation_desc:1 "이 $game_concept_struggle_phase_phase$은 [struggle_phase_juche_compromise|E]이 잘 풀렸을 때 발생합니다. 이베리아 주민들 간의 관계가 극한의 화합을 이루게 되어 외부인들이 이런 관대함을 분석하는 데 어려움을 겪을 정도가 되죠. [faith|E]이 다른 사람들끼리 [Concept( 'marriages', '혼인' )|E]하는 경우도 빈번합니다.\n\n하지만 이 국면이 영원히 지속되진 않습니다. 신뢰의 오남용은 결국 [iberian_struggle|E]을 [struggle_phase_iberia_compromise|E]으로 돌려놓게 됩니다."
 
  game_concept_struggle_involved_faith:0 "연루 신앙"
  game_concept_struggle_involved_faiths:0 "연루 신앙"
