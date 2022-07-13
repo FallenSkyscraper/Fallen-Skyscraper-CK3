@@ -19,7 +19,7 @@ fp2_character_involved_in_struggle_trigger = {
 	has_fp2_dlc_trigger = yes
 	any_character_struggle = {
 		involvement = involved
-		is_struggle_type = iberian_struggle
+		is_struggle_type = juche_struggle
 	}
 }
 
@@ -27,13 +27,13 @@ fp2_character_interloper_in_struggle_trigger = {
 	has_fp2_dlc_trigger = yes
 	any_character_struggle = {
 		involvement = interloper
-		is_struggle_type = iberian_struggle
+		is_struggle_type = juche_struggle
 	}
 }
 
 fp2_character_uninvolved_in_struggle_trigger = {
 	has_fp2_dlc_trigger = yes
-	exists = struggle:iberian_struggle
+	exists = struggle:juche_struggle
 	fp2_character_interloper_in_struggle_trigger = no
 	fp2_character_involved_in_struggle_trigger = no
 }
@@ -531,12 +531,12 @@ fp2_struggle_secure_iberian_foothold_outsider_kingdom_trigger = {
 }
 
 fp2_struggle_iberian_reclamation_should_vassalize_trigger = {
-	any_character_struggle = { is_struggle_type = iberian_struggle }
+	any_character_struggle = { is_struggle_type = juche_struggle }
 	any_held_title = { tier < scope:attacker.primary_title.tier }
 	any_realm_county = {
 		count = all
 		duchy = { is_in_list = target_titles }
-		any_county_struggle = { is_struggle_type = iberian_struggle }
+		any_county_struggle = { is_struggle_type = juche_struggle }
 	}
 }
 
@@ -549,33 +549,33 @@ fp2_iberian_reclamation_vassalize_iberian_trigger = {
 	holder = {
 		any_character_struggle = {
 			involvement = involved
-			is_struggle_type = iberian_struggle
+			is_struggle_type = juche_struggle
 		}
 		liege = scope:defender
 		NOT = { this = scope:defender }
 		capital_county = {
-			any_county_struggle = { is_struggle_type = iberian_struggle }
+			any_county_struggle = { is_struggle_type = juche_struggle }
 		}
 	}
 }
 
 fp2_iberian_reclamation_involved_county_trigger = {
 	any_realm_county = {
-		any_county_struggle = { is_struggle_type = iberian_struggle }
+		any_county_struggle = { is_struggle_type = juche_struggle }
 	}
 }
 
 fp2_iberian_reclamation_vassalize_vassal_trigger = {
 	primary_title.tier >= tier_county
 	primary_title.tier < scope:attacker.primary_title.tier
-	any_character_struggle = { is_struggle_type = iberian_struggle }
+	any_character_struggle = { is_struggle_type = juche_struggle }
 	capital_county = {
 		duchy = { is_in_list = target_titles }
 	}
 	any_sub_realm_county = {
 		count = all
 		duchy = { is_in_list = target_titles }
-		any_county_struggle = { is_struggle_type = iberian_struggle }
+		any_county_struggle = { is_struggle_type = juche_struggle }
 	}
 }
 
