@@ -24,58 +24,36 @@ form_gangwon_decision = {
 		completely_controls = title:k_yeongseo
 		completely_controls = title:k_yeongdong
 	}
+	
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+	}
+
 
 	effect = {
-		save_scope_as = gangwon_former
-
-		show_as_tooltip = { form_gangwon_decision_effects = yes }
-
-		#Events
-		trigger_event = new_title.0001
-		every_player = {
-			limit = {
-				NOT = { this = scope:gangwon_former }
-				is_within_diplo_range = { CHARACTER = scope:gangwon_former }
+		trigger_event = {
+			id = new_title_gw.0001
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_gangwon_decision
 			}
-			trigger_event = new_title.0002
-		}
-		every_vassal_or_below = {
-			limit = {
-				is_ai = yes
-				exists = capital_province
-				capital_province = {
-					county = {
-						any_this_title_or_de_jure_above = {
-							OR = {
-								this = title:k_cherwon
-								this = title:k_yeongseo
-								this = title:k_yeongdong
-							}
-						}
-					}
-				}
+			set_global_variable = {
+				name = form_gangwon_decision
+				value = root
 			}
-			trigger_event = new_title.0002 #So they can convert
-		}
-
-		#Can only happen once
-		add_to_global_variable_list = {
-			name = unavailable_unique_decisions
-			target = flag:form_gangwon_decision
-		}
-		set_global_variable = {
-			name = form_gangwon_decision
-			value = scope:gangwon_former
 		}
 	}
 
-	cost = { gold = { value = 300 } }
-
+	cost = { gold = 300 }
+	
 	ai_potential = {
-		# Only for the AI if independent ruler
-		is_independent_ruler = yes
+		always = yes
 	}
-
+	
 	ai_will_do = {
 		base = 100
 	}
