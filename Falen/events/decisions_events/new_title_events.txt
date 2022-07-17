@@ -71,6 +71,66 @@ new_title.sl.0001 = {
 		add_prestige = major_prestige_gain
 	}
 	option = {
-		name = new_title.gw.0001.a
+		name = new_title.sl.0001.a
+		}
+}
+
+new_title.mc.0001 = {
+	type = character_event
+	title = new_title.mc.0001.t
+	desc = new_title.mc.0001.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_ruler
+		title:e_manchu = { save_scope_as = manchu }
+		title:k_jianzhou = { set_de_jure_liege_title = title:e_manchu }
+		title:k_haixi = { set_de_jure_liege_title = title:e_manchu }
+		if = {
+			limit = { completely_controls = title:k_shen }
+			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+		}
+		if = {
+			limit = { completely_controls = title:k_gorlos }
+			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+		}
+		if = {
+			limit = { completely_controls = title:k_liaoxi }
+			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+		}
+		if = {
+			limit = { completely_controls = title:k_liaoyang }
+			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+		}
+		if = {
+			limit = { completely_controls = title:k_liaodong }
+			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+		}
+		if = {
+			limit = { completely_controls = title:k_yanbian }
+			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:e_gangwon = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		hidden_effect = { set_primary_title_to = title:e_manchu }
+		add_prestige = major_prestige_gain
+	}
+	option = {
+		name = new_title.mc.0001.a
 		}
 }
