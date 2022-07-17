@@ -58,3 +58,68 @@ form_gangwon_decision = {
 		base = 100
 	}
 }
+
+form_silla_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_check_interval = 60
+	desc = form_gangwon_decision_desc
+
+	is_shown = {
+		culture = { has_cultural_pillar = heritage_yeongnam }
+		faith = { religion_tag = buddhism_religion }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_silla_decision
+			}
+		}
+	}
+
+	is_valid = {
+		culture = { has_cultural_pillar = heritage_gwandong }
+		is_independent_ruler = yes
+
+		highest_held_title_tier = tier_kingdom
+		
+		completely_controls = title:k_gyeongju
+		completely_controls = title:k_pohang
+		completely_controls = title:k_busan
+		completely_controls = title:k_sangju
+		completely_controls = title:k_andong
+		completely_controls = title:k_daegu
+	}
+	
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+	}
+
+
+	effect = {
+		trigger_event = {
+			id = new_title.sl.0001
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_silla_decision
+			}
+			set_global_variable = {
+				name = form_silla_decision
+				value = root
+			}
+		}
+	}
+
+	cost = { gold = 300 }
+	
+	ai_potential = {
+		always = yes
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}
