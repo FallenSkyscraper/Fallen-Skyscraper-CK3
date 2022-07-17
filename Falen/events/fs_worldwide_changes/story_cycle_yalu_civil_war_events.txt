@@ -1,19 +1,17 @@
 namespace = yalu_civil_war
 
 
-yalu_civil_war.0001 = { # 쿠릴타이 초대장
+yalu_civil_war.1 = { # 죽음이 임박한 대칸
 	type = character_event
+	title = yalu_civil_war.1.t
+	desc = yalu_civil_war.1.desc
 	theme = death
-	title = yalu_civil_war.0001.t
-	desc = yalu_civil_war.0001.desc
-
 	trigger = {
-		AND = {
-			NOT = { is_alive = character:9008 }
-			OR = {
-				is_child_of = character:9008
-				is_vassal_of = character:9008
-			}
+		year = 2445
+		NOT = { year = 2446 }
+		OR = {
+			is_child_of = character:9008
+			is_vassal_of = character:9008
 		}
 	}
 	override_background = {
@@ -28,21 +26,27 @@ yalu_civil_war.0001 = { # 쿠릴타이 초대장
 		character = character:9008
 		animation = sick
 	}
-
-	option = { #쿠릴타이로!
-		name = yalu_civil_war.0001.a
-		add_character_flag = quriltai
+	immediate = {
+		character:9008 = { add_trait = cancer add_trait = consumption } # he will die
+	}
+	option = {
+		name = yalu_civil_war.1.a # 모든 봉신들을 불러모으다.
+		trigger_event = {
+			id = yalu_civil_war.2
+			delay = { days = 3 }
+		}
 	}
 }
 
-yalu_civil_war.0002 = { #쿠릴타이의 개최
+
+yalu_civil_war.2 = { # 쿠릴타이의 개최
 	type = character_event
 	theme = feast_activity
-	title = yalu_civil_war.0002.t
-	desc = yalu_civil_war.0002.desc
-	trigger = {
-		has_character_flag = quriltai
-	}
+	title = yalu_civil_war.2.t
+	desc = yalu_civil_war.2.desc
+	#trigger = {
+	#	
+	#}
 
 	override_background = {
 		event_background = throne_room_tribal
@@ -60,36 +64,39 @@ yalu_civil_war.0002 = { #쿠릴타이의 개최
 	lower_right_portrait = {
 		character = character:9014
 	}
-
+	
 	option = {
-		name = yalu_civil_war.0002.a
+		name = yalu_civil_war.2.a
 		trigger_event = {
-			id = yalu_civil_war.0003
-			delay = { days = { 1 1 } }
+			id = yalu_civil_war.3
+			delay = { days = 2 }
 		}
 	}
 }
-
-yalu_civil_war.0003 = { #쿠릴타이의 파행
+yalu_civil_war.3 = {
 	type = character_event
 	theme = war
-	title = yalu_civil_war.0003.t
+	title = yalu_civil_war.3.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					root = character:9012
 				}
-				desc = yalu_civil_war.0003.alt.desc
+				desc = yalu_civil_war.3.desc.a
 			}
-			desc = yalu_civil_war.0003.desc
+			triggered_desc = {
+				trigger = {
+					OR = {
+						root = character:9013
+						root = character:9014
+					}
+				}
+				desc = yalu_civil_war.3.desc.b
+			}
+			desc = yalu_civil_war.3.desc
 		}
 	}
-
-	trigger = {
-		has_character_flag = quriltai
-	}
-
 	background_override = {
 		event_background = throne_room_tribal
 	}
@@ -108,183 +115,7 @@ yalu_civil_war.0003 = { #쿠릴타이의 파행
 		character = character:9014
 	}
 
-	immediate = {
-		if = {
-			limit = {
-				NOT = { has_title = { 
-					target = character:9012
-				 	title = title:e_yalu } 
-				}
-			}
-			change_title_holder_include_vassals = {
-				holder = character:9012
-				change = title:e_yalu
-			}
-		}
-	}
-
-	option = { #정형기를 따른다
-		name = yalu_civil_war.0003.a
-		trigger = {
-			opinion = { target = character:9012 >= 50 }
-			NOR = {
-				root = character:9012
-				root = character:9013
-				root = character:9014
-				is_vassal_or_below_of = character:9013
-				is_vassal_or_below_of = character:9014
-			}
-		}
-		ai_chance = {
-			base = 1
-			modifier = {
-				factor = 10
-				opinion = { target = character:9011 >= 75 }
-			}
-			modifier = {
-				factor = 0.01
-				highest_held_title_tier = tier_kingdom
-			}
-		}
-	}
-	option = { #정상기를 따른다
-		name = yalu_civil_war.0003.b
-		trigger = {
-			opinion = { target = character:9013 >=50 }
-			NOR = {
-				root = character:9012
-				root = character:9013
-				root = character:9014
-				is_vassal_or_below_of = character:9012
-				is_vassal_or_below_of = character:9013
-				is_vassal_or_below_of = character:9014
-			}
-		}
-		
-		ai_chance = {
-			base = 1
-			modifier = {
-				factor = 10
-				opinion = { target = character:9013 >= 75 }
-			}
-			modifier = {
-				factor = 0.01
-				highest_held_title_tier = tier_kingdom
-			}
-		}
-	}
-	option = { #정만기를 따른다
-		name = yalu_civil_war.0003.c
-		trigger = {
-			opinion = { target = character:9014 >=50 }
-			NOR = {
-				root = character:9012
-				root = character:9013
-				root = character:9014
-				is_vassal_or_below_of = character:9012
-				is_vassal_or_below_of = character:9013
-				is_vassal_or_below_of = character:9014
-			}
-		}
-		
-		ai_chance = {
-			base = 0
-			modifier = {
-				factor = 10
-				opinion = { target = character:9014 >= 75 }
-			}
-			modifier = {
-				factor = 0.01
-				highest_held_title_tier = tier_kingdom
-			}
-		}
-	}
-	option = { #관망한다
-		name = yalu_civil_war.0003.d
-		trigger = {
-			NOR = {
-				root = character:9012
-				root = character:9013
-				root = character:9014
-				is_vassal_or_below_of = character:9012
-				is_vassal_or_below_of = character:9013
-				is_vassal_or_below_of = character:9014
-			}
-		}
-		
-		add_character_flag = neutral_watchers
-		ai_chance = {
-			base = 100
-		}
-	}
-	option = { #정형기
-		name = yalu_civil_war.0003.e
-		trigger = {
-			root = character:9012
-		}
-		trigger_event = {
-			id = unhappy_jianzhou.0001
-			days = { 15 365 }
-		}
-	}
-	option = { #정상기 & 정민기
-		name = yalu_civil_war.0003.f
-		trigger = {
-			OR = {
-				root = character:9013
-				root = character:9014
-			}
-		}
-	}
-}
-
-unhappy_jianzhou.0001 = {
-	type = character_events
-	theme = unfriendly
-	title = unhappy_jianzhou.0001.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					root = character:9012
-				}
-				desc = unhappy_jianzhou.0001.alt.desc
-			}
-			desc = unhappy_jianzhou.0001.desc
-		}
-	}
-
-	if = {
-		limit = {
-			root = character:9012
-		}
-		left_portrait = {
-			character = root
-		}
-	}
-	else = {
-		left_portrait = {
-			character = character:9012
-		}
-		right_portrait = {
-			character = root
-		}
-	}
-	option = { #정형기가 건주를 풀어줌
-		name = unhappy_jianzhou.0001.a
-		limit = {
-			root= character:9012
-		}
-		change_liege = {
-		}
-	}
-	option = { #정형기가 건주를 풀어주지 않음
-		limit = {
-			root= character:9012
-		}
-		name = unhappy_jianzhou.0001.b
-	}
-	option = { #건주의 관점
-		name = unhappy_jianzhou.0001.c
+	option = {
+		name = yalu_civil_war.3.a
 	}
 }

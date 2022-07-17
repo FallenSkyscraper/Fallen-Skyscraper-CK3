@@ -5,7 +5,7 @@ form_gangwon_decision = {
 	desc = form_gangwon_decision_desc
 
 	is_shown = {
-		culture = { has_cultural_pillar = heritage_gangwon }
+		culture = { has_cultural_pillar = heritage_gwandong }
 		NOT = {
 			is_target_in_global_variable_list = {
 				name = unavailable_unique_decisions
@@ -63,7 +63,7 @@ form_silla_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	major = yes
 	ai_check_interval = 60
-	desc = form_gangwon_decision_desc
+	desc = form_silla_decision_desc
 
 	is_shown = {
 		culture = { has_cultural_pillar = heritage_yeongnam }
@@ -128,19 +128,21 @@ form_manchu_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	major = yes
 	ai_check_interval = 60
-	desc = form_gangwon_decision_desc
+	desc = form_manchu_decision_desc
 
 	is_shown = {
-		OR = {
-			culture = { has_cultural_pillar = heritage_haixi }
-			culture = { has_cultural_pillar = heritage_jianzhou }
-			culture = { has_cultural_pillar = heritage_mongol }
-			culture = { has_cultural_pillar = heritage_manchu }
+		culture = {
+			OR = {
+				has_cultural_pillar = heritage_haixi
+				has_cultural_pillar = heritage_jianzhou
+				has_cultural_pillar = heritage_mongol
+				has_cultural_pillar = heritage_manchu
+			}
 		}
 		faith = {
 			OR = {
-				faith = { religion_tag = buddhism_religion }
-				faith = { religion_tag = manchurian_religion }
+				religion_tag = buddhism_religion
+				religion_tag = manchurian_religion
 			}
 		}
 		NOT = {

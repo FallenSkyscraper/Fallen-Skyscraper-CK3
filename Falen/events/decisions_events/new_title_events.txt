@@ -11,7 +11,7 @@ new_title.gw.0001 = {
 	immediate = {
 		play_music_cue = "mx_cue_epic_sacral_moment"
 		save_scope_as = scoped_ruler
-		title:e_gangwon = { save_scope_as = gangwon }
+		#title:e_gangwon = { save_scope_as = gangwon }
 		title:k_cherwon = { set_de_jure_liege_title = title:e_gangwon }
 		title:k_yeongseo = { set_de_jure_liege_title = title:e_gangwon }
 		title:k_yeongdong = { set_de_jure_liege_title = title:e_gangwon }
@@ -48,7 +48,7 @@ new_title.sl.0001 = {
 	immediate = {
 		play_music_cue = "mx_cue_epic_sacral_moment"
 		save_scope_as = scoped_ruler
-		title:e_silla = { save_scope_as = silla }
+		#title:e_silla = { save_scope_as = silla }
 		title:k_gyeongju = { set_de_jure_liege_title = title:e_silla }
 		title:k_pohang = { set_de_jure_liege_title = title:e_silla }
 		title:k_busan = { set_de_jure_liege_title = title:e_silla }
@@ -88,32 +88,32 @@ new_title.mc.0001 = {
 	immediate = {
 		play_music_cue = "mx_cue_epic_sacral_moment"
 		save_scope_as = scoped_ruler
-		title:e_manchu = { save_scope_as = manchu }
-		title:k_jianzhou = { set_de_jure_liege_title = title:e_manchu }
-		title:k_haixi = { set_de_jure_liege_title = title:e_manchu }
+		#title:e_manchuria = { save_scope_as = manchu }
+		title:k_jianzhou = { set_de_jure_liege_title = title:e_manchuria }
+		title:k_haixi = { set_de_jure_liege_title = title:e_manchuria }
 		if = {
 			limit = { completely_controls = title:k_shen }
-			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+			title:k_shen = { set_de_jure_liege_title = title:e_manchuria }
 		}
 		if = {
 			limit = { completely_controls = title:k_gorlos }
-			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+			title:k_gorlos = { set_de_jure_liege_title = title:e_manchuria }
 		}
 		if = {
 			limit = { completely_controls = title:k_liaoxi }
-			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+			title:k_liaoxi = { set_de_jure_liege_title = title:e_manchuria }
 		}
 		if = {
 			limit = { completely_controls = title:k_liaoyang }
-			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+			title:k_liaoyang = { set_de_jure_liege_title = title:e_manchuria }
 		}
 		if = {
 			limit = { completely_controls = title:k_liaodong }
-			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+			title:k_liaodong = { set_de_jure_liege_title = title:e_manchuriaria }
 		}
 		if = {
 			limit = { completely_controls = title:k_yanbian }
-			title:d_savoie = { set_de_jure_liege_title = title:e_manchu }
+			title:k_yanbian = { set_de_jure_liege_title = title:e_manchuria }
 		}
 		create_title_and_vassal_change = {
 			type = created
@@ -127,7 +127,7 @@ new_title.mc.0001 = {
 			}
 		}
 		resolve_title_and_vassal_change = scope:change
-		hidden_effect = { set_primary_title_to = title:e_manchu }
+		hidden_effect = { set_primary_title_to = title:e_manchuria }
 		add_prestige = major_prestige_gain
 	}
 	option = {
