@@ -19,7 +19,7 @@ fp2_character_involved_in_struggle_trigger = {
 	has_fp2_dlc_trigger = yes
 	any_character_struggle = {
 		involvement = involved
-		is_struggle_type = iberian_struggle
+		is_struggle_type = juche_struggle
 	}
 }
 
@@ -27,13 +27,13 @@ fp2_character_interloper_in_struggle_trigger = {
 	has_fp2_dlc_trigger = yes
 	any_character_struggle = {
 		involvement = interloper
-		is_struggle_type = iberian_struggle
+		is_struggle_type = juche_struggle
 	}
 }
 
 fp2_character_uninvolved_in_struggle_trigger = {
 	has_fp2_dlc_trigger = yes
-	exists = struggle:iberian_struggle
+	exists = struggle:juche_struggle
 	fp2_character_interloper_in_struggle_trigger = no
 	fp2_character_involved_in_struggle_trigger = no
 }
@@ -250,7 +250,7 @@ fp2_struggle_contract_assistance_war_insufficient_trigger = {
 fp2_struggle_ending_hold_de_jure_kingdom_trigger = {
 	any_held_title = {
 		tier = tier_kingdom
-		de_jure_liege = title:e_north_korea
+		de_jure_liege = title:e_northern_joeseon
 		save_temporary_scope_as = spanish_kingdom
 	}
 	trigger_if = {
@@ -361,7 +361,7 @@ fp2_struggle_ending_compromise_titular_trigger = {
 		}
 	}
 	# Titular duke holds at least half of any de jure duchy of Hispania
-	title:e_north_korea = {
+	title:e_northern_joeseon = {
 		any_in_de_jure_hierarchy = {
 			tier = tier_duchy
 			any_direct_de_jure_vassal_title = {
@@ -375,7 +375,7 @@ fp2_struggle_ending_compromise_titular_trigger = {
 # Should title be created by ststus quo decision?
 fp2_struggle_ending_compromise_create_title_trigger = {
 	NOR = {
-		this = title:e_north_korea
+		this = title:e_northern_joeseon
 		exists = holder
 		is_in_list = assigned_title
 		# Only if no other same rank rulers in title (e.g. multiple kings under empire)
@@ -531,12 +531,12 @@ fp2_struggle_secure_iberian_foothold_outsider_kingdom_trigger = {
 }
 
 fp2_struggle_iberian_reclamation_should_vassalize_trigger = {
-	any_character_struggle = { is_struggle_type = iberian_struggle }
+	any_character_struggle = { is_struggle_type = juche_struggle }
 	any_held_title = { tier < scope:attacker.primary_title.tier }
 	any_realm_county = {
 		count = all
 		duchy = { is_in_list = target_titles }
-		any_county_struggle = { is_struggle_type = iberian_struggle }
+		any_county_struggle = { is_struggle_type = juche_struggle }
 	}
 }
 
@@ -549,33 +549,33 @@ fp2_iberian_reclamation_vassalize_iberian_trigger = {
 	holder = {
 		any_character_struggle = {
 			involvement = involved
-			is_struggle_type = iberian_struggle
+			is_struggle_type = juche_struggle
 		}
 		liege = scope:defender
 		NOT = { this = scope:defender }
 		capital_county = {
-			any_county_struggle = { is_struggle_type = iberian_struggle }
+			any_county_struggle = { is_struggle_type = juche_struggle }
 		}
 	}
 }
 
 fp2_iberian_reclamation_involved_county_trigger = {
 	any_realm_county = {
-		any_county_struggle = { is_struggle_type = iberian_struggle }
+		any_county_struggle = { is_struggle_type = juche_struggle }
 	}
 }
 
 fp2_iberian_reclamation_vassalize_vassal_trigger = {
 	primary_title.tier >= tier_county
 	primary_title.tier < scope:attacker.primary_title.tier
-	any_character_struggle = { is_struggle_type = iberian_struggle }
+	any_character_struggle = { is_struggle_type = juche_struggle }
 	capital_county = {
 		duchy = { is_in_list = target_titles }
 	}
 	any_sub_realm_county = {
 		count = all
 		duchy = { is_in_list = target_titles }
-		any_county_struggle = { is_struggle_type = iberian_struggle }
+		any_county_struggle = { is_struggle_type = juche_struggle }
 	}
 }
 

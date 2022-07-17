@@ -15,35 +15,6 @@ struggle_juche_ending_hostility_decision = {
 	is_valid = {
 		is_independent_ruler = yes
 
-		custom_tooltip = {
-			text = struggle_juche_ending_hostility_decision_correct_phase_tt
-			any_character_struggle = {
-				involvement = involved
-				is_struggle_type = juche_struggle
-				is_struggle_phase = struggle_juche_phase_hostility
-			}
-		}
-
-		# Hold and completely control two de jure kingdoms of Hispania
-		custom_tooltip = { #
-			text = struggle_juche_ending_hostility_decision_kingdom_tt
-			any_held_title = { # 1st kingdom
-				tier = tier_kingdom
-				de_jure_liege = title:e_north_korea
-				root = { completely_controls = prev }
-				save_temporary_scope_as = spanish_kingdom
-			}
-			any_held_title = { # 2nd kingdom
-				tier = tier_kingdom
-				de_jure_liege = title:e_north_korea
-				trigger_if = {
-					limit = { exists = scope:spanish_kingdom }
-					NOT = { this = scope:spanish_kingdom }
-				}
-				root = { completely_controls = prev }
-				save_temporary_scope_as = spanish_kingdom_2
-			}
-		}
 
 		# All your capital kingdom's de jure counties are of your culture and faith
 		custom_tooltip = {
@@ -51,7 +22,6 @@ struggle_juche_ending_hostility_decision = {
 			capital_county.de_jure_liege.de_jure_liege = {
 				any_de_jure_county = {
 					count = all
-					culture = root.culture
 					faith = root.faith
 				}
 			}
@@ -80,10 +50,13 @@ struggle_juche_ending_hostility_decision = {
 
 		# Completely control at least 2 of the important Iberian duchies
 		calc_true_if = {
-			amount >= 2
-			completely_controls = title:k_haeju
-			completely_controls = title:k_baekdu
-			completely_controls = title:k_gaeseong
+			amount >= 5
+			completely_controls = title:c_pyongyang
+			completely_controls = title:k_prk
+			completely_controls = title:k_cheongjin
+			completely_controls = title:k_uiju
+			completely_controls = title:d_gaeseong
+			completely_controls = title:k_hamheung
 		}
 	}
 
@@ -123,7 +96,7 @@ struggle_juche_ending_hostility_decision = {
 			VARIABLE = fp2_iberian_hostilities_achievement_unlocked
 			VALUE = yes
 		}
-		fp2_holiday_in_iberia_check = yes
+		
 
 		# Trigger a player facing event as a coda
 		trigger_event = fp2_struggle.0900
@@ -263,11 +236,12 @@ struggle_juche_ending_compromise_decision = {
 		# Completely control any of the important Iberian duchies
 		calc_true_if = {
 			amount >= 1
-			completely_controls = title:d_galicia
-			completely_controls = title:d_toledo
-			completely_controls = title:d_cordoba
-			completely_controls = title:d_valencia
-			completely_controls = title:d_barcelona
+			completely_controls = title:c_pyongyang
+			completely_controls = title:k_prk
+			completely_controls = title:k_cheongjin
+			completely_controls = title:k_uiju
+			completely_controls = title:d_gaeseong
+			completely_controls = title:k_hamheung
 		}
 	}
 
@@ -278,7 +252,7 @@ struggle_juche_ending_compromise_decision = {
 		# Independent/Split De Jure Duchies will become De Jure Kingdoms
 		if = {
 			limit = {
-				title:e_north_korea = {
+				title:e_northern_joseon = {
 					any_in_de_jure_hierarchy = { fp2_struggle_ending_compromise_independent_duchy_trigger = yes }
 				}
 			}
@@ -302,7 +276,6 @@ struggle_juche_ending_compromise_decision = {
 			VARIABLE = fp2_iberian_compromise_achievement_unlocked
 			VALUE = yes
 		}
-		fp2_holiday_in_iberia_check = yes
 
 		# Trigger a player facing event as a coda
 		trigger_event = fp2_struggle.0901
@@ -402,7 +375,7 @@ struggle_juche_ending_conciliation_decision = {
 			VARIABLE = fp2_iberian_conciliation_achievement_unlocked
 			VALUE = yes
 		}
-		fp2_holiday_in_iberia_check = yes
+		
 
 
 		# Trigger a player facing event as a coda

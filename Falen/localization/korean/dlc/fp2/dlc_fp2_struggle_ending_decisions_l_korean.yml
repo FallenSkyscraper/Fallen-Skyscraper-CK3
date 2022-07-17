@@ -5,8 +5,8 @@
  struggle_juche_ending_hostility_decision_tooltip:0 "북조선 [struggle|E]의 끝"
  struggle_juche_ending_hostility_decision_confirm:1 "조국통일전쟁의 끝"
  # Triggers
- struggle_juche_ending_hostility_decision_kingdom_tt:0 "[GetTitleByKey('e_spain').GetNameNoTier]의 [Concept( 'de_jure', '규범상' )|E] [kingdoms|E] 2개 이상을 [hold|E] 및 [completely_control|E] ([SCOPE.ScriptValue('fp2_struggle_ending_kingdom_counter_value')|0]/[SCOPE.ScriptValue('fp2_struggle_hostility_kingdom_total_value')|0])"
- struggle_juche_ending_hostility_decision_county_tt:0 "당신의 [capital|E] [kingdom|E]([THIS.Char.GetCapitalLocation.GetCounty.GetTitle.GetDeJureLiege.GetDeJureLiege.GetNameNoTier])에 속한 모든 [Concept( 'de_jure', '규범상' )|E] [Concept( 'counties', '영지' )|E]가 [THIS.Char.GetCulture.GetName] 및 [THIS.Char.GetFaith.GetAdjective]에 속해야 함 ([SCOPE.ScriptValue('fp2_struggle_hostility_county_counter_value')|0]/[SCOPE.ScriptValue('fp2_struggle_hostility_county_total_value')|0])"
+ struggle_juche_ending_hostility_decision_kingdom_tt:0 "[GetTitleByKey('e_northern_korea').GetNameNoTier]의 [Concept( 'de_jure', '규범상' )|E] [kingdoms|E] 2개 이상을 [hold|E] 및 [completely_control|E] ([SCOPE.ScriptValue('fp2_struggle_ending_kingdom_counter_value')|0]/[SCOPE.ScriptValue('fp2_struggle_hostility_kingdom_total_value')|0])"
+ struggle_juche_ending_hostility_decision_county_tt:0 "당신의 [capital|E] [kingdom|E]([THIS.Char.GetCapitalLocation.GetCounty.GetTitle.GetDeJureLiege.GetDeJureLiege.GetNameNoTier])에 속한 모든 [Concept( 'de_jure', '규범상' )|E] [Concept( 'counties', '영지' )|E]가 [THIS.Char.GetFaith.GetAdjective]에 속해야 함 ([SCOPE.ScriptValue('fp2_struggle_hostility_county_counter_value')|0]/[SCOPE.ScriptValue('fp2_struggle_hostility_county_total_value')|0])"
  struggle_juche_ending_hostility_decision_region_tt:2 "투쟁에 [struggle_involved|E]된 다른 [independent|E] [ruler|E] 중 [GetGeographicalRegion('world_korea_north').GetName](을)를 [SCOPE.ScriptValue('fp2_struggle_hostility_region_percent_value')|0]% 이상 장악한 자가 없어야 함"
  # Effects
  fp2_struggle_hostility_opinion_tt:1 "같은 [faith|E] 및/또는 [culture|E]에 속한 [characters|E]의 [opinion|E]: #positive_value +[SCOPE.ScriptValue('fp2_struggle_hostility_opinion_value')]#!"
@@ -36,7 +36,7 @@
  struggle_juche_ending_compromise_decision_tooltip:0 "$struggle_juche_ending_hostility_decision_tooltip$"
  struggle_juche_ending_compromise_decision_confirm:0 "$struggle_juche_ending_hostility_decision_confirm$"
  # Triggers
- struggle_juche_ending_compromise_decision_kingdom_tt:0 "[GetTitleByKey('e_north_korea').GetNameNoTier]의 [Concept( 'de_jure', '규범상' )|E] [kingdom|E]을 [hold|E] 및 [completely_control|E] ([SCOPE.ScriptValue('fp2_struggle_ending_kingdom_counter_value')|0]/[SCOPE.ScriptValue('fp2_struggle_conciliation_kingdom_total_value')|0])"
+ struggle_juche_ending_compromise_decision_kingdom_tt:0 "[GetTitleByKey('e_northern_korea').GetNameNoTier]의 [Concept( 'de_jure', '규범상' )|E] [kingdom|E]을 [hold|E] 및 [completely_control|E] ([SCOPE.ScriptValue('fp2_struggle_ending_kingdom_counter_value')|0]/[SCOPE.ScriptValue('fp2_struggle_conciliation_kingdom_total_value')|0])"
  struggle_juche_ending_compromise_decision_region_tt:0 "[GetGeographicalRegion('world_korea_north').GetName] [region|E]의 [SCOPE.ScriptValue('fp2_struggle_compromise_owned_percent_value')|0]% 미만을 장악한 상태여야 함 (현재: [SCOPE.ScriptValue('struggle_juche_ending_compromise_decision_region_owned_percent_value')|0]%)"
  struggle_juche_ending_compromise_decision_other_region_tt:0 "투쟁에 [struggle_involved|E]된 다른 [independent|E] [ruler|E] 중 [GetGeographicalRegion('world_korea_north').GetName] [region|E]의 [SCOPE.ScriptValue('fp2_struggle_compromise_involved_percent_value')|0]% 이상을 장악한 자가 없어야 함"
  struggle_juche_ending_compromise_decision_opinion_tt:0 "투쟁에 [struggle_involved|E]된 다른 모든 [independent|E] [rulers|E]가 당신이나 [strong_hook|E]의 대상에 대해 [SCOPE.ScriptValue('struggle_juche_ending_compromise_decision_opinion_value')|0] 이상의 [opinion|E]을 보유하고 있어야 함 ([SCOPE.ScriptValue('struggle_juche_ending_compromise_decision_opinion_counter_value')|0]/[SCOPE.ScriptValue('struggle_juche_ending_ending_decision_foreign_realm_total_value')|0])"
@@ -73,8 +73,8 @@
  fp2_struggle_conciliation_house_reward_modifier:0 "회유"
  fp2_struggle_conciliation_house_reward_modifier_desc:0 "해당 집안은 북조선에 영원한 평화를 이룩하는 길이 평화와 관용에 있다는 사실을 받아들였습니다."
  ### Common
- fp2_struggle_can_create_empire_of_hispania_tt:0 "[GetTitleByKey('e_north_korea').GetNameNoTier] [empire|E] 결성이 잠금 해제됨"
- fp2_struggle_compromise_destroy_hispania_tt:1 "[GetTitleByKey('e_north_korea').GetNameNoTier] [empire|E]이 영구적으로 #negative_value 파괴됨#!"
+ fp2_struggle_can_create_empire_of_hispania_tt:0 "[GetTitleByKey('e_northern_korea').GetNameNoTier] [empire|E] 결성이 잠금 해제됨"
+ fp2_struggle_compromise_destroy_hispania_tt:1 "[GetTitleByKey('e_northern_korea').GetNameNoTier] [empire|E]이 영구적으로 #negative_value 파괴됨#!"
 
  CB_COST_FP2_STRUGGLE_HOSTILITY_CULTURE_DISCOUNT:0 "이베리아 적대"
  CB_COST_FP2_STRUGGLE_HOSTILITY_FAITH_DISCOUNT:0 "$CB_COST_FP2_STRUGGLE_HOSTILITY_CULTURE_DISCOUNT$"

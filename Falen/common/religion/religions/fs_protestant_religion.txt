@@ -5,14 +5,14 @@
 	doctrine = abrahamic_hostility_doctrine #수정바람
 
 	#Main Group
-	doctrine = doctrine_spiritual_head
+	doctrine = doctrine_no_head
 	doctrine = doctrine_gender_male_dominated
 	doctrine = doctrine_pluralism_fundamentalist
 	doctrine = doctrine_theocracy_lay_clergy
 
 	#Marriage
 	doctrine = doctrine_monogamy
-	doctrine = doctrine_divorce_disallowed
+	doctrine = doctrine_divorce_approval
 	doctrine = doctrine_bastardry_legitimization
 	doctrine = doctrine_consanguinity_cousins
 
@@ -222,7 +222,7 @@
 			icon = protestant
 			
 			color = { 153 217 234 }
-			religious_head = d_protestant_assembly #개신교총회
+			religious_head = d_anglicanism #한국성공회
 			graphical_faith = "catholic_gfx" # 수정바람
 			
 			#나중에 성지 따로 작업할때 수정바람 각각 서대문, 안동, 신안, 여수, 인천
@@ -232,16 +232,25 @@
 			holy_site = pyongyang_default
 			holy_site = jongno_default
 
+			doctrine = doctrine_gender_equal
+			doctrine = doctrine_pluralism_pluralistic
+		
+			#Crimes
+			doctrine = doctrine_homosexuality_accepted
+		
+			#Clerical Functions
+			doctrine = doctrine_clerical_gender_either
+			doctrine = doctrine_clerical_succession_spiritual_appointment
+
 			#Tenets
 			doctrine = tenet_communion
 			doctrine = tenet_protestantism
-			doctrine = tenet_aniconism
+			doctrine = tenet_monasticism
 		}
 		methodism = { #감리회
 			icon = protestant
 			
 			color = { 153 217 234 }
-			religious_head = d_protestant_assembly #개신교총회
 			graphical_faith = "catholic_gfx" # 수정바람
 			
 			#나중에 성지 따로 작업할때 수정바람 각각 서대문, 안동, 신안, 여수, 인천
@@ -251,16 +260,16 @@
 			holy_site = pyongyang_default
 			holy_site = jongno_default
 
+
 			#Tenets
-			doctrine = tenet_communion
+			doctrine = tenet_armed_pilgrimages
 			doctrine = tenet_protestantism
-			doctrine = tenet_aniconism
+			doctrine = tenet_literalism
 		}
 		presbyterianism = { #장로회
 			icon = protestant
 			
 			color = { 153 217 234 }
-			religious_head = d_protestant_assembly #개신교총회
 			graphical_faith = "catholic_gfx" # 수정바람
 			
 			#나중에 성지 따로 작업할때 수정바람 각각 서대문, 안동, 신안, 여수, 인천
@@ -271,15 +280,14 @@
 			holy_site = jongno_default
 
 			#Tenets
-			doctrine = tenet_communion
-			doctrine = tenet_protestantism
 			doctrine = tenet_aniconism
+			doctrine = tenet_protestantism
+			doctrine = tenet_literalism
 		}
 		baptists = { #침례회
 			icon = protestant
 			
 			color = { 153 217 234 }
-			religious_head = d_protestant_assembly #개신교총회
 			graphical_faith = "catholic_gfx" # 수정바람
 			
 			#나중에 성지 따로 작업할때 수정바람 각각 서대문, 안동, 신안, 여수, 인천
@@ -289,10 +297,33 @@
 			holy_site = pyongyang_default
 			holy_site = jongno_default
 
+			doctrine = doctrine_gender_equal
+
+			#Marriage
+			doctrine = doctrine_monogamy
+			doctrine = doctrine_divorce_disallowed
+			doctrine = doctrine_bastardry_legitimization
+			doctrine = doctrine_consanguinity_cousins
+
+			#Crimes
+			doctrine = doctrine_homosexuality_crime
+			doctrine = doctrine_adultery_men_crime
+			doctrine = doctrine_adultery_women_crime
+			doctrine = doctrine_kinslaying_any_dynasty_member_crime
+			doctrine = doctrine_deviancy_crime
+			doctrine = doctrine_witchcraft_crime
+
+			#Clerical Functions
+			doctrine = doctrine_clerical_function_alms_and_pacification
+			doctrine = doctrine_clerical_gender_either
+			doctrine = doctrine_clerical_marriage_allowed
+			doctrine = doctrine_clerical_succession_spiritual_appointment
+
+
 			#Tenets
-			doctrine = tenet_communion
+			doctrine = tenet_unrelenting_faith
 			doctrine = tenet_protestantism
-			doctrine = tenet_aniconism
+			doctrine = tenet_literalism
 		}
 		lutheran = { #루터교회
 			icon = protestant
@@ -308,10 +339,47 @@
 			holy_site = pyongyang_default
 			holy_site = jongno_default
 
+			doctrine = doctrine_gender_equal
+
+
+			#Crimes
+			doctrine = doctrine_homosexuality_accepted
+
 			#Tenets
-			doctrine = tenet_communion
+			doctrine = tenet_armed_pilgrimages
 			doctrine = tenet_protestantism
-			doctrine = tenet_aniconism
+			doctrine = tenet_vows_of_poverty
+		}
+		minjung_prot = { 민중신학
+			icon = protestant
+			
+			color = { 153 217 234 }
+			graphical_faith = "catholic_gfx" # 수정바람
+			
+			#나중에 성지 따로 작업할때 수정바람 각각 서대문, 안동, 신안, 여수, 인천
+			holy_site = iksan_default
+			holy_site = jeonju_default
+			holy_site = incheon_default
+			holy_site = pyongyang_default
+			holy_site = jongno_default
+
+			doctrine = doctrine_gender_male_dominated
+			doctrine = doctrine_pluralism_fundamentalist
+			doctrine = doctrine_theocracy_lay_clergy
+
+			#Marriage
+			doctrine = doctrine_monogamy
+			doctrine = doctrine_divorce_disallowed
+			doctrine = doctrine_bastardry_legitimization
+			doctrine = doctrine_consanguinity_cousins
+
+			#Crimes
+			doctrine = doctrine_homosexuality_accepted
+
+			#Tenets
+			doctrine = tenet_communism_syncretism
+			doctrine = tenet_protestantism
+			doctrine = tenet_literalism
 		}
 	}
 }
