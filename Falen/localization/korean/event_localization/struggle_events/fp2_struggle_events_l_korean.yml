@@ -5,3 +5,39 @@ l_korean:
  fp2_juche_struggle.0501.desc.interloper:0 "비로소 내 손으로 이 세태와 운명을 거머쥘 때가 되었다. 판에 놓인 모든 돌들이 보인다. 나아갈 길은 분명하다. 그 누구도 [ROOT.Char.GetHouse.GetNameNoTooltip] 가문의 약진을 막지 못하리라.\n\n"
  fp2_juche_struggle.0501.desc.mottocall:0 "[ROOT.Char.GetHouse.GetMotto]!"
  fp2_juche_struggle.0501.a:0 "운명은 쟁취하는 자의 것이다!"
+ ##### Hostility #####
+# Struggle Ender
+ fs_fp2_struggle.0900.t:0 "$struggle_iberia_ending_hostility_decision$"
+ fs_fp2_struggle.0900.opening.juche:0 "우리 [ROOT.Char.GetCulture.GetNameNoTooltip] 사람들은 령도자를 위하여 조선 민족을 위하여 조선을 다시끔 하나로 만들었다. 그리고 오늘, 북조선의 운명이 다시 한번 #EMP 우리#!의 손에 들어왔다."
+ fs_fp2_struggle.0900.opening.northern_joseon:0 "조선반도의 인민들은 너무 오랫동안 전쟁과 침략에 고통받았다. 오늘 우리는 조선의 정당한 후계자들이 수 세기 전에 잃었던 희망을 돌려놓을 것이다."
+ fs_fp2_struggle.0900.opening:0 "지난 수 세기 동안 북조선이 겪은 혼란은 모든 주민의 마음에 얼룩을 남겼다. 그러나 오늘, 조선 반도의 다음 장이 펼쳐지리라..."
+ fs_fp2_struggle.0900.desc:0 "\n\n이제 그 어떤 봉역도 북조선에서 [ROOT.Char.GetPrimaryTitle.GetAdjectiveNoTooltip]의 지배력에 대항하지 못할 것이다. 어디 그뿐인가? 이제 그 누구도 북조선에 [ROOT.Char.GetFaith.HighGodName]의 말씀과 [ROOT.Char.GetCulture.GetName] 문명을 전파하는 사제와 정착민들을 막지 못할 것이다.\n\n이제 남은 일은 단 하나. 통치의 향방을 결정한 뒤 승리를 선언하는 것뿐이다."
+ fs_fp2_struggle.0900.a:0 "이곳은 [ROOT.Char.GetFaith.HighGodNameAlternate]의 땅이 되리라!"
+ fs_fp2_struggle.0900.b:0 "이 반도의 정착지에 집중하리라."
+ fs_fp2_struggle.0900.c:1 "[ROOT.Char.GetFaith.HighGodName]께서 [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip]에 조선반도를 내려주셨노라!"
+# Other Players
+ fs_fp2_struggle.0910.opening.involved:0 "비록 다른 봉역에서 찾아온 구원이라곤 하나, 이제 비로소 지난 수 세기 동안 지역 전체를 삼켰던 불확실성의 늪에서 빠져나올 수 있을지도 모른다..."
+ fs_fp2_struggle.0910.opening:0 "북조선의 최신 소식이 우리 궁정에도 전해졌다. 오랜 세월 북조선을 괴롭혔던 갈등의 끝이 마침내 눈에 들어오기 시작했다."
+ fs_fp2_struggle.0910.desc:0 "\n\n북조선 대부분을 장악한 [struggle_ender.GetName](이)가 자기 자신을 먼 옛날 조선민주주의 인민 공화국의 멸망으로 촉발된 투쟁의 승자로 선포했다.\n\n"
+ fs_fp2_struggle.0910.closing.faith:0 "[struggle_ender.GetSheHe|U]는 조선반도는 [struggle_ender.GetFaith.GetAdjective]의 땅이며, [struggle_ender.GetFaith.HighGodName]의 뜻에 따라 모든 이단자와 불신자를 본인의 왕국에서 쫓아내겠다고 했다."
+ fs_fp2_struggle.0910.closing.culture:0 "[struggle_ender.GetSheHe|U]는 조선반도는 오롯이 [struggle_ender.GetCulture.GetName]의 전유물이며, 외세의 침략자와 예속된 백성은 이 현실을 받아들이라고 선포했다."
+ fs_fp2_struggle.0910.closing.combined:0 "[struggle_ender.GetSheHe|U]는 북조선과 [struggle_ender.GetPrimaryTitle.GetNameNoTier](은)는 하나로 병합될 것이며, [struggle_ender.GetFaith.HighGodName](이)가 [struggle_ender.GetFaith.GetAdjective] [struggle_ender.GetCulture.GetName] 민족에 내려준 것이라고 선포했다..."
+ fs_fp2_struggle.0910.a:0 "아직 끝난 게 아니다."
+ fs_fp2_struggle.0910.b:0 "아주 흥미롭군."
+##### Compromise #####
+# Struggle Ender
+ fs_fp2_struggle.0901.t:0 "$struggle_juche_ending_compromise_decision$"
+ fs_fp2_struggle.0901.desc:1 "\n\n이 현실이 계속되는 한 피비린내 나는 순환은 계속 이어질 것이다. 조선 반도는 절대 통일되지 못할 것이다.\n\n우린 [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip](을)를 장악한 선에서 만족하기로 하였다. 뒷일은 다른 통치자들이 알아서 하겠지. 일단은..."
+ fs_fp2_struggle.0901.a:0 "이게 최선이야."
+ fs_fp2_struggle.0901.tt:0 "[THIS.Char.GetPrimaryTitle.GetDeJureLiege.GetNameNoTier](이)가 [de_jure|E] [empire|E]이 됨"
+# Other Players
+ fs_fp2_struggle.0911.desc:0 "\n\n[struggle_ender.GetTitledFirstName](이)가 이베리아 반도를 하나의 왕국 아래 통일하겠단 뜻을 공식으로 포기하였다. 또한, 누가 그런 얘기를 한들 인정하지 않겠다고 선언했다.\n\n장장 수백 년에 걸쳐 반복된 침략과 정복 속에서 탄생한 이질적 세계는 이제 너무나 깊은 수렁에 빠져버렸다. 통일은 요원하겠지."
+ fs_fp2_struggle.0911.a:0 "북조선의 꿈을 잊진 않으리..."
+##### Conciliation #####
+# Struggle Ender
+ fs_fp2_struggle.0902.t:0 "$struggle_juche_ending_conciliation_decision$"
+ fs_fp2_struggle.0902.desc:0 "\n\n이제 북조선에서 안전을 보장할 수 있는 세력은 나밖에 없다. 앞으로는 다채로운 민족이 자유롭게 살아가며 신을 섬길 수 있으리라.\n\n[ROOT.Char.GetFaith.HighGodName]의 뜻에 따라 과거의 전쟁은 과거에 묻겠다. 다른 북조선의 통치자들은 공존의 이로움을 깨닫게 될 것이다."
+ fs_fp2_struggle.0902.a:0 "전령을 내보내라."
+# Other Players
+ fs_fp2_struggle.0912.desc:0 "\n\n[struggle_ender.GetPrimaryTitle.GetAdjectiveNoTooltip]의 전령들이 모든 이에게 자유로운 통행과 종교의 자유를 보장하겠노라 선언했다. 이를 집행하는 주체는 [struggle_ender.GetTitledFirstName](이)가 될 것이다. 이 선언은 평민들의 전폭적인 지지를 끌어냈다.\n\n수많은 사람이 북조선의 피비린내 나는 역사가 끝나길 소망했다. #EMP 이번#! 평화는 오랫동안 지속될지도 모르지."
+ fs_fp2_struggle.0912.a:0 "놀랍긴 놀랍네."
