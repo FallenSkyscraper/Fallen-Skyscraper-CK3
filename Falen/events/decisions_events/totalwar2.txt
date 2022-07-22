@@ -9,7 +9,6 @@ total_war.decisions.0001 = {
 	}
 	option = {
 		name = total_war.decision.0001.a
-		effects = {
 			spawn_army = {
 				uses_supply = no
 				inheritable = no
@@ -23,9 +22,8 @@ total_war.decisions.0001 = {
 						add = 2500
 					}
 				}
-				location = capital_province
+				location = root.capital_province
 				war = war
 			}
-		}
 	}
 }
