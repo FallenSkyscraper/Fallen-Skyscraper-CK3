@@ -41,6 +41,23 @@ language_arabic = {
 	
 	color = bedouin
 }
+language_greek = {
+	type = language
+	is_shown = {
+		language_is_shown_trigger = {
+			LANGUAGE = language_greek
+		}
+	}
+	ai_will_do = {
+		value = 10
+		if = {
+			limit = { has_cultural_pillar = language_greek }
+			multiply = 10
+		}
+	}
+	
+	color = greek
+}
 
 language_central_germanic = {
 	type = language

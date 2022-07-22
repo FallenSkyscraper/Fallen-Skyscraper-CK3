@@ -81,9 +81,61 @@ gift_artifact_interaction = {
 	}
 
 	on_accept = {
+		# Warning for multiple gifts
+		if = {
+			limit = {
+				scope:recipient = {
+					has_opinion_modifier = {
+						target = scope:actor
+						modifier = gift_opinion
+					}
+				}
+			}
+			custom_tooltip = ALREADY_SENT_GIFT_WARNING
+		}
+		# Struggle Catalyst
+		else = { # Struggle Catalyst
+			limit = {
+				scope:actor = {
+					any_character_struggle = {
+						involvement = involved
+						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+							CATALYST = catalyst_gift_independent_ruler
+							CHAR = scope:recipient
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				scope:actor = {
+					every_character_struggle = {
+						involvement = involved
+						activate_struggle_catalyst = {
+							catalyst = catalyst_gift_independent_ruler
+							character = scope:actor
+						}
+					}
+				}
+			}
+		}
+
 		scope:target = {
 			set_variable = suppress_artifact_notifications
 			set_variable = { name = gifted_artifact value = yes days = 9125 }
+		}
+		scope:recipient = {
+			# Verify that they could become friend
+			if = {
+				limit = {
+					NAND = {
+						has_relation_friend = scope:actor
+						has_relation_lover = scope:actor
+						has_relation_soulmate = scope:actor
+						has_relation_best_friend = scope:actor
+					}
+				}
+				gifting_leads_towards_friendship_effect = yes
+			}
 		}
 		scope:actor = {
 			send_interface_toast = {
@@ -124,18 +176,7 @@ gift_artifact_interaction = {
 					}
 				}
 			}
-			# Warning for multiple gifts
-			if = {
-				limit = {
-					scope:recipient = {
-						has_opinion_modifier = {
-							target = scope:actor
-							modifier = gift_opinion
-						}
-					}
-				}
-				custom_tooltip = ALREADY_SENT_GIFT_WARNING
-			}
+
 			# Warning for low opinion gain
 			if = {
 				limit = {
@@ -552,6 +593,40 @@ gift_artifact_interaction = {
 			}
 			desc = ARTIFACT_USELESS_BANNER_REASON
 		}
+		# Struggle motive
+		modifier = {
+			desc = AI_STRUGGLE_INTENT
+			scope:recipient = {
+				is_independent_ruler = yes
+				any_character_struggle = {
+					involvement = involved
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						scope:recipient = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gift_independent_ruler
+							}
+							has_character_flag = agenda_towards_escalation
+						}
+					}
+					add = -100
+				}
+				else_if = {
+					limit = {
+						scope:recipient = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gift_independent_ruler
+							}
+						}
+					}
+					add = 200
+				}
+			}
+		}
 	}
 	
 	ai_potential = {
@@ -838,6 +913,42 @@ gift_artifact_interaction = {
 				}
 			}
 		}
+
+		# Struggle
+		modifier = {
+			scope:recipient = {
+				is_independent_ruler = yes
+			}
+			scope:actor = {
+				any_character_struggle = {
+					involvement = involved
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gift_independent_ruler
+							}
+							has_character_flag = agenda_towards_escalation
+						}
+					}
+					add = -100
+				}
+				else_if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gift_independent_ruler
+							}
+						}
+					}
+					add = 200
+				}
+			}
+		}
 		
 		modifier = {
 			factor = 2
@@ -885,6 +996,24 @@ gift_artifact_interaction = {
 			factor = 0
 			scope:target = {
 				has_variable = gifted_artifact
+			}
+		}
+		
+		modifier = { # So that the AI doesn't give player toys
+			factor = 0
+			scope:recipient = {
+				is_ai = no
+				NOT = {
+					can_equip_artifact = scope:target
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0
+			scope:target = { exists = var:relic_religion}
+			scope:actor = {
+				has_religion = scope:target.var:relic_religion
 			}
 		}
 
