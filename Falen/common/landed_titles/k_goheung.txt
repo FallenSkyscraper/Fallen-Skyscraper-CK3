@@ -205,6 +205,35 @@ k_goheung = {
 					color2 = { 255 255 255 }
 				}
 			}
+			c_gogeum = {
+				color = { 0 21 10 }
+				color2 = { 255 255 255 }
+				
+				b_220 = { # Gogeum
+					province = 220
+					
+					color = { 0 21 10 }
+					color2 = { 255 255 255 }
+				}
+				b_221 = { # Yaksan
+					province = 221
+					
+					color = { 0 21 10 }
+					color2 = { 255 255 255 }
+				}
+				b_222 = { # Sanji
+					province = 222
+					
+					color = { 0 21 10 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+		d_gangjin = {
+			color = { 42 195 183 }
+			color2 = { 255 255 255 }
+			capital = c_gangjin
+			
 			c_gangjin = {
 				color = { 42 195 173 }
 				color2 = { 255 255 255 }
@@ -286,29 +315,6 @@ k_goheung = {
 					color2 = { 255 255 255 }
 				}
 			}
-			c_gogeum = {
-				color = { 0 21 10 }
-				color2 = { 255 255 255 }
-				
-				b_220 = { # Gogeum
-					province = 220
-					
-					color = { 0 21 10 }
-					color2 = { 255 255 255 }
-				}
-				b_221 = { # Yaksan
-					province = 221
-					
-					color = { 0 21 10 }
-					color2 = { 255 255 255 }
-				}
-				b_222 = { # Sanji
-					province = 222
-					
-					color = { 0 21 10 }
-					color2 = { 255 255 255 }
-				}
-			}
 		}
 
 		d_boseong = {
@@ -379,17 +385,6 @@ k_goheung = {
 					color = { 0 114 195 }
 					color2 = { 255 255 255 }
 				}
-			}
-			c_beolgyo = {
-				color = { 42 102 193 }
-				color2 = { 255 255 255 }
-				
-				b_531 = { # Beolgyo
-					province = 531
-					
-					color = { 42 102 193 }
-					color2 = { 255 255 255 }
-				}
 				b_532 = { # Joseong
 					province = 532
 					
@@ -403,6 +398,12 @@ k_goheung = {
 					color2 = { 255 255 255 }
 				}
 			}
+		}
+		d_jangheung = {
+			color = { 0 54 185 }
+			color2 = { 255 255 255 }
+			capital = c_jangheung
+			
 			c_jangheung = {
 				color = { 0 54 185 }
 				color2 = { 255 255 255 }

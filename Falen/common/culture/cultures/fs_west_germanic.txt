@@ -35,12 +35,15 @@ american = {
 	language = language_anglic
 	martial_custom = martial_custom_male_only
 	traditions = {
-		tradition_hereditary_hierarchy
 		tradition_chivalry
 		tradition_castle_keepers
 		tradition_longbow_competitions
+		tradition_loyal_soldiers
 	}
-	
+	dlc_tradition = {
+		trait = tradition_artisans
+		requires_dlc_flag = royal_court
+	}
 	name_list = name_list_english
 	
 	coa_gfx = { english_coa_gfx western_coa_gfx }

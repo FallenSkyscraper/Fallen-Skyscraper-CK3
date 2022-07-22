@@ -87,7 +87,10 @@ seoul = {
 		tradition_korean_succession
 		tradition_seoul
 	}
-	
+	dlc_tradition = {
+		trait = tradition_artisans
+		requires_dlc_flag = royal_court
+	}
 	name_list = name_list_korean
 	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
 	building_gfx = { western_building_gfx }
