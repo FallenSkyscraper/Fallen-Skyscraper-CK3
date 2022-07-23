@@ -69,73 +69,81 @@ joseon_king = {
 	type = character
 	gender = male
 	special = holder
+	tier = empire
 	titles = { e_joseon }
 	governments = { }
-	priority = 1394
-	top_liege = no
+	priority = 102
+	top_liege = yes
 }
 joseon_hwanghoo = {
 	type = character
 	gender = female
 	special = holder
+	tier = empire
 	titles = { e_joseon }
 	governments = { }
-	priority = 1394
-	top_liege = no
+	priority = 101
+	top_liege = yes
 }
 joseon_old_king = {
 	type = character
 	gender = male
-	special = ruler_heir
+	special = holder
+	tier = kingdom
 	titles = { k_joseon_king }
 	governments = { }
-	priority = 1393
-	top_liege = no
+	priority = 102
+	top_liege = yes
 }
 joseon_sun = {
 	type = character
 	gender = male
 	special = ruler_child
+	tier = empire
 	titles = { e_joseon k_joseon_king }
 	governments = { }
-	priority = 1392
-	top_liege = no
+	priority = 100
+	top_liege = yes
 }
 joseon_daughter = {
 	type = character
 	gender = female
 	special = ruler_child
+	tier = empire
 	titles = { e_joseon k_joseon_king }
 	governments = { }
-	priority = 1392
-	top_liege = no
+	priority = 100
+	top_liege = yes
 }
 
 goryeo_king = {
 	type = character
 	gender = male
 	special = holder
+	tier = empire
 	titles = { e_goryeo }
 	governments = { }
-	priority = 1391
+	priority = 102
 	top_liege = no
 }
 goryeo_hwanghoo = {
 	type = character
 	gender = female
 	special = holder
+	tier = empire
 	titles = { e_goryeo }
 	governments = { }
-	priority = 1391
+	priority = 102
 	top_liege = no
 }
 goryeo_sun = {
 	type = character
 	gender = male
+	tier = empire
 	special = ruler_child
 	titles = { e_goryeo }
 	governments = { }
-	priority = 1390
+	priority = 103
 	top_liege = no
 }
 # Religious Titles
