@@ -1,4 +1,5 @@
 ﻿namespace = fp2_struggle
+namespace = fs_fp2_struggle_2
 namespace = fs_fp2_struggle
 namespace = fp2_juche_struggle
 
@@ -511,13 +512,14 @@ fs_fp2_struggle.0901 = { # Compromise
 		    triggered_desc = {
 		        trigger = {
 					culture = {
-							OR = {
-								has_cultural_pillar = heritage_gwanbuk
-								has_cultural_pillar = heritage_gwandong
-								has_cultural_pillar = heritage_gwanseo
-								has_cultural_pillar = heritage_haeseo
-								}
-							}
+						OR = {
+							has_cultural_pillar = heritage_gwanbuk
+							has_cultural_pillar = heritage_gwandong
+							has_cultural_pillar = heritage_gwanseo
+							has_cultural_pillar = heritage_haeseo
+						}
+					}
+				}
 		        desc = fs_fp2_struggle.0900.opening.northern_joseon
 		    }
 		    desc = fs_fp2_struggle.0900.opening
@@ -668,7 +670,7 @@ fs_fp2_struggle.0911 = {
 	}
 }
 
-fs_fp2_struggle.0902 = { # Conciliation
+fs_fp2_struggle_2.0902 = { # Conciliation
 	type = fullscreen_event
 	title = fs_fp2_struggle.0902.t
 	desc = {
@@ -677,20 +679,22 @@ fs_fp2_struggle.0902 = { # Conciliation
 		        trigger = {
 						religion = religion:juche_religion
 		        }
-		        desc = fp2_struggle.0900.opening.juche
+		        desc = fs_fp2_struggle.0900.opening.juche
 		    }
 		    triggered_desc = {
 		        trigger = {
-							OR = {
-								has_cultural_pillar = heritage_gwanbuk
-								has_cultural_pillar = heritage_gwandong
-								has_cultural_pillar = heritage_gwanseo
-								has_cultural_pillar = heritage_haeseo
-								}
-							}
+					culture = {
+						OR = {
+							has_cultural_pillar = heritage_gwanbuk
+							has_cultural_pillar = heritage_gwandong
+							has_cultural_pillar = heritage_gwanseo
+							has_cultural_pillar = heritage_haeseo
+						}
+					}
+				}
 		        desc = fs_fp2_struggle.0900.opening.northern_joseon
 		    }
-		    desc = fs_fp2_struggle.0900.opening
+		    desc = fs_fp2_struggle.0902.opening
 		}
 		desc = fs_fp2_struggle.0902.desc
 	}
@@ -721,7 +725,7 @@ fs_fp2_struggle.0902 = { # Conciliation
 
 	# 
 	option = {
-		name = fs_fs_fp2_struggle.0902.a
+		name = fs_fp2_struggle.0902.a
 	}
 
 	after = {
@@ -738,12 +742,12 @@ fs_fp2_struggle.0902 = { # Conciliation
 			limit = {
 				NOT = { this = root }
 			}
-			trigger_event = fs_fp2_struggle.0912
+			trigger_event = fs_fp2_struggle_2.0912
 		}
 	}
 }
 
-fs_fp2_struggle.0912 = {
+fs_fp2_struggle_2.0912 = {
 	type = fullscreen_event
 	title = fs_fp2_struggle.0902.t
 	desc = {
