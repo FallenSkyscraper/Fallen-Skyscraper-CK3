@@ -50,6 +50,7 @@ president = {
 	type = character
 	gender = male
 	special = holder
+	tier = kingdom
 	priority = 100
 	titles = { k_prk }
 	governments = { secular_republic_government }
@@ -59,6 +60,7 @@ president_female = {
 	type = character
 	gender = female
 	special = holder
+	tier = kingdom
 	priority = 100
 	titles = { k_prk }
 	governments = { secular_republic_government }
@@ -73,7 +75,7 @@ joseon_king = {
 	titles = { e_joseon }
 	governments = { }
 	priority = 102
-	top_liege = yes
+	top_liege = no
 }
 joseon_hwanghoo = {
 	type = character
@@ -83,7 +85,7 @@ joseon_hwanghoo = {
 	titles = { e_joseon }
 	governments = { }
 	priority = 101
-	top_liege = yes
+	top_liege = no
 }
 joseon_old_king = {
 	type = character
@@ -93,7 +95,7 @@ joseon_old_king = {
 	titles = { k_joseon_king }
 	governments = { }
 	priority = 102
-	top_liege = yes
+	top_liege = no
 }
 joseon_sun = {
 	type = character
@@ -103,7 +105,7 @@ joseon_sun = {
 	titles = { e_joseon k_joseon_king }
 	governments = { }
 	priority = 100
-	top_liege = yes
+	top_liege = no
 }
 joseon_daughter = {
 	type = character
@@ -113,7 +115,7 @@ joseon_daughter = {
 	titles = { e_joseon k_joseon_king }
 	governments = { }
 	priority = 100
-	top_liege = yes
+	top_liege = no
 }
 
 goryeo_king = {
