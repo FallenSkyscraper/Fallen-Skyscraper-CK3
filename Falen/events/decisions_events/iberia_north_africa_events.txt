@@ -1,1 +1,26 @@
-﻿
+﻿namespace = iberia_north_africa
+iberia_north_africa.2105 = {
+	type = character_event
+	title = iberia_north_africa.2105.t
+	desc = iberia_north_africa.2105.desc
+	theme = crown
+	override_background = { event_background = throne_room_mediterranean }
+	left_portrait = root
+
+	immediate = {
+		show_as_tooltip = {
+			house = {
+				add_house_modifier = {
+					modifier = fp2_controls_the_mediterranean_house_modifier
+					years = 100
+				}
+			}
+			dynasty = { add_dynasty_prestige = major_prestige_gain }
+		}
+	}
+
+	option = {
+		name = iberia_north_africa.2105.a
+		custom_tooltip = secure_mediterranean_decision.a
+	}
+}
