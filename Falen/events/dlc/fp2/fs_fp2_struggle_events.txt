@@ -311,6 +311,12 @@ fs_fp2_struggle.0900 = { # Hostility
 		fp2_stuggle_ending_involved_list_effect = yes
 		give_nickname = nick_the_conquistador
 		dynasty = { add_dynasty_prestige = 10000 }
+		title:e_northern_joeseon = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
 	}
 
 	# Faith victory
