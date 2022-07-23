@@ -272,22 +272,30 @@ fs_fp2_struggle.0900 = { # Hostility
 		first_valid = {
 		    triggered_desc = {
 		        trigger = {
-						religion = religion:juche_religion
+					religion = religion:juche_religion
 		        }
 		        desc = fs_fp2_struggle.0900.opening.juche
 		    }
 		    triggered_desc = {
 		        trigger = {
-					culture = {
-							OR = {
-								has_cultural_pillar = heritage_gwanbuk
-								has_cultural_pillar = heritage_gwandong
-								has_cultural_pillar = heritage_gwanseo
-								has_cultural_pillar = heritage_haeseo
-								}
-							}
+					religion = religion:koreanism_religion
 		        }
-		        desc = fs_fp2_struggle.0900.opening.northern_joseon
+		        desc = fs_fp2_struggle.0900.opening.koreanism
+		    }
+		    triggered_desc = {
+		        trigger = {
+					religion = religion:communism_religion
+		        }
+		        desc = fs_fp2_struggle.0900.opening.communism
+		    }
+		    triggered_desc = {
+		        trigger = {
+					government = government:secular_republic_government
+					NOT = {
+						religion = religion:communism_religion
+					}
+		        }
+		        desc = fs_fp2_struggle.0900.opening.republic
 		    }
 		    desc = fs_fp2_struggle.0900.opening
 		}
@@ -677,7 +685,7 @@ fs_fp2_struggle_2.0902 = { # Conciliation
 		first_valid = {
 		    triggered_desc = {
 		        trigger = {
-						religion = religion:juche_religion
+					religion = religion:juche_religion
 		        }
 		        desc = fs_fp2_struggle.0900.opening.juche
 		    }
