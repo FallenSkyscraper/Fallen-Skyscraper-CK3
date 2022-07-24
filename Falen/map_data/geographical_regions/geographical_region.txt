@@ -95,28 +95,27 @@ world_india = {}
 
 # world_korea
 # > world_korea_south
-# >> world_gyeonggigwon
-# >>> world_gyeonggi
+# >> world_gyeonggi_south
 # >> world_gwandong
 # >>> world_gangwon
 # >> world_hoseo
 # >>> world_chungcheong
 # >> world_yeongnam
-# >>> world_bukgyeongsang
-# >>> world_namgyeongsang
+# >>> world_gyeongsang_north
+# >>> world_gyeongsang_south
 # >> world_honam
-# >>> world_bukjeonlla
-# >>> world_namjeonlla
+# >>> world_jeolla_north
+# >>> world_jeolla_south
 # >> world_doseo
 # > world_korea_north
 # >> world_gwanbuk
-# >>> world_bukhamkyeong
-# >>> world_namhamkyeong
+# >>> world_hamgyeong_north
+# >>> world_hamgyeong_south
 # >> world_gwanseo
-# >>> world_bukpyeongan
-# >>> world_nampyeongan
-# >> world_haeseo
-# >>> world_hwanghae
+# >>> world_pyeongan_north
+# >>> world_pyeongan_south
+# >> world_hwanghae
+# >> world_gyeonggi_north
 # world_china
 # world_japan
 # world_steppe
@@ -190,7 +189,7 @@ world_korea_south = {
 
 world_korea_north = {
 	regions = {
-		world_haeseo world_gwanseo world_gwanbuk world_gyeonggi_north world_gangwon_north
+		world_hwanghae world_gwanseo world_gwanbuk world_gyeonggi_north world_gangwon_north
 	}
 }
 
@@ -212,7 +211,7 @@ world_jeju = {
 	}
 }
 
-world_namjeonlla = {
+world_jeolla_south = {
 	duchies = {
 		#신안 왕국
 		d_sinan d_jindo
@@ -227,7 +226,7 @@ world_namjeonlla = {
 	}
 }
 
-world_bukjeonlla = {
+world_jeolla_north = {
 	duchies = {
 		#전주 왕국
 		d_jeonju d_jinan d_namwon d_imsil
@@ -248,7 +247,7 @@ world_chungcheong = {
 	}
 }
 
-world_namgyeongsang = {
+world_gyeongsang_south = {
 	duchies = {
 		#포항 왕국
 		d_ulsan
@@ -265,7 +264,7 @@ world_namgyeongsang = {
 	}
 }
 
-world_bukgyeongsang = {
+world_gyeongsang_north = {
 	duchies = {
 		#상주 왕국
 		d_sangju d_mungyeong d_gimcheon
@@ -342,7 +341,7 @@ world_hwanghae = {
 	}
 }
 
-world_nampyeongan = {
+world_pyeongan_south = {
 	duchies = {
 		#묘향 왕국
 		d_maengsan d_songchon
@@ -351,7 +350,7 @@ world_nampyeongan = {
 	}
 }
 
-world_bukpyeongan = {
+world_pyeongan_north = {
 	duchies = {
 		#자성 왕국
 		d_jaseong d_ganggye d_wiwon
@@ -362,7 +361,7 @@ world_bukpyeongan = {
 	}
 }
 
-world_namhamgyeong = {
+world_hamgyeong_south = {
 	duchies = {
 		#원산 왕국
 		d_wonsan d_jeongpyeong d_yeongheung
@@ -371,7 +370,7 @@ world_namhamgyeong = {
 	}
 }
 
-world_bukhamgyeong = {
+world_hamgyeong_north = {
 	duchies = {
 		#청진 왕국
 		d_cheongjin d_najin d_seongjin
@@ -388,25 +387,13 @@ world_ulleung = {
 
 world_gwanbuk = {
 	regions = {
-		world_namhamgyeong world_bukhamgyeong
+		world_hamgyeong_north world_hamgyeong_south
 	}
 }
 
 world_gwanseo = {
 	regions = {
-		world_bukpyeongan world_nampyeongan
-	}
-}
-
-world_haeseo = {
-	regions = {
-		world_hwanghae
-	}
-}
-
-world_gyeonggigwon = {
-	regions = {
-		world_gyeonggi
+		world_pyeongan_north world_pyeongan_south
 	}
 }
 
@@ -424,13 +411,13 @@ world_hoseo = {
 
 world_honam = {
 	regions = {
-		world_namjeonlla world_bukjeonlla
+		world_jeolla_north world_jeolla_south
 	}
 }
 
 world_yeongnam = {
 	regions = {
-		world_namgyeongsang world_bukgyeongsang
+		world_gyeongsang_north world_gyeongsang_south
 	}
 }
 
@@ -456,7 +443,7 @@ material_wood_maple = {}
 # Widespread Regional - Pines and Firs (found all over continental Europe excluding northern France/Germany and the Balkans, but exists in Scotland and spreads East through Anatolia, Scandinavia, Russia, China, and Tibet)
 material_woods_pine_and_fir = { 
 	regions= {
-		world_namjeonlla world_yeongnam
+		world_jeolla_south world_yeongnam
 	}
 }
 
