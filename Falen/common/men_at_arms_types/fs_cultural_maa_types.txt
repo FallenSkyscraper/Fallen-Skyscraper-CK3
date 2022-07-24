@@ -376,6 +376,10 @@ freikorps = {
 	low_maintenance_cost = { gold = heavy_infantry_low_maint_cost }
 	high_maintenance_cost = { gold = heavy_infantry_high_maint_cost }
 	
+	can_recruit = {
+		culture = { has_cultural_parameter = unlock_maa_freikorps }
+	}
+	
 #	mercenary_fallback = yes
 #	holy_order_fallback = yes
 	
