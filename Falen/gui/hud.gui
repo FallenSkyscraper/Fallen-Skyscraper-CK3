@@ -459,21 +459,28 @@ widget = {
 						fixedgridbox = {
 							name = "hec_electors"
 							flipdirection = yes
-							addrow = 30
-							addcolumn = 40
-							datamodel_wrap = 4
-
+							addrow = 100
+							addcolumn = 200
+							datamodel_wrap = 2
 							datamodel = "[GetGlobalList('hre_elector_list')]"
 							item = {
 								flowcontainer = {
-									
+									datacontext = "[Scope.Title]"
+									spacing = 5
+
 									coa_title_small_crown = {
-										datacontext = "[Title.GetHolder]"
+										using = tooltip_ne
 									}
-									#portrait_head_small = { datacontext = "[Title.GetHolder]" }
-									text_single = { text = "AA" }
-								
-									#margin = { 20 20 30 30 }
+									portrait_head_small = { datacontext = "[Title.GetHolder]" }
+									text_multi = {
+										text = "[Title.GetBaseNameNoTooltip]"
+										parentanchor = vcenter
+										autoresize = yes
+										default_format = "#high"
+										using = Font_Size_Medium
+										max_width = 190
+										margin_top = 5
+									}
 								}
 							}
 						}
