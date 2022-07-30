@@ -17,6 +17,7 @@ seasons = "seasons.txt"
 #############
 sea_zones = RANGE { 3822 4003 }
 sea_zones = RANGE { 4014 4015 }
+sea_zones = LIST { 1 4014 4015 }
 ###############
 # MAJOR RIVERS
 ###############
@@ -61,11 +62,11 @@ impassable_mountains = LIST { 3529 }
 ############
 # These are actually supposed to be Wasteland:
 # Cannot be colored. Blocks unit movement, used for things like Sahara desert. 
-
+impassable_mountains = RANGE { 2 7 }
 
 # IMPASSABLE SEA ZONES
 # These sea provinces cannot be crossed/sailed
-
+impassable_seas = RANGE { 8 10 }
 # UNUSED PROVINCES
 # These provinces cause issues because they are passable land, but not part of any title.
 # They are probably not visible anywhere on the map, so feel free to reuse them (after double checking that they are actually missing).
