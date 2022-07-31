@@ -7,9 +7,9 @@ investment = {
 	ai_check_interval = 50
 
 	is_shown = {
-		is_landed = yes
-		highest_held_title_tier > tier_barony
-		
+		#is_landed = yes
+		#highest_held_title_tier > tier_barony
+		always = no
 		NOT = {
 			faith = faith:marxism
 			is_imprisoned = yes
