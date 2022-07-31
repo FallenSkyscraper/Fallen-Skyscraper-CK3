@@ -196,3 +196,65 @@ form_manchu_decision = {
 		base = 100
 	}
 }
+
+form_gaya_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_check_interval = 60
+	desc = form_gaya_decision_desc
+
+	is_shown = {
+		culture = culture:gaya
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_gaya_decision
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+
+		highest_held_title_tier = tier_kingdom
+
+		completely_controls = title:k_gaya
+		completely_controls = title:d_gwangyang
+		completely_controls = title:k_jinju
+		completely_controls = title:d_gimhae
+		completely_controls = title:k_changwon
+	}
+	
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+	}
+
+
+	effect = {
+		trigger_event = {
+			id = new_title.gy.0001
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_gaya_decision
+			}
+			set_global_variable = {
+				name = form_gaya_decision
+				value = root
+			}
+		}
+	}
+
+	cost = { gold = 300 }
+	
+	ai_potential = {
+		always = yes
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}
