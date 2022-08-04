@@ -1,4 +1,18 @@
-﻿
+﻿#fs 고유
+easy_to_leave = {
+	value = 0
+	if = {
+		limit = {
+			exists = scope:county
+			scope:county.faith = {
+				has_doctrine_parameter = tenet_easy_to_leave
+			}
+		}
+		subtract = court_chaplain_conversion_base_total
+		multiply = -0.2
+	}
+}
+
 ##########
 # Religious Relations
 ##########
