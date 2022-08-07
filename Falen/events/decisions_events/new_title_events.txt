@@ -1,14 +1,8 @@
 namespace = new_title
-namespace = new_title.gw
-namespace = new_title.sl
-namespace = new_title.mc
-namespace = new_title.gy
-namespace = new_title.ROK
-namespace = new_title.js
-new_title.gw.0001 = {
+new_title.1 = { # Gangwon
 	type = character_event
-	title = new_title.gw.0001.t
-	desc = new_title.gw.0001.desc
+	title = new_title.1.t
+	desc = new_title.1.desc
 	theme = realm
 	left_portrait = {
 		character = root
@@ -38,14 +32,14 @@ new_title.gw.0001 = {
 		add_prestige = major_prestige_gain
 	}
 	option = {
-		name = new_title.gw.0001.a
+		name = new_title.1.a
 		}
 }
 
-new_title.sl.0001 = {
+new_title.2 = { # Silla
 	type = character_event
-	title = new_title.sl.0001.t
-	desc = new_title.sl.0001.desc
+	title = new_title.2.t
+	desc = new_title.2.desc
 	theme = realm
 	left_portrait = {
 		character = root
@@ -78,14 +72,14 @@ new_title.sl.0001 = {
 		add_prestige = major_prestige_gain
 	}
 	option = {
-		name = new_title.sl.0001.a
+		name = new_title.2.a
 	}
 }
 
-new_title.mc.0001 = {
+new_title.3 = { # Manchuria
 	type = character_event
-	title = new_title.mc.0001.t
-	desc = new_title.mc.0001.desc
+	title = new_title.3.t
+	desc = new_title.3.desc
 	theme = realm
 	left_portrait = {
 		character = root
@@ -138,14 +132,14 @@ new_title.mc.0001 = {
 		add_prestige = major_prestige_gain
 	}
 	option = {
-		name = new_title.mc.0001.a
+		name = new_title.3.a
 	}
 }
 
-new_title.gy.0001 = {
+new_title.4 = { # Gaya
 	type = character_event
-	title = new_title.gy.0001.t
-	desc = new_title.gy.0001.desc
+	title = new_title.4.t
+	desc = new_title.4.desc
 	theme = realm
 	left_portrait = {
 		character = root
@@ -206,14 +200,14 @@ new_title.gy.0001 = {
 		add_prestige = major_prestige_gain
 	}
 	option = {
-		name = new_title.gy.0001.a
+		name = new_title.4.a
 	}
 }
 
-new_title.ROK.0001 = {
+new_title.5 = {
 	type = character_event
-	title = new_title.ROK.0001.t
-	desc = new_title.ROK.0001.desc
+	title = new_title.5.t
+	desc = new_title.5.desc
 	theme = realm
 	left_portrait = {
 		character = root
@@ -241,7 +235,7 @@ new_title.ROK.0001 = {
 		title:k_yeongseo = { set_de_jure_liege_title = title:e_korea }
 		title:k_yeongdong = { set_de_jure_liege_title = title:e_korea }
 		title:k_cherwon = { set_de_jure_liege_title = title:e_korea }
-		title:k_gaesseong = { set_de_jure_liege_title = title:e_korea }
+		title:k_gaeseong = { set_de_jure_liege_title = title:e_korea }
 		title:k_sangju= { set_de_jure_liege_title = title:e_korea }
 		title:k_andong = { set_de_jure_liege_title = title:e_korea }
 		title:k_daegu = { set_de_jure_liege_title = title:e_korea }
@@ -267,14 +261,14 @@ new_title.ROK.0001 = {
 		add_prestige = major_prestige_gain
 	}
 	option = {
-		name = new_title.ROK.0001.a
+		name = new_title.5.a
 	}
 }
 
-new_title.js.0001 = {
+new_title.6 = {
 	type = character_event
-	title = new_title.js.0001.t
-	desc = new_title.js.0001.desc
+	title = new_title.6.t
+	desc = new_title.6.desc
 	theme = realm
 	left_portrait = {
 		character = root
@@ -302,7 +296,7 @@ new_title.js.0001 = {
 		title:k_yeongseo = { set_de_jure_liege_title = title:e_joseon }
 		title:k_yeongdong = { set_de_jure_liege_title = title:e_joseon }
 		title:k_cherwon = { set_de_jure_liege_title = title:e_joseon }
-		title:k_gaesseong = { set_de_jure_liege_title = title:e_joseon }
+		title:k_gaeseong = { set_de_jure_liege_title = title:e_joseon }
 		title:k_sangju= { set_de_jure_liege_title = title:e_joseon }
 		title:k_andong = { set_de_jure_liege_title = title:e_joseon }
 		title:k_daegu = { set_de_jure_liege_title = title:e_joseon }
@@ -333,7 +327,7 @@ new_title.js.0001 = {
 			save_scope_as = change
 			add_claim_on_loss = no
 		}
-		title:e_korea = {
+		title:e_joseon = {
 			change_title_holder = {
 				holder = root
 				change = scope:change
@@ -344,6 +338,6 @@ new_title.js.0001 = {
 		add_prestige = major_prestige_gain
 	}
 	option = {
-		name = new_title.js.0001.a
+		name = new_title.6.a
 	}
 }
