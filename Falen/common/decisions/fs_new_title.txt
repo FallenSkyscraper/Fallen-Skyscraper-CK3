@@ -325,3 +325,75 @@ form_ROK_decision = {
 		base = 100
 	}
 }
+
+form_js_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_check_interval = 60
+	desc = form_ROK_decision_desc
+
+	is_shown = {
+		faith = {
+			religion_tag = confucianism_religion
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_ROK_decision
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+
+		completely_controls = title:k_seoul
+		completely_controls = title:k_gaeseong
+		completely_controls = title:k_busan
+		completely_controls = title:k_gyeongju
+		completely_controls = title:k_muan
+		completely_controls = title:k_daegu
+		completely_controls = title:k_jeonju
+		completely_controls = title:k_yeongseo
+		completely_controls = title:k_uiju
+		completely_controls = title:k_gonghung
+		completely_controls = title:k_chungcheong
+		completely_controls = title:k_haeju
+		completely_controls = title:k_prk
+		completely_controls = title:k_wonsan
+		completely_controls = title:k_hamheung
+	}
+	
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+	}
+
+
+	effect = {
+		trigger_event = {
+			id = new_title.js.0001
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_js_decision
+			}
+			set_global_variable = {
+				name = form_js_decision
+				value = root
+			}
+		}
+	}
+
+	cost = { gold = 1000 }
+	
+	ai_potential = {
+		always = yes
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}
