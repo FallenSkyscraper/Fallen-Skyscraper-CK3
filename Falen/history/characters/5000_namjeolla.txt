@@ -103,6 +103,7 @@
 	trait = overseer
 	trait = avaricious
 	trait = august
+	trait = reaver
 	diplomacy = 7
 	martial = 9
 	stewardship = 8
@@ -398,6 +399,7 @@
 	stewardship = 6
 	intrigue = 4
 	learning = 6
+	prowess = 9
 	2400.2.5 = { birth = yes }
 	2420.8.1 = {
 		add_spouse = 5037
@@ -793,6 +795,17 @@
 	dynasty = 5002 # 정
 	culture = sinan
 	religion = presbyterianism
+	trait = diligent
+	trait = zealous
+	trait = ambitious
+	trait = education_martial_3
+	trait = reaver
+	diplomacy = 9
+	martial = 7
+	stewardship = 7
+	intrigue = 9
+	learning = 9
+	prowess = 10
 	2422.6.6 = { birth = yes }
 	2500.1.1 = { death = yes }
 }
@@ -834,6 +847,151 @@
 	2500.1.1 = { death = yes }
 }
 #지도-천씨
+5076 = {
+	name = "무아"
+	father = 5003
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2135.5.15 = { birth = yes }
+	2174.9.19 = { death = yes }
+}
+5077 = {
+	name = "원식"
+	father = 5076
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2156.1.6 = { birth = yes }
+	2217.7.6 = { death = yes }
+}
+5078 = {
+	name = "정우"
+	father = 5077
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2186.9.6 = { birth = yes }
+	2241.1.14 = { death = yes }
+}
+5079 = {
+	name = "석환"
+	father = 5078
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2229.9.29 = { birth = yes }
+	2280.9.8 = { death = yes }
+}
+5080 = {
+	name = "자라"
+	father = 5079
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2260.1.6 = { birth = yes }
+	2354.4.1 = { death = yes }
+}
+5081 = {
+	name = "바람"
+	father = 5080
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2290.1.6 = { birth = yes }
+	2354.4.1 = { death = yes }
+}
+5082 = {
+	name = "수한"
+	father = 5081
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2324.5.6 = { birth = yes }
+	2379.6.1 = { death = yes }
+}
+5083 = {
+	name = "수하"
+	father = 5081
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2329.1.6 = { birth = yes }
+	2355.1.1 = { add_spouse = 5065 }
+	2384.5.1 = { death = yes }
+}
+5084 = {
+	name = "준태"
+	father = 5082
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2352.6.3 = { birth = yes }
+	2375.8.1 = { add_spouse = 5024 }
+	2399.9.2 = {
+		death = {
+			death_reason = death_battle
+		}
+	}
+}
+5085 = {
+	name = "황지"
+	father = 5084
+	mother = 5024
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2380.9.5 = { birth = yes }
+	2438.5.4 = { death = yes }
+}
+5086 = {
+	name = "정백"
+	father = 5085
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2403.6.5 = { birth = yes }
+	2433.4.5 = { add_spouse = 5075 }
+	2500.1.1 = { death = yes }
+}
+5087 = {
+	name = "정희"
+	father = 5085
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2410.6.3 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+5088 = {
+	name = "호연"
+	father = 5086
+	mother = 5075
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2435.6.4 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+5089 = {
+	name = "건마"
+	father = 5084
+	mother = 5065
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2367.7.17 = { birth = yes }
+	2423.5.3 = { death = yes }
+}
+5090 = {
+	name = "의연"
+	father = 5089
+	dynasty = 5003
+	culture = sinan
+	religion = presbyterianism
+	2399.12.6 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
 #비금(이)
 #진도(조)
 #고군(박)

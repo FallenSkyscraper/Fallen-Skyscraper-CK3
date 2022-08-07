@@ -399,6 +399,32 @@
 			doctrine = tenet_armed_pilgrimages
 			doctrine = tenet_aniconism
 
+			doctrine = doctrine_spiritual_head
+			doctrine = doctrine_gender_male_dominated
+			doctrine = doctrine_pluralism_fundamentalist
+			doctrine = doctrine_theocracy_temporal
+
+			#Marriage
+			doctrine = doctrine_monogamy
+			doctrine = doctrine_divorce_disallowed
+			doctrine = doctrine_bastardry_legitimization
+			doctrine = doctrine_consanguinity_cousins
+
+			#Crimes
+			doctrine = doctrine_homosexuality_crime
+			doctrine = doctrine_adultery_men_crime
+			doctrine = doctrine_adultery_women_crime
+			doctrine = doctrine_kinslaying_any_dynasty_member_crime
+			doctrine = doctrine_deviancy_crime
+			doctrine = doctrine_witchcraft_crime
+
+			#Clerical Functions
+			doctrine = doctrine_clerical_function_alms_and_pacification
+			doctrine = doctrine_clerical_gender_either
+			doctrine = doctrine_clerical_marriage_allowed
+			doctrine = doctrine_clerical_succession_spiritual_appointment
+
+
 			holy_order_names = { # 추후 수정바람
 				{ name = "holy_order_knights_templar" coat_of_arms = "ho_knights_templar" }
 				{ name = "holy_order_knights_hospitaller" coat_of_arms = "ho_knights_hospitaller"  }
@@ -407,13 +433,79 @@
 				{ name = "holy_order_order_of_alcantara" coat_of_arms = "ho_order_of_alcantara"  }
 				{ name = "holy_order_knights_of_santiago" coat_of_arms = "ho_knights_of_santiago"  }
 			}
+			localization = {
+
+				PantheonTerm = imperial_high_god_name
+				PantheonTermHasHave = pantheon_term_has
+				GoodGodNames = {
+					imperial_high_god_name
+					imperial_high_god_name_alternate
+					imperial_good_god_jesus # 예수
+					imperial_good_god_christ #그리스도
+				}
+				DevilName = imperial_devil_name # imperial를 imperial로 고치고 명칭은 기본적으로 크3 바닐라 기독교를 메인으로 한다
+				DevilNamePossessive = imperial_devil_name_possessive
+				DevilSheHe = CHARACTER_SHEHE_HE
+				DevilHerHis = CHARACTER_HERHIS_HIS
+				DevilHerHis = CHARACTER_HERHIS_HIS
+				DevilHerselfHimself = CHARACTER_HIMSELF
+				EvilGodNames = {
+					imperial_devil_name
+					imperial_evil_god_lucifer
+					imperial_evil_god_beelzebub
+					imperial_evil_god_mephistopheles
+				}
+				HouseOfWorship = imperial_house_of_worship
+				HouseOfWorshipPlural = imperial_house_of_worship_plural
+				ReligiousSymbol = imperial_religious_symbol
+				ReligiousText = imperial_religious_text
+				ReligiousHeadName = imperial_religious_head_title
+				ReligiousHeadTitleName = imperial_religious_head_title_name
+				DevoteeMale = imperial_devotee_male
+				DevoteeMalePlural = imperial_devotee_male_plural
+				DevoteeFemale = imperial_devotee_female
+				DevoteeFemalePlural = imperial_devotee_female_plural
+				DevoteeNeuter = imperial_devotee_neuter
+				DevoteeNeuterPlural = imperial_devotee_neuter_plural
+				PriestMale = imperial_priest_male
+				PriestMalePlural = imperial_priest_male_plural
+				PriestFemale = imperial_priest_male
+				PriestFemalePlural = imperial_priest_male_plural
+				PriestNeuter = imperial_priest_male
+				PriestNeuterPlural = imperial_priest_male_plural
+				AltPriestTermPlural = imperial_priest_alternate_plural
+				BishopMale = imperial_bishop
+				BishopMalePlural = imperial_bishop_plural
+				BishopFemale = imperial_bishop
+				BishopFemalePlural = imperial_bishop_plural
+				BishopNeuter = imperial_bishop
+				BishopNeuterPlural = imperial_bishop_plural
+				DivineRealm = imperial_positive_afterlife
+				PositiveAfterLife = imperial_positive_afterlife
+				NegativeAfterLife = imperial_negative_afterlife
+				DeathDeityName = imperial_death_deity_name
+				DeathDeityNamePossessive = imperial_death_deity_name_possessive
+				DeathDeitySheHe = CHARACTER_SHEHE_HE
+				DeathDeityHerHis = CHARACTER_HERHIS_HIS
+				WitchGodName = imperial_witchgodname_the_horned_god
+				WitchGodHerHis = CHARACTER_HERHIS_HIS
+				WitchGodSheHe = CHARACTER_SHEHE_HE
+				WitchGodHerHim = CHARACTER_HERHIM_HIM
+				WitchGodMistressMaster = master
+				WitchGodMotherFather = father
+
+
+				GHWName = ghw_imperial_crusade
+				GHWNamePlural = ghw_imperial_crusades
+
+			}
 		}
 		holy_spirit = {
 			icon = holy_spirit
 			reformed_icon = holy_spirit_reformed
 			
 			color = { 122 96 66 }
-			religious_head = k_yanbian
+			religious_head = d_holy_spirit
 			graphical_faith = "catholic_gfx"
 			
 			holy_site = iksan_default
@@ -426,7 +518,32 @@
 			doctrine = tenet_communion
 			doctrine = tenet_armed_pilgrimages
 			doctrine = tenet_aniconism
+			
+			doctrine = doctrine_temporal_head
+			doctrine = doctrine_gender_male_dominated
+			doctrine = doctrine_pluralism_fundamentalist
+			doctrine = doctrine_theocracy_temporal
 
+			#Marriage
+			doctrine = doctrine_monogamy
+			doctrine = doctrine_divorce_disallowed
+			doctrine = doctrine_bastardry_legitimization
+			doctrine = doctrine_consanguinity_cousins
+
+			#Crimes
+			doctrine = doctrine_homosexuality_crime
+			doctrine = doctrine_adultery_men_crime
+			doctrine = doctrine_adultery_women_crime
+			doctrine = doctrine_kinslaying_any_dynasty_member_crime
+			doctrine = doctrine_deviancy_crime
+			doctrine = doctrine_witchcraft_crime
+
+			#Clerical Functions
+			doctrine = doctrine_clerical_function_alms_and_pacification
+			doctrine = doctrine_clerical_gender_either
+			doctrine = doctrine_clerical_marriage_allowed
+			doctrine = doctrine_clerical_succession_spiritual_appointment
+			
 			localization = {
 				HighGodName = holy_spirit_high_god_name
 				HighGodName2 = holy_spirit_high_god_name_2
