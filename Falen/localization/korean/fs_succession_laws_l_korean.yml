@@ -3,3 +3,22 @@
  youngest_partition_succession_law:0 "말자 분할 상속"
  high_youngest_partition_succession_law:0 "고등 말자 분할 상속"
  federal_elective_succession_law:0 "연방 선거 상속법"
+
+
+
+ youngest_confederate_partition_succession_law_subname:0 "말자 우선 모든 자녀 상속"
+ youngest_partition_succession_law_subname:0 "말자 우선 모든 자녀 상속"
+ high_youngest_partition_succession_laws_subname:0 "말자 우선 모든 자녀 상속"
+
+
+ youngest_confederate_partition_succession_law_effects:2 "\n#V $youngest_confederate_partition_succession_law$ 승계법을 따르면 [titles]가 자녀들에게 동등하게 분배됩니다. 장성한 [realm_heirs]들을 위해 새로운 [titles]가 생성될 수도 있습니다.#!\n\n#weak $youngest_partition_base_desc$\n영지가 충분할 경우 장성한 자녀들에게 각자의 작위가 생성돼 지급됩니다.\n\n#!#X 부족정 영주는 이 상속법만 도입할 수 있습니다.#!\n"
+
+ youngest_partition_succession_law_effects:1 "\n#V $youngest_partition_succession_law$ [succession]법을 따르면 당신의 [titles]는 자녀들에게 동등하게 분배됩니다.#!\n\n#weak $youngest_partition_base_desc$#!"
+
+ youngest_partition_base_desc:2 "승계가 시작되면, 고인이 된 [ruler|E]의 모든 [titles|E]는 고인의 [eligible_children|E]들이 나눠 가지며 [primary_title|E]와 [realm_capital|E] 그리고 이와 직접 관련된 모든 [de_jure|E] 작위는 [player_heir|E]에게 주어집니다.\n\n장성한 자녀들에겐 대표 작위와 같은 [rank|E]의 작위를 시작으로 작위들이 분배되며 같은 등급의 작위가 없으면 비교적 낮은 등급의 작위를 대신 분배받습니다. 당신의 플레이어 후계자는 상속받지 못할 작위를 선제적으로 수여받을 수 없습니다.\n#!"
+
+ succession_laws_must_have_nomadic_government_tooltip:0 "당신은 [tribal|E], [manchu_tribal|E], 혹은 [nomadic|E] 정부를 도입하지 않았습니다."
+
+ succession_laws_must_have_organised_nomadic_government_tooltip:0 "당신은 [manchu_tribal|E] 혹은 [nomadic|E] 정부를 도입하지 않았습니다."
+ 
+ high_youngest_partition_succession_law_effects:2 "\n#V $high_youngest_partition_succession_law$ [succession]법을 따르면 [titles] 중 가장 알짜배기는 [player_heir]가 갖게 되며 나머지는 다른 자녀들에게 분배됩니다.#!\n\n#weak $youngest_partition_base_desc$\n플레이어의 후계자는 선대 영주로부터 #emp 항상#! 절반 이상의 작위를 상속받게 됩니다.\n#!"
