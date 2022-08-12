@@ -259,11 +259,11 @@ form_gaya_decision = {
 	}
 }
 
-form_ROK_decision = {
+form_rok_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	major = yes
 	ai_check_interval = 60
-	desc = form_ROK_decision_desc
+	desc = form_rok_decision_desc
 
 	is_shown = {
 		faith = {
@@ -272,7 +272,7 @@ form_ROK_decision = {
 		NOT = {
 			is_target_in_global_variable_list = {
 				name = unavailable_unique_decisions
-				target = flag:form_ROK_decision
+				target = flag:form_rok_decision
 			}
 		}
 	}
@@ -306,10 +306,10 @@ form_ROK_decision = {
 		hidden_effect = {
 			add_to_global_variable_list = {
 				name = unavailable_unique_decisions
-				target = flag:form_ROK_decision
+				target = flag:form_rok_decision
 			}
 			set_global_variable = {
-				name = form_ROK_decision
+				name = form_rok_decision
 				value = root
 			}
 		}
@@ -330,7 +330,7 @@ form_js_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	major = yes
 	ai_check_interval = 60
-	desc = form_ROK_decision_desc
+	desc = form_js_decision_desc
 
 	is_shown = {
 		faith = {
@@ -339,7 +339,7 @@ form_js_decision = {
 		NOT = {
 			is_target_in_global_variable_list = {
 				name = unavailable_unique_decisions
-				target = flag:form_ROK_decision
+				target = flag:form_js_decision
 			}
 		}
 	}
