@@ -341,3 +341,124 @@ new_title.6 = {
 		name = new_title.6.a
 	}
 }
+
+new_title.7 = { #러시아제국
+	type = character_event
+	title = new_title.7.t
+	desc = new_title.7.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_ruler
+		every_held_title = { #Completely Controlled Kingdoms as well.
+			limit = {
+				tier = tier_kingdom
+				root = { completely_controls = prev }
+			}
+			set_de_jure_liege_title = title:e_romanov
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:e_romanov = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		hidden_effect = { set_primary_title_to = title:e_romanov }
+		add_prestige = major_prestige_gain
+	}
+	option = {
+		name = new_title.7.a
+		}
+}
+
+new_title.8 = { #소련
+	type = character_event
+	title = new_title.8.t
+	desc = new_title.8.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_ruler
+		every_held_title = { #Completely Controlled Kingdoms as well.
+			limit = {
+				tier = tier_kingdom
+				root = { completely_controls = prev }
+			}
+			set_de_jure_liege_title = title:e_soviet
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:e_soviet = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		hidden_effect = { set_primary_title_to = title:e_soviet }
+		add_prestige = major_prestige_gain
+	}
+	option = {
+		name = new_title.8.a
+		}
+}
+
+new_title.9 = { #미국
+	type = character_event
+	title = new_title.9.t
+	desc = new_title.9.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_ruler
+		every_held_title = { #Completely Controlled Kingdoms as well.
+			limit = {
+				tier = tier_kingdom
+				root = { completely_controls = prev }
+			}
+			set_de_jure_liege_title = title:e_usa
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:e_usa = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		hidden_effect = { set_primary_title_to = title:e_usa }
+		add_prestige = major_prestige_gain
+	}
+	option = {
+		name = new_title.9.a
+		}
+}
+

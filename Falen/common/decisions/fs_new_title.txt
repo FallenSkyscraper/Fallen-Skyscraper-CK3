@@ -397,3 +397,202 @@ form_js_decision = {
 		base = 100
 	}
 }
+
+form_romanov_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_check_interval = 60
+	desc = form_romanov_decision_desc
+
+	is_shown = {
+		culture = { has_cultural_pillar = heritage_east_slavic }
+		faith = {
+			religion_tag = orthodox_religion
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_romanov_decision
+			}
+		}
+	}
+
+	is_valid = {
+		culture = { has_cultural_pillar = heritage_east_slavic }
+		is_independent_ruler = yes
+		faith = {
+			religion_tag = orthodox_religion
+		}
+
+		highest_held_title_tier = tier_kingdom
+
+		completely_controls = title:k_primorye
+		any_held_title = {
+				count >= 3
+				tier = tier_kingdom
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+	}
+
+
+	effect = {
+		trigger_event = {
+			id = new_title.7
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_romanov_decision
+			}
+			set_global_variable = {
+				name = form_romanov_decision
+				value = root
+			}
+		}
+	}
+
+	cost = { gold = 300 }
+	
+	ai_potential = {
+		always = yes
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}
+
+form_soviet_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_check_interval = 60
+	desc = form_soviet_decision_desc
+
+	is_shown = {
+		faith = {
+			religion_tag = communism_religion
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_soviet_decision
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		faith = {
+			religion_tag = communism_religion
+		}
+
+		highest_held_title_tier = tier_kingdom
+
+		completely_controls = title:k_primorye
+		any_held_title = {
+				count >= 3
+				tier = tier_kingdom
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+	}
+
+
+	effect = {
+		trigger_event = {
+			id = new_title.8
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_soviet_decision
+			}
+			set_global_variable = {
+				name = form_soviet_decision
+				value = root
+			}
+		}
+	}
+
+	cost = { gold = 300 }
+	
+	ai_potential = {
+		always = yes
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}
+
+form_usa_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_check_interval = 60
+	desc = form_romanov_decision_desc
+
+	is_shown = {
+		culture = { has_cultural_pillar = heritage_west_germanic }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_usa_decision
+			}
+		}
+	}
+
+	is_valid = {
+		culture = { has_cultural_pillar = heritage_west_germanic }
+		is_independent_ruler = yes
+
+		highest_held_title_tier = tier_kingdom
+
+		completely_controls = title:k_primorye
+		any_held_title = {
+				count >= 3
+				tier = tier_kingdom
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+	}
+
+
+	effect = {
+		trigger_event = {
+			id = new_title.9
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_usa_decision
+			}
+			set_global_variable = {
+				name = form_usa_decision
+				value = root
+			}
+		}
+	}
+
+	cost = { gold = 300 }
+	
+	ai_potential = {
+		always = yes
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}
