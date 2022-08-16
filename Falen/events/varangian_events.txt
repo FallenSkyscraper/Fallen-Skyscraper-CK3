@@ -32,9 +32,9 @@ scripted_trigger varangian_0001_available_varangian_trigger = {
 	is_married = no
 	NOR = {
 		has_character_flag = has_asked_to_be_varangian
-		has_trait = varangian
+		has_trait = marine
 	}
-	religion = religion:steelers_religion
+	#religion = religion:steelers_religion
 	NOR = {
 		faith = {
 			has_doctrine_parameter = pacifist_opinion_active
@@ -50,7 +50,7 @@ varangian.0001 = {
 	hidden = yes
 
 	trigger = {
-		religion = religion:steelers_religion
+		#religion = religion:steelers_religion
 		NOR = {
 			faith = {
 				has_doctrine_parameter = pacifist_opinion_active
@@ -187,7 +187,7 @@ varangian.0002 = {
 		show_as_tooltip = {
 			scope:varangian_candidate = {
 				visit_court_of = scope:emperor
-				add_trait = varangian
+				add_trait = marine
 			}
 		}
 		hidden_effect = {
@@ -229,7 +229,7 @@ varangian.0003 = {
 			desc = varangian_arrived.desc
 			add_visiting_courtier = scope:varangian_candidate
 			scope:varangian_candidate = {
-				add_trait = varangian
+				add_trait = marine
 				add_character_flag = is_currently_varangian
 				set_variable = {
 					name = years_as_varangian
