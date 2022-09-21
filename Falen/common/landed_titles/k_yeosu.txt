@@ -65,21 +65,6 @@ k_yeosu = {
 					color2 = { 255 255 255 }
 				}
 			}
-			c_geomun = {
-				color = { 3 141 5 }
-				color2 = { 255 255 255 }
-				cultural_names = {
-					name_list_english = cn_port_hamilton
-				}
-				b_3810 = { # 거문도
-					province = 3810
-					cultural_names = {
-						name_list_english = cn_port_hamilton
-					}
-					color = { 3 141 5 }
-					color2 = { 255 255 255 }
-				}
-			}
 		}
 		d_suncheon = {
 			color = { 0 201 145 }
@@ -502,6 +487,28 @@ k_yeosu = {
 					province = 567
 					
 					color = { 126 0 84 }
+					color2 = { 255 255 255 }
+				}
+			}
+		}
+		d_geomun = {
+			color = { 3 141 5}
+			color2 = { 255 255 255}
+
+			capital = c_geomun
+
+			c_geomun = {
+				color = { 3 141 5 }
+				color2 = { 255 255 255 }
+				cultural_names = {
+					name_list_english = cn_port_hamilton
+				}
+				b_3810 = { # 거문도
+					province = 3810
+					cultural_names = {
+						name_list_english = cn_port_hamilton
+					}
+					color = { 3 141 5 }
 					color2 = { 255 255 255 }
 				}
 			}
