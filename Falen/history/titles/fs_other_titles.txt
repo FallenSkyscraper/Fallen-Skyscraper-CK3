@@ -1,22 +1,22 @@
 e_hec = { #신성복음연합
 	2317.1.1 = {
-		holder = 4021
+		holder = 4015
 		succession_laws = {
 			princely_elective_succession_law
 			male_only_law
 		}
 	}
 	2325.1.1 = {
-		holder = 4002
-	}
-	2351.1.1 = {
 		holder = 4003
 	}
+	2351.1.1 = {
+		holder = 4005
+	}
 	2380.1.1 = {
-		holder = 4030
+		holder = 4025
 	}
 	2414.1.1 = {
-		holder = 4005
+		holder = 4009
 		effect = {
 			if = {
 				limit = {
@@ -32,27 +32,9 @@ e_hec = { #신성복음연합
 }
 
 k_n_grandduke = { # 북부대공령
-	2332.1.1 = {
-		holder = 4242
-		liege = "e_hec"
-	}
-	2345.1.1 = {
-		holder = 4243
-	}
-	2359.1.1 = {
-		holder = 4244
-	}
-	2380.1.1 = {
-		holder = 4245
-	}
-	2390.1.1 = {
-		holder = 4246
-	}
-	2393.1.1 = {
-		holder = 4247
-	}
 	2402.1.1 = {
-		holder = 4248
+		holder = 4169
+		liege = "e_hec"
 		effect = {
 			if = {
 				limit = {
