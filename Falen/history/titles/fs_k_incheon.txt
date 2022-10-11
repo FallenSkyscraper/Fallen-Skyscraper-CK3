@@ -85,9 +85,8 @@ c_seokmo = {
 ###인천공화국
 k_UWC = {
     2443.10.3 = {
-                 government = oligarchic_republic_government 
+        government = oligarchic_republic_government 
 	    holder = 2
-		government = oligarchic_republic_government
 	}
 }
 d_bupyeong = {
@@ -112,6 +111,7 @@ c_bucheon = {
 ###김포
 d_gimpo = {
     2443.10.15 = {
+	    government = oligarchic_republic_government
 	    holder = 3
 		liege = k_UWC
 	}
@@ -128,6 +128,7 @@ c_gimpo = {
 c_tongjin = {
     2000.1.1 = { change_development_level = 13 }
     2443.10.15 = {
+	    government = merchant_republic_government
 	    holder = 3
 		liege = k_UWC
 	}
@@ -136,6 +137,7 @@ c_tongjin = {
 ###옹진
 d_yeongjongdo = {
     2443.10.12 = {
+	    government = oligarchic_republic_government
 	    holder = 4
 		liege = k_UWC
 	}
@@ -152,6 +154,7 @@ c_daebu = {
 c_deokjeok = {
     2000.1.1 = { change_development_level = 5 }
     2443.10.12 = {
+	    government = merchant_republic_government
 	    holder = 14
 		liege = d_yeongjongdo
 	}
