@@ -360,7 +360,7 @@ widget = {
 		name = "hec_window"
 		parentanchor = center
 		position = { 50 100 }
-		size = { 800 1000 }
+		size = { 850 1000 }
 		layer = windows_layer
 		filter_mouse = all
 		alwaystransparent = no
@@ -436,8 +436,121 @@ widget = {
 						text_single_medium = {
 							text = "Reforms"
 							tooltip = "Tooltip_Reforms"
+							margin_bottom = 20
 						}
-						margin_right = 200
+						margin_right = 100
+						margin_left = 30
+						button_primary = {
+							name = "reform1"
+							tooltip = "Tooltip_Reforms_1"
+							enabled = ""
+						#	datacontext = ""
+							onclick = ""
+							text_single = {
+								text = "황권 재정비"
+								tooltip = "Tooltip_Reforms_3"
+								parentanchor = center
+							}
+						}
+						button_primary = {
+							name = "reform2"
+							tooltip = "Tooltip_Reforms_2"
+							enabled = ""
+						#	datacontext = ""
+							onclick = ""
+							text_single = {
+								text = "제국군 재창설"
+								parentanchor = center
+							}
+						}
+						button_primary = {
+							name = "reform3"
+							tooltip = "Tooltip_Reforms_3"
+							enabled = ""
+						#	datacontext = ""
+							onclick = ""
+							text_single = {
+								text = "제국 중앙정부 조직"
+								parentanchor = center
+							}
+						}
+						button_primary = {
+							name = "reform4"
+							tooltip = "Tooltip_Reforms_4"
+							enabled = ""
+						#	datacontext = ""
+							onclick = ""
+							text_single = {
+								text = "제국 법원 재개설"
+								parentanchor = center
+							}
+						}
+						button_primary = {
+							name = "reform5"
+							tooltip = "Tooltip_Reforms_5"
+							enabled = ""
+						#	datacontext = ""
+							onclick = ""
+							text_single = {
+								text = "제국 통합세 도입"
+								parentanchor = center
+							}
+						}
+						button_primary = {
+							name = "reform6"
+							tooltip = "Tooltip_Reforms_6"
+							enabled = ""
+						#	datacontext = ""
+							onclick = ""
+							text_single = {
+								text = "제국 국교회 개혁"
+								parentanchor = center
+							}
+						}
+						button_primary = {
+							name = "reform7"
+							tooltip = "Tooltip_Reforms_7"
+							enabled = ""
+						#	datacontext = ""
+							onclick = ""
+							text_single = {
+								text = "상속법 명문화"
+								parentanchor = center
+							}
+						}
+						button_primary = {
+							name = "reform8"
+							tooltip = "Tooltip_Reforms_8"
+							enabled = ""
+						#	datacontext = ""
+							onclick = ""
+							text_single = {
+								text = "수도 지정"
+								parentanchor = center
+							}
+						}
+						button_primary = {
+							name = "reform9"
+							tooltip = "Tooltip_Reforms_9"
+							enabled = ""
+						#	datacontext = ""
+							onclick = ""
+							text_single = {
+								text = "제국 평화령"
+								parentanchor = center
+							}
+						}
+						button_primary = {
+							name = "reform10"
+							tooltip = "Tooltip_Reforms_10"
+							enabled = ""
+						#	datacontext = ""
+							onclick = ""
+							text_single = {
+								text = "개혁의 완성"
+								parentanchor = center
+							}
+						}
 					} # reform list
 					vbox = {
 						hbox = {
@@ -472,14 +585,26 @@ widget = {
 										using = tooltip_ne
 									}
 									portrait_head_small = { datacontext = "[Title.GetHolder]" }
-									text_multi = {
-										text = "[Title.GetBaseNameNoTooltip]"
-										parentanchor = vcenter
-										autoresize = yes
-										default_format = "#high"
-										using = Font_Size_Medium
-										max_width = 190
-										margin_top = 5
+								#	text_multi = {
+								#		text = "[Title.GetBaseNameNoTooltip]"
+								#		parentanchor = vcenter
+								#		autoresize = yes
+								#		default_format = "#high"
+								#		using = Font_Size_Medium
+								#		max_width = 190
+								#		margin_top = 5
+								#	}
+									text_single_big = {
+										text = "hec_reform"
+										visible = "[GetScriptedGui('reformist').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder).End]"
+									}
+									text_single_big = {
+										text = "hec_relig"
+										visible = "[GetScriptedGui('religious').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder).End]"
+									}
+									text_single_big = {
+										text = "hec_conserv"
+										visible = "[GetScriptedGui('conservative').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder).End]"
 									}
 								}
 							}

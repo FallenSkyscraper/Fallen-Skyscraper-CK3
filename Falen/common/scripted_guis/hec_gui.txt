@@ -57,3 +57,27 @@ hec_get_emperor = {
 }
 #hec_imperial_authority_tooltip = {
 #}
+reformist = {
+	scope = character
+	is_shown = {
+		root = {
+			has_trait = hec_reformist
+		}
+	}
+}
+religious = {
+	scope = character
+	is_shown = {
+		root = {
+			has_trait = hec_religious
+		}
+	}
+}
+conservative = {
+	scope = character
+	is_shown = {
+		root = {
+			has_trait = hec_conservative
+		}
+	}
+}
