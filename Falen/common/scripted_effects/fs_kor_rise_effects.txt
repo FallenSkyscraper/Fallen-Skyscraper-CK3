@@ -1,0 +1,14 @@
+spawn_kor_character_effect = {
+    title:c_ulleung.title_province = {
+	    save_scope_as = $INVADER_DYNN$_spawn_location
+	}
+	
+	create_character = {
+	    location = scope:$INVADER_DYNN$_spawn_location
+		template = kor_rise_character_template
+		sace_scope_as = $INVADER_NAME$
+	}
+	
+	scope:
+	
+}

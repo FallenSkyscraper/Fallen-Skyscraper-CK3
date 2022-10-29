@@ -1,0 +1,30 @@
+kor_rise.0001 = { 
+	type = empty
+	hidden = yes
+	trigger = {
+		exists = title:e_korea # update compatibility - new titles in old saves return false
+		any_county_in_region = {
+			region = kor_rise_start
+			count > 0
+			holder = { is_ai = yes }
+		}
+	}
+
+	on_trigger_fail = {
+		debug_log = "seljuk story has failed to trigger; trying again next year"
+		debug_log_date = yes
+	}
+
+	immediate = {
+		debug_log = "seljuk story owner has appeared"
+		debug_log_date = yes
+		
+		spawn_seljuk_character_effect = {
+			INVADER_NAME = tughril
+			INVADER_DYNN = seljuk
+		}
+		scope:tughril = {
+			create_story = story_seljuk_invasion
+		}
+	}
+}
