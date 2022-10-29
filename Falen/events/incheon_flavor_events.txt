@@ -11,7 +11,6 @@ incheon.1 = {
 	}
 	trigger = {
 		has_culture = culture:incheon
-		has_faith = faith:protestant
 		current_date > 2465.1.1
 		current_date < 2466.1.1
 	}
@@ -24,7 +23,6 @@ incheon.1 = {
 			every_living_character = {
 				limit = {
 					has_culture = culture:incheon
-					has_faith = faith:protestant
 				}
 				add_opinion = {
 					modifier = pleased_opinion
@@ -43,7 +41,6 @@ incheon.1 = {
 			every_living_character = {
 				limit = {
 					has_culture = culture:incheon
-					has_faith = faith:protestant
 				}
 				add_opinion = {
 					modifier = angry_opinion
