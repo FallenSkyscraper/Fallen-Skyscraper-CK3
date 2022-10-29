@@ -9,6 +9,66 @@ spawn_kor_character_effect = {
 		sace_scope_as = $INVADER_NAME$
 	}
 	
-	scope:
+	scope:$INVADER_NAME$ = {
+	    add_gold = 2000
+		add_prestige = 2500
+		add_piety = 1000
+		
+		dynasty = {
+		    set_dynasty_name = test
+			set_coa = title:e_korea
+			
+			add_dynasty_prestige_level = 3
+			add_dynasty_prestige = 10000
+		}
+		house = {
+		    set_house_name = hi_dynn_test
+		}
+	}
 	
+	every_player = {
+	    trigger_event = kor_rise.0001
+	}
+}
+
+kor_rise_effect = {
+    apply_invader_modifiers_effect = {
+		INVADER_NAME = $INVADER_NAME$
+		INVADER_DYNN = $INVADER_DYNN$
+	}
+	give_invader_land_effect = {
+		INVADER_DYNN = $INVADER_DYNN$
+		INVADER_CHAR = $INVADER_CHAR$
+	}
+	spawn_$INVADER_NAME$_family_effect = {
+		INVADER_DYNN = $INVADER_DYNN$
+		INVADER_CHAR = $INVADER_CHAR$
+	}
+	spawn_invader_servants_effect = {
+		INVADER_CHAR = $INVADER_CHAR$
+	}
+	form_the_invader_title_effect = {
+		INVADER_DYNN = $INVADER_DYNN$
+		INVADER_CHAR = $INVADER_CHAR$
+		INVADER_TITLE = $INVADER_TITLE$
+		LANDLESS_YES_NO = $LANDLESS_YES_NO$
+		INVADER_TITLE_TIER = $INVADER_TITLE_TIER$
+	}
+}
+
+spawn_korea_member_effect = {
+    create_character = {
+	    template = kor001_character_template
+		gender = female
+		save_scope_as = kor001
+	}
+    scope:kor001 = {
+	    marry = $INVADER_CHAR$
+		disease_immunity_short_effect = yes
+	}
+	create_character = {
+	    template = kor002_character_templat
+		gender = male
+		save_scope_as = kor002
+	}
 }
