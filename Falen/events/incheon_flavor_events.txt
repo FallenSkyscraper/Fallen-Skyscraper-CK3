@@ -54,4 +54,13 @@ incheon.1 = {
 	}
 }
 	
+incheon.0002 = {
+    type = character_event
+	title = incheon.1.t
+	desc = incheon.1.desc
+	theme = party
 	
+	trigger = {
+	    has_culture = incheon
+	}
+}
