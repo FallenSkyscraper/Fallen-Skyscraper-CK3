@@ -54,13 +54,69 @@ incheon.1 = {
 	}
 }
 	
-incheon.0002 = {
+incheon.0002 = { 
     type = character_event
-	title = incheon.1.t
-	desc = incheon.1.desc
+	title = incheon.0002.t
+	desc = incheon.0002.desc
 	theme = party
 	
 	trigger = {
 	    has_culture = incheon
 	}
+	
+	option = {
+		name = incheon.0002.a
+		
+		add_prestige = 300
+		
+		hidden_effect = {
+			every_living_character = {
+				limit = {
+					has_culture = culture:incheon
+				}
+				add_opinion = {
+					modifier = happy_opinion
+					opinion = 10
+					target = prev
+				}
+			}
+		}
+		
+		
+		custom_tooltip = incheon.0002.a.tt
+		ai_chance = { base = 10 }
+	}
+	
+	option = {
+		name = incheon.0002.b
+		
+		add_prestige = 100
+		add_gold = -25
+		
+		custom_tooltip = incheon.0002.b.tt
+		ai_chance = { base = 5 }
+	}
+	
+	option = {
+		name = incheon.0002.c
+		
+		add_prestige = -200
+		
+		hidden_effect = {
+			every_living_character = {
+				limit = {
+					has_culture = culture:incheon
+				}
+				add_opinion = {
+					modifier = angry_opinion
+					opinion = -10
+					target = prev
+				}
+			}
+		}
+		
+		custom_tooltip = incheon.0002.c.tt
+		ai_chance = { base = 3 }
+	}
+	
 }
