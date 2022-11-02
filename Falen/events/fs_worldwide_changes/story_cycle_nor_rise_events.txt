@@ -26,6 +26,21 @@ sun_from_north.1 = {
 	}
 	option = {
 		name = sun_from_north.1.a
+		spawn_army = {
+			uses_supply = no
+			inheritable = yes
+			name = total_war_troops
+			levies = {
+  				value = 0
+				every_held_title = {
+					limit = {
+ 						tier = tier_county
+					}
+					add = 5000
+				}
+			}
+			location = root.capital_province
+		}
 		every_independent_ruler = {
 			limit = {
 				NOT = { character = root }
