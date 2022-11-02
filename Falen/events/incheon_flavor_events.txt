@@ -62,6 +62,13 @@ incheon.0002 = {
 	
 	trigger = {
 	    has_culture = incheon
+		current_date > 2480.1.1
+		current_date < 2485.1.1
+		OR = {
+		    has_title = title:k_incheon
+		    has_title = title:k_UWC
+		}
+		
 	}
 	
 	option = {
