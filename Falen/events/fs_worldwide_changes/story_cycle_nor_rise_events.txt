@@ -29,14 +29,44 @@ sun_from_north.1 = {
 		spawn_army = {
 			uses_supply = no
 			inheritable = yes
-			name = total_war_troops
+			name = Korean_People's_Army1
 			levies = {
   				value = 0
 				every_held_title = {
 					limit = {
  						tier = tier_county
 					}
-					add = 5000
+					add = 1000
+				}
+			}
+			location = root.capital_province
+		}
+		spawn_army = {
+			uses_supply = no
+			inheritable = yes
+			name = Korean_People's_Army2
+			levies = {
+  				value = 0
+				every_held_title = {
+					limit = {
+ 						tier = tier_county
+					}
+					add = 1000
+				}
+			}
+			location = root.capital_province
+		}
+		spawn_army = {
+			uses_supply = no
+			inheritable = yes
+			name = Korean_People's_Army3
+			levies = {
+  				value = 0
+				every_held_title = {
+					limit = {
+ 						tier = tier_county
+					}
+					add = 1000
 				}
 			}
 			location = root.capital_province
