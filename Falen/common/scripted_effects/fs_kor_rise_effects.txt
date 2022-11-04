@@ -1,74 +1,261 @@
+give_six_reader_land_effect = {
+    save_scope_as = six_reader
+	
+	create_title_and_vassal_change = {
+	    type = conquest
+		save_scope_as = title_change
+		add_claim_on_loss = no
+	}
+	title:c_ulleung = {
+	    change_title_holder = {
+		    holder = scope:six_reader
+			change = scope:title_change
+		}
+	}
+	resolve_title_and_vassal_change = scope:title_change
+	capital_county = { change_county_control = 100 }
+	
+}
+
 spawn_kor_character_effect = {
     title:c_ulleung.title_province = {
-	    save_scope_as = $INVADER_DYNN$_spawn_location
+	    save_scope_as = six_republic_bunker
 	}
 	
-	create_character = {
-	    location = scope:$INVADER_DYNN$_spawn_location
-		template = kor_rise_character_template
-		sace_scope_as = $INVADER_NAME$
-	}
-	
-	scope:$INVADER_NAME$ = {
-	    add_gold = 2000
-		add_prestige = 2500
-		add_piety = 1000
-		
-		dynasty = {
-		    set_dynasty_name = test
-			set_coa = title:e_korea
-			
-			add_dynasty_prestige_level = 3
-			add_dynasty_prestige = 10000
+    create_character = {
+	    name = "1"
+		location = scope:six_republic_bunker
+		template = six_reader_character_template
+		save_scope_as = six_reader
+    }
+	scope:six_reader = {
+	    add_charcter_flag = {
+		    flag = immune_to_disease
+			years = 15
 		}
-		house = {
-		    set_house_name = hi_dynn_test
+		
+		add_trait = six_reader
+		give_six_reader_land_effect = yes
+		add_gold = 3000
+		spawn_six_court_effect = yes
+		form_six_republic_effect = yes
+		add_prestige = 10000
+		dynasty = {
+		    add_dynasty_prestige_level = 2
+			add_dynasty_prestige = 5000
+			add_dynasty_perk = warfare_legacy_1
 		}
 	}
 	
 	every_player = {
-	    trigger_event = kor_rise.0001
+	    trigger_event = kor_rise.1001
 	}
+	
 }
 
-kor_rise_effect = {
-    apply_invader_modifiers_effect = {
-		INVADER_NAME = $INVADER_NAME$
-		INVADER_DYNN = $INVADER_DYNN$
+form_six_republic_effect = {
+    save_scope_as = six_republic_founder
+	
+	create_title_and_vassal_change = {
+	    type = created
+		save_scope_as = title_change
+		add_claim_on_loss = no
 	}
-	give_invader_land_effect = {
-		INVADER_DYNN = $INVADER_DYNN$
-		INVADER_CHAR = $INVADER_CHAR$
+	title:e_six_republic = {
+	    change_title_holder = {
+		    holder = scope:six_republic_founder
+			change = scope:title_change
+		}
 	}
-	spawn_$INVADER_NAME$_family_effect = {
-		INVADER_DYNN = $INVADER_DYNN$
-		INVADER_CHAR = $INVADER_CHAR$
+	resolve_title_and_vassal_change = scope:title_change
+	
+	if = {
+	    limit = {
+		    NOT = {
+			    has_government = feudal_government
+			}
+		}
+		change_government = feudal_government
 	}
-	spawn_invader_servants_effect = {
-		INVADER_CHAR = $INVADER_CHAR$
+	
+	if = {
+	    limit = { has_realm_law = feudal_authority_0 }
+		remove_realm_law = feudal_authority_0
 	}
-	form_the_invader_title_effect = {
-		INVADER_DYNN = $INVADER_DYNN$
-		INVADER_CHAR = $INVADER_CHAR$
-		INVADER_TITLE = $INVADER_TITLE$
-		LANDLESS_YES_NO = $LANDLESS_YES_NO$
-		INVADER_TITLE_TIER = $INVADER_TITLE_TIER$
+	if = {
+	    limit = { has_realm_law = feudal_authority_1 }
+		remove_realm_law = feudal_authority_1
 	}
+	if = {
+	    limit = { has_realm_law = feudal_authority_2 }
+		remove_realm_law = feudal_authority_2
+	}
+	if = {
+	    limit = { has_realm_law = feudal_authority_3 }
+		remove_realm_law = feudal_authority_3
+	}
+	add_realm_law_skip_effects = feudal_authority_2
+	
+	add_realm_law_skip_effects = single_heir_succession_law 
+	
+	assert_if = {
+	    limit = { NOT = { exists = title:e_six_republic } }
+		text = "six republic title was not created"
+	}
+	
+	hidden_effct = { set_primary_title_to = title:e_six_republic }
+	
+	evert_held_title = {
+	    limit = {
+		    tier = tier_empire
+			NOT = { this = title:e_six_republic }
+		}
+		scope:six_republic_founder = {
+		    destroy_title = prev
+		}
+	}
+	
+	spawn_kor_rise_troops_effect = yes
+	
+	set_global_variable = {
+	    name = mongol_empire_has_spawned
+		value = yes
+	}
+	
 }
 
-spawn_korea_member_effect = {
-    create_character = {
-	    template = kor001_character_template
-		gender = female
-		save_scope_as = kor001
+spawn_kor_rise_troops_effect = {
+    spawn_army = {
+	    use_supply = no
+	    inheritable = no
+	    name = six_tank_troops1
+	    men_at_arms = {
+	        type = horse_archers
+			stacks = 2
+	    }
+		location = capital_province
+		origin = capital_province
 	}
-    scope:kor001 = {
-	    marry = $INVADER_CHAR$
-		disease_immunity_short_effect = yes
+	spawn_army = {
+	    use_supply = yes
+		inheritable = no
+		name_six_meel_troops1
+		levies = {
+		    value = 1000
+		}
+		location = capital_province
+		origin = capital_province
 	}
+	spawn_army = {
+	    use_supply = yes
+		inheritable = no
+		name_six_meel_troops2
+		levies = {
+		    value = 1000
+		}
+		location = capital_province
+		origin = capital_province
+	}
+	spawn_army = {
+	    use_supply = yes
+		inheritable = no
+		name_six_sige_troops1
+		men_at_arms = {
+		    type = mangonel
+			stacks = 5
+		}
+		location = capital_province
+		origin = capital_province
+	}
+
+}
+
+spawn_six_court_effect = {
+    add_character_flag = is_six_reader
+	
 	create_character = {
-	    template = kor002_character_templat
-		gender = male
-		save_scope_as = kor002
+	    template = six_wife_character_template
+		name = "2"
+		gender = female
+		employer = scope:six_reader
+		save_scope_as = six_wife
 	}
+	
+	scope:six_wife = {
+	    marry = scope:six_reader
+		add_character_flag = {
+		    flag = immune_to_disease
+			years = 10
+		}
+	}
+	
+	if = {
+	    limit = {
+		    scope:six_reader = { is_male = yes }
+		}
+		scope:six_reader = { save_scope_as = six_reader_family_father }
+		scope:six_wife = { save_scope_as = six_reader_family_mother }
+	}
+	
+	create_character = {
+	    template = six_reader_son_charter_template
+		name = "3"
+		employer = scope:six_reader
+		mother = scope:six_reader_family_mother
+		father = scope:six_reader_family_father
+		save_scope_as = six_reader_son
+	}
+	
+	scope:six_reader_son = {
+		add_character_flag = {
+		    flag = immune_to_disease
+			years = 10
+		}
+	}
+	
+	create_character = {
+		template = six_court1_charcter_template
+		name = "4"
+		employer = scope:six_reader
+		save_scope_as = 4
+	}
+
+	scope:4 = {
+		add_character_flag = {
+			flag = immune_to_disease
+			years = 10
+		}
+		set_random_friendship_reason = { TARGET = scope:six_reader }
+	}
+	
+	create_character = {
+		template = six_court2_charcter_template
+		name = "5"
+		employer = scope:six_reader
+		save_scope_as = 5
+	}
+
+	scope:5 = {
+		add_character_flag = {
+			flag = immune_to_disease
+			years = 10
+		}
+		set_random_friendship_reason = { TARGET = scope:six_reader }
+	}
+	
+	create_character = {
+		template = six_court3_charcter_template
+		name = "6"
+		employer = scope:six_reader
+		save_scope_as = 6
+	}
+
+	scope:6 = {
+		add_character_flag = {
+			flag = immune_to_disease
+			years = 10
+		}
+		set_random_friendship_reason = { TARGET = scope:six_reader }
+	}
+	
 }

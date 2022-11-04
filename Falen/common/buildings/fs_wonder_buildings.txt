@@ -23,11 +23,11 @@ Incheon_Port_01 = {
         
 }
 
-    cost_gold = 500
+    cost_gold = 800
 
     province_modifier = {
-        monthly_income = 3
-        monthly_income_mult = 0.1
+        monthly_income = 4
+        monthly_income_mult = 0.12
     }
 
     county_modifier = {
@@ -44,10 +44,10 @@ Incheon_Port_02 = {
         
 }
 
-    cost_gold = 1200
+    cost_gold = 1000
 
     province_modifier = {
-        monthly_income = 5
+        monthly_income = 6
         monthly_income_mult = 0.25
     }
 
@@ -58,9 +58,23 @@ Incheon_Port_02 = {
 }
 
 #부산항
-Busan_Port_01 = {
-    type_icon = "icon_building_Busan_port.dds"
+type_icon = "icon_building_Busan_port.dds"
 
+    province_modifier = {
+        monthly_income = 1
+        monthly_income_mult = 0.05
+    }
+    county_modifier = {
+        development_growth_factor = 0.05
+    }
+
+    next_building = Incheon_Port_01
+
+    
+
+}
+
+Busan_Port_01 = {
     construction_time = 2000
 
     can_construct_potential = {
