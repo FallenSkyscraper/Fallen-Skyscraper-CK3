@@ -1,0 +1,108 @@
+#인천항
+Incheon_Port_00 = {
+    province_modifier = {
+        monthly_income = 1
+        monthly_income_mult = 0.05
+    }
+    county_modifier = {
+        development_growth_factor = 0.05
+    }
+
+    next_building = Incheon_Port_01
+
+    type_icon = "icon_building_incheon_port.dds"
+
+}
+
+Incheon_Port_01 = {
+    construction_time = 2000
+
+    can_construct_potential = {
+        
+}
+
+    cost_gold = 500
+
+    province_modifier = {
+        monthly_income = 3
+        monthly_income_mult = 0.1
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.1
+    }
+    next_building = Incheon_Port_02
+
+}
+
+Incheon_Port_02 = {
+    construction_time = 3000
+
+    can_construct_potential = {
+        
+}
+
+    cost_gold = 1200
+
+    province_modifier = {
+        monthly_income = 5
+        monthly_income_mult = 0.25
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.25
+    }
+
+}
+
+#부산항
+Busan_Port_01 = {
+    construction_time = 2000
+
+    can_construct_potential = {
+        
+}
+
+    cost_gold = 800
+
+    province_modifier = {
+        monthly_income = 4
+        monthly_income_mult = 0.12
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.1
+    }
+    next_building = Busan_Port_02
+
+}
+
+Busan_Port_02 = {
+    construction_time = 3000
+
+    can_construct_potential = {
+        
+}
+
+    cost_gold = 1000
+
+    province_modifier = {
+        monthly_income = 6
+        monthly_income_mult = 0.25
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.25
+    }
+
+}
+
+#인공벙커
+
+
+
+#6공벙커
+
+#수원화성
+
+#
