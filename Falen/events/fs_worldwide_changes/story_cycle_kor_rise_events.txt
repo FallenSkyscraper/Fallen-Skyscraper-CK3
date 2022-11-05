@@ -1,3 +1,5 @@
+namespace = kor_rise
+
 ###6공화국등장###
 kor_rise.0001 = {
     type = empty
@@ -11,7 +13,7 @@ kor_rise.0001 = {
 	immediate = {
 	    debug_log = "six republic rise!"
 		debug_log_date = yes
-		spawn_kor_rise_character_effect = yes
+		spawn_kor_character_effect = yes
 		scope:six_reader = {
 		    save_scope_as = {
 			    save_scope_as = story_owner

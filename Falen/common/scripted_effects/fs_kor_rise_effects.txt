@@ -1,5 +1,5 @@
 give_six_reader_land_effect = {
-    save_scope_as = six_reader
+    save_scope_as = six_rise
 	
 	create_title_and_vassal_change = {
 	    type = conquest
@@ -8,7 +8,7 @@ give_six_reader_land_effect = {
 	}
 	title:c_ulleung = {
 	    change_title_holder = {
-		    holder = scope:six_reader
+		    holder = scope:six_rise
 			change = scope:title_change
 		}
 	}
@@ -118,7 +118,7 @@ form_six_republic_effect = {
 	spawn_kor_rise_troops_effect = yes
 	
 	set_global_variable = {
-	    name = mongol_empire_has_spawned
+	    name = six_republic_has_spawned
 		value = yes
 	}
 	
@@ -153,6 +153,7 @@ spawn_kor_rise_troops_effect = {
 		name_six_meel_troops1
 		men_at_arms = {
 		    type = army
+			stacks = 1
 		}
 		location = capital_province
 		origin = capital_province
@@ -163,6 +164,7 @@ spawn_kor_rise_troops_effect = {
 		name_six_meel_troops2
 		men_at_arms = {
 		    type = army
+			stacks = 1
 		}
 		location = capital_province
 		origin = capital_province
