@@ -23,7 +23,7 @@ spawn_kor_character_effect = {
 	}
 	
     create_character = {
-	    name = "1"
+	    name = "Jung Hwan"
 		location = scope:six_republic_bunker
 		template = six_reader_character_template
 		save_scope_as = six_reader
@@ -130,8 +130,19 @@ spawn_kor_rise_troops_effect = {
 	    inheritable = no
 	    name = six_tank_troops1
 	    men_at_arms = {
-	        type = horse_archers
-			stacks = 2
+	        type = tank
+			stacks = 1
+	    }
+		location = capital_province
+		origin = capital_province
+	}
+	spawn_army = {
+	    use_supply = no
+	    inheritable = no
+	    name = six_tank_troops2
+	    men_at_arms = {
+	        type = tank
+			stacks = 1
 	    }
 		location = capital_province
 		origin = capital_province
@@ -140,8 +151,8 @@ spawn_kor_rise_troops_effect = {
 	    use_supply = yes
 		inheritable = no
 		name_six_meel_troops1
-		levies = {
-		    value = 1000
+		men_at_arms = {
+		    type = army
 		}
 		location = capital_province
 		origin = capital_province
@@ -150,19 +161,8 @@ spawn_kor_rise_troops_effect = {
 	    use_supply = yes
 		inheritable = no
 		name_six_meel_troops2
-		levies = {
-		    value = 1000
-		}
-		location = capital_province
-		origin = capital_province
-	}
-	spawn_army = {
-	    use_supply = yes
-		inheritable = no
-		name_six_sige_troops1
 		men_at_arms = {
-		    type = mangonel
-			stacks = 5
+		    type = army
 		}
 		location = capital_province
 		origin = capital_province
@@ -175,7 +175,7 @@ spawn_six_court_effect = {
 	
 	create_character = {
 	    template = six_wife_character_template
-		name = "2"
+		name = "Taehee"
 		gender = female
 		employer = scope:six_reader
 		save_scope_as = six_wife
@@ -199,7 +199,7 @@ spawn_six_court_effect = {
 	
 	create_character = {
 	    template = six_reader_son_charter_template
-		name = "3"
+		name = "Seungyoon"
 		employer = scope:six_reader
 		mother = scope:six_reader_family_mother
 		father = scope:six_reader_family_father
@@ -215,12 +215,12 @@ spawn_six_court_effect = {
 	
 	create_character = {
 		template = six_court1_charcter_template
-		name = "4"
+		name = "Seungwoo"
 		employer = scope:six_reader
-		save_scope_as = 4
+		save_scope_as = six_court1
 	}
 
-	scope:4 = {
+	scope:six_court1 = {
 		add_character_flag = {
 			flag = immune_to_disease
 			years = 10
@@ -230,12 +230,12 @@ spawn_six_court_effect = {
 	
 	create_character = {
 		template = six_court2_charcter_template
-		name = "5"
+		name = "Taeman"
 		employer = scope:six_reader
-		save_scope_as = 5
+		save_scope_as = six_court2
 	}
 
-	scope:5 = {
+	scope:six_court2 = {
 		add_character_flag = {
 			flag = immune_to_disease
 			years = 10
@@ -245,12 +245,12 @@ spawn_six_court_effect = {
 	
 	create_character = {
 		template = six_court3_charcter_template
-		name = "6"
+		name = "Taehwan"
 		employer = scope:six_reader
-		save_scope_as = 6
+		save_scope_as = six_court3
 	}
 
-	scope:6 = {
+	scope:six_court3 = {
 		add_character_flag = {
 			flag = immune_to_disease
 			years = 10
