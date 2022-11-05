@@ -1,0 +1,323 @@
+#인천항
+Incheon_Port_00 = {
+type_icon = "icon_building_incheon_port.dds"
+
+    province_modifier = {
+        monthly_income = 1
+        monthly_income_mult = 0.05
+    }
+    county_modifier = {
+        development_growth_factor = 0.05
+    }
+
+    next_building = Incheon_Port_01
+
+    
+
+}
+
+Incheon_Port_01 = {
+    construction_time = 2000
+
+    can_construct_potential = {
+        
+}
+
+    cost_gold = 800
+
+    province_modifier = {
+        monthly_income = 4
+        monthly_income_mult = 0.12
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.1
+    }
+    next_building = Incheon_Port_02
+
+}
+
+Incheon_Port_02 = {
+    construction_time = 3000
+
+    can_construct_potential = {
+        
+}
+
+    cost_gold = 1000
+
+    province_modifier = {
+        monthly_income = 6
+        monthly_income_mult = 0.25
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.25
+    }
+
+}
+
+#부산항
+Busan_Port_00 = {
+type_icon = "icon_building_Busan_port.dds"
+
+    province_modifier = {
+        monthly_income = 1
+        monthly_income_mult = 0.05
+    }
+    county_modifier = {
+        development_growth_factor = 0.05
+    }
+
+    next_building = Busan_Port_01
+
+    
+
+}
+
+Busan_Port_01 = {
+    construction_time = 2000
+
+    can_construct_potential = {
+        
+}
+
+    cost_gold = 800
+
+    province_modifier = {
+        monthly_income = 4
+        monthly_income_mult = 0.12
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.1
+    }
+    next_building = Busan_Port_02
+
+}
+
+Busan_Port_02 = {
+    construction_time = 3000
+
+    can_construct_potential = {
+        
+}
+
+    cost_gold = 1000
+
+    province_modifier = {
+        monthly_income = 6
+        monthly_income_mult = 0.25
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.25
+    }
+
+}
+
+#북한벙커(장진)
+jangjin_bunker = [
+type_icon = "icon_building_jangjin_bunker.dds"
+    
+}
+
+
+#6공벙커(울릉도)
+six_republic_bunker = {
+type_icon = "icon_building_six_republic_bunker.dds"
+    
+}
+
+#수원화성
+Hwaseong_Fortress = {
+type_icon = "icon_building_Hwaseong_Fortress.dds"
+
+}
+
+#목포 대시장
+Mokpo_Grand_Market = {
+type_icon = "icon_building_Mokpo_Grand_Market.dds"
+
+}
+
+#신안 염전
+Sinan_Salt_Farm = {
+type_icon = "icon_building_Sinan_Salt_Farm.dds"
+
+}
+
+#인민공화국 주석궁(평양)
+Presidential_Palace_of_joseon = {
+type_icon = "icon_building_Presidential_Palace_of_joseon.dds"
+    
+    next_building = Kumsusan_Palace_of_the_Sun
+}
+#금수산태양궁전(평양)
+Kumsusan_Palace_of_the_Sun = {
+type_icon = "icon_building_Kumsusan_Palace_of_the_Sun.dds"
+
+
+    next_building = Presidential_Palace_of_joseon
+}
+#경복궁(종로)
+Gyeongbokgung_Palace = {
+type_icon = "icon_building_Gyeongbokgung_Palace.dds"
+    
+}
+
+#국회의사당(여의도)
+The_National_Assembly_Building = {
+type_icon = "icon_building_The_National_Assembly_Building.dds"
+
+}
+
+#서울N타워(용산)
+Namsan_Seoul_Tower = {
+type_icon = "icon_building_Namsan_Seoul_Tower.dds"
+
+}
+
+#대모스크(이태원)
+Seoul_Central_Mosque = {
+type_icon = "icon_building_Seoul_Central_Mosque.dds"
+
+}
+
+#고대 핵 실험장(길주)
+nuclear_test_site = {
+type_icon = "icon_building_nuclear_test_site.dds"
+
+}
+
+#대 제철소(포항)
+POSCO = {
+type_icon = "icon_building_POSCO.dds"
+
+}
+
+#모루게소요(평창)
+Bullet_Men = {
+type_icon = "icon_building_Bullet_Men.dds"
+
+}
+
+#경기전(전주)
+Jeonju_Gyeonggijeon = {
+type_icon = "icon_building_Jeonju_Gyeonggijeon.dds"
+
+}
+
+#도산서원(예안)
+Dosanseowon_Confucian_Academy = {
+type_icon = "icon_building_Dosanseowon_Confucian_Academy.dds"
+
+}
+
+#에버랜드(용인)
+Everland = {
+type_icon = "icon_building_Everland.dds"
+
+}
+
+#단군릉(강동)
+Dangun_Tomb = {
+type_icon = "icon_building_Dangun_Tomb.dds"
+
+}
+
+#엑스포(여수)
+EXPO_YEOSU = {
+type_icon = "icon_building_EXPO_YEOSU.dds"
+
+}
+
+#순천만 정원(순천)
+The_Suncheonman_National_Garden = {
+type_icon = "icon_building_The_Suncheonman_National_Garden.dds"
+
+}
+
+#중앙광장(블라디보스토크)
+central_square = {
+type_icon = "icon_building_central_square.dds"
+
+}
+
+#선양고궁(심양)
+Mukden_Palace = {
+type_icon = "icon_building_Mukden_Palace.dds"
+
+}
+
+#잠실타워(잠실)
+LOTTE_WORLD_TOWER = {
+type_icon = "icon_building_LOTTE_WORLD_TOWER.dds"
+
+}
+
+#만주국 황궁(창춘)
+the_Imperial_Palace_of_Manchukuo = {
+type_icon = "icon_building_the_Imperial_Palace_of_machukuo.dds"
+
+}
+
+#장군총(퉁화)
+tomb_of_the_general = {
+type_icon = "icon_building_tomb_of_the_general.dds"
+
+}
+
+#판문점(장도)
+Panmunjeom = {
+type_icon = "icon_building_Panmunjeom.dds"
+
+}
+
+#고려성균관(개성)
+Koryo_Songgyungwan = {
+type_icon = "icon_building_Koryo_Songgyungwan.dds"
+
+}
+
+#청와대(종로)
+Cheong_Wa_Dae = {
+type_icon = "icon_building_Cheong_Wa_Dae.dds"
+
+}
+
+#동대문(동대문구)
+Heunginjimun_Gate = {
+type_icon = "icon_building_Heunginjimun.dds"
+
+}
+
+#서대문(서대문구)
+Donuimun = {
+type_icon = "icon_building_Donuimun.dds"
+
+}
+
+#남대문(중구)
+Sungnyemun = {
+type_icon = "icon_building_Sungnyemun.dds"
+
+}
+
+#수국사(은평구)
+Hydrangea_Temple = {
+type_icon = "icon_building_Hydranger_Temple.dds"
+
+}
+
+#경북궁(안동)
+Gyeongbuk_Palace = {
+type_icon = "icon_building_Gyeongbuk_Palace.dds"
+
+}
+
+#계산성당(대구,계산)
+Gyesan_Cathedral = {
+type_icon = "icon_building_Gyesan_Cathedral.dds"
+
+}
