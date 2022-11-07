@@ -14,7 +14,7 @@ kor_rise.0001 = {
 	    debug_log = "six republic rise!"
 		debug_log_date = yes
 		spawn_kor_character_effect = yes
-		scope:six_reader = {
+		scope:six_leader = {
 		    save_scope_as = {
 			    save_scope_as = story_owner
 				create_story = story_kor_rise
@@ -68,7 +68,7 @@ kor_rise.1001 = {
 	override_background {
 	    event_background = sitting_room
 	}
-	left_portrait = scope:six_reader
+	left_portrait = scope:six_leader
 	
 	option = { 경상도내 캐릭
 	    name = {
@@ -87,7 +87,7 @@ kor_rise.1001 = {
 				}
 			}
 		}
-		custom_tooltip = kor_rise.1001.six_reader_tt
+		custom_tooltip = kor_rise.1001.six_leader_tt
 	}
 	
 	option = { # 가까이 있는 캐릭
@@ -107,7 +107,7 @@ kor_rise.1001 = {
 			}
 		}
 		exclusive = yes
-		custom_tooltip = kor_rise.1001.six_reader_tt
+		custom_tooltip = kor_rise.1001.six_leader_tt
 	}
 	
 	option = { # 멀리있는 캐릭
@@ -118,7 +118,7 @@ kor_rise.1001 = {
 		name = {
 			text = kor_rise.1001.c
 		}
-		custom_tooltip = kor_rise.1001.six_reader_tt
+		custom_tooltip = kor_rise.1001.six_leader_tt
 	}
 
 }

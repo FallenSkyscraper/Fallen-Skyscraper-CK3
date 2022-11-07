@@ -1,4 +1,4 @@
-give_six_reader_land_effect = {
+give_six_leader_land_effect = {
     save_scope_as = six_rise
 	
 	create_title_and_vassal_change = {
@@ -25,17 +25,17 @@ spawn_kor_character_effect = {
     create_character = {
 	    name = "Jung Hwan"
 		location = scope:six_republic_bunker
-		template = six_reader_character_template
-		save_scope_as = six_reader
+		template = six_leader_character_template
+		save_scope_as = six_leader
     }
-	scope:six_reader = {
+	scope:six_leader = {
 	    add_charcter_flag = {
 		    flag = immune_to_disease
 			years = 15
 		}
 		
-		add_trait = six_reader
-		give_six_reader_land_effect = yes
+		add_trait = six_leader
+		give_six_leader_land_effect = yes
 		add_gold = 3000
 		spawn_six_court_effect = yes
 		form_six_republic_effect = yes
@@ -173,18 +173,18 @@ spawn_kor_rise_troops_effect = {
 }
 
 spawn_six_court_effect = {
-    add_character_flag = is_six_reader
+    add_character_flag = is_six_leader
 	
 	create_character = {
 	    template = six_wife_character_template
 		name = "Taehee"
 		gender = female
-		employer = scope:six_reader
+		employer = scope:six_leader
 		save_scope_as = six_wife
 	}
 	
 	scope:six_wife = {
-	    marry = scope:six_reader
+	    marry = scope:six_leader
 		add_character_flag = {
 		    flag = immune_to_disease
 			years = 10
@@ -193,22 +193,22 @@ spawn_six_court_effect = {
 	
 	if = {
 	    limit = {
-		    scope:six_reader = { is_male = yes }
+		    scope:six_leader = { is_male = yes }
 		}
-		scope:six_reader = { save_scope_as = six_reader_family_father }
-		scope:six_wife = { save_scope_as = six_reader_family_mother }
+		scope:six_leader = { save_scope_as = six_leader_family_father }
+		scope:six_wife = { save_scope_as = six_leader_family_mother }
 	}
 	
 	create_character = {
-	    template = six_reader_son_charter_template
+	    template = six_leader_son_charter_template
 		name = "Seungyoon"
-		employer = scope:six_reader
-		mother = scope:six_reader_family_mother
-		father = scope:six_reader_family_father
-		save_scope_as = six_reader_son
+		employer = scope:six_leader
+		mother = scope:six_leader_family_mother
+		father = scope:six_leader_family_father
+		save_scope_as = six_leader_son
 	}
 	
-	scope:six_reader_son = {
+	scope:six_leader_son = {
 		add_character_flag = {
 		    flag = immune_to_disease
 			years = 10
@@ -218,7 +218,7 @@ spawn_six_court_effect = {
 	create_character = {
 		template = six_court1_charcter_template
 		name = "Seungwoo"
-		employer = scope:six_reader
+		employer = scope:six_leader
 		save_scope_as = six_court1
 	}
 
@@ -227,13 +227,13 @@ spawn_six_court_effect = {
 			flag = immune_to_disease
 			years = 10
 		}
-		set_random_friendship_reason = { TARGET = scope:six_reader }
+		set_random_friendship_reason = { TARGET = scope:six_leader }
 	}
 	
 	create_character = {
 		template = six_court2_charcter_template
 		name = "Taeman"
-		employer = scope:six_reader
+		employer = scope:six_leader
 		save_scope_as = six_court2
 	}
 
@@ -242,13 +242,13 @@ spawn_six_court_effect = {
 			flag = immune_to_disease
 			years = 10
 		}
-		set_random_friendship_reason = { TARGET = scope:six_reader }
+		set_random_friendship_reason = { TARGET = scope:six_leader }
 	}
 	
 	create_character = {
 		template = six_court3_charcter_template
 		name = "Taehwan"
-		employer = scope:six_reader
+		employer = scope:six_leader
 		save_scope_as = six_court3
 	}
 
@@ -257,7 +257,7 @@ spawn_six_court_effect = {
 			flag = immune_to_disease
 			years = 10
 		}
-		set_random_friendship_reason = { TARGET = scope:six_reader }
+		set_random_friendship_reason = { TARGET = scope:six_leader }
 	}
 	
 }
