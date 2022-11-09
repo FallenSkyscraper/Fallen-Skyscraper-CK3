@@ -208,9 +208,9 @@
 	}
 
 	faiths = {
-		changzhou = {	# 공양학
-			color = { 16 180 128 }	# 지도 상에서 표시될 색깔
-			icon = cat_confucianism_2_3	# 종교 아이콘
+		#changzhou = {	# 공양학
+		#	color = { 16 180 128 }	# 지도 상에서 표시될 색깔
+		#	icon = cat_confucianism_2_3	# 종교 아이콘
 		
 			# graphical_faith = 	# 종교 gfx 설정
 			# piety_icon_group = 	# 종교 신앙심 아이콘 설정 대체 가능
@@ -226,18 +226,18 @@
 			
 		 
 			# doctrine = 	# 교리 변경이나 추가 가능
-			doctrine = special_doctrine_is_confucian_faith
+		#	doctrine = special_doctrine_is_confucian_faith
 			
-			doctrine = tenet_ritual_hospitality	# 원리 설정
-			doctrine = tenet_adaptive
-			doctrine = tenet_communism_syncretism
+		#	doctrine = tenet_ritual_hospitality	# 원리 설정
+		#	doctrine = tenet_adaptive
+		#	doctrine = tenet_communism_syncretism
 
-			doctrine = special_doctrine_hundred_days_of_reform
+		#	doctrine = special_doctrine_hundred_days_of_reform
 			
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
 			# localization = {}	# localization 변경 가능
-		}
+	#	}
 		ahnxing = {	#안행학파
 			color = { 200 32 32 }
 			icon = cat_confucianism_2_5
@@ -248,6 +248,22 @@
 
 			doctrine = special_doctrine_path_of_saint
 			doctrine = special_doctrine_is_confucian_faith
+		}
+		jingxuefa = { #경학파
+			color = { 100 100 40 }
+			icon = cat_confucianism_2_4
+		}
+		baodingxuefa = { #보정학파
+			color = { 200 100 200 }
+			icon = cat_confucianism_2_6
+		}
+		tuizhixuefa = { #퇴지학파
+			color = { 200 200 80 }
+			icon = cat_confucianism2
+		}
+		danxuefa = { #단학파
+			color = { 180 90 90 }
+			icon = cat_confucianism5
 		}
 	}
 }
