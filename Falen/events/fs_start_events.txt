@@ -1,0 +1,41 @@
+namespace = start
+
+#add_prestige명성
+#add_piety신앙
+#add_gold돈
+#add_dynasty_prestige가문명성
+#add_dynasty_perk가문퍽
+
+###시작시 가문명성###
+
+
+###시작시 인물명성,신앙심####
+
+#인천
+start.1001 = {
+    type = empty
+	hidden = yes
+	
+	trigger = {
+	    NOT = { has_global_variable = start1001 }
+		has_title = title:k_incheon
+	}
+	immediate = {
+	    set_global_variable = start1001
+		add_prestige = 1500
+	}
+}
+
+start.1002 = {
+    type = empty
+	hidden = yes
+	
+	trigger = {
+	    NOT = { has_global_variable = start1002 }
+		has_title = title:k_UWC
+	}
+	immediate = {
+	    set_global_variable = start1002
+		add_prestige = 1000
+	}
+}
