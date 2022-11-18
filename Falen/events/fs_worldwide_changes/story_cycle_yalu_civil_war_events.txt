@@ -1,19 +1,24 @@
-namespace = yalu_civil_war
+﻿namespace = yalu_civil_war
 
-
-yalu_civil_war.1 = { # 죽음이 임박한 대칸
+yalu_civil_war.1 {
 	type = character_event
-	title = yalu_civil_war.1.t
-	desc = yalu_civil_war.1.desc
-	theme = death
-	trigger = {
-		year = 2445
-		NOT = { year = 2446 }
-		OR = {
-			is_child_of = character:9008
-			is_vassal_of = character:9008
+	hidden = yes
+	immediate = {
+		root = { # he will die
+			add_trait = cancer
+			add_trait = consumption
+		}
+		every_vassal = {
+			trigger_event = yalu_civil_war.2
 		}
 	}
+}
+
+yalu_civil_war.2 = { # 죽음이 임박한 대칸
+	type = character_event
+	title = yalu_civil_war.2.t
+	desc = yalu_civil_war.2.desc
+	theme = death
 	override_background = {
 		event_background = throne_room_tribal
 	}
@@ -26,24 +31,21 @@ yalu_civil_war.1 = { # 죽음이 임박한 대칸
 		character = character:9008
 		animation = sick
 	}
-	immediate = {
-		character:9008 = { add_trait = cancer add_trait = consumption } # he will die
-	}
 	option = {
-		name = yalu_civil_war.1.a # 모든 봉신들을 불러모으다.
+		name = yalu_civil_war.2.a # 모든 봉신들을 불러모으다.
 		trigger_event = {
-			id = yalu_civil_war.2
+			id = yalu_civil_war.3
 			delay = { days = 3 }
 		}
 	}
 }
 
 
-yalu_civil_war.2 = { # 쿠릴타이의 개최
+yalu_civil_war.3 = { # 쿠릴타이의 개최
 	type = character_event
 	theme = feast_activity
-	title = yalu_civil_war.2.t
-	desc = yalu_civil_war.2.desc
+	title = yalu_civil_war.3.t
+	desc = yalu_civil_war.3.desc
 	#trigger = {
 	#	
 	#}
@@ -66,24 +68,24 @@ yalu_civil_war.2 = { # 쿠릴타이의 개최
 	}
 	
 	option = {
-		name = yalu_civil_war.2.a
+		name = yalu_civil_war.3.a
 		trigger_event = {
-			id = yalu_civil_war.3
+			id = yalu_civil_war.4
 			delay = { days = 2 }
 		}
 	}
 }
-yalu_civil_war.3 = {
+yalu_civil_war.4 = {
 	type = character_event
 	theme = war
-	title = yalu_civil_war.3.t
+	title = yalu_civil_war.4.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					root = character:9012
 				}
-				desc = yalu_civil_war.3.desc.a
+				desc = yalu_civil_war.4.desc.a
 			}
 			triggered_desc = {
 				trigger = {
@@ -92,9 +94,9 @@ yalu_civil_war.3 = {
 						root = character:9014
 					}
 				}
-				desc = yalu_civil_war.3.desc.b
+				desc = yalu_civil_war.4.desc.b
 			}
-			desc = yalu_civil_war.3.desc
+			desc = yalu_civil_war.4.desc
 		}
 	}
 	background_override = {
@@ -116,6 +118,6 @@ yalu_civil_war.3 = {
 	}
 
 	option = {
-		name = yalu_civil_war.3.a
+		name = yalu_civil_war.4.a
 	}
 }
