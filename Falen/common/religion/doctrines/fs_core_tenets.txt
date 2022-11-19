@@ -149,7 +149,6 @@ doctrine_core_tenets = {
 
 		parameters = {
 			
-			great_holy_wars_active = yes
 		}
 	}
 	tenet_world_revolution = { # 세계혁명
@@ -168,7 +167,7 @@ doctrine_core_tenets = {
 
 			# Multiplier for keeping same tenet
 			if = {
-				limit = { has_doctrine = tenet_protracted_warfare }
+				limit = { has_doctrine = tenet_world_revolution }
 				multiply = faith_unchanged_doctrine_cost_mult
 			}
 		}
