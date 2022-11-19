@@ -1,22 +1,21 @@
-#world_sixth_republic_start
-#world_sixth_republic_invasion
-# > world_sixth_republic_gyeongsang
-#  >> world_sixth_republic_busan
-#  >> world_sixth_republic_pohang
-#  >> world_sixth_republic_uljin
+﻿# world_sixth_republic_close_to
+# world_sixth_republic_start
+# world_sixth_republic_busan
+# world_sixth_republic_pohang
+# world_sixth_republic_uljin
+# world_sixth_republic_gangneung
 
-world_sixth_republic_start = {
-    duchies = {
-        #울릉
-        d_ulleung
+world_sixth_republic_close_to = {
+    regions = {
+        # 경상 전라 강원
+        world_yeongnam world_honam world_gwandong
     }
 }
-
-world_sixth_republic_gyeongsang = {
-    regions = {
-	    #경상도
-		world_sixth_republic_busan world_sixth_republic_pohang world_sixth_republic_uljin
-	}
+world_sixth_republic_start = {
+    duchies = {
+	    # 시작지점 울릉
+        d_ulleung
+    }
 }
 world_sixth_republic_busan = {
     duchies = {

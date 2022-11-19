@@ -1,48 +1,43 @@
-namespace = kor_rise
+﻿namespace = kor_rise
 
-###6공화국등장###
+# 6공화국등장
 kor_rise.0001 = {
     type = empty
 	hidden = yes
-	
-	trigger = {
-	    current_date > 2665.1.1
-		current_date < 2666.12.1
-	}
-	
 	immediate = {
-	    debug_log = "six republic rise!"
+	    debug_log = "Sixth republic rises!"
 		debug_log_date = yes
 		spawn_kor_character_effect = yes
-		scope:six_leader = {
-		    save_scope_as = {
-			    save_scope_as = story_owner
-				create_story = story_kor_rise
+		trigger_event = {
+			id = kor_rise.0002
+			days = 1
+		}
+		every_player = {
+			trigger_event = {
+				id = kor_rise.1001
+				days = 1
 			}
 		}
 	}
-	
 }
 
 kor_rise.0002 = {
+	type = empty
     hidden = yes
 	immediate = {
 	    spawn_kor_rise_troops_effect = yes
 	}
-
 }
 
-###6공화국반응###
-kor_rise.1001 = {
+kor_rise.1001 = { # 6공화국반응 
     type = character_event
     title = kor_rise.1001.t
-	
 	desc = {
 	    first_valid = {
 		    triggered_desc = {
 			    trigger = {
 				    any_realm_province = {
-						    geographical_region = world_sixth_republic_start 
+						geographical_region = world_yeongnam
 					}
 				}
 				desc = {
@@ -65,12 +60,11 @@ kor_rise.1001 = {
 		}
 	}
 	theme = war
-	override_background {
+	override_background = {
 	    event_background = sitting_room
 	}
 	left_portrait = scope:six_leader
-	
-	option = { 경상도내 캐릭
+	option = { # 경상도내 캐릭
 	    name = {
 		    trigger = { has_trait = craven }
 			text = kor_rise.1001.craven
@@ -79,17 +73,13 @@ kor_rise.1001 = {
 		    text = kor_rise.1001.a
 		}
 		exclusive = yes
-		trigger ={
+		trigger = {
 		    any_realm_province = {
-			    OR = {
-				geographical_region = world_sixth_republic_start
-				geographical_region = world_sixth_republic_gyeongsang 
-				}
+				geographical_region = world_yeongnam
 			}
 		}
 		custom_tooltip = kor_rise.1001.six_leader_tt
 	}
-	
 	option = { # 가까이 있는 캐릭
 		name = {
 			trigger = { has_trait = craven }
@@ -100,16 +90,12 @@ kor_rise.1001 = {
 		}
 		trigger = {
 			any_realm_province = {
-				OR = {
-					geographical_region = world_sixth_republic_jeonlla
-					geographical_region = world_sixth_republic_gangwon
-				}
+				geographical_region = world_sixth_republic_close_to
 			}
 		}
 		exclusive = yes
 		custom_tooltip = kor_rise.1001.six_leader_tt
 	}
-	
 	option = { # 멀리있는 캐릭
 		name = {
 			text = kor_rise.1001.craven
@@ -120,5 +106,4 @@ kor_rise.1001 = {
 		}
 		custom_tooltip = kor_rise.1001.six_leader_tt
 	}
-
 }

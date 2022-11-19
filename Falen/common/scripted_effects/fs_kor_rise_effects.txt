@@ -1,4 +1,4 @@
-give_six_leader_land_effect = {
+﻿give_six_leader_land_effect = {
     save_scope_as = six_rise
 	
 	create_title_and_vassal_change = {
@@ -14,7 +14,6 @@ give_six_leader_land_effect = {
 	}
 	resolve_title_and_vassal_change = scope:title_change
 	capital_county = { change_county_control = 100 }
-	
 }
 
 spawn_kor_character_effect = {
@@ -23,7 +22,7 @@ spawn_kor_character_effect = {
 	}
 	
     create_character = {
-	    name = "Jung Hwan"
+	    name = "정환"
 		location = scope:six_republic_bunker
 		template = six_leader_character_template
 		save_scope_as = six_leader
@@ -46,11 +45,6 @@ spawn_kor_character_effect = {
 			add_dynasty_perk = warfare_legacy_1
 		}
 	}
-	
-	every_player = {
-	    trigger_event = kor_rise.1001
-	}
-	
 }
 
 form_six_republic_effect = {
@@ -177,7 +171,7 @@ spawn_six_court_effect = {
 	
 	create_character = {
 	    template = six_wife_character_template
-		name = "Taehee"
+		name = "태희"
 		gender = female
 		employer = scope:six_leader
 		save_scope_as = six_wife
@@ -201,7 +195,7 @@ spawn_six_court_effect = {
 	
 	create_character = {
 	    template = six_leader_son_charter_template
-		name = "Seungyoon"
+		name = "승윤"
 		employer = scope:six_leader
 		mother = scope:six_leader_family_mother
 		father = scope:six_leader_family_father
@@ -217,7 +211,7 @@ spawn_six_court_effect = {
 	
 	create_character = {
 		template = six_court1_charcter_template
-		name = "Seungwoo"
+		name = "승우"
 		employer = scope:six_leader
 		save_scope_as = six_court1
 	}
@@ -232,7 +226,7 @@ spawn_six_court_effect = {
 	
 	create_character = {
 		template = six_court2_charcter_template
-		name = "Taeman"
+		name = "태만"
 		employer = scope:six_leader
 		save_scope_as = six_court2
 	}
@@ -247,7 +241,7 @@ spawn_six_court_effect = {
 	
 	create_character = {
 		template = six_court3_charcter_template
-		name = "Taehwan"
+		name = "태환"
 		employer = scope:six_leader
 		save_scope_as = six_court3
 	}

@@ -13,6 +13,16 @@ yearly_global_pulse = {
 				days = 3
 			}
 		}
+		if = {
+			limit = {
+				current_date >= 2666.1.1
+				current_date < 2667.1.1
+			}	
+			trigger_event = {
+				id = kor_rise.0001
+				days = { 2 240 }
+			}
+		}
 	}
 }
 
