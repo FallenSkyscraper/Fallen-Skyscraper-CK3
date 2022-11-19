@@ -148,8 +148,52 @@ doctrine_core_tenets = {
 		}
 
 		parameters = {
-			
+			clergy_can_fight = yes
+			monthly_county_control_change_factor = 0.05
+			controlled_province_advantage = 2
+			hostile_county_attrition = -0.1
+		}
+	}
+	tenet_continuous_revolution = { #계속혁명
+		icon = core_tenet_revolution
+		piety_cost = {
+			value = faith_tenet_cost_high
+		}
+
+		is_shown = {
+			religion_tag = communism_religion
+		}
+
+		parameters = {
+			monthly_county_control_change_factor = -0.15
+			monthly_county_control_change_add = -0.05
+		}
+	}
+	tenet_grand_march = {
+		icon = core_tenet_sword
+		piety_cost = {
+			value = faith_tenet_cost_high
+		}
+		is_shown = {
+			religion_tag = communism_religion
+		}
+
+		parameters = {
 			great_holy_wars_active = yes
+		}
+	}
+	tenet_point_tissue = {
+		icon = core_tenet_follower
+		piety_cost = {
+			value = faith_tenet_cost_high
+		}
+
+		is_shown = {
+			religion_tag = communism_religion
+		}
+
+		parameters = {
+			
 		}
 	}
 	tenet_world_revolution = { # 세계혁명
@@ -1572,13 +1616,22 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = islam_religion
-						#religion_tag = judaism_religion
 					}
 				}
 				value = faith_tenet_cost_low
 			}
 			else = {
 				value = faith_tenet_cost_mid
+			}
+			name = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							religion_tag = communism_religion
+						}
+						desc = tenet_literalism_warfare_of_position
+					}
+				}
 			}
 
 			# Multiplier for keeping same tenet
@@ -1703,10 +1756,9 @@ doctrine_core_tenets = {
 				}
 				triggered_desc = {
 					trigger = {
-						#religion_tag = judaism_religion
-						always = no
+						religion_tag = communism_religion
 					}
-					desc = tenet_religious_legal_pronouncements_halakha
+					desc = tenet_religious_legal_pronouncements_self_criticism
 				}
 				desc = tenet_religious_legal_pronouncements_name
 			}
