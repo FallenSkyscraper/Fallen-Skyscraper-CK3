@@ -2,15 +2,16 @@
 
 # 6공화국등장
 kor_rise.0001 = {
-    type = empty
 	hidden = yes
 	immediate = {
 	    debug_log = "Sixth republic rises!"
 		debug_log_date = yes
 		spawn_kor_character_effect = yes
-		trigger_event = {
-			id = kor_rise.0002
-			days = 1
+		scope:six_leader = {
+			trigger_event = {
+				id = kor_rise.0002
+				days = 1
+			}
 		}
 		every_player = {
 			trigger_event = {
@@ -22,10 +23,43 @@ kor_rise.0001 = {
 }
 
 kor_rise.0002 = {
-	type = empty
     hidden = yes
 	immediate = {
 	    spawn_kor_rise_troops_effect = yes
+		trigger_event = {
+			id = kor_rise.0003
+			days = 1
+		}
+	}
+}
+
+kor_rise.0003 = {
+	type = charater_event
+	title = kor_rise.0003.t
+	desc = kor_rise.0003.desc
+	option = { # 부산 침공
+		name = kor_rise.0003.a
+		six_invasion_effect = {
+			invasion_goal = d_busan
+		}
+	}
+	option = { # 포항 침공
+		name = kor_rise.0003.b
+		six_invasion_effect = {
+			invasion_goal = d_pohang
+		}
+	}
+	option = { # 울진 침공
+		name = kor_rise.0003.c
+		six_invasion_effect = {
+			invasion_goal = d_uljin
+		}
+	}
+	option = { # 강릉 침공
+		name = kor_rise.0003.d
+		six_invasion_effect = {
+			invasion_goal = d_gangneung
+		}
 	}
 }
 
@@ -35,28 +69,39 @@ kor_rise.1001 = { # 6공화국반응
 	desc = {
 	    first_valid = {
 		    triggered_desc = {
-			    trigger = {
+			    trigger = { # 침공 지점 캐릭터
 				    any_realm_province = {
+						geographical_region = world_sixth_republic_invasion
+					}
+				}
+				desc = {
+					desc = kor_rise.1001.desc.close
+					desc = kor_rise.1001.desc.close_invasion
+					desc = kor_rise.1001.desc.close.end
+				}
+			}
+			triggered_desc = {
+				trigger = { # 경상도 내 캐릭
+					any_realm_province = {
 						geographical_region = world_yeongnam
 					}
 				}
 				desc = {
-				    desc = kor_rise.1001.desc.close
-					first_valid = {
-					    triggered_desc = {
-						    trigger = {
-							    any_realm_province = {
-								    geographical_region = world_sixth_republic_start
-								}
-							}
-							desc = kor_rise.1001.desc.close_six
-						}
-						desc = kor_rise.1001.desc.close_gyeonsang
-					}
+					desc = kor_rise.1001.desc.close
+					desc = kor_rise.1001.desc.close_gyeonsang
 					desc = kor_rise.1001.desc.close.end
 				}
 			}
-			desc = kor_rise.1001.desc.far
+			triggered_desc = {
+				trigger = { # 가까이 있는 캐릭
+					geographical_region = world_sixth_republic_close_to
+				}
+				desc = {
+					desc = kor_rise.1001.desc.close
+					desc = kor_rise.1001.desc.close.end
+				}
+			}
+			desc = kor_rise.1001.desc.far # 멀리있는 캐릭
 		}
 	}
 	theme = war
@@ -64,7 +109,7 @@ kor_rise.1001 = { # 6공화국반응
 	    event_background = sitting_room
 	}
 	left_portrait = scope:six_leader
-	option = { # 경상도내 캐릭
+	option = { # 경상도 내 캐릭
 	    name = {
 		    trigger = { has_trait = craven }
 			text = kor_rise.1001.craven
@@ -90,6 +135,7 @@ kor_rise.1001 = { # 6공화국반응
 		}
 		trigger = {
 			any_realm_province = {
+				NOT = { geographical_region = world_yeongnam }
 				geographical_region = world_sixth_republic_close_to
 			}
 		}
@@ -105,5 +151,23 @@ kor_rise.1001 = { # 6공화국반응
 			text = kor_rise.1001.c
 		}
 		custom_tooltip = kor_rise.1001.six_leader_tt
+	}
+}
+
+kor_rise.1002 = { # 피침자가 받는 반응 이벤트
+	type = character_event
+	title = kor_rise.1002.t
+	desc = kor_rise.1002.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = war_defender
+	}
+	right_portrait = {
+		character = scope:six_leader
+		animation = war_attacker
+	}
+	option = {
+		name = kor_rise.1002.a
 	}
 }

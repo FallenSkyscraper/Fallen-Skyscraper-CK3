@@ -253,5 +253,17 @@ spawn_six_court_effect = {
 		}
 		set_random_friendship_reason = { TARGET = scope:six_leader }
 	}
-	
+}
+
+six_invasion_effect = {
+	start_war = {
+		cb = invasion_war
+		target = title:$invasion_goal$.title_capital_county.county_controller.top_liege
+		target_title = title:$invasion_goal$
+	}
+	title:$invasion_goal$.title_capital_county.county_controller.top_liege = {
+		trigger_event = {
+			id = kor_rise.1002
+		}
+	}
 }
