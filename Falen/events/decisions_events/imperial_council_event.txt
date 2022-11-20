@@ -1,0 +1,808 @@
+namespace = imperial_council
+namespace = imperial_council_decision
+
+imperial_council_decision.01 = {
+    type = character_event
+	title = imperial_council.01.t
+	desc = imperial_council.01.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.01.a
+		custom_tooltip = imperial_council.01.a.tt
+		trigger_event = {
+			id = imperial_council_decision.021
+			days = { 1 2 }
+		}
+	}
+}
+
+
+imperial_council_decision.021 = {
+    type = character_event
+	title = imperial_council.021.t
+	desc = imperial_council.021.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.021.a
+		custom_tooltip = imperial_council.021.a.tt
+		trigger_event = {
+			id = imperial_council_decision.031
+		}
+	}
+	option = {
+		name = imperial_council.021.b
+		custom_tooltip = imperial_council.021.b.tt
+		trigger_event = {
+			id = imperial_council_decision.032
+		}
+	}
+	option = {
+		name = imperial_council.021.c
+		custom_tooltip = imperial_council.021.c.tt
+		trigger_event = {
+			id = imperial_council_decision.033
+		}
+	}
+	option = {
+		name = imperial_council.021.d
+		custom_tooltip = imperial_council.021.d.tt
+		trigger_event = {
+			id = imperial_council_decision.022
+		}
+	}
+}
+
+imperial_council_decision.022 = {
+    type = character_event
+	title = imperial_council.022.t
+	desc = imperial_council.022.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+	}
+	option = {
+		name = imperial_council.022.a
+		custom_tooltip = imperial_council.022.a.tt
+		trigger_event = {
+			id = imperial_council_decision.034
+		}
+	}
+	option = {
+		name = imperial_council.022.b
+		custom_tooltip = imperial_council.022.b.tt
+		trigger_event = {
+			id = imperial_council_decision.035
+		}
+	}
+	option = {
+		name = imperial_council.022.c
+		custom_tooltip = imperial_council.022.c.tt
+		trigger_event = {
+			id = imperial_council_decision.036
+		}
+	}
+	option = {
+		name = imperial_council.022.d
+		custom_tooltip = imperial_council.022.d.tt
+		trigger_event = {
+			id = imperial_council_decision.023
+		}
+	}
+}
+
+imperial_council_decision.023 = {
+    type = character_event
+	title = imperial_council.023.t
+	desc = imperial_council.023.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.023.a
+		custom_tooltip = imperial_council.023.a.tt
+		trigger_event = {
+			id = imperial_council_decision.037
+		}
+	}
+	option = {
+		name = imperial_council.023.b
+		custom_tooltip = imperial_council.023.b.tt
+		trigger_event = {
+			id = imperial_council_decision.038
+		}
+	}
+	option = {
+		name = imperial_council.023.c
+		custom_tooltip = imperial_council.023.c.tt
+		trigger_event = {
+			id = imperial_council_decision.039
+		}
+	}
+	option = {
+		name = imperial_council.023.d
+		custom_tooltip = imperial_council.023.d.tt
+		trigger_event = {
+			id = imperial_council_decision.024
+		}
+	}
+}
+
+imperial_council_decision.024 = {
+    type = character_event
+	title = imperial_council.024.t
+	desc = imperial_council.024.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.024.a
+		custom_tooltip = imperial_council.024.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0310
+		}
+	}
+	option = {
+		name = imperial_council.024.b
+		custom_tooltip = imperial_council.024.b.tt
+		trigger_event = {
+			id = imperial_council_decision.0311
+		}
+	}
+	option = {
+		name = imperial_council.024.c
+		custom_tooltip = imperial_council.024.c.tt
+		trigger_event = {
+			id = imperial_council_decision.0312
+		}
+	}
+	option = {
+		name = imperial_council.024.d
+		custom_tooltip = imperial_council.024.d.tt
+		trigger_event = {
+			id = imperial_council_decision.021
+		}
+	}
+}
+
+imperial_council_decision.31 = {
+    type = character_event
+	title = imperial_council.31.t
+	desc = imperial_council.31.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.31.a
+		custom_tooltip = imperial_council.31.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_gender_male_dominated 
+				remove_doctrine = doctrine_gender_equal
+				remove_doctrine = doctrine_gender_female_dominated
+				}
+			add_doctrine = doctrine_gender_male_dominated
+		}
+	}
+	option = {
+		name = imperial_council.31.b
+		custom_tooltip = imperial_council.31.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_gender_male_dominated 
+				remove_doctrine = doctrine_gender_equal
+				remove_doctrine = doctrine_gender_female_dominated
+				}
+			add_doctrine = doctrine_gender_equal
+		}
+	}
+	option = {
+		name = imperial_council.31.c
+		custom_tooltip = imperial_council.31.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_gender_male_dominated 
+				remove_doctrine = doctrine_gender_equal
+				remove_doctrine = doctrine_gender_female_dominated
+				}
+			add_doctrine = doctrine_gender_female_dominated
+		}
+	}
+}
+
+imperial_council_decision.32 = {
+    type = character_event
+	title = imperial_council.32.t
+	desc = imperial_council.32.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.32.a
+		custom_tooltip = imperial_council.32.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_pluralism_fundamentalist
+			remove_doctrine = doctrine_pluralism_righteous
+			remove_doctrine = doctrine_pluralism_pluralistic
+			}
+			add_doctrine = doctrine_pluralism_fundamentalist
+		}
+	}
+	option = {
+		name = imperial_council.32.b
+		custom_tooltip = imperial_council.32.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_pluralism_fundamentalist
+			remove_doctrine = doctrine_pluralism_righteous
+			remove_doctrine = doctrine_pluralism_pluralistic
+			}
+			add_doctrine = doctrine_pluralism_righteous
+		}
+	}
+	option = {
+		name = imperial_council.32.c
+		custom_tooltip = imperial_council.32.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_pluralism_fundamentalist
+			remove_doctrine = doctrine_pluralism_righteous
+			remove_doctrine = doctrine_pluralism_pluralistic
+			}
+			add_doctrine = doctrine_pluralism_pluralistic
+		}
+	}
+}
+
+imperial_council_decision.33 = {
+    type = character_event
+	title = imperial_council.33.t
+	desc = imperial_council.33.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.33.a
+		custom_tooltip = imperial_council.33.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_monogamy 
+			remove_doctrine = doctrine_polygamy
+			remove_doctrine = doctrine_concubines
+			}
+			add_doctrine = doctrine_monogamy
+		}
+	}
+	option = {
+		name = imperial_council.33.b
+		custom_tooltip = imperial_council.33.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_monogamy 
+			remove_doctrine = doctrine_polygamy
+			remove_doctrine = doctrine_concubines
+			}
+			add_doctrine = doctrine_polygamy
+		}
+	}
+	option = {
+		name = imperial_council.33.c
+		custom_tooltip = imperial_council.33.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_monogamy 
+			remove_doctrine = doctrine_polygamy
+			remove_doctrine = doctrine_concubines
+			}
+			add_doctrine = doctrine_concubines
+		}
+	}
+}
+
+imperial_council_decision.34 = {
+    type = character_event
+	title = imperial_council.34.t
+	desc = imperial_council.34.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.34.a
+		custom_tooltip = imperial_council.34.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_divorce_disallowed 
+			remove_doctrine = doctrine_divorce_approval
+			remove_doctrine = doctrine_divorce_allowed
+			}
+			add_doctrine = doctrine_divorce_disallowed
+		}
+	}
+	option = {
+		name = imperial_council.34.b
+		custom_tooltip = imperial_council.34.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_divorce_disallowed 
+			remove_doctrine = doctrine_divorce_approval
+			remove_doctrine = doctrine_divorce_allowed
+			}
+			add_doctrine = doctrine_divorce_approval
+		}
+	}
+	option = {
+		name = imperial_council.34.c
+		custom_tooltip = imperial_council.34.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_divorce_disallowed 
+			remove_doctrine = doctrine_divorce_approval
+			remove_doctrine = doctrine_divorce_allowed
+			}
+			add_doctrine = doctrine_divorce_allowed
+		}
+	}
+}
+
+imperial_council_decision.35 = {
+    type = character_event
+	title = imperial_council.35.t
+	desc = imperial_council.35.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.35.a
+		custom_tooltip = imperial_council.35.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_bastardry_none
+			remove_doctrine = doctrine_bastardry_legitimization 
+			remove_doctrine = doctrine_bastardry_all
+			}
+			add_doctrine = doctrine_bastardry_none
+		}
+	}
+	option = {
+		name = imperial_council.35.b
+		custom_tooltip = imperial_council.35.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_bastardry_none
+			remove_doctrine = doctrine_bastardry_legitimization 
+			remove_doctrine = doctrine_bastardry_all
+			}
+			add_doctrine = doctrine_bastardry_legitimization
+		}
+	}
+	option = {
+		name = imperial_council.35.c
+		custom_tooltip = imperial_council.35.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_bastardry_none
+			remove_doctrine = doctrine_bastardry_legitimization 
+			remove_doctrine = doctrine_bastardry_all
+			}
+			add_doctrine = doctrine_bastardry_all
+		}
+	}
+}
+
+imperial_council_decision.36 = {
+    type = character_event
+	title = imperial_council.36.t
+	desc = imperial_council.36.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.36.a
+		custom_tooltip = imperial_council.36.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_consanguinity_restricted
+			remove_doctrine = doctrine_consanguinity_cousins 
+			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+			remove_doctrine = doctrine_consanguinity_unrestricted
+			}
+			add_doctrine = doctrine_consanguinity_restricted
+		}
+	}
+	option = {
+		name = imperial_council.36.b
+		custom_tooltip = imperial_council.36.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_consanguinity_restricted
+			remove_doctrine = doctrine_consanguinity_cousins 
+			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+			remove_doctrine = doctrine_consanguinity_unrestricted
+			}
+			add_doctrine = doctrine_consanguinity_cousins
+		}
+	}
+	option = {
+		name = imperial_council.36.c
+		custom_tooltip = imperial_council.36.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_consanguinity_restricted
+			remove_doctrine = doctrine_consanguinity_cousins 
+			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+			remove_doctrine = doctrine_consanguinity_unrestricted
+			}
+			add_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+		}
+	}
+	option = {
+		name = imperial_council.36.d
+		custom_tooltip = imperial_council.36.d.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_consanguinity_restricted
+			remove_doctrine = doctrine_consanguinity_cousins 
+			remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+			remove_doctrine = doctrine_consanguinity_unrestricted
+			}
+			add_doctrine = doctrine_consanguinity_unrestricted
+		}
+	}
+}
+
+imperial_council_decision.37 = {
+    type = character_event
+	title = imperial_council.37.t
+	desc = imperial_council.37.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.37.a
+		custom_tooltip = imperial_council.37.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_homosexuality_crime 
+			remove_doctrine = doctrine_homosexuality_shunned
+			remove_doctrine = doctrine_homosexuality_accepted
+			}
+			add_doctrine = doctrine_homosexuality_crime
+		}
+	}
+	option = {
+		name = imperial_council.37.b
+		custom_tooltip = imperial_council.37.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_homosexuality_crime 
+			remove_doctrine = doctrine_homosexuality_shunned
+			remove_doctrine = doctrine_homosexuality_accepted
+			}
+			add_doctrine = doctrine_homosexuality_shunned
+		}
+	}
+	option = {
+		name = imperial_council.37.c
+		custom_tooltip = imperial_council.37.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_homosexuality_crime 
+			remove_doctrine = doctrine_homosexuality_shunned
+			remove_doctrine = doctrine_homosexuality_accepted
+			}
+			add_doctrine = doctrine_homosexuality_accepted
+		}
+	}
+}
+
+imperial_council_decision.38 = {
+    type = character_event
+	title = imperial_council.38.t
+	desc = imperial_council.38.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.38.a
+		custom_tooltip = imperial_council.38.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_deviancy_crime
+			remove_doctrine = doctrine_deviancy_shunned
+			remove_doctrine = doctrine_deviancy_accepted
+			}
+			add_doctrine = doctrine_deviancy_crime
+		}
+	}
+	option = {
+		name = imperial_council.38.b
+		custom_tooltip = imperial_council.38.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_deviancy_crime
+			remove_doctrine = doctrine_deviancy_shunned
+			remove_doctrine = doctrine_deviancy_accepted
+			}
+			add_doctrine = doctrine_deviancy_shunned
+		}
+	}
+	option = {
+		name = imperial_council.38.c
+		custom_tooltip = imperial_council.38.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_deviancy_crime
+			remove_doctrine = doctrine_deviancy_shunned
+			remove_doctrine = doctrine_deviancy_accepted
+			}
+			add_doctrine = doctrine_deviancy_accepted
+		}
+	}
+}
+
+imperial_council_decision.39 = {
+    type = character_event
+	title = imperial_council.39.t
+	desc = imperial_council.39.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.39.a
+		custom_tooltip = imperial_council.39.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_adultery_men_crime
+			remove_doctrine = doctrine_adultery_men_shunned
+			remove_doctrine = doctrine_adultery_men_accepted
+			}
+			add_doctrine = doctrine_adultery_men_crime
+		}
+	}
+	option = {
+		name = imperial_council.39.b
+		custom_tooltip = imperial_council.39.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_adultery_men_crime
+			remove_doctrine = doctrine_adultery_men_shunned
+			remove_doctrine = doctrine_adultery_men_accepted
+			}
+			add_doctrine = doctrine_adultery_men_shunned
+		}
+	}
+	option = {
+		name = imperial_council.39.c
+		custom_tooltip = imperial_council.39.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_adultery_men_crime
+			remove_doctrine = doctrine_adultery_men_shunned
+			remove_doctrine = doctrine_adultery_men_accepted
+			}
+			add_doctrine = doctrine_adultery_men_accepted
+		}
+	}
+}
+
+imperial_council_decision.310 = {
+    type = character_event
+	title = imperial_council.310.t
+	desc = imperial_council.310.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.310.a
+		custom_tooltip = imperial_council.310.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_adultery_women_crime
+			remove_doctrine = doctrine_adultery_women_shunned
+			remove_doctrine = doctrine_adultery_women_accepted
+			}
+			add_doctrine = doctrine_adultery_women_crime
+		}
+	}
+	option = {
+		name = imperial_council.310.b
+		custom_tooltip = imperial_council.310.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_adultery_women_crime
+			remove_doctrine = doctrine_adultery_women_shunned
+			remove_doctrine = doctrine_adultery_women_accepted
+			}
+			add_doctrine = doctrine_adultery_women_shunned
+		}
+	}
+	option = {
+		name = imperial_council.310.c
+		custom_tooltip = imperial_council.310.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_adultery_women_crime
+			remove_doctrine = doctrine_adultery_women_shunned
+			remove_doctrine = doctrine_adultery_women_accepted
+			}
+			add_doctrine = doctrine_adultery_women_accepted
+		}
+	}
+}
+
+imperial_council_decision.311 = {
+    type = character_event
+	title = imperial_council.311.t
+	desc = imperial_council.311.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.311.a
+		custom_tooltip = imperial_council.311.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_kinslaying_any_dynasty_member_crime
+			remove_doctrine = doctrine_kinslaying_extended_family_crime
+			remove_doctrine = doctrine_kinslaying_close_kin_crime
+			remove_doctrine = doctrine_kinslaying_shunned
+			remove_doctrine = doctrine_kinslaying_accepted
+			}
+			add_doctrine = doctrine_kinslaying_any_dynasty_member_crime
+		}
+	}
+	option = {
+		name = imperial_council.311.b
+		custom_tooltip = imperial_council.311.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_kinslaying_any_dynasty_member_crime
+			remove_doctrine = doctrine_kinslaying_extended_family_crime
+			remove_doctrine = doctrine_kinslaying_close_kin_crime
+			remove_doctrine = doctrine_kinslaying_shunned
+			remove_doctrine = doctrine_kinslaying_accepted
+			}
+			add_doctrine = doctrine_kinslaying_extended_family_crime
+		}
+	}
+	option = {
+		name = imperial_council.311.c
+		custom_tooltip = imperial_council.311.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_kinslaying_any_dynasty_member_crime
+			remove_doctrine = doctrine_kinslaying_extended_family_crime
+			remove_doctrine = doctrine_kinslaying_close_kin_crime
+			remove_doctrine = doctrine_kinslaying_shunned
+			remove_doctrine = doctrine_kinslaying_accepted
+			}
+			add_doctrine = doctrine_kinslaying_close_kin_crime
+		}
+	}
+	option = {
+		name = imperial_council.311.d
+		custom_tooltip = imperial_council.311.d.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_kinslaying_any_dynasty_member_crime
+			remove_doctrine = doctrine_kinslaying_extended_family_crime
+			remove_doctrine = doctrine_kinslaying_close_kin_crime
+			remove_doctrine = doctrine_kinslaying_shunned
+			remove_doctrine = doctrine_kinslaying_accepted
+			}
+			add_doctrine = doctrine_kinslaying_shunned
+		}
+	}
+	option = {
+		name = imperial_council.311.e
+		custom_tooltip = imperial_council.311.e.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_kinslaying_any_dynasty_member_crime
+			remove_doctrine = doctrine_kinslaying_extended_family_crime
+			remove_doctrine = doctrine_kinslaying_close_kin_crime
+			remove_doctrine = doctrine_kinslaying_shunned
+			remove_doctrine = doctrine_kinslaying_accepted
+			}
+			add_doctrine = doctrine_kinslaying_accepted
+		}
+	}
+}
+
+imperial_council_decision.312 = {
+    type = character_event
+	title = imperial_council.312.t
+	desc = imperial_council.312.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.312.a
+		custom_tooltip = imperial_council.312.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_witchcraft_crime
+			remove_doctrine = doctrine_witchcraft_shunned
+			remove_doctrine = doctrine_witchcraft_accepted
+			}
+			add_doctrine = doctrine_witchcraft_crime
+		}
+	}
+	option = {
+		name = imperial_council.312.b
+		custom_tooltip = imperial_council.312.b.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_witchcraft_crime
+			remove_doctrine = doctrine_witchcraft_shunned
+			remove_doctrine = doctrine_witchcraft_accepted
+			}
+			add_doctrine = doctrine_witchcraft_shunned
+		}
+	}
+	option = {
+		name = imperial_council.312.c
+		custom_tooltip = imperial_council.312.c.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+			remove_doctrine = doctrine_witchcraft_crime
+			remove_doctrine = doctrine_witchcraft_shunned
+			remove_doctrine = doctrine_witchcraft_accepted
+			}
+			add_doctrine = doctrine_witchcraft_accepted
+		}
+	}
+}
