@@ -454,15 +454,22 @@ hapcheon_buddism_haeinsa = {#해인사
 jeonju_neocon_jeonjusadang = {#전주 사당
 	county = c_jeonju
 	character_modifier = {
-		same_faith_opinion = 10
+		monthly_prestige_gain_mult = 0.20
 	}
 
 }
-pyongyang_neocon = {
-	county = c_pyongyang
+dosan_neocon = {
+	barony = b_1351
 	character_modifier = {
 		learning_per_piety_level = 1
-		monthly_prestige_gain_mult = 0.2
+		monthly_lifestyle_xp_gain_mult = 0.15
+	}
+}
+dodong_neocon = {
+	barony = b_2608
+	character_modifier = {
+		stress_loss_mult = 0.1
+		same_faith_opinion = 10
 	}
 }
 ###태철교###
