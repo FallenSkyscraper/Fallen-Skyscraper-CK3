@@ -1,7 +1,6 @@
 ﻿namespace = kor_rise
 
-# 6공화국등장
-kor_rise.0001 = {
+kor_rise.0001 = { # 제6공화국 등장
 	hidden = yes
 	immediate = {
 	    debug_log = "Sixth republic rises!"
@@ -33,7 +32,7 @@ kor_rise.0002 = {
 	}
 }
 
-kor_rise.0003 = {
+kor_rise.0003 = { # 제6공화국 침공
 	type = charater_event
 	title = kor_rise.0003.t
 	desc = kor_rise.0003.desc
@@ -42,28 +41,32 @@ kor_rise.0003 = {
 		six_invasion_effect = {
 			invasion_goal = d_busan
 		}
+		ai_chance = 25
 	}
 	option = { # 포항 침공
 		name = kor_rise.0003.b
 		six_invasion_effect = {
 			invasion_goal = d_pohang
 		}
+		ai_chance = 25
 	}
 	option = { # 울진 침공
 		name = kor_rise.0003.c
 		six_invasion_effect = {
 			invasion_goal = d_uljin
 		}
+		ai_chance = 25
 	}
 	option = { # 강릉 침공
 		name = kor_rise.0003.d
 		six_invasion_effect = {
 			invasion_goal = d_gangneung
 		}
+		ai_chance = 25
 	}
 }
 
-kor_rise.1001 = { # 6공화국반응 
+kor_rise.1001 = { # 제6공화국 반응 
     type = character_event
     title = kor_rise.1001.t
 	desc = {
