@@ -167,8 +167,6 @@ spawn_kor_rise_troops_effect = {
 }
 
 spawn_six_court_effect = {
-    add_character_flag = is_six_leader
-	
 	create_character = {
 	    template = six_wife_character_template
 		name = "태희"
@@ -263,7 +261,7 @@ six_invasion_effect = {
 	}
 	title:$invasion_goal$.title_capital_county.county_controller.top_liege = {
 		trigger_event = {
-			id = kor_rise.1002
+			id = kor_rise.1003
 		}
 	}
 }

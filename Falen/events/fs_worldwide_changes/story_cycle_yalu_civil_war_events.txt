@@ -25,6 +25,7 @@ yalu_civil_war.2 = { # 죽음이 임박한 대칸
 
 	left_portrait = { 
 		character = root
+		animation = idle
 	}
 	
 	right_portrait = {
@@ -56,22 +57,26 @@ yalu_civil_war.3 = { # 쿠릴타이의 개최
 
 	left_portrait = {
 		character = root
+		animation = idle
 	}
 	lower_left_portrait = {
 		character = character:9012
+		animation = idle
 	}
 	lower_center_portrait = {
 		character = character:9013
+		animation = idle
 	}
 	lower_right_portrait = {
 		character = character:9014
+		animation = idle
 	}
 	
 	option = {
 		name = yalu_civil_war.3.a
 		trigger_event = {
 			id = yalu_civil_war.4
-			delay = { days = 2 }
+			days = 2
 		}
 	}
 }
@@ -99,7 +104,7 @@ yalu_civil_war.4 = {
 			desc = yalu_civil_war.4.desc
 		}
 	}
-	background_override = {
+	override_background = {
 		event_background = throne_room_tribal
 	}
 
@@ -109,12 +114,15 @@ yalu_civil_war.4 = {
 	}
 	lower_left_portrait = {
 		character = character:9012
+		animation = idle
 	}
 	lower_center_portrait = {
 		character = character:9013
+		animation = idle
 	}
 	lower_right_portrait = {
 		character = character:9014
+		animation = idle
 	}
 
 	option = {
