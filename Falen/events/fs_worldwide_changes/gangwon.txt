@@ -1,0 +1,73 @@
+#강원도
+namespace = gw_mgga
+
+gw_mgga.1 = {
+	type = character_event
+	title = gw_mgga.1.t
+	desc = gw_mgga.1.desc
+	theme = hunting
+	override_background = {
+		event_background = sitting_room
+	}
+	left_portrait = root
+
+	trigger = {
+		NOT = { has_global_variable = gw_rising }
+		has_title = title:e_gangwon
+	}
+	immediate = {
+		set_global_variable = gw_rising
+	}
+	option = {
+		name = gw_mgga.1.a
+		spawn_army = {
+			uses_supply = no
+			inheritable = yes
+			name = gw_levies1
+			levies = {
+  				value = 0
+				every_held_title = {
+					limit = {
+ 						tier = tier_county
+					}
+					add = 1000
+				}
+			}
+			location = root.capital_province
+		}
+		spawn_army = {
+			uses_supply = no
+			inheritable = yes
+			name = gw_levies2
+			levies = {
+  				value = 0
+				every_held_title = {
+					limit = {
+ 						tier = tier_county
+					}
+					add = 1000
+				}
+			}
+			location = root.capital_province
+		}
+		trigger_event = {
+			id = gw_mgga.2
+		}
+		title:d_pyeongchang = {
+			save_scope_as = pyeongchang
+			trigger_event = gw_mgga.3
+		}
+		add_trait = ambitious
+		title:e_gangwon = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		add_prestige = major_prestige_gain
+	}
+	option = {
+		name = gw_mgga.1.b
+		add_trait = content
+	}
+}

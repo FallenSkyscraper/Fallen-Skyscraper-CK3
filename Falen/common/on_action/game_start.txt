@@ -224,6 +224,12 @@ on_game_start_after_lobby = {
 				days = { 366 730 }
 			}
 		}
+		title:c_hoengseong.holder = {
+			trigger_event = {
+				id = gw_mgga.1
+				days = { 366 730 }
+			}
+		}
 		### HOLD COURT STARTING GRACE
 		every_character_with_royal_court = {
 			set_variable = {
