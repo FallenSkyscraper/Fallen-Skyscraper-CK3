@@ -1,131 +1,425 @@
 ﻿namespace = yalu_civil_war
-
-yalu_civil_war.1 {
+yalu_civil_war.0001 = {
+	# 정일남의 죽음
 	type = character_event
-	hidden = yes
-	immediate = {
-		root = { # he will die
-			add_trait = cancer
-			add_trait = consumption
-		}
-		every_vassal = {
-			trigger_event = yalu_civil_war.2
-		}
-	}
-}
-
-yalu_civil_war.2 = { # 죽음이 임박한 대칸
-	type = character_event
-	title = yalu_civil_war.2.t
-	desc = yalu_civil_war.2.desc
 	theme = death
-	override_background = {
-		event_background = throne_room_tribal
-	}
-
-	left_portrait = { 
-		character = root
-		animation = idle
-	}
-	
-	right_portrait = {
-		character = character:9008
-		animation = sick
-	}
+	title = yalu_civil_war.0001.t
+	desc = yalu_civil_war.0001.desc
+	left_portrait = root
+	right_portrait = character:9008
 	option = {
-		name = yalu_civil_war.2.a # 모든 봉신들을 불러모으다.
+		name = yalu_civil_war.0001.a
 		trigger_event = {
-			id = yalu_civil_war.3
-			days = 3
+			id = yalu_civil_war.0002
+			delayed = yes
 		}
 	}
 }
 
-
-yalu_civil_war.3 = { # 쿠릴타이의 개최
+yalu_civil_war.0002 = {
+	# 쿠릴타이의 개최
 	type = character_event
 	theme = feast_activity
-	title = yalu_civil_war.3.t
-	desc = yalu_civil_war.3.desc
-	#trigger = {
-	#	
-	#}
-
+	title = yalu_civil_war.0002.t
+	desc = yalu_civil_war.0002.desc
 	override_background = {
 		event_background = throne_room_tribal
 	}
-
 	left_portrait = {
 		character = root
 		animation = idle
 	}
 	lower_left_portrait = {
-		character = character:9012
+		character = title:k_liaodong.holder
 		animation = idle
 	}
 	lower_center_portrait = {
-		character = character:9013
+		character = title:k_liaoyang.holder
 		animation = idle
 	}
 	lower_right_portrait = {
-		character = character:9014
+		character = title:k_yeongbyeon.holder
 		animation = idle
 	}
-	
 	option = {
-		name = yalu_civil_war.3.a
+		name = yalu_civil_war.0002.a
 		trigger_event = {
-			id = yalu_civil_war.4
+			id = yalu_civil_war.0003
 			days = 2
 		}
 	}
 }
-yalu_civil_war.4 = {
+
+yalu_civil_war.0003 = {
+	# 무단으로 얄루 칸위를 계승
 	type = character_event
 	theme = war
-	title = yalu_civil_war.4.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					root = character:9012
-				}
-				desc = yalu_civil_war.4.desc.a
-			}
-			triggered_desc = {
-				trigger = {
-					OR = {
-						root = character:9013
-						root = character:9014
-					}
-				}
-				desc = yalu_civil_war.4.desc.b
-			}
-			desc = yalu_civil_war.4.desc
-		}
-	}
+	title = yalu_civil_war.0003.t
 	override_background = {
 		event_background = throne_room_tribal
 	}
-
 	left_portrait = {
 		character = root
 		animation = scheme
 	}
 	lower_left_portrait = {
-		character = character:9012
+		character = title:k_liaodong.holder
 		animation = idle
 	}
 	lower_center_portrait = {
-		character = character:9013
+		character = title:k_liaoyang.holder
 		animation = idle
 	}
 	lower_right_portrait = {
-		character = character:9014
+		character = title:k_yeongbyeon.holder
 		animation = idle
 	}
-
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					root = title:k_liaodong.holder
+				}
+				desc = yalu_civil_war.0003.alt.desc
+			}
+			desc = yalu_civil_war.0003.desc
+		}
+	}
 	option = {
-		name = yalu_civil_war.4.a
+		trigger = {
+			NOR = {
+				root = title:k_liaodong.holder
+				root = title:k_liaoyang.holder
+				root = title:k_yeongbyeon.holder
+			}
+			OR = {
+				root.capital_county.de_jure_liege.de_jure_liege = title:k_liaodong
+				root.capital_county.de_jure_liege.de_jure_liege = title:k_liaoxi
+				root.capital_county.de_jure_liege = title:d_sinuiju
+				root.capital_county.de_jure_liege = title:d_uiju
+				root.capital_county.de_jure_liege = title:d_cheolsan
+			}
+		}
+		exclusive = yes
+		name = yalu_civil_war.0003.a
+		trigger_event = {
+			id = yalu_civil_war.0004
+			delayed = yes
+		}
+	}
+	option = {
+		trigger = {
+			NOR = {
+				root = title:k_liaodong.holder
+				root = title:k_liaoyang.holder
+				root = title:k_yeongbyeon.holder
+			}
+			OR = {
+				root.capital_county.de_jure_liege.de_jure_liege = title:k_shen
+				root.capital_county.de_jure_liege.de_jure_liege = title:k_liaoyang
+			}
+		}
+		exclusive = yes
+		name = yalu_civil_war.0003.b
+		trigger_event = {
+			id = yalu_civil_war.0004
+			delayed = yes
+		}
+	}
+	option = {
+		trigger = {
+			NOR = {
+				root = title:k_liaodong.holder
+				root = title:k_liaoyang.holder
+				root = title:k_yeongbyeon.holder
+				root.capital_county.de_jure_liege = title:d_sinuiju
+				root.capital_county.de_jure_liege = title:d_uiju
+				root.capital_county.de_jure_liege = title:d_cheolsan
+			}
+			OR = {
+				root.capital_county.de_jure_liege.de_jure_liege = title:k_uiju
+				root.capital_county.de_jure_liege.de_jure_liege = title:k_yeongbyeon
+			}
+		}
+		exclusive = yes
+		name = yalu_civil_war.0003.c
+		trigger_event = {
+			id = yalu_civil_war.0004
+			delayed = yes
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				root = title:k_liaoyang.holder
+				root = title:k_yeongbyeon.holder
+			}
+		}
+		exclusive = yes
+		name = yalu_civil_war.0003.d
+		trigger_event = {
+			id = yalu_civil_war.0004
+			delayed = yes
+		}
+	}
+	option = {
+		name = yalu_civil_war.0003.e
+		trigger_event = {
+			id = yalu_civil_war.0004
+			delayed = yes
+		}
+	}
+	option = {
+		trigger = {
+			root = title:k_liaodong.holder
+		}
+		exclusive = yes
+		name = yalu_civil_war.0003.f
+		trigger_event = {
+			id = yalu_civil_war.0004
+			delayed = yes
+		}
+	}
+}
+
+yalu_civil_war.0004 = {
+	# 쿠릴타이의 폐쇄
+	type = character_event
+	title = yalu_civil_war.0004.t
+	theme = war
+	override_background = {
+		event_background = throne_room_tribal
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					root = title:k_liaodong.holder
+				}
+				desc = yalu_civil_war.0004.desc.a
+			}
+			triggered_desc = {
+				trigger = {
+					OR = {
+						root = title:k_liaoyang.holder
+						root = title:k_yeongbyeon.holder
+					}
+				}
+				desc = yalu_civil_war.0004.desc.b
+			}
+			desc = yalu_civil_war.0004.desc
+		}
+	}
+	option = {
+		trigger = {
+			root = title:k_liaodong.holder
+		}
+		exclusive = yes
+		name = yalu_civil_war.0004.a
+		trigger_event = {
+			id = yalu_civil_war.0011
+			days = {
+				8
+				30
+			}
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				root = title:k_liaoyang.holder
+				root = title:k_yeongbyeon.holder
+			}
+		}
+		exclusive = yes
+		name = yalu_civil_war.0004.b
+	}
+	option = {
+		name = yalu_civil_war.0004.c
+	}
+}
+
+yalu_civil_war.0011 = {
+	# 정형기의 요동, 요서, 신의주 장악
+	type = character_event
+	title = yalu_civil_war.0011.t
+	desc = yalu_civil_war.0011.desc.a
+	theme = intrigue
+	left_portrait = title:k_liaodong.holder
+	right_portrait = title:k_liaoyang.holder
+	immediate = {
+		title:k_liaoyang.holder = {
+			every_vassal = {
+				create_title_and_vassal_change = {
+					type = revoked
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				if = {
+					limit = {
+						THIS.capital_county.de_jure_liege.de_jure_liege = title:k_liaoxi
+					}
+					change_liege = {
+						liege = title:k_liaodong.holder
+						change = scope:change
+					}
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+		}
+	}
+	option = {
+		name = yalu_civil_war.0011.a
+		title:k_liaoyang.holder = {
+			trigger_event = yalu_civil_war.0012
+		}
+		title:k_jianzhou.holder = {
+			trigger_event = {
+				id = yalu_civil_war.0014
+				days = {
+					7
+					14
+				}
+			}
+			custom_description = yalu_civil_war.0011.takeover
+		}
+	}
+}
+
+yalu_civil_war.0012 = {
+	# 정상기의 요양 장악 및 정형기의 요서 장악 반응
+	type = character_event
+	title = yalu_civil_war.0012.t
+	desc = yalu_civil_war.0012.desc
+	theme = intrigue
+	immediate = {
+		title:k_yeongbyeon.holder = {
+			trigger_event = yalu_civil_war.0013
+		}
+	}
+	option = {
+		name = yalu_civil_war.0012.a
+		custom_description = yalu_civil_war.0012.takeover
+	}
+}
+
+yalu_civil_war.0013 = {
+	# 정만기의 의주 영변 자성 장악
+	type = character_event
+	title = yalu_civil_war.0013.t
+	theme = intrigue
+	desc = yalu_civil_war.0013.desc
+	option = {
+		name = yalu_civil_war.0013.a
+		custom_description = yalu_civil_war.0013.takeover
+	}
+}
+
+yalu_civil_war.0014 = {
+	# 건주의 건주 해방 제안
+	type = character_event
+	title = yalu_civil_war.0012.t
+	theme = diplomacy
+	override_background = throne_room_tribal
+	desc = yalu_civil_war.0012.bookmark_2444_e_desc
+	immediate = {
+		trigger_event = {
+			id = yalu_civil_war.0020
+			days = 14
+		}
+	}
+	option = {
+		name = yalu_civil_war.0014.a
+		custom_description = yalu_civil_war.0014.purpose
+		title:k_liaodong.holder = {
+			trigger_event = {
+				id = yalu_civil_war.0015
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = yalu_civil_war.0014.b
+		custom_description = yalu_civil_war.0014.war
+		set_global_variable = jianzhou_war
+	}
+	option = {
+		name = yalu_civil_war.0014.c
+		custom_description = yalu_civil_war.0014.isolation
+		set_global_variable = jianzhou_isolation
+	}
+}
+
+yalu_civil_war.0015 = {
+	# 건주의 제안을 받은 정형기
+	type = character_event
+	title = yalu_civil_war.0012.t
+	theme = diplomacy
+	override_background = throne_room_tribal
+	desc = yalu_civil_war.0012.desc
+	option = {
+		name = yalu_civil_war.0015.a
+		custom_description = yalu_civil_war.0015.accept
+	}
+	option = {
+		name = yalu_civil_war.0015.b
+		custom_description = yalu_civil_war.0015.refuse
+	}
+}
+
+yalu_civil_war.0016 = {
+	# 건주 해방을 약속받은 건주
+	type = character_event
+	title = yalu_civil_war.0016.t
+	theme = diplomacy
+	override_background = throne_room_tribal
+	desc = yalu_civil_war.0016.desc
+	option = {
+		name = yalu_civil_war.0016.a
+		custom_description = yalu_civil_war.0016.intervention
+		set_global_variable = jianzhou_intervention
+	}
+}
+
+yalu_civil_war.0017 = {
+	# 건주 해방을 거절당한 건주
+	type = character_event
+	title = yalu_civil_war.0017.t
+	desc = yalu_civil_war.0017.desc
+	theme = diplomacy
+	override_background = throne_room_tribal
+	option = {
+		name = yalu_civil_war.0017.a
+		custom_description = yalu_civil_war.0017.war
+		set_global_variable = jianzhou_war
+	}
+	option = {
+		name = yalu_civil_war.0017.b
+		custom_description = yalu_civil_war.0017.isolation
+		set_global_variable = jianzhou_isolation
+	}
+}
+
+yalu_civil_war.0020 = {
+	# 얄루 내전 시작
+	type = empty
+	hidden = yes
+	immediate = {
+		yalu_rebellion_effect = {
+			effect_actor = title:k_liaoyang.holder
+		}
+		title:e_yalu.holder = {
+			every_vassal = {
+				if = {
+					limit = {
+						OR = {
+							THIS.capital_county.de_jure_liege.de_jure_liege = title:k_shen
+							THIS.capital_county.de_jure_liege.de_jure_liege = title:k_liaoyang
+						}
+					}
+					join_faction = title:k_liaoyang.holder.joined_faction
+				}
+			}
+		}
 	}
 }

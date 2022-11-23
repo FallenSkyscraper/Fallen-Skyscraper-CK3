@@ -21,6 +21,15 @@ on_death = {
 		}
 
 		invalidate_claimant_factions_on_death_effect = yes
+
+		if = {
+			limit = {
+				root = character:9008
+			}
+			every_vassal = {
+				trigger_event = yalu_civil_war.0001
+			}
+		}
 	}
 	events = {
 		death_management.0097	# Sets a flag if the dead one was someone you loved (to make suicide available)
