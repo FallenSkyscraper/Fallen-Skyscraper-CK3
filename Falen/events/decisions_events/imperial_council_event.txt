@@ -75,21 +75,21 @@ imperial_council_decision.022 = {
 		name = imperial_council.022.a
 		custom_tooltip = imperial_council.022.a.tt
 		trigger_event = {
-			id = imperial_council_decision.34
+			id = imperial_council_decision.0341
 		}
 	}
 	option = {
 		name = imperial_council.022.b
 		custom_tooltip = imperial_council.022.b.tt
 		trigger_event = {
-			id = imperial_council_decision.35
+			id = imperial_council_decision.0351
 		}
 	}
 	option = {
 		name = imperial_council.022.c
 		custom_tooltip = imperial_council.022.c.tt
 		trigger_event = {
-			id = imperial_council_decision.36
+			id = imperial_council_decision.0361
 		}
 	}
 	option = {
@@ -115,21 +115,21 @@ imperial_council_decision.023 = {
 		name = imperial_council.023.a
 		custom_tooltip = imperial_council.023.a.tt
 		trigger_event = {
-			id = imperial_council_decision.37
+			id = imperial_council_decision.0371
 		}
 	}
 	option = {
 		name = imperial_council.023.b
 		custom_tooltip = imperial_council.023.b.tt
 		trigger_event = {
-			id = imperial_council_decision.38
+			id = imperial_council_decision.0381
 		}
 	}
 	option = {
 		name = imperial_council.023.c
 		custom_tooltip = imperial_council.023.c.tt
 		trigger_event = {
-			id = imperial_council_decision.39
+			id = imperial_council_decision.0391
 		}
 	}
 	option = {
@@ -155,21 +155,21 @@ imperial_council_decision.024 = {
 		name = imperial_council.024.a
 		custom_tooltip = imperial_council.024.a.tt
 		trigger_event = {
-			id = imperial_council_decision.310
+			id = imperial_council_decision.3101
 		}
 	}
 	option = {
 		name = imperial_council.024.b
 		custom_tooltip = imperial_council.024.b.tt
 		trigger_event = {
-			id = imperial_council_decision.311
+			id = imperial_council_decision.3111
 		}
 	}
 	option = {
 		name = imperial_council.024.c
 		custom_tooltip = imperial_council.024.c.tt
 		trigger_event = {
-			id = imperial_council_decision.312
+			id = imperial_council_decision.3121
 		}
 	}
 	option = {
@@ -495,10 +495,67 @@ imperial_council_decision.0334 = {
 	}
 }
 
-imperial_council_decision.34 = {
+imperial_council_decision.0341 = {
     type = character_event
-	title = imperial_council.34.t
-	desc = imperial_council.34.desc
+	title = imperial_council.0341.t
+	desc = imperial_council.0341.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0341.a
+		custom_tooltip = imperial_council.0341.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0342
+		}
+	}
+}
+
+imperial_council_decision.0342 = {
+    type = character_event
+	title = imperial_council.0342.t
+	desc = imperial_council.0342.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0342.a
+		custom_tooltip = imperial_council.0342.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0343
+		}
+	}
+}
+
+imperial_council_decision.0343 = {
+    type = character_event
+	title = imperial_council.0343.t
+	desc = imperial_council.0343.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0343.a
+		custom_tooltip = imperial_council.0323.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0344
+		}
+	}
+}
+
+imperial_council_decision.0344 = {
+    type = character_event
+	title = imperial_council.0344.t
+	desc = imperial_council.0344.desc
 	theme = party
 	left_portrait = {
 		character = root
@@ -543,10 +600,67 @@ imperial_council_decision.34 = {
 	}
 }
 
-imperial_council_decision.35 = {
+imperial_council_decision.0351 = {
     type = character_event
-	title = imperial_council.35.t
-	desc = imperial_council.35.desc
+	title = imperial_council.0351.t
+	desc = imperial_council.0351.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0351.a
+		custom_tooltip = imperial_council.0351.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0352
+		}
+	}
+}
+
+imperial_council_decision.0352 = {
+    type = character_event
+	title = imperial_council.0352.t
+	desc = imperial_council.0352.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0352.a
+		custom_tooltip = imperial_council.0352.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0353
+		}
+	}
+}
+
+imperial_council_decision.0353 = {
+    type = character_event
+	title = imperial_council.0353.t
+	desc = imperial_council.0353.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0353.a
+		custom_tooltip = imperial_council.0353.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0354
+		}
+	}
+}
+
+imperial_council_decision.0354 = {
+    type = character_event
+	title = imperial_council.0354.t
+	desc = imperial_council.0354.desc
 	theme = party
 	left_portrait = {
 		character = root
@@ -591,10 +705,48 @@ imperial_council_decision.35 = {
 	}
 }
 
-imperial_council_decision.36 = {
+imperial_council_decision.0361 = {
     type = character_event
-	title = imperial_council.36.t
-	desc = imperial_council.36.desc
+	title = imperial_council.0361.t
+	desc = imperial_council.0361.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0361.a
+		custom_tooltip = imperial_council.0361.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0362
+		}
+	}
+}
+
+imperial_council_decision.0362 = {
+    type = character_event
+	title = imperial_council.0362.t
+	desc = imperial_council.0362.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0362.a
+		custom_tooltip = imperial_council.0362.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0363
+		}
+	}
+}
+
+imperial_council_decision.363 = {
+    type = character_event
+	title = imperial_council.363.t
+	desc = imperial_council.363.desc
 	theme = party
 	left_portrait = {
 		character = root
@@ -655,10 +807,67 @@ imperial_council_decision.36 = {
 	}
 }
 
-imperial_council_decision.37 = {
+imperial_council_decision.0371 = {
     type = character_event
-	title = imperial_council.37.t
-	desc = imperial_council.37.desc
+	title = imperial_council.0371.t
+	desc = imperial_council.0371.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0371.a
+		custom_tooltip = imperial_council.0371.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0372
+		}
+	}
+}
+
+imperial_council_decision.0372 = {
+    type = character_event
+	title = imperial_council.0372.t
+	desc = imperial_council.0372.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0372.a
+		custom_tooltip = imperial_council.0372.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0373
+		}
+	}
+}
+
+imperial_council_decision.0373 = {
+    type = character_event
+	title = imperial_council.0373.t
+	desc = imperial_council.0373.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0373.a
+		custom_tooltip = imperial_council.0373.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0374
+		}
+	}
+}
+
+imperial_council_decision.374 = {
+    type = character_event
+	title = imperial_council.374.t
+	desc = imperial_council.374.desc
 	theme = party
 	left_portrait = {
 		character = root
@@ -703,10 +912,66 @@ imperial_council_decision.37 = {
 	}
 }
 
-imperial_council_decision.38 = {
+imperial_council_decision.0381 = {
     type = character_event
-	title = imperial_council.38.t
-	desc = imperial_council.38.desc
+	title = imperial_council.0381.t
+	desc = imperial_council.0381.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0381.a
+		custom_tooltip = imperial_council.0381.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0382
+		}
+	}
+}
+
+imperial_council_decision.0382 = {
+    type = character_event
+	title = imperial_council.0382.t
+	desc = imperial_council.0382.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0382.a
+		custom_tooltip = imperial_council.0382.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0383
+		}
+	}
+}
+
+imperial_council_decision.0383 = {
+    type = character_event
+	title = imperial_council.0383.t
+	desc = imperial_council.0383.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0383.a
+		custom_tooltip = imperial_council.0383.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0384
+		}
+	}
+}
+imperial_council_decision.0384 = {
+    type = character_event
+	title = imperial_council.0384.t
+	desc = imperial_council.0384.desc
 	theme = party
 	left_portrait = {
 		character = root
@@ -751,10 +1016,67 @@ imperial_council_decision.38 = {
 	}
 }
 
-imperial_council_decision.39 = {
+imperial_council_decision.0391 = {
     type = character_event
-	title = imperial_council.39.t
-	desc = imperial_council.39.desc
+	title = imperial_council.0391.t
+	desc = imperial_council.0391.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0391.a
+		custom_tooltip = imperial_council.0391.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0392
+		}
+	}
+}
+
+imperial_council_decision.0392 = {
+    type = character_event
+	title = imperial_council.0392.t
+	desc = imperial_council.0392.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0392.a
+		custom_tooltip = imperial_council.0392.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0393
+		}
+	}
+}
+
+imperial_council_decision.0393 = {
+    type = character_event
+	title = imperial_council.0393.t
+	desc = imperial_council.0393.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.0393.a
+		custom_tooltip = imperial_council.0393.a.tt
+		trigger_event = {
+			id = imperial_council_decision.0394
+		}
+	}
+}
+
+imperial_council_decision.0394 = {
+    type = character_event
+	title = imperial_council.0394.t
+	desc = imperial_council.0394.desc
 	theme = party
 	left_portrait = {
 		character = root
@@ -799,10 +1121,67 @@ imperial_council_decision.39 = {
 	}
 }
 
-imperial_council_decision.310 = {
+imperial_council_decision.3101 = {
     type = character_event
-	title = imperial_council.310.t
-	desc = imperial_council.310.desc
+	title = imperial_council.3101.t
+	desc = imperial_council.3101.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.3101.a
+		custom_tooltip = imperial_council.3101.a.tt
+		trigger_event = {
+			id = imperial_council_decision.3102
+		}
+	}
+}
+
+imperial_council_decision.3102 = {
+    type = character_event
+	title = imperial_council.3102.t
+	desc = imperial_council.3102.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.3102.a
+		custom_tooltip = imperial_council.3102.a.tt
+		trigger_event = {
+			id = imperial_council_decision.3103
+		}
+	}
+}
+
+imperial_council_decision.3103 = {
+    type = character_event
+	title = imperial_council.3103.t
+	desc = imperial_council.3103.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.3103.a
+		custom_tooltip = imperial_council.3103.a.tt
+		trigger_event = {
+			id = imperial_council_decision.3104
+		}
+	}
+}
+
+imperial_council_decision.3104 = {
+    type = character_event
+	title = imperial_council.3104.t
+	desc = imperial_council.3104.desc
 	theme = party
 	left_portrait = {
 		character = root
@@ -847,10 +1226,67 @@ imperial_council_decision.310 = {
 	}
 }
 
-imperial_council_decision.311 = {
+imperial_council_decision.3111 = {
     type = character_event
-	title = imperial_council.311.t
-	desc = imperial_council.311.desc
+	title = imperial_council.3111.t
+	desc = imperial_council.3111.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.3111.a
+		custom_tooltip = imperial_council.3111.a.tt
+		trigger_event = {
+			id = imperial_council_decision.3112
+		}
+	}
+}
+
+imperial_council_decision.3112 = {
+    type = character_event
+	title = imperial_council.3112.t
+	desc = imperial_council.3112.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.3112.a
+		custom_tooltip = imperial_council.3112.a.tt
+		trigger_event = {
+			id = imperial_council_decision.3112
+		}
+	}
+}
+
+imperial_council_decision.3113 = {
+    type = character_event
+	title = imperial_council.3113.t
+	desc = imperial_council.3113.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.3113.a
+		custom_tooltip = imperial_council.3113.a.tt
+		trigger_event = {
+			id = imperial_council_decision.3114
+		}
+	}
+}
+
+imperial_council_decision.3114 = {
+    type = character_event
+	title = imperial_council.3114.t
+	desc = imperial_council.3114.desc
 	theme = party
 	left_portrait = {
 		character = root
@@ -929,10 +1365,48 @@ imperial_council_decision.311 = {
 	}
 }
 
-imperial_council_decision.312 = {
+imperial_council_decision.3121 = {
     type = character_event
-	title = imperial_council.312.t
-	desc = imperial_council.312.desc
+	title = imperial_council.3121.t
+	desc = imperial_council.3121.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.3121.a
+		custom_tooltip = imperial_council.3121.a.tt
+		trigger_event = {
+			id = imperial_council_decision.3122
+		}
+	}
+}
+
+imperial_council_decision.3122 = {
+    type = character_event
+	title = imperial_council.3122.t
+	desc = imperial_council.3122.desc
+	theme = party
+	left_portrait = {
+		character = root
+		animation = personality_happiness
+
+	}
+	option = {
+		name = imperial_council.3122.a
+		custom_tooltip = imperial_council.3122.a.tt
+		trigger_event = {
+			id = imperial_council_decision.3123
+		}
+	}
+}
+
+imperial_council_decision.3123 = {
+    type = character_event
+	title = imperial_council.3123.t
+	desc = imperial_council.3123.desc
 	theme = party
 	left_portrait = {
 		character = root
