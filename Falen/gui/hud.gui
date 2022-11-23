@@ -427,7 +427,10 @@ widget = {
 							text = "Who_is_HEC_Emperor"
 							
 						}
+						hbox = {
 						text_single = { text = "Imperial_Authority" tooltip = "Tooltip_Imperial_Authority" } # Imperial Authority
+						text_single = { text = "Imperial_Authority_Changes" tooltip = "Tooltip_Imperial_Authority_Changes" }
+						}
 					}
 					portrait_head = { datacontext = "[Character]" }
 				}
@@ -579,7 +582,6 @@ widget = {
 							item = {
 								flowcontainer = {
 									datacontext = "[Scope.Title]"
-									spacing = 5
 
 									coa_title_small_crown = {
 										using = tooltip_ne
@@ -594,17 +596,39 @@ widget = {
 								#		max_width = 190
 								#		margin_top = 5
 								#	}
+									vbox = {
+									margin_left = -230
+									hbox = {
 									text_single_big = {
 										text = "hec_reform"
-										visible = "[GetScriptedGui('reformist').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder).End]"
+										visible = "[GetScriptedGui('reformist').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End)]"
 									}
 									text_single_big = {
 										text = "hec_relig"
-										visible = "[GetScriptedGui('religious').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder).End]"
+										visible = "[GetScriptedGui('religious').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End)]"
 									}
 									text_single_big = {
 										text = "hec_conserv"
-										visible = "[GetScriptedGui('conservative').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder).End]"
+										visible = "[GetScriptedGui('conservative').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End)]"
+									}
+									}
+									hbox = {
+										icon = {
+											#visible = "[GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End ) ]"
+											size = { 25 25 }
+											#parentanchor = bottom|right
+											texture = "gfx/interface/icons/symbols/icon_check.dds"
+											tooltip = "hec_reform_supporting_tooltip"
+										}
+
+										icon = {
+											#visible = "[Not(GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End )) ]"
+											size = { 25 25 }
+											#parentanchor = bottom|right
+											texture = "gfx/interface/icons/symbols/icon_cross.dds"
+											tooltip = "hec_reform_opposing_tooltip"
+										}
+										}
 									}
 								}
 							}
