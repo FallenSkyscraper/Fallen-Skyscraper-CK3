@@ -582,37 +582,35 @@ widget = {
 							item = {
 								flowcontainer = {
 									datacontext = "[Scope.Title]"
-
+									direction = horizontal
 									coa_title_small_crown = {
 										using = tooltip_ne
 									}
 									portrait_head_small = { datacontext = "[Title.GetHolder]" }
-								#	text_multi = {
-								#		text = "[Title.GetBaseNameNoTooltip]"
-								#		parentanchor = vcenter
-								#		autoresize = yes
-								#		default_format = "#high"
-								#		using = Font_Size_Medium
-								#		max_width = 190
-								#		margin_top = 5
-								#	}
-									vbox = {
-									margin_left = -230
-									hbox = {
+									flowcontainer = {
+										direction = vertical
+										spacing = 10
+										flowcontainer = {
+										margin_left = 5
+										margin_bottom = 5
 									text_single_big = {
 										text = "hec_reform"
+										tooltip = "trait_hec_reformist_desc"
 										visible = "[GetScriptedGui('reformist').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End)]"
 									}
 									text_single_big = {
 										text = "hec_relig"
+										tooltip = "trait_hec_religious_desc"
 										visible = "[GetScriptedGui('religious').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End)]"
 									}
 									text_single_big = {
 										text = "hec_conserv"
+										tooltip = "trait_hec_conservative_desc"
 										visible = "[GetScriptedGui('conservative').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End)]"
 									}
 									}
-									hbox = {
+									flowcontainer = {
+										margin_left = 10
 										icon = {
 											#visible = "[GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End ) ]"
 											size = { 25 25 }
