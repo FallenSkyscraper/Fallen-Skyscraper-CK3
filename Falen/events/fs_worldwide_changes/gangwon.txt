@@ -120,3 +120,44 @@ gw_mgga.3 = {
 		name = gw.mgga.b
 	}
 }
+gw_mgga.4 = {
+	type = character_event
+	title = gw_mgga.4.t
+	desc = gw_mgga.4.desc
+	trigger = {
+		has_global_variable = gw_rising
+		NOT = { has_global_variable = gw_rebuilt }
+	}
+	override_background = {
+		event_background = sitting_room
+	}
+	left_portrait = root
+	option = {
+		name = gw_mgga.4.a
+		destroy_title = title:e_gangwon
+	}
+}
+gw_mgga.5 = {
+	type = character_event
+	title = gw_mgga.5.t
+	desc = gw_mgga.5.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_ruler
+		#title:e_gangwon = { save_scope_as = gangwon }
+		title:k_cherwon = { set_de_jure_liege_title = title:e_gangwon }
+		title:k_yeongseo = { set_de_jure_liege_title = title:e_gangwon }
+		title:k_yeongdong = { set_de_jure_liege_title = title:e_gangwon }
+		hidden_effect = { set_primary_title_to = title:e_gangwon }
+		add_prestige = major_prestige_gain
+	}
+	option = {
+		name = gw_mgga.5.a
+		}
+}
