@@ -4,7 +4,7 @@
 		liege = e_yalu
 	}
 }
-k_sinuiju = {
+k_uiju = {
 	2274.1.1 = {
 		holder = 6601
 	}
@@ -14,6 +14,17 @@ k_sinuiju = {
 	2330.4.18 = {
 		holder = 6603
 	}
+	2344.10.6 = {
+		holder = 0
+	}
+}
+d_cheolsan = {	2344.10.6 = { de_jure_liege = k_sinuiju } }
+d_guseong = {	2344.10.6 = { de_jure_liege = k_sinuiju } }
+d_bakcheon = {	2344.10.6 = { de_jure_liege = k_sinuiju } }
+d_jeongju = {	2344.10.6 = { de_jure_liege = k_sinuiju } }
+d_cheolsan = {	2344.10.6 = { de_jure_liege = k_sinuiju } }
+d_uiju = 	{	2344.10.6 = { de_jure_liege = k_sinuiju } }
+k_sinuiju = {
 	2344.10.6 = {
 		holder = 6605
 	}
@@ -39,6 +50,7 @@ d_sinuiju = {
 	}
 	2344.10.6 = {
 		holder = 6605
+		de_jure_liege = k_sinuiju
 	}
 	2353.12.22 = {
 		holder = 6610
