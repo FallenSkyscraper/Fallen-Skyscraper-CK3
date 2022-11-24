@@ -13,11 +13,10 @@ gw_mgga.1 = {
 
 	trigger = {
 		NOT = { has_global_variable = gw_rising }
-		has_title = title:e_gangwon
 	}
 	immediate = {
 		set_global_variable = gw_rising
-		save_scope_as = gw_emperor
+		root = { save_scope_as = gw_emperor }
 	}
 	option = {
 		name = gw_mgga.1.a
@@ -70,6 +69,18 @@ gw_mgga.1 = {
 	option = {
 		name = gw_mgga.1.b
 		add_trait = content
+	}
+}
+gw_mgga.2 = {
+	type = character_event
+	title = gw_mgga.2.t
+	desc = gw_mgga.2.desc
+	override_background = {
+		event_background = sitting_room
+	}
+	left_portrait = root
+	option = {
+		name = gw_mgga.2.a
 	}
 }
 gw_mgga.3 = {
