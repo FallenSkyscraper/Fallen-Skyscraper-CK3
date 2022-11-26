@@ -230,7 +230,7 @@ yalu_civil_war.0011 = {
 	# 정형기의 요동, 요서, 신의주 장악
 	type = character_event
 	title = yalu_civil_war.0011.t
-	desc = yalu_civil_war.0011.desc.a
+	desc = yalu_civil_war.0011.desc
 	theme = intrigue
 	left_portrait = title:k_liaodong.holder
 	right_portrait = title:k_liaoyang.holder
@@ -499,6 +499,12 @@ yalu_civil_war.0020 = {
 						add_attacker = scope:yalu_war_ally
 					}
 				}
+				else_if = {
+					limit = {
+						exists = global_var:jianzhou_isolation
+						THIS.capital_county.de_jure_liege.de_jure_liege = title:k_jianzhou
+					}
+				}
 				else = {
 					scope:liaoyang_war = {
 						add_defender = scope:yalu_war_ally
@@ -523,6 +529,10 @@ yalu_civil_war.0022 = {
 
 yalu_civli_war.0023 = {
 	# 얄루 제국의 붕괴
+}
+
+yalu_civil_war.0024 = {
+	# 얄루 내전의 계속
 }
 
 yalu_civil_war.0031 = {
