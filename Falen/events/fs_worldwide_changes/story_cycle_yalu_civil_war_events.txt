@@ -11,7 +11,7 @@ yalu_civil_war.0001 = {
 		name = yalu_civil_war.0001.a
 		trigger_event = {
 			id = yalu_civil_war.0002
-			delayed = yes
+			days = 1
 		}
 	}
 }
@@ -102,10 +102,7 @@ yalu_civil_war.0003 = {
 		}
 		exclusive = yes
 		name = yalu_civil_war.0003.a
-		trigger_event = {
-			id = yalu_civil_war.0004
-			delayed = yes
-		}
+		trigger_event = yalu_civil_war.0004
 	}
 	option = {
 		trigger = {
@@ -121,10 +118,7 @@ yalu_civil_war.0003 = {
 		}
 		exclusive = yes
 		name = yalu_civil_war.0003.b
-		trigger_event = {
-			id = yalu_civil_war.0004
-			delayed = yes
-		}
+		trigger_event = yalu_civil_war.0004
 	}
 	option = {
 		trigger = {
@@ -139,14 +133,12 @@ yalu_civil_war.0003 = {
 			OR = {
 				root.capital_county.de_jure_liege.de_jure_liege = title:k_uiju
 				root.capital_county.de_jure_liege.de_jure_liege = title:k_yeongbyeon
+				root.capital_county.de_jure_liege.de_jure_liege = title:k_jaseong
 			}
 		}
 		exclusive = yes
 		name = yalu_civil_war.0003.c
-		trigger_event = {
-			id = yalu_civil_war.0004
-			delayed = yes
-		}
+		trigger_event = yalu_civil_war.0004
 	}
 	option = {
 		trigger = {
@@ -157,17 +149,15 @@ yalu_civil_war.0003 = {
 		}
 		exclusive = yes
 		name = yalu_civil_war.0003.d
-		trigger_event = {
-			id = yalu_civil_war.0004
-			delayed = yes
+		set_relation_rival = {
+			reason = yalu_kurultai
+			target = title:e_yalu.holder
 		}
+		trigger_event = yalu_civil_war.0004
 	}
 	option = {
 		name = yalu_civil_war.0003.e
-		trigger_event = {
-			id = yalu_civil_war.0004
-			delayed = yes
-		}
+		trigger_event = yalu_civil_war.0004
 	}
 	option = {
 		trigger = {
@@ -175,10 +165,7 @@ yalu_civil_war.0003 = {
 		}
 		exclusive = yes
 		name = yalu_civil_war.0003.f
-		trigger_event = {
-			id = yalu_civil_war.0004
-			delayed = yes
-		}
+		trigger_event = yalu_civil_war.0004
 	}
 }
 
@@ -281,7 +268,7 @@ yalu_civil_war.0011 = {
 					14
 				}
 			}
-			custom_description = yalu_civil_war.0011.takeover
+			custom_tooltip = yalu_civil_war.0011.takeover
 		}
 	}
 }
@@ -299,7 +286,7 @@ yalu_civil_war.0012 = {
 	}
 	option = {
 		name = yalu_civil_war.0012.a
-		custom_description = yalu_civil_war.0012.takeover
+		custom_tooltip = yalu_civil_war.0012.takeover
 	}
 }
 
@@ -311,17 +298,17 @@ yalu_civil_war.0013 = {
 	desc = yalu_civil_war.0013.desc
 	option = {
 		name = yalu_civil_war.0013.a
-		custom_description = yalu_civil_war.0013.takeover
+		custom_tooltip = yalu_civil_war.0013.takeover
 	}
 }
 
 yalu_civil_war.0014 = {
 	# 건주의 건주 해방 제안
 	type = character_event
-	title = yalu_civil_war.0012.t
+	title = yalu_civil_war.0014.t
 	theme = diplomacy
 	override_background = throne_room_tribal
-	desc = yalu_civil_war.0012.bookmark_2444_e_desc
+	desc = yalu_civil_war.0014.desc
 	immediate = {
 		trigger_event = {
 			id = yalu_civil_war.0020
@@ -330,7 +317,7 @@ yalu_civil_war.0014 = {
 	}
 	option = {
 		name = yalu_civil_war.0014.a
-		custom_description = yalu_civil_war.0014.purpose
+		custom_tooltip = yalu_civil_war.offer
 		title:k_liaodong.holder = {
 			trigger_event = {
 				id = yalu_civil_war.0015
@@ -339,13 +326,19 @@ yalu_civil_war.0014 = {
 		}
 	}
 	option = {
+		trigger = {
+			is_ai = no
+		}
 		name = yalu_civil_war.0014.b
-		custom_description = yalu_civil_war.0014.war
+		custom_tooltip = yalu_civil_war.war
 		set_global_variable = jianzhou_war
 	}
 	option = {
+		trigger = {
+			is_ai = no
+		}
 		name = yalu_civil_war.0014.c
-		custom_description = yalu_civil_war.0014.isolation
+		custom_tooltip = yalu_civil_war.isolation
 		set_global_variable = jianzhou_isolation
 	}
 }
@@ -353,17 +346,29 @@ yalu_civil_war.0014 = {
 yalu_civil_war.0015 = {
 	# 건주의 제안을 받은 정형기
 	type = character_event
-	title = yalu_civil_war.0012.t
+	title = yalu_civil_war.0015.t
 	theme = diplomacy
 	override_background = throne_room_tribal
-	desc = yalu_civil_war.0012.desc
+	desc = yalu_civil_war.0015.desc
 	option = {
 		name = yalu_civil_war.0015.a
-		custom_description = yalu_civil_war.0015.accept
+		custom_tooltip = yalu_civil_war.accept
+		title:k_jianzhou.holder = {
+			trigger_event = {
+				id = yalu_civil_war.0016
+				days = 4
+			}
+		}
 	}
 	option = {
 		name = yalu_civil_war.0015.b
-		custom_description = yalu_civil_war.0015.refuse
+		custom_tooltip = yalu_civil_war.refuse
+		title:k_jianzhou.holder = {
+			trigger_event = {
+				id = yalu_civil_war.0017
+				days = 4
+			}
+		}
 	}
 }
 
@@ -376,7 +381,7 @@ yalu_civil_war.0016 = {
 	desc = yalu_civil_war.0016.desc
 	option = {
 		name = yalu_civil_war.0016.a
-		custom_description = yalu_civil_war.0016.intervention
+		custom_tooltip = yalu_civil_war.intervention
 		set_global_variable = jianzhou_intervention
 	}
 }
@@ -390,12 +395,15 @@ yalu_civil_war.0017 = {
 	override_background = throne_room_tribal
 	option = {
 		name = yalu_civil_war.0017.a
-		custom_description = yalu_civil_war.0017.war
+		custom_tooltip = yalu_civil_war.war
 		set_global_variable = jianzhou_war
 	}
 	option = {
+		trigger = {
+			is_ai = no
+		}
 		name = yalu_civil_war.0017.b
-		custom_description = yalu_civil_war.0017.isolation
+		custom_tooltip = yalu_civil_war.isolation
 		set_global_variable = jianzhou_isolation
 	}
 }
@@ -405,11 +413,55 @@ yalu_civil_war.0020 = {
 	type = empty
 	hidden = yes
 	immediate = {
-		yalu_rebellion_effect = {
-			effect_actor = title:k_liaoyang.holder
+		title:k_liaoyang.holder = {
+			start_war = {
+				cb = war_for_yalu_cb
+				target = title:e_yalu.holder
+				claimant = title:k_liaoyang.holder
+				target_title = title:e_yalu
+			}
+			every_character_war = {
+				limit = {
+					primary_defender = title:e_yalu.holder
+				}
+				save_scope_as = liaoyang_war
+			}
+		}
+		title:k_yeongbyeon.holder = {
+			start_war = {
+				cb = war_for_yalu_cb
+				target = title:e_yalu.holder
+				claimant = title:k_yeongbyeon.holder
+				target_title = title:e_yalu
+			}
+			every_character_war = {
+				limit = {
+					primary_defender = title:e_yalu.holder
+				}
+				save_scope_as = yeongbyeon_war
+			}
+		}
+		if = {
+			limit = {
+				exists = global_var:jianzhou_war
+			}
+			title:k_jianzhou.holder = {
+				start_war = {
+					cb = jianzhou_war_cb
+					target = title:e_yalu.holder
+					target_title = title:k_jianzhou
+				}
+				every_character_war = {
+					limit = {
+						primary_defender = title:e_yalu.holder
+					}
+					save_scope_as = jianzhou_war
+				}
+			}
 		}
 		title:e_yalu.holder = {
 			every_vassal = {
+				save_scope_as = yalu_war_ally
 				if = {
 					limit = {
 						OR = {
@@ -417,9 +469,70 @@ yalu_civil_war.0020 = {
 							THIS.capital_county.de_jure_liege.de_jure_liege = title:k_liaoyang
 						}
 					}
-					join_faction = title:k_liaoyang.holder.joined_faction
+					scope:liaoyang_war = {
+						add_attacker = scope:yalu_war_ally
+					}
 				}
+				else_if = {
+					limit = {
+						NOR = {
+							THIS.capital_county.de_jure_liege = title:d_sinuiju
+							THIS.capital_county.de_jure_liege = title:d_uiju
+							THIS.capital_county.de_jure_liege = title:d_cheolsan
+						}
+						OR = {
+							THIS.capital_county.de_jure_liege.de_jure_liege = title:k_uiju
+							THIS.capital_county.de_jure_liege.de_jure_liege = title:k_yeongbyeon
+							THIS.capital_county.de_jure_liege.de_jure_liege = title:k_jaseong
+						}
+					}
+					scope:yeongbyeon_war = {
+						add_attacker = scope:yalu_war_ally
+					}
+				}
+				else_if = {
+					limit = {
+						exists = global_var:jianzhou_war
+						THIS.capital_county.de_jure_liege.de_jure_liege = title:k_jianzhou
+					}
+					scope:jianzhou_war = {
+						add_attacker = scope:yalu_war_ally
+					}
+				}
+				else = {
+					scope:liaoyang_war = {
+						add_defender = scope:yalu_war_ally
+					}
+					scope:yeongbyeon_war = {
+						add_defender = scope:yalu_war_ally
+					}
+				}
+				clear_saved_scope = scope:yalu_war_ally
 			}
 		}
 	}
+}
+
+yalu_civil_war.0021 = {
+	# 얄루 내전 캐릭 이벤트
+}
+
+yalu_civil_war.0022 = {
+	# 얄루 제국의 쇠퇴
+}
+
+yalu_civli_war.0023 = {
+	# 얄루 제국의 붕괴
+}
+
+yalu_civil_war.0031 = {
+	# 신의주 반란 예고 이벤트
+}
+
+yalu_civil_war.0032 = {
+	# 신의주 개입 선택
+}
+
+yalu_civil_war.0033 = {
+	# 신의주 반란
 }

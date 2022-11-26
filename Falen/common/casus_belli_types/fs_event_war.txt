@@ -1,0 +1,444 @@
+war_for_yalu_cb = {
+	group = event
+	mutually_exclusive_titles = {
+		always = yes
+	}
+	is_allowed_claim_title = {
+	}
+	cost = {
+	}
+	target_titles = claim
+	on_declaration = {
+		on_declared_war = yes
+	}
+	white_peace_possible = no
+	should_invalidate = {
+		NOT = {
+			any_in_list = {
+				list = target_titles
+				any_in_de_jure_hierarchy = {
+					tier >= tier_county
+					exists = holder
+					holder = {
+						OR = {
+							this = scope:defender
+							target_is_liege_or_above = scope:defender
+						}
+					}
+				}
+			}
+		}
+	}
+	on_invalidated = {
+	}
+	on_invalidated_desc = msg_claim_war_invalidated_message
+	on_victory_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:defender = {
+						is_local_player = yes
+					}
+				}
+				desc = war_for_yalu_cb_victory_desc_defender
+			}
+			triggered_desc = {
+				trigger = {
+					scope:attacker = {
+						is_local_player = yes
+					}
+				}
+				desc = war_for_yalu_cb_victory_desc_attacker
+			}
+			desc = war_for_yalu_cb_victory_desc
+		}
+	}
+	on_victory = {
+		scope:attacker = {
+			show_pow_release_message_effect = yes
+		}
+		# Set land acquisition type to conquest.
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		# Transfer landed titles to the attacker.
+		setup_claim_cb = {
+			titles = target_titles
+			attacker = scope:attacker
+			defender = scope:defender
+			claimant = scope:claimant
+			change = scope:change
+		}
+		if = {
+			limit = {
+				scope:attacker = {
+					is_imprisoned = no
+				}
+			}
+			imprison = {
+				target = scope:attacker
+				type = dungeon
+			}
+		}
+		scope:defender = {
+			every_ally = {
+				reverse_add_opinion = {
+					target = scope:attacker
+					modifier = treachery_opinion
+				}
+			}
+		}
+		every_in_list = {
+			list = target_titles
+			every_in_de_facto_hierarchy = {
+				if = {
+					limit = {
+						exists = holder
+						holder = scope:defender
+						NOT = {
+							this = scope:defender.capital_county
+						}
+					}
+					custom_description = {
+						text = custom_seize_title_and_below_de_jure
+						subject = scope:attacker
+						object = this
+						change_title_holder = {
+							holder = scope:attacker
+							change = scope:change
+							take_baronies = yes
+						}
+					}
+				}
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		scope:attacker = {
+			if = {
+				limit = {
+					is_ai = yes
+					has_title = title:c_dandung
+				}
+				set_realm_capital = title:c_dandung
+			}
+		}
+		modify_all_participants_fame_values = {
+			WINNER = scope:attacker
+			LOSER = scope:defender
+			FAME_BASE = scope:cb_prestige_factor			# Set by 'setup_claim_cb'
+			IS_RELIGIOUS_WAR = no
+			WINNER_FAME_SCALE = 10
+			LOSER_FAME_SCALE = -10
+			WINNER_ALLY_FAME_SCALE = 10
+			LOSER_ALLY_FAME_SCALE = 10
+		}
+		# truce
+		add_truce_attacker_victory_effect = yes
+	}
+	on_white_peace_desc = {
+	}
+	on_white_peace = {
+	}
+	on_defeat_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:defender = {
+						is_local_player = yes
+					}
+				}
+				desc = war_for_yalu_cb_defeat_desc_defender
+			}
+			triggered_desc = {
+				trigger = {
+					scope:attacker = {
+						is_local_player = yes
+					}
+				}
+				desc = war_for_yalu_cb_defeat_desc_attacker
+			}
+			desc = war_for_yalu_cb_defeat_desc
+		}
+	}
+	on_defeat = {
+		scope:attacker = {
+			show_pow_release_message_effect = yes
+		}
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		# Award the appropriate amount of prestige to all participants in the war.
+		setup_claim_cb = {
+			titles = target_titles
+			attacker = scope:attacker
+			defender = scope:defender
+			claimant = scope:claimant
+			victory = no
+		}
+		if = {
+			limit = {
+				scope:attacker = {
+					is_imprisoned = no
+				}
+			}
+			imprison = {
+				target = scope:attacker
+				type = dungeon
+			}
+		}
+		scope:attacker = {
+			every_ally = {
+				reverse_add_opinion = {
+					target = scope:defender
+					modifier = treachery_opinion
+				}
+			}
+		}
+		every_in_list = {
+			list = target_titles
+			every_in_de_facto_hierarchy = {
+				if = {
+					limit = {
+						exists = holder
+						holder = scope:attacker
+						NOT = {
+							this = scope:defender.capital_county
+						}
+					}
+					custom_description = {
+						text = custom_seize_title_and_below_de_jure
+						subject = scope:defender
+					}
+					object = this
+					change_title_holder = {
+						holder = scope:defender
+						change = scope:change
+						take_baronies = yes
+					}
+				}
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		modify_all_participants_fame_values = {
+			WINNER = scope:defender
+			LOSER = scope:attacker
+			FAME_BASE = scope:cb_prestige_factor			# Set by 'setup_claim_cb'
+			IS_RELIGIOUS_WAR = no
+			WINNER_FAME_SCALE = scale_10_war_defender_win
+			LOSER_FAME_SCALE = -10
+			WINNER_ALLY_FAME_SCALE = 10
+			LOSER_ALLY_FAME_SCALE = 10
+		}
+		# Truce
+		add_truce_attacker_defeat_effect = yes
+		scope:attacker = {
+			save_temporary_scope_as = loser
+		}
+		on_lost_aggression_war_discontent_loss = yes
+	}
+	on_primary_attacker_death = inherit
+	on_primary_defender_death = inherit
+	transfer_behavior = transfer
+	attacker_allies_inherit = yes
+	defender_allies_inherit = yes
+	war_name = "CLAIM_WAR_NAME"
+	my_war_name = "CLAIM_WAR_NAME_MY"
+	war_name_base = "CLAIM_WAR_NAME_BASE"
+	cb_name = "CLAIM_CB_NAME"
+	interface_priority = 60
+	should_show_war_goal_subview = yes
+	attacker_wargoal_percentage = 0.8
+	max_ai_diplo_distance_to_title = 1000
+}
+
+jianzhou_war_cb = {
+	group = event
+	should_check_for_interface_availability = no
+	target_titles = all
+	target_de_jure_regions_above = yes
+	valid_to_start = {
+		always = yes
+	}
+	cost = {
+	}
+	on_declaration = {
+		on_declared_war = yes
+	}
+	should_invalidate = {
+		always = no
+	}
+	on_invalidated_desc = msg_jianzhou_war_invalidated_message
+	on_invalidated = {
+	}
+	on_victory_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:attacker = {
+						is_local_player = yes
+					}
+				}
+				desc = de_jure_cb_victory_desc_attacker
+			}
+			desc = de_jure_cb_victory_desc
+		}
+	}
+	on_victory = {
+		scope:attacker = {
+			show_pow_release_message_effect = yes
+		}
+		every_in_list = {
+			list = target_titles
+			de_jure_liege.holder = {
+				save_scope_as = temp_de_jure_liege
+			}
+			add_hook_from_temp_de_jure_liege_to_attacker = yes
+		}
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		# Setup and execute the changes to titles and vassals.
+		setup_de_jure_cb = {
+			attacker = scope:attacker
+			defender = scope:defender
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+		# Attacker gets Prestige Experience, Defender loses Prestige, all other participants gain Prestige based on their war contribution.
+		modify_all_participants_fame_values = {
+			WINNER = scope:attacker
+			LOSER = scope:defender
+			FAME_BASE = scope:cb_prestige_factor			# Set by 'setup_de_jure_cb'
+			IS_RELIGIOUS_WAR = no
+			WINNER_FAME_SCALE = 10
+			LOSER_FAME_SCALE = -10
+			WINNER_ALLY_FAME_SCALE = 100
+			LOSER_ALLY_FAME_SCALE = 100
+		}
+		# truce
+		add_truce_attacker_victory_effect = yes
+	}
+	on_white_peace_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:defender = {
+						is_local_player = yes
+					}
+				}
+				desc = de_jure_cb_white_peace_desc_defender
+			}
+			desc = de_jure_cb_white_peace_desc
+		}
+	}
+	on_white_peace = {
+		scope:attacker = {
+			show_pow_release_message_effect = yes
+		}
+		# Create an 'helper' de jure CB which we won't execute, but can use to determine how much Prestige should be given to war participants.
+		setup_de_jure_cb = {
+			attacker = scope:attacker
+			defender = scope:defender
+			victory = no
+		}
+		# Prestige loss for the attacker
+		scope:attacker = {
+			add_prestige = {
+				value = scope:cb_prestige_factor				# Set by 'setup_de_jure_cb'
+				multiply = -5
+			}
+			stress_impact = {
+				ambitious = medium_stress_impact_gain
+				arrogant = medium_stress_impact_gain
+			}
+		}
+		# Allies on both sides get full prestige value for helping in the war, based on their war participation.
+		modify_allies_of_participants_fame_values = {
+			WINNER = scope:attacker
+			FAME_BASE = scope:cb_prestige_factor			# Set by 'setup_de_jure_cb'
+			IS_RELIGIOUS_WAR = no
+			WINNER_ALLY_FAME_SCALE = 100
+			LOSER_ALLY_FAME_SCALE = 100
+		}
+		# Defender neither gains nor loses any prestige.
+		scope:defender = {
+			stress_impact = {
+				arrogant = medium_stress_impact_gain
+			}
+		}
+		# Truce
+		add_truce_white_peace_effect = yes
+	}
+	on_defeat_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:defender = {
+						is_local_player = yes
+					}
+				}
+				desc = de_jure_cb_defeat_desc_defender
+			}
+			triggered_desc = {
+				trigger = {
+					scope:attacker = {
+						is_local_player = yes
+					}
+				}
+				desc = de_jure_cb_defeat_desc_attacker
+			}
+			desc = de_jure_cb_defeat_desc
+		}
+	}
+	on_defeat = {
+		scope:attacker = {
+			show_pow_release_message_effect = yes
+		}
+		# Attacker must pay the defender war reparations.
+		scope:attacker = {
+			pay_short_term_gold_reparations_effect = {
+				GOLD_VALUE = 3
+			}
+		}
+		# Create an 'helper' de jure CB which we won't execute, but can use to determine how much Prestige should be given to war participants.
+		setup_de_jure_cb = {
+			attacker = scope:attacker
+			defender = scope:defender
+			victory = no
+		}
+		# Attacker loses Prestige, all other participants gain Prestige based on their war contribution (Defender gets full Prestige).
+		modify_all_participants_fame_values = {
+			WINNER = scope:defender
+			LOSER = scope:attacker
+			FAME_BASE = scope:cb_prestige_factor			# Set by 'setup_de_jure_cb'
+			IS_RELIGIOUS_WAR = no
+			WINNER_FAME_SCALE = scale_10_war_defender_win
+			LOSER_FAME_SCALE = -10
+			WINNER_ALLY_FAME_SCALE = 100
+			LOSER_ALLY_FAME_SCALE = 100
+		}
+		# Truce
+		add_truce_attacker_defeat_effect = yes
+		scope:attacker = {
+			save_temporary_scope_as = loser
+		}
+		on_lost_aggression_war_discontent_loss = yes
+	}
+	on_primary_attacker_death = inherit
+	on_primary_defender_death = inherit
+	transfer_behavior = transfer
+	attacker_allies_inherit = yes
+	defender_allies_inherit = yes
+	war_name = "DEJURE_CB_WAR_NAME"
+	war_name_base = "DEJURE_CB_WAR_NAME_BASE"
+	cb_name = DEJURE_CB_NAME
+	interface_priority = 100
+	attacker_wargoal_percentage = 0.8
+	max_ai_diplo_distance_to_title = 500
+}
