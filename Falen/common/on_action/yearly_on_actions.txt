@@ -47,6 +47,34 @@ yearly_playable_pulse = {
 	}
 }
 
+yearly_playable_pulse = {
+	on_actions = {
+		imperial_council_start_on_action
+	}
+}
+imperial_council_start_on_action ={
+	trigger = {
+		if = {
+			limit = { 
+				NOT = { has_global_variable = first_imperial_council }
+			}
+		}
+		has_title = title:e_hec
+		faith = faith:imperial_church
+		current_date < 2445.10.1
+	}
+	effect = {
+		trigger_event = {
+			id = imperial_council.0001
+			days = { 90 240 }
+		}
+		save_scope_value_as = {
+			name = first_imperial_council
+			value = yes
+		}
+	}
+}
+
 # Called from code once every three years for "playable" (count+) characters.
 # Root is the character
 three_year_playable_pulse = {

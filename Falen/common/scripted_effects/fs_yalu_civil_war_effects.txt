@@ -1,5 +1,11 @@
 ﻿yalu_rebellion_effect = {
 	$effect_actor$ = {
+		if = {
+			limit = {
+				exists = joined_faction
+			}
+			leave_faction = joined_faction
+		}
 		set_variable = {
 			name = claiming_title
 			value = title:e_yalu
@@ -7,6 +13,10 @@
 		create_faction = {
 			type = claimant_faction
 			target = title:e_yalu.holder
+		}
+		add_to_variable_list = {
+			name = claimant_factions
+			target = joined_faction
 		}
 		joined_faction = {
 			set_special_character = $effect_actor$
