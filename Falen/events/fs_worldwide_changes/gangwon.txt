@@ -45,7 +45,7 @@ gw_mgga.1 = {
 					limit = {
  						tier = tier_county
 					}
-					add = 1000
+					add = 1500
 				}
 			}
 			location = root.capital_province
@@ -158,8 +158,538 @@ gw_mgga.5 = {
 		title:k_yeongdong = { set_de_jure_liege_title = title:e_gangwon }
 		hidden_effect = { set_primary_title_to = title:e_gangwon }
 		add_prestige = major_prestige_gain
+		if = {
+			limit = {
+				faith = {
+					religion_tag = pagan_religion
+				}
+			}
+			trigger_event = {
+				id = gw_mgga.6
+			}
+		}
 	}
 	option = {
 		name = gw_mgga.5.a
+	}
+}
+
+gw_mgga.6 = {
+	type = character_event
+	title = gw_mgga.6.t
+	trigger = {
+		faith = {
+			religion_tag = pagan_religion
 		}
+	}
+	desc = {
+		desc = gw_mgga.6.desc
+	}
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	override_background = { event_background = wilderness_mountains }
+
+	immediate = { play_music_cue = "mx_cue_faith_conversion" }
+	
+	option = {
+		name = gw_mgga.6.a
+		flavor = gw_mgga.6.tt
+		# The AI should only really be doing this if they're coming out of the Vikings or otherwise have suitable traits.
+
+		# Apply the effects in the after block to keep future notifications from erroring.
+		show_as_tooltip = { favour_the_countryside_basques_decision_fundamentalist_path_scripted_effect = yes }
+		# Flag our choice.
+		save_scope_value_as = {
+			name = mu_choice
+			value = flag:righteous
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_vengefulness = 1
+				ai_energy = 0.5
+			}
+		}
+	}
+	
+	# It is more important to live in harmony with nature than with neighbours: swap Christian Syncretism for Sanctity of Nature.
+	option = {
+		name = gw_mgga.6.b
+		flavor = gw_mgga.6.b.tt
+		# The AI should only be doing this if they're self-assured about what it'll likely do to them, or it's something they're already in to.
+
+		# Apply the effects in the after block to keep future notifications from erroring.
+		show_as_tooltip = { favour_the_countryside_basques_decision_righteous_path_scripted_effect = yes }
+		# Flag our choice.
+		save_scope_value_as = {
+			name = mu_choice
+			value = flag:fundamentalist
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_zeal = 1
+				ai_vengefulness = -1
+			}
+		}
+	}
+	
+	# There are more worthy religions to share traditions with...: swap Christian Syncretism for Islamic Syncretism.
+	option = {
+		name = gw_mgga.6.c
+		flavor = gw_mgga.6.c.tt
+		# The AI should only really be doing this if it means they're adopting *less* traditions, not more.
+
+		# Apply the effects in the after block to keep future notifications from erroring.
+		show_as_tooltip = { favour_the_countryside_basques_decision_pluralist_path_scripted_effect = yes }
+		# Flag our choice.
+		save_scope_value_as = {
+			name = mu_choice
+			value = flag:pluralist
+		}
+
+		# Zealous Muslims & syncretics gain less stress from this.
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_zeal = 1
+				ai_boldness = 1
+			}
+		}
+	}
+
+	# If I try to force change, am I any less corrupt than scope:old_faith?: leave the faith as you found it.
+	option = {
+		name = gw_mgga.6.d
+		flavor = gw_mgga.6.d.tt
+
+		# Apply the effects in the after block to keep future notifications from erroring.
+		show_as_tooltip = { favour_the_countryside_basques_decision_default_path_scripted_effect = yes }
+		# Flag our choice.
+		save_scope_value_as = {
+			name = mu_choice
+			value = flag:unchanged
+		}
+
+		stress_impact = {
+			lazy = minor_stress_impact_loss
+			arbitrary = major_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_rationality = 1
+				ai_energy = -0.5
+			}
+		}
+	}
+
+	after = {
+		# Now take care of notification events for players.
+		every_player = {
+			limit = {
+				any_neighboring_and_across_water_top_liege_realm_owner = { this = root.top_liege }
+				}
+			trigger_event = gw_mgga.7
+			}
+		# And finally, actually apply the effects.
+		## Our default stuff.
+		scope:religious_leader = {
+		# Assign a new nickname, if appropriate.
+		if = {
+			limit = {
+				OR = {
+					has_any_nickname = no
+					has_bad_nickname = yes
+				}
+			}
+			give_nickname = nick_the_mountain_king
+		}
+		# Switch to the new faith.
+		add_character_flag = {
+			flag = delay_player_faith_conversion_notification_event
+			days = 1
+		}
+		# Configure Basque paganism's variable set-up.
+		faith:mu_pagan = {
+			# Remove the restrictions on converting to Basque paganism.
+			# And, since you're inherently creating a new priestly structure
+			## This is mostly done here for immersive reasons; we don't want to imply that Basque paganism already had a distinct organised religious hierarchy in 867 by just applying this on game start, even though you'll always have to have it to access the faith.
+			set_variable = { name = has_been_reformed }
+			remove_doctrine = unreformed_faith_doctrine
+		}
+		# Finally, convert.
+		## We do this here so that it's reformed by the time you switch (giving you a better chance with vassal conversion rates).
+		set_character_faith_with_conversion = faith:mu_pagan
+	}
+		## Then our changes/lack of changes.
+		if = {
+			limit = {
+				exists = scope:mu_choice
+				scope:basque_choice = flag:righteous
+			}
+			faith:mu_pagan = {
+		# First, we remove Christian Syncretism & replace it with Sanctity of Nature.
+		remove_doctrine = tenet_adorcism
+		add_doctrine = tenet_warmonger
+		# Then, we switch on over from Pluralist to Righteous.
+		## We disguise some of these changes for neatness, as there's a lot to process.
+		hidden_effect = { remove_doctrine = doctrine_pluralism_pluralistic }
+		add_doctrine = doctrine_pluralism_righteous
+		# No HoF becomes you as the temporal HoF, as you're focusing more on the non-Christian parts of the faith.
+		hidden_effect = {
+			remove_doctrine = doctrine_no_head
+			remove_doctrine = doctrine_theocracy_temporal
+			remove_doctrine = doctrine_clerical_succession_spiritual_appointment
+		}
+		add_doctrine = doctrine_temporal_head
+		add_doctrine = doctrine_theocracy_lay_clergy
+		add_doctrine = doctrine_clerical_succession_temporal_fixed_appointment
+		# Plus, set the faith's fervour to a middling/low level, since you've messed with it.
+		change_fervor = {
+			value = -50
+			desc = fervour_loss_temporal_meddling
+		}
+	}
+		}
+		else_if = {
+			limit = {
+				exists = scope:mu_choice
+				scope:basque_choice = flag:fundamentalist
+			}
+			faith:mu_pagan = {
+		# First, we remove Christian Syncretism & replace it with Warmonger.
+		remove_doctrine = tenet_adorcism
+		add_doctrine = tenet_cthonic_redoubts
+		# Then, we switch on over from Pluralist to Fundamentalist.
+		## We disguise some of these changes for neatness, as there's a lot to process.
+		hidden_effect = { remove_doctrine = doctrine_pluralism_pluralistic }
+		add_doctrine = doctrine_pluralism_fundamentalist
+		# No HoF becomes a spiritual HoF, so that you can make use of your Warmonger GHWs.
+		hidden_effect = { remove_doctrine = doctrine_no_head }
+		add_doctrine = doctrine_spiritual_head
+		# Plus, set the faith's fervour to a middling/low level, since you've messed with it.
+		change_fervor = {
+			value = -50
+			desc = fervour_loss_temporal_meddling
+		}
+	}
+	# Create the new HoF.
+	hidden_effect = {
+		scope:religious_leader = {
+			set_up_dynamic_spiritual_hof_title_effect = { CREATOR = scope:religious_leader }
+		}
+	}
+	custom_tooltip = favour_the_countryside_basques_decision.tt.spiritual_hof_acquired
+	# We get a small modifier for clergy approval, since they're a bit peeved at the tenet-messing.
+	add_character_modifier = fp2_friend_of_the_old_ways_modifier
+		}
+		else_if = {
+			limit = {
+				exists = scope:mu_choice
+				scope:basque_choice = flag:pluralist
+			}
+			faith:basque_pagan = {
+		# First, we mostly only need to remove Christian Syncretism & replace it with Islamic Syncretism.
+		remove_doctrine = tenet_adorcism
+		add_doctrine = tenet_prosperity_theology
+		# Then set the faith's fervour to a middling/low level, since you've messed with it.
+		change_fervor = {
+			value = -50
+			desc = fervour_loss_temporal_meddling
+		}
+	}
+	# Bonus opinion with every neighbouring Islamic ruler & their vassals, who appreciate the direction you're going in.
+	## Compile a list.
+	add_character_modifier = fp2_friend_of_the_old_ways_modifier
+		}
+		else_if = {
+			limit = {
+				exists = scope:mu_choice
+				scope:basque_choice = flag:unchanged
+				faith:mu_pagan = {
+		# Here, we're not fiddling with the faith's traditions at all, so we get a chonky fervour bonus for the sudden limelight.
+		change_fervor = {
+			value = 100
+			desc = fervour_gain_unexpected_resurgence
+		}
+	}
+	# Plus a massive chunk of piety experience...
+	add_piety_experience = 2000
+	# ... and a more powerful clergy-approval modifier.
+	add_character_modifier = fp2_champion_of_the_old_ways_modifier
+			}
+		}
+	}
+}
+
+#	Notification event for relevant players.
+iberia_north_africa.0122 = {
+	type = character_event
+	title = iberia_north_africa.0122.t
+	desc = {
+		desc = iberia_north_africa.0122.desc.intro
+		# Nab the rationalisation.
+		desc = {
+			# We order these according to approximate rarity level/importance.
+			## They're kept isolated in a scripted trigger file so that we can maintain easy parity between the decision rationales & the event desc rationales.
+			first_valid = {
+				# Excommunicated
+				triggered_desc = {
+					trigger = { favour_the_countryside_basques_rationale_excommunicated_trigger = yes }
+					desc = iberia_north_africa.0122.desc.excommunicated
+				}
+				# Rivalry with HoF
+				triggered_desc = {
+					trigger = { favour_the_countryside_basques_rationale_hof_rivalry_trigger = yes }
+					desc = iberia_north_africa.0122.desc.rivalry_with_hof
+				}
+				# Negative Piety Level
+				triggered_desc = {
+					trigger = { favour_the_countryside_basques_rationale_negative_piety_level_trigger = yes }
+					desc = iberia_north_africa.0122.desc.negative_piety_level
+				}
+				# Easter egg: the Lorgar special
+				triggered_desc = {
+					trigger = { has_trait = zealous }
+					desc = iberia_north_africa.0122.desc.lorgar
+				}
+				# Sinful Traits
+				triggered_desc = {
+					trigger = { favour_the_countryside_basques_rationale_sinful_traits_trigger = yes }
+					desc = iberia_north_africa.0122.desc.sinful_traits
+				}
+				# Virtuous Basque pagan traits
+				triggered_desc = {
+					trigger = { favour_the_countryside_basques_rationale_virtuous_basque_pagan_traits_trigger = yes }
+					desc = iberia_north_africa.0122.desc.virtuous_basque_pagan_traits
+				}
+				# Naked cynicism; we use this as the fallback.
+				desc = iberia_north_africa.0122.desc.naked_cynicism
+			}
+		}
+		desc = iberia_north_africa.0122.desc.midtro
+		# What direction is the faith going?
+		first_valid = {
+			# Fundamentalist
+			triggered_desc = {
+				trigger = { scope:basque_choice = flag:fundamentalist }
+				desc = iberia_north_africa.0122.desc.fundamentalist
+			}
+			# Righteous
+			triggered_desc = {
+				trigger = { scope:basque_choice = flag:righteous }
+				desc = iberia_north_africa.0122.desc.righteous
+			}
+			# Pluralist
+			triggered_desc = {
+				trigger = { scope:basque_choice = flag:pluralist }
+				desc = iberia_north_africa.0122.desc.pluralist
+			}
+			# Unchanged
+			triggered_desc = {
+				trigger = { scope:basque_choice = flag:unchanged }
+				desc = iberia_north_africa.0122.desc.unchanged
+			}
+		}
+	}
+	theme = faith
+	left_portrait = {
+		character = scope:religious_leader
+		animation = scheme
+	}
+	right_portrait = {
+		character = scope:scandalised_cleric
+		animation = stress
+	}
+	override_background = { event_background = wilderness_mountains }
+
+	immediate = { play_music_cue = "mx_cue_faith_conversion" }
+
+	# Culturally Basque or Basque-adjacent player; join in?
+	option = {
+		name = iberia_north_africa.0122.a
+		trigger = {
+			is_ai = no
+			favour_the_countryside_basques_counts_as_basque_trigger = yes
+		}
+
+		set_character_faith_with_conversion = scope:religious_leader.faith
+		show_as_tooltip = {
+			scope:religious_leader = {
+				favour_the_countryside_basques_decision_generic_effects_scripted_effect = yes
+				favour_the_countryside_basques_decision_righteous_path_scripted_effect = yes
+			}
+		}
+
+		# No stress impact for a notification event.
+		ai_chance = {
+			# AI chance isn't relevant for a notification event.
+			base = 0
+		}
+	}
+	
+	# Fundamentalist path.
+	option = {
+		# We're using a broken-out block because the auto-magical first_valid name stuff was borking.
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = {
+						trigger = { faith = scope:old_faith }
+						desc = iberia_north_africa.0122.b.same_faith
+					}
+					triggered_desc = {
+						trigger = { religion = scope:old_faith.religion }
+						desc = iberia_north_africa.0122.b.same_religion
+					}
+					triggered_desc = {
+						trigger = {
+							faith = { has_doctrine_parameter = great_holy_wars_active_if_reformed }
+						}
+						desc = iberia_north_africa.0122.b.respects_fellow_warmongers
+					}
+					desc = iberia_north_africa.0122.b.misc
+				}
+			}
+		}
+		trigger = { scope:basque_choice = flag:fundamentalist }
+
+		show_as_tooltip = {
+			scope:religious_leader = {
+				favour_the_countryside_basques_decision_generic_effects_scripted_effect = yes
+				favour_the_countryside_basques_decision_righteous_path_scripted_effect = yes
+			}
+		}
+
+		# No stress impact for a notification event.
+		ai_chance = {
+			# AI chance isn't relevant for a notification event.
+			base = 100
+		}
+	}
+	
+	# Righteous path.
+	option = {
+		# We're using a broken-out block because the auto-magical first_valid name stuff was borking.
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = {
+						trigger = { faith = scope:old_faith }
+						desc = iberia_north_africa.0122.c.same_faith
+					}
+					triggered_desc = {
+						trigger = { religion = scope:old_faith.religion }
+						desc = iberia_north_africa.0122.c.same_religion
+					}
+					triggered_desc = {
+						trigger = {
+							faith = { has_doctrine_parameter = believes_in_harmony_with_nature_invisible }
+						}
+						desc = iberia_north_africa.0122.c.believes_in_harmony_with_nature
+					}
+					desc = iberia_north_africa.0122.c.misc
+				}
+			}
+		}
+		trigger = { scope:basque_choice = flag:righteous }
+
+		show_as_tooltip = {
+			scope:religious_leader = {
+				favour_the_countryside_basques_decision_generic_effects_scripted_effect = yes
+				favour_the_countryside_basques_decision_fundamentalist_path_scripted_effect = yes
+			}
+		}
+
+		# No stress impact for a notification event.
+		ai_chance = {
+			# AI chance isn't relevant for a notification event.
+			base = 100
+		}
+	}
+	
+	# Pluralist path.
+	option = {
+		# We're using a broken-out block because the auto-magical first_valid name stuff was borking.
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = {
+						trigger = { faith.religion = religion:islam_religion }
+						desc = iberia_north_africa.0122.d.muslim
+					}
+					triggered_desc = {
+						trigger = { faith = scope:old_faith }
+						desc = iberia_north_africa.0122.d.same_faith
+					}
+					triggered_desc = {
+						trigger = { religion = scope:old_faith.religion }
+						desc = iberia_north_africa.0122.d.same_religion
+					}
+					triggered_desc = {
+						trigger = {
+							faith = { has_doctrine_parameter = islamic_syncretic_actor_opinion_active }
+						}
+						desc = iberia_north_africa.0122.d.syncretised_with_islam
+					}
+					desc = iberia_north_africa.0122.d.misc
+				}
+			}
+		}
+		trigger = { scope:basque_choice = flag:pluralist }
+
+		show_as_tooltip = {
+			scope:religious_leader = {
+				favour_the_countryside_basques_decision_generic_effects_scripted_effect = yes
+				favour_the_countryside_basques_decision_pluralist_path_scripted_effect = yes
+			}
+		}
+
+		# No stress impact for a notification event.
+		ai_chance = {
+			# AI chance isn't relevant for a notification event.
+			base = 100
+		}
+	}
+
+	# Unchanged path.
+	option = {
+		# We're using a broken-out block because the auto-magical first_valid name stuff was borking.
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = {
+						trigger = { faith = scope:old_faith }
+						desc = iberia_north_africa.0122.e.same_faith
+					}
+					triggered_desc = {
+						trigger = { religion = scope:old_faith.religion }
+						desc = iberia_north_africa.0122.e.same_religion
+					}
+					triggered_desc = {
+						trigger = {
+							faith = { has_doctrine_parameter = christian_syncretic_actor_opinion_active }
+						}
+						desc = iberia_north_africa.0122.e.syncretised_with_christianity
+					}
+					desc = iberia_north_africa.0122.e.misc
+				}
+			}
+		}
+		trigger = { scope:basque_choice = flag:unchanged }
+
+		show_as_tooltip = {
+			scope:religious_leader = { favour_the_countryside_basques_decision_pluralist_path_scripted_effect = yes }
+		}
+
+		# No stress impact for a notification event.
+		ai_chance = {
+			# AI chance isn't relevant for a notification event.
+			base = 100
+		}
+	}
 }

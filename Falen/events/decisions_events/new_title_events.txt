@@ -30,6 +30,16 @@ new_title.1 = { # Gangwon
 		resolve_title_and_vassal_change = scope:change
 		hidden_effect = { set_primary_title_to = title:e_gangwon }
 		add_prestige = major_prestige_gain
+		if = {
+			limit = {
+				faith = {
+					religion_tag = pagan_religion
+				}
+			}
+			trigger_event = {
+				id = gw_mgga.6
+			}
+		}
 	}
 	option = {
 		name = new_title.1.a

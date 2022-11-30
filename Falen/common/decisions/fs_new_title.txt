@@ -46,6 +46,15 @@
 				value = root
 			}
 		}
+		if = {
+			limit = {
+				faith = {
+					religion_tag = pagan_religion
+				}
+				
+			}
+			save_scope_as = religious_leader
+		}
 	}
 
 	cost = { gold = 300 }
@@ -712,6 +721,15 @@ rebuild_gangwon_decision = {
 				name = gw_rebuilt
 				value = root
 			}
+		}
+		if = {
+			limit = {
+				faith = {
+					religion_tag = pagan_religion
+				}
+				
+			}
+			save_scope_as = religious_leader
 		}
 	}
 	
