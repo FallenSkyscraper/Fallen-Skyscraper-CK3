@@ -194,6 +194,66 @@ c_buyeo = {
 		color1 = "yellow_light"
 	}
 }
+d_nonsan={
+	pattern="pattern_horizontal_split_01.dds"
+	color1=blue_light
+	color2=yellow
+	color3=red
+	colored_emblem={
+		color1=green_light
+		texture="ce_ordinary_pile_03_inverted.dds"
+		instance={
+			position={ 0.2 0.3 }
+			scale={ 1.0 0.4 }
+			depth = 1.0
+		}
+		instance={
+			position={ 0.6 0.2 }
+			scale={ 1.0 0.6 }
+			depth = 1.1
+		}
+	}
+}
+c_nonsan={
+	pattern="pattern_horizontal_split_01.dds"
+	color1=blue_light
+	color2=yellow
+	color3=red
+	colored_emblem={
+		color1=green
+		texture="ce_grape_tree.dds"
+		instance={
+			position={ 0.2 0.5 }
+			scale={ 0.2 0.2 }
+		}
+		instance={
+			position={ 0.4 0.5 }
+			scale={ 0.2 0.2 }
+		}
+		instance={
+			position={ 0.6 0.5 }
+			scale={ 0.2 0.2 }
+		}
+		instance={
+			position={ 0.8 0.5 }
+			scale={ 0.2 0.2 }
+		}
+	}
+	colored_emblem={
+		color1=green
+		texture="ce_ordinary_pile_03_inverted.dds"
+		instance={
+			position={ 0.2 0.3 }
+			scale={ 1.0 0.4 }
+			depth = 1.0
+		}
+		instance={
+			position={ 0.6 0.2 }
+			scale={ 1.0 0.6 }
+			depth = 1.1
+		}
+	}
+}
 k_jeonju = {
 	pattern = "pattern_solid.dds"
 	color1 = "white"
@@ -611,6 +671,23 @@ k_pohang = {
 		color2 = "black"
 	}
 }
+k_airforce_central_command = {
+	pattern="pattern_solid.dds"
+	color1=white
+	colored_emblem={
+		color1=blue
+		color2=blue
+		texture="ce_pagan_circle_frame.dds"
+	}
+	colored_emblem={
+		color1=blue
+		color2=blue
+		texture="ce_religion_melieism.dds"
+		instance={ scale={ 0.7 0.7 } }
+	}
+
+}
+
 e_soviet = {
 	pattern = "pattern_solid.dds"
 	color1 = "red"
@@ -634,12 +711,63 @@ e_romanov = {
 }
 k_sinuiju = {
 	pattern = "pattern_horizontal_split_01.dds"
-	color1 = "red"
-	color2 = "green"
+	color1 = "white"
+	color2 = "white"
 	colored_emblem = {
-		texture = "ce_sov_1.dds"
-		color1 = "white"
-		color2 = "red"
-		instance = { position = { 0.5 0.4 } scale = { 0.7 0.7 } }
+		texture = "ce_wheat_emblem.dds"
+		color1 = "yellow"
+		color2 = "brown"
+		color3 = "purple"
+		instance = { position = { 0.5 0.45 } scale = { 0.8 0.8 } }
 	}
+	colored_emblem= {
+		texture = "ce_pyeongbuk_map.dds"
+		color1 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 0.4 0.4 } }
+	}
+}
+k_uwc={
+	pattern="pattern_vertical_split_01.dds"
+	color1=blue_light
+	color2=red
+	color3=yellow_light
+	colored_emblem={
+		color1=white
+		texture="ce_duck.dds"
+		instance={
+			position={ 0.730000 0.750000 }
+			scale={ 0.320000 0.320000 }
+			depth=3.010000
+		}
+
+		instance={
+			position={ 0.240000 0.250000 }
+			scale={ 0.340000 0.340000 }
+			depth=4.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		texture="ce_ordinary_cross_thinnest.dds"
+	}
+
+	colored_emblem={
+		color1=yellow_light
+		texture="ce_hive.dds"
+		instance={
+			position={ 0.280000 0.740000 }
+			scale={ 0.380000 0.380000 }
+			depth=1.010000
+		}
+
+		instance={
+			position={ 0.740000 0.250000 }
+			scale={ 0.380000 0.380000 }
+			depth=2.010000
+		}
+
+	}
+
 }
