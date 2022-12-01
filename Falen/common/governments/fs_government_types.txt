@@ -25,32 +25,6 @@ military_government = {
 	
 	color = hsv{ 130 45 55 }
 }
-## 동해 제정
-imperial_government = {
-	create_cadet_branches = yes
-	rulers_should_have_dynasty = yes
-	royal_court = yes
-
-	primary_holding = castle_holding
-	valid_holdings = { metropolis_holding }
-	required_county_holdings = { castle_holding city_holding church_holding }
-
-	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
-		special_contract
-		religious_rights
-		fortification_rights
-		coinage_rights
-		succession_rights
-		war_declaration_rights
-		council_rights
-		title_revocation_rights
-		jizya_special_rights
-	}
-	
-	color = { 143 12 125 }
-}
 ## 관료제
 bureaucratic_government = {
 	create_cadet_branches = yes

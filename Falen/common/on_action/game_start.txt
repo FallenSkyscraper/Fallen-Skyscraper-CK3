@@ -221,6 +221,10 @@ on_game_start_after_lobby = {
 		title:c_hoengseong.holder = {
 			trigger_event = gw_mgga.1
 		}
+		### PRESTIGE/PIETY/RENOWN ON START
+		character:1 = { add_prestige = 1500 }
+		character:2 = { add_prestige = 1000 }
+		title:k_gorlos.holder = { add_prestige = 2000 }
 		### HOLD COURT STARTING GRACE
 		every_character_with_royal_court = {
 			set_variable = {
