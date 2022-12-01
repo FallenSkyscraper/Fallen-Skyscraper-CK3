@@ -16,7 +16,7 @@ gw_mgga.1 = {
 	}
 	immediate = {
 		set_global_variable = gw_rising
-		root = { save_scope_as = gw_emperor }
+		save_scope_as = gw_emperor
 	}
 	option = {
 		name = gw_mgga.1.a
@@ -55,7 +55,10 @@ gw_mgga.1 = {
 		}
 		title:d_pyeongchang.holder = {
 			save_scope_as = pyeongchang
-			trigger_event = gw_mgga.3
+			trigger_event = {
+				id = gw_mgga.3
+				delayed = yes
+			}
 		}
 		add_trait = ambitious
 		create_title_and_vassal_change = {
