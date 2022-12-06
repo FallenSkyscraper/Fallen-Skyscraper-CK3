@@ -351,6 +351,11 @@ gw_mgga.6 = {
 			desc = fervour_loss_temporal_meddling
 		}
 	}
+	hidden_effect = {
+		scope:religious_leader = {
+			set_up_dynamic_temporal_hof_title_effect = { NEW_HOLDER = scope:religious_leader }
+		}
+	}
 		}
 		else_if = {
 			limit = {
