@@ -169,6 +169,7 @@ gw_mgga.5 = {
 			}
 			trigger_event = {
 				id = gw_mgga.6
+				delayed = yes
 			}
 		}
 	}
@@ -292,12 +293,6 @@ gw_mgga.6 = {
 
 	after = {
 		# Now take care of notification events for players.
-		every_player = {
-			limit = {
-				any_neighboring_and_across_water_top_liege_realm_owner = { this = root.top_liege }
-				}
-			trigger_event = gw_mgga.7
-			}
 		# And finally, actually apply the effects.
 		## Our default stuff.
 		scope:religious_leader = {
@@ -326,13 +321,12 @@ gw_mgga.6 = {
 		}
 		# Finally, convert.
 		## We do this here so that it's reformed by the time you switch (giving you a better chance with vassal conversion rates).
-		set_character_faith_with_conversion = faith:mu_pagan
 	}
 		## Then our changes/lack of changes.
 		if = {
 			limit = {
 				exists = scope:mu_choice
-				scope:basque_choice = flag:righteous
+				scope:mu_choice = flag:righteous
 			}
 			faith:mu_pagan = {
 		# First, we remove Christian Syncretism & replace it with Sanctity of Nature.
@@ -425,274 +419,6 @@ gw_mgga.6 = {
 	# ... and a more powerful clergy-approval modifier.
 	add_character_modifier = fp2_champion_of_the_old_ways_modifier
 			}
-		}
-	}
-}
-
-#	Notification event for relevant players.
-iberia_north_africa.0122 = {
-	type = character_event
-	title = iberia_north_africa.0122.t
-	desc = {
-		desc = iberia_north_africa.0122.desc.intro
-		# Nab the rationalisation.
-		desc = {
-			# We order these according to approximate rarity level/importance.
-			## They're kept isolated in a scripted trigger file so that we can maintain easy parity between the decision rationales & the event desc rationales.
-			first_valid = {
-				# Excommunicated
-				triggered_desc = {
-					trigger = { favour_the_countryside_basques_rationale_excommunicated_trigger = yes }
-					desc = iberia_north_africa.0122.desc.excommunicated
-				}
-				# Rivalry with HoF
-				triggered_desc = {
-					trigger = { favour_the_countryside_basques_rationale_hof_rivalry_trigger = yes }
-					desc = iberia_north_africa.0122.desc.rivalry_with_hof
-				}
-				# Negative Piety Level
-				triggered_desc = {
-					trigger = { favour_the_countryside_basques_rationale_negative_piety_level_trigger = yes }
-					desc = iberia_north_africa.0122.desc.negative_piety_level
-				}
-				# Easter egg: the Lorgar special
-				triggered_desc = {
-					trigger = { has_trait = zealous }
-					desc = iberia_north_africa.0122.desc.lorgar
-				}
-				# Sinful Traits
-				triggered_desc = {
-					trigger = { favour_the_countryside_basques_rationale_sinful_traits_trigger = yes }
-					desc = iberia_north_africa.0122.desc.sinful_traits
-				}
-				# Virtuous Basque pagan traits
-				triggered_desc = {
-					trigger = { favour_the_countryside_basques_rationale_virtuous_basque_pagan_traits_trigger = yes }
-					desc = iberia_north_africa.0122.desc.virtuous_basque_pagan_traits
-				}
-				# Naked cynicism; we use this as the fallback.
-				desc = iberia_north_africa.0122.desc.naked_cynicism
-			}
-		}
-		desc = iberia_north_africa.0122.desc.midtro
-		# What direction is the faith going?
-		first_valid = {
-			# Fundamentalist
-			triggered_desc = {
-				trigger = { scope:basque_choice = flag:fundamentalist }
-				desc = iberia_north_africa.0122.desc.fundamentalist
-			}
-			# Righteous
-			triggered_desc = {
-				trigger = { scope:basque_choice = flag:righteous }
-				desc = iberia_north_africa.0122.desc.righteous
-			}
-			# Pluralist
-			triggered_desc = {
-				trigger = { scope:basque_choice = flag:pluralist }
-				desc = iberia_north_africa.0122.desc.pluralist
-			}
-			# Unchanged
-			triggered_desc = {
-				trigger = { scope:basque_choice = flag:unchanged }
-				desc = iberia_north_africa.0122.desc.unchanged
-			}
-		}
-	}
-	theme = faith
-	left_portrait = {
-		character = scope:religious_leader
-		animation = scheme
-	}
-	right_portrait = {
-		character = scope:scandalised_cleric
-		animation = stress
-	}
-	override_background = { event_background = wilderness_mountains }
-
-	immediate = { play_music_cue = "mx_cue_faith_conversion" }
-
-	# Culturally Basque or Basque-adjacent player; join in?
-	option = {
-		name = iberia_north_africa.0122.a
-		trigger = {
-			is_ai = no
-			favour_the_countryside_basques_counts_as_basque_trigger = yes
-		}
-
-		set_character_faith_with_conversion = scope:religious_leader.faith
-		show_as_tooltip = {
-			scope:religious_leader = {
-				favour_the_countryside_basques_decision_generic_effects_scripted_effect = yes
-				favour_the_countryside_basques_decision_righteous_path_scripted_effect = yes
-			}
-		}
-
-		# No stress impact for a notification event.
-		ai_chance = {
-			# AI chance isn't relevant for a notification event.
-			base = 0
-		}
-	}
-	
-	# Fundamentalist path.
-	option = {
-		# We're using a broken-out block because the auto-magical first_valid name stuff was borking.
-		name = {
-			text = {
-				first_valid = {
-					triggered_desc = {
-						trigger = { faith = scope:old_faith }
-						desc = iberia_north_africa.0122.b.same_faith
-					}
-					triggered_desc = {
-						trigger = { religion = scope:old_faith.religion }
-						desc = iberia_north_africa.0122.b.same_religion
-					}
-					triggered_desc = {
-						trigger = {
-							faith = { has_doctrine_parameter = great_holy_wars_active_if_reformed }
-						}
-						desc = iberia_north_africa.0122.b.respects_fellow_warmongers
-					}
-					desc = iberia_north_africa.0122.b.misc
-				}
-			}
-		}
-		trigger = { scope:basque_choice = flag:fundamentalist }
-
-		show_as_tooltip = {
-			scope:religious_leader = {
-				favour_the_countryside_basques_decision_generic_effects_scripted_effect = yes
-				favour_the_countryside_basques_decision_righteous_path_scripted_effect = yes
-			}
-		}
-
-		# No stress impact for a notification event.
-		ai_chance = {
-			# AI chance isn't relevant for a notification event.
-			base = 100
-		}
-	}
-	
-	# Righteous path.
-	option = {
-		# We're using a broken-out block because the auto-magical first_valid name stuff was borking.
-		name = {
-			text = {
-				first_valid = {
-					triggered_desc = {
-						trigger = { faith = scope:old_faith }
-						desc = iberia_north_africa.0122.c.same_faith
-					}
-					triggered_desc = {
-						trigger = { religion = scope:old_faith.religion }
-						desc = iberia_north_africa.0122.c.same_religion
-					}
-					triggered_desc = {
-						trigger = {
-							faith = { has_doctrine_parameter = believes_in_harmony_with_nature_invisible }
-						}
-						desc = iberia_north_africa.0122.c.believes_in_harmony_with_nature
-					}
-					desc = iberia_north_africa.0122.c.misc
-				}
-			}
-		}
-		trigger = { scope:basque_choice = flag:righteous }
-
-		show_as_tooltip = {
-			scope:religious_leader = {
-				favour_the_countryside_basques_decision_generic_effects_scripted_effect = yes
-				favour_the_countryside_basques_decision_fundamentalist_path_scripted_effect = yes
-			}
-		}
-
-		# No stress impact for a notification event.
-		ai_chance = {
-			# AI chance isn't relevant for a notification event.
-			base = 100
-		}
-	}
-	
-	# Pluralist path.
-	option = {
-		# We're using a broken-out block because the auto-magical first_valid name stuff was borking.
-		name = {
-			text = {
-				first_valid = {
-					triggered_desc = {
-						trigger = { faith.religion = religion:islam_religion }
-						desc = iberia_north_africa.0122.d.muslim
-					}
-					triggered_desc = {
-						trigger = { faith = scope:old_faith }
-						desc = iberia_north_africa.0122.d.same_faith
-					}
-					triggered_desc = {
-						trigger = { religion = scope:old_faith.religion }
-						desc = iberia_north_africa.0122.d.same_religion
-					}
-					triggered_desc = {
-						trigger = {
-							faith = { has_doctrine_parameter = islamic_syncretic_actor_opinion_active }
-						}
-						desc = iberia_north_africa.0122.d.syncretised_with_islam
-					}
-					desc = iberia_north_africa.0122.d.misc
-				}
-			}
-		}
-		trigger = { scope:basque_choice = flag:pluralist }
-
-		show_as_tooltip = {
-			scope:religious_leader = {
-				favour_the_countryside_basques_decision_generic_effects_scripted_effect = yes
-				favour_the_countryside_basques_decision_pluralist_path_scripted_effect = yes
-			}
-		}
-
-		# No stress impact for a notification event.
-		ai_chance = {
-			# AI chance isn't relevant for a notification event.
-			base = 100
-		}
-	}
-
-	# Unchanged path.
-	option = {
-		# We're using a broken-out block because the auto-magical first_valid name stuff was borking.
-		name = {
-			text = {
-				first_valid = {
-					triggered_desc = {
-						trigger = { faith = scope:old_faith }
-						desc = iberia_north_africa.0122.e.same_faith
-					}
-					triggered_desc = {
-						trigger = { religion = scope:old_faith.religion }
-						desc = iberia_north_africa.0122.e.same_religion
-					}
-					triggered_desc = {
-						trigger = {
-							faith = { has_doctrine_parameter = christian_syncretic_actor_opinion_active }
-						}
-						desc = iberia_north_africa.0122.e.syncretised_with_christianity
-					}
-					desc = iberia_north_africa.0122.e.misc
-				}
-			}
-		}
-		trigger = { scope:basque_choice = flag:unchanged }
-
-		show_as_tooltip = {
-			scope:religious_leader = { favour_the_countryside_basques_decision_pluralist_path_scripted_effect = yes }
-		}
-
-		# No stress impact for a notification event.
-		ai_chance = {
-			# AI chance isn't relevant for a notification event.
-			base = 100
 		}
 	}
 }
