@@ -360,7 +360,7 @@ gw_mgga.6 = {
 		else_if = {
 			limit = {
 				exists = scope:mu_choice
-				scope:basque_choice = flag:fundamentalist
+				scope:mu_choice = flag:fundamentalist
 			}
 			faith:mu_pagan = {
 		# First, we remove Christian Syncretism & replace it with Warmonger.
@@ -392,7 +392,7 @@ gw_mgga.6 = {
 		else_if = {
 			limit = {
 				exists = scope:mu_choice
-				scope:basque_choice = flag:pluralist
+				scope:mu_choice = flag:pluralist
 			}
 			faith:basque_pagan = {
 		# First, we mostly only need to remove Christian Syncretism & replace it with Islamic Syncretism.
@@ -411,7 +411,7 @@ gw_mgga.6 = {
 		else_if = {
 			limit = {
 				exists = scope:mu_choice
-				scope:basque_choice = flag:unchanged
+				scope:mu_choice = flag:unchanged
 				faith:mu_pagan = {
 		# Here, we're not fiddling with the faith's traditions at all, so we get a chonky fervour bonus for the sudden limelight.
 		change_fervor = {
