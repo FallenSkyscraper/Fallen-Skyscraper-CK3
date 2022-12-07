@@ -728,46 +728,105 @@ k_sinuiju = {
 }
 k_uwc={
 	pattern="pattern_vertical_split_01.dds"
-	color1=blue_light
-	color2=red
-	color3=yellow_light
+	color1=yellow
+	color2=yellow
 	colored_emblem={
-		color1=white
-		texture="ce_duck.dds"
+		color1=rgb { 255 255 51 }
+		texture="cat_star1.dds"
 		instance={
-			position={ 0.730000 0.750000 }
-			scale={ 0.320000 0.320000 }
-			depth=3.010000
+			position={ 0.110000 0.200000 }
+			scale={ 0.780000 0.780000 }
 		}
 
 		instance={
-			position={ 0.240000 0.250000 }
-			scale={ 0.340000 0.340000 }
-			depth=4.010000
-		}
-
-	}
-
-	colored_emblem={
-		color1=yellow
-		texture="ce_ordinary_cross_thinnest.dds"
-	}
-
-	colored_emblem={
-		color1=yellow_light
-		texture="ce_hive.dds"
-		instance={
-			position={ 0.280000 0.740000 }
-			scale={ 0.380000 0.380000 }
+			position={ 0.250000 0.200000 }
+			scale={ 0.780000 0.780000 }
 			depth=1.010000
 		}
 
 		instance={
-			position={ 0.740000 0.250000 }
-			scale={ 0.380000 0.380000 }
+			position={ 0.120000 0.840000 }
+			scale={ 0.720000 0.720000 }
 			depth=2.010000
 		}
 
+		instance={
+			position={ 0.120000 0.530000 }
+			scale={ 0.840000 0.840000 }
+			depth=3.010000
+		}
+
+		instance={
+			position={ 0.270000 0.530000 }
+			scale={ 0.840000 0.840000 }
+			depth=4.010000
+		}
+
+		instance={
+			position={ 0.260000 0.840000 }
+			scale={ 0.730000 0.730000 }
+			depth=5.010000
+		}
+
 	}
+
+	colored_emblem={
+		color1=red
+		color2=red
+		color3=red
+		texture="ce__empty_designer.dds"
+		instance={
+			position={ 0.180000 0.470000 }
+			scale={ 0.240000 0.240000 }
+			depth=6.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=rgb { 0 121 192 }
+		color2=rgb { 144 37 63 }
+		texture="cat_uwc_1.dds"
+		instance={
+			depth=7.010000
+		}
+
+	}
+
+}
+
+
+k_incheon={
+    pattern="pattern_vertical_split_01.dds"
+    color1=white
+    color2=white
+    colored_emblem={
+        color1=white
+        texture="ce__empty_designer.dds"
+        instance={
+            position={ 0.730000 0.750000 }
+            scale={ 0.320000 0.320000 }
+            depth=1.010000
+        }
+
+        instance={
+            position={ 0.240000 0.250000 }
+            scale={ 0.340000 0.340000 }
+            depth=2.010000
+        }
+
+    }
+
+    colored_emblem={
+        color1=rgb { 0 121 192 }
+        color2=rgb { 0 0 0 }
+        color3=rgb { 0 177 179 }
+        texture="cat_incheon_kingdom.dds"
+        instance={
+            position={ 0.490000 0.500000 }
+            scale={ 0.850000 0.850000 }
+        }
+
+    }
 
 }
