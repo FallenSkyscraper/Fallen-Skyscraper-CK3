@@ -1,0 +1,80 @@
+﻿doctrine_religion_policy = {
+	group = "main_group"
+	is_available_on_create = {
+		is_in_family = rf_ideologic
+	}
+	
+	religion_policy_ultranationalism = {
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = religion_policy_ultranationalism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			hostility_same_religion = 3
+			hostility_same_family = 3
+			hostility_others = 3
+		}
+	}
+	
+	religion_policy_state_atheism = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = religion_policy_state_atheism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			hostility_same_religion = 1
+			hostility_same_family = 3
+			hostility_others = 3
+		}
+	}
+	
+	religion_policy_laicite = { # Base Option
+		piety_cost = {
+			value = faith_doctrine_cost_low
+			if = {
+				limit = { has_doctrine = religion_policy_laicite }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			hostility_same_religion = 1
+			hostility_same_family = 3
+			hostility_others = 2
+		}
+	}
+
+	religion_policy_freedom_of_religion = {
+		piety_cost = {
+			value = faith_doctrine_cost_mid
+			if = {
+				limit = { has_doctrine = religion_policy_freedom_of_religion }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			hostility_same_religion = 1
+			hostility_same_family = 3
+			hostility_others = 1
+		}
+	}
+	religion_policy_pluralism = {
+		piety_cost = {
+			value = faith_doctrine_cost_high
+			if = {
+				limit = { has_doctrine = religion_policy_pluralism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			hostility_same_religion = 1
+			hostility_same_family = 1
+			hostility_others = 1
+		}
+	}
+}
