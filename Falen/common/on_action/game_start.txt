@@ -83,6 +83,20 @@ on_game_start = {
 				}
 			}
 		}
+		religion:protestant_religion = {
+			every_faith = {
+				every_holy_site = {
+					limit = {
+						title_province = {
+							has_special_building_slot = no
+						}
+					}
+					title_province = {
+						add_special_building_slot = holy_site_cathedral_01
+					}
+				}
+			}
+		}
 		every_religion_global = {
 			limit = {
 				OR = {

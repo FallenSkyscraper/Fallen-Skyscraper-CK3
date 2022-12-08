@@ -1,7 +1,12 @@
 ﻿doctrine_religion_policy = {
 	group = "main_group"
 	is_available_on_create = {
-		is_in_family = rf_ideologic
+		#is_in_family = rf_ideologic
+		OR = {
+			religion_tag = koreanism_religion
+			religion_tag = communism_religion
+			religion_tag = juche_religion
+		}
 	}
 	
 	religion_policy_ultranationalism = {
