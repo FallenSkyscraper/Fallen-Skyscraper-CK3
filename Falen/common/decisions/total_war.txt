@@ -58,17 +58,13 @@ militia_decision = {
 		is_independent_ruler = yes
 		OR = {
 			faith = {
-				OR = {
-					has_doctrine_parameter = tenet_righteous_army
-					has_doctrine_parameter = tenet_world_revolution
-					has_doctrine_parameter = tenet_populism
-				}
+				has_doctrine_parameter = tenet_righteous_army
+				has_doctrine_parameter = tenet_world_revolution
+				has_doctrine_parameter = tenet_populism
 			}
 			culture = {
-				OR = {
-					has_cultural_parameter = tradition_federation
-					has_cultural_parameter = tradition_citizen_army
-				}
+				has_cultural_parameter = tradition_federation
+				has_cultural_parameter = tradition_citizen_army
 			}
 		}
 		NOT = {
@@ -82,17 +78,13 @@ militia_decision = {
 		is_at_war = yes
 		OR = {
 			faith = {
-				OR = {
-					has_doctrine_parameter = tenet_righteous_army
-					has_doctrine_parameter = tenet_world_revolution
-					has_doctrine_parameter = tenet_populism
-				}
+				has_doctrine_parameter = tenet_righteous_army
+				has_doctrine_parameter = tenet_world_revolution
+				has_doctrine_parameter = tenet_populism
 			}
 			culture = {
-				OR = {
-					has_cultural_parameter = tradition_federation
-					has_cultural_parameter = tradition_citizen_army
-				}
+				has_cultural_parameter = tradition_federation
+				has_cultural_parameter = tradition_citizen_army
 			}
 		}
 	}
