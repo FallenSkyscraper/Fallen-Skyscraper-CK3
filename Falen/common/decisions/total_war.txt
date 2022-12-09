@@ -12,8 +12,12 @@
 		is_ruler = yes
 		is_landed = yes
 		is_imprisoned = no
+		has_government = military_government
+		is_independent_ruler = yes
+	}
+	is_valid = {
 		is_at_war = yes
-                            has_government = military_government
+		has_government = military_government
 	}
 	effect = {
 		add_character_modifier = {
@@ -34,5 +38,71 @@
 			ai_ambitious = 10
 			ai_callous = 5
 		}
+	}
+}
+
+militia_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	ai_check_interval = 60
+
+	cooldown = { days = 7300 }
+
+
+	desc = militia_decision_desc
+	selection_tooltip = militia_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+		OR = {
+			faith = {
+				OR = {
+					has_doctrine_parameter = tenet_righteous_army
+					has_doctrine_parameter = tenet_world_revolution
+					has_doctrine_parameter = tenet_populism
+				}
+			}
+			culture = {
+				OR = {
+					has_cultural_parameter = tradition_federation
+					has_cultural_parameter = tradition_citizen_army
+				}
+			}
+		}
+		NOT = {
+			has_government = tribial_government
+			has_government = manchu_tribial_government
+			has_government = nomadic_government
+			has_government = military_government
+		}
+	}
+	is_valid = {
+		is_at_war = yes
+		OR = {
+			faith = {
+				OR = {
+					has_doctrine_parameter = tenet_righteous_army
+					has_doctrine_parameter = tenet_world_revolution
+					has_doctrine_parameter = tenet_populism
+				}
+			}
+			culture = {
+				OR = {
+					has_cultural_parameter = tradition_federation
+					has_cultural_parameter = tradition_citizen_army
+				}
+			}
+		}
+	}
+	cost = { piety = 300 prestige = 500 }
+	effect = {
+		trigger_event = {
+			id = militia.decisions.0001
+		}
+	}
+	ai_will_do = {
+		base = 10
 	}
 }
