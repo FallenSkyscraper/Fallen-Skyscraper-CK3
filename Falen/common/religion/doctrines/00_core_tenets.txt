@@ -2718,6 +2718,56 @@ tenet_cthonic_redoubts = {
 			}
 		}
 	}
+	
+	tenet_prosperity_theology = {
+		icon = core_tenet_handcoin
+		piety_cost = {
+			if = {
+				limit = {
+					OR = {
+						religion_tag = christianity_religion
+						religion_tag = buddhism_religion
+					}
+				}
+				value = faith_tenet_cost_low
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_doctrine = pagan_hostility_doctrine
+					}
+				}
+				value = faith_tenet_cost_high
+			}
+			else = {
+				value = faith_tenet_cost_mid
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_prosperity_theology }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		can_pick = {
+			custom_description = {
+				text = incompatible_tenet_hedonistic_trigger
+				NOT = { flag:tenet_hedonistic = { is_in_list = selected_doctrines } }
+			}
+		}
+		character_modifier = {
+			domain_tax_different_faith_mult = 0.15
+		}
+		parameters = {
+			pilgrimage_decision_active = yes
+			tenet_easy_to_leave = yes
+		}
+		traits = {
+			virtues = { gluttonous }
+			sins = { temperate }
+		}
+	}
 
 	#############################
 	# Empty Template Tenet 		#
