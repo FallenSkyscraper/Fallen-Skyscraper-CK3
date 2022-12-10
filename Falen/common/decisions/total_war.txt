@@ -56,6 +56,17 @@ militia_decision = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
+		OR = {
+			faith = {
+				has_doctrine = tenet_righteous_army
+			}
+			faith = {
+				has_doctrine = tenet_world_revolution
+			}
+			faith = {
+				has_doctrine = tenet_populism
+			}
+		}
 	}
 	is_valid = {
 		is_at_war = yes
