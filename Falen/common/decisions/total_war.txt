@@ -66,7 +66,20 @@ militia_decision = {
 			faith = {
 				has_doctrine = tenet_populism
 			}
+			culture = {
+				has_tradition = tradition_federation
+			}
+			culture = {
+				has_tradition = tradition_federation
+			}
 		}
+		NOR = {
+			has_government = tribial_government
+			has_government = manchu_tribial_government
+			has_government = nomadic_government
+			has_government = military_government
+		}
+		
 	}
 	is_valid = {
 		is_at_war = yes
@@ -80,6 +93,18 @@ militia_decision = {
 			faith = {
 				has_doctrine = tenet_populism
 			}
+			culture = {
+				has_tradition = tradition_federation
+			}
+			culture = {
+				has_tradition = tradition_federation
+			}
+		}
+		NOR = {
+			has_government = tribial_government
+			has_government = manchu_tribial_government
+			has_government = nomadic_government
+			has_government = military_government
 		}
 	}
 	cost = { piety = 300 prestige = 500 }
