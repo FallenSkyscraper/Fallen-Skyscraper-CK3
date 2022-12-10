@@ -394,10 +394,10 @@ gw_mgga.6 = {
 				exists = scope:mu_choice
 				scope:mu_choice = flag:pluralist
 			}
-			faith:basque_pagan = {
+			faith:mu_pagan = {
 		# First, we mostly only need to remove Christian Syncretism & replace it with Islamic Syncretism.
 		remove_doctrine = tenet_adorcism
-		add_doctrine = tenet_pacifism
+		add_doctrine = tenet_prosperity_theology
 		# Then set the faith's fervour to a middling/low level, since you've messed with it.
 		change_fervor = {
 			value = -50
