@@ -12,50 +12,48 @@ e_yalu = {
 }
 k_yalu_khanate = {
 		color = { 182 88 5 }
-		color2 = { 255 255 255 }
 		
 		capital = c_ganggye
 }
 k_sakju_khanate = {
 		color = { 18 88 5 }
-		color2 = { 255 255 255 }
 		
 		capital = c_sakju
 }
 k_guseong_khanate = {
 		color = { 82 88 5 }
-		color2 = { 255 255 255 }
 		
 		capital = c_guseong
 }
 k_southwest_prot = {
 		color = { 8 8 5 }
-		color2 = { 255 255 255 }
 		
 		capital = c_jeongju
 }
 k_southeast_prot = {
 		color = { 58 58 5 }
-		color2 = { 255 255 255 }
 		
 		capital = c_y_goseong
 }
 #######################
+
+e_northern_joseon = {
+	color = { 255 49 48 }	
+	capital = c_pyongyang
+	definite_form = yes
+}
 k_sinuiju = {
 		color = { 58 58 5 }
-		color2 = { 255 255 255 }
 		
 		capital = c_sinuiju
 }
 e_donghae = {
 		color = { 142 2 60 }
-		color2 = { 255 255 255 }
 		
 		capital = c_vladivostok
 }
 k_rok_armed_forces = {
 		color = { 0 100 255 }
-		color2 = { 255 255 255 }
 		
 		definite_form = yes
 		
@@ -63,7 +61,6 @@ k_rok_armed_forces = {
 }
 k_peoples_army = {
 		color = { 255 100 0 }
-		color2 = { 255 255 255 }
 		
 		definite_form = yes
 		
@@ -71,7 +68,6 @@ k_peoples_army = {
 }
 k_cprf = {
 		color = { 255 50 50 }
-		color2 = { 255 255 255 }
 		
 		definite_form = yes
 		
@@ -79,7 +75,6 @@ k_cprf = {
 }
 k_sobornost = {
 		color = { 150 10 70}
-		color2 = { 255 255 255 }
 		
 		definite_form = yes
 		
@@ -87,58 +82,37 @@ k_sobornost = {
 }
 ############################################
 k_cheonghae = {
-		color = { 104 187 220 }
-			color2 = { 10 47 58 }
-
-			definite_form = yes
-
-			capital = c_namhae
-		d_namhae = {
-		color = { 104 187 220 }
-		color2 = { 20 57 68 }
-
-		definite_form = yes
-
-		capital = c_namhae
-	}	
+	color = { 104 187 220 }
+	definite_form = yes
+	capital = c_namhae	
 }
 k_namhae = {
+	color = { 104 187 220 }
+	definite_form = yes
+	capital = c_namhae
+	
+	d_namhae = {
 		color = { 104 187 220 }
-			color2 = { 10 47 58 }
-
-			definite_form = yes
-
-			capital = c_namhae
-		d_namhae = {
-		color = { 104 187 220 }
-		color2 = { 20 57 68 }
-
-		definite_form = yes
-
 		capital = c_namhae
 	}	
 }
 ########################
 k_our_motherland = {
-		color = { 102 201 10 }
-		color2 = { 200 10 50 }
+	color = { 102 201 10 }
 
-		definite_form = yes
+	definite_form = yes
 
-		capital = c_paju	
+	capital = c_paju	
 }
 ############################################
 d_liaoxi_rev = {
 	color = { 200 0 0 }
-	color2 = { 145 245 24 }
-
 	definite_form = yes
 
 	capital = c_taihe
 }
 k_balhae = {
 	color = { 100 200 10 }
-	color2 = { 145 245 24 }
 
 	definite_form = yes
 
