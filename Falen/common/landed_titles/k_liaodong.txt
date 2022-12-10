@@ -16,19 +16,28 @@ k_liaodong = {
 				add = @correct_culture_primary_score
 			}
 		}
-
+		cultural_names = {
+			name_list_korean = cn_yodong
+			name_list_korean_north = cn_ryodong
+		}
 		d_dalian = { # 다롄
 			color = { 55 84 222 }
 			color2 = { 255 255 255 }
-			
+			cultural_names = {
+				name_list_korean = cn_daeryeon
+			}
 			capital = c_dalian
 			c_dalian = { # 다롄
 				color = { 55 84 222 }
 				color2 = { 255 255 255 }
-				
+				cultural_names = {
+					name_list_korean = cn_daeryeon
+				}
 				b_2808 = { # 다롄
 					province = 2808
-					
+					cultural_names = {
+						name_list_korean = cn_daeryeon
+					}
 					color = { 55 84 222 }
 					color2 = { 255 255 255 }
 				}
@@ -47,10 +56,20 @@ k_liaodong = {
 			c_port_arthur = { # 뤼순
 				color = { 44 111 3 }
 				color2 = { 255 255 255 }
-				
+				cultural_names = {
+					name_list_korean = cn_yeosun
+					name_list_korean_north = cn_yeosun
+					name_list_russian = cn_port_arthur_ru
+					name_list_english = cn_port_arthur
+				}
 				b_2806 = { # 뤼순
 					province = 2806
-					
+					cultural_names = {
+						name_list_korean = cn_yeosun
+						name_list_korean_north = cn_yeosun
+						name_list_russian = cn_port_arthur_ru
+						name_list_english = cn_port_arthur
+					}
 					color = { 44 111 3 }
 					color2 = { 255 255 255 }
 				}
@@ -93,7 +112,10 @@ k_liaodong = {
 			c_jinzhou = { # 진저우
 				color = { 2 123 5 }
 				color2 = { 255 255 255 }
-				
+				cultural_names = {
+					name_list_korean = cn_geumju
+					name_list_korean_north = cn_geumju
+				}
 				b_2810 = { # 진저우
 					province = 2810
 					
@@ -423,17 +445,17 @@ k_liaodong = {
 					color2 = { 255 255 255 }
 				}
 			}
-			c_yongyu = { # 용유
+			c_yongyu = { # 융위
 				color = { 86 81 161 }
 				color2 = { 255 255 255 }
 				
-				b_2867 = { # 용유
+				b_2867 = { # 융위
 					province = 2867
 					
 					color = { 86 81 161 }
 					color2 = { 255 255 255 }
 				}
-				b_2864 = { # 얀디안
+				b_2864 = { # 옌뎬
 					province = 2864
 					
 					color = { 86 81 161 }
@@ -446,11 +468,11 @@ k_liaodong = {
 					color2 = { 255 255 255 }
 				}
 			}
-			c_shianjian = { # 쉬안지안
+			c_shianjian = { # 시안젠
 				color = { 44 48 28 }
 				color2 = { 255 255 255 }
 				
-				b_2856 = { # 쉬안지안
+				b_2856 = { # 시안젠
 					province = 2856
 					
 					color = { 44 48 28 }
@@ -491,13 +513,13 @@ k_liaodong = {
 					color = { 170 42 27 }
 					color2 = { 255 255 255 }
 				}
-				b_2851 = { # 쉬에툰
+				b_2851 = { # 쉐툰
 					province = 2851
 					
 					color = { 170 42 27 }
 					color2 = { 255 255 255 }
 				}
-				b_2850 = { # 쟈오리우
+				b_2850 = { # 자오류
 					province = 2850
 					
 					color = { 170 42 27 }
@@ -557,11 +579,11 @@ k_liaodong = {
 					color2 = { 255 255 255 }
 				}
 			}
-			c_ulongqwan = { # 우롱콴
+			c_ulongquan = { # 우룽취안
 				color = { 44 123 168 }
 				color2 = { 255 255 255 }
 				
-				b_2881 = { # 우롱콴
+				b_2881 = { # 우룽취안
 					province = 2881
 					
 					color = { 44 123 168 }
@@ -585,7 +607,7 @@ k_liaodong = {
 					color = { 44 123 168 }
 					color2 = { 255 255 255 }
 				}
-				b_2876 = { # 쉬지지에
+				b_2876 = { # 쉬지제
 					province = 2876
 					
 					color = { 44 123 168 }
@@ -608,7 +630,7 @@ k_liaodong = {
 					color = { 128 99 164 }
 					color2 = { 255 255 255 }
 				}
-				b_2870 = { # 양윤
+				b_2870 = { # 양윈
 					province = 2870
 					
 					color = { 128 99 164 }
@@ -620,7 +642,7 @@ k_liaodong = {
 					color = { 128 99 164 }
 					color2 = { 255 255 255 }
 				}
-				b_2869 = { # 쉬유지에
+				b_2869 = { # 쉬위제
 					province = 2869
 					
 					color = { 128 99 164 }
@@ -632,15 +654,24 @@ k_liaodong = {
 		d_dandung = { # 단둥
 			color = { 44 105 73 }
 			color2 = { 255 255 255 }
-			
+			cultural_names = {
+				name_list_korean = cn_dandong
+				name_list_korean_north = cn_dandong
+			}
 			capital = c_dandung
 			c_dandung = { # 단둥
 				color = { 44 105 73 }
 				color2 = { 255 255 255 }
-				
+				cultural_names = {
+					name_list_korean = cn_dandong
+					name_list_korean_north = cn_dandong
+				}
 				b_2946 = { # 단둥
 					province = 2946
-					
+					cultural_names = {
+						name_list_korean = cn_dandong
+						name_list_korean_north = cn_dandong
+					}
 					color = { 44 105 73 }
 					color2 = { 255 255 255 }
 				}
@@ -983,15 +1014,24 @@ k_liaodong = {
 		d_fengcheng = { # 펑청
 			color = { 2 87 70 }
 			color2 = { 255 255 255 }
-			
+			cultural_names = {
+				name_list_korean = cn_bongseong
+				name_list_korean_north = cn_bongseong
+			}
 			capital = c_fengcheng
 			c_fengcheng = { # 펑청
 				color = { 2 87 70 }
 				color2 = { 255 255 255 }
-				
+				cultural_names = {
+					name_list_korean = cn_bongseong
+					name_list_korean_north = cn_bongseong
+				}
 				b_2940 = { # 펑청
 					province = 2940
-					
+					cultural_names = {
+						name_list_korean = cn_bonghwangseong
+						name_list_korean_north = cn_bonghwangseong
+					}
 					color = { 2 87 70 }
 					color2 = { 255 255 255 }
 				}
@@ -1286,7 +1326,10 @@ k_liaodong = {
 		d_changhai = { # 창하이
 			color = { 4 102 5 }
 			color2 = { 255 255 255 }
-			
+			cultural_names = {
+				name_list_korean = cn_changhae
+				name_list_korean_north = cn_changhae
+			}
 			capital = c_changshan
 			c_shicheng = { # 스청
 				color = { 46 90 3 }
