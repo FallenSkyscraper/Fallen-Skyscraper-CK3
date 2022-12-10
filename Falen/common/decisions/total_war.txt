@@ -56,35 +56,18 @@ militia_decision = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		OR = {
-			faith = {
-				has_doctrine_parameter = tenet_righteous_army
-				has_doctrine_parameter = tenet_world_revolution
-				has_doctrine_parameter = tenet_populism
-			}
-			culture = {
-				has_cultural_parameter = tradition_federation
-				has_cultural_parameter = tradition_citizen_army
-			}
-		}
-		NOT = {
-			has_government = tribial_government
-			has_government = manchu_tribial_government
-			has_government = nomadic_government
-			has_government = military_government
-		}
 	}
 	is_valid = {
 		is_at_war = yes
 		OR = {
 			faith = {
 				has_doctrine_parameter = tenet_righteous_army
-				has_doctrine_parameter = tenet_world_revolution
-				has_doctrine_parameter = tenet_populism
 			}
-			culture = {
-				has_cultural_parameter = tradition_federation
-				has_cultural_parameter = tradition_citizen_army
+			faith = {
+				has_doctrine_parameter = tenet_world_revolution
+			}
+			faith = {
+				has_doctrine_parameter = tenet_populism
 			}
 		}
 	}
