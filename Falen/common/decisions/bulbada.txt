@@ -1,0 +1,48 @@
+bulbada_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_activity.dds"
+	ai_check_interval = 60
+
+
+	desc = bulbada_decision_desc
+	selection_tooltip = bulbada_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+		faith = {
+			religion_tag = naturalism_religion
+			}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:bulbada_decision
+			}
+		}
+	}
+	is_valid = {
+		faith = {
+			religion_tag = naturalism_religion
+		}
+		completely_controls = title:c_gaeseong
+	}
+	effect = {
+		trigger_event = {
+			id = bulbada.decisions.0001
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:bulbada_decision
+			}
+			set_global_variable = {
+				name = bulbada_decision
+				value = root
+			}
+		}
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
