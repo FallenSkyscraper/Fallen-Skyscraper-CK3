@@ -1,0 +1,35 @@
+namespace = bulbada
+bulbada.1 = {
+	type = character_event
+	title = bulbada.1.t
+	desc = bulbada.1.desc
+	theme = war
+	left_portrait = {
+		character = root
+		animation = war_over_win
+	}
+	override_background = {
+		event_background = burning_building
+	}
+
+	immediate = {
+		title:c_gaeseong = { save_scope_as = gaeseong }
+		scope:gaeseong = {
+			add_county_modifier = {
+				modifier = recently_sacked_modifier
+				years = 20
+			}
+			change_county_control = -100
+			change_development_progress = major_development_progress_loss
+			change_development_level = -10
+			set_county_culture = root.culture
+			set_county_faith = root.faith
+		}
+	}
+	option = {
+		name = bulbada.1.a
+		add_prestige = 2000
+		add_piety = 1000
+		add_gold = 200
+	}
+}
