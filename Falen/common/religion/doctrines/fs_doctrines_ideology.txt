@@ -10,6 +10,9 @@
 	}
 	
 	religion_policy_ultranationalism = {
+		can_pick = {
+			has_doctrine = doctrine_pluralism_fundamentalist
+		}
 		piety_cost = {
 			value = faith_doctrine_cost_high
 			if = {
@@ -25,6 +28,9 @@
 	}
 	
 	religion_policy_state_atheism = {
+		can_pick = {
+			NOT = { has_doctrine = doctrine_pluralism_pluralistic }
+		}
 		piety_cost = {
 			value = faith_doctrine_cost_mid
 			if = {
@@ -55,6 +61,9 @@
 	}
 
 	religion_policy_freedom_of_religion = {
+		can_pick = {
+			NOT = { has_doctrine = doctrine_pluralism_fundamentalist }
+		}
 		piety_cost = {
 			value = faith_doctrine_cost_mid
 			if = {
@@ -69,6 +78,9 @@
 		}
 	}
 	religion_policy_pluralism = {
+		can_pick = {
+			has_doctrine = doctrine_pluralism_pluralistic
+		}
 		piety_cost = {
 			value = faith_doctrine_cost_high
 			if = {

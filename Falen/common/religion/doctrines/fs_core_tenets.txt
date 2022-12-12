@@ -95,7 +95,7 @@
 			}
 		}
 		traits = {
-			virtues = { just }
+			virtues = { peasant_leader just }
 			sins = { arbitrary }
 		}
 	}
@@ -152,6 +152,9 @@
 			hostile_county_attrition = -0.1
 			monthly_county_control_change_factor = 0.05
 			clergy_can_fight = yes
+		}
+		traits = {
+			virtues = { peasant_leader = 2 }
 		}
 	}
 	tenet_world_revolution = { # 세계혁명
