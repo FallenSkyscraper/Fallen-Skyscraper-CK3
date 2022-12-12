@@ -25,17 +25,21 @@ hwaryong_default = {
 girin_default = {
 	county = c_jirin
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		intrigue = 1
+		diplomacy = 1
 	}
 }
 harbin_default = {
 	county = c_harbin
 	character_modifier = {
+		knight_effectiveness_mult = 0.2
 	}
 }
 liaoyang_default = {
 	county = c_liaoyang
 	character_modifier = {
+		knight_effectiveness_mult = 0.2
+		martial = 1
 	}
 }
 ###연해주###
@@ -81,7 +85,7 @@ anju_default = {
 	}
 }
 cheolsan_default = {
-	county = c_default
+	county = c_cheolsan
 	character_modifier = {
 
 	}
@@ -97,7 +101,8 @@ maan_default = {
 hyesan_default_baekdusan = {
 	county= c_hyesan
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		monthly_piety_gain_mult = 0.1
+		learning_per_piety_level = 1
 		dynasty_house_opinion = 5
 	}
 }
@@ -105,11 +110,14 @@ najin_aoji_default = {
 	county = c_najin
 	barony = b_2370
 	character_modifier = {
+		dread_baseline_add = 5
+		stewardship = 1
 	}
 }
 wonsan_default = {
 	county = c_wonsan
 	character_modifier = {
+		stewardship_per_prestige_level = 1
 	}
 }
 hamheung_default = {
@@ -141,12 +149,22 @@ hoeyang_default = {
 taebaek_default_taebaeksan = {
 	county = c_taebaek
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		monthly_income_mult = 0.05
+		dynasty_house_opinion = 5
 	}
 }
 chuncheon_default = {
 	county = c_chuncheon
 	character_modifier = {
+		monthly_county_control_change_factor = 0.15
+	}
+}
+sadong_default_kumgangsan = {
+	county = c_sadong
+	barony = b_1662
+	character_modifier = {
+		development_growth_factor = 0.05
+		martial_per_piety_level = 1
 	}
 }
 ###경기###
@@ -186,11 +204,14 @@ gaeseong_default = {
 gangnam_default = {
 	county = c_gangnam
 	character_modifier = {
+		intrigue = 1
+		monthly_income_mult = 0.15
 	}
 }
 mapo_default = {
 	county = c_mapo
 	character_modifier = {
+		stewardship_per_prestige_level = 1
 	}
 }
 pyeongtaek_default = {
@@ -238,11 +259,14 @@ yeongi_sejong_default = {
 	county = c_yeongi
 	barony = b_2587
 	character_modifier = {
+		monthly_lifestyle_xp_gain_mult = 0.1
 	}
 }
 daejeon_default = {
 	county = c_daejeon
 	character_modifier = {
+		cultural_head_fascination_mult = 0.2
+		development_growth_factor = 0.1
 	}
 }
 ###경상북###
@@ -269,6 +293,7 @@ yeongju_default = {
 pohang_default = {
 	county = c_pohang
 	character_modifier = {
+		martial_per_piety_level = 1
 	}
 }
 yeongcheon_default = {
@@ -281,12 +306,14 @@ yeongcheon_default = {
 daegu_default = {
 	county = c_daegu
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		monthly_piety_gain_mult = 0.05
+		monthly_lifestyle_xp_gain_mult = 0.05
 	}
 }
 gumi_default = {
 	county = c_gumi
 	character_modifier = {
+		development_growth_factor = 0.1
 	}
 }
 seongju_default = {
@@ -346,6 +373,8 @@ naju_default = {
 gwangju_default = {
 	county = c_gwangju
 	character_modifier = {
+		supply_duration = 0.2
+		county_opinion_add = 5
 	}
 }
 byeonsan_default = {
@@ -379,7 +408,8 @@ yangsan_default = {
 busan_default = {
 	county = c_busan
 	character_modifier = {
-
+		different_faith_opinion = 10
+		monthly_income_mult = 0.1
 	}
 }
 busan_yeongdo_default = {
@@ -398,6 +428,7 @@ hamyang_default = {
 ulsan_default = {
 	county = c_ulsan
 	character_modifier ={
+		development_growth_factor = 0.05
 	}
 }
 busan_donggu_default = {
@@ -512,7 +543,8 @@ cheongjin_iron_kimchaekjaechul = {#김책 제철소
 hwado_daejong_chamseongdan = {#참성단
 	county = c_hwado
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		learning = 2
+		monthly_piety_gain_mult = 0.05
 	}
 }
 ###천도교###
@@ -528,24 +560,29 @@ xinbin_yunling_manchu_hetuala = {
 	county = c_sinbin
 	barony = b_3212 #융링/영릉
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		monthly_county_control_change_factor = 0.25
+		men_at_arms_maintenance = -0.2
+		movement_speed = 0.05
 	}
 }
 shenyang_manchu_mukden = {
 	county = c_shenyang
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		monthly_prestige_gain_mult = 0.1
 	}
 }
 songpa_manchu_samjeondo = {
 	county = c_songpa
 	character_modifier = {
+		martial_per_piety_level = 2
 	}
 }
 changbai_manchu_golminsangyanarin = {
 	county = c_changbai
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		monthly_prestige_gain_mult = 0.1
+		monthly_piety_gain_mult = 0.1
+		learning_per_piety_level = 1
 	}
 }
 ###가톨릭###
@@ -590,17 +627,23 @@ shenyang_tibet_hueguepalungung = {
 huanren_tengri_jolbon = {
 	county = c_huanren
 	character_modifier = {
+		martial_per_piety_level = 1
+		monthly_county_control_change_factor = 0.1
 	}
 }
 dunhwa_tengri_dongmosan = {
 	county = c_dunhwa
 	character_modifier = {
+		learning = 2
+		prowess = 1
 	}
 }
 ###기계교###
 yuseong_mech_kaist = {
 	county = c_yuseong
 	character_modifier = {
+		learning_per_piety_level = 2
+		development_growth_factor = 0.2
 	}
 }
 ###러시아 정교회###
@@ -662,6 +705,7 @@ uljin_atomic_hanul = {
 yuseong_atomic_kstar = {
 	county = c_yuseong
 	character_modifier = {
+		learning_per_piety_level = 1
 	}
 }
 ###합일교###
