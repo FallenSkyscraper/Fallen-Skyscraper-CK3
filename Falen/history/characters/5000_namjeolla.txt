@@ -993,8 +993,88 @@
 	2500.1.1 = { death = yes }
 }
 #비금(이)
+5091 = {
+	name = "비류"
+	dynasty = 5091
+	culture = sinan
+	religion = presbyterianism
+	2207.7.9 = { birth = yes }
+	2286.6.5 = { death = yes }
+}
+5092 = {
+	name = "십오"
+	father = 5091
+	dynasty = 5091
+	culture = sinan
+	religion = presbyterianism
+	2278.9.3 = { birth = yes }
+	2340.9.1 = { death = { death_reason = death_execution killer = 5016 } }
+}
+5093 = {
+	name = "살구"
+	father = 5092
+	dynasty = 5091
+	culture = sinan
+	religion = presbyterianism
+	2305.5.15 = { birth = yes }
+	2376.6.1 = { death = yes }
+}
+5094 = {
+	name = "단성"
+	father = 5093
+	dynasty = 5091
+	culture = sinan
+	religion = presbyterianism
+	2349.5.1 = { birth = yes }
+	2399.8.13 = { death = { death_reason = death_battle } }
+}
+5095 = {
+	name = "선금"
+	father = 5094
+	dynasty = 5091
+	culture = sinan
+	religion = presbyterianism
+	2371.6.3 = { birth = yes }
+	2412.2.4 = { death = yes }
+}
+5096 = {
+	name = "고리"
+	father = 5095
+	dynasty = 5091
+	culture = sinan
+	religion = presbyterianism
+	2401.1.4 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+5097 = {
+	name = "반석"
+	father = 5096
+	dynasty = 5091
+	culture = sinan
+	religion = presbyterianism
+	2427.7.4 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
 #진도(조)
-#고군(박)
+5098 = {
+	name = "보아"
+	dynasty = 5098
+	female = yes
+	culture = sinan
+	religion = presbyterianism
+	2387.7.4 = { birth = yes }
+	2430.5.1 = { death = yes }
+}
+5099 = {
+	name = "보령"
+	mother = 5098
+	dynasty = 5098
+	culture = sinan
+	religion = presbyterianism
+	2410.5.5 = { birth = yes }
+	2500.1.1 = { death = yes }
+}
+#고군(박) - > 5161번~~
 #곡성
 5100 = {
 	name = "지우"
@@ -1715,7 +1795,7 @@
 		birth = yes
 	}
 	2440.1.1 = {
-		add_spouse = 5157
+		add_spouse = 5157c
 	}
 	2500.1.1 = {
 		death = yes
@@ -1732,4 +1812,135 @@
 	2420.2.22 = {
 		death = yes
 	}
+}
+# 고대 목포왕
+5160 = {
+	name = "지식"
+	dynasty = 5160
+	religion = presbyterianism
+	culture = muan
+	trait = education_stewardship_2
+	trait = vengeful
+	trait = brave
+	2189.1.1 = { birth = yes }
+	2229.8.27 = { death = { death_reason = death_battle killer = 5007 } }
+}
+#진도 박씨
+5161 = {
+	name = "가람"
+	dynasty = 5161
+	religion = presbyterianism
+	culture = sinan
+	trait = education_martial_3
+	trait = strategist
+	trait = diplomat
+	2138.6.12 = { birth = yes }
+	2189.6.4 = { death = yes }
+}
+5162 = {
+	name = "가운"
+	father = 5161
+	dynasty = 5161
+	religion = presbyterianism
+	culture = sinan
+	trait = education_learning_3
+	trait = theologian
+	2170.7.1 = { birth = yes }
+	2217.3.4 = { death = yes }
+}
+5163 = {
+	name = "명서"
+	father = 5162
+	dynasty = 5161
+	religion = presbyterianism
+	culture = sinan
+	2192.6.7 = { birth = yes }
+	2255.5.1 = { death = yes }
+}
+5164 = {
+	name = "형기"
+	father = 5163
+	dynasty = 5161
+	religion = presbyterianism
+	culture = sinan
+	trait = education_intrigue_4
+	2236.6.1 = { birth = yes }
+	2299.4.1 = { death = yes }
+}
+5165 = {
+	name = "경태"
+	father = 5164
+	dynasty = 5161
+	religion = presbyterianism
+	culture = sinan
+	trait = education_diplomacy_4
+	trait = august
+	trait = diplomat
+	trait = diligent
+	2271.6.7 = { birth = yes }
+	2340.5.6 = { death = yes }
+}
+5166 = {
+	name = "문성"
+	father = 5165
+	dynasty = 5161
+	religion = presbyterianism
+	culture = sinan
+	trait = education_stewardship_2
+	2302.12.5 = { birth = yes }
+	2333.5.1 = { add_spouse = 5022 }
+	2377.7.1 = { death = yes }
+}
+5167 = {
+	name = "성주"
+	father = 5166
+	mother = 5022
+	dynasty = 5161
+	religion = presbyterianism
+	culture = sinan
+	trait = education_stewardship_3
+	trait = overseer
+	2334.6.3 = { birth = yes }
+	2399.5.5 = { death = yes }
+}
+5168 = {
+	name = "민규"
+	father = 5167
+	dynasty = 5161
+	religion = presbyterianism
+	culture = sinan
+	trait = education_stewardship_1
+	trait = shy
+	trait = coward
+	trait = callous
+	2369.5.5 = { birth = yes }
+	2416.6.5 = { death = yes }
+}
+5169 = {
+	name = "수하"
+	father = 5168
+	dynasty = 5161
+	religion = presbyterianism
+	culture = sinan
+	trait = education_learning_2
+	trait = vengeful
+	2396.7.6 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_pressed_claim = d_jindo
+			add_pressed_claim = c_jindo
+		}
+	}
+	2500.1.1 = { death = yes }
+}
+5170 = {
+	name = "성철"
+	father = 5169
+	dynasty = 5161
+	religion = presbyterianism
+	culture = sinan
+	trait = ambitious
+	trait = diligent
+	2426.6.3 = { birth = yes }
+	2500.1.1 = { death = yes }
 }

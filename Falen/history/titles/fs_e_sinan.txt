@@ -124,8 +124,15 @@ c_sinan = {
 		holder = 5031
 	}
 }
+k_mokpo = {
+	2201.1.1 = { holder = 5160 }
+	2229.8.27 = { holder = 0 }
+}
 c_mokpo = {
     2000.1.1 = { change_development_level = 21 }
+	2201.1.1 = {
+		holder = 5160
+	}
 	2229.8.27 = {
 		holder = 5007
 		liege = k_sinan
@@ -217,8 +224,25 @@ c_jido = {
 }
 c_bigeum = {
     2000.1.1 = { change_development_level = 8 }
-	2444.1.1 = {
-		holder = 5033
+	2234.1.1 = {
+		holder = 5091
+		liege = k_sinan
+	}
+	2286.6.5 = {
+		holder = 5092
+	}
+	2296.3.23 = { liege = e_sinan }
+	2340.9.1 = {
+		holder = 5093
+	}
+	2376.6.1 = {
+		holder = 5094
+	}
+	2399.8.13 = {
+		holder = 5095
+	}
+	2412.2.4 = {
+		holder = 5096
 	}
 }
 c_haui = {
@@ -317,15 +341,46 @@ c_heuksan = {
 		holder = 5053
 	}
 }
+d_jindo = {
+	2150.1.1 = { holder = 5161 }
+	2189.6.4 = { holder = 5162 }
+	2217.3.4 = { holder = 5163 } # has subdued to sinan
+	2255.5.1 = { holder = 5164 }
+	2296.3.23 = { liege = e_sinan }
+	2299.4.1 = { holder = 5165 }
+	2340.5.6 = { holder = 5166 }
+	2377.7.1 = { holder = 5167 }
+	2399.5.5 = { holder = 5168 }
+	2403.1.1 = { holder = 0 }
+}
 c_jindo = {
     2000.1.1 = { change_development_level = 10 }
-	2444.1.1 = {
-		holder = 5033
+	2150.1.1 = { holder = 5161 liege = d_jindo }
+	2189.6.4 = { holder = 5162 }
+	2217.3.4 = { holder = 5163 }
+	2255.5.1 = { holder = 5164 }
+	2299.4.1 = { holder = 5165 }
+	2340.5.6 = { holder = 5166 }
+	2377.7.1 = { holder = 5167 }
+	2399.5.5 = { holder = 5168 }
+	2400.1.1 = {
+		holder = 5098
+		liege = e_sinan
+	}
+	2430.5.1 = {
+		holder = 5099
 	}
 }
 c_gogun = {
     2000.1.1 = { change_development_level = 8 }
-	2444.1.1 = {
-		holder = 5033
-	}
+	2150.1.1 = { holder = 5161 liege = d_jindo }
+	2189.6.4 = { holder = 5162 }
+	2217.3.4 = { holder = 5163 }
+	2255.5.1 = { holder = 5164 }
+	2296.3.23 = { liege = e_sinan }
+	2299.4.1 = { holder = 5165 }
+	2340.5.6 = { holder = 5166 }
+	2377.7.1 = { holder = 5167 }
+	2399.5.5 = { holder = 5168 }
+	2416.6.5 = { holder = 5169 }
 }

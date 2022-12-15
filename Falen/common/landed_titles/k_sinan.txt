@@ -5,7 +5,7 @@
 e_sinan = {
 	color = { 168 171 227 }
 		
-		capital = c_sinan
+		capital = c_mokpo
 		
 		ai_primary_priority = {
 			if = {
@@ -18,7 +18,7 @@ e_sinan = {
 	k_sinan = {
 		color = { 168 171 227 }
 		
-		capital = c_sinan
+		capital = c_mokpo
 		
 		ai_primary_priority = {
 			if = {
@@ -28,7 +28,20 @@ e_sinan = {
 				add = @correct_culture_primary_score
 			}
 		}
-		
+		d_mokpo = {
+			color = { 84 135 71 }
+			capital = d_mokpo
+			
+			c_mokpo = {
+				color = { 84 135 71 }
+
+				b_542 = { # Mokpo
+					province = 542
+					
+					color = { 84 135 71 }
+				}
+			}
+		}
 		d_sinan = {
 			color = { 168 171 227 }
 			
@@ -60,15 +73,6 @@ e_sinan = {
 					province = 208
 					
 					color = { 168 171 227 }
-				}
-			}
-			c_mokpo = {
-				color = { 84 135 71 }
-
-				b_542 = { # Mokpo
-					province = 542
-					
-					color = { 84 135 71 }
 				}
 			}
 			c_jido = {
