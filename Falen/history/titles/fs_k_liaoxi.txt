@@ -1,35 +1,31 @@
 ﻿k_liaoxi = {
 	2420.1.1 = { 
-	holder = 9008 
-	effect = {
-			if = {
-				limit = {
-					exists = holder
-					has_dlc_feature = royal_court
-				}
-				holder = {
-					set_court_type = court_diplomatic
-				}
-			}
-		}
-		}
+		holder = 9008 
+		change_development_level = 6
+	}
 }
+d_yi = { 2444.1.1 = { change_development_level = 3 } }
 d_beizhen = {
 	2430.1.1 = {
 		holder = 9133
 		liege = e_yalu
+		government = nomadic_government
+		change_development_level = 3
 	}
 }
 d_heishan = {
 	2430.1.1 = {
 		holder = 9133
 		liege = e_yalu
+		government = nomadic_government
+		change_development_level = 2
 	}
 }
 d_panjin = {
 	2430.1.1 = {
 		holder = 9134
 		liege = e_yalu
+		change_development_level = 9
 	}
 	2430.1.2 = { liege = k_liaoyang } # 년도는 임의설정
 }
@@ -37,6 +33,7 @@ d_dawa = {
 	2430.1.1 = {
 		holder = 9135
 		liege = e_yalu
+		change_development_level = 12
 	}
 	2430.1.2 = { liege = k_liaoyang } # 년도는 임의설정
 }
@@ -44,6 +41,7 @@ d_taian = {
 	2430.1.1 = {
 		holder = 9136
 		liege = e_yalu
+		change_development_level = 7
 	}
 	2430.1.2 = { liege = k_liaoyang } # 년도는 임의설정
 }
@@ -76,7 +74,7 @@ c_gaolifang = {
 	2443.4.14 = {
 		holder = 9039
 	}
-	2443.4.15 = { liege = k_liaoyang } # 년도는 임의설정
+	2443.4.15 = { liege = k_liaoyang change_development_level = 6 } # 년도는 임의설정
 }
 
 d_liaoxi_rev = {
@@ -88,6 +86,7 @@ d_liaoxi_rev = {
 c_taihe = {
 	2442.03.10 = {
 		holder = 9301
+		change_development_level = 10
 	}
 }
 
@@ -95,6 +94,7 @@ c_jinjeu = {
 	2442.12.9 = {
 		holder = 9302
 		liege = d_liaoxi_rev
+		change_development_level = 8
 	}
 }
 
@@ -102,5 +102,6 @@ c_bangita = {
 	2443.04.18 = {
 		holder = 9311
 		liege = d_liaoxi_rev
+		change_development_level = 5
 	}
 }
