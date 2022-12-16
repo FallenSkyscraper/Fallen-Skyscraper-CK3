@@ -95,6 +95,14 @@ gw_mgga.2 = {
 	left_portrait = root
 	option = {
 		name = gw_mgga.2.a
+		scope:gw_emperor = {
+			character = {
+				add_character_modifier = {
+					modifier = gw_mgga_modifier
+					years = 100
+				}
+			}
+		}
 	}
 }
 gw_mgga.3 = {
