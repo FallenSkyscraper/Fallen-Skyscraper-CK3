@@ -1,0 +1,18 @@
+#자연교라이징
+namespace = our_land
+
+our_land.0001 = {
+    type = character_event
+	title = our_land.0001.t
+	desc = our_land.0001.desc
+	theme = hunting
+	
+	trigger = {
+		NOT = { has_global_variable = naturalism_pagan_rising }
+	}
+	immediate = {
+		set_global_variable = naturalism_pagan_rising
+		save_scope_as = our_land_king
+	}
+	
+}
