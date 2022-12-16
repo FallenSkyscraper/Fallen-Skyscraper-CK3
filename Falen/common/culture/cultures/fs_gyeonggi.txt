@@ -59,8 +59,33 @@ incheon = {
 	traditions = {
 		tradition_city_keepers
 		tradition_hit_and_run
-                            tradition_sea_peoples
-                            tradition_legacy_of_city_union
+        tradition_sea_peoples
+        tradition_legacy_of_city_union
+	}
+
+	name_list = name_list_korean
+	coa_gfx = { western_coa_gfx chinese_group_coa_gfx }
+	building_gfx = { western_building_gfx }
+	clothing_gfx = { mongol_clothing_gfx }
+	unit_gfx = { mongol_unit_gfx }
+	ethnicities = {
+		10 = asian
+	}
+}
+baekryeong = {
+	color = { 67 105 211 }
+	created = 2400.1.1
+	parents = { incheon gaeseong }
+	
+	ethos = ethos_bellicose
+	heritage = heritage_incheon
+	language = language_central_korean
+	martial_custom = martial_custom_male_only
+	traditions = {
+	    tradition_battlefield_looters
+		tradition_warrior_monks
+        tradition_sea_peoples
+		tradition_chivalry
 	}
 
 	name_list = name_list_korean
