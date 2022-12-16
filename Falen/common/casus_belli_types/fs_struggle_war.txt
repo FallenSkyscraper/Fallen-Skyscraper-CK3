@@ -1,4 +1,4 @@
-﻿#county_struggle_cb = {
+fs_county_struggle_cb = {
 	group = struggle
 	icon = struggle
 	combine_into_one = yes
@@ -42,7 +42,7 @@
 		}
 	}
 	
-	target_titles = all
+	target_titles = neighbor_land
 	target_title_tier = county
 	ignore_effect = change_title_holder
 	defender_ticking_warscore = 0.125
@@ -302,4 +302,4 @@
 	use_de_jure_wargoal_only = yes
 
 	attacker_wargoal_percentage = 0.8
-#}
+}
