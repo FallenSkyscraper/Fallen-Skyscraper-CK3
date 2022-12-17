@@ -1,0 +1,138 @@
+e_liao = {
+	2410.7.15 = { holder = 9120 }
+	2421.9.13 = { holder = 9123 }
+	2422.8.5 = { holder = 0 }
+}
+k_liaoyang = {
+	2230.1.1 = {
+		holder = 9101
+	}
+	2260.6.12 = {
+		holder = 9102
+	}
+	2299.9.16 = {
+		holder = 9103
+	}
+	2304.1.22 = {
+		holder = 9104
+	}
+	2342.6.15 = {
+		holder = 9105
+	}
+	2360.3.7 = {
+		holder = 9106
+	}
+	2385.5.14 = {
+		holder = 9107
+	}
+	2410.1.15 = {
+		holder = 9120
+	}
+	2410.7.15 = {
+		liege = e_liao
+	}
+	2421.9.13 = {
+		holder = 9123
+	}
+	2422.8.5 = {
+		holder = 9008
+	}
+	2425.1.1 = {
+		holder = 9013
+		liege = e_yalu
+		government = nomadic_government
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
+	}
+}
+d_liaoyang = {
+	2444.1.1 = { change_development_level = 7 }
+}
+c_liaoyang = {
+	2444.1.1 = { change_development_level = 16 }
+}
+d_benxi = {
+	2315.1.2 = {
+		holder = 9046
+		liege = k_liaoyang
+	}
+	2350.5.12 = {
+		holder = 9047
+	}
+	2395.1.13 = {
+		holder = 9048
+	}
+	2400.12.1 = {
+		holder = 9049
+	}
+	2429.4.14 = {
+		holder = 9050
+		change_development_level = 3
+	}
+}
+d_xiaoshi = {
+	2360.1.1 = {
+		holder = 9052
+		liege = k_liaoyang
+	}
+	2399.9.14 = {
+		holder = 9054
+	}
+	2421.11.16 = {
+		holder = 9055
+		change_development_level = 1
+	}
+}
+d_anshan = {
+	2400.1.1 = {
+		holder = 9137
+		liege = k_liaoyang
+	}
+	2438.5.14 = {
+		holder = 9138
+		change_development_level = 6
+	}
+}
+c_anshan = {
+	2400.1.1 = {
+		holder = 9137
+		liege = k_liaoyang
+	}
+	2438.5.14 = {
+		holder = 9138
+		change_development_level = 9
+	}
+}
+c_tonggeolbao = {
+	2399.9.12 = {
+		holder = 9036
+	}
+	2434.9.21 = {
+		holder = 9037
+	}
+	2443.4.14 = {
+		holder = 9038
+		liege = k_liaoyang
+	}
+}
+d_ingkou = {
+	2400.1.1 = {
+		holder = 9139
+		liege = e_liao
+		change_development_level = 6
+	}
+	2425.1.1 = { liege = e_yalu }
+	2440.12.2 = {
+		holder = 9140
+	}
+	2425.12.3 = { liege = k_liaoyang } # 년도는 임의설정
+}

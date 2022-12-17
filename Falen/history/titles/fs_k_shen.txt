@@ -1,0 +1,45 @@
+k_shen = {
+	2390.1.1 = {
+		holder = 9126
+		government = nomadic_government
+	}
+	2422.11.3 = {
+		holder = 9008
+	}
+	2428.1.1 = {
+		holder = 9128
+		liege = e_yalu
+		effect = {
+			if = {
+				limit = {
+					exists = holder
+					has_dlc_feature = royal_court
+				}
+				holder = {
+					set_court_type = court_warlike
+				}
+			}
+		}
+	}
+}
+d_shenyang = {
+	2444.1.1 = {
+		change_development_level = 5
+	}
+}
+c_shenyang = {
+	2444.1.1 = {
+		holder = 9128
+		change_development_level = 17
+	}
+}
+d_liaozhong = {
+	2444.1.1 = {
+		change_development_level = 3
+	}
+}
+d_xinmin = {
+	2444.1.1 = {
+		change_development_level = 1
+	}
+}
