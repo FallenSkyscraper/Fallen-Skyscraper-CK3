@@ -1,12 +1,9 @@
 ﻿naturalism_religion = {
-	family = rf_pagan# 소속 종교 패밀리
-# graphical_faith = religion_gfx	# 종교 gfx 설정
-	# piety_icon_group = 	# 신앙심 아이콘 설정
-	# doctrine_background_icon = 	# 교리 배경 설정
+	family = rf_pagan
+	graphical_faith = dharmic_gfx
+	doctrine = pagan_hostility_doctrine
 	
 	pagan_roots = yes
-
-	doctrine = pagan_hostility_doctrine# 종교 적대 시 소속
 
 	#Main Group
 	doctrine = doctrine_no_head
@@ -197,7 +194,7 @@
 		naturalism_pagan = {# 파생 종교
 			color ={ 2 147 0 }# 지도 상에서 표시될 색깔
 			icon = naturalism
-			reformed_icon = tengri_reformed
+			reformed_icon = naturalism
 
 			holy_site = hyesan_default_baekdusan   #아래여기 부분은 성지 위치를 나타냄
 			holy_site = hamyang_default
