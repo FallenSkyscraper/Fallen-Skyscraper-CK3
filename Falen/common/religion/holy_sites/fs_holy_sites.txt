@@ -46,18 +46,20 @@ liaoyang_default = {
 vladivostok_default = {
 	county = c_vladivostok
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		martial = 2
 	}
 }
 usurisk_default = {
 	county = c_usurisk
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		prowess_per_piety_level = 1
 	}
 }
 arsenyev_default = {
 	county = c_arsenyev
 	character_modifier = {
+		learning_per_piety_level = 1
+		monthly_piety_gain_mult = 0.1
 	}
 }
 ###평안###
@@ -71,7 +73,7 @@ pyongyang_default = {
 sinuiju_default = {
 	county = c_sinuiju
 	character_modifier = {
-		monthly_piety_gain_mult = 0.2
+		controlled_province_advantage = 2
 	}
 }
 jeongju_default = {
@@ -621,6 +623,8 @@ chaganhua_tibet_miaoyinsi = {
 shenyang_tibet_hueguepalungung = {
 	county = c_shenyang
 	character_modifier = {
+		same_faith_opinion = 5
+		county_opinion_add = 10
 	}
 }
 ###텡그리###
@@ -656,16 +660,19 @@ gapyeong_rusorth_spasskiymonastyr = {
 beizhen_tao_bukjeonsa = {
 	county = c_beizhen
 	character_modifier = {
+		stress_gain_mult = -0.1
 	}
 }
 liaoyuan_tao_boksugung = {
 	county = c_liaoyuan
 	character_modifier = {
+		stress_loss_mult = 0.15
 	}
 }
 ulju_tao_suseonggung = {
 	county = c_ulju
 	character_modifier = {
+		negate_health_penalty_add = 0.5
 	}
 }
 ###원자교/야명교###
