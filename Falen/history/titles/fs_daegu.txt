@@ -1,8 +1,5 @@
-﻿k_daegu = {
-	2100.1.1 = {
-		change_development_level = 7
-	}
-	2420.2.8 = {
+﻿k_new_america = {
+	2420.1.1 = {
 		holder = 3501
 		effect = {
 			if = {
@@ -17,21 +14,10 @@
 		}
 	}
 }
+
 d_daegu = {
 	2100.1.1 = {
 		change_development_level = 10
-	}
-	2322.9.18 = {
-		holder = 3511
-	}
-	2335.1.6 = {
-		holder = 3504
-	}
-	2370.5.13 = {
-		holder = 3503
-	}
-	2407.7.9 = {
-		holder = 3502
 	}
 	2411.4.18 = {
 		holder = 3501
@@ -41,18 +27,6 @@ c_daegu = {
 	2100.1.1 = {
 		change_development_level = 19
 	}
-	2322.9.18 = {
-		holder = 3511
-	}
-	2335.1.6 = {
-		holder = 3504
-	}
-	2370.5.13 = {
-		holder = 3503
-	}
-	2407.7.9 = {
-		holder = 3502
-	}
 	2411.4.18 = {
 		holder = 3501
 	}
@@ -60,18 +34,6 @@ c_daegu = {
 c_suseong = {
 	2100.1.1 = {
 		change_development_level = 16
-	}
-	2322.9.18 = {
-		holder = 3511
-	}
-	2335.1.6 = {
-		holder = 3504
-	}
-	2370.5.13 = {
-		holder = 3503
-	}
-	2407.7.9 = {
-		holder = 3502
 	}
 	2411.4.18 = {
 		holder = 3501
@@ -81,36 +43,13 @@ c_dasa = {
 	2100.1.1 = {
 		change_development_level = 13
 	}
-	2322.9.18 = {
-		holder = 3511
-	}
-	2335.1.6 = {
-		holder = 3512
-	}
-	2375.3.9 = {
-		holder = 3513
-		liege = d_daegu
-	}
 	2411.12.6 = {
-		holder = 3514
-		liege = d_daegu
+		holder = 3501
 	}
 }
 c_okpo = {
 	2100.1.1 = {
 		change_development_level = 11
-	}
-	2302.1.11 = {
-		holder = 3505
-	}
-	2331.1.26 = {
-		holder = 3504
-	}
-	2370.5.13 = {
-		holder = 3503
-	}
-	2407.7.9 = {
-		holder = 3502
 	}
 	2411.4.18 = {
 		holder = 3501
@@ -118,45 +57,46 @@ c_okpo = {
 	}
 }
 c_hyeonpung = {
-	2410.4.8 = {
-		holder = 3531
+	2411.4.8 = {
+		holder = 3501
 		liege = d_daegu
+	}
+}
+d_seongju = {
+	2420.9.17 = {
+		holder = 3526
+		liege = k_new_america
 	}
 }
 c_seongju = {
-	2442.9.17 = {
+	2420.9.17 = {
 		holder = 3526
-		liege = d_daegu
+		liege = d_seongju
 	}
 }
 c_byeokjin = {
-	2442.9.17 = {
+	2420.9.17 = {
 		holder = 3526
-		liege = d_daegu
+		liege = d_seongju
 	}
 }
 c_goryeong = {
-	2381.2.3 = {
-		holder = 3522
-	}
-	2418.2.18 = {
-		holder = 3521
-		liege = d_daegu
+	2420.2.18 = {
+		holder = 3526
+		liege = d_seongju
 	}
 }
 c_seongsan = {
-	2381.2.3 = {
-		holder = 3522
-	}
-	2418.2.18 = {
-		holder = 3521
-		liege = d_daegu
+	2420.2.18 = {
+		holder = 3526
+		liege = d_seongju
 	}
 }
 
 d_chilgok = {
 	2430.04.04 = {
-		holder = 3910
+		holder = 3531
+		liege = k_new_america
 	}
 }
 
@@ -165,7 +105,8 @@ c_chilgok = {
 		change_development_level = 12
 	}
 	2430.04.04 = {
-		holder = 3910
+		holder = 3531
+		liege = d_chilgok
 	}
 }
 
@@ -173,11 +114,8 @@ c_waegwan = {
 	2100.1.1 = {
 		change_development_level = 13
 	}
-	2430.04.04 = {
-		holder = 3910
-	}
 	2431.01.01 = {
-		holder = 3911
+		holder = 3531
 		liege = d_chilgok
 	}
 }
@@ -187,16 +125,17 @@ c_gumi = {
 		change_development_level = 14
 	}
 	2430.04.04 = {
-		holder = 3910
+		holder = 3531
+		liege = d_chilgok
 	}
 }
 
 c_indong = {
-	2430.04.04 = {
-		holder = 3910
+	2100.1.1 = {
+		change_development_level = 12
 	}
 	2431.01.01 = {
-		holder = 3911
+		holder = 3531
 		liege = d_chilgok
 	}
 }

@@ -1969,70 +1969,78 @@
 }
 
 #대구
+
 3501 = {
-	name = "Alfred"
+	name = "aaliyah"
 	dynasty = 3501
+	female = yes
+	father = 3503
+	mother = 3504
 	religion = catholic
 	culture = american
-	father = 3502
-	2395.7.11 = {
+	trait = one_legged
+	2400.7.11 = {
 		birth = yes
+	}
+	2422.1.1 = {
+		add_spouse = 3502
 	}
 	2500.1.1 = {
 		death = yes
 	}
 }
+
 3502 = {
-	name = "Stephen"
+	name = "jackson"
 	dynasty = 3501
-	religion = catholic
-	culture = american
 	father = 3503
-	2373.8.13 = {
+	mother = 3504
+	religion = catholic
+	culture = american
+	2395.7.11 = {
 		birth = yes
 	}
-	2411.4.18 = {
+	2422.1.1 = {
+		add_spouse = 3501
+	}
+	2500.1.1 = {
 		death = yes
 	}
 }
+
 3503 = {
-	name = "Samuel"
+	name = "liam"
 	dynasty = 3501
 	religion = catholic
 	culture = american
-	father = 3504
-	2350.3.12 = {
+	2365.7.11 = {
 		birth = yes
 	}
-	2407.7.9 = {
+	2393.1.1 = {
+		add_spouse = 3501
+	}
+	2430.1.1 = {
 		death = yes
 	}
 }
+
 3504 = {
-	name = "John"
-	dynasty = 3501
+	name = "olivia"
+	dynasty = 3504
+	female = yes
 	religion = catholic
 	culture = american
-	father = 3505
-	2319.8.23 = {
+	2365.7.11 = {
 		birth = yes
 	}
-	2370.5.13 = {
+	2393.1.1 = {
+		add_spouse = 3501
+	}
+	2430.1.1 = {
 		death = yes
 	}
 }
-3505 = {
-	name = "Alfred"
-	dynasty = 3501
-	religion = catholic
-	culture = american
-	2287.7.29 = {
-		birth = yes
-	}
-	2351.1.26 = {
-		death = yes
-	}
-}
+
 3511 = {
 	name = "성태"
 	dynasty = 3511
@@ -2097,61 +2105,22 @@
 		death = yes
 	}
 }
-3521 = {
-	name = "보은"
-	female = yes
-	dynasty = 3521
-	religion = catholic
-	culture = daegu
-	father = 3522
-	2407.12.5 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-3522 = {
-	name = "문재"
-	dynasty = 3521
-	religion = catholic
-	culture = daegu
-	2379.1.2 = {
-		birth = yes
-	}
-	2435.6.1 = {
-		death = yes
-	}
-}
+
 3526 = {
-	name = "민철"
+	name = "jacob"
 	dynasty = 3526
 	religion = church_of_saints
-	culture = daegu
-	father = 3527
-	2419.5.25 = {
+	culture = american
+	trait = one_eyed
+	2410.5.25 = {
 		birth = yes
 	}
 	2500.1.1 = {
 		death = yes
-	}
-}
-3527 = {
-	name = "요셉"
-	dynasty = 3526
-	religion = church_of_saints
-	culture = daegu
-	2368.5.2 = {
-		birth = yes
-	}
-	2401.2.3 = {
-		death = {
-			death_reason = death_battle
-		}
 	}
 }
 3531 = {
-	name = "James"
+	name = "james"
 	dynasty = 3531
 	religion = catholic
 	culture = american
@@ -2527,30 +2496,6 @@
 	culture = sangju
 	female = yes
 	2409.8.18 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-3910 = {
-	name = "서현"
-	dynasty = 3909 #최
-	religion = catholic
-	culture = sangju
-	2412.9.27 = {
-		birth = yes
-	}
-	2500.1.1 = {
-		death = yes
-	}
-}
-3911 = {
-	name = "지운"
-	dynasty = 3911 #김
-	religion = mu_pagan
-	culture = daegu
-	2409.10.39 = {
 		birth = yes
 	}
 	2500.1.1 = {
