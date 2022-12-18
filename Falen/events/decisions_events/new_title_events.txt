@@ -563,3 +563,26 @@ new_title.10 = {
 		name = new_title.10.a
 	}
 }
+
+new_title.11 = { # giho
+	type = character_event
+	title = new_title.11.t
+	desc = new_title.11.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		save_scope_as = scoped_ruler
+		resolve_title_and_vassal_change = scope:change
+		hidden_effect = { set_primary_title_to = title:e_gangwon }
+		add_prestige = major_prestige_gain
+		add_piety = major_piety_gain
+	}
+	option = {
+		name = new_title.11.a
+	}
+}
