@@ -112,6 +112,22 @@ can_be_spouse_councillor_trigger = {
 	}
 }
 
+can_be_wangshi_trigger = {
+	save_temporary_scope_as = wangshi_councilor_check
+	can_be_councillor_basics_trigger = yes
+	OR = {
+		is_ruler = yes
+		AND = {
+			is_female = yes
+			$COURT_OWNER$.faith = { NOT = { has_doctrine_parameter = male_dominated_council } }
+		}
+		AND = {
+			is_male = yes
+			$COURT_OWNER$.faith = { NOT = { has_doctrine_parameter = female_dominated_council } }
+		}
+	}
+}
+
 
 councillor_loyalty_trigger = {
 	weighted_calc_true_if = {
