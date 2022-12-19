@@ -1,0 +1,108 @@
+namespace = wangshi_task
+
+wangshi_task.0001 = { #개종 시도 실패
+    type = letter_event
+    opening = {
+        desc = wangshi_task.0001.opening
+    }
+    desc = {
+        desc = wangshi_task.0001.desc
+    }
+    sender = scope:councillor
+
+    option = {
+        name = wangshi_task.0001.a
+
+        hidden_effect = {
+            scope:county.holder = {
+                trigger_event = wangshi_task.0101
+            }
+        }
+    }
+}
+
+wangshi_task.0002 = { #영주가 관심을 보임
+    type = character_event
+    title = wangshi_task.0002.t
+    desc = wangshi_task.0002.desc
+    left_portrait = {
+        character = scope:county.holder
+        animation = personality_rational
+    }
+    right_portrait = {
+        character = scope:councillor
+        animation = chaplain
+    }
+    theme = learning
+
+    option = {
+        name = wangshi_task.0002.a #영주가 개종을 마음먹음
+        scope:county.holder = {
+            set_character_faith_with_conversion = scope:councillor.faith
+        }
+        scope:county = {
+            set_county_faith = scope:councillor.faith
+        }
+    }
+
+    option = {
+        name = wangshi_task.0002.b #영주가 거절함
+    }
+}
+
+wangshi_task.0003 = { #민중은 이미 개종 했고 영주 차례
+    type = character_event
+    title = wangshi_task.0002.t
+    desc = wangshi_task.0002.desc
+    left_portrait = {
+        character = scope:county.holder
+        animation = personality_rational
+    }
+    right_portrait = {
+        character = scope:councillor
+        animation = chaplain
+    }
+    theme = unfriendly
+
+    option = {
+        name = wangshi_task.0003.a #영주가 개종을 마음먹음
+        scope:county.holder = {
+            set_character_faith_with_conversion = scope:councillor.faith
+        }
+    }
+
+    option = {
+        name = wangshi_task.0002.b #영주가 거절하고 민중들을 다시 개종시킴
+        scope:county = {
+            set_county_faith = scope:county.holder.faith
+            county_opinion_add = -10
+        }
+    }
+}
+
+whangshi_task.0101 = {
+    type = character_event
+    title = wangshi_task.0101.t
+    desc = {
+        desc = wangshi_task.0101.opening
+        desc = wangshi_task.0101.end
+    }
+    theme = learning
+    left_portrait = {
+		character = scope:councillor_liege
+		animation = schadenfreude
+	}
+	lower_left_portrait = {
+		character = scope:councillor
+		animation = scheme
+	}
+
+    option = {
+		name = wangshi_task.0311.a
+		add_opinion = {
+			target = scope:councillor_liege
+			modifier = wangshi_edify_fail_opinion_default
+			days = 3650
+		}
+	}
+}
