@@ -120,17 +120,15 @@ joson_election.1 = {
 			limit = {
 				NOT = { has_global_variable = player_is_elector }
 			}
-			title:k_prk.holder = {
-				trigger_event = {
-					id = joson_election.3
-					days = 1
-				}
+			trigger_event = {
+				id = joson_election.3
+				days = 1
 			}
 		}
 	}
 }
 joson_election.2 = {
-	type = character_event
+	type = empty
 	hidden = yes
 	immediate = {
 		change_global_variable = { name = election_date add = 4 }
@@ -138,7 +136,7 @@ joson_election.2 = {
 	}
 }
 joson_election.3 = { # 선거 결과 계산
-	type = character_event
+	type = empty
 	hidden = yes
 	immediate = {
 		ordered_in_global_list = {
@@ -190,6 +188,7 @@ joson_election.3 = { # 선거 결과 계산
 		}
 		clear_global_variable_list = candidates_real
 		clear_global_variable_list = voters
+		clear_saved_scope = winner
 		if = {
 			limit = {
 				has_global_variable = player_is_elector
