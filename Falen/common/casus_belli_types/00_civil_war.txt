@@ -728,7 +728,6 @@ populist_war = {
 			TARGET_TITLE = scope:target_title
 			SOURCE_GOVERNMENT = scope:defender
 		}
-
 	}
 
 	on_white_peace_desc = {
@@ -801,6 +800,24 @@ populist_war = {
 			remove_variable = rebel_leader_peasants
 		}
 		on_lost_faction_revolt_war = yes # Imprison all faction members, including the faction leader.
+		scope:attacker = { # Imprison any war participant that isn't already in the faction.
+			every_character_war = {
+				limit = {
+					is_defender = scope:defender
+				}
+				every_war_attacker = {
+					limit = {
+						is_imprisoned = no
+					}
+					hidden_effect = {
+						hard_imprison_character_effect = {
+							TARGET = this
+							IMPRISONER = scope:defender
+						}
+					}
+				}
+			}
+		}
 		hidden_effect = {
 			scope:attacker = {
 				if = {
@@ -1003,22 +1020,50 @@ depose_war = {
 	target_de_jure_regions_above = yes
 
 	valid_to_start = {
-
 	}
 
 	on_declaration = {
 		#on_declared_war = yes
+		if = {
+			limit = { NOT = { exists = scope:attacker.var:initial_target } }
+			scope:attacker = {
+				set_variable = {
+					name = initial_target
+					value = scope:defender
+				}
+
+				set_variable = {
+					name = target_tier
+					value = scope:defender.primary_title.tier
+				}
+			}
+		}
 	}
 
 	on_victory_desc = {
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:defender = { is_local_player = yes } }
+				trigger = {
+					scope:defender = { is_local_player = yes }
+					OR = {
+						NOT = { exists = scope:attacker.var:initial_target }
+						scope:defender = scope:attacker.var:initial_target
+						scope:defender.primary_title.tier <= scope:attacker.var:target_tier
+					}
+				}
 				desc = depose_war_victory_desc_defender
 			}
-			desc = depose_war_victory_desc
+			triggered_desc = {
+				trigger = {
+					OR = {
+						NOT = { exists = scope:attacker.var:initial_target }
+						scope:defender = scope:attacker.var:initial_target
+						scope:defender.primary_title.tier <= scope:attacker.var:target_tier
+					}
+				}
+				desc = depose_war_victory_desc
+			}
 		}
-		
 	}
 
 	on_victory = {
@@ -1043,10 +1088,28 @@ depose_war = {
 			# Remove offending HumSac modifiers.
 			hidden_effect = { fp1_remove_humsac_offended_counties_effect = yes }
 			# Then our liege is deposed (but the imprisonment loss remains true for their heir).
-			depose = yes
+			# Then our liege is deposed (but the imprisonment loss remains true for their heir).
+			if = {
+				limit = { NOT = { exists = scope:attacker.var:initial_target } }
+				depose = yes
+			}
+			else = {
+				if = {
+					limit = { this = scope:attacker.var:initial_target }
+					depose = yes
+				}
+				else_if = {
+					limit = { primary_title.tier <= scope:attacker.var:target_tier}
+					depose = yes
+				}
+
+				# remove variables
+				scope:attacker = {
+					remove_variable = initial_target
+					remove_variable = target_tier
+				}
+			}
 		}
-
-
 	}
 
 	on_white_peace_desc = {
@@ -1152,17 +1215,48 @@ refused_liege_demand_war = {
 	}
 
 	on_declaration = {
+		#on_declared_war = yes
+		# save the initial target and their tier for conditioning the depose effect
+		if = {
+			limit = { NOT = { exists = scope:attacker.var:initial_target } }
+			scope:attacker = {
+				set_variable = {
+					name = initial_target
+					value = scope:defender
+				}
+
+				set_variable = {
+					name = target_tier
+					value = scope:defender.primary_title.tier
+				}
+			}
+		}
 	}
 
 	on_victory_desc = {
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:defender = { is_local_player = yes } }
+				trigger = {
+					scope:defender = { is_local_player = yes }
+					OR = {
+						NOT = { exists = scope:attacker.var:initial_target }
+						scope:defender = scope:attacker.var:initial_target
+						scope:defender.primary_title.tier <= scope:attacker.var:target_tier
+					}
+				}
 				desc = refused_liege_demand_war_victory_desc_defender
 			}
-			desc = refused_liege_demand_war_victory_desc
+			triggered_desc = {
+				trigger = {
+					OR = {
+						NOT = { exists = scope:attacker.var:initial_target }
+						scope:defender = scope:attacker.var:initial_target
+						scope:defender.primary_title.tier <= scope:attacker.var:target_tier
+					}
+				}
+				desc = refused_liege_demand_war_victory_desc
+			}
 		}
-		
 	}
 
 	on_victory = {
@@ -1195,7 +1289,26 @@ refused_liege_demand_war = {
 			add_prestige = -500
 
 			# Then our liege is deposed (but the imprisonment loss remains true for their heir).
-			depose = yes
+			if = {
+				limit = { NOT = { exists = scope:attacker.var:initial_target } }
+				depose = yes
+			}
+			else = {
+				if = {
+					limit = { this = scope:attacker.var:initial_target }
+					depose = yes
+				}
+				else_if = {
+					limit = { primary_title.tier <= scope:attacker.var:target_tier }
+					depose = yes
+				}
+
+				# remove variables
+				scope:attacker = {
+					remove_variable = initial_target
+					remove_variable = target_tier
+				}
+			}
 		}
 
 		hidden_effect = {
@@ -1875,7 +1988,9 @@ nation_fracturing_faction_war = {
 
 		every_in_list = {
 			list = titles_to_destroy
-			destroy_title = this
+			scope:attacker = {
+				destroy_title = prev
+			}
 		}
 	}
 

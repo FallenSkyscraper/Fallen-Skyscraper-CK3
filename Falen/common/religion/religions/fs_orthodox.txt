@@ -41,7 +41,7 @@
 	reserved_male_names = {
 		Andrew Antoninus Bartolomeus Benedict Christian Christopher Clement Constantine David Demetrius Eustace George Gregory
 		Hans Isaac Joakim Jacob John Jordan Joseph Laurence Magnus Marcus Martin Matthew Michael Nicholas Patrick Paul Peter Philip
-		Salvador Samuel Sebastian Simon Stephen Thomas Abraham Alexander Daniel Jesus Job Joshua Cyrus Luke Zachariah
+		Salvador Samuel Sebastian Simon Stephen Thomas Abraham Alexander Daniel Job Joshua Cyrus Luke Zachariah
 	}
 	reserved_female_names = {
 		Anna Beatrice Benedicta Brigid Catherine Cecilia Christina Clementia Constance Dorothy Elisabeth Joan Judith Juliana Helen
@@ -49,7 +49,7 @@
 	}
 
 	custom_faith_icons = {
-		custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5 custom_faith_6 custom_faith_7 custom_faith_8 custom_faith_9 custom_faith_10 dualism_custom_1 zoroastrian_custom_1 zoroastrian_custom_2 buddhism_custom_1 buddhism_custom_2 buddhism_custom_3 buddhism_custom_4 taoism_custom_1 yazidi_custom_1 sunni_custom_2 sunni_custom_3 sunni_custom_4 ibadi_custom muhakkima_1 muhakkima_2 muhakkima_4 muhakkima_5 muhakkima_6 judaism_custom_1 custom_faith_fp1_fenrir custom_faith_fp1_irminsul custom_faith_fp1_jormungandr custom_faith_fp1_odins_ravens custom_faith_fp1_runestone_moon custom_faith_fp1_thors_hammer custom_faith_fp1_valknut custom_faith_fp1_yggdrasil
+		custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5 custom_faith_6 custom_faith_7 custom_faith_8 custom_faith_9 custom_faith_10 dualism_custom_1 zoroastrian_custom_1 zoroastrian_custom_2 buddhism_custom_1 buddhism_custom_2 buddhism_custom_3 buddhism_custom_4 taoism_custom_1 yazidi_custom_1 sunni_custom_2 sunni_custom_3 sunni_custom_4 muhakkima_1 muhakkima_2 muhakkima_4 muhakkima_5 muhakkima_6 judaism_custom_1 custom_faith_fp1_fenrir custom_faith_fp1_irminsul custom_faith_fp1_jormungandr custom_faith_fp1_odins_ravens custom_faith_fp1_runestone_moon custom_faith_fp1_thors_hammer custom_faith_fp1_valknut custom_faith_fp1_yggdrasil custom_faith_boromian_circles custom_faith_lotus custom_faith_aum_tibetan custom_faith_pentagram custom_faith_pentagram_inverted custom_faith_burning_bush custom_faith_allah custom_faith_gankyil custom_faith_eye_of_providence custom_faith_dove custom_faith_ichthys custom_faith_lamb custom_faith_black_sheep custom_faith_ankh custom_faith_chi_rho custom_faith_hamsa custom_faith_cool_s
 	}
 
 	holy_order_names = {
@@ -63,10 +63,11 @@
 	}
 
 	holy_order_maa = { teutonic_knights }
-	
+
 	localization = {
 		#HighGod
 		HighGodName = christianity_high_god_name
+		HighGodName2 = christianity_high_god_name_2
 		HighGodNamePossessive = christianity_high_god_name_possessive
 		HighGodNameSheHe = CHARACTER_SHEHE_HE
 		HighGodHerselfHimself = CHARACTER_HIMSELF
@@ -88,25 +89,23 @@
 		HealthGodHerHis = CHARACTER_HERHIS_HIS
 		HealthGodHerHim = CHARACTER_HERHIM_HIM
 		
-		# Utilizes the 'West Christian' Saints, shared by Catholics and Orthodox
-		
 		#FertilityGod
-		FertilityGodName = west_christian_fertility_god_name
-		FertilityGodNamePossessive = west_christian_fertility_god_name_possessive
-		FertilityGodSheHe = CHARACTER_SHEHE_SHE
-		FertilityGodHerHis = CHARACTER_HERHIS_HER
-		FertilityGodHerHim = CHARACTER_HERHIM_HER
+		FertilityGodName = christianity_fertility_god_name
+		FertilityGodNamePossessive = christianity_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
 
 		#WealthGod
-		WealthGodName = west_christian_wealth_god_name
-		WealthGodNamePossessive = west_christian_wealth_god_name_possessive
+		WealthGodName = christianity_wealth_god_name
+		WealthGodNamePossessive = christianity_wealth_god_name_possessive
 		WealthGodSheHe = CHARACTER_SHEHE_HE
 		WealthGodHerHis = CHARACTER_HERHIS_HIS
 		WealthGodHerHim = CHARACTER_HERHIM_HIM
 
 		#HouseholdGod
-		HouseholdGodName = west_christian_household_god_name
-		HouseholdGodNamePossessive = west_christian_household_god_name_possessive
+		HouseholdGodName = christianity_household_god_name
+		HouseholdGodNamePossessive = christianity_household_god_name_possessive
 		HouseholdGodSheHe = CHARACTER_SHEHE_HE
 		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
 		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
@@ -119,15 +118,15 @@
 		FateGodHerHim = CHARACTER_HERHIM_HIM
 
 		#KnowledgeGod
-		KnowledgeGodName = west_christian_knowledge_god_name
-		KnowledgeGodNamePossessive = west_christian_knowledge_god_name_possessive
-		KnowledgeGodSheHe = CHARACTER_SHEHE_SHE
-		KnowledgeGodHerHis = CHARACTER_HERHIS_HER
-		KnowledgeGodHerHim = CHARACTER_HERHIM_HER
+		KnowledgeGodName = christianity_knowledge_god_name
+		KnowledgeGodNamePossessive = christianity_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
 
 		#WarGod
-		WarGodName = west_christian_war_god_name
-		WarGodNamePossessive = west_christian_war_god_name_possessive
+		WarGodName = christianity_war_god_name
+		WarGodNamePossessive = christianity_war_god_name_possessive
 		WarGodSheHe = CHARACTER_SHEHE_HE
 		WarGodHerHis = CHARACTER_HERHIS_HIS
 		WarGodHerHim = CHARACTER_HERHIM_HIM
@@ -147,13 +146,15 @@
 		NightGodHerHim = CHARACTER_HERHIM_HIM
 
 		#WaterGod
-		WaterGodName = west_christian_water_god_name
-		WaterGodNamePossessive = west_christian_water_god_name_possessive
+		WaterGodName = christianity_water_god_name
+		WaterGodNamePossessive = christianity_water_god_name_possessive
 		WaterGodSheHe = CHARACTER_SHEHE_HE
 		WaterGodHerHis = CHARACTER_HERHIS_HIS
 		WaterGodHerHim = CHARACTER_HERHIM_HIM
 
 		PantheonTerm = christianity_high_god_name
+		PantheonTerm2 = christianity_high_god_name_2
+		PantheonTerm3 = christianity_high_god_name_3
 		PantheonTermHasHave = pantheon_term_has
 		GoodGodNames = {
 			christianity_high_god_name
@@ -174,12 +175,17 @@
 			christianity_evil_god_mephistopheles
 		}
 		HouseOfWorship = christianity_house_of_worship
+		HouseOfWorship2 = christianity_house_of_worship_2
+		HouseOfWorship3 = christianity_house_of_worship_3
 		HouseOfWorshipPlural = christianity_house_of_worship_plural
 		ReligiousSymbol = christianity_religious_symbol
+		ReligiousSymbol2 = christianity_religious_symbol_2
+		ReligiousSymbol3 = christianity_religious_symbol_3
 		ReligiousText = christianity_religious_text
-		# Patriarchs instead of Popes
-		ReligiousHeadName = orthodox_religious_head_title
-		ReligiousHeadTitleName = orthodox_religious_head_title_name				
+		ReligiousText2 = christianity_religious_text_2
+		ReligiousText3 = christianity_religious_text_3
+		ReligiousHeadName = christianity_religious_head_title
+		ReligiousHeadTitleName = christianity_religious_head_title_name
 		DevoteeMale = christianity_devotee_male
 		DevoteeMalePlural = christianity_devotee_male_plural
 		DevoteeFemale = christianity_devotee_female
@@ -200,13 +206,20 @@
 		BishopNeuter = christianity_bishop
 		BishopNeuterPlural = christianity_bishop_plural
 		DivineRealm = christianity_positive_afterlife
+		DivineRealm2 = christianity_positive_afterlife_2
+		DivineRealm3 = christianity_positive_afterlife_3
 		PositiveAfterLife = christianity_positive_afterlife
+		PositiveAfterLife2 = christianity_positive_afterlife_2
+		PositiveAfterLife3 = christianity_positive_afterlife_3
 		NegativeAfterLife = christianity_negative_afterlife
+		NegativeAfterLife2 = christianity_negative_afterlife_2
+		NegativeAfterLife3 = christianity_negative_afterlife_3
 		DeathDeityName = christianity_death_deity_name
 		DeathDeityNamePossessive = christianity_death_deity_name_possessive
 		DeathDeitySheHe = CHARACTER_SHEHE_HE
 		DeathDeityHerHis = CHARACTER_HERHIS_HIS
 		WitchGodName = christianity_witchgodname_the_horned_god
+		WitchGodNamePossessive = christianity_witchgodname_the_horned_god_possessive
 		WitchGodHerHis = CHARACTER_HERHIS_HIS
 		WitchGodSheHe = CHARACTER_SHEHE_HE
 		WitchGodHerHim = CHARACTER_HERHIM_HIM
@@ -218,6 +231,8 @@
 		GHWNamePlural = ghw_crusades
 
 	}
+	
+	piety_icon_group = "christian"
 	
 	faiths = {
 		orthodox = {

@@ -1,0 +1,690 @@
+﻿################
+# Found University
+# by Linnéa Thimrén
+################
+
+major_decisions.2001 = {
+	type = character_event
+	title = major_decisions.2001.t
+	desc = {
+		desc = major_decisions.2001.desc_first
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					calc_true_if = {
+						amount >= 1
+						any_sub_realm_barony = { this = title:b_50 }#서울대
+						any_sub_realm_barony = { this = title:b_26 }#연세대
+						any_sub_realm_barony = { this = title:b_34 }#서울시립대
+						any_sub_realm_barony = { this = title:b_29 }#동국대
+						any_sub_realm_barony = { this = title:b_27 }#서강대
+						any_sub_realm_barony = { this = title:b_28 }#성균관대
+						any_sub_realm_barony = { this = title:b_32 }#고려대
+						any_sub_realm_barony = { this = title:b_65 }#인하대
+						any_sub_realm_barony = { this = title:b_1424 }#아주대
+						any_sub_realm_barony = { this = title:b_2637 }#카이스트
+						any_sub_realm_barony = { this = title:b_2605 }#충북대
+						any_sub_realm_barony = { this = title:b_2636 }#충남대
+						any_sub_realm_barony = { this = title:b_1619 }#강원대
+						any_sub_realm_barony = { this = title:b_786 }#부산대
+						any_sub_realm_barony = { this = title:b_929 }#경북대
+						any_sub_realm_barony = { this = title:b_813 }#경상대
+						any_sub_realm_barony = { this = title:b_964 }#포항공대
+						any_sub_realm_barony = { this = title:b_1347 }#안동대
+						any_sub_realm_barony = { this = title:b_564 }#전남대
+						any_sub_realm_barony = { this = title:b_119 }#전북대
+						any_sub_realm_barony = { this = title:b_460 }#제주대
+					}
+				}
+				desc = major_decisions.2001.desc_more
+			}
+			desc = major_decisions.2001.desc
+		}
+	}
+	theme = learning
+	left_portrait = {
+		character = scope:founder
+		animation = personality_rational
+	}
+
+	immediate = {
+		found_university_decision_event_effect = yes
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_50 }#서울대
+			title:b_50 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_50.title_province = {
+			add_special_building_slot = seoul_national_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_50 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_50
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_26 }#연세대
+			title:b_26 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_26.title_province = {
+			add_special_building_slot = yonsei_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_26 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_26
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_34 }#서울시립대
+			title:b_34 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_34.title_province = {
+			add_special_building_slot = university_of_seoul
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_34 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_34
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_29 }#동국대
+			title:b_29 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_29.title_province = {
+			add_special_building_slot = dongguk_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_29 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_29
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_27 }#서강대
+			title:b_27 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_27.title_province = {
+			add_special_building_slot = sogang_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_27 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_27
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_28 }#성균관대
+			title:b_28 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_28.title_province = {
+			add_special_building_slot = sungkyunkwan_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_28 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_28
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_32 }#고려대
+			title:b_32 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_32.title_province = {
+			add_special_building_slot = korea_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_32 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_32
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_65 }#인하대
+			title:b_65 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_65.title_province = {
+			add_special_building_slot = inha_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_65 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_65
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_1424 }#아주대
+			title:b_1424 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_1424.title_province = {
+			add_special_building_slot = aju_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_1424 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_1424
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_2637 }#카이스트
+			title:b_2637 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_2637.title_province = {
+			add_special_building_slot = KAIST
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_2637 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_2637
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_2605 }#충북대
+			title:b_2605 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_2605.title_province = {
+			add_special_building_slot = chungbuk_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_2605 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_2605
+	}
+
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_2636 }#충남대
+			title:b_2636 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_2636.title_province = {
+			add_special_building_slot = chungnam_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_2636 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_2636
+	}
+	
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_1619 }#강원대
+			title:b_1619 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_1619.title_province = {
+			add_special_building_slot = gangwon_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_1619 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_1619
+	}
+	
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_786 }#부산대
+			title:b_786 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_786.title_province = {
+			add_special_building_slot = pusan_national_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_786 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_786
+	}
+	
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_929 }#경북대
+			title:b_929 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_929.title_province = {
+			add_special_building_slot = kyungpook_national_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_929 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_929
+	}
+	
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_813 }#경상대
+			title:b_813 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_813.title_province = {
+			add_special_building_slot = gyeongsang_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_813 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_813
+	}
+	
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_964 }#포스텍
+			title:b_964 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_964.title_province = {
+			add_special_building_slot = POSTECH
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_964 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_964
+	}
+	
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_1347 }#안동태학
+			title:b_1347 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_1347.title_province = {
+			add_special_building_slot = andong_taehak
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_1347 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_1347
+	}
+	
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_564 }#전남대
+			title:b_564 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_564.title_province = {
+			add_special_building_slot = jeonnam_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_564 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_564
+	}
+	
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_119 }#전북대
+			title:b_119 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_119.title_province = {
+			add_special_building_slot = jeonbuk_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_119 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_119
+	}
+	
+	option = {
+		trigger = {
+			any_sub_realm_barony = { this = title:b_460 }#제주대
+			title:b_460 = {
+				county = { development_level >= medium_development_level }
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		title:b_460.title_province = {
+			add_special_building_slot = jeju_national_university
+			set_variable = { #To unlock the building
+				name = university
+				value = yes
+			}
+			title:b_460 = {
+				if = {
+					limit = { NOT = { holder = root } }
+					holder = {
+						add_opinion = {
+							target = root
+							modifier = pleased_opinion
+							opinion = 30
+						}
+					}
+				}
+			}
+		}
+		name = major_decisions.2001.b_460
+	}
+
+	option = { # fallback in case development somehow tumbles
+		trigger = { always = no }
+		fallback = yes
+		name = major_decisions.2001.fallback
+		custom_tooltip = major_decisions.2001.fallback.tt
+	}
+}
