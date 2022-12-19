@@ -547,27 +547,18 @@
 	oligarchic_republic_elective_succession_law = {
 		can_have = {
 			OR = {
-				has_government = bureaucratic_government
-				has_government = maritime_government 
-				has_government = theocratic_feudal_government
-				has_government = secular_republic_government
+				has_government = oligarchic_republic_government
 			}
 		}
 		can_pass = {
 			can_change_title_law_trigger = yes
 			OR = {
-				has_government = bureaucratic_government
-				has_government = maritime_government 
-				has_government = theocratic_feudal_government
-				has_government = secular_republic_government
+				has_government = oligarchic_republic_government
 			}
 		}
 		should_start_with = {
 			OR = {
-				has_government = bureaucratic_government
-				has_government = maritime_government 
-				has_government = theocratic_feudal_government
-				has_government = secular_republic_government
+				has_government = oligarchic_republic_government
 			}
 		}
 		succession = {
