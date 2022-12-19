@@ -12,3 +12,36 @@ total_war_modifier = {
 	direct_vassal_opinion = 10
 	county_opinion_add = -30
 }
+defence_offering_modifier = {
+	icon = martial_positive
+	men_at_arms_maintenance = -0.15
+	county_opinion_add = -5
+}
+
+constructure_offering_modifier = {
+	icon = county_modifier_development_positive
+	build_gold_cost	= -0.15
+	county_opinion_add = -5
+}
+prayer_in_tongues = {
+	icon = piety_positive
+	diplomacy = -12
+	learning_per_piety_level = 3
+	monthly_piety_gain_mult = 0.3
+}
+medium_donation = {
+	icon = diplomacy_positive
+	general_opinion = 10
+}
+minor_donation = {
+	icon = diplomacy_positive
+	general_opinion = 5
+}
+pros_preaching = {
+	icon = diplomacy_positive
+	opinion_of_same_faith = 10
+}
+cons_preaching = {
+	icon = diplomacy_negative
+	opinion_of_same_faith = -10
+}
