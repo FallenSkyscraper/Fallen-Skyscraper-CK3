@@ -2,8 +2,18 @@ task_edify = {
 	position = councillor_wangshi
 
 	task_type = task_type_county
-	county_target = all
-	ai_county_target = all
+	county_target = {
+        AND = {
+            realm
+            neighbor_land
+        }
+    }
+	ai_county_target = {
+        AND = {
+            realm
+            neighbor_land
+        }
+    }
 	task_progress = task_progress_percentage
 
 	effect_desc = {
@@ -149,14 +159,8 @@ task_edify = {
 	}
 
 	potential_county = {
-        scope:county.holder = {
-            in_diplomatic_range = scope:councillor_liege
-        }
 		scope:county = {
 			NOT = { faith = scope:councillor.faith }
-            #화북과 산동으로 범위 한정
-
-            #/
 			trigger_if = {
 				limit = {
 					scope:councillor_liege = { has_variable = hold_court_8120_religion_block }
@@ -345,35 +349,19 @@ task_edify = {
 	}
 
 	on_finish_task_county = {
-		random_list = {
-            6 = { #놀랄만큼 그 누구도 관심을 주지 않았다
-                scope:councillor_liege = {
-                    trigger_event = task_edify_fail_effect
-                }
-                scope:councillor = {
-                    start_default_task = yes
-                }
-            }
-            3= { #영주가 관심을 기울였다
-                scope:county.holder = {
-                    trigger_event = wangshi_task.0002
-                }
-                scope:councillor = {
-                    start_default_task = yes
-                }
-            }
-            1 = { #민중은 마음을 정했다. 남은건 영주의 차례다
-                scope:county = {
-                    set_county_faith = scope:councillor.faith
-                }
-                scope:county.holder = {
-                    trigger_event = wangshi_task.0003
-                }
-                scope:councillor = {
-                    start_default_task = yes
-                }
-            }
-        }
+		scope:county = {
+			
+		}
+		if = {
+			limit = {
+				scope:councillor = {
+					has_council_position = councillor_wangshi
+				}
+			}
+			scope:councillor = {
+				start_default_task = yes
+			}
+		}
 	}
 
 	monthly_on_action = task_convert_side_effects
