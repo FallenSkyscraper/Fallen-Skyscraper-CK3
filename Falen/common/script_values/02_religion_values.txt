@@ -1918,6 +1918,47 @@ faith_conversion_cost_mult = {
 			}
 		}
 	}
+
+	if = {
+		limit = {
+			scope:councillor.court_chaplain = {
+				faith = scope:new_faith
+			}
+		}
+		if = { # Even cheaper if unreformed
+			limit = {
+				scope:new_faith = {
+					NOT = { has_doctrine_parameter = unreformed }
+				}
+				scope:character = {
+					faith = {
+						has_doctrine_parameter = unreformed
+					}
+				}
+			}
+			multiply = {
+				value = 1 
+				subtract = {
+					desc = faith_conversion_cost_unreformed_wangshi
+					format = "BREAKDOWN_FORMAT_PIETY_PERCENTAGE_POSITIVE_IS_BAD"
+					value = 0.9
+				}
+			}
+		}
+		else = { # But still a sizable discount otherwise.		
+			multiply = {
+				value = 1 
+				subtract = {
+					desc = faith_conversion_cost_wangshi
+					format = "BREAKDOWN_FORMAT_PIETY_PERCENTAGE_POSITIVE_IS_BAD"
+					value = 0.5
+				}
+			}
+		}
+	}
+
+
+
 	if = { #Cheaper if the religion is present near/in your borders
 		limit = {
 			scope:new_faith = {

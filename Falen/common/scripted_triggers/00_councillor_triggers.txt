@@ -95,6 +95,15 @@ can_be_court_chaplain_trigger = {
 		}
 		NOT = { var:escaped_imprisonment_from = $COURT_OWNER$ }
 	}
+	trigger_if = {
+		limit = {
+			has_government = chinese_bureaucracy_government
+		}
+		OR = {
+			has_trait = zhuzi
+			has_trait = lobbyist
+		}
+	}
 }
 
 can_be_spouse_councillor_trigger = {

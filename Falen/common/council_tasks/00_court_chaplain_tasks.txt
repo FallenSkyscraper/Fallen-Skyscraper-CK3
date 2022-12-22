@@ -5,6 +5,12 @@
 	task_type = task_type_general
 	task_progress = task_progress_infinite
 
+	is_shown = {
+		scope:councillor_liege = {
+			NOT = { has_government = chinese_bureaucracy_government }
+		}
+	}
+
 	effect_desc = {
 		### Piety tooltip
 		desc = task_religious_relations_piety_effect_desc
@@ -193,6 +199,12 @@ task_conversion = {
 	ai_county_target = realm
 	task_progress = task_progress_percentage
 	highlight_own_realm = yes
+
+	is_shown = {
+			scope:councillor_liege = {
+				NOT = { has_government = chinese_bureaucracy_government }
+			}
+	}
 
 	effect_desc = {
 		desc = task_conversion_effect_desc
@@ -976,3 +988,779 @@ task_fabricate_claim = {
 		}
 	}
 } 
+
+task_edify = {
+	position = councillor_court_chaplain
+
+	task_type = task_type_county
+	county_target = all
+	ai_county_target = all
+	task_progress = task_progress_percentage
+
+	is_shown = {
+		scope:councillor_liege = {
+			has_government = chinese_bureaucracy_government
+		}
+	}
+
+	effect_desc = {
+		desc = task_edify_effect_desc
+		desc = {
+			desc = council_task_possible_side_effects
+			triggered_desc = {
+				trigger = {
+					learning > mediocre_skill_rating
+				}
+				desc = task_edify_opinion_gain
+			}
+			triggered_desc = {
+				trigger = {
+					learning > mediocre_skill_rating
+				}
+				desc = task_edify_development_gain
+			}
+			triggered_desc = {
+				trigger = {
+					learning > mediocre_skill_rating
+				}
+				desc = task_edify_levy_gain
+			}
+			triggered_desc = {
+				trigger = {
+					learning < high_skill_rating
+				}
+				desc = task_edify_resistance_to_edify
+			}
+			triggered_desc = {
+				trigger = {
+					learning < high_skill_rating
+				}
+				desc = task_edify_opinion_loss
+			}
+		}
+	}
+
+	progress = {
+		value = 0
+		#Base edify speed
+		add = {
+			value = court_chaplain_edify_base
+			desc = COURT_CHAPLAIN_PROGRESS_BASE
+		}
+		add = {
+			value = scope:councillor.court_chaplain_edify_monthly_increase
+			desc = SCALED_COUNCILLOR_LEARNING_VALUE
+		}
+		#Fervor of Court Chaplain's Faith
+		if = {
+			limit = { # Conditional in order to not mess up the preview-tooltip
+				exists = scope:county
+				exists = scope:councillor.faith	
+				exists = scope:county.faith
+			}
+			add = {
+				add = {
+					add = scope:councillor.court_chaplain_progress_percentage
+					multiply = scope:councillor.faith.fervor
+					multiply = convert_faith_fervor_modifier_scale
+				}
+				subtract = {
+					add = scope:councillor.court_chaplain_progress_percentage
+					multiply = scope:county.faith.fervor
+					multiply = convert_faith_fervor_modifier_scale
+				}
+				if = {
+					limit = {
+						scope:councillor_liege = { has_perk = religious_icon_perk }
+					}
+					min = 0
+				}
+				desc = COURT_CHAPLAIN_EDIFY_FERVOR_IMPACT
+			}
+		}
+		add = court_chaplain_conversion_contextual_bonuses
+		
+		# Development reduces the speed. Should be the last non-multiply modifier applied to avoid negative values
+		if = {
+			limit = {
+				exists = scope:county
+				scope:county = {
+					development_level > 0
+				}
+			}
+			add = {
+				value = scope:county.convert_faith_development_penalty
+				desc = STEWARD_PROMOTE_CULTURE_DEVELOPMENT_PENALTY
+			}
+		}
+		
+		if = {
+			limit = {
+				scope:councillor.faith = {
+					has_doctrine_parameter = unreformed
+				}
+			}
+			multiply = {
+				value = conversion_unreformed_faith_penalty
+				desc = COURT_CHAPLAIN_CONVERSION_UNREFORMED_FAITH_PENALTY
+			}
+		}
+		
+		# edify speed game rules
+		if = {
+			limit = {
+				has_game_rule = slower_faith_conversion_speed
+			}
+			multiply = {
+				value = slower_game_rule_value
+				desc = GAME_RULE_SLOWER_REASON
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = significantly_slower_faith_conversion_speed
+			}
+			multiply = {
+				value = significantly_slower_game_rule_value
+				desc = GAME_RULE_SIGNIFICANTLY_SLOWER_REASON
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = faster_faith_conversion_speed
+			}
+			multiply = {
+				value = faster_game_rule_value
+				desc = GAME_RULE_FASTER_REASON
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = significantly_faster_faith_conversion_speed
+			}
+			multiply = {
+				value = significantly_faster_game_rule_value
+				desc = GAME_RULE_SIGNIFICANTLY_FASTER_REASON
+			}
+		}
+	}
+
+	potential_county = {
+		scope:county.holder = {
+			in_diplomatic_range = scope:councillor_liege
+		}
+		scope:county = {
+			NOT = { faith = scope:councillor.faith }
+			OR = {
+				geographical_region = world_huabei
+				geographical_region = world_sandong
+			}
+			trigger_if = {
+				limit = {
+					scope:councillor_liege = { has_variable = hold_court_8120_religion_block }
+				}
+				custom_tooltip = {
+					text = hold_court_8120_conversion_tt
+					NOT = { faith = scope:councillor_liege.var:hold_court_8120_religion_block }
+				}
+			}
+			custom_description = {
+				text = "is_protected_via_contract_self_or_liege"
+				subject = holder
+				NAND = { # Vassal Contract forbids meddling by liege
+					exists = holder.liege
+					holder = {
+						OR = {
+							AND = {
+								liege = scope:councillor_liege
+								is_ruler = yes
+								has_government = feudal_government 
+								is_independent_ruler = no
+								vassal_contract_has_flag = religiously_protected
+							}
+							any_liege_or_above = {
+								exists = liege
+								liege = scope:councillor_liege
+								is_ruler = yes
+								has_government = feudal_government 
+								is_independent_ruler = no
+								vassal_contract_has_flag = religiously_protected
+							}
+						}
+					}
+				}
+			}
+			trigger_if = { # Unreformed Pagans do not tend to even try edify of non-unreformed faiths unless zealous
+				limit = {
+					scope:councillor_liege = {
+						is_ai = yes
+						faith = {
+							has_doctrine = unreformed_faith_doctrine
+						}
+					}
+				}
+				OR = {
+					scope:councillor_liege = { ai_zeal >= 50 }
+					scope:county.faith = { has_doctrine = unreformed_faith_doctrine }
+					scope:county = { # Always convert holy sites
+						any_county_province = {
+							barony = {
+								is_holy_site_of = scope:councillor_liege.faith
+							}
+						}
+					}
+				}
+			}
+			trigger_if = { # Do not convert Righteous faiths, unless disturbingly zealous
+				limit = {
+					scope:councillor_liege = {
+						is_ai = yes
+						faith = {
+							faith_hostility_level = {
+								target = scope:county.faith
+								value <= faith_fully_accepted_level
+							}
+						}
+					}
+				}
+				OR = {
+					scope:councillor_liege = { ai_zeal >= 100 }
+					scope:county = { # Always convert holy sites
+						any_county_province = {
+							barony = {
+								is_holy_site_of = scope:councillor_liege.faith
+							}
+						}
+					}
+				}
+			}
+			trigger_if = { # Converting Astray faiths only happens during certain circumstances
+				limit = {
+					scope:councillor_liege = {
+						is_ai = yes
+						faith = {
+							faith_hostility_level = {
+								target = scope:county.faith
+								value <= faith_astray_level
+							}
+						}
+					}
+				}
+				trigger_if = {
+					limit = {
+						scope:councillor_liege = {
+							has_tolerant_faith_or_culture_trigger = yes
+						}
+					}
+					OR = {
+						scope:councillor_liege = { ai_zeal >= 50 }
+						scope:county = { county_opinion <= -20 }
+						scope:county = { # Always convert holy sites
+							any_county_province = {
+								barony = {
+									is_holy_site_of = scope:councillor_liege.faith
+								}
+							}
+						}
+					}
+				}
+				trigger_else_if = {
+					limit = {
+						scope:councillor_liege = {
+							faith = { has_doctrine = doctrine_pluralism_fundamentalist }
+						}
+					}
+					OR = {
+						scope:councillor_liege = { ai_zeal >= 0 }
+						scope:county = { county_opinion <= -10 }
+						scope:county = { # Always convert holy sites
+							any_county_province = {
+								barony = {
+									is_holy_site_of = scope:councillor_liege.faith
+								}
+							}
+						}
+					}
+				}
+				trigger_else = {
+					OR = {
+						scope:councillor_liege = { ai_zeal >= 10 }
+						scope:county = { county_opinion <= -15 }
+						scope:county = { # Always convert holy sites
+							any_county_province = {
+								barony = {
+									is_holy_site_of = scope:councillor_liege.faith
+								}
+							}
+						}
+					}
+				}
+			}
+			trigger_if = { # If a ruler has Jizya tax, they'll only convert the same *religious family* when ai_zeal is really high, they're converting unreformed pagans, counties in a kingdom with a Holy Site, or others of the same religion
+				limit = {
+					scope:councillor_liege = {
+						is_ai = yes
+						faith = {
+							has_doctrine = tenet_tax_nonbelievers
+						}
+					}
+					OR = {
+						AND = {
+							scope:councillor_liege.religion = { is_in_family = rf_pagan }
+							scope:county.religion = { is_in_family = rf_pagan }
+						}
+						AND = {
+							scope:councillor_liege.religion = { is_in_family = rf_eastern }
+							scope:county.religion = { is_in_family = rf_eastern }
+						}
+						AND = {
+							scope:councillor_liege.religion = { is_in_family = rf_abrahamic }
+							scope:county.religion = { is_in_family = rf_abrahamic }
+						}
+					}
+				}
+				OR = {
+					scope:councillor_liege = { ai_zeal >= 50 }
+					scope:county.faith = { has_doctrine = unreformed_faith_doctrine }
+					scope:councillor_liege.faith = {
+						any_holy_site = {
+							county = {
+								kingdom = scope:county.kingdom
+							}
+						}
+					}
+					scope:county.religion = scope:councillor_liege.religion
+					AND = { # Islamic heartlands, to help fend off encroaching faiths
+						scope:councillor_liege.religion = religion:islam_religion
+						scope:county.title_province = {
+							OR = {
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_finish_task_county = {
+		trigger_event = {
+			on_action = task_edify_effect
+		}
+	}
+
+	monthly_on_action = task_edify_side_effects
+
+	ai_will_do = {
+		value = 1000 # Always convert if possible
+
+		if = { #독실한 주군은 자신의 종교를 계속 퍼트리려고 할 것
+			limit = {
+				scope:liege = { has_trait = zealous }
+			}
+			add = 500
+		}
+
+		if = {	#Unless you're a crypto-religionist.
+			limit = {
+				scope:councillor_liege = { has_variable = false_convert }
+			}
+			multiply = 0
+		}
+	}
+}
+
+task_edifying_peasants = {
+	position = councillor_court_chaplain
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	is_shown = {
+		has_government = chinese_bureaucracy_government
+	}
+
+	council_owner_modifier = {
+		name = court_chaplain_edifying_peasants_modifier
+		monthly_county_control_change_add = 0.1
+		scale = court_chaplain_edifying_peasants_total_scale
+	}
+
+	monthly_on_action = task_edifying_peasants_side_effects
+
+	ai_will_do = {
+		value = 500
+	}
+}
+
+task_academic_research = {
+	default_task = yes
+	position = councillor_court_chaplain
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	is_shown = {
+		has_government = chinese_bureaucracy_government
+	}
+
+	council_owner_modifier = {
+		name = task_academic_research_modifier
+		cultural_head_fascination_mult = 0.1
+		scale = court_chaplain_academic_research_total_scale
+	}
+
+	monthly_on_action = task_academic_research_side_effects
+
+	ai_will_do = {
+		value = 400
+	}
+}
+
+task_advising_default = {
+	position = councillor_court_chaplain
+
+	is_shown = {
+		has_government = chinese_bureaucracy_government
+	}
+
+	effect_desc = task_advising_default_effect_desc
+
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	council_owner_modifier = {
+		name = task_advising_default_diplomacy_modifier
+		diplomacy = 1
+		scale = wangshi_task_diplomacy_scale
+	}
+
+	council_owner_modifier = {
+		name = task_advising_default_martial_modifier
+		martial = 1
+		scale = wangshi_task_martial_scale
+	}
+
+	council_owner_modifier = {
+		name = task_advising_default_stewardship_modifier
+		stewardship = 1
+		scale = wangshi_task_stewardship_scale
+	}
+
+	council_owner_modifier = {
+		name = task_advising_default_intrigue_modifier
+		intrigue = 1
+		scale = wangshi_task_intrigue_scale
+	}
+
+	council_owner_modifier = {
+		name = task_advising_default_learning_modifier
+		learning = 1
+		scale = wangshi_task_learning_scale
+	}
+
+	monthly_on_action = advising_default_on_action
+
+	ai_will_do = {
+		value = 1 # Always a good backup
+	}
+}
+
+task_advising_politics = {
+	position = councillor_court_chaplain
+
+	is_shown = {
+		has_government = chinese_bureaucracy_government
+	}
+
+	skill = diplomacy
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = task_court_politics_effect_desc
+
+	council_owner_modifier = {
+		name = task_advising_politics_modifier
+		diplomacy = 1
+		scale = wangshi_task_advising_politics_scale
+	}
+
+	monthly_on_action = advising_politics_setup
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				diplomacy >  very_high_skill_rating
+			}
+			add = 1
+		}
+		else_if = {
+			limit = {
+				diplomacy >  high_skill_rating
+			}
+			add =  0.5
+		}
+
+		if = { # Keep doing it once it is started
+			limit = {
+				is_performing_council_task = task_advising_politics
+			}
+			add = 1000
+		}
+
+		scope:councillor_liege = {
+			if = {
+				limit = {
+					diplomacy <  decent_skill_rating
+				}
+				multiply = 3
+			}
+			else_if = {
+				limit = {
+					diplomacy <  medium_skill_rating
+				}
+				multiply =  2
+			}
+		}
+	}
+}
+
+task_advising_strategies = {
+	position = councillor_court_chaplain
+
+	is_shown = {
+		has_government = chinese_bureaucracy_government
+	}
+
+	skill = martial
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = task_advising_strategies_effect_desc
+
+	council_owner_modifier = {
+		name = task_advising_strategies_modifier
+		martial = 1
+		scale = wangshi_task_advising_strategies_scale
+	}
+
+	monthly_on_action = advising_strategies_setup
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				martial >  very_high_skill_rating
+			}
+			add = 1
+		}
+		else_if = {
+			limit = {
+				martial >  high_skill_rating
+			}
+			add =  0.5
+		}
+
+		if = { # Keep doing it once it is started
+			limit = {
+				is_performing_council_task = task_advising_strategies
+			}
+			add = 1000
+		}
+
+		scope:councillor_liege = {
+			if = {
+				limit = {
+					martial <  decent_skill_rating
+				}
+				multiply = 3
+			}
+			else_if = {
+				limit = {
+					martial <  medium_skill_rating
+				}
+				multiply =  2
+			}
+		}
+	}
+}
+
+task_advising_economics = {
+	position = councillor_court_chaplain
+
+	is_shown = {
+		has_government = chinese_bureaucracy_government
+	}
+
+	skill = stewardship
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = task_advising_economics_effect_desc
+
+	council_owner_modifier = {
+		name = task_advising_economics_modifier
+		stewardship = 1
+		scale = wangshi_task_advising_economics_scale
+	}
+
+	monthly_on_action = advising_economics_setup
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				stewardship >  very_high_skill_rating
+			}
+			add = 1
+		}
+		else_if = {
+			limit = {
+				stewardship >  high_skill_rating
+			}
+			add =  0.5
+		}
+
+		if = { # Keep doing it once it is started
+			limit = {
+				is_performing_council_task = task_advising_economics
+			}
+			add = 1000
+		}
+
+		scope:councillor_liege = {
+			if = {
+				limit = {
+					stewardship <  decent_skill_rating
+				}
+				multiply = 3
+			}
+			else_if = {
+				limit = {
+					stewardship <  medium_skill_rating
+				}
+				multiply =  2
+			}
+		}
+	}
+}
+
+task_advising_conspiracy = {
+	position = councillor_court_chaplain
+
+	is_shown = {
+		has_government = chinese_bureaucracy_government
+	}
+
+	skill = intrigue
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = task_advising_conspiracy_effect_desc
+
+	council_owner_modifier = {
+		name = task_advising_conspiracy_modifier
+		intrigue = 1
+		scale = wangshi_task_advising_conspiracy_scale
+	}
+
+	monthly_on_action = advising_conspiracy_setup
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				intrigue >  very_high_skill_rating
+			}
+			add = 1
+		}
+		else_if = {
+			limit = {
+				intrigue >  high_skill_rating
+			}
+			add =  0.5
+		}
+
+		if = { # Keep doing it once it is started
+			limit = {
+				is_performing_council_task = task_advising_conspiracy
+			}
+			add = 1000
+		}
+
+		scope:councillor_liege = {
+			if = {
+				limit = {
+					intrigue <  decent_skill_rating
+				}
+				multiply = 3
+			}
+			else_if = {
+				limit = {
+					intrigue <  medium_skill_rating
+				}
+				multiply =  2
+			}
+		}
+	}
+}
+
+task_advising_academics = {
+	position = councillor_court_chaplain
+
+	is_shown = {
+		has_government = chinese_bureaucracy_government
+	}
+
+	skill = learning
+	task_type = task_type_general
+	task_progress = task_progress_infinite
+
+	effect_desc = task_advising_academics_effect_desc
+
+	council_owner_modifier = {
+		name = task_advising_academics_modifier
+		learning = 1
+		scale = wangshi_task_advising_academics_scale
+	}
+
+	monthly_on_action = advising_academics_setup
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				learning >  very_high_skill_rating
+			}
+			add = 1
+		}
+		else_if = {
+			limit = {
+				learning >  high_skill_rating
+			}
+			add =  0.5
+		}
+
+		if = { # Keep doing it once it is started
+			limit = {
+				is_performing_council_task = task_advising_academics
+			}
+			add = 1000
+		}
+
+		scope:councillor_liege = {
+			if = {
+				limit = {
+					learning <  decent_skill_rating
+				}
+				multiply = 3
+			}
+			else_if = {
+				limit = {
+					learning <  medium_skill_rating
+				}
+				multiply =  2
+			}
+		}
+	}
+}

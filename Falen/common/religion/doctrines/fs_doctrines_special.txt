@@ -369,3 +369,37 @@ path_divided = {
 		}
 	}
 }
+
+mission_priority = {
+	group = "main_group"
+	is_shown = {
+		has_innovation = baijiazhengming
+	}
+	is_available_on_create = {
+		has_innovation = baijiazhengming
+	}
+	special_doctrine_priority_on_upper_class = {
+		can_pick = {
+			OR = {
+				has_innovation = baijiazhengming
+				flag:special_doctrine_priority_on_upper_class = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+	special_doctrine_no_priority = {
+		can_pick = {
+			OR = {
+				has_innovation = baijiazhengming
+				flag:special_doctrine_no_priority = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+	special_doctrine_priority_on_lower_class = {
+		can_pick = {
+			OR = {
+				has_innovation = baijiazhengming
+				flag:special_doctrine_priority_on_lower_class = { is_in_list = selected_doctrines }
+			}
+		}
+	}
+}

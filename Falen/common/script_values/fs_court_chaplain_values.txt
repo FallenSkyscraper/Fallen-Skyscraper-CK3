@@ -1404,8 +1404,145 @@ court_chaplain_conversion_total_value = {
 	}
 }
 
+court_chaplain_edify_base = {
+	add = 0.5
+}
 
+court_chaplain_edify_monthly_increase = {
+	add = learning
+	divide = 10
+}
 
+court_chaplain_edify_base_total = {
+	add = court_chaplain_edify_base
+	add = court_chaplain_edify_monthly_increase
+}
+
+court_chaplain_edifying_peasants_total_scale = {
+	add = learning
+	multiply = learning
+	divide = 100
+	floor = yes
+	min = 1
+}
+
+court_chaplain_academic_research_total_scale = {
+	add = learning
+	multiply = learning
+	divide = 144
+	floor = yes
+	min = 1
+}
+
+wangshi_task_diplomacy_scale = {
+	add = diplomacy
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	divide = 6
+}
+
+wangshi_task_martial_scale = {
+	add = martial
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	divide = 6
+}
+
+wangshi_task_stewardship_scale = {
+	add = stewardship
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	divide = 6
+}
+
+wangshi_task_intrigue_scale = {
+	add = intrigue
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	divide = 6
+}
+
+wangshi_task_learning_scale = {
+	add = learning
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	divide = 4
+}
+
+task_advising_politics = {
+	add = diplomacy
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	divide =3
+}
+
+task_advising_strategies = {
+	add = martial
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	divide = 3
+}
+
+task_advising_economics = {
+	add = stewardship
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	divide = 3
+}
+
+task_advising_conspiracy = {
+	add = intrigue
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	divide = 3
+}
+
+task_advising_academics = {
+	add = learning
+	if = {
+		limit = {
+			scope:councillor_liege = { has_perk = loyalty_and_respect_perk }
+		}
+		multiply = 1.25
+	}
+	divide = 2
+}
 ##### Learn on the Job Skill bonus for Liege
 court_chaplain_learn_on_the_job_scale = {
 	value = 0

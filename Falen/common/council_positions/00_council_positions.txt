@@ -290,6 +290,19 @@ councillor_court_chaplain = {
 		scale = council_scaled_monthly_income
 	}
 
+	if = {
+		limit = {
+			NOT = { 
+				scope:councillor_liege.faith = scope:councillor.faith
+			}
+		}
+		modifier = {
+			name = councillor_court_chaplain_different_faith_modifier
+			monthly_piety = -2
+			scale = council_scaled_monthly_income
+		}
+	}
+
 	council_owner_modifier = {
 		name = learn_on_the_job_modifier
 		learning = 1

@@ -64,7 +64,15 @@
 	
 	selection_count = 25
 	
-	pool = faith
+	if = {
+		limit = {
+			NOT = { has_government = chinese_bureaucracy_government }
+		}
+		pool = faith
+	}
+	else = {
+		pool = heritage
+	}
 	gender = clergy
 }
 
