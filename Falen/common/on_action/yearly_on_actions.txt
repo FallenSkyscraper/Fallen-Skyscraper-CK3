@@ -1,30 +1,5 @@
 ﻿# Called every Jan 1st
 # Root does not exist
-yearly_global_pulse = {
-	effect = {
-		change_global_variable = { name = election_term subtract = 1 }
-		
-		if = {
-			limit = {
-				global_var:election_term = { compare_value < 0 }
-			}
-			trigger_event = {
-				id = joson_election.1
-				days = 3
-			}
-		}
-		if = {
-			limit = {
-				current_date >= 2666.1.1
-				current_date < 2667.1.1
-			}	
-			trigger_event = {
-				id = kor_rise.0001
-				days = { 2 240 }
-			}
-		}
-	}
-}
 
 # Called from code once a year for "playable" (count+) characters.
 # Root is the character
