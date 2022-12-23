@@ -1164,6 +1164,132 @@ empire_feudal_seoul = {
 	governments = { feudal_government }
 	heritages = { heritage_seoul }
 }
+
+baron_clan_male_andong = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 9
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+baron_clan_female_andong = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 9
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+barony_clan_andong = {
+	type = title
+	tier = barony
+	priority = 9
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+count_clan_male_andong = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 20
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+count_clan_female_andong = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 20
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+county_clan_andong = {
+	type = title
+	tier = county
+	priority = 20
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+duke_clan_male_andong = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 40
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+duke_clan_female_andong = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 40
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+duchy_clan_andong = {
+	type = title
+	tier = duchy
+	priority = 40
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+king_clan_male_andong = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 100
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+king_clan_female_andong = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 100
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+kingdom_clan_andong = {
+	type = title
+	tier = kingdom
+	priority = 100
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+emperor_clan_male_andong = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+emperor_clan_female_andong = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+empire_clan_andong = {
+	type = title
+	tier = empire
+	priority = 150
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
  #############################################
  # Default titles by Government. This list should always be below any custom localization that is tied to specific culturess/religion.
  #Default Feudal tiers
@@ -1671,21 +1797,21 @@ baron_clan_male = {
 	gender = male
 	special = holder
 	tier = barony
-	priority = 6
+	priority = 4
 	governments = { clan_government }
 }
-baron_clan_female = {
+baron_clan_male_andong = {
 	type = character
 	gender = female
 	special = holder
 	tier = barony
-	priority = 6
+	priority = 4
 	governments = { clan_government }
 }
 barony_clan = {
 	type = title
 	tier = barony
-	priority = 6
+	priority = 4
 	governments = { clan_government }
 }
 count_clan_male = {
@@ -1693,21 +1819,21 @@ count_clan_male = {
 	gender = male
 	special = holder
 	tier = county
-	priority = 16
+	priority = 14
 	governments = { clan_government }
 }
-count_clan_female = {
+count_clan_male_andong = {
 	type = character
 	gender = female
 	special = holder
 	tier = county
-	priority = 16
+	priority = 14
 	governments = { clan_government }
 }
 county_clan = {
 	type = title
 	tier = county
-	priority = 16
+	priority = 14
 	governments = { clan_government }
 }
 duke_clan_male = {
@@ -1715,21 +1841,21 @@ duke_clan_male = {
 	gender = male
 	special = holder
 	tier = duchy
-	priority = 26
+	priority = 24
 	governments = { clan_government }
 }
-duke_clan_female = {
+duke_clan_male_andong = {
 	type = character
 	gender = female
 	special = holder
 	tier = duchy
-	priority = 26
+	priority = 24
 	governments = { clan_government }
 }
 duchy_clan = {
 	type = title
 	tier = duchy
-	priority = 26
+	priority = 24
 	governments = { clan_government }
 }
 king_clan_male = {
@@ -1737,21 +1863,21 @@ king_clan_male = {
 	gender = male
 	special = holder
 	tier = kingdom
-	priority = 46
+	priority = 42
 	governments = { clan_government }
 }
-king_clan_female = {
+king_clan_male_andong = {
 	type = character
 	gender = female
 	special = holder
 	tier = kingdom
-	priority = 46
+	priority = 42
 	governments = { clan_government }
 }
 kingdom_clan = {
 	type = title
 	tier = kingdom
-	priority = 46
+	priority = 42
 	governments = { clan_government }
 }
 emperor_clan_male = {
@@ -1762,7 +1888,7 @@ emperor_clan_male = {
 	priority = 101
 	governments = { clan_government }
 }
-emperor_clan_female = {
+emperor_clan_male_andong = {
 	type = character
 	gender = female
 	special = holder
