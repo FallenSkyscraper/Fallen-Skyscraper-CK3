@@ -343,8 +343,9 @@ nomadic_authority = {
 	
 	nomadic_authority_1 = {
 		modifier = {
-			vassal_tax_mult = -0.2
-			vassal_levy_contribution_mult = -0.2
+			vassal_tax_mult = 0.1
+			direct_vassal_opinion = -10
+			vassal_levy_contribution_mult = 0.1
 			domain_limit = -5
 			feudal_government_vassal_opinion = 5
 			clan_government_vassal_opinion = 5
@@ -405,11 +406,11 @@ nomadic_authority = {
 	nomadic_authority_2 = {
 		modifier = {
 			direct_vassal_opinion = -10
-			vassal_tax_mult = -0.1
-			vassal_levy_contribution_mult = -0.1
-			domain_limit = -10
-			feudal_government_vassal_opinion = 10
-			republic_government_vassal_opinion = 10
+			vassal_tax_mult = 0.1
+			vassal_levy_contribution_mult = 0.1
+			domain_limit = -5
+			feudal_government_vassal_opinion = 5
+			republic_government_vassal_opinion = 5
 			domain_tax_mult = 0.2
 		}
 		flag = title_revocation_allowed
@@ -464,11 +465,13 @@ nomadic_authority = {
 	
 	nomadic_authority_3 = {
 		modifier = {
-			direct_vassal_opinion = -20
-			domain_limit = -15
-			feudal_government_vassal_opinion = 15
-			clan_government_vassal_opinion = 10
-			republic_government_vassal_opinion = 15
+			direct_vassal_opinion = -10
+			domain_limit = -5
+			vassal_tax_mult = 0.1
+			vassal_levy_contribution_mult = 0.1
+			feudal_government_vassal_opinion = 5
+			clan_government_vassal_opinion = 5
+			republic_government_vassal_opinion = 5
 			domain_tax_mult = 0.3
 		}
 		flag = title_revocation_allowed
