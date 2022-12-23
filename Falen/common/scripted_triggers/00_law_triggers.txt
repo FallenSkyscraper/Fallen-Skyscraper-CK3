@@ -56,10 +56,25 @@ has_partition_succession_realm_law_trigger = {
 }
 
 realm_law_use_crown_authority = {
-	NOR = { 
-		has_government = tribal_government
-		has_government = manchu_tribal_government
-		has_government = nomadic_government
+	AND = {
+		realm_law_use_nomadic_authority = no
+		realm_law_use_tribal_authority = no
+	}
+}
+
+realm_law_use_nomadic_authority = {
+	AND = {
+		OR = {
+			has_government = nomadic_government
+			has_government = manchu_tribal_government
+		}
+	}
+}
+
+realm_law_use_tribal_authority = {
+	AND = {
+		realm_law_use_nomadic_authority = no
+	has_government = tribal_government
 	}
 }
 
@@ -371,18 +386,3 @@ title_can_reduce_partition_law_trigger = {
 	}
 }
 
-realm_law_use_nomadic_authority = {
-	NOR = {
-		realm_law_use_crown_authority = yes
-		realm_law_use_tribal_authority = yes
-		has_government = tribal_government
-	}
-}
-
-realm_law_use_tribal_authority = {
-	NOR = {
-		realm_law_use_crown_authority = yes
-		realm_law_use_nomadic_authority = yes
-		has_government = nomadic_government
-	}
-}
