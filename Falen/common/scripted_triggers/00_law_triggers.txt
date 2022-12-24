@@ -74,7 +74,10 @@ realm_law_use_nomadic_authority = {
 realm_law_use_tribal_authority = {
 	AND = {
 		realm_law_use_nomadic_authority = no
-	has_government = tribal_government
+		OR = {
+			has_government = tribal_government
+			has_government = manchu_tribal_government
+		}
 	}
 }
 

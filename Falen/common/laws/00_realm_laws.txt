@@ -326,6 +326,8 @@ tribal_authority = {
 	}
 }
 
+#유목정
+
 nomadic_authority = {
 	default = nomadic_authority_0
 	cumulative = yes
@@ -336,7 +338,6 @@ nomadic_authority = {
 			direct_vassal_opinion = 10
 			vassal_tax_mult = -0.3
 			vassal_levy_contribution_mult = -0.3
-			domain_tax_mult = -0.8
 		}
 
 		can_keep = { realm_law_use_nomadic_authority = yes }
@@ -413,7 +414,7 @@ nomadic_authority = {
 			domain_limit = -5
 			feudal_government_vassal_opinion = 5
 			republic_government_vassal_opinion = 5
-			domain_tax_mult = 0.2
+			domain_tax_mult = 0.1
 		}
 		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
@@ -474,7 +475,7 @@ nomadic_authority = {
 			feudal_government_vassal_opinion = 5
 			clan_government_vassal_opinion = 5
 			republic_government_vassal_opinion = 5
-			domain_tax_mult = 0.3
+			domain_tax_mult = 0.2
 		}
 		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
@@ -509,3 +510,6 @@ nomadic_authority = {
 		}
 	}
 }
+
+#과두 공화제
+
