@@ -511,5 +511,158 @@ nomadic_authority = {
 	}
 }
 
-#과두 공화제
+#군정
 
+military_authority = {
+	default = military_authority_1
+	flag = realm_law
+	
+	military_authority_0 = {
+		modifier = {
+			knight_effectiveness_mult = 0.5
+			knight_limit = 2
+			controlled_province_advantage = -3
+			movement_speed = 0.15
+		}
+
+		can_keep = { realm_law_use_military_authority = yes }
+		
+		can_pass = {
+			custom_description = {
+				text = "has_crown_authority_cooldown"
+				NOT = { has_variable = crown_authority_cooldown }
+			}
+		}
+		
+		pass_cost = {
+			prestige = {
+				increase_crown_authority_prestige_cost
+			}
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+
+			ai_value_modifier = {
+				ai_impatient = 1
+			}
+		}
+	}
+	
+	military_authority_1 = {
+		modifier = {
+			men_at_arms_recruitment_cost = -0.25
+			levy_size = -0.15
+			army_maintenance_mult = -0.15
+		}
+
+		can_keep = { realm_law_use_military_authority = yes }
+		
+		can_pass = {
+			custom_description = {
+				text = "has_crown_authority_cooldown"
+				NOT = { has_variable = crown_authority_cooldown }
+			}
+		}
+		
+		pass_cost = {
+			prestige = {
+				increase_crown_authority_prestige_cost
+			}
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			ai_value_modifier = {
+				ai_brave = 1
+			}
+		}
+	}
+	
+	military_authority_2 = {
+		modifier = {
+			monthly_war_income_mult = 0.1
+			monthly_county_control_change_add = 0.1
+		}
+
+		can_keep = { realm_law_use_military_authority = yes }
+		
+		can_pass = {
+			custom_description = {
+				text = "has_crown_authority_cooldown"
+				NOT = { has_variable = crown_authority_cooldown }
+			}
+		}
+		
+		pass_cost = {
+			prestige = {
+				increase_crown_authority_prestige_cost
+			}
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			ai_value_modifier = {
+				ai_greedy = 1
+			}
+		}
+	}
+	
+	military_authority_3 = {
+		modifier = {
+			levy_reinforcement_rate_friendly_territory = 0.5
+			army_maintenance_mult = -0.15
+			garrison_size = 0.2
+		}
+		
+		can_keep = { realm_law_use_military_authority = yes }
+		
+		can_pass = {
+			custom_description = {
+				text = "has_crown_authority_cooldown"
+				NOT = { has_variable = crown_authority_cooldown }
+			}
+		}
+		
+		pass_cost = {
+			prestige = {
+				increase_crown_authority_prestige_cost
+			}
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			ai_value_modifier = {
+				ai_callous = 1
+			}
+		}
+	}
+}
