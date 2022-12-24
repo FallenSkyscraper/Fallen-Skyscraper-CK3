@@ -1342,6 +1342,19 @@ conversion_holy_site_cordoba = {
 	}
 }
 
+conversion_holy_site_wonsan = {
+	value = 0
+	if = {
+		limit = {
+			scope:councillor.faith = {
+				controls_holy_site = wonsan_default
+			}
+		}
+		add = court_chaplain_conversion_base_total
+		multiply = 0.1
+	}
+}
+
 ### Various trait bonuses
 conversion_savior_liege = {
 	if = {
