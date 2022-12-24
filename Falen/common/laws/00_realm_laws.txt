@@ -515,10 +515,44 @@ nomadic_authority = {
 #군정
 
 military_authority = {
-	default = military_authority_3
+	default = military_authority_0
 	flag = realm_law
-	
+
 	military_authority_0 = {
+		modifier = {
+			men_at_arms_recruitment_cost = -0.25
+			levy_size = -0.15
+			army_maintenance_mult = -0.15
+		}
+
+		can_keep = { realm_law_use_military_authority = yes }
+		
+		can_pass = {
+			custom_description = {
+				text = "has_military_authority_cooldown"
+				NOT = { has_variable = military_authority_cooldown }
+			}
+		}
+		
+		pass_cost = {
+			prestige = increase_crown_authority_prestige_cost
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = military_authority_cooldown
+				years = @military_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			ai_value_modifier = {
+				ai_brave = 1
+			}
+		}
+	}
+
+	military_authority_1 = {
 		modifier = {
 			knight_effectiveness_mult = 0.5
 			knight_limit = 2
@@ -536,9 +570,7 @@ military_authority = {
 		}
 		
 		pass_cost = {
-			prestige = {
-				increase_crown_authority_prestige_cost
-			}
+			prestige = increase_crown_authority_prestige_cost
 		}
 		
 		on_pass = {
@@ -549,49 +581,13 @@ military_authority = {
 		}
 
 		ai_will_do = {
-			base = 0
 			ai_value_modifier = {
 				ai_impatient = 1
 			}
 		}
 	}
 	
-	military_authority_1 = {
-		modifier = {
-			men_at_arms_recruitment_cost = -0.25
-			levy_size = -0.15
-			army_maintenance_mult = -0.15
-		}
-
-		can_keep = { realm_law_use_military_authority = yes }
-		
-		can_pass = {
-			custom_description = {
-				text = "has_military_authority_cooldown"
-				NOT = { has_variable = military_authority_cooldown }
-			}
-		}
-		
-		pass_cost = {
-			prestige = {
-				increase_crown_authority_prestige_cost
-			}
-		}
-		
-		on_pass = {
-			set_variable = {
-				name = military_authority_cooldown
-				years = @military_authority_cooldown_years
-			}
-		}
-
-		ai_will_do = {
-			base = 0
-			ai_value_modifier = {
-				ai_brave = 1
-			}
-		}
-	}
+	
 	
 	military_authority_2 = {
 		modifier = {
@@ -609,9 +605,7 @@ military_authority = {
 		}
 		
 		pass_cost = {
-			prestige = {
-				increase_crown_authority_prestige_cost
-			}
+			prestige = increase_crown_authority_prestige_cost
 		}
 		
 		on_pass = {
@@ -622,7 +616,6 @@ military_authority = {
 		}
 
 		ai_will_do = {
-			base = 0
 			ai_value_modifier = {
 				ai_greedy = 1
 			}
@@ -646,9 +639,7 @@ military_authority = {
 		}
 		
 		pass_cost = {
-			prestige = {
-				increase_crown_authority_prestige_cost
-			}
+			prestige = increase_crown_authority_prestige_cost
 		}
 		
 		on_pass = {
@@ -659,7 +650,6 @@ military_authority = {
 		}
 
 		ai_will_do = {
-			base = 0
 			ai_value_modifier = {
 				ai_callous = 1
 			}
