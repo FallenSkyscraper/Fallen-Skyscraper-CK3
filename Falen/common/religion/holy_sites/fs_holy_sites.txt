@@ -10,18 +10,6 @@
 
 ###중국###
 ###만주###
-wangching_default_wangkyeong = {
-	county = c_wangching
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
-hwaryong_default = {
-	county = c_hwaryong
-	character_modifier = {
-		monthly_piety_gain_mult = 0.2
-	}
-}
 girin_default = {
 	county = c_jirin
 	character_modifier = {
@@ -32,7 +20,8 @@ girin_default = {
 harbin_default = {
 	county = c_harbin
 	character_modifier = {
-		knight_effectiveness_mult = 0.2
+		prowess = 1
+		supply_duration = 0.25
 	}
 }
 liaoyang_default = {
@@ -46,7 +35,7 @@ liaoyang_default = {
 vladivostok_default = {
 	county = c_vladivostok
 	character_modifier = {
-		martial = 2
+		stewardship = 1
 	}
 }
 usurisk_default = {
@@ -58,7 +47,6 @@ usurisk_default = {
 arsenyev_default = {
 	county = c_arsenyev
 	character_modifier = {
-		learning_per_piety_level = 1
 		monthly_piety_gain_mult = 0.1
 	}
 }
@@ -89,13 +77,13 @@ anju_default = {
 cheolsan_default = {
 	county = c_cheolsan
 	character_modifier = {
-
+		martial = 1
 	}
 }
 maan_default = {
 	county = c_maan
 	character_modifier = {
-		
+		monthly_piety_gain_mult = 0.2
 	}
 }
 
@@ -119,12 +107,13 @@ najin_aoji_default = {
 wonsan_default = {
 	county = c_wonsan
 	character_modifier = {
-		stewardship_per_prestige_level = 1
+		#영지 개종 속도 +10%
 	}
 }
 hamheung_default = {
 	county = c_hamheung
 	character_modifier = {
+		knight_effectiveness_mult = 0.2
 	}
 }
 ###황해###
@@ -219,6 +208,7 @@ mapo_default = {
 pyeongtaek_default = {
 	county = c_pyeongtaek
 	character_modifier = {
+		monthly_piety_gain_mult = 0.2
 	}
 }
 ansan_default = {
@@ -240,6 +230,12 @@ yeoncheon_default = {
 	character_modifier = {
 		monthly_piety_gain_mult = 0.05
 		learning = 1
+	}
+}
+suwon_default = {
+	county = c_suwon
+	character_modifier = {
+		diplomacy = 1
 	}
 }
 ###충청###
@@ -269,6 +265,12 @@ daejeon_default = {
 	character_modifier = {
 		cultural_head_fascination_mult = 0.2
 		development_growth_factor = 0.1
+	}
+}
+gongju_default = {
+	county = c_gongju
+	character_modifier = {
+		stewardship = 1
 	}
 }
 ###경상북###
@@ -646,14 +648,22 @@ dunhwa_tengri_dongmosan = {
 yuseong_mech_kaist = {
 	county = c_yuseong
 	character_modifier = {
-		learning_per_piety_level = 2
-		development_growth_factor = 0.2
+		learning = 1
 	}
 }
-###러시아 정교회###
-gapyeong_rusorth_spasskiymonastyr = {
-	county = c_gapyeong
+
+pohang_mech_postech = {
+	county = c_pohang
+	barony = b_963
 	character_modifier = {
+		learning = 1
+	}
+}
+###정교회###
+usurisk_orth_nahutka = {
+	county = c_usurisk
+	character_modifier = {
+		embarkation_cost_mult = -0.2
 	}
 }
 ###도교###
