@@ -112,7 +112,9 @@ imperial_council.0041 = {
 			add_doctrine = doctrine_pluralism_fundamentalist
 		}
 		every_player = {
-			faith = faith:imperial_church
+			limit = {
+				faith = faith:imperial_church
+			}
 			trigger_event = {
 				id =  imperial_council.0051
 				days = 2
@@ -142,7 +144,9 @@ imperial_council.0042 = {
 			add_doctrine = doctrine_pluralism_righteous
 		}
 		every_player = {
-			faith = faith:imperial_church
+			limit = {
+				faith = faith:imperial_church
+			}
 			trigger_event = {
 				id =  imperial_council.0052
 				days = 2
@@ -172,7 +176,9 @@ imperial_council.0043 = {
 			add_doctrine = doctrine_pluralism_pluralistic
 		}
 		every_player = {
-			faith = faith:imperial_church
+			limit = {
+				faith = faith:imperial_church
+			}
 			trigger_event = {
 				id =  imperial_council.0053
 				days = 2
