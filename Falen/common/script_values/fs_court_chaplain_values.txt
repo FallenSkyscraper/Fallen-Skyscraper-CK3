@@ -778,6 +778,21 @@ court_chaplain_conversion_contextual_bonuses = {
 			desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_VISOKI
 		}
 	}
+	if = {
+		limit = {
+			exists = scope:county
+			scope:county.faith = {
+				controls_holy_site = wonsan
+			}
+			title:c_wonsan = {
+				is_holy_site_of = scope:councillor.faith
+			}
+		}
+		add = {
+			value = scope:councillor.conversion_holy_site_wonsan
+			desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_WONSAN
+		}
+	}
 
 	#Tradition modifiers
 	if = {
