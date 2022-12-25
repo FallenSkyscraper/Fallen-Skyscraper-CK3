@@ -53,8 +53,26 @@ imperial_council_start_on_action ={
 # Called from code once every three years for "playable" (count+) characters.
 # Root is the character
 three_year_playable_pulse = {
+	on_actions = {
+		protestant_event_on_action
+	}
+}
+
+protestant_event_on_action ={
+	trigger = {
+		faith = {
+			religion_tag = protestant_religion
+		}
+	}
 	random_events = {
-		800 = 0
+		10 = 0
+		50 = protestant_event.0101
+		50 = protestant_event.0201
+		300 = protestant_event.0301
+		50 = protestant_event.0401
+		50 = protestant_event.0501
+		50 = protestant_event.0601
+		50 = protestant_event.0701
 	}
 }
 

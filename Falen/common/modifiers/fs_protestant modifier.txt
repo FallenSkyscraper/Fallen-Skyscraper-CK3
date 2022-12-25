@@ -1,0 +1,56 @@
+defence_offering_modifier = {
+	icon = martial_positive
+	men_at_arms_maintenance = -0.15
+	county_opinion_add = -5
+}
+
+constructure_offering_modifier = {
+	icon = county_modifier_development_positive
+	build_gold_cost	= -0.15
+	county_opinion_add = -5
+}
+prayer_in_tongues = {
+	icon = piety_positive
+	diplomacy = -12
+	learning_per_piety_level = 3
+	monthly_piety_gain_mult = 0.3
+}
+jesus_military_advice = {
+	icon = martial_positive
+	martial = 12
+}
+medium_donation = {
+	icon = diplomacy_positive
+	general_opinion = 10
+}
+minor_donation = {
+	icon = diplomacy_positive
+	general_opinion = 5
+}
+pros_preaching = {
+	icon = diplomacy_positive
+	same_faith_opinion = 10
+}
+cons_preaching = {
+	icon = diplomacy_negative
+	opinion_of_same_faith = -10
+}
+cons_jesa = {
+	icon = piety_positive
+	clergy_opinion = 10
+	monthly_piety = 0.5
+}
+pros_jesa = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 10
+	monthly_prestige = 0.5
+}
+holy_communion = {
+	icon = piety_positive
+	stress_loss_mult = 0.2
+}
+justified_cannibalism = {
+	icon = piety_positive
+	stress_gain_mult = -0.5
+	stress_loss_mult = 0.5
+}
