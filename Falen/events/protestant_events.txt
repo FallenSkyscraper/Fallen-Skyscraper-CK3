@@ -1,0 +1,380 @@
+namespace = protestant_event
+
+protestant_event.0101 = {
+	type = character_event
+	hidden = yes
+	immediate = {
+		trigger_event = {
+			id = protestant_event.0102
+			days = { 59 300 }
+		}
+	}
+}
+
+protestant_event.0102 = {
+	type = character_event
+	title = protestant_event.0102.t
+	desc = protestant_event.0102.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	option = {
+		name = protestant_event.0102.a
+		add_character_modifier = {
+			modifier = defence_offering_modifier
+			years = 5
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = protestant_event.0102.b
+		add_character_modifier = {
+			modifier = constructure_offering_modifier
+			years = 5
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+	option = {
+		name = protestant_event.0102.c
+		add_piety = 250
+		ai_chance = {
+			base = 30
+		}
+	}	
+	option = {
+		trigger = {
+			has_trait = greedy
+		}
+		name = protestant_event.0101.greedy
+		add_gold = 120
+		ai_chance = {
+		base = 100
+		}
+	}	
+}
+
+protestant_event.0201 = {
+	type = character_event
+	hidden = yes
+	trigger = {
+		NOT = {
+			has_character_modifier = prayer_in_tongues
+		}
+	}
+	immediate = {
+		trigger_event = {
+			id = protestant_event.0202
+			days = { 10 150 }
+		}
+	}
+}
+
+protestant_event.0202 = {
+	type = character_event
+	title = protestant_event.0202.t
+	desc = protestant_event.0202.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	option = {
+		name = protestant_event.0202.a
+		add_piety = 150
+		ai_chance = {
+			base = 40
+		}
+	}
+	option = {
+		name = protestant_event.0202.b
+		add_piety = -50
+		add_prestige = 150
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = protestant_event.0202.c
+		add_character_modifier = {
+			modifier = prayer_in_tongues
+			years = 60
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+protestant_event.0301 = {
+	type = character_event
+	title = protestant_event.0301.t
+	desc = protestant_event.0301.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	trigger = {
+		has_character_modifier = prayer_in_tongues
+	}
+	option = {
+		name = protestant_event.0301.a
+		custom_tooltip = protestant_event.0301.a.tt
+		add_character_modifier = {
+			modifier = jesus_military_advice
+			years = 10
+		}
+		ai_chance = {
+			base = 100
+	}
+}
+
+protestant_event.0401 = {
+	type = character_event
+	hidden = yes
+	immediate = {
+		trigger_event = {
+			id = protestant_event.0402
+			days = { 10 100 }
+		}
+	}
+}
+
+protestant_event.0402 = {
+	type = character_event
+	title = protestant_event.0402.t
+	desc = protestant_event.0402.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	option = {
+		name = protestant_event.0402.a
+		add_piety = 150
+		remove_short_term_gold = medium_gold_value
+		add_character_modifier = {
+			modifier = medium_donation
+			years = 5
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+	option = {
+		name = protestant_event.0402.b
+		add_piety = 75
+		remove_short_term_gold = minor_gold_value
+		add_character_modifier = {
+			modifier = minor_donation
+			years = 5
+		}
+		ai_chance = {
+			base = 60
+		}
+	}
+	option = {
+		name = protestant_event.0402.c
+		ai_chance = {
+			base = 20
+		}
+	}
+}
+
+protestant_event.0501 = {
+    type = character_event
+	hidden = yes
+	immediate = {
+		trigger_event = {
+			id = protestant_event.0502
+			days = { 10 150 }
+		}
+	}
+}
+
+protestant_event.0502 = {
+    type = character_event
+	title = protestant_event.0502.t
+	desc = protestant_event.0502.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	option = {
+		name = protestant_event.0502.a
+		random_list = {
+			60 = {
+				compare_modifier = {
+					value = learning
+					multiplier = 4
+				}
+				desc = protestant_event.0502.a.a
+				custom_tooltip = protestant_event.0502.a.a.tt
+				trigger_event = {
+					id = protestant_event.0503
+					days = { 3 7 }
+				}
+			}
+			40 = {
+				desc = protestant_event.0502.a.b
+				custom_tooltip = protestant_event.0502.a.b.tt
+				trigger_event = {
+					id = protestant_event.0504
+					days = { 3 7 }
+				}
+			}
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = protestant_event.0502.b
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+protestant_event.0503 = {
+    type = character_event
+	title = protestant_event.0503.t
+	desc = protestant_event.0503.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	option = {
+		name = protestant_event.0503.a
+		add_character_modifier = {
+			modifier = pros_preaching
+			years = 5
+		}
+	}
+}
+
+protestant_event.0504 = {
+    type = character_event
+	title = protestant_event.0504.t
+	desc = protestant_event.0504.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	option = {
+		name = protestant_event.0504.a
+		add_character_modifier = {
+			modifier = cons_preaching
+			years = 5
+		}
+	}
+}
+
+protestant_event.0601 = {
+    type = character_event
+	hidden = yes
+	immediate = {
+		trigger_event = {
+			id = protestant_event.0602
+			days = { 50 200 }
+		}
+	}
+}
+
+protestant_event.0602 = {
+    type = character_event
+	title = protestant_event.0602.t
+	desc = protestant_event.0602.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	option = {
+		name = protestant_event.0602.a
+		add_character_modifier = {
+			modifier = cons_jesa
+			years = 5
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = protestant_event.0602.b
+		add_character_modifier = {
+			modifier = pros_jesa
+			years = 5
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+protestant_event.0701 = {
+    type = character_event
+	hidden = yes
+	immediate = {
+		trigger_event = {
+			id = protestant_event.0702
+			days = { 50 200 }
+		}
+	}
+}
+
+protestant_event.0702 = {
+    type = character_event
+	title = protestant_event.0702.t
+	desc = protestant_event.0702.desc
+	theme = faith
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	option = {
+		name = protestant_event.0702.a
+		stress_impact = {
+			cynical = medium_stress_impact_gain
+		}
+		add_character_modifier = {
+			modifier = holy_communion
+			years = 5
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = protestant_event.0702.b
+		add_stress = medium_stress_loss
+		stress_impact = {
+			cynical = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = protestant_event.0702.c
+		trigger = {
+			has_trait = cannibal
+		}
+		add_character_modifier = {
+			modifier = justified_cannibalism
+			years = 20
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
