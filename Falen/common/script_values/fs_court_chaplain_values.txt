@@ -782,7 +782,7 @@ court_chaplain_conversion_contextual_bonuses = {
 		limit = {
 			exists = scope:county
 			scope:county.faith = {
-				controls_holy_site = wonsan
+				controls_holy_site = wonsan_default
 			}
 			title:c_wonsan = {
 				is_holy_site_of = scope:councillor.faith
