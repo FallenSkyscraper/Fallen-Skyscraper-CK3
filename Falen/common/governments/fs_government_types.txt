@@ -84,9 +84,12 @@ maritime_government = {
 	
 	
 	character_modifier = {
-		army_maintenance_mult = -0.5
-		development_growth = -5
-	
+		army_maintenance_mult = -0.33
+		development_growth_factor = -0.5
+		monthly_income_mult = 0.2
+		levy_size = 0.15
+		county_opinion_add = -10
+		dread_baseline_add = 10
 		ai_war_chance = 1.5
 	}	
 	
