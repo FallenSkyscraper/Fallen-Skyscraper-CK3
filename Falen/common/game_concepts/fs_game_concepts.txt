@@ -12,59 +12,68 @@ manchu_tribal = {
     parent = government
     alias = { manchu_tribal_government }
 }
+military_authority = {
+    texture = "gfx/interface/icons/message_feed/law.dds"
+    parent = law
+}
 
+military_authority_0 = {
+    parent = military_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
+    alias = { fire_supremacy }
+    parent = law
+}
+
+military_authority_1 = {
+    parent = military_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
+    alias = { mobile_warfare }
+    parent = law
+}
+
+military_authority_2 = {
+    parent = military_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
+    alias = { grand_stratagy }
+    parent = law
+}
+
+military_authority_3 = {
+    parent = military_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
+    alias = { grand_assault }
+    parent = law
+}
 nomadic_authority = {
+    texture = "gfx/interface/icons/message_feed/law.dds"
     parent = law
 }
 
 nomadic_authority_0 = {
     parent = nomadic_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
     alias = { nomadic_authority_0 }
     parent = law
 }
 
 nomadic_authority_1 = {
     parent = nomadic_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
     alias = { nomadic_authority_1 }
     parent = law
 }
 
 nomadic_authority_2 = {
     parent = nomadic_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
     alias = { nomadic_authority_2 }
     parent = law
 }
 
 nomadic_authority_3 = {
     parent = nomadic_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
     alias = { nomadic_authority_3 }
     parent = law
 }
 
-military_authority = {
-    parent = law
-}
-
-military_authority_0 = {
-    parent = military_authority
-    alias = { military_authority_0 }
-    parent = law
-}
-
-military_authority_1 = {
-    parent = military_authority
-    alias = { military_authority_1 }
-    parent = law
-}
-
-military_authority_2 = {
-    parent = military_authority
-    alias = { military_authority_2 }
-    parent = law
-}
-
-military_authority_3 = {
-    parent = military_authority
-    alias = { military_authority_3 }
-    parent = law
-}

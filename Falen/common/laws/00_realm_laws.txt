@@ -515,7 +515,8 @@ nomadic_authority = {
 #군정
 
 military_authority = {
-	default = military_authority_0
+	default = military_authority_3
+	cumulative = no
 	flag = realm_law
 
 	military_authority_0 = {
@@ -529,6 +530,7 @@ military_authority = {
 		
 		can_pass = {
 			custom_description = {
+				subject = root
 				text = "has_military_authority_cooldown"
 				NOT = { has_variable = military_authority_cooldown }
 			}
@@ -564,6 +566,7 @@ military_authority = {
 		
 		can_pass = {
 			custom_description = {
+				subject = root
 				text = "has_military_authority_cooldown"
 				NOT = { has_variable = military_authority_cooldown }
 			}
@@ -586,8 +589,7 @@ military_authority = {
 			}
 		}
 	}
-	
-	
+		
 	
 	military_authority_2 = {
 		modifier = {
@@ -599,6 +601,7 @@ military_authority = {
 		
 		can_pass = {
 			custom_description = {
+				subject = root
 				text = "has_military_authority_cooldown"
 				NOT = { has_variable = military_authority_cooldown }
 			}
@@ -633,6 +636,7 @@ military_authority = {
 		
 		can_pass = {
 			custom_description = {
+				subject = root
 				text = "has_military_authority_cooldown"
 				NOT = { has_variable = military_authority_cooldown }
 			}
