@@ -85,6 +85,11 @@ change_gov_fedual_military = {
 		trigger_event = {
 			id = change_gov.decisions.0003
 		}
+		hidden_effect = { remove_all_realm_laws_effect = yes }
+		if = {
+			limit = { NOT = { has_realm_law = military_authority_0 } }
+			add_realm_law_skip_effects = military_authority_0
+		}
 	}
 	cost = { gold = 150 prestige = 300 }
 	ai_will_do = {
@@ -154,10 +159,11 @@ change_gov_nomadic_tribal = {
 		trigger_event = {
 			id = change_gov.decisions.0005
 		}
+		change_government = tribal_government
 		hidden_effect = { remove_all_realm_laws_effect = yes }
-		convert_realm_to_general_government_effect = {
-			GOVERNMENT_TYPE = tribal_government
-			INITIAL_REALM_LAW = tribal_authority_0
+		if = {
+			limit = { NOT = { has_realm_law = tribal_authority_0 } }
+			add_realm_law_skip_effects = tribal_authority_0
 		}
 	}
 	cost = { gold = 150 prestige = 300 }
