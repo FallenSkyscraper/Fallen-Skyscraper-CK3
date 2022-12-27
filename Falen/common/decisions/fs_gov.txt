@@ -60,3 +60,108 @@ change_gov_republic_fedual = {
 		base = 1
 	}
 }
+change_gov_fedual_military = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	ai_check_interval = 60
+
+
+	desc = change_gov_fedual_military_desc
+	selection_tooltip = change_gov_fedual_military_tooltip
+	major = yes
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+		has_government = fedual_goverment
+	}
+	is_valid = {
+		prestige_level > 3
+		has_realm_law = crown_authority_4
+	}
+	effect = {
+		change_government = military_government
+		trigger_event = {
+			id = change_gov.decisions.0003
+		}
+	}
+	cost = { gold = 150 prestige = 300 }
+	ai_will_do = {
+		base = 0
+	}
+}
+change_gov_military_fedual = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	ai_check_interval = 60
+
+
+	desc = change_gov_military_fedual_desc
+	selection_tooltip = change_gov_military_fedual_tooltip
+	major = yes
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+		has_government = military_goverment
+	}
+	is_valid = {
+		prestige_level > 3
+		OR = {
+			has_realm_law = crown_authority_2
+			has_realm_law = crown_authority_3
+		}
+	}
+	effect = {
+		change_government = fedual_government
+		trigger_event = {
+			id = change_gov.decisions.0004
+		}
+	}
+	cost = { gold = 150 prestige = 300 }
+	ai_will_do = {
+		base = 0
+	}
+}
+change_gov_nomadic_tribal = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	ai_check_interval = 60
+
+
+	desc = change_gov_nomadic_tribal_desc
+	selection_tooltip = change_gov_nomadic_tribal_tooltip
+	major = yes
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+		has_government = nomadic_goverment
+	}
+	is_valid = {
+		prestige_level > 3
+		has_realm_law = nomadic_authority_3
+		OR = {
+			capital_province = { has_holding_type = castle_holding }
+			capital_province.county = { development_level > 5 }
+		}
+	}
+	effect = {
+		change_government = tribal_government
+		trigger_event = {
+			id = change_gov.decisions.0005
+		}
+		hidden_effect = { remove_all_realm_laws_effect = yes }
+		convert_realm_to_general_government_effect = {
+			GOVERNMENT_TYPE = tribal_government
+			INITIAL_REALM_LAW = tribal_authority_0
+		}
+	}
+	cost = { gold = 150 prestige = 300 }
+	ai_will_do = {
+		base = 10
+	}
+}
