@@ -1,10 +1,10 @@
-change_gov_fedual_republic = {
+change_gov_feudal_republic = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	ai_check_interval = 60
 
 
-	desc = change_gov_fedual_republic_desc
-	selection_tooltip = change_gov_fedual_republic_tooltip
+	desc = change_gov_feudal_republic_desc
+	selection_tooltip = change_gov_feudal_republic_tooltip
 	major = yes
 
 	is_shown = {
@@ -12,7 +12,7 @@ change_gov_fedual_republic = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = fedual_goverment
+		has_government = feudal_goverment
 	}
 	is_valid = {
 		prestige_level >= 2
@@ -29,13 +29,13 @@ change_gov_fedual_republic = {
 		base = 0
 	}
 }
-change_gov_republic_fedual = {
+change_gov_republic_feudal = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	ai_check_interval = 60
 
 
-	desc = change_gov_republic_fedual_desc
-	selection_tooltip = change_gov_republic_fedual_tooltip
+	desc = change_gov_republic_feudal_desc
+	selection_tooltip = change_gov_republic_feudal_tooltip
 	major = yes
 
 	is_shown = {
@@ -50,7 +50,7 @@ change_gov_republic_fedual = {
 		has_realm_law = crown_authority_3
 	}
 	effect = {
-		change_government = fedual_government
+		change_government = feudal_government
 		trigger_event = {
 			id = change_gov.decisions.0002
 		}
@@ -60,13 +60,13 @@ change_gov_republic_fedual = {
 		base = 1
 	}
 }
-change_gov_fedual_military = {
+change_gov_feudal_military = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	ai_check_interval = 60
 
 
-	desc = change_gov_fedual_military_desc
-	selection_tooltip = change_gov_fedual_military_tooltip
+	desc = change_gov_feudal_military_desc
+	selection_tooltip = change_gov_feudal_military_tooltip
 	major = yes
 
 	is_shown = {
@@ -74,7 +74,7 @@ change_gov_fedual_military = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = fedual_government
+		has_government = feudal_government
 	}
 	is_valid = {
 		prestige_level >= 4
@@ -96,13 +96,13 @@ change_gov_fedual_military = {
 		base = 0
 	}
 }
-change_gov_military_fedual = {
+change_gov_military_feudal = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	ai_check_interval = 60
 
 
-	desc = change_gov_military_fedual_desc
-	selection_tooltip = change_gov_military_fedual_tooltip
+	desc = change_gov_military_feudal_desc
+	selection_tooltip = change_gov_military_feudal_tooltip
 	major = yes
 
 	is_shown = {
@@ -120,7 +120,7 @@ change_gov_military_fedual = {
 		}
 	}
 	effect = {
-		change_government = fedual_government
+		change_government = feudal_government
 		trigger_event = {
 			id = change_gov.decisions.0004
 		}
