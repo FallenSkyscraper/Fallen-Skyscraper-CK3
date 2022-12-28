@@ -691,15 +691,15 @@ court_chaplain_conversion_contextual_bonuses = {
 	if = {
 		limit = {
 			scope:councillor.faith = {
-				controls_holy_site = jerusalem
+				controls_holy_site = wonsan_default
 			}
-			title:b_jerusalem = {
+			title:b_1900 = {
 				is_holy_site_of = scope:councillor.faith
 			}
 		}
 		add = {
 			value = scope:councillor.conversion_holy_site_jerusalem
-			desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_JERUSALEM
+			desc = COURT_CHAPLAIN_CONVERSION_HOLY_SITE_WONSAN
 		}
 	}
 	if = {
@@ -784,7 +784,7 @@ court_chaplain_conversion_contextual_bonuses = {
 			scope:county.faith = {
 				controls_holy_site = wonsan_default
 			}
-			title:c_wonsan = {
+			title:b_1900 = { #원산
 				is_holy_site_of = scope:councillor.faith
 			}
 		}
@@ -1284,7 +1284,7 @@ conversion_holy_site_jerusalem = {
 	if = {
 		limit = {
 			scope:councillor.faith = {
-				controls_holy_site = jerusalem
+				controls_holy_site = wonsan_default
 			}
 		}
 		add = court_chaplain_conversion_base_total
@@ -1366,7 +1366,7 @@ conversion_holy_site_wonsan = {
 			}
 		}
 		add = court_chaplain_conversion_base_total
-		multiply = 0.1
+		multiply = 0.10
 	}
 }
 
