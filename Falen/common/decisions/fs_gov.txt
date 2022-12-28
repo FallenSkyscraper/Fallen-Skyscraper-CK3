@@ -50,7 +50,7 @@ change_gov_republic_fedual = {
 		has_realm_law = crown_authority_3
 	}
 	effect = {
-		change_government = fedual_goverment
+		change_government = fedual_government
 		trigger_event = {
 			id = change_gov.decisions.0002
 		}
@@ -74,7 +74,7 @@ change_gov_fedual_military = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = fedual_goverment
+		has_government = fedual_government
 	}
 	is_valid = {
 		prestige_level > 3
@@ -110,7 +110,7 @@ change_gov_military_fedual = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = military_goverment
+		has_government = military_government
 	}
 	is_valid = {
 		prestige_level > 3
@@ -144,7 +144,7 @@ change_gov_nomadic_tribal = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = nomadic_goverment
+		has_government = nomadic_government
 	}
 	is_valid = {
 		prestige_level > 3
