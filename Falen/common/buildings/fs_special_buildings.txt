@@ -1,1 +1,24 @@
-﻿
+﻿#염전(신안,여수,인천)
+
+salt_farm_00 = {
+    type_icon = "icon_building_salt_farm.dds"
+
+    construction_time = 300
+
+    cost_gold = 125
+
+    can_construct_potential = {
+        scope:holder.culture = {
+            culture =  sinan
+        }
+    }
+
+    province_modifier = {
+        monthly_income = 3
+    }
+
+    county_modifier = {
+        county_opinion_add = -5
+    }
+
+}

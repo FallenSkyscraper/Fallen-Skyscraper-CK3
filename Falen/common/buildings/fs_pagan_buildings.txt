@@ -1,0 +1,250 @@
+#신목
+divine_tree_00 = {
+type_icon = "icon_building_divine_tree.dds"
+
+    construction_time = 300
+
+    cost_gold = 80
+
+    is_enabled = {
+        building_requirement_tribal = yes
+    }
+
+    can_construct_potential = {
+        scope:holder.faith = {
+            faith = faith:naturalism_pagan
+        }
+    }
+
+    province_modifier = {
+        monthly_piety = 0.5
+    }
+    county_modifier = {
+        county_opinion_add = 2
+    }
+
+    next_building = divine_tree_01
+
+}
+
+divine_tree_01 = {
+type_icon = "icon_building_divine_tree.dds"
+
+    construction_time = 480
+
+    cost_gold = 140
+
+    is_enabled = {
+        building_requirement_tribal = yes
+    }
+
+    can_construct_potential = {
+        scope:holder.faith = {
+            faith = faith:naturalism_pagan
+        }
+    }
+
+    province_modifier = {
+        monthly_piety = 1
+    }
+    county_modifier = {
+        county_opinion_add = 4
+    }
+
+    next_building = divine_tree_02
+
+}
+
+divine_tree_02 = {
+type_icon = "icon_building_divine_tree.dds"
+
+    construction_time = 620
+
+    cost_gold = 185
+
+    is_enabled = {
+        building_requirement_tribal = yes
+    }
+
+    can_construct_potential = {
+        scope:holder.faith = {
+            faith = faith:naturalism_pagan
+        }
+    }
+
+    province_modifier = {
+        monthly_piety = 2
+    }
+    county_modifier = {
+        county_opinion_add = 6
+    }
+
+    next_building = divine_tree_03
+
+}
+
+divine_tree_03 = {
+type_icon = "icon_building_divine_tree.dds"
+
+    construction_time = 1000
+
+    cost_gold = 240
+
+    is_enabled = {
+        building_requirement_tribal = yes
+    }
+
+    can_construct_potential = {
+        scope:holder.faith = {
+            faith = faith:naturalism_pagan
+        }
+    }
+
+    province_modifier = {
+        monthly_piety = 3
+    }
+    county_modifier = {
+        county_opinion_add = 10
+    }
+
+}
+
+#움집
+
+umjib_00 = {
+    type_icon = "icon_building_imjib.dds"
+
+    construction_time = 100
+
+    cost_gold = 60
+
+    is_enabled = {
+        building_requirement_tribal = yes
+    }
+
+    can_construct_potential = {
+        scope:holder.faith = {
+            faith = faith:naturalism_pagan
+        }
+    }
+
+    province_modifer = {
+        mothly_income = 1
+    }
+
+    next_building = umjib_01
+
+}
+
+umjib_01 = {
+    type_icon = "icon_building_imjib.dds"
+
+    construction_time = 175
+
+    cost_gold = 85
+
+    can_construct_potential = {
+        scope:holder.faith = {
+            faith = faith:naturalism_pagan
+        }
+    }
+
+    province_modifer = {
+        mothly_income = 1.5
+    }
+
+    next_building = umjib_02
+
+}
+
+umjib_02 = {
+    type_icon = "icon_building_imjib.dds"
+
+    construction_time = 350
+
+    cost_gold = 155
+
+    can_construct_potential = {
+        scope:holder.faith = {
+            faith = faith:naturalism_pagan
+        }
+    }
+
+    province_modifer = {
+        mothly_income = 2.5
+    }
+
+    levy = 100
+
+    next_building = umjib_03
+
+}
+
+umjib_03 = {
+    type_icon = "icon_building_imjib.dds"
+
+    construction_time = 580
+
+    cost_gold = 200
+
+    can_construct_potential = {
+        scope:holder.faith = {
+            faith = faith:naturalism_pagan
+        }
+    }
+
+    province_modifer = {
+        mothly_income = 4
+    }
+
+    levy = 170
+
+    next_building = umjib_04
+
+}
+
+umjib_04 = {
+    type_icon = "icon_building_imjib.dds"
+
+    construction_time = 1020
+
+    cost_gold = 280
+
+    can_construct_potential = {
+        scope:holder.faith = {
+            faith = faith:naturalism_pagan
+        }
+    }
+
+    province_modifer = {
+        mothly_income = 6
+        development_growth_factor = 0.5
+    }
+
+    levy = 350
+
+}
+
+#토성
+
+earthen_castle_00 = {
+    type_icon = "icon_building_earthen_castle.dds"
+
+    construction_time = 130
+
+    cost_gold = 85
+
+    can_construct_potential = {
+        scope:holder.faith = {
+            faith = faith:naturalism_pagan
+        }
+    }
+
+    province_modifer = {
+        mothly_income = -0.5
+        fort_level = 1
+    }
+
+    garisson = 100
+
+}
