@@ -12,7 +12,7 @@ change_gov_feudal_republic = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = feudal_goverment
+		has_government = feudal_government
 	}
 	is_valid = {
 		prestige_level >= 2
@@ -114,8 +114,8 @@ change_gov_military_feudal = {
 	}
 	is_valid = {
 		prestige_level >= 4
-		OR = {
-			has_realm_law = crown_authority_2
+		NOR = {
+			has_realm_law = crown_authority_0
 			has_realm_law = crown_authority_3
 		}
 	}
