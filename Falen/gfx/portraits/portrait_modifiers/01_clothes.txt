@@ -18,10 +18,169 @@ clothes = {
         weight = {
             base = 0
             modifier = {
-                add = 100
-                should_be_naked_trigger = yes
+                add = 1000
+                should_be_fully_naked_portrait_trigger = yes
+            }
+            modifier = {
+                add = 1000
+                should_be_topless_portrait_trigger = yes
+            }
+            modifier = {
+            	add = -1000
+            	should_show_nudity = no
             }
         }
+    }
+
+	nightgown_western = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = western_sickness
+				range = { 0 1 } # For the randomness to work correctly
+			}
+			morph = {
+				mode = modify_multiply
+				gene = gene_bs_bust
+				value = 0.8 # Setting this lower to reduce the exaggerated effect of large bust size when wearing clothes
+				template = bust_clothes
+			}
+
+		}
+		outfit_tags = { no_clothes nightgown }
+		weight = {
+			base = 0
+			modifier = {
+				add = 110
+				should_show_nudity = no
+				should_be_naked_trigger = yes
+			}
+			modifier = {
+            	add = -1000
+            	should_show_nudity = yes
+            }
+            modifier = {
+            	add = -50
+				portrait_byzantine_clothing_trigger = no
+				portrait_northern_clothing_trigger = no
+				portrait_western_clothing_trigger = no
+            }
+		}
+	}
+
+	nightgown_mena = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = mena_sickness
+				range = { 0 1 } # For the randomness to work correctly
+			}
+			morph = {
+				mode = modify_multiply
+				gene = gene_bs_bust
+				value = 0.8 # Setting this lower to reduce the exaggerated effect of large bust size when wearing clothes
+				template = bust_clothes
+			}
+
+		}	
+		outfit_tags = { no_clothes nightgown }
+		weight = {
+			base = 0
+			modifier = {
+				add = 110
+				should_show_nudity = no
+				should_be_naked_trigger = yes
+			}
+			modifier = {
+            	add = -1000
+            	should_show_nudity = yes
+            }
+            modifier = {
+				add = 1100
+				exists = this
+				has_character_modifier = vow_of_poverty_modifier
+			}
+            modifier = {
+            	add = -50
+				portrait_mena_clothing_trigger = no
+				portrait_indian_clothing_trigger = no
+				portrait_steppe_clothing_trigger = no
+				portrait_african_clothing_trigger = no
+            }
+		}
+	}
+
+    poverty_robes_western = {
+    	dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = western_sickness
+				range = { 0 1 } # For the randomness to work correctly
+			}
+			morph = {
+				mode = modify_multiply
+				gene = gene_bs_bust
+				value = 0.8 # Setting this lower to reduce the exaggerated effect of large bust size when wearing clothes
+				template = bust_clothes
+			}
+
+		}
+		weight = {
+			base = 0
+			# Boring clothes for characters with an active Vow of Poverty
+			modifier = {
+				add = 100
+				exists = this
+				has_character_modifier = vow_of_poverty_modifier
+				# Should still wear armor when going to war
+				NOT = { portrait_wear_armor_trigger = yes }
+			}
+			modifier = {
+            	add = -50
+				portrait_byzantine_clothing_trigger = no
+				portrait_northern_clothing_trigger = no
+				portrait_western_clothing_trigger = no
+            }
+		}
+    }
+
+    poverty_robes_mena = {
+    	dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = clothes
+				template = mena_sickness
+				range = { 0 1 } # For the randomness to work correctly
+			}
+			morph = {
+				mode = modify_multiply
+				gene = gene_bs_bust
+				value = 0.8 # Setting this lower to reduce the exaggerated effect of large bust size when wearing clothes
+				template = bust_clothes
+			}
+
+		}
+		weight = {
+			base = 0
+			# Boring clothes for characters with an active Vow of Poverty
+			modifier = {
+				add = 100
+				exists = this
+				has_character_modifier = vow_of_poverty_modifier
+				# Should still wear armor when going to war
+				NOT = { portrait_wear_armor_trigger = yes }
+			}
+			modifier = {
+            	add = -50
+				portrait_mena_clothing_trigger = no
+				portrait_indian_clothing_trigger = no
+				portrait_steppe_clothing_trigger = no
+				portrait_african_clothing_trigger = no
+            }
+		}
     }
 
 	default_clothes = {
