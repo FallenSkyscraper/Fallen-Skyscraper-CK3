@@ -158,7 +158,7 @@ change_gov_nomadic_tribal = {
 		change_government = tribal_government
 		save_scope_as = nomad_liege
 		trigger_event = {
-			id = change_gov.decisions.0005
+			id = change_gov_decisions.0005
 		}
 		change_government = tribal_government
 		hidden_effect = { remove_all_realm_laws_effect = yes }
@@ -166,7 +166,12 @@ change_gov_nomadic_tribal = {
 			limit = { NOT = { has_realm_law = tribal_authority_0 } }
 			add_realm_law_skip_effects = tribal_authority_0
 		}
-		every_vassal = { trigger_event = { id = change_gov.decisions.0006 days = 3 } }
+		every_vassal = { 
+			trigger_event = { 
+			id = change_gov_decisions.0006
+		 	days = 3 
+			} 
+		}
 	}
 	cost = { gold = 150 prestige = 300 }
 	ai_will_do = {
