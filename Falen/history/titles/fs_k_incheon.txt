@@ -85,7 +85,10 @@ c_seokmo = {
 ###인천공화국
 k_uwc = {
     2443.10.3 = {
-        government = oligarchic_republic_government 
+        government = oligarchic_republic_government
+		succession_laws = {
+			feudal_elective_succession_law
+		}
 	    holder = 2
 	}
 }
@@ -112,6 +115,9 @@ c_bucheon = {
 d_gimpo = {
     2443.10.15 = {
 	    government = oligarchic_republic_government
+		succession_laws = {
+			feudal_elective_succession_law
+		}
 	    holder = 3
 		liege = k_uwc
 	}
@@ -138,6 +144,9 @@ c_tongjin = {
 d_yeongjongdo = {
     2443.10.12 = {
 	    government = oligarchic_republic_government
+		succession_laws = {
+			feudal_elective_succession_law
+		}
 	    holder = 4
 		liege = k_uwc
 	}
