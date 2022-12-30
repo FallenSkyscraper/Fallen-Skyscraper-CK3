@@ -332,6 +332,7 @@ gumi_default = {
 seongju_default = {
 	county = c_seongju
 	character_modifier = {
+		learning = 2
 	}
 }
 ###전라###
@@ -387,16 +388,19 @@ gwangju_default = {
 byeonsan_default = {
 	county = c_byeonsan
 	character_modifier = {
+		monthly_piety_gain_mult = 0.1
 	}
 }
 yeonggwang_default_yeongsan = {
 	county = c_yeonggwang
 	character_modifier = {
+		stewardship = 2
 	}
 }
 jinan_default_manduksan = {
 	county = c_jinan
 	character_modifier ={
+		monthly_income_mult = 0.1
 	}
 }
 wando_default = {
@@ -544,6 +548,7 @@ dangjin_iron_dangjinjaechul = {#당진 제철소
 cheongjin_iron_kimchaekjaechul = {#김책 제철소
 	county = c_cheongjin
 	character_modifier = {
+		advantage = 1
 	}
 }
 ###대종교###
@@ -688,33 +693,39 @@ gampo_atomic_wolseong = {
 	county = c_gampo
 	barony = b_919
 	character_modifier = {
+		learning = 2
 	}
 }
 gijang_atomic_gori = {
 	county = c_gijang
 	barony = b_178
 	character_modifier = {
+		monthly_piety_gain_mult = 0.2
 	}
 }
 hongnong_atomic_hanbit = {
 	county = c_hongnong
 	character_modifier = {
+		diplomacy = 1
 	}
 }
 shianjian_atomic_hongyanhe = {
 	county = c_shianjian
 	character_modifier = {
+		diplomacy = 2
 	}
 }
 yeongbyeon_atomic_atomiclab = {
 	county = c_yeongbyeon
 	character_modifier = {
+		dread_baseline_add = 5
 	}
 }
 uljin_atomic_hanul = {
 	county = c_uljin
 	barony = b_2510
 	character_modifier = {
+		monthly_piety_gain_mult = 0.2
 	}
 }
 yuseong_atomic_kstar = {
