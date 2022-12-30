@@ -85,6 +85,22 @@ yalu_civil_war.0003 = {
 			desc = yalu_civil_war.0003.desc
 		}
 	}
+
+	immediate = {
+		title:e_yalu = {
+		create_title_and_vassal_change = {
+			type = usurped
+			save_scope_as = change
+		}
+		change_title_holder_include_vassals ={
+			holder = title:k_liaodong.holder
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	}
+
+
 	option = {
 		trigger = {
 			NOR = {
