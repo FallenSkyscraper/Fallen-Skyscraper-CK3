@@ -240,8 +240,13 @@ can_keep_single_heir_succession_law_trigger = {
 }
 
 can_have_single_heir_succession_law_trigger = {
+	OR = {
+		has_government = military_government
+		has_government = proletarian_government
+		has_government = oligarchic_republic_government
 	culture = {
 		has_innovation = innovation_primogeniture
+	}
 	}
 	# Non-tribals only
 	custom_description = {
@@ -250,8 +255,7 @@ can_have_single_heir_succession_law_trigger = {
 			has_government = feudal_government
 			has_government = clan_government
 #fs_모드의
-			has_government = proletarian_government 
-			has_government = military_government 
+			has_government = proletarian_government  
 			has_government = maritime_government 
 			has_government = secular_republic_government   
 		}
@@ -323,6 +327,9 @@ can_have_single_heir_dynasty_house_trigger = {
 			has_innovation = innovation_heraldry
 		}
 	}
+	trigger_else = {
+		has_government = military_government
+	}
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
@@ -330,7 +337,6 @@ can_have_single_heir_dynasty_house_trigger = {
 			has_government = clan_government
 #fs_모드의
 			has_government = proletarian_government 
-			has_government = military_government 
 			has_government = maritime_government 
 			has_government = secular_republic_government  
 		}
