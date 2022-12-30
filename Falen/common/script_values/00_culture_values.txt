@@ -157,7 +157,6 @@ hybridization_threshold_flat_number_value = 40
 
 hybridization_threshold_value = {
 	value = hybridization_threshold_flat_number_value
-	# Cultural Parameters
 	if = {
 		limit = {
 			root.culture = {
@@ -183,27 +182,6 @@ hybridization_threshold_value = {
 		}
 		multiply = 2
 	}
-	# Struggles
-	if = {
-		limit = {
-			exists = scope:culture
-			root = {
-				OR = {
-					any_character_struggle = {
-						involvement = involved
-						has_struggle_phase_parameter = easier_culture_hybridising_for_involved_and_interlopers
-						is_culture_involved_in_struggle = scope:culture
-					}
-					any_character_struggle = {
-						involvement = interloper
-						has_struggle_phase_parameter = easier_culture_hybridising_for_involved_and_interlopers
-						is_culture_involved_in_struggle = scope:culture
-					}
-				}
-			}
-		}
-		multiply = 0.5
-	}
 	max = 100
 	min = 0
 }
@@ -215,7 +193,6 @@ hybridization_ai_threshold_value = {
 
 culture_divergence_cooldown = {
 	value = 100
-	# Game Rules
 	if = {
 		limit = {
 			has_game_rule = slower_hybrid_and_divergence_cooldowns
@@ -238,7 +215,6 @@ culture_divergence_cooldown = {
 
 culture_hybrid_cooldown = {
 	value = 50
-	# Game Rules
 	if = {
 		limit = {
 			has_game_rule = slower_hybrid_and_divergence_cooldowns
@@ -597,14 +573,14 @@ court_language_ai_score = {
 		else_if = {	#Eastern Faiths
 			limit = {
 				OR = {
-					faith.religion = religion:cheondo_religion
+					faith.religion = religion:hinduism_religion
 					faith.religion = religion:buddhism_religion
-					faith.religion = religion:confucianism_religion
+					faith.religion = religion:jainism_religion
 				}
 				OR = {
-					scope:target.faith.religion = religion:cheondo_religion
+					scope:target.faith.religion = religion:hinduism_religion
 					scope:target.faith.religion = religion:buddhism_religion
-					scope:target.faith.religion = religion:confucianism_religion
+					scope:target.faith.religion = religion:jainism_religion
 				}
 			}
 			add = {
@@ -630,14 +606,14 @@ court_language_ai_score = {
 		else_if = { #Eastern religion matching vs non Eastern religion - CGV Ignored
 			limit = {
 				OR = {
-					faith.religion = religion:cheondo_religion
+					faith.religion = religion:hinduism_religion
 					faith.religion = religion:buddhism_religion
-					faith.religion = religion:confucianism_religion
+					faith.religion = religion:jainism_religion
 				}
 				NOR = {
-					scope:target.faith.religion = religion:cheondo_religion
+					scope:target.faith.religion = religion:hinduism_religion
 					scope:target.faith.religion = religion:buddhism_religion
-					scope:target.faith.religion = religion:confucianism_religion
+					scope:target.faith.religion = religion:jainism_religion
 				}
 			}
 			#Add nothing
@@ -662,56 +638,87 @@ court_language_ai_score = {
 				OR = {
 					#Europe:
 					AND = {
-						capital_province = { geographical_region = world_steppe_manchuria }
-						NOT = { scope:target.capital_province = { geographical_region = world_steppe_manchuria } }
+						capital_province = { geographical_region = world_europe_west_britannia }
+						NOT = { scope:target.capital_province = { geographical_region = world_europe_west_britannia } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_steppe_mongolia }
-						NOT = { scope:target.capital_province = { geographical_region = world_steppe_mongolia } }
+						capital_province = { geographical_region = world_europe_west_germania }
+						NOT = { scope:target.capital_province = { geographical_region = world_europe_west_germania } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_steppe_primorye }
-						NOT = { scope:target.capital_province = { geographical_region = world_steppe_primorye } }
+						capital_province = { geographical_region = world_europe_west_francia }
+						NOT = { scope:target.capital_province = { geographical_region = world_europe_west_francia } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_chungcheong }
-						NOT = { scope:target.capital_province = { geographical_region = world_chungcheong } }
+						capital_province = { geographical_region = world_europe_west_iberia }
+						NOT = { scope:target.capital_province = { geographical_region = world_europe_west_iberia } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_gangwon }
-						NOT = { scope:target.capital_province = { geographical_region = world_gangwon } }
+						capital_province = { geographical_region = world_europe_north }
+						NOT = { scope:target.capital_province = { geographical_region = world_europe_north } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_gyeonggi }
-						NOT = { scope:target.capital_province = { geographical_region = world_gyeonggi } }
+						capital_province = { geographical_region = world_europe_south_east }
+						NOT = { scope:target.capital_province = { geographical_region = world_europe_south_east } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_hwanghae }
-						NOT = { scope:target.capital_province = { geographical_region = world_hwanghae } }
+						capital_province = { geographical_region = world_europe_south_italy }
+						NOT = { scope:target.capital_province = { geographical_region = world_europe_south_italy } }
+					}
+					#South Asia:
+					AND = {
+						capital_province = { geographical_region = world_india_rajastan }
+						scope:target.capital_province = { geographical_region = world_india_rajastan }
 					}
 					AND = {
-						capital_province = { geographical_region = world_gwanbuk }
-						scope:target.capital_province = { geographical_region = world_gwanbuk }
+						capital_province = { geographical_region = world_india_bengal }
+						NOT = { scope:target.capital_province = { geographical_region = world_india_bengal } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_gwanseo }
-						NOT = { scope:target.capital_province = { geographical_region = world_gwanseo } }
+						capital_province = { geographical_region = world_india_deccan }
+						NOT = { scope:target.capital_province = { geographical_region = world_india_deccan } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_honam }
-						NOT = { scope:target.capital_province = { geographical_region = world_honam } }
+						capital_province = { geographical_region = world_burma }
+						NOT = { scope:target.capital_province = { geographical_region = world_burma } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_yeongnam }
-						NOT = { scope:target.capital_province = { geographical_region = world_yeongnam } }
+						capital_province = { geographical_region = world_himalaya }
+						NOT = { scope:target.capital_province = { geographical_region = world_himalaya } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_jeju }
-						NOT = { scope:target.capital_province = { geographical_region = world_jeju } }
+						capital_province = { geographical_region = world_middle_east }
+						NOT = { scope:target.capital_province = { geographical_region = world_middle_east } }
 					}
 					AND = {
-						capital_province = { geographical_region = world_ulleung }
-						NOT = { scope:target.capital_province = { geographical_region = world_ulleung } }
+						capital_province = { geographical_region = world_middle_east_persia }
+						NOT = { scope:target.capital_province = { geographical_region = world_middle_east_persia } }
+					}
+					#Africa
+					AND = {
+						capital_province = { geographical_region = world_africa_north }
+						NOT = { scope:target.capital_province = { geographical_region = world_africa_north } }
+					}
+					AND = {
+						capital_province = { geographical_region = world_africa_west }
+						NOT = { scope:target.capital_province = { geographical_region = world_africa_west } }
+					}
+					AND = {
+						capital_province = { geographical_region = world_africa_east }
+						NOT = { scope:target.capital_province = { geographical_region = world_africa_east } }
+					}
+					#Central Asia
+					AND = {
+						capital_province = { geographical_region = world_steppe_west }
+						NOT = { scope:target.capital_province = { geographical_region = world_steppe_west } }
+					}
+					AND = {
+						capital_province = { geographical_region = world_steppe_east }
+						NOT = { scope:target.capital_province = { geographical_region = world_steppe_east } }
+					}
+					AND = {
+						capital_province = { geographical_region = world_tibet }
+						NOT = { scope:target.capital_province = { geographical_region = world_tibet } }
 					}
 				}
 			}

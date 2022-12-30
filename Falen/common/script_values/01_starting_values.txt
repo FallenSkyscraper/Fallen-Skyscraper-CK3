@@ -126,48 +126,20 @@ starting_culture_acceptance = {
 	# Historical one-time increases to Cultural Acceptance (added on top of the baseline)
 	# Note: List the cultures in the same order as they appear in script in common\culture\cultures.
 	if = {
-		limit = { current_date >= 2444.1.1 } # Changes for the 2444 bookmark
-		#if = {
-		#	limit = { # The Ghaznavids have ruled over Afghan land for a few generations - Let's help them keep it
-		#		this = culture:afghan
-		#		scope:culture = culture:turkish
-		#	}
-		#	add = 25
-		#}
+		limit = { current_date >= 1060.1.1 } # Changes for the 1066 bookmark
 		if = {
-			limit = { # Yalu Rule in Liaodong
-				this = culture:jiaoliao
-				scope:culture = culture:yalu
+			limit = { # The Ghaznavids have ruled over Afghan land for a few generations - Let's help them keep it
+				this = culture:afghan
+				scope:culture = culture:turkish
+			}
+			add = 25
+		}
+		if = {
+			limit = { # The Ghaznavids have ruled over Punjabi land for some time - We don't want them to revolt too quickly
+				this = culture:punjabi
+				scope:culture = culture:turkish
 			}
 			add = 20
-		}
-		if = {
-			limit = { # Yalu Rule in Liaodong
-				this = culture:liaoshen
-				scope:culture = culture:yalu
-			}
-			add = 20
-		}
-		if = {
-			limit = { # Yalu Rule in Liaodong
-				this = culture:chaoxian
-				scope:culture = culture:yalu
-			}
-			add = 20
-		}
-		if = {
-			limit = { # Jo Bochang statesmanship
-				this = culture:jiaoliao
-				scope:culture = culture:pyongyang
-			}
-			add = 15
-		}
-		if = {
-			limit = { # The Americans have ruled Daegu for a long time
-				this = culture:daegu
-				scope:culture = culture:american
-			}
-			add = 40
 		}
 	}
 }
@@ -211,13 +183,6 @@ culture_acceptance_baseline = {
 				desc = ACCEPTANCE_BASELINE_HERITAGE
 			}
 		}
-		else_if = {
-			limit = { has_same_heritage_group_trigger = { TARGET = scope:culture } }
-			add = {
-				value = 10
-				desc = ACCEPTANCE_BASELINE_HERITAGE_GROUP
-			}
-		}
 		# Increase base acceptance for sharing same language
 		if = {
 			limit = {
@@ -226,13 +191,6 @@ culture_acceptance_baseline = {
 			add = {
 				value = 10 # please update CULTURE_PILLAR_TOOLTIP_LANGUAGE_EFFECT if this number changes
 				desc = ACCEPTANCE_BASELINE_LANGUAGE
-			}
-		}
-		else_if = {
-			limit = { has_same_language_group_trigger = { TARGET = scope:culture } }
-			add = {
-				value = 5
-				desc = ACCEPTANCE_BASELINE_LANGUAGE_GROUP
 			}
 		}
 		# Increase base acceptance for sharing the same ethos if cultures are present within the same geographical area
