@@ -1,0 +1,181 @@
+﻿# Culture on actions.
+
+# Happens when a culture is created through hybridization or divergence
+# Root = The new culture
+# scope:founder = The founder of the new culture
+on_culture_created = {
+	effect = {
+		# Set up the parent culture(s) as scope(s).
+		random_parent_culture = { save_scope_as = parent_culture_1 }
+		if = {
+			limit = {
+				any_parent_culture = { count >= 2 }
+			}
+			random_parent_culture = {
+				limit = {
+					NOT = { this = scope:parent_culture_1 }
+				}
+				save_scope_as = parent_culture_2
+			}
+		}
+		every_parent_culture = {
+			limit = { has_same_culture_language = prev }
+			prev = { 
+				set_variable = { name = language_group value = prev.var:language_group }
+
+			}
+		}
+		every_parent_culture = {
+			limit = { has_same_culture_heritage = prev }
+			prev = { 
+				set_variable = { name = heritage_group value = prev.var:heritage_group }
+			}
+		}
+		# General effects
+		new_culture_created_conversion_effect = {
+			CONVERTEE = scope:founder
+			CONVERTER = scope:founder
+			CULTURE = root
+		}
+		if = {
+			limit = {
+				is_hybrid_culture = yes
+			}
+			set_variable = {
+				name = ep1_02_achievement_unlocked
+				value = 1
+			}
+			# Save scopes for toast localization
+			save_scope_as = new_culture
+			random_parent_culture = {
+				save_scope_as = parent_1
+			}
+			random_parent_culture = {
+				limit = { NOT = { this = scope:parent_1 } }
+				save_scope_as = parent_2
+			}
+
+			# Send toast event to all relevant players
+			every_player = {
+				if = {				
+					limit = {
+						culture = {	save_temporary_scope_as = player_culture }
+						root = {
+							# Player culture matches new culture or the parent
+							OR = {
+								this = scope:player_culture
+								any_parent_culture = {
+									this = scope:player_culture
+								}
+							}
+						}
+					}
+					trigger_event = {
+						id = culture_notification.1011
+						days = 0
+					}
+				}
+				else_if = {
+					limit = {
+						in_diplomatic_range = scope:founder
+					}
+					trigger_event = {
+						id = culture_notification.1001
+						days = 0
+					}
+				}
+			}
+			if = {
+				limit = {
+					scope:founder = {
+						has_title = title:k_seoul # FS_placeholder (Originally k_jerusalem )
+						religion = religion:christianity_religion
+						religion = { exists = var:variable_ghw_unlocked }
+					}
+					is_hybrid_culture = yes
+					NOT = {
+						has_innovation = innovation_desert_tactics
+					}
+					any_parent_culture = {
+						has_cultural_pillar = heritage_arabic
+					}
+				}
+				add_innovation = innovation_desert_tactics
+			}
+		}
+		else_if = {
+			limit = {
+				is_divergent_culture = yes
+			}
+			set_variable = {
+				name = ep1_03_achievement_unlocked
+				value = 1
+			}
+			# Save scopes for toast localization
+			save_scope_as = new_culture
+			random_parent_culture = {
+				save_scope_as = parent_1
+			}
+
+			# Send toast event to all relevant players
+			every_player = {
+				if = {				
+					limit = {
+						culture = {	save_temporary_scope_as = player_culture }
+						root = {
+							# Player culture matches new culture or the parent
+							OR = {
+								this = scope:player_culture
+								any_parent_culture = {
+									this = scope:player_culture
+								}
+							}
+						}
+					}
+					trigger_event = {
+						id = culture_notification.1111
+						days = 0
+					}
+				}
+				else_if = {
+					limit = {
+						culture = { save_temporary_scope_as = player_culture }
+						root = {
+							OR = {
+								has_same_culture_heritage = scope:player_culture
+								any_parent_culture = {
+									has_same_culture_heritage = scope:player_culture
+								}
+							}
+						}
+					}
+					trigger_event = {
+						id = culture_notification.1101
+						days = 0
+					}
+				}
+			}
+		}
+		# Struggle Catalysts
+		scope:founder = {
+			if = {
+				limit = {
+					any_character_struggle = {
+						involvement = involved
+						catalyst_hybridise_or_diverge_regional_cultures_preliminary_trigger = yes
+					}
+				}
+				every_character_struggle = {
+					involvement = involved
+					limit = {
+						catalyst_hybridise_or_diverge_regional_cultures_preliminary_trigger = yes
+					}
+					activate_struggle_catalyst = {
+						catalyst = catalyst_hybridise_or_diverge_regional_cultures
+						character = scope:founder
+					}
+				}
+			}
+		}
+	}
+}
