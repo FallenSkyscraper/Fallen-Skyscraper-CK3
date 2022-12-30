@@ -21,7 +21,7 @@ change_gov_feudal_republic = {
 	effect = {
 		change_government = oligarchic_republic_government
 		trigger_event = {
-			id = change_gov.decisions.0001
+			id = change_gov_decisions.0001
 		}
 	}
 	cost = { gold = 150 }
@@ -52,7 +52,7 @@ change_gov_republic_feudal = {
 	effect = {
 		change_government = feudal_government
 		trigger_event = {
-			id = change_gov.decisions.0002
+			id = change_gov_decisions.0002
 		}
 	}
 	cost = { gold = 150 prestige = 300 }
@@ -83,7 +83,7 @@ change_gov_feudal_military = {
 	effect = {
 		change_government = military_government
 		trigger_event = {
-			id = change_gov.decisions.0003
+			id = change_gov_decisions.0003
 		}
 		hidden_effect = { remove_all_realm_laws_effect = yes }
 		if = {
@@ -122,7 +122,7 @@ change_gov_military_feudal = {
 	effect = {
 		change_government = feudal_government
 		trigger_event = {
-			id = change_gov.decisions.0004
+			id = change_gov_decisions.0004
 		}
 	}
 	cost = { gold = 150 prestige = 300 }
