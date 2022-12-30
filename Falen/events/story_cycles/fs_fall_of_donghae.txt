@@ -153,10 +153,9 @@ donghae.6 = {
 	immediate = {
 		add_pressed_claim = title:e_donghae
 		start_war = {
-			casus_belli = claim_cb
+			casus_belli = major_religious_war
 			target = character:10002
-			claimant = root
-			target_title = title:e_donghae
+			target_title = title:k_primorye
 		}
 		
 	}
@@ -167,6 +166,8 @@ donghae.6 = {
 		}
 		add_prestige = 500
 		add_gold = 300
+		add_piety = 800
+		add_piety_level = 1
 		hidden_tooltip = {
 			if = {
 				limit = { NOT = { has_global_variable = donghae_civilwar_started } }
@@ -182,6 +183,8 @@ donghae.6 = {
 		}
 		add_prestige = 500
 		add_gold = 300
+		add_piety = 800
+		add_piety_level = 1
 		hidden_tooltip = {
 			if = {
 				limit = { NOT = { has_global_variable = donghae_civilwar_started } }
@@ -201,7 +204,7 @@ donghae.7 = { # Rebels declared war on me!
 		animation = war_attacker
 	}
 	immediate = {
-		any
+		
 	}
 	option = {
 		name = donghae.7.a
