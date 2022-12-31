@@ -82,16 +82,6 @@ sinuiju_default = {
 		controlled_province_advantage = 2
 	}
 }
-jeongju_default = {
-	county = c_jeongju
-	character_modifier ={
-	}
-}
-anju_default = {
-	county = c_anju
-	character_modifier = {
-	}
-}
 cheolsan_default = {
 	county = c_cheolsan
 	character_modifier = {
@@ -245,6 +235,23 @@ suwon_default = {
 	county = c_suwon
 	character_modifier = {
 		diplomacy = 1
+	}
+}
+gapyeong_default = {
+	county = c_gapyeong
+	character_modifier = {
+	}
+}
+uijeongbu_default = {
+	county = c_uijeongbu
+	character_modifier = {
+
+	}
+}
+dongducheon_default = {
+	county = c_dongducheon
+	character_modifier = {
+
 	}
 }
 ###충청###
@@ -442,12 +449,6 @@ ulsan_default = {
 		development_growth_factor = 0.05
 	}
 }
-busan_donggu_default = {
-	county = c_busan
-	barony = b_780
-	character_modifier = {
-	}
-}
 ###도서###
 jeju_default = {
 	county = c_jeju
@@ -464,22 +465,11 @@ hankyeong_daejeong_default = {
 		close_relative_opinion = 5
 	}
 }
-geomun_default = {
-	county = c_geomun
-	character_modifier = {
-	}
-}
 sinan_default = {
 	county = c_sinan
 	character_modifier = {
 		prowess_per_piety_level =1
 		naval_movement_speed_mult = 0.1
-	}
-}
-pyoseon_namwon_default = {
-	county = c_pyoseon
-	barony = b_468
-	character_modifier = {
 	}
 }
 ###일본###
@@ -732,11 +722,5 @@ yuseong_atomic_kstar = {
 	county = c_yuseong
 	character_modifier = {
 		learning_per_piety_level = 1
-	}
-}
-###합일교###
-gapyeong_unitary_cheonseongsan = {
-	county = c_gapyeong
-	character_modifier = {
 	}
 }
