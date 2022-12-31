@@ -19,6 +19,7 @@ yearly_playable_pulse = {
 		delay = { days = 75 }
 
 		pagan_conversion_pulse
+		inspiration_maintenance_global_pulse
 	}
 }
 
@@ -79,9 +80,143 @@ protestant_event_on_action ={
 # Called from code once every five years for "playable" (count+) characters.
 # Root is the character
 five_year_playable_pulse = {
+	effect = {
+		root = {
+			if = {
+				limit = {
+					has_royal_court = yes
+				}
+				every_courtier = {
+					limit = {
+						is_available_ai = yes
+						age > 6
+						NOT = {
+							knows_court_language_of = host
+						}
+					}
+					random = {
+						chance = {
+							value = -4
+							add = learning
+							if = {
+								limit = {
+									is_adult = no
+								}
+								add = 4
+							}
+							if = {
+								limit = {
+									host = {
+										employs_court_position = court_tutor_court_position
+									}
+								}
+								add = 2
+							}
+							if = {
+								limit = {
+									host = {
+										has_court_type = court_diplomatic
+									}
+								}
+								add = 2
+							}
+							if = {
+								limit = {
+									host = {
+										has_court_type = court_scholarly
+									}
+								}
+								add = 4
+							}
+						}
+						learn_court_language_of = host
+					}
+				}
+				if = {
+					limit = {
+						employs_court_position = court_poet_court_position
+					}
+					every_court_position_holder = {
+						type = court_poet_court_position
+						limit = {
+							is_physically_able_adult = yes
+							ep1_is_valid_character_for_inspiration_trigger = yes
+						}
+						random = {
+							chance = {
+								value = 5
+								add = {
+									value = this.aptitude:court_poet_court_position
+									multiply = 5
+									if = {
+										limit = {
+											has_trait = lazy
+										}
+										multiply = 0.5
+									}
+								}
+							}
+							grant_inspiration_to_character_effect = { CHARACTER = this }
+							save_scope_as = inspired_poet
+							root = {
+								send_interface_toast = {
+									left_icon = scope:inspired_poet
+									title = poet_inspired_message
+									custom_tooltip = poet_inspired_effect
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						employs_court_position = court_artificer_court_position
+					}
+					every_court_position_holder = {
+						type = court_artificer_court_position
+						limit = {
+							is_physically_able_adult = yes
+							ep1_is_valid_character_for_inspiration_trigger = yes
+						}
+						random = {
+							chance = {
+								value = 5
+								add = {
+									value = this.aptitude:court_artificer_court_position
+									multiply = 5
+									if = {
+										limit = {
+											has_trait = lazy
+										}
+										multiply = 0.5
+									}
+								}
+							}
+							grant_inspiration_to_character_effect = { CHARACTER = this }
+							save_scope_as = artificer
+							root = {
+								send_interface_toast = {
+									left_icon = scope:artificer
+									title = poet_inspired_message
+									custom_tooltip = court_artificer_inspired_effect
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	events = {
 		courtier_guest_management.3001 	# Courtiers and guests getting relationships & secrets
 		game_rule.1 					# De Jure Requirement Game Rule
+		game_rule.4 					# Empire Obscurity Game Rule
+	}
+	on_actions = {
+		delay = { days = { 45 75 } }
+		culture_hybridization_emergence_events
+		delay = { days = { 45 75 } }
+		culture_divergence_emergence_events
 	}
 }
 
@@ -102,6 +237,9 @@ quarterly_playable_pulse = {
 		friendship_quarterly_pulse
 		rival_quarterly_pulse
 		mentor_student_quarterly_pulse
+
+		# EP1 maintenance pulses
+		inspiration_maintenance_quarterly_pulse
 	}
 }
 
