@@ -140,9 +140,35 @@ world_primorye_sikhotealin = {
 		d_dalnegorski d_arsenyevskiy d_spasskiy
 	}
 }
+world_liaodong = {
+	duchies = {
+		d_pulandian d_wafangdian d_dalian d_zhuanghe d_faanchian d_xiuyan d_dandung d_fengcheng d_kuandian
+	}
+}
+world_liaoyang = {
+	duchies = {
+		d_ingkou d_anshan d_liaoyang d_benxi d_xiaoshi d_suncheong d_shenyang d_liaozhong d_sinmin d_tieling
+	}
+}
+world_liaoxi = {
+	duchies = {
+		d_dawa d_panjin d_taian d_heishan d_beizhen d_yi d_jinjeu
+	}
+}
+world_steppe_yanbian = {
+	duchies = {
+		d_hunchun d_yanji d_antu d_dunhwa
+	}
+}
+world_liao = {
+	regions = {
+		world_liaodong world_liaoyang world_liaoxi
+	}
+}
+
 world_steppe = {
 	regions = {
-		world_steppe_manchuria world_steppe_mongolia world_steppe_primorye
+		world_steppe_manchuria world_steppe_mongolia world_steppe_primorye world_steppe_yanbian world_liao
 	}
 }
 world_korea_south = {
