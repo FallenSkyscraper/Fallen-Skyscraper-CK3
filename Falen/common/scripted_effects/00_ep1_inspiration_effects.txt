@@ -1,0 +1,1252 @@
+﻿
+fund_inspiration_effect = {
+	scope:recipient = {
+		if = {
+			limit = {
+				NOT = { is_courtier_of = scope:actor }
+			}
+			if = {
+				limit = {
+					any_traveling_family_member = {
+						can_any_traveling_family_members_travel_trigger = yes
+					}
+				}
+				every_traveling_family_member = {
+					custom = fund_inspiration_interaction_reqruit_family_tooltip
+					limit = {
+						can_any_traveling_family_members_travel_trigger = yes
+					}
+					scope:actor = {
+						recruit_courtier = prev
+					}
+				}
+			}
+			else = {
+				scope:actor = {
+					add_courtier = scope:recipient
+				}
+			}
+		}
+		add_opinion = {
+			target = scope:actor
+			modifier = grateful_opinion
+			opinion = 40
+		}
+	}
+	scope:actor = {
+		sponsor_inspiration = scope:recipient.inspiration
+	}
+	if = {
+		limit = {
+			scope:actor = {
+				is_ai = no
+			}
+			NOT = {
+				exists = global_var:ep1_07_achievement_inspiration_count_tracker
+			}
+		}
+		set_global_variable = {
+			name = ep1_07_achievement_inspiration_count_tracker
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			scope:actor = {
+				is_ai = no
+			}
+			exists = global_var:ep1_07_achievement_inspiration_count_tracker
+		}
+		change_global_variable = {
+			name = ep1_07_achievement_inspiration_count_tracker
+			add = 1
+		}
+	}
+}
+
+grant_inspiration_reward_effect = {
+	add_gold = {
+		value = root.inspiration_gold_invested
+		multiply = 0.25
+	}
+	add_prestige_level = 1
+	add_prestige = {
+		value = root.inspiration_gold_invested
+		multiply = 0.75
+	}
+}
+
+set_alchemy_inspiration_type_effect = {
+	save_temporary_scope_value_as = {
+		name = allow_no_type_option
+		value = $NO_TYPE$
+	}
+	hidden_effect = {
+		$BASE_SCOPE$ = {
+			#The type has been decided in events, when the character got inspired, or now. Let's save it! (might still leave it up to the sponsor if allow_no_type_option = yes!)
+			if = {
+				limit = {
+					NOT = { exists = var:artifact_alchemy_type }
+				}
+				random_list = { #What do they want to do?
+					5 = { #Elixirs
+						modifier = {
+							add = 5
+							has_trait = arrogant
+						}
+						set_variable = {
+							name = artifact_alchemy_type
+							value = flag:alchemy_type_elixirs
+						}
+					}
+					10 = { #Metals
+						set_variable = {
+							name = artifact_alchemy_type
+							value = flag:alchemy_type_metals
+						}
+					}
+					10 = { #Panacea: a cure-all for all disease
+						modifier = {
+							add = 10
+							has_trait = lifestyle_physician 
+						}
+						set_variable = {
+							name = artifact_alchemy_type
+							value = flag:alchemy_type_panacea
+						}
+					}
+					5 = { #Immortality
+						modifier = {
+							add = 5
+							has_trait = arrogant
+						}
+						set_variable = {
+							name = artifact_alchemy_type
+							value = flag:alchemy_type_immortality
+						}
+					}
+					50 = { #They don't care and you can decide!
+						trigger = {
+							scope:allow_no_type_option = yes
+						}
+						modifier = {
+							add = 30
+							has_personality_submissive_trigger = yes
+						}
+						ai_value_modifier = {
+							ai_boldness = -0.25
+							ai_energy = -0.25
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+################
+# Adventurer Inspiration effects
+################
+# The Adventurer Inspiration is a bit special since it can result in many different types of artifacts, so we handle the generation here
+
+# Where is the adventurer going?
+set_adventure_location_effect = {
+	save_temporary_scope_value_as = {
+		name = allow_no_destination_option
+		value = $NO_DESTINATION$
+	}
+	hidden_effect = { #If they haven't specified where they're going we decide it here (might still leave it up to the sponsor if allow_no_destination_option = yes!)
+		$BASE_SCOPE$ = {
+			if = {
+				limit = {
+					NOT = { exists = var:adventure_destination }
+				}
+				random_list = {
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_steppe_manchuria }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_steppe_manchuria
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:stepp_manchuria
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_jianzhou }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_jianzhou
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:jianzhou
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_haixi }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_haixi
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:haixi
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_steppe_mongolia }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_steppe_mongolia
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:steppe_mongolia
+						}
+					}10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_steppe_primorye }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_steppe_primorye
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:steppe_primorye
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_primorye_pyotr }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_primorye_pyotr
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:primorye_pyotr
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_primorye_khanka }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_primorye_khanka
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:primorye_khanka
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_primorye_sikhotealin }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_primorye_sikhotealin
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:primorye_sikhotealin
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_steppe }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_steppe
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:steppe
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_korea_south }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_korea_south
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:korea_south
+						}
+					}10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_korea_north }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_korea_north
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:korea_north
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_korea }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_korea
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:korea
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_gyeonggi }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_gyeonggi
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:gyeonggi
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_gangwon }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_gangwon
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:gangwon
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_hoseo }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_hoseo
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:hoseo
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_yeongnam }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_yeongnam
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:yeongnam
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_honam }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_honam
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:honam
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_doseo }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_doseo
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:doseo
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_hwanghae }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_hwanghae
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:hwanghae
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_gwanseo }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_gwanseo
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:gwanseo
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_gwanbuk }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_gwanbuk
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:gwanbuk
+						}
+					}
+					
+					85 = { #Very skillde adventurers are often going to let you decide!
+						trigger = {
+							scope:allow_no_destination_option = yes
+						}
+						modifier = {
+							add = 40
+							has_personality_submissive_trigger = yes
+						}
+						ai_value_modifier = {
+							ai_boldness = -0.25
+							ai_energy = -0.25
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+get_adventure_inspiration_start_location = {
+	$ADVENTURER$ = { save_scope_as = adventurer }
+	if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:steppe_manchuria
+		}
+		random_county_in_region = {
+			region = world_steppe_manchuria
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:jianzhou
+		}
+		random_county_in_region = {
+			region = world_jianzhou
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:haixi
+		}
+		random_county_in_region = {
+			region = world_haixi
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:steppe_mongolia
+		}
+		random_county_in_region = {
+			region = world_steppe_mongolia
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:steppe_primorye
+		}
+		random_county_in_region = {
+			region = world_steppe_primorye
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:primorye_pyotr
+		}
+		random_county_in_region = {
+			region = world_primorye_pyotr
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:primorye_khanka
+		}
+		random_county_in_region = {
+			region = world_primorye_khanka
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:primorye_sikhotealin
+		}
+		random_county_in_region = {
+			region = world_primorye_sikhotealin
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:steppe
+		}
+		random_county_in_region = {
+			region = world_steppe
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:korea_south
+		}
+		random_county_in_region = {
+			region = world_korea_south
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:korea_north
+		}
+		random_county_in_region = {
+			region = world_korea_north
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:korea
+		}
+		random_county_in_region = {
+			region = world_korea
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:gyeonggi
+		}
+		random_county_in_region = {
+			region = world_gyeonggi
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:gangwon
+		}
+		random_county_in_region = {
+			region = world_gangwon
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:hoseo
+		}
+		random_county_in_region = {
+			region = world_hoseo
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:honam
+		}
+		random_county_in_region = {
+			region = world_honam
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:yeongnam
+		}
+		random_county_in_region = {
+			region = world_yeongnam
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:doseo
+		}
+		random_county_in_region = {
+			region = world_doseo
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:hwanghae
+		}
+		random_county_in_region = {
+			region = world_hwanghae
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:gwanseo
+		}
+		random_county_in_region = {
+			region = world_gwanseo
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:gwanbuk
+		}
+		random_county_in_region = {
+			region = world_gwanbuk
+			save_scope_as = location
+		}
+	}
+}
+
+inspiration_adventure_create_artifact_effect = {
+	$OWNER$ = { save_scope_as = owner } #Will always exist!
+	$CREATOR$ = { save_scope_as = adventurer } #Will always exist in an adventure inspiration!
+
+	#If you've somehow managed to not set a destination by now we generate one here
+	if = {
+		limit = {
+			NOT = { exists = scope:adventurer.var:adventure_destination }
+		}
+		set_adventure_location_effect = {
+			BASE_SCOPE = scope:adventurer
+			NO_DESTINATION = no
+		}
+		get_adventure_inspiration_start_location = { ADVENTURER = scope:adventurer } 
+	}
+	else = {
+		#To save the location and make sure materials can access it
+		scope:adventurer.activity.activity_province.barony = { save_scope_as = location } # To save the location scope based on the destination
+	}
+
+	#Creating the artifact based on the previous choice and outcome
+	scope:adventurer = {
+		hidden_effect = {
+			scope:location = { title_province = { add_to_list = artifact_material_sources } } #Used for artifact creation
+
+			create_character = {
+				location = root.location
+				template = local_artisan_template
+				culture = scope:location.culture
+				faith = scope:location.faith
+				gender = scope:adventurer
+				dynasty = none
+				save_scope_as = artifact_origin #Fictional maker of artifact
+			}
+
+			random_list = {
+				25 = {
+					trigger = { #Epic Artifact
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:epic_quest
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					modifier = {
+						scope:adventurer.adventure_inspiration_average_skill_value <= low_inspiration_skill
+						add = -10
+					}
+					modifier = {
+						scope:adventurer.adventure_inspiration_average_skill_value >= high_inspiration_skill
+						add = 25
+					}
+					root = {
+						random_list = {
+							10 = { #Chance of Relic
+								modifier = {
+									scope:adventurer.adventure_inspiration_average_skill_value >= medium_inspiration_skill
+									add = -5 #More likely to find something better.
+								}
+								modifier = {
+									scope:adventurer.adventure_inspiration_average_skill_value >= high_inspiration_skill
+									add = -4 #High inspiration skill adventurers will only find relics if there is nothing else to find.
+								}
+								random_list = { #This is a list inside an item in the other list because we need _one_ chance for relic and the relic types must be able to have overlapping triggers. 
+									100 = {	#Christian
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:christianity_religion
+													
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:christianity_religion } }
+											add = -75
+										}
+										random_list = {
+											75 = {
+												create_artifact_pedestal_christian_relic_effect_hist = {
+													OWNER = root
+												}
+											}
+											10 = {
+												create_artifact_pedestal_crucifix_effect = { OWNER = root }
+											}
+											10 = {
+												create_artifact_pedestal_cross_effect = { OWNER = root }
+											}
+										}
+									}
+									100 = { #Islamic
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:islam_religion
+													
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:islam_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_islamic_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = { #Buddhist
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:buddhism_religion
+													
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:buddhism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_buddhism_relic_effect_hist = { 
+											OWNER = root 
+										}
+											
+									}
+									
+									1 = { #Fallback Relic
+										create_artifact_pedestal_branch_relic_general_effect = {
+											OWNER = root
+											RELIGION = scope:location.title_province.faith.religion
+										}
+									}
+								}
+							}
+							
+							
+						}
+					}
+				}
+
+				10 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= medium_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > medium_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -5
+					}
+					trigger = { #A Weapon
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:epic_quest
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					scope:owner = { 
+						create_artifact_weapon_effect = {
+							OWNER = scope:artifact_origin
+							CREATOR = scope:artifact_origin
+							SET_WEAPON_TYPE = flag:no
+						}
+					}
+					save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+						name = weapon_artifact
+						value = yes
+					}
+				}
+
+				5 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= medium_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > medium_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -2
+					}
+					trigger = { #An armor
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:epic_quest
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					scope:owner = {
+						create_artifact_armor_effect = {
+							OWNER = scope:artifact_origin
+							CREATOR = scope:artifact_origin
+							SET_ARMOR_TYPE = flag:no
+						}
+					}
+					save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+						name = armor_artifact
+						value = yes
+					}
+				}
+				5 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= medium_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > medium_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -2
+					}
+					trigger = { # Necklace
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:trinket
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					scope:owner = { 
+						create_artifact_necklace_effect = {
+							OWNER = scope:artifact_origin
+						}
+					}
+					scope:newly_created_artifact = { save_scope_as = necklace }
+					save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+						name = necklace_artifact
+						value = yes
+					}
+				}
+
+				5 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= medium_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > medium_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -2
+					}
+					trigger = {
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:trinket
+								var:adventure_type = flag:free_reign
+								var:adventure_type = flag:epic_quest
+							}
+						}
+					}
+					scope:owner = {
+						create_artifact_regalia_effect = {
+							OWNER = scope:artifact_origin
+							SMITH = scope:artifact_origin
+						}
+					}
+					scope:owner = { 
+						save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+							name = regalia_artifact
+							value = yes
+						}
+					}
+				}
+
+				10 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= high_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > high_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -5
+					}
+					trigger = { #Skull
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:skull_or_hide
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					scope:owner = {
+						create_artifact_wall_skull_effect = {
+							OWNER = scope:owner
+							HUNTER = scope:inspiration_owner
+						}
+					}
+					save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+						name = skull
+						value = yes
+					}
+				}
+				10 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= high_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > high_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -5
+					}
+					trigger = { #Hide - big
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:skull_or_hide
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					scope:owner = {
+						create_artifact_animal_hide_big_effect = {
+							OWNER = scope:owner
+							HUNTER = scope:inspiration_owner
+						}
+					}
+					save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+						name = hide_big
+						value = yes
+					}
+				}
+				10 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= high_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > high_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -5
+					}
+					trigger = { #Hide - medium (lagom)
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:skull_or_hide
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					scope:owner = {
+						create_artifact_animal_hide_medium_effect = {
+							OWNER = scope:owner
+							HUNTER = scope:inspiration_owner
+						}
+					}
+					save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+						name = hide_medium
+						value = yes
+					}
+				}
+				10 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= high_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > high_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -5
+					}
+					trigger = { #Hide - small
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:skull_or_hide
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					scope:owner = {
+						create_artifact_animal_hide_small_effect = {
+							OWNER = scope:owner
+							HUNTER = scope:inspiration_owner
+						}
+					}
+					save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+						name = hide_small
+						value = yes
+					}
+				}
+				10 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= high_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > high_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -5
+					}
+					trigger = { #Trinket, box small
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:trinket
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					scope:owner = {
+						create_artifact_box_small_effect = {
+							OWNER = scope:owner
+							CARPENTER = scope:inspiration_owner
+						}
+					}
+					save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+						name = box
+						value = yes
+					}
+				}
+				10 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= medium_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > medium_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -5
+					}
+					trigger = { #Trinket, goblet
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:trinket
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					scope:owner = {
+						create_artifact_goblet_effect = {
+							OWNER = scope:owner
+							SMITH = scope:inspiration_owner
+						}
+					}
+					save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+						name = goblet
+						value = yes
+					}
+				}
+				10 = {
+					modifier = {
+						OR = {
+							scope:adventurer.adventure_inspiration_average_skill_value >= medium_inspiration_skill
+							AND = {
+								exists = scope:inspiration_owner.var:artifact_quality
+								scope:inspiration_owner.var:artifact_quality > medium_adventurer_epic_quality_level #Cumulative event choices
+							}
+						}
+						add = -2
+					}
+					trigger = { #Tapestry
+						trigger_if = {
+							limit = { exists = var:adventure_type }
+							OR = {
+								var:adventure_type = flag:tapestry_or_fabric
+								var:adventure_type = flag:free_reign
+							}
+						}
+					}
+					scope:owner = {
+						create_artifact_tapestry_effect = {
+							OWNER = scope:owner
+							WEAVER = scope:inspiration_owner
+						}
+					}
+					save_scope_value_as = { #We save the type here for tooltips in fund_inspiration.1051
+						name = tapestry
+						value = yes
+					}
+				}
+			}
+			if = {
+				limit = { exists = scope:epic }
+				scope:epic = {
+					add_artifact_history = {
+						location = root.capital_province
+						actor = scope:adventurer
+						recipient = root
+						type = given
+					}
+				}
+			}
+			else_if = {
+				limit = { exists = scope:newly_created_artifact }
+				scope:newly_created_artifact = {
+					add_artifact_history = {
+						location = root.capital_province
+						actor = scope:adventurer
+						recipient = root
+						type = given
+					}
+				}
+			}
+		}
+	}
+
+}
