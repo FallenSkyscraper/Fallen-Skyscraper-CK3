@@ -303,6 +303,91 @@ set_adventure_location_effect = {
 							trigger_if = {
 								limit = { exists = location }
 								location = {
+									NOT = { geographical_region = world_steppe_yanbian }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_steppe_yanbian
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:steppe_yianbian
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_liaodong }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_liaodong
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:liaodong
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_liaoyang }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_liaoyang
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:liaoyang
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_liaoxi }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_liaoxi
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:liaoxi
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_liao }
+								}
+								adventurer_potential_destination_distance_check = {
+									REGION = world_liao
+								}
+							}
+						}
+						set_variable = {
+							name = adventure_destination
+							value = flag:liao
+						}
+					}
+					10 = {
+						trigger = {
+							trigger_if = {
+								limit = { exists = location }
+								location = {
 									NOT = { geographical_region = world_steppe }
 								}
 								adventurer_potential_destination_distance_check = {
@@ -614,6 +699,51 @@ get_adventure_inspiration_start_location = {
 	}
 	else_if = { 
 		limit = {
+			scope:adventurer.var:adventure_destination = flag:steppe_yanbian
+		}
+		random_county_in_region = {
+			region = world_steppe_yanbian
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:liaodong
+		}
+		random_county_in_region = {
+			region = world_liaodong
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:liaoyang
+		}
+		random_county_in_region = {
+			region = world_liaoyang
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:liaoxi
+		}
+		random_county_in_region = {
+			region = world_liaoxi
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
+			scope:adventurer.var:adventure_destination = flag:liao
+		}
+		random_county_in_region = {
+			region = world_liao
+			save_scope_as = location
+		}
+	}
+	else_if = { 
+		limit = {
 			scope:adventurer.var:adventure_destination = flag:steppe
 		}
 		random_county_in_region = {
@@ -802,7 +932,6 @@ inspiration_adventure_create_artifact_effect = {
 											scope:location.title_province = {
 												OR = {
 													faith.religion = religion:christianity_religion
-													
 												}
 											}
 										}
@@ -846,7 +975,8 @@ inspiration_adventure_create_artifact_effect = {
 											scope:location.title_province = {
 												OR = {
 													faith.religion = religion:buddhism_religion
-													
+													geographical_region = world_yeongnam
+													geographical_region = world_steppe_mongolia
 												}
 											}
 										}
@@ -858,6 +988,314 @@ inspiration_adventure_create_artifact_effect = {
 											OWNER = root 
 										}
 											
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:cheondo_religion
+													geographical_region = world_gwanseo
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:cheondo_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_cheondo_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:confucianism_religion
+													geographical_region = world_korea
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:confucianism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_confucianism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:mechanism_religion
+													geographical_region = world_gyeonggi_south
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:mechanism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_mechanism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:koreanism_religion
+													geographical_region = world_korea_south
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:koreanism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_koreanism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:juche_religion
+													geographical_region = world_korea_north
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:juche_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_juche_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:communism_religion
+													geographical_region = world_gwanseo
+													geographical_region = world_primorye_khanka
+													geographical_region = world_liaoxi
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:communism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_communism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:manchurian_religion
+													geographical_region = world_steppe_manchuria
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:manchurian_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_manchurian_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:naturalism_religion
+													geographical_region = world_gyeonggi_north
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:naturalism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_naturalism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:protestant_religion
+													geographical_region = world_honam
+													geographical_region = world_hoseo
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:protestant_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_protestant_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:won_buddhism_religion
+													geographical_region = world_hoseo
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:won_buddhism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_won_buddhism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:steelers_pagan_religion
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:steelers_pagan_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_steelers_pagan_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:tengrism_religion
+													geographical_region = world_pyeongan_north
+													geographical_region = world_liao
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:tengrism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_tengrism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:taoism_religion
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:taoism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_taoism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:pagan_religion
+													geographical_region = world_gangwon
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:pagan_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_pagan_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:atomism_religion
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:atomism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_atomism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:orthodox_religion
+													geographical_region = world_gwanbuk
+													geographical_region = world_primorye_pyotr
+													geographical_region = world_primorye_sikhotealin
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:orthodox_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_orthodox_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:eternal_kingdom_religion
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:eternal_kingdom_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_eternal_kingdom_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:jeju_religion
+													geographical_region = world_jeju
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:jeju_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_jeju_relic_effect_hist = {
+											OWNER = root
+										}
 									}
 									
 									1 = { #Fallback Relic

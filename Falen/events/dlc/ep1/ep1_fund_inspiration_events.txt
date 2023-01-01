@@ -3680,6 +3680,86 @@ fund_inspiration.0051 = {
 	}
 
 	option = {
+		name = fund_inspiration.0051.steppe_yanbian
+		trigger = { exists = scope:steppe_yanbian_option }
+		custom_tooltip = fund_inspiration.you_decide_option_tt
+		scope:inspiration_owner = {
+			set_variable = {
+				name = adventure_destination
+				value = flag:steppe_yanbian
+			}
+		}
+
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = {
+		name = fund_inspiration.0051.liaodong
+		trigger = { exists = scope:liaodong_option }
+		custom_tooltip = fund_inspiration.you_decide_option_tt
+		scope:inspiration_owner = {
+			set_variable = {
+				name = adventure_destination
+				value = flag:liaodong
+			}
+		}
+
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = {
+		name = fund_inspiration.0051.liaoyang
+		trigger = { exists = scope:liaoyang_option }
+		custom_tooltip = fund_inspiration.you_decide_option_tt
+		scope:inspiration_owner = {
+			set_variable = {
+				name = adventure_destination
+				value = flag:liaoyang
+			}
+		}
+
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = {
+		name = fund_inspiration.0051.liaoxi
+		trigger = { exists = scope:liaoxi_option }
+		custom_tooltip = fund_inspiration.you_decide_option_tt
+		scope:inspiration_owner = {
+			set_variable = {
+				name = adventure_destination
+				value = flag:liaoxi
+			}
+		}
+
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = {
+		name = fund_inspiration.0051.liao
+		trigger = { exists = scope:liao_option }
+		custom_tooltip = fund_inspiration.you_decide_option_tt
+		scope:inspiration_owner = {
+			set_variable = {
+				name = adventure_destination
+				value = flag:liao
+			}
+		}
+
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = {
 		name = fund_inspiration.0051.steppe
 		trigger = { exists = scope:steppe_option }
 		custom_tooltip = fund_inspiration.you_decide_option_tt
@@ -14924,6 +15004,80 @@ fund_inspiration.5021 = {
 					trigger = {
 	  					#There's a county you don't hold there
 	  					any_county_in_region = {
+							region = world_steppe_yanbian
+							NOT = { holder = root }
+						}
+						scope:inspiration_owner = { #Distance check - from where the adventurer is right now.
+							adventurer_potential_destination_distance_check = {
+								REGION = world_steppe_yanbian
+							}
+						}
+						#This was not the original destination of the adventurer
+	  					NOT = { scope:inspiration_owner.var:adventure_destination = flag:steppe_yanbian }
+					}
+					modifier = {
+						add = 30
+						NOT = {
+							any_county_in_region = {
+								region = world_steppe_yanbian
+								holder = root 
+								count >= 1
+							}
+						}
+					}
+					random_county_in_region = {
+						region = world_steppe_yanbian
+						limit = { 
+							NOT = { holder = root }
+						}
+						save_scope_as = adventuring_location
+					}
+					save_scope_value_as = {
+						name = world_steppe_yanbian_location
+						value = yes
+					}
+				}
+				1 = {
+					trigger = {
+	  					#There's a county you don't hold there
+	  					any_county_in_region = {
+							region = world_liao
+							NOT = { holder = root }
+						}
+						scope:inspiration_owner = { #Distance check - from where the adventurer is right now.
+							adventurer_potential_destination_distance_check = {
+								REGION = world_liao
+							}
+						}
+						#This was not the original destination of the adventurer
+	  					NOT = { scope:inspiration_owner.var:adventure_destination = flag:liao }
+					}
+					modifier = {
+						add = 30
+						NOT = {
+							any_county_in_region = {
+								region = world_liao
+								holder = root 
+								count >= 1
+							}
+						}
+					}
+					random_county_in_region = {
+						region = world_liao
+						limit = { 
+							NOT = { holder = root }
+						}
+						save_scope_as = adventuring_location
+					}
+					save_scope_value_as = {
+						name = world_liao_location
+						value = yes
+					}
+				}
+				1 = {
+					trigger = {
+	  					#There's a county you don't hold there
+	  					any_county_in_region = {
 							region = world_korea_south
 							NOT = { holder = root }
 						}
@@ -15086,6 +15240,24 @@ fund_inspiration.5021 = {
 			}
 			else_if = {
 				limit = {
+					exists = scope:world_steppe_yanbian_location
+				}
+				set_variable = {
+					name = adventure_destination
+					value = flag:steppe_yanbian
+				}
+			}
+			else_if = {
+				limit = {
+					exists = scope:world_liao_location
+				}
+				set_variable = {
+					name = adventure_destination
+					value = flag:liao
+				}
+			}
+			else_if = {
+				limit = {
 					exists = scope:world_korea_south_location
 				}
 				set_variable = {
@@ -15158,6 +15330,8 @@ fund_inspiration.6001 = {
 				var:adventure_destination = flag:steppe_primorye
 				var:adventure_destination = flag:jianzhou
 				var:adventure_destination = flag:haixi
+				var:adventure_destination = flag:steppe_yanbian
+				var:adventure_destination = flag:liao
 			}
 		}
 	}
