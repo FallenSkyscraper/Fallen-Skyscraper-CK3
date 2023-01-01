@@ -36,3 +36,33 @@
 	}
 	
 }
+
+create_artifact_hec_crown_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+
+	set_artifact_rarity_famed = yes
+
+	# Create the artifact
+	create_artifact = {	
+		name = hec_crown_name
+		description = hec_crown_description
+		type = helmet
+		visuals = industrial_crown
+		wealth = scope:wealth
+		quality = scope:quality
+		template = hec_crown_template
+		history = {
+			type = created
+			date = 2290.1.1
+			recipient = character:4001 #초대황제
+			location = province:1046 #안산
+			
+		}
+		modifier = hec_crown_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+
+	
+}
