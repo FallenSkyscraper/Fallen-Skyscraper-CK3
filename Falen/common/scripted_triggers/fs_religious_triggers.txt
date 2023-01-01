@@ -1,0 +1,44 @@
+christianity_or_syncretic_with_christianity_trigger = {
+	$CHARACTER$ = {
+		faith = {
+			OR = {
+				religion = religion:christianity_religion
+                religion = religion:protestant_religion
+                religion = religion:orthodox_religion
+                religion = religion:eternal_kingdom_religion
+				has_doctrine = tenet_christian_syncretism
+			}
+		}
+	}
+}
+
+communism_or_syncretic_with_communism_trigger = {
+	$CHARACTER$ = {
+		faith = {
+			OR = {
+				religion = religion:communism_religion
+				has_doctrine = tenet_communism_syncretism
+			}
+		}
+	}
+}
+manchurian_or_syncretic_with_plain_faith_trigger = {
+	$CHARACTER$ = {
+		faith = {
+			OR = {
+				religion = religion:manchurian_religion
+				has_doctrine = tenet_plain_faith_syncretism
+			}
+		}
+	}
+}
+tengrism_or_syncretic_with_plain_faith_trigger = {
+	$CHARACTER$ = {
+		faith = {
+			OR = {
+				religion = religion:tengrism_religion
+				has_doctrine = tenet_plain_faith_syncretism
+			}
+		}
+	}
+}
