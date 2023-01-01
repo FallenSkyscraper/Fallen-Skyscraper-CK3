@@ -32,12 +32,13 @@ hec_gui_close = {
 hec_gui_abc = {
 	scope = character
 	is_shown = {
-		root = {
-			OR = {
-				has_title = title:e_hec
-				top_liege = { has_title = title:e_hec }
-			}
-		}
+		#root = {
+		#	OR = {
+		#		has_title = title:e_hec
+		#		top_liege = { has_title = title:e_hec }
+		#	}
+		#}
+		always = no
 	}
 }
 hec_get_emperor = {

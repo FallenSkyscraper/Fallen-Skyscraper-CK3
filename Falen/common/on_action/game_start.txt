@@ -230,6 +230,12 @@ on_game_start_after_lobby = {
 		title:c_hoengseong.holder = {
 			trigger_event = gw_mgga.1
 		}
+		title:e_yalu.holder = {
+			trigger_event = {
+				id = yalu_civil_war.0001
+				days = 7
+			}
+		}
 		### PRESTIGE/PIETY/RENOWN ON START
 		character:1 = { add_prestige = 1500 }
 		character:2 = { add_prestige = 1000 }
