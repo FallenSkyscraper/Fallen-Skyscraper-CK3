@@ -540,172 +540,151 @@ InspirationTapestryScene = {
 InspirationAdventureDestination = {
 	type = character
 
-	text = { #africa
+	text = {
 		trigger = {
-			var:adventure_destination = flag:africa
+			var:adventure_destination = flag:steppe_manchuria
 		}
-		localization_key = world_africa
+		localization_key = world_steppe_manchuria
 	}
 
-	text = { #world_africa_west
+	text = {
 		trigger = {
-			var:adventure_destination = flag:africa_west
+			var:adventure_destination = flag:jianzhou
 		}
-		localization_key = world_africa_west
+		localization_key = world_jianzhou
 	}
 
-	text = { #africa_north
+	text = {
 		trigger = {
-			var:adventure_destination = flag:africa_north
+			var:adventure_destination = flag:haixi
 		}
-		localization_key = world_africa_north
+		localization_key = world_haixi
 	}
 
-	text = { #africa_east
+	text = {
 		trigger = {
-			var:adventure_destination = flag:africa_east
+			var:adventure_destination = flag:steppe_mongolia
 		}
-		localization_key = world_africa_east
+		localization_key = world_steppe_mongolia
 	}
 
-	text = { #europe
+	text = {
 		trigger = {
-			var:adventure_destination = flag:europe
+			var:adventure_destination = flag:steppe_primorye
 		}
-		localization_key = world_europe
+		localization_key = world_steppe_primorye
 	}
 
-	text = { #europe_north
+	text = {
 		trigger = {
-			var:adventure_destination = flag:europe_north
+			var:adventure_destination = flag:primorye_pyotr
 		}
-		localization_key = world_europe_north
+		localization_key = world_primorye_pyotr
 	}
 
-	text = { #europe_south
+	text = {
 		trigger = {
-			var:adventure_destination = flag:europe_south
+			var:adventure_destination = flag:primorye_khanka
 		}
-		localization_key = world_europe_south
+		localization_key = world_primorye_khanka
 	}
 
-	text = { #europe_west
+	text = {
 		trigger = {
-			var:adventure_destination = flag:europe_west
+			var:adventure_destination = flag:primorye_sikhotealin
 		}
-		localization_key = world_europe_west
+		localization_key = world_primorye_sikhotealin
 	}
 
-	text = { #europe_east
-		trigger = {
-			var:adventure_destination = flag:europe_east
-		}
-		localization_key = world_europe_east
-	}
-
-	text = { #middle_east
-		trigger = {
-			var:adventure_destination = flag:middle_east
-		}
-		localization_key = adventure_inspiration_world_middle_east
-	}
-
-	text = { #middle_east_jerusalem
-		trigger = {
-			var:adventure_destination = flag:middle_east_jerusalem
-		}
-		localization_key = world_middle_east_jerusalem
-	}
-
-	text = { #middle_east_arabia
-		trigger = {
-			var:adventure_destination = flag:middle_east_arabia
-		}
-		localization_key = world_middle_east_arabia
-	}
-
-	text = { #middle_east_persia
-		trigger = {
-			var:adventure_destination = flag:middle_east_persia
-		}
-		localization_key = world_middle_east_persia
-	}
-
-	text = { #india
-		trigger = {
-			var:adventure_destination = flag:india
-		}
-		localization_key = world_india
-	}
-
-	text = { #india_deccan
-		trigger = {
-			var:adventure_destination = flag:india_deccan
-		}
-		localization_key = world_india_deccan
-	}
-
-	text = { #india_bengal
-		trigger = {
-			var:adventure_destination = flag:india_bengal
-		}
-		localization_key = world_india_bengal
-	}
-
-	text = { #india_rajastan
-		trigger = {
-			var:adventure_destination = flag:india_rajastan
-		}
-		localization_key = world_india_rajastan
-	}
-
-	text = { #steppe
+	text = {
 		trigger = {
 			var:adventure_destination = flag:steppe
 		}
-		localization_key = adventure_inspiration_world_steppe
+		localization_key = world_steppe
 	}
 
-	text = { #steppe_west
+	text = {
 		trigger = {
-			var:adventure_destination = flag:steppe_west
+			var:adventure_destination = flag:korea_south
 		}
-		localization_key = adventure_inspiration_world_steppe_west
+		localization_key = world_korea_south
 	}
 
-	text = { #steppe_east
+	text = {
 		trigger = {
-			var:adventure_destination = flag:steppe_east
+			var:adventure_destination = flag:korea_north
 		}
-		localization_key = adventure_inspiration_world_steppe_east
+		localization_key = world_korea_north
 	}
 
-	text = { #steppe_tarim
+	text = {
 		trigger = {
-			var:adventure_destination = flag:steppe_tarim
+			var:adventure_destination = flag:korea
 		}
-		localization_key = world_steppe_tarim
+		localization_key = world_korea
 	}
 
-	text = { #asia_minor
+	text = {
 		trigger = {
-			var:adventure_destination = flag:asia_minor
+			var:adventure_destination = flag:gyeonggi
 		}
-		localization_key = world_asia_minor
+		localization_key = world_gyeonggi
 	}
 
-	text = { #tibet
+	text = {
 		trigger = {
-			var:adventure_destination = flag:tibet
+			var:adventure_destination = flag:gangwon
 		}
-		localization_key = world_tibet
+		localization_key = world_gangwon
 	}
 
-	text = { #burma
+	text = {
 		trigger = {
-			var:adventure_destination = flag:burma
+			var:adventure_destination = flag:hoseo
 		}
-		localization_key = world_burma
+		localization_key = world_hoseo
+	}
+
+	text = {
+		trigger = {
+			var:adventure_destination = flag:honam
+		}
+		localization_key = world_honam
+	}
+
+	text = {
+		trigger = {
+			var:adventure_destination = flag:yeongnam
+		}
+		localization_key = world_yeongnam
+	}
+
+	text = {
+		trigger = {
+			var:adventure_destination = flag:doseo
+		}
+		localization_key = world_doseo
+	}
+
+	text = {
+		trigger = {
+			var:adventure_destination = flag:hwanghae
+		}
+		localization_key = world_hwanghae
+	}
+
+	text = {
+		trigger = {
+			var:adventure_destination = flag:gwanseo
+		}
+		localization_key = world_gwanseo
+	}
+
+	text = {
+		trigger = {
+			var:adventure_destination = flag:gwanbuk
+		}
+		localization_key = world_gwanbuk
 	}
 }
 
