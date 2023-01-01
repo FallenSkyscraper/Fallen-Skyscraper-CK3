@@ -21,6 +21,54 @@ yearly_playable_pulse = {
 		pagan_conversion_pulse
 		inspiration_maintenance_global_pulse
 	}
+	effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_variable = kor_rise_radio
+				}
+				current_date > 2600.01.01
+				current_date < 2621.01.01
+			}
+			random = {
+				change = 5
+				modifier = {
+					add = 5
+				}
+				set_variable = {
+					name = kor_rise_radio
+					value = yes
+				}
+				trigger_event = {
+					id = kor_rise.0001
+					days = { 2 240 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_variable = kor_rise_trans
+				}
+				current_date > 2625.01.01
+				current_date < 2641.01.01
+			}
+			random = {
+				change = 6.7
+				modifier = {
+					add = 6.7
+				}
+				set_variable = {
+					name = kor_rise_radio
+					value = yes
+				}
+				trigger_event = {
+					id = kor_rise.0001
+					days = { 2 240 }
+				}
+			}
+		}
+	}
 }
 
 yearly_playable_pulse = {

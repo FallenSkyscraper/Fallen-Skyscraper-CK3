@@ -1,5 +1,40 @@
 ﻿namespace = kor_rise
+
 kor_rise.0001 = {
+	# 의문의 굉음/무전
+	type = character_event
+	first_valid = {
+		triggered_desc = {
+			desc = kor_rise.0001.desc.b
+		}
+		desc = kor_rise.0001.desc.a
+	}
+	option = {
+		name = kor_rise.0001.a
+	}
+	option = {
+		trigger = {
+			any_held_title = {
+				OR = {
+					this = title:c_pohang
+					this = title:c_daejeon
+				}
+			}
+		}
+		exclusive = yes
+		name = kor_rise.0001.b
+	}
+}
+
+kor_rise.0002 = {
+	# 제6공화국의 암호 해독 완료
+	type = character_event
+	desc = kor_rise.0002.desc
+	option = {
+		name = kor_rise.0002.a
+	}
+}
+kor_rise.1001 = {
 	# 제6공화국 등장
 	hidden = yes
 	immediate = {
@@ -19,7 +54,7 @@ kor_rise.0001 = {
 					has_religion = religion:koreanism_religion
 				}
 				trigger_event = {
-					id = kor_rise.1002
+					id = kor_rise.2002
 					days = 1
 				}
 			}
@@ -30,13 +65,13 @@ kor_rise.0001 = {
 					has_religion = religion:koreanism_religion
 				}
 				trigger_event = {
-					id = kor_rise.1002
+					id = kor_rise.2002
 					days = 1
 				}
 			}
 			else = {
 				trigger_event = {
-					id = kor_rise.1001
+					id = kor_rise.2001
 					days = 1
 				}
 			}
@@ -44,56 +79,57 @@ kor_rise.0001 = {
 	}
 }
 
-kor_rise.0002 = {
+kor_rise.1002 = {
+	# 제6공화국 병력 생성
 	hidden = yes
 	immediate = {
 		spawn_kor_rise_troops_effect = yes
 		trigger_event = {
-			id = kor_rise.0003
+			id = kor_rise.1003
 			days = 1
 		}
 	}
 }
 
-kor_rise.0003 = {
+kor_rise.1003 = {
 	# 제6공화국 침공
 	type = character_event
-	title = kor_rise.0003.t
-	desc = kor_rise.0003.desc
+	title = kor_rise.1003.t
+	desc = kor_rise.1003.desc
 	option = {
 		# 부산 침공
-		name = kor_rise.0003.a
+		name = kor_rise.1003.a
 		six_invasion_effect = {
 			invasion_goal = d_busan
 		}
 	}
 	option = {
 		# 포항 침공
-		name = kor_rise.0003.b
+		name = kor_rise.1003.b
 		six_invasion_effect = {
 			invasion_goal = d_pohang
 		}
 	}
 	option = {
 		# 울진 침공
-		name = kor_rise.0003.c
+		name = kor_rise.1003.c
 		six_invasion_effect = {
 			invasion_goal = d_uljin
 		}
 	}
 	option = {
 		# 강릉 침공
-		name = kor_rise.0003.d
+		name = kor_rise.1003.d
 		six_invasion_effect = {
 			invasion_goal = d_gangneung
 		}
 	}
 }
 
-kor_rise.1001 = {
+kor_rise.2001 = {
 	# 비한국교 제6공화국 반응 
 	type = character_event
-	title = kor_rise.1001.t
+	title = kor_rise.2001.t
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -104,9 +140,9 @@ kor_rise.1001 = {
 					}
 				}
 				desc = {
-					desc = kor_rise.1001.desc.close
-					desc = kor_rise.1001.desc.close_invasion
-					desc = kor_rise.1001.desc.close.end
+					desc = kor_rise.2001.desc.close
+					desc = kor_rise.2001.desc.close_invasion
+					desc = kor_rise.2001.desc.close.end
 				}
 			}
 			triggered_desc = {
@@ -117,9 +153,9 @@ kor_rise.1001 = {
 					}
 				}
 				desc = {
-					desc = kor_rise.1001.desc.close
-					desc = kor_rise.1001.desc.close_gyeonsang
-					desc = kor_rise.1001.desc.close.end
+					desc = kor_rise.2001.desc.close
+					desc = kor_rise.2001.desc.close_gyeonsang
+					desc = kor_rise.2001.desc.close.end
 				}
 			}
 			triggered_desc = {
@@ -130,11 +166,11 @@ kor_rise.1001 = {
 					}
 				}
 				desc = {
-					desc = kor_rise.1001.desc.close
-					desc = kor_rise.1001.desc.close.end
+					desc = kor_rise.2001.desc.close
+					desc = kor_rise.2001.desc.close.end
 				}
 			}
-			desc = kor_rise.1001.desc.far			# 멀리있는 캐릭
+			desc = kor_rise.2001.desc.far			# 멀리있는 캐릭
 		}
 	}
 	theme = war
@@ -148,16 +184,16 @@ kor_rise.1001 = {
 			trigger = {
 				has_trait = craven
 			}
-			text = kor_rise.1001.craven
+			text = kor_rise.2001.craven
 		}
-		name = kor_rise.1001.a
+		name = kor_rise.2001.a
 		exclusive = yes
 		trigger = {
 			any_realm_province = {
 				geographical_region = world_yeongnam
 			}
 		}
-		custom_tooltip = kor_rise.1001.six_leader_tt
+		custom_tooltip = kor_rise.2001.six_leader_tt
 	}
 	option = {
 		# 가까이 있는 캐릭
@@ -165,9 +201,9 @@ kor_rise.1001 = {
 			trigger = {
 				has_trait = craven
 			}
-			text = kor_rise.1001.craven
+			text = kor_rise.2001.craven
 		}
-		name = kor_rise.1001.b
+		name = kor_rise.2001.b
 		trigger = {
 			any_realm_province = {
 				NOT = {
@@ -177,49 +213,47 @@ kor_rise.1001 = {
 			}
 		}
 		exclusive = yes
-		custom_tooltip = kor_rise.1001.six_leader_tt
+		custom_tooltip = kor_rise.2001.six_leader_tt
 	}
 	option = {
 		# 멀리있는 캐릭
 		name = {
-			text = kor_rise.1001.craven
+			text = kor_rise.2001.craven
 			trigger = {
 				has_trait = craven
 			}
 		}
-		name = kor_rise.1001.c
-		custom_tooltip = kor_rise.1001.six_leader_tt
+		name = kor_rise.2001.c
+		custom_tooltip = kor_rise.2001.six_leader_tt
 	}
 }
 
-kor_rise.1002 = {
+kor_rise.2002 = {
 	# 한국교 제6공화국 반응
 	type = letter_event
 	opening = {
-		desc = kor_rise.1002.t
+		desc = kor_rise.2002.t
 	}
 	sender = scope:six_leader
-	desc = kor_rise.1002.desc
+	desc = kor_rise.2002.desc
 	option = {
-		name = kor_rise.1002.a
+		name = kor_rise.2002.a
 		create_title_and_vassal_change = {
 			type = swear_fealty
 			save_scope_as = change
 			add_claim_on_loss = no
 		}
-		root = {
-			change_liege = {
-				liege = scope:six_leader
-				change = scope:change
-			}
-			resolve_title_and_vassal_change = scope:change
+		change_liege = {
+			liege = scope:six_leader
+			change = scope:change
 		}
+		resolve_title_and_vassal_change = scope:change
 	}
 	option = {
 		trigger = {
 			is_ai = no
 		}
-		name = kor_rise.1002.b
+		name = kor_rise.2002.b
 		add_prestige = 200
 		add_piety = -200
 		root = {
@@ -227,18 +261,18 @@ kor_rise.1002 = {
 		}
 		scope:six_leader = {
 			trigger_event = {
-				id = kor_rise.2001
+				id = kor_rise.3001
 				delayed = yes
 			}
 		}
 	}
 }
 
-kor_rise.1003 = {
+kor_rise.2003 = {
 	# 피침자가 받는 반응 이벤트
 	type = character_event
-	title = kor_rise.1003.t
-	desc = kor_rise.1003.desc
+	title = kor_rise.2003.t
+	desc = kor_rise.2003.desc
 	theme = war
 	left_portrait = {
 		character = root
@@ -249,18 +283,19 @@ kor_rise.1003 = {
 		animation = war_attacker
 	}
 	option = {
-		name = kor_rise.1003.a
+		name = kor_rise.2003.a
 	}
 }
 
-kor_rise.2001 = {
+kor_rise.3001 = {
+	# 한국교 영주의 복속 거부 (플레이어 전용) 답신 이벤트
 	type = letter_event
 	opening = {
-		desc = kor_rise.2001.t
+		desc = kor_rise.3001.t
 	}
 	sender = scope:actor
-	desc = kor_rise.2001.desc
+	desc = kor_rise.3001.desc
 	option = {
-		name = kor_rise.2001.a
+		name = kor_rise.3001.a
 	}
 }
