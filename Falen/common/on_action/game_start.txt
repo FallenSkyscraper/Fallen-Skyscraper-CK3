@@ -230,9 +230,15 @@ on_game_start_after_lobby = {
 		title:c_hoengseong.holder = {
 			trigger_event = gw_mgga.1
 		}
+		every_player = {
+			limit = {
+				top_liege = character:9008
+			}
+			trigger_event = yalu_civil_war.1
+		}
 		title:e_yalu.holder = {
 			trigger_event = {
-				id = yalu_civil_war.0001
+				id = yalu_civil_war.2
 				days = 7
 			}
 		}
