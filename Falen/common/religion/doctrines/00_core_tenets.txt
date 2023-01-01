@@ -3691,5 +3691,100 @@ doctrine_core_tenets = {
 			sins = { temperate }
 		}
 	}
+
+	### 국수주의 3형제 ###
+
+	tenet_totalitarianism = {
+		# 전체주의
+		piety_cost = {
+			value = faith_tenet_cost_high
+			if = {
+				limit = { has_doctrine = tenet_totalitarianism }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		is_shown = {
+			religion_tag = koreanism_religion
+		}
+		can_pick = {
+			has_doctrine = religion_policy_ultranationalism
+		}
+
+		parameters = {
+			totalitarianism_reduced_faction = yes
+		}
+		character_modifier = {
+			liege_opinion = 20
+			different_faith_liege_opinion = -20
+
+			different_faith_opinion = -100
+		}
+
+		traits = {
+			virtues = { arrogant content zealous trusting pure_blooded }
+			sins = { paranoid arbitrary peasant_leader inbred infertile }
+		}
+	}
+
+	tenet_philosophy_of_hate = {
+		# 혐오의 철학
+		piety_cost = {
+			value = faith_tenet_cost_high
+			if = {
+				limit = { has_doctrine = tenet_philosophy_of_hate }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		is_shown = {
+			religion_tag = koreanism_religion
+		}
+		can_pick = {
+			has_doctrine = religion_policy_ultranationalism
+		}
+
+		parameters = {
+			warmonger = yes
+			invasion_war = yes
+			halved_holy_wars_active = yes
+			clergy_can_fight = yes
+		}
+		character_modifier = {
+			diplomacy = -2
+			martial = 2
+			different_culture_opinion = -100
+		}
+
+		traits = {
+			virtues = { callous brave }
+			sins = { humble }
+		}
+	}
+	
+	tenet_monster_of_the_old_world = {
+		# 옛 시대의 흉물
+		piety_cost = {
+			value = faith_tenet_cost_high
+			if = {
+				limit = { has_doctrine = tenet_monster_of_the_old_world }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		is_shown = {
+			religion_tag = koreanism_religion
+		}
+		can_pick = {
+			has_doctrine = religion_policy_ultranationalism
+		}
+
+		character_modifier = {
+			levy_reinforcement_rate_different_faith = -0.25 # 다른 신앙에서 징집병 패널티가 있나???
+			# 다른 문화에서 패널티는 충원률 모디파이어도 안 보여
+			# TODO 나중에 scripted로 추가하겠음
+			# 다른 문화신앙이랑 전쟁시 모디파이어 추가도 스크립트로 추가해야 하네
+			# 멸절 전쟁은 cb에서 관리할거임
+			# 결혼 관련도 다른 파일에서 | fs_marriage_triggers.txt
+		}
+	}
 }
 

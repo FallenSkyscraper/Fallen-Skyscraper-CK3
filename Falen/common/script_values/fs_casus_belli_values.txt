@@ -1,0 +1,26 @@
+﻿holy_war_cb_piety_cost_multiplier = {
+	value = 1
+
+	if = {
+		limit = {
+			scope:attacker = {
+				faith = { has_doctrine_parameter = cheaper_holy_wars_active }
+			}
+		}
+		multiply = {
+			value = 0.8
+			desc = CB_REDUCED_HOLY_WAR_COST
+		}
+	}
+	if = {
+		limit = {
+			scope:attacker = {
+				faith = { has_doctrine_parameter = halved_holy_wars_active }
+			}
+		}
+		multiply = {
+			value = 0.5
+			desc = CB_REDUCED_HOLY_WAR_COST
+		}
+	}
+}

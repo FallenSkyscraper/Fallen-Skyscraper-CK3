@@ -1,0 +1,13 @@
+﻿totalitarianism_faction_modifier = {
+	# 전체주의 파벌 가입 감소
+	modifier = {
+		add = {
+			subtract = $SUB_MOD$
+		}
+		$TARGET$ = {
+			faith = {
+				has_doctrine_parameter = totalitarianism_reduced_faction
+			}
+		}	
+	}
+}

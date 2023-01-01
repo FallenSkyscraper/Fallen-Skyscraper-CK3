@@ -527,6 +527,17 @@ court_chaplain_conversion_contextual_bonuses = {
 			desc = COURT_CHAPLAIN_CONVERSION_COMMUNAL_IDENTITY_PENALTY_MODIFIER
 		}
 	}
+	if = {
+		limit = {
+			scope:councillor.liege.faith = { has_doctrine = tenet_totalitarianism }
+			exists = scope:county
+			NOT = { scope:county.culture = scope:councillor.liege.culture }
+		}
+		add = {
+			value = scope:councillor.conversion_totalitarianism_resistance
+			desc = COURT_CHAPLAIN_CONVERSION_TOTALITARIANISM_PENALTY_MODIFIER
+		}
+	}
 
 	#Conversion bonuses for Character Faith Tenets
 	if = {
@@ -1035,6 +1046,18 @@ conversion_communal_identity_resistance = {
 		}
 		subtract = court_chaplain_conversion_base_total
 		multiply = 0.5
+	}
+}
+
+conversion_totalitarianism_resistance = {
+	value = 0
+	if = {
+		limit = {
+			scope:councillor.faith = { has_doctrine = tenet_totalitarianism }
+			NOT = { scope:county.culture = scope:councillor.liege.culture }
+		}
+		subtract = court_chaplain_conversion_base_total
+		multiply = 0 # 이거 ㅅㅂ 어캐하냐
 	}
 }
 

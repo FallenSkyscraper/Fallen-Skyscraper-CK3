@@ -1,0 +1,98 @@
+﻿marriage_interaction_valid_target_trigger = {
+	# Clergy cannot marry if their faith doesn't allow it
+	trigger_if = {
+		limit = {
+			scope:secondary_actor = {
+				is_clergy = yes
+				NOT = {
+					faith = {
+						has_doctrine_parameter = clergy_can_marry
+					}
+				}
+			}
+		}
+		custom_description = {
+			text = character_is_clergy_and_cannot_marry
+			subject = scope:secondary_actor
+			object = scope:secondary_recipient
+			scope:secondary_actor = {
+				is_clergy = no
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = {
+			scope:secondary_recipient = {
+				is_clergy = yes
+				NOT = {
+					faith = {
+						has_doctrine_parameter = clergy_can_marry
+					}
+				}
+			}
+		}
+		custom_description = {
+			text = character_is_clergy_and_cannot_marry
+			subject = scope:secondary_recipient
+			object = scope:secondary_actor
+			scope:secondary_recipient = {
+				is_clergy = no
+			}
+		}
+	}
+	#Marriage
+	trigger_else_if = {
+		limit = {
+			scope:secondary_actor = { is_adult = yes }
+			scope:secondary_recipient = { is_adult = yes }
+		}
+		scope:secondary_actor = {
+			custom_description = {
+				text = "can_marry_check_secondary_actor"
+				subject = scope:secondary_actor
+				object = scope:secondary_recipient
+				can_marry_character_trigger = { CHARACTER = scope:secondary_recipient } #Checks marriage status, betrothed, gender, consanguinity, faith hostility etc.
+			}
+		}
+	}
+	#Betrothal
+	trigger_else = {
+		scope:secondary_actor = {
+			custom_description = {
+				text = "can_betroth_check_secondary_actor"
+				subject = scope:secondary_actor
+				object = scope:secondary_recipient
+				can_marry_character_trigger = { CHARACTER = scope:secondary_recipient } #Checks marriage status, betrothed, gender, consanguinity, faith hostility etc.
+			}
+		}
+	}
+
+	# If the actor is ai they will not pick a character already considered for concubinage
+	trigger_if = {
+		limit = {
+			scope:actor = { is_ai = yes }
+		}
+		NOR = {
+			scope:secondary_actor = { has_character_flag = has_been_offered_as_concubine }
+			scope:secondary_recipient = { has_character_flag = has_been_offered_as_concubine }
+		}
+	}
+
+	# 한 쪽의 종교가 국수주의면 나머지도 국수주의여야 하고, 문화가 똑같아야 함
+	trigger_if = {
+		limit = {
+			OR = {
+				scope:secondary_actor.faith = {
+					has_doctrine = tenet_monster_of_the_old_world
+				}
+				scope:secondary_recipient.faith = {
+					has_doctrine = tenet_monster_of_the_old_world
+				}
+			}
+		}
+		AND = {
+			scope:secondary_actor.faith = scope:secondary_recipient.faith
+			scope:secondary_actor.culture = scope:secondary_recipient.culture
+		}
+	}
+}
