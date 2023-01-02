@@ -660,3 +660,163 @@ military_authority = {
 		}
 	}
 }
+
+#프롤독재
+
+communism_authority = {
+	default = communism_authority_1
+	cumulative = no
+	flag = realm_law
+	
+	communism_authority_0 = {
+		modifier = {
+			direct_vassal_opinion = 10
+			holding_build_gold_cost = -0.2
+			holding_build_piety_cost = -0.2
+			holding_build_prestige_cost = -0.2
+			build_gold_cost = -0.2
+			build_piety_cost = -0.2
+			build_prestige_cost = -0.2
+			build_speed = -0.2
+			holding_build_speed = -0.2
+			county_opinion_add = 20
+			development_growth_factor = 0.15
+			domain_limit = -1
+			vassal_tax_mult = -0.2
+			domain_tax_mult = -0.2
+			republic_government_vassal_opinion = 10
+		}
+		flag = government_titles_cannot_leave_realm_on_succession
+
+		can_keep = { realm_law_use_communism_authority = yes }
+	}
+	
+	communism_authority_1 = {
+		modifier = {
+			holding_build_gold_cost = -0.1
+			holding_build_piety_cost = -0.1
+			holding_build_prestige_cost = -0.1
+			build_gold_cost = -0.1
+			build_piety_cost = -0.1
+			build_prestige_cost = -0.1
+			build_speed = -0.1
+			holding_build_speed = -0.1
+			county_opinion_add = 10
+			character_capital_county_monthly_development_growth_add = 0.15
+			republic_government_vassal_opinion = 5
+		}
+		flag = government_title_revocation_allowed
+		flag = government_vassal_retraction_allowed
+		flag = government_vassal_refusal_is_treason
+		flag = government_titles_cannot_leave_realm_on_succession
+		flag = government_can_revoke_at_all_levels
+		flag = government_has_wider_tyranny_free_revocation
+
+		can_keep = {
+				realm_law_use_communism_authority = yes
+				NOT = { has_realm_law = crown_authority_0 }
+		}
+
+		can_pass = {
+			NOT = { has_realm_law = crown_authority_0 }
+			trigger_if = {
+				limit = { has_realm_law = communism_authority_0 }
+				custom_description = {
+					subject = root
+					text = "has_crown_authority_cooldown"
+					NOT = { has_variable = crown_authority_cooldown }
+				}
+			}
+			root.culture = { has_innovation = innovation_plenary_assemblies }
+		}
+		
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = communism_authority_2
+						}
+					}
+					add = increase_crown_authority_prestige_cost
+				}
+			}
+		}
+		
+		on_pass = {
+			if = {
+				limit = {
+					NOT = { has_realm_law = communism_authority_2 }
+				}
+			}
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = communism_authority_0 }
+				value = 1
+			}
+		}
+	}
+	
+	crown_authority_2 = {
+		modifier = {
+			direct_vassal_opinion = -20
+			domain_limit = 1
+			vassal_tax_mult = 0.2
+			levy_size = 0.2
+			dread_baseline_add = 10
+			dread_gain_mult = 0.2
+		}
+		flag = government_title_revocation_allowed
+		flag = government_vassal_retraction_allowed
+		flag = government_titles_cannot_leave_realm_on_succession
+		flag = government_can_revoke_at_all_levels
+		flag = government_has_wider_tyranny_free_revocation
+		flag = vassal_internal_wars_banned
+		flag = vassal_refusal_is_treason
+		flag = can_designate_heirs
+		
+		can_keep = {
+				realm_law_use_communism_authority = yes
+				has_realm_law = crown_authority_3
+		}
+
+		can_pass = {
+			trigger_if = {
+				has_realm_law = communism_authority_1
+				has_realm_law = crown_authority_3
+				custom_description = {
+					subject = root
+					text = "has_crown_authority_cooldown"
+					NOT = { has_variable = crown_authority_cooldown }
+				}
+			}
+			root.culture = { has_innovation = innovation_royal_prerogative }
+		}
+
+		pass_cost = {
+			prestige = {
+				increase_crown_authority_prestige_cost
+			}
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = communism_authority_1 }
+				value = 1
+			}
+		}
+	}
+}
