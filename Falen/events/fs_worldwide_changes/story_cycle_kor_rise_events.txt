@@ -3,11 +3,22 @@
 kor_rise.0001 = {
 	# 의문의 굉음/무전
 	type = character_event
-	first_valid = {
-		triggered_desc = {
-			desc = kor_rise.0001.desc.b
+	theme = secret
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					any_held_title = {
+						OR = {
+							this = title:c_pohang
+							this = title:c_daejeon
+						}
+					}
+				}
+				desc = kor_rise.0001.desc.b
+			}
+			desc = kor_rise.0001.desc.a
 		}
-		desc = kor_rise.0001.desc.a
 	}
 	option = {
 		name = kor_rise.0001.a
@@ -29,6 +40,7 @@ kor_rise.0001 = {
 kor_rise.0002 = {
 	# 제6공화국의 암호 해독 완료
 	type = character_event
+	theme = secret
 	desc = kor_rise.0002.desc
 	option = {
 		name = kor_rise.0002.a
@@ -36,6 +48,7 @@ kor_rise.0002 = {
 }
 kor_rise.1001 = {
 	# 제6공화국 등장
+	type = empty
 	hidden = yes
 	immediate = {
 		debug_log = "Sixth republic rises!"
@@ -43,7 +56,7 @@ kor_rise.1001 = {
 		spawn_kor_character_effect = yes
 		scope:six_leader = {
 			trigger_event = {
-				id = kor_rise.0002
+				id = kor_rise.1002
 				days = 1
 			}
 		}
@@ -94,10 +107,16 @@ kor_rise.1002 = {
 kor_rise.1003 = {
 	# 제6공화국 침공
 	type = character_event
+	theme = war
 	title = kor_rise.1003.t
 	desc = kor_rise.1003.desc
 	option = {
 		# 부산 침공
+		trigger = {
+			title:e_six_republic = {
+				NOT = { is_de_facto_liege_or_above_target = title:d_busan }
+			}
+		}
 		name = kor_rise.1003.a
 		six_invasion_effect = {
 			invasion_goal = d_busan
@@ -105,6 +124,11 @@ kor_rise.1003 = {
 	}
 	option = {
 		# 포항 침공
+		trigger = {
+			title:e_six_republic = {
+				NOT = { is_de_facto_liege_or_above_target = title:d_pohang }
+			}
+		}
 		name = kor_rise.1003.b
 		six_invasion_effect = {
 			invasion_goal = d_pohang
@@ -112,6 +136,11 @@ kor_rise.1003 = {
 	}
 	option = {
 		# 울진 침공
+		trigger = {
+			title:e_six_republic = {
+				NOT = { is_de_facto_liege_or_above_target = title:d_uljin }
+			}
+		}
 		name = kor_rise.1003.c
 		six_invasion_effect = {
 			invasion_goal = d_uljin
@@ -119,6 +148,11 @@ kor_rise.1003 = {
 	}
 	option = {
 		# 강릉 침공
+		trigger = {
+			title:e_six_republic = {
+				NOT = { is_de_facto_liege_or_above_target = title:d_gangneung }
+			}
+		}
 		name = kor_rise.1003.d
 		six_invasion_effect = {
 			invasion_goal = d_gangneung
@@ -235,6 +269,9 @@ kor_rise.2002 = {
 		desc = kor_rise.2002.t
 	}
 	sender = scope:six_leader
+	trigger = {
+		NOT = { root = scope:six_leader }
+	}
 	desc = kor_rise.2002.desc
 	option = {
 		name = kor_rise.2002.a

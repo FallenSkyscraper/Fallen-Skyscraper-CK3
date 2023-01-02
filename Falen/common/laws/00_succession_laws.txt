@@ -673,7 +673,7 @@ succession_gender_laws = {
 		}
 		can_keep = {
 			trigger_if = {
-				scope:character.faith = {has_doctrine = doctrine_gender_equal}
+				faith = { has_doctrine = doctrine_gender_equal }
 			}
 		}
 		can_pass = {
