@@ -783,6 +783,16 @@ found_empire_decision = {
 				}
 				sub_realm_size >= 80
 			}
+			AND = {
+				custom_description = {
+					text = found_empire_decision_three_kingdoms_held
+					any_held_title = {
+						count >= 3
+						tier = tier_kingdom
+					}
+				}
+				is_ai = yes
+			}
 		}
 
 		trigger_if = {
@@ -824,9 +834,9 @@ found_empire_decision = {
 	}
 
 	cost = {
-		gold = 1200
-		prestige = 2000
-		piety = 600
+		gold = 600
+		prestige = 1000
+		piety = 300
 	}
 
 	effect = {
