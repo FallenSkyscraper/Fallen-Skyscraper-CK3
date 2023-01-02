@@ -701,13 +701,7 @@ succession_gender_laws = {
 		}
 
 		ai_will_do = {
-			if = {
-				limit = {
-					primary_title.tier > tier_county
-					has_culture = culture:basque
-				}
-				value = 2
-			}
+			value = 2
 		}
 	}
 	
