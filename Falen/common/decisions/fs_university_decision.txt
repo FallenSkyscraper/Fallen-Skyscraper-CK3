@@ -54,7 +54,7 @@ found_university_decision = {
 		OR = {
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_50#서울대 }
+					any_sub_realm_barony = { this = title:b_50 } #서울대
 					title:b_50.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -67,7 +67,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_26#연세대 }
+					any_sub_realm_barony = { this = title:b_26 } #연세대
 					title:b_26.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -80,7 +80,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_34#서울시립대 }
+					any_sub_realm_barony = { this = title:b_34 } #서울시립대
 					title:b_34.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -93,7 +93,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_29#동국대 }
+					any_sub_realm_barony = { this = title:b_29 } #동국대
 					title:b_29.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -106,7 +106,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_27#서강대 }
+					any_sub_realm_barony = { this = title:b_27 } #서강대
 					title:b_27.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -119,7 +119,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_28#성균관대 }
+					any_sub_realm_barony = { this = title:b_28 } #성균관대
 					title:b_28.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -132,7 +132,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_32#고려대 }
+					any_sub_realm_barony = { this = title:b_32 } #고려대
 					title:b_32.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -145,7 +145,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_65#인하대 }
+					any_sub_realm_barony = { this = title:b_65 } #인하대
 					title:b_65.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -158,7 +158,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_1424#아주대 }
+					any_sub_realm_barony = { this = title:b_1424 } #아주대
 					title:b_1424.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -171,7 +171,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_2637#카이스트 }
+					any_sub_realm_barony = { this = title:b_2637 } #카이스트
 					title:b_2637.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -184,7 +184,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_2605#충북대 }
+					any_sub_realm_barony = { this = title:b_2605 } #충북대
 					title:b_2605.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -197,7 +197,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_2636#충남대 }
+					any_sub_realm_barony = { this = title:b_2636 } #충남대
 					title:b_2636.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -210,7 +210,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_1619#강원대 }
+					any_sub_realm_barony = { this = title:b_1619 } #강원대
 					title:b_1619.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -223,7 +223,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_786#부산대 }
+					any_sub_realm_barony = { this = title:b_786 } #부산대
 					title:b_786.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -236,7 +236,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_929#경북대 }
+					any_sub_realm_barony = { this = title:b_929 } #경북대
 					title:b_929.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -249,7 +249,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_813#경상대 }
+					any_sub_realm_barony = { this = title:b_813 } #경상대
 					title:b_813.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -262,7 +262,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_964#포항공대 }
+					any_sub_realm_barony = { this = title:b_964 } #포항공대
 					title:b_964.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -275,7 +275,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_1347#안동대 }
+					any_sub_realm_barony = { this = title:b_1347 } #안동대
 					title:b_1347.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -288,7 +288,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_564#전남대 }
+					any_sub_realm_barony = { this = title:b_564 } #전남대
 					title:b_564.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -301,7 +301,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_119#전북대 }
+					any_sub_realm_barony = { this = title:b_119 } #전북대
 					title:b_119.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
@@ -314,7 +314,7 @@ found_university_decision = {
 			}
 			trigger_if = {
 				limit = {
-					any_sub_realm_barony = { this = title:b_460#제주대 }
+					any_sub_realm_barony = { this = title:b_460 } #제주대
 					title:b_460.title_province = { NOT = { exists = var:university } }
 				}
 				AND = {
