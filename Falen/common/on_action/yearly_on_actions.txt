@@ -1,5 +1,37 @@
 ﻿# Called every Jan 1st
 # Root does not exist
+yearly_global_pulse = {
+	effect = {
+		every_county = {
+			if = {
+				limit = { has_county_modifier = old_world_faith_penalty }
+				remove_county_modifier = old_world_faith_penalty
+			}
+			if = {
+				limit = { has_county_modifier = old_world_culture_penalty }
+				remove_county_modifier = old_world_culture_penalty
+			}
+			if = {
+				limit = { 
+					AND = {
+						NOT = { this.faith = this.holder.faith }
+						this.holder.faith = { has_doctrine_parameter = old_world_levy_penalty }
+					}
+				}
+				add_county_modifier = old_world_faith_penalty
+			}
+			if = {
+				limit = { 
+					AND = {
+						NOT = { this.culture = this.holder.culture }
+						this.holder.faith = { has_doctrine_parameter = old_world_levy_penalty }
+					}
+				}
+				add_county_modifier = old_world_culture_penalty
+			}
+		}
+	}
+}
 
 # Called from code once a year for "playable" (count+) characters.
 # Root is the character

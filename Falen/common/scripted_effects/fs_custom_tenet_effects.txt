@@ -1,0 +1,18 @@
+﻿remove_old_world_war_bonus_effect = {
+	scope:$ATTACKER$ = {
+		if = {
+			limit = {
+				has_character_modifier = old_world_war_faith_bonus_modifier
+			}
+			remove_character_modifier = old_world_war_faith_bonus_modifier
+		}
+	}
+	scope:$DEFENDER$ = {
+		if = {
+			limit = {
+				has_character_modifier = old_world_war_faith_bonus_modifier
+			}
+			remove_character_modifier = old_world_war_faith_bonus_modifier
+		}
+	}
+}

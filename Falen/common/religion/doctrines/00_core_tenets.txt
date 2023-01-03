@@ -3777,11 +3777,11 @@ doctrine_core_tenets = {
 			has_doctrine = religion_policy_ultranationalism
 		}
 
+		parameters = {
+			old_world_levy_penalty = yes
+			old_world_war_bonus = yes
+		}
 		character_modifier = {
-			levy_reinforcement_rate_different_faith = -0.25 # 다른 신앙에서 징집병 패널티가 있나???
-			# 다른 문화에서 패널티는 충원률 모디파이어도 안 보여
-			# TODO 나중에 scripted로 추가하겠음
-			# 다른 문화신앙이랑 전쟁시 모디파이어 추가도 스크립트로 추가해야 하네
 			# 멸절 전쟁은 cb에서 관리할거임
 			# 결혼 관련도 다른 파일에서 | fs_marriage_triggers.txt
 		}
