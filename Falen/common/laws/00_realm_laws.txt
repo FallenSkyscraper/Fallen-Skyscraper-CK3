@@ -713,12 +713,18 @@ communism_authority = {
 		flag = government_has_wider_tyranny_free_revocation
 
 		can_keep = {
-				realm_law_use_communism_authority = yes
-				NOT = { has_realm_law = crown_authority_0 }
+			realm_law_use_communism_authority = yes
+			NOR = {
+					has_realm_law = crown_authority_0
+					has_faith = faith:new_left
+			}
 		}
 
 		can_pass = {
-			NOT = { has_realm_law = crown_authority_0 }
+			NOR = {
+					has_realm_law = crown_authority_0
+					has_faith = faith:new_left
+			}
 			trigger_if = {
 				limit = { has_realm_law = communism_authority_0 }
 				custom_description = {
