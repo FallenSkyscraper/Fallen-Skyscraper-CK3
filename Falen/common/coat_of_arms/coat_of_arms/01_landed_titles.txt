@@ -41,9 +41,20 @@ e_korea = {
 	color1 = "white"
 	colored_emblem = {
 		texture = "ce_south_korea.dds"
-		color1 = "black"
+		color1 = "blue"
 		color2 = "red"
-		color3 = "blue"
+		color3 = "black"
+		#instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
+	}
+}
+e_six_republic = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	colored_emblem = {
+		texture = "ce_south_korea.dds"
+		color1 = "blue"
+		color2 = "red"
+		color3 = "black"
 		#instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
 	}
 }	
@@ -52,9 +63,9 @@ k_korea = {
 	color1 = "white"
 	colored_emblem = {
 		texture = "ce_south_korea.dds"
-		color1 = "black"
+		color1 = "blue"
 		color2 = "red"
-		color3 = "blue"
+		color3 = "black"
 		#instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
 	}
 }
@@ -363,12 +374,14 @@ c_gaeseong = {
 }
 e_sinan = {
 	pattern = "pattern_solid.dds"
-	color1 = "yellow"
+	color1 = "blue"
 	color2 = "black"
 	colored_emblem = {
-		texture = "ce_sinan_1.dds"
-		color1 = "purple"
-		color2 = "black"
+		texture = "ce_sinan_3.dds"
+		color1 = "rajput"
+		color2 = "white"
+		color3 = "yellow"
+		instance = { position = { 0.5 0.5 } scale = { 1.2 1.2 } }
 	}
 }
 k_sinan = {
