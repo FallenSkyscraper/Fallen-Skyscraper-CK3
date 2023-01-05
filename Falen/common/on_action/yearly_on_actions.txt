@@ -30,6 +30,15 @@ yearly_global_pulse = {
 				add_county_modifier = old_world_culture_penalty
 			}
 		}
+		if = {
+			limit = {
+				current_date = 2666.1.1
+			}
+			trigger_event = {
+				id = kor_rise.1001
+				days = { 2 240 }
+			}
+		}
 	}
 }
 
