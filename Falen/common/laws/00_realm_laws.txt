@@ -7,7 +7,6 @@ crown_authority = {
 	default = crown_authority_1
 	cumulative = yes
 	flag = realm_law
-	
 	crown_authority_0 = {
 		modifier = {
 			direct_vassal_opinion = 10
@@ -657,6 +656,93 @@ military_authority = {
 			ai_value_modifier = {
 				ai_callous = 1
 			}
+		}
+	}
+}
+
+slavery_authority = {
+	default = slavery_authority_0
+	cumulative = no
+	flag = realm_law
+	
+	slavery_authority_0 = {
+		modifier = {
+			monthly_income_mult = 0.4
+			levy_size = 0
+			development_growth_factor = 0.4
+		}
+		can_pass = {
+			always = no
+		}
+		pass_cost = {
+			prestige = { add = 0 }
+		}
+		on_pass = {
+			always = no
+		}
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		can_keep = { 
+			realm_law_use_slavery_authority = yes 
+		}
+	}
+	slavery_authority_1 = {
+		modifier = {
+			monthly_income_mult = 0.2
+			levy_size = 0.1
+			development_growth_factor = 0.2
+		}
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		
+		can_keep = { realm_law_use_slavery_authority = yes }
+
+		can_pass = {
+			always = no
+		}
+		pass_cost = {
+			prestige = { add = 0 }
+		}
+		on_pass = {
+			always = no
+		}
+	}
+	slavery_authority_2 = {
+		modifier = {
+			monthly_income_mult = 0
+			levy_size = 0.2
+			development_growth_factor = -0.2
+		}
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		
+		can_keep = { realm_law_use_slavery_authority = yes }
+		
+		can_pass = {
+			always = no
+		}
+		pass_cost = {
+			prestige = { add = 0 }
+		}
+		on_pass = {
+			always = no
+		}
+	}
+	slavery_authority_3 = {
+		modifier = {
+			monthly_income_mult = -0.2
+			levy_size = 0.3
+			development_growth_factor = -0.5
+		}
+		can_keep = { realm_law_use_slavery_authority = yes }
+		can_pass = {
+			always = no
+		}
+		pass_cost = {
+			prestige = { add = 0 }
+		}
+		on_pass = {
+			always = no
 		}
 	}
 }

@@ -76,6 +76,34 @@ nomadic_authority_3 = {
     alias = { nomadic_authority_3 }
     parent = law
 }
+slavery_authority = {
+    texture = "gfx/interface/icons/message_feed/law.dds"
+    parent = law
+}
+slavery_authority_0 = {
+    parent = slavery_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
+    alias = { slavery_authority_optimal }
+    parent = law
+}
+slavery_authority_1 = {
+    parent = slavery_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
+    alias = { slavery_authority_stable }
+    parent = law
+}
+slavery_authority_2 = {
+    parent = slavery_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
+    alias = { slavery_authority_crisis }
+    parent = law
+}
+slavery_authority_3 = {
+    parent = slavery_authority
+    texture = "gfx/interface/icons/message_feed/law.dds"
+    alias = { slavery_authority_disrupt }
+    parent = law
+}
 
 communism_authority = {
     texture = "gfx/interface/icons/message_feed/law.dds"

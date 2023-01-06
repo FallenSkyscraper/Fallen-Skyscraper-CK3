@@ -59,6 +59,7 @@ realm_law_use_crown_authority = {
 	AND = {
 		realm_law_use_nomadic_authority = no
 		realm_law_use_tribal_authority = no
+		realm_law_use_slavery_authority = no
 	}
 }
 
@@ -90,7 +91,8 @@ can_have_confederate_partition_succession_law_trigger = {
 		has_government = proletarian_government 
 		has_government = military_government 
 		has_government = maritime_government 
-		has_government = secular_republic_government  
+		has_government = secular_republic_government
+		has_government = slavery_government
 	}
 }
 
@@ -120,7 +122,8 @@ can_have_partition_succession_law_trigger = {
 			has_government = proletarian_government 
 			has_government = military_government 
 			has_government = maritime_government 
-			has_government = secular_republic_government  
+			has_government = secular_republic_government 
+			has_government = slavery_government
 		}
 	}
 }
@@ -155,7 +158,8 @@ can_have_high_partition_succession_law_trigger = {
 			has_government = proletarian_government 
 			has_government = military_government 
 			has_government = maritime_government 
-			has_government = secular_republic_government  
+			has_government = secular_republic_government 
+			has_government = slavery_government
 		}
 	}
 }
@@ -257,7 +261,8 @@ can_have_single_heir_succession_law_trigger = {
 #fs_모드의
 			has_government = proletarian_government  
 			has_government = maritime_government 
-			has_government = secular_republic_government   
+			has_government = secular_republic_government
+			has_government = slavery_government
 		}
 	}
 }
@@ -289,7 +294,8 @@ can_have_single_heir_youngest_succession_law_trigger = {
 			has_government = proletarian_government 
 			has_government = military_government 
 			has_government = maritime_government 
-			has_government = secular_republic_government  
+			has_government = secular_republic_government
+			has_government = slavery_government
 		}
 	}
 }
@@ -338,7 +344,8 @@ can_have_single_heir_dynasty_house_trigger = {
 #fs_모드의
 			has_government = proletarian_government 
 			has_government = maritime_government 
-			has_government = secular_republic_government  
+			has_government = secular_republic_government
+			has_government = slavery_government
 		}
 	}
 }
@@ -401,4 +408,8 @@ realm_law_use_military_authority = {
 
 realm_law_use_communism_authority = {
 	has_government = proletarian_government
+}
+
+realm_law_use_slavery_authority = {
+	has_government = slavery_government
 }
