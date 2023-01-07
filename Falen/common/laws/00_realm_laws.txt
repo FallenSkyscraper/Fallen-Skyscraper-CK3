@@ -670,6 +670,7 @@ slavery_authority = {
 			monthly_income_mult = 0.4
 			levy_size = 0
 			development_growth_factor = 0.4
+			county_opinion_add = 0
 		}
 		can_pass = {
 			always = no
@@ -691,6 +692,7 @@ slavery_authority = {
 			monthly_income_mult = 0.2
 			levy_size = -0.1
 			development_growth_factor = 0.2
+			county_opinion_add = -10
 		}
 		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
@@ -712,6 +714,7 @@ slavery_authority = {
 			monthly_income_mult = -0.1
 			levy_size = -0.15
 			development_growth_factor = -0.2
+			county_opinion_add = -20
 		}
 		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
@@ -733,6 +736,7 @@ slavery_authority = {
 			monthly_income_mult = -0.3
 			levy_size = -0.3
 			development_growth_factor = -0.5
+			county_opinion_add = -40
 		}
 		can_keep = { realm_law_use_slavery_authority = yes }
 		can_pass = {
