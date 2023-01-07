@@ -139,6 +139,24 @@ imperial_council_start_on_action ={
 		}
 	}
 }
+five_year_playable_pulse = {
+	on_actions = {
+		slavery_events_on_action
+	}
+}
+slavery_events_on_action ={
+	trigger = {
+		has_government = slavery_government
+		#current_date < 2600.1.1
+	}
+	random_events = {
+		100 = slavery_event.0001 #자유민의 불만
+		100 = slavery_event.0002 #탈주노예
+		100 = slavery_event.0003 #불법노예거래
+		100 = slavery_event.0004 #농장의 비효율화
+		100 = slavery_event.0005 #종교계의 반발
+	}
+}
 
 # Called from code once every three years for "playable" (count+) characters.
 # Root is the character

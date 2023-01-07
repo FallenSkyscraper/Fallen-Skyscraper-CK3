@@ -1,0 +1,971 @@
+namespace = slavery_event
+
+slavery_event.0001 = { #자유민불만
+	type = character_event
+	title = slavery_event.0001.t
+	desc = slavery_event.0001.desc
+	theme = courtyard
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = {
+		trigger = {
+			stewardship >= 20
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0001.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			stewardship >= 20
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0001.a
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			stewardship >= 20
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0001.a
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			stewardship >= 20
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0001.a
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			stewardship >= 15
+			stewardship < 20
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0001.b
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0001.c
+		add_character_modifier = {
+			modifier = land_reform_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		ai_chance = {
+			base = 10
+			modifier = {
+				gold > massive_gold_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0001.c
+		add_character_modifier = {
+			modifier = land_reform_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 10
+			modifier = {
+				gold > massive_gold_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0001.c
+		add_character_modifier = {
+			modifier = land_reform_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+			modifier = {
+				gold > massive_gold_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0001.c
+		add_character_modifier = {
+			modifier = land_reform_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+			modifier = {
+				gold > massive_gold_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_realm_law = slavery_authority_0
+			}
+		}
+		name = slavery_event.0001.d
+		add_character_modifier = {
+			modifier = bread_and_circus_modifier
+			years = 10
+		}
+		remove_short_term_gold = major_gold_value
+		ai_chance = {
+			base = 10
+			modifier = {
+				gold > major_gold_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0001.e
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0001.e
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0001.e
+		add_realm_law_skip_effects = slavery_authority_3
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0001.e
+		change_government = feudal_government 
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.0002 = { #탈주노예
+	type = character_event
+	title = slavery_event.0002.t
+	desc = slavery_event.0002.desc
+	theme = garden
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = {
+		trigger = {
+			martial >= 20
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0002.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			martial >= 20
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0002.a
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			martial >= 20
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0002.a
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			martial >= 20
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0002.a
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			martial >= 15
+			martial < 20
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0002.b
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0002.c
+		add_character_modifier = {
+			modifier = observe_slave_modifier
+			years = 10
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0002.c
+		add_character_modifier = {
+			modifier = observe_slave_modifier
+			years = 10
+		}
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0002.c
+		add_character_modifier = {
+			modifier = observe_slave_modifier
+			years = 10
+		}
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0002.c
+		add_character_modifier = {
+			modifier = observe_slave_modifier
+			years = 10
+		}
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_realm_law = slavery_authority_0
+			}
+		}
+		name = slavery_event.0002.d
+		add_character_modifier = {
+			modifier = catch_slave_modifier
+			years = 10
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0002.e
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0002.e
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0002.e
+		add_realm_law_skip_effects = slavery_authority_3
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0002.e
+		change_government = feudal_government 
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.0003 = { #불법노예거래
+	type = character_event
+	title = slavery_event.0003.t
+	desc = slavery_event.0003.desc
+	theme = market
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = {
+		trigger = {
+			intrigue >= 20
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0003.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			intrigue >= 20
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0003.a
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			intrigue >= 20
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0003.a
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			intrigue >= 20
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0003.a
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			intrigue >= 15
+			intrigue < 20
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0003.b
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0003.c
+		add_character_modifier = {
+			modifier = furious_vassal_modifier
+			years = 10
+		}
+		ai_chance = {
+			base = 15
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0003.c
+		add_character_modifier = {
+			modifier = furious_vassal_modifier
+			years = 10
+		}
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 15
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0003.c
+		add_character_modifier = {
+			modifier = furious_vassal_modifier
+			years = 10
+		}
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 15
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0003.c
+		add_character_modifier = {
+			modifier = furious_vassal_modifier
+			years = 10
+		}
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 15
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_realm_law = slavery_authority_0
+			}
+		}
+		name = slavery_event.0003.d
+		add_character_modifier = {
+		modifier = angry_vassal_modifier
+			years = 10
+		}
+		ai_chance = {
+			base = 15
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0003.e
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0003.e
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0003.e
+		add_realm_law_skip_effects = slavery_authority_3
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0003.e
+		change_government = feudal_government 
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.0004 = { #비효율적인 농장
+	type = character_event
+	title = slavery_event.0004.t
+	desc = slavery_event.0004.desc
+	theme = farmland
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = {
+		trigger = {
+			diplomacy >= 20
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0004.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			diplomacy >= 20
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0004.a
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			diplomacy >= 20
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0004.a
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			diplomacy >= 20
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0004.a
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			diplomacy >= 15
+			diplomacy < 20
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0004.b
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0004.c
+		add_character_modifier = {
+			modifier = harsh_labor_modifier
+			years = 10
+		}
+		add_prestige = massive_prestige_loss
+		ai_chance = {
+			base = 10
+			modifier = {
+				prestige > massive_prestige_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0004.c
+		add_character_modifier = {
+			modifier = harsh_labor_modifier
+			years = 10
+		}
+		add_prestige = massive_prestige_loss
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 10
+			modifier = {
+				prestige > massive_prestige_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0004.c
+		add_character_modifier = {
+			modifier = harsh_labor_modifier
+			years = 10
+		}
+		add_prestige = massive_prestige_loss
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+			modifier = {
+				prestige > massive_prestige_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0004.c
+		add_character_modifier = {
+			modifier = harsh_labor_modifier
+			years = 10
+		}
+		add_prestige = massive_prestige_loss
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+			modifier = {
+				prestige > massive_prestige_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_realm_law = slavery_authority_0
+			}
+		}
+		name = slavery_event.0004.d
+		add_character_modifier = {
+		modifier = enforce_labor_modifier
+			years = 10
+		}
+		add_prestige = major_prestige_loss
+		ai_chance = {
+			base = 10
+			modifier = {
+				prestige > major_prestige_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0004.e
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0004.e
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0004.e
+		add_realm_law_skip_effects = slavery_authority_3
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0004.e
+		change_government = feudal_government 
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.0005 = { #종교인의 문제
+	type = character_event
+	title = slavery_event.0005.t
+	desc = slavery_event.0005.desc
+	theme = farmland
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = {
+		trigger = {
+			learning >= 23
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0005.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			learning >= 23
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0005.a
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			learning >= 23
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0005.a
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			learning >= 23
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0005.a
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			learning >= 18
+			learning < 23
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0005.b
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0005.c
+		add_character_modifier = {
+			modifier = furious_prist_modifier
+			years = 10
+		}
+		add_piety = massive_piety_loss
+		ai_chance = {
+			base = 10
+			modifier = {
+				piety > massive_piety_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0005.c
+		add_character_modifier = {
+			modifier = furious_prist_modifier
+			years = 10
+		}
+		add_piety = massive_piety_loss
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 10
+			modifier = {
+				piety > massive_piety_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0005.c
+		add_character_modifier = {
+			modifier = furious_prist_modifier
+			years = 10
+		}
+		add_piety = massive_piety_loss
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+			modifier = {
+				piety > massive_piety_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0005.c
+		add_character_modifier = {
+			modifier = furious_prist_modifier
+			years = 10
+		}
+		add_piety = massive_piety_loss
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+			modifier = {
+				piety > massive_piety_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_realm_law = slavery_authority_0
+			}
+		}
+		name = slavery_event.0005.d
+		add_character_modifier = {
+		modifier = angry_prist_modifier
+			years = 10
+		}
+		add_piety = major_piety_loss
+		ai_chance = {
+			base = 10
+			modifier = {
+				piety > major_piety_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0005.e
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0004.e
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0005.e
+		add_realm_law_skip_effects = slavery_authority_3
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0005.e
+		change_government = feudal_government 
+		ai_chance = {
+			base = 10
+		}
+	}
+}
