@@ -689,7 +689,7 @@ slavery_authority = {
 	slavery_authority_1 = {
 		modifier = {
 			monthly_income_mult = 0.2
-			levy_size = 0.1
+			levy_size = -0.1
 			development_growth_factor = 0.2
 		}
 		flag = title_revocation_allowed
@@ -709,8 +709,8 @@ slavery_authority = {
 	}
 	slavery_authority_2 = {
 		modifier = {
-			monthly_income_mult = 0
-			levy_size = 0.2
+			monthly_income_mult = -0.1
+			levy_size = -0.15
 			development_growth_factor = -0.2
 		}
 		flag = title_revocation_allowed
@@ -730,8 +730,8 @@ slavery_authority = {
 	}
 	slavery_authority_3 = {
 		modifier = {
-			monthly_income_mult = -0.2
-			levy_size = 0.3
+			monthly_income_mult = -0.3
+			levy_size = -0.3
 			development_growth_factor = -0.5
 		}
 		can_keep = { realm_law_use_slavery_authority = yes }
