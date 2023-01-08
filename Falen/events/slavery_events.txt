@@ -197,7 +197,10 @@ slavery_event.0001 = { #ÀÚÀ¯¹ÎºÒ¸¸
 			has_realm_law = slavery_authority_3
 		}
 		name = slavery_event.0001.e
-		change_government = feudal_government 
+		custom_tooltip = slavery_event.2001.tt
+		trigger_event = {
+			id = slavery_event.2001
+		}
 		ai_chance = {
 			base = 10
 		}
@@ -376,7 +379,10 @@ slavery_event.0002 = { #Å»ÁÖ³ë¿¹
 			has_realm_law = slavery_authority_3
 		}
 		name = slavery_event.0002.e
-		change_government = feudal_government 
+		custom_tooltip = slavery_event.2001.tt
+		trigger_event = {
+			id = slavery_event.2001
+		}
 		ai_chance = {
 			base = 10
 		}
@@ -555,7 +561,10 @@ slavery_event.0003 = { #ºÒ¹ı³ë¿¹°Å·¡
 			has_realm_law = slavery_authority_3
 		}
 		name = slavery_event.0003.e
-		change_government = feudal_government 
+		custom_tooltip = slavery_event.2001.tt
+		trigger_event = {
+			id = slavery_event.2001
+		}
 		ai_chance = {
 			base = 10
 		}
@@ -759,7 +768,10 @@ slavery_event.0004 = { #ºñÈ¿À²ÀûÀÎ ³óÀå
 			has_realm_law = slavery_authority_3
 		}
 		name = slavery_event.0004.e
-		change_government = feudal_government 
+		custom_tooltip = slavery_event.2001.tt
+		trigger_event = {
+			id = slavery_event.2001
+		} 
 		ai_chance = {
 			base = 10
 		}
@@ -963,9 +975,107 @@ slavery_event.0005 = { #Á¾±³ÀÎÀÇ ¹®Á¦
 			has_realm_law = slavery_authority_3
 		}
 		name = slavery_event.0005.e
-		change_government = feudal_government 
+		custom_tooltip = slavery_event.2001.tt
+		trigger_event = {
+			id = slavery_event.2001
+		}
 		ai_chance = {
 			base = 10
 		}
 	}
 }
+
+######################################################################
+
+slavery_event.2001 = { #³ë¿¹Á¦ÀÇ ºØ±«
+	type = character_event
+	title = slavery_event.2001.t
+	desc = slavery_event.2001.desc
+	theme = default
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+	option = {
+		name = slavery_event.2001.a
+		custom_tooltip = slavery_event.2001.a.tt
+		trigger_event = {
+			id = slavery_event.2002
+		}
+	}
+}
+
+slavery_event.2002 = { #³ë¿¹Á¦ÀÇ ºØ±«
+	type = character_event
+	title = slavery_event.2001.t
+	desc = slavery_event.2002.desc
+	theme = default
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	option = {
+		name = slavery_event.2002.a
+		custom_tooltip = slavery_event.2001.a.tt
+		trigger_event = {
+			id = slavery_event.2003
+		}
+	}
+}
+
+slavery_event.2003 = { #³ë¿¹Á¦ÀÇ ºØ±«
+	type = character_event
+	title = slavery_event.2001.t
+	desc = slavery_event.2003.desc
+	theme = default
+	left_portrait = {
+		character = root
+		animation = beg
+	}
+	option = {
+		name = slavery_event.2003.a
+		custom_tooltip = slavery_event.2001.a.tt
+		trigger_event = {
+			id = slavery_event.2004
+		}
+	}
+}
+
+slavery_event.2004 = { #³ë¿¹Á¦ÀÇ ºØ±«
+	type = character_event
+	title = slavery_event.2001.t
+	desc = slavery_event.2004.desc
+	theme = default
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+	option = {
+		name = slavery_event.2004.a
+		custom_tooltip = slavery_event.2001.a.tt
+		trigger_event = {
+			id = slavery_event.2005
+		}
+	}
+}
+
+slavery_event.2005 = { #³ë¿¹Á¦ÀÇ ºØ±«
+	type = character_event
+	title = slavery_event.2001.t
+	desc = slavery_event.2005.desc
+	theme = default
+	left_portrait = {
+		character = root
+		animation = stress
+	}
+	option = {
+		name = slavery_event.2005.a
+		change_government = feudal_government
+		add_character_modifier = {
+			modifier = slavery_collapse_modifier
+			years = 20
+		}
+	}
+}
+
+############################################################################
