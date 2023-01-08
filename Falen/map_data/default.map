@@ -41,7 +41,7 @@ river_provinces = RANGE { 4123 4129 }		#Hun
 # LAKES
 ########
 
-lakes = LIST { 3793 } # 프리모리예
+lakes = LIST { 3793 4233 } # 항카 호,천지
 
 #####################
 # IMPASSABLE TERRAIN
@@ -55,7 +55,11 @@ impassable_mountains = RANGE { 3777 3792 }
 #만주사막
 impassable_mountains = RANGE { 3794 3803 }
 
-impassable_mountains = LIST { 3529 }
+impassable_mountains = LIST { 1501 3529 }
+
+#한국 산맥
+impassable_mountains = RANGE { 4131 4232 }
+impassable_mountains = LIST { 4234 }
 ############
 # WASTELAND
 ############

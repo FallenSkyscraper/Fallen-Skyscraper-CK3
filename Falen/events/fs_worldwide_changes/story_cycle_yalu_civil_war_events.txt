@@ -243,20 +243,6 @@ yalu_civil_war.6 = {
 		character:9014 = {
 			add_pressed_claim = title:e_yalu
 		}
-	}
-	option = {
-		name = yalu_civil_war.6.a
-		trigger = {
-			NOT = {
-				root = character:9012
-			}
-		}
-	}
-	option = {
-		name = yalu_civil_war.6.b
-		trigger = {
-			root = character:9012
-		}
 		create_title_and_vassal_change = {
 			type = usurped
 			save_scope_as = change
@@ -276,6 +262,17 @@ yalu_civil_war.6 = {
 					change = scope:change
 				}
 			}
+			every_vassal = {
+				limit = {
+					primary_title = {
+						target_is_de_jure_liege_or_above = title:d_liaoyang
+					}
+				}
+				change_liege = {
+					liege = character:9012
+					change = scope:change
+				}
+			}
 		}
 		title:d_benxi.holder = {
 			change_liege = {
@@ -290,6 +287,21 @@ yalu_civil_war.6 = {
 			}
 		}
 		resolve_title_and_vassal_change = scope:change
+	}
+	option = {
+		name = yalu_civil_war.6.a
+		trigger = {
+			NOT = {
+				root = character:9012
+			}
+		}
+	}
+	option = {
+		name = yalu_civil_war.6.b
+		trigger = {
+			root = character:9012
+		}
+		
 		trigger_event = {
 			id = yalu_civil_war.7
 			days = 7
