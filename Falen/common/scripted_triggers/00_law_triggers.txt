@@ -64,12 +64,7 @@ realm_law_use_crown_authority = {
 }
 
 realm_law_use_nomadic_authority = {
-	AND = {
-		OR = {
-			has_government = nomadic_government
-			has_government = manchu_tribal_government
-		}
-	}
+	has_government = nomadic_government
 }
 
 realm_law_use_tribal_authority = {
