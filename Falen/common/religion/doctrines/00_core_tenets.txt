@@ -3497,6 +3497,8 @@ doctrine_core_tenets = {
 			# We also only want people with HoFs.
 			exists = religious_head
 		}
+
+		can_pick = {
 			# !!! SECTION NOTE !!!
 			## We check for tenets rather than doctrine parameters here because doctrine parameters cannot be checked in the selected_doctrines list, so we maintain such throughout the section for consistency.
 			# Some tenet/doctrine configurations are mutually exclusive.
@@ -3622,7 +3624,7 @@ doctrine_core_tenets = {
 					}
 				}
 			}
-
+		}
 		piety_cost = {
 			value = faith_tenet_cost_low
 		}
