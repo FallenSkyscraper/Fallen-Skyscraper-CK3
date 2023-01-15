@@ -10,49 +10,134 @@ bread_and_circus_modifier = {
 }
 observe_slave_modifier = {
 	icon = martial_negative
-	levy_size = -0.7
+	levy_size = -0.5
 }
 catch_slave_modifier = {
 	icon = martial_negative
-	levy_size = -0.5
+	levy_size = -0.3
 }
 furious_vassal_modifier = {
 	icon = social_negative
-	vassal_opinion = -60
 	vassal_opinion = -60
 }
 angry_vassal_modifier = {
 	icon = social_negative
 	vassal_opinion = -30
-	vassal_opinion = -30
 }
 harsh_labor_modifier = {
 	icon = prestige_negative
-	monthly_prestige_gain_mult = -2.5
-	monthly_prestige = 3
+	monthly_prestige_gain_mult = -1.5
+	monthly_prestige = 2
 }
 enforce_labor_modifier = {
 	icon = prestige_negative
-	monthly_prestige_gain_mult = -1.5
-	monthly_prestige = 3
+	monthly_prestige_gain_mult = -1
 }
 furious_prist_modifier = {
 	icon = piety_negative	
-	monthly_piety_gain_mult = -2.5
-	general_opinion = -40
-	monthly_piety = 3
+	monthly_piety_gain_mult = -1.5
+	general_opinion = -30
+	monthly_piety = 2
 }
 angry_prist_modifier = {
 	icon = piety_negative	
-	monthly_piety_gain_mult = -1.5
-	general_opinion = -25
-	monthly_piety = 3
+	monthly_piety_gain_mult = -1
+	general_opinion = -15
+}
+liberty_attack_modifier = {
+	icon = intrigue_negative	
+	intrigue_scheme_power = -0.4
+	intrigue_scheme_resistance = -0.3
+}
+liberty_observe_modifier = {
+	icon = intrigue_negative	
+	intrigue_scheme_power = -0.2
+	intrigue_scheme_resistance = -0.15
+}
+slavery_maintenance_high_modifier = {
+	icon = economy_negative
+	monthly_income_mult = -0.3
+	build_gold_cost	 = 0.3
+}
+slavery_maintenance_medium_modifier = {
+	icon = economy_negative
+	monthly_income_mult = -0.15
+	build_gold_cost	= 0.15
+}
+reject_slavery_modifier = {
+	icon = social_negative
+	monthly_income_mult = 0.15
+}
+strong_slavery_support_modifier = {
+	icon = social_negative
+	vassal_opinion = -30
+	stress_gain_mult = 0.3
+}
+slavery_support_modifier = {
+	icon = social_negative
+	vassal_opinion = -20
+	stress_gain_mult = 0.1
+}
+strong_reject_right_modifier = {
+	icon = social_negative
+	county_opinion_add = -70
+}
+reject_right_modifier = {
+	icon = social_negative
+	county_opinion_add = -35
+}
+
+#####################################
+
+search_support_modifier = {
+	icon = intrigue_negative
+	scheme_power = -20
+	scheme_success_chance = -20
+}
+strong_search_support_modifier = {
+	icon = intrigue_negative
+	scheme_power = -40
+	scheme_success_chance = -40
+}
+military_observe_modifier = {
+	icon = martial_negative
+	levy_size = -0.2
+}
+slave_relocate_modifier = {
+	icon = economy_negative
+	monthly_income_mult = -10
+}
+attack_org_modifier = {
+	icon = martial_negative
+	levy_size = -0.2
+	men_at_arms_maintenance	= 0.2
+}
+weaker_slave_modifier = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 10
+}
+sneak_attack_modifier = {
+	icon = martial_negative
+	men_at_arms_maintenance	= 0.1
+}
+reveal_org_modifier = {
+	icon = intrigue_positive
+	intrigue = 1
+}
+liberty_slave_modifier = {
+	icon = economy_negative
+	monthly_income_mult = -0.25
+}
+slavery_promise_modifier = {
+	icon = economy_negative
+	monthly_income_mult = -0.10
+	monthly_prestige_gain_mult = -0.7
 }
 
 
 
 
-#####################################
+####################################
 
 slavery_collapse_modifier = {
 	icon = county_modifier_corruption_negative	

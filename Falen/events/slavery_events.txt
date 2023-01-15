@@ -789,7 +789,7 @@ slavery_event.0005 = { #종교인의 문제
 	}
 	option = {
 		trigger = {
-			learning >= 23
+			learning >= 20
 			has_realm_law = slavery_authority_0
 		}
 		name = slavery_event.0005.a
@@ -799,7 +799,7 @@ slavery_event.0005 = { #종교인의 문제
 	}
 	option = {
 		trigger = {
-			learning >= 23
+			learning >= 20
 			has_realm_law = slavery_authority_1
 		}
 		name = slavery_event.0005.a
@@ -810,7 +810,7 @@ slavery_event.0005 = { #종교인의 문제
 	}
 	option = {
 		trigger = {
-			learning >= 23
+			learning >= 20
 			has_realm_law = slavery_authority_2
 		}
 		name = slavery_event.0005.a
@@ -821,7 +821,7 @@ slavery_event.0005 = { #종교인의 문제
 	}
 	option = {
 		trigger = {
-			learning >= 23
+			learning >= 20
 			has_realm_law = slavery_authority_3
 		}
 		name = slavery_event.0005.a
@@ -832,8 +832,8 @@ slavery_event.0005 = { #종교인의 문제
 	}
 	option = {
 		trigger = {
-			learning >= 18
-			learning < 23
+			learning >= 15
+			learning < 20
 			OR = {
 				has_realm_law = slavery_authority_1
 				has_realm_law = slavery_authority_2
@@ -954,7 +954,7 @@ slavery_event.0005 = { #종교인의 문제
 		trigger = {
 			has_realm_law = slavery_authority_1
 		}
-		name = slavery_event.0004.e
+		name = slavery_event.0005.e
 		add_realm_law_skip_effects = slavery_authority_2
 		ai_chance = {
 			base = 10
@@ -985,7 +985,3277 @@ slavery_event.0005 = { #종교인의 문제
 	}
 }
 
+slavery_event.0006 = { #노예해방단체
+	type = character_event
+	title = slavery_event.0006.t
+	desc = slavery_event.0006.desc
+	theme = farmland
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = {
+		trigger = {
+			intrigue >= 20
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0006.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			intrigue >= 20
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0006.a
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			intrigue >= 20
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0006.a
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			intrigue >= 20
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0006.a
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			intrigue >= 15
+			intrigue < 20
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0006.b
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0006.c
+		add_character_modifier = {
+			modifier = liberty_attack_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0006.c
+		add_character_modifier = {
+			modifier = liberty_attack_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0006.c
+		add_character_modifier = {
+			modifier = liberty_attack_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0006.c
+		add_character_modifier = {
+			modifier = liberty_attack_modifier
+			years = 10
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_realm_law = slavery_authority_0
+			}
+		}
+		name = slavery_event.0006.d
+		add_character_modifier = {
+			modifier = liberty_observe_modifier
+			years = 10
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0006.e
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0006.e
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0006.e
+		add_realm_law_skip_effects = slavery_authority_3
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0006.e
+		custom_tooltip = slavery_event.2001.tt
+		trigger_event = {
+			id = slavery_event.2001
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.0007 = { #자유민불만
+	type = character_event
+	title = slavery_event.0007.t
+	desc = slavery_event.0007.desc
+	theme = courtyard
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = {
+		trigger = {
+			stewardship >= 20
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0007.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			stewardship >= 20
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0007.a
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			stewardship >= 20
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0007.a
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			stewardship >= 20
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0007.a
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			stewardship >= 15
+			stewardship < 20
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0007.b
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0007.c
+		add_character_modifier = {
+			modifier = slavery_maintenance_high_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		ai_chance = {
+			base = 10
+			modifier = {
+				gold > massive_gold_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0007.c
+		add_character_modifier = {
+			modifier = slavery_maintenance_high_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 10
+			modifier = {
+				gold > massive_gold_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0007.c
+		add_character_modifier = {
+			modifier = slavery_maintenance_high_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+			modifier = {
+				gold > massive_gold_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0007.c
+		add_character_modifier = {
+			modifier = slavery_maintenance_high_modifier
+			years = 10
+		}
+		remove_short_term_gold = massive_gold_value
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+			modifier = {
+				gold > massive_gold_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_realm_law = slavery_authority_0
+			}
+		}
+		name = slavery_event.0007.d
+		add_character_modifier = {
+			modifier = slavery_maintenance_medium_modifier
+			years = 10
+		}
+		remove_short_term_gold = major_gold_value
+		ai_chance = {
+			base = 10
+			modifier = {
+				gold > major_gold_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0007.e
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0007.e
+		custom_tooltip = slavery_event.0007.tt
+		add_character_modifier = {
+			modifier = reject_slavery_modifier
+			years = 20
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.0008 = { # 해방노예문제
+	type = character_event
+	title = slavery_event.0008.t
+	desc = slavery_event.0008.desc
+	theme = farmland
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = {
+		trigger = {
+			diplomacy >= 20
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0008.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			diplomacy >= 20
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0008.a
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			diplomacy >= 20
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0005.a
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			diplomacy >= 20
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0008.a
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			diplomacy >= 15
+			diplomacy < 20
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0008.b
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0008.c
+		add_character_modifier = {
+			modifier = strong_slavery_support_modifier
+			years = 10
+		}
+		add_prestige = massive_prestige_loss
+		ai_chance = {
+			base = 10
+			modifier = {
+				prestige > massive_prestige_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0008.c
+		add_character_modifier = {
+			modifier = strong_slavery_support_modifier
+			years = 10
+		}
+		add_prestige = massive_prestige_loss
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 10
+			modifier = {
+				prestige > massive_prestige_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0008.c
+		add_character_modifier = {
+			modifier = strong_slavery_support_modifier
+			years = 10
+		}
+		add_prestige = massive_prestige_loss
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+			modifier = {
+				prestige > massive_prestige_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0008.c
+		add_character_modifier = {
+			modifier = strong_slavery_support_modifier
+			years = 10
+		}
+		add_prestige = massive_prestige_loss
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+			modifier = {
+				prestige > massive_prestige_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_realm_law = slavery_authority_0
+			}
+		}
+		name = slavery_event.0008.d
+		add_character_modifier = {
+		modifier = slavery_support_modifier
+			years = 10
+		}
+		add_prestige = major_prestige_loss
+		ai_chance = {
+			base = 10
+			modifier = {
+				prestige > major_prestige_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0008.e
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0008.e
+		custom_tooltip = slavery_event.0007.tt
+		add_character_modifier = {
+			modifier = reject_slavery_modifier
+			years = 20
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.0009 = { #노예권리문제
+	type = character_event
+	title = slavery_event.0009.t
+	desc = slavery_event.0009.desc
+	theme = farmland
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	option = {
+		trigger = {
+			learning >= 20
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0009.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			learning >= 20
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0009.a
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			learning >= 20
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0009.a
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			learning >= 20
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0009.a
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			learning >= 15
+			learning < 20
+			OR = {
+				has_realm_law = slavery_authority_1
+				has_realm_law = slavery_authority_2
+				has_realm_law = slavery_authority_3
+			}
+		}
+		name = slavery_event.0009.b
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0009.c
+		add_character_modifier = {
+			modifier = strong_reject_right_modifier
+			years = 10
+		}
+		add_piety = massive_piety_loss
+		ai_chance = {
+			base = 10
+			modifier = {
+				piety > massive_piety_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0009.c
+		add_character_modifier = {
+			modifier = strong_reject_right_modifier
+			years = 10
+		}
+		add_piety = massive_piety_loss
+		add_realm_law_skip_effects = slavery_authority_0
+		ai_chance = {
+			base = 10
+			modifier = {
+				piety > massive_piety_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0009.c
+		add_character_modifier = {
+			modifier = strong_reject_right_modifier
+			years = 10
+		}
+		add_piety = massive_piety_loss
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+			modifier = {
+				piety > massive_piety_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0009.c
+		add_character_modifier = {
+			modifier = strong_reject_right_modifier
+			years = 10
+		}
+		add_piety = massive_piety_loss
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+			modifier = {
+				piety > massive_piety_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_realm_law = slavery_authority_0
+			}
+		}
+		name = slavery_event.0009.d
+		add_character_modifier = {
+		modifier = reject_right_modifier
+			years = 10
+		}
+		add_piety = major_piety_loss
+		ai_chance = {
+			base = 10
+			modifier = {
+				piety > major_piety_value
+				add = 25
+			}
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.0009.e
+		add_realm_law_skip_effects = slavery_authority_1
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.0009.e
+		add_realm_law_skip_effects = slavery_authority_2
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.0009.e
+		add_realm_law_skip_effects = slavery_authority_3
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.0009.e
+		custom_tooltip = slavery_event.2001.tt
+		trigger_event = {
+			id = slavery_event.2001
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
 ######################################################################
+
+
+#존브라운이벤트
+#이벤트내에 노예대규모시위, 무기고습격, 노예반란을 중심으로 다양한 이벤트가 있음
+
+slavery_event.1001 = { #첩보
+	type = character_event
+	trigger = {
+		has_character_modifier = reject_slavery_modifier
+	}
+	title = slavery_event.1001.t
+	desc = slavery_event.1001.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = crown
+	}
+	right_portrait = {
+		character = cp:councillor_spymaster
+		animation = spymaster
+	}
+	immediate = {
+		hidden_effect = {
+			create_character = {
+				location = root.location
+				faith = root.faith
+				culture = root.culture
+				trait = zealous
+				trait = ambitious
+				trait = brave
+				trait = education_martial_4
+				age = { 25 40 }
+				save_scope_as = john_brown
+			}
+		}
+	}
+	option = {
+		name = slavery_event.1001.a
+		add_character_modifier = {
+			modifier = search_support_modifier
+			years = 5
+		}
+		remove_character_modifier = reject_slavery_modifier
+		trigger_event = {
+			id = slavery_event.1021
+			days = 60
+		}
+		ai_chance = {
+			base = 70
+		}
+	}
+	option = {
+		name = slavery_event.1001.b
+		remove_character_modifier = reject_slavery_modifier
+		trigger_event = {
+			id = slavery_event.1061
+			days = 180
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1021 = { 
+	type = character_event
+	title = slavery_event.1021.t
+	desc = slavery_event.1021.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = crown
+	}
+	right_portrait = {
+		character = cp:councillor_spymaster
+		animation = spymaster
+	}
+	option = {
+		name = slavery_event.1021.a
+		add_character_modifier = {
+			modifier = strong_search_support_modifier
+			years = 5
+		}
+		remove_character_modifier = search_support_modifier
+		trigger_event = {
+			id = slavery_event.1041
+			days = 60
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = slavery_event.1021.b
+		custom_tooltip = slavery_event.1021.b.tt
+		trigger_event = {
+			id = slavery_event.1022
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+slavery_event.1022 = { 
+	type = character_event
+	title = slavery_event.1022.t
+	desc = slavery_event.1022.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = crown
+	}
+	option = {
+		name = slavery_event.1022.a
+		add_character_modifier = {
+			modifier = military_observe_modifier
+			years = 5
+		}
+		trigger_event = {
+			id = slavery_event.1041
+			days = 60
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = slavery_event.1022.b
+		add_character_modifier = {
+			modifier = slave_relocate_modifier
+			years = 5
+		}
+		trigger_event = {
+			id = slavery_event.1041
+			days = 60
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+slavery_event.1041 = { 
+	type = character_event
+	title = slavery_event.1041.t
+	desc = slavery_event.1041.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = crown
+	}
+	right_portrait = {
+		character = cp:councillor_spymaster
+		animation = spymaster
+	}
+	immediate = {
+		add_character_modifier = {
+			modifier = reveal_org_modifier
+			years = 5
+		}
+	}
+	option = {
+		name = slavery_event.1041.a
+		custom_tooltip = slavery_event.1041.a.tt
+		trigger_event = {
+			id = slavery_event.1051
+			days = 30
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = slavery_event.1041.b
+		custom_tooltip = slavery_event.1041.b.tt
+		trigger_event = {
+			id = slavery_event.1052
+			days = 30
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = slavery_event.1041.c
+		add_character_modifier = {
+			modifier = attack_org_modifier
+			years = 5
+		}
+		trigger_event = {
+			id = slavery_event.1061
+			days = 60
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+slavery_event.1042 = { 
+	type = character_event
+	title = slavery_event.1042.t
+	desc = slavery_event.1042.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = crown
+	}
+	right_portrait = {
+		character = cp:councillor_marshal
+		animation = marshal
+	}
+	option = {
+		name = slavery_event.1042.a
+		custom_tooltip = slavery_event.1042.a.tt
+		trigger_event = {
+			id = slavery_event.1053
+			days = 30
+		}
+	}
+}
+
+slavery_event.1043 = { 
+	type = character_event
+	title = slavery_event.1043.t
+	desc = slavery_event.1043.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = crown
+	}
+	option = {
+		name = slavery_event.1043.a
+		add_character_modifier = {
+			modifier = weaker_slave_modifier
+			years = 5
+		}
+		trigger_event = {
+			id = slavery_event.1061
+			days = 60
+		}
+	}
+	option = {
+		name = slavery_event.1043.a
+		custom_tooltip = slavery_event.1043.a.tt
+		trigger_event = {
+			id = slavery_event.1062
+			days = 60
+		}
+	}
+}
+
+slavery_event.1051 = { 
+	type = character_event
+	title = slavery_event.1051.t
+	desc = slavery_event.1051.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = crown
+	}
+	right_portrait = {
+		character = cp:councillor_spymaster
+		animation = spymaster
+	}
+	option = {
+		name = slavery_event.1051.a
+		custom_tooltip = slavery_event.1051.a.tt
+		trigger_event = {
+			id = slavery_event.1073
+			days = 60
+		}
+	}
+	option = {
+		name = slavery_event.1051.b
+		add_character_modifier = {
+			modifier = sneak_attack_modifier
+			years = 5
+		}
+		trigger_event = {
+			id = slavery_event.1073
+			days = 60
+		}
+	}
+}
+
+slavery_event.1052 = { 
+	type = character_event
+	title = slavery_event.1052.t
+	desc = slavery_event.1052.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = crown
+	}
+	right_portrait = {
+		character = cp:councillor_spymaster
+		animation = spymaster
+	}
+	option = {
+		name = slavery_event.1052.a
+		custom_tooltip = slavery_event.1052.a.tt
+		trigger_event = {
+			id = slavery_event.1063
+			days = 30
+		}
+	}
+	option = {
+		name = slavery_event.1052.b
+		custom_tooltip = slavery_event.1052.b.tt
+		trigger_event = {
+			id = slavery_event.1064
+			days = 30
+		}
+	}
+}
+
+slavery_event.1053 = { 
+	type = character_event
+	title = slavery_event.1053.t
+	desc = slavery_event.1053.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = crown
+	}
+	right_portrait = {
+		character = cp:councillor_marshal
+		animation = marshal
+	}
+	immediate = {
+		add_character_modifier = {
+			modifier = reveal_org_modifier
+			years = 5
+		}
+	}
+	option = {
+		name = slavery_event.1053.a
+		custom_tooltip = slavery_event.1053.a.tt
+		trigger_event = {
+			id = slavery_event.1054
+		}
+	}
+}
+
+slavery_event.1054 = { 
+	type = character_event
+	title = slavery_event.1054.t
+	desc = slavery_event.1054.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = crown
+	}
+	right_portrait = {
+		character = cp:councillor_marshal
+		animation = marshal
+	}
+	option = {
+		name = slavery_event.1054.a
+		custom_tooltip = slavery_event.1054.a.tt
+		trigger_event = {
+			id = slavery_event.1063
+			days = 30
+		}
+	}
+}
+
+slavery_event.1061 = { 
+	type = character_event
+	title = slavery_event.1061.t
+	desc = slavery_event.1061.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	option = {
+		trigger = {
+			has_character_modifier = weaker_slave_modifier
+		}
+		name = slavery_event.1061.a
+		custom_tooltip = slavery_event.1061.a.tt
+		trigger_event = {
+			id = slavery_event.1071
+			days = 30
+		}
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		name = slavery_event.1061.b
+		random_list = {
+			45 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 5
+				}
+				desc = slavery_event.1061.b.a
+				custom_tooltip = slavery_event.1061.b.a.tt
+				trigger_event = {
+					id = slavery_event.1071
+					days = 30
+				}
+			}
+			55 = {
+				desc = slavery_event.1061.b.b
+				custom_tooltip = slavery_event.1061.b.b.tt
+				trigger_event = {
+					id = slavery_event.1072
+					days = 30
+				}
+			}
+		}
+		ai_chance = {
+			base = 70
+		}
+	}
+	option = {
+		name = slavery_event.1061.c
+		custom_tooltip = slavery_event.1061.c.tt
+		trigger_event = {
+			id = slavery_event.1065
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1062 = { 
+	type = character_event
+	title = slavery_event.1062.t
+	desc = slavery_event.1062.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	option = {
+		name = slavery_event.1062.a
+		random_list = {
+			40 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 5
+				}
+				desc = slavery_event.1062.a.a
+				custom_tooltip = slavery_event.1062.a.a.tt
+				trigger_event = {
+					id = slavery_event.1066
+				}
+			}
+			60 = {
+				desc = slavery_event.1062.a.b
+				custom_tooltip = slavery_event.1062.a.b.tt
+				trigger_event = {
+					id = slavery_event.1061
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1063 = { 
+	type = character_event
+	title = slavery_event.1063.t
+	desc = slavery_event.1063.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	option = {
+		name = slavery_event.1063.a
+		random_list = {
+			40 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 5
+				}
+				desc = slavery_event.1063.a.a
+				custom_tooltip = slavery_event.1063.a.a.tt
+				trigger_event = {
+					id = slavery_event.1066
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 3
+				}
+				desc = slavery_event.1063.a.b
+				custom_tooltip = slavery_event.1063.a.b.tt
+				trigger_event = {
+					id = slavery_event.1071
+					days = 30
+				}
+			}
+			60 = {
+				desc = slavery_event.1063.a.c
+				custom_tooltip = slavery_event.1063.a.c.tt
+				trigger_event = {
+					id = slavery_event.1061
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1064 = { 
+	type = character_event
+	title = slavery_event.1064.t
+	desc = slavery_event.1064.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	right_portrait = {
+		character = scope:speacher
+		animation = rage
+	}
+	immediate = {
+		hidden_effect = {
+			create_character = {
+				location = root.location
+				faith = root.faith
+				culture = root.culture
+				trait = zealous
+				trait = ambitious
+				trait = education_learning_3
+				age = { 25 40 }
+				save_scope_as = speacher
+			}
+		}
+	}
+	option = {
+		name = slavery_event.1064.a
+		random_list = {
+			30 = {
+				compare_modifier = {
+					value = learning
+					multiplier = 5
+				}
+				desc = slavery_event.1064.a.a
+				custom_tooltip = slavery_event.1064.a.a.tt
+				trigger_event = {
+					id = slavery_event.1067
+				}
+			}
+			70 = {
+				desc = slavery_event.1064.a.b
+				custom_tooltip = slavery_event.1064.a.b.tt
+				trigger_event = {
+					id = slavery_event.1068
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1065 = { 
+	type = character_event
+	title = slavery_event.1065.t
+	desc = slavery_event.1065.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	option = {
+		name = slavery_event.1065.a
+		custom_tooltip = slavery_event.1065.c.tt
+		trigger_event = {
+			id = slavery_event.1069
+		}
+		ai_chance = {
+			base = 60
+		}
+	}
+	option = {
+		name = slavery_event.1065.b
+		custom_tooltip = slavery_event.1065.c.tt
+		trigger_event = {
+			id = slavery_event.1060
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+}
+
+slavery_event.1066 = { 
+	type = character_event
+	title = slavery_event.1066.t
+	desc = slavery_event.1066.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+	option = {
+		name = slavery_event.1066.a
+		custom_tooltip = slavery_event.1066.c.tt
+		trigger_event = {
+			id = slavery_event.1101
+			days = 150
+		}
+	}
+}
+
+slavery_event.1067 = { 
+	type = character_event
+	title = slavery_event.1067.t
+	desc = slavery_event.1067.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:speacher
+		animation = disapproval
+	}
+	option = {
+		name = slavery_event.1067.a
+		custom_tooltip = slavery_event.1067.c.tt
+		trigger_event = {
+			id = slavery_event.1081
+			days = 60
+		}
+	}
+}
+
+slavery_event.1068 = { 
+	type = character_event
+	title = slavery_event.1068.t
+	desc = slavery_event.1068.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = disapproval
+	}
+	right_portrait = {
+		character = scope:speacher
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1068.a
+		custom_tooltip = slavery_event.1068.c.tt
+		trigger_event = {
+			id = slavery_event.1072
+			days = 30
+		}
+	}
+}
+
+slavery_event.1069 = { 
+	type = character_event
+	title = slavery_event.1069.t
+	desc = slavery_event.1069.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1069.a
+		custom_tooltip = slavery_event.1069.a.tt
+		trigger_event = {
+			id = slavery_event.1082
+			days = 60
+		}
+	}
+}
+
+slavery_event.1060 = { 
+	type = character_event
+	title = slavery_event.1060.t
+	desc = slavery_event.1060.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1060.a
+		random_list = {
+			60 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 5
+				}
+				desc = slavery_event.1060.a.a
+				custom_tooltip = slavery_event.1060.a.a.tt
+				trigger_event = {
+					id = slavery_event.1071
+					days = 30
+				}
+			}
+			40 = {
+				desc = slavery_event.1060.a.b
+				custom_tooltip = slavery_event.1060.a.b.tt
+				trigger_event = {
+					id = slavery_event.1072
+					days = 30
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1071 = { 
+	type = character_event
+	title = slavery_event.1071.t
+	desc = slavery_event.1071.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	option = {
+		trigger = {
+			has_character_modifier = attack_org_modifier
+		}
+		name = slavery_event.1071.a
+		custom_tooltip = slavery_event.1071.a.tt
+		trigger_event = {
+			id = slavery_event.1101
+			days = 90
+		}
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			has_character_modifier = reveal_org_modifier
+		}
+		name = slavery_event.1071.b
+		custom_tooltip = slavery_event.1071.b.tt
+		trigger_event = {
+			id = slavery_event.1081
+			days = 30
+		}
+		ai_chance = {
+			base = 500
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_character_modifier = reveal_org_modifier
+			}
+		}
+		name = slavery_event.1071.c
+		custom_tooltip = slavery_event.1071.c.tt
+		trigger_event = {
+			id = slavery_event.1091
+			days = 60
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1071.d
+		custom_tooltip = slavery_event.1071.d.tt
+		trigger_event = {
+			id = slavery_event.1121
+			days = 150
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1072 = { 
+	type = character_event
+	title = slavery_event.1072.t
+	desc = slavery_event.1072.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.1072.a
+		add_realm_law_skip_effects = slavery_authority_1
+		trigger_event = {
+			id = slavery_event.1083
+			days = 30
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.1072.a
+		add_realm_law_skip_effects = slavery_authority_2
+		trigger_event = {
+			id = slavery_event.1083
+			days = 30
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.1072.a
+		add_realm_law_skip_effects = slavery_authority_3
+		trigger_event = {
+			id = slavery_event.1083
+			days = 30
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.1072.a
+		custom_tooltip = slavery_event.2001.tt
+		trigger_event = {
+			id = slavery_event.2001
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.1073 = { 
+	type = character_event
+	title = slavery_event.1073.t
+	desc = slavery_event.1073.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	right_portrait = {
+		character = scope:john_brown
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1073.a
+		custom_tooltip = slavery_event.1073.a.tt
+		trigger_event = {
+			id = slavery_event.1074
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1073.b
+		custom_tooltip = slavery_event.1073.b.tt
+		trigger_event = {
+			id = slavery_event.1075
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1073.c
+		custom_tooltip = slavery_event.1073.c.tt
+		trigger = {
+			has_character_modifier = sneak_attack_modifier
+		}
+		random_list = {
+			35 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 3
+				}
+				desc = slavery_event.1073.a.a
+				custom_tooltip = slavery_event.1073.a.a.tt
+				trigger_event = {
+					id = slavery_event.1076
+				}
+			}
+			65 = {
+				desc = slavery_event.1073.a.b
+				custom_tooltip = slavery_event.1073.a.b.tt
+				trigger_event = {
+					id = slavery_event.1077
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+slavery_event.1074 = { 
+	type = character_event
+	title = slavery_event.1074.t
+	desc = slavery_event.1074.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:john_brown
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1074.a
+		custom_tooltip = slavery_event.1074.a.tt
+		add_character_modifier = {
+			modifier = liberty_slave_modifier
+			years = 20
+		}
+	}
+}
+
+slavery_event.1075 = { 
+	type = character_event
+	title = slavery_event.1075.t
+	desc = slavery_event.1075.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	right_portrait = {
+		character = scope:john_brown
+		animation = rage
+	}
+	option = {
+		name = slavery_event.1075.a
+		custom_tooltip = slavery_event.1075.a.tt
+		trigger_event = {
+			id = slavery_event.1092
+			days = 60
+		}
+	}
+}
+
+slavery_event.1076 = { 
+	type = character_event
+	title = slavery_event.1076.t
+	desc = slavery_event.1076.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	right_portrait = {
+		character = scope:john_brown
+		animation = fear
+	}
+	option = {
+		name = slavery_event.1076.a
+		custom_tooltip = slavery_event.1076.a.tt
+		scope:john_brown = {
+			death = {
+				killer = root
+				death_reason = death_duel
+			}
+		}
+	}
+}
+
+slavery_event.1077 = { 
+	type = character_event
+	title = slavery_event.1077.t
+	desc = slavery_event.1077.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = fear
+	}
+	right_portrait = {
+		character = scope:john_brown
+		animation = aggressive_sword
+	}
+	option = {
+		name = slavery_event.1077.a
+		custom_tooltip = slavery_event.1077.a.tt
+		root = {
+			death = {
+				killer = scope:john_brown
+				death_reason = death_duel
+			}
+		}
+	}
+}
+
+slavery_event.1081 = { 
+	type = character_event
+	title = slavery_event.1081.t
+	desc = slavery_event.1081.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1081.a
+		custom_tooltip = slavery_event.1081.a.tt
+		trigger_event = {
+			id = slavery_event.1101
+			days = 60
+		}
+		ai_chance = {
+			base = 60
+		}
+	}
+	option = {
+		name = slavery_event.1081.b
+		custom_tooltip = slavery_event.1081.b.tt
+		trigger_event = {
+			id = slavery_event.1121
+			days = 120
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+}
+
+slavery_event.1082 = { 
+	type = character_event
+	title = slavery_event.1082.t
+	desc = slavery_event.1082.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1082.a
+		custom_tooltip = slavery_event.1082.a.tt
+		add_character_modifier = {
+			modifier = slavery_promise_modifier
+			years = 20
+		}
+		ai_chance = {
+			base = 60
+		}
+	}
+	option = {
+		name = slavery_event.1082.b
+		custom_tooltip = slavery_event.1082.b.tt
+		trigger_event = {
+			id = slavery_event.1122
+			days = 120
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+}
+
+slavery_event.1083 = { 
+	type = character_event
+	title = slavery_event.1083.t
+	desc = slavery_event.1083.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	option = {
+		trigger = {
+			has_character_modifier = attack_org_modifier
+		}
+		name = slavery_event.1083.a
+		custom_tooltip = slavery_event.1083.a.tt
+		trigger_event = {
+			id = slavery_event.1101
+			days = 60
+		}
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		trigger = {
+			NOT = {
+				has_character_modifier = reveal_org_modifier
+			}
+		}
+		name = slavery_event.1083.b
+		custom_tooltip = slavery_event.1083.b.tt
+		trigger_event = {
+			id = slavery_event.1091
+			days = 30
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1083.c
+		custom_tooltip = slavery_event.1083.c.tt
+		trigger_event = {
+			id = slavery_event.1121
+			days = 120
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1091 = { 
+	type = character_event
+	title = slavery_event.1091.t
+	desc = slavery_event.1091.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	right_portrait = {
+		character = cp:councillor_spymaster
+		animation = spymaster
+	}
+	immediate = {
+		add_character_modifier = {
+			modifier = reveal_org_modifier
+			years = 5
+		}
+	}
+	option = {
+		name = slavery_event.1091.a
+		custom_tooltip = slavery_event.1091.a.tt
+		trigger_event = {
+			id = slavery_event.1402
+			days = 150
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1091.b
+		custom_tooltip = slavery_event.1091.b.tt
+		trigger_event = {
+			id = slavery_event.1123
+			days = 90
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1092 = { 
+	type = character_event
+	title = slavery_event.1092.t
+	desc = slavery_event.1092.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.1092.a
+		add_realm_law_skip_effects = slavery_authority_1
+		trigger_event = {
+			id = slavery_event.1111
+			days = 60
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.1092.a
+		add_realm_law_skip_effects = slavery_authority_2
+		trigger_event = {
+			id = slavery_event.1111
+			days = 60
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.1092.a
+		add_realm_law_skip_effects = slavery_authority_3
+		trigger_event = {
+			id = slavery_event.1111
+			days = 60
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.1092.a
+		custom_tooltip = slavery_event.2001.tt
+		trigger_event = {
+			id = slavery_event.2001
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.1101 = { 
+	type = character_event
+	title = slavery_event.1101.t
+	desc = slavery_event.1101.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	right_portrait = {
+		character = cp:councillor_marshal
+		animation = marshal
+	}
+	option = {
+		name = slavery_event.1101.a
+		custom_tooltip = slavery_event.1101.a.tt
+		trigger_event = {
+			id = slavery_event.1124
+			days = 60
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1101.b
+		custom_tooltip = slavery_event.1101.b.tt
+		trigger_event = {
+			id = slavery_event.1102
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1102 = { 
+	type = character_event
+	title = slavery_event.1102.t
+	desc = slavery_event.1102.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	right_portrait = {
+		character = cp:councillor_marshal
+		animation = marshal
+	}
+	option = {
+		name = slavery_event.1102.a
+		custom_tooltip = slavery_event.1102.a.tt
+		trigger_event = {
+			id = slavery_event.1124
+			days = 60
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1102.b
+		custom_tooltip = slavery_event.1102.b.tt
+		trigger_event = {
+			id = slavery_event.1141
+			days = 120
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1111 = { 
+	type = character_event
+	title = slavery_event.1111.t
+	desc = slavery_event.1111.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1111.a
+		custom_tooltip = slavery_event.1111.a.tt
+		trigger_event = {
+			id = slavery_event.1142
+			days = 90
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1111.b
+		custom_tooltip = slavery_event.1111.b.tt
+		trigger_event = {
+			id = slavery_event.1131
+			days = 60
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1121 = { 
+	type = character_event
+	title = slavery_event.1121.t
+	desc = slavery_event.1121.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.1121.a
+		add_character_modifier = {
+			modifier = 
+			years = 5
+		}
+		trigger_event = {
+			id = slavery_event.1142
+			days = 60
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.1121.a
+		add_realm_law_skip_effects = slavery_authority_0
+		trigger_event = {
+			id = slavery_event.1142
+			days = 60
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.1121.a
+		add_realm_law_skip_effects = slavery_authority_1
+		trigger_event = {
+			id = slavery_event.1142
+			days = 60
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.1121.a
+		add_realm_law_skip_effects = slavery_authority_2
+		trigger_event = {
+			id = slavery_event.1142
+			days = 60
+		}
+	}
+}
+	
+slavery_event.1122 = { 
+	type = character_event
+	title = slavery_event.1122.t
+	desc = slavery_event.1122.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1122.a
+		custom_tooltip = slavery_event.1122.a.tt
+		trigger_event = {
+			id = slavery_event.1142
+			days = 60
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1122.b
+		custom_tooltip = slavery_event.1122.b.tt
+		remove_short_term_gold = major_gold_value
+		trigger_event = {
+			id = slavery_event.1143
+			days = 60
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1123 = { 
+	type = character_event
+	title = slavery_event.1123.t
+	desc = slavery_event.1123.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1123.a
+		custom_tooltip = slavery_event.1123.a.tt
+		trigger_event = {
+			id = slavery_event.1142
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1123.b
+		custom_tooltip = slavery_event.1123.b.tt
+		trigger_event = {
+			id = slavery_event.1125
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1124 = { 
+	type = character_event
+	title = slavery_event.1124.t
+	desc = slavery_event.1124.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = rage
+	}
+	option = {
+		name = slavery_event.1124.a
+		random_list = {
+			15 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 3
+				}
+				desc = slavery_event.1124.a.a
+				custom_tooltip = slavery_event.1124.a.a.tt
+				trigger_event = {
+					id = slavery_event.1127
+				}
+			}
+			35 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 1
+				}
+				desc = slavery_event.1124.a.b
+				custom_tooltip = slavery_event.1124.a.b.tt
+				trigger_event = {
+					id = slavery_event.1128
+				}
+			}
+			50 = {
+				desc = slavery_event.1124.a.c
+				custom_tooltip = slavery_event.1124.a.c.tt
+				trigger_event = {
+					id = slavery_event.1129
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1125 = { 
+	type = character_event
+	title = slavery_event.1125.t
+	desc = slavery_event.1125.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	right_portrait = {
+		character = scope:john_brown
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1125.a
+		custom_tooltip = slavery_event.1125.a.tt
+		trigger_event = {
+			id = slavery_event.1120
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = slavery_event.1125.b
+		custom_tooltip = slavery_event.1125.b.tt
+		trigger_event = {
+			id = slavery_event.1126
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1126 = { 
+	type = character_event
+	title = slavery_event.1126.t
+	desc = slavery_event.1126.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {
+		character = scope:john_brown
+		animation = anger
+	}
+	option = {
+		name = slavery_event.1126.a
+		custom_tooltip = slavery_event.1126.a.tt
+		trigger_event = {
+			id = slavery_event.1142
+			days = 60
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1127 = { 
+	type = character_event
+	title = slavery_event.1127.t
+	desc = slavery_event.1127.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1127.a
+		custom_tooltip = slavery_event.1127.a.tt
+	}
+}
+
+slavery_event.1128 = { 
+	type = character_event
+	title = slavery_event.1128.t
+	desc = slavery_event.1128.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1128.a
+		custom_tooltip = slavery_event.1128.a.tt
+		trigger_event = {
+			id = slavery_event.1143
+			days = 60
+		}
+	}
+}
+
+slavery_event.1129 = { 
+	type = character_event
+	title = slavery_event.1129.t
+	desc = slavery_event.1129.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	option = {
+		name = slavery_event.1129.a
+		custom_tooltip = slavery_event.1129.a.tt
+		trigger_event = {
+			id = slavery_event.1142
+			days = 60
+		}
+	}
+}
+
+slavery_event.1120 = { 
+	type = character_event
+	title = slavery_event.1120.t
+	desc = slavery_event.1120.desc
+	theme = secret
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:john_brown
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1120.a
+		custom_tooltip = slavery_event.1120.a.tt
+		add_character_modifier = {
+			modifier = liberty_slave_modifier
+			years = 20
+		}
+	}
+}
+
+slavery_event.1131 = { 
+	type = character_event
+	title = slavery_event.1131.t
+	desc = slavery_event.1131.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1131.a
+		custom_tooltip = slavery_event.1131.a.tt
+		trigger_event = {
+			id = slavery_event.1144
+			days = 30
+		}
+	}
+}
+
+slavery_event.1141 = { 
+	type = character_event
+	title = slavery_event.1141.t
+	desc = slavery_event.1141.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	right_portrait = {
+		character = scope:john_brown
+		animation = aggressive_sword
+	}
+	option = {
+		name = slavery_event.1141.a
+		random_list = {
+			40 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 5
+				}
+				desc = slavery_event.1141.a.a
+				custom_tooltip = slavery_event.1141.a.a.tt
+				trigger_event = {
+					id = slavery_event.1145
+				}
+			}
+			60 = {
+				desc = slavery_event.1141.a.b
+				custom_tooltip = slavery_event.1141.a.b.tt
+				trigger_event = {
+					id = slavery_event.1146
+				}
+			}
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1142 = { 
+	type = character_event
+	title = slavery_event.1142.t
+	desc = slavery_event.1142.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = rage	
+	}
+	option = {
+		name = slavery_event.1142.a
+		random_list = {
+			20 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 5
+				}
+				desc = slavery_event.1142.a.a
+				custom_tooltip = slavery_event.1142.a.a.tt
+				trigger_event = {
+					id = slavery_event.1148
+				}
+			}
+			80 = {
+				desc = slavery_event.1142.a.b
+				custom_tooltip = slavery_event.1142.a.b.tt
+				trigger_event = {
+					id = slavery_event.1147
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1143 = { 
+	type = character_event
+	title = slavery_event.1142.t
+	desc = slavery_event.1143.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = rage	
+	}
+	option = {
+		name = slavery_event.1142.a
+		random_list = {
+			35 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 5
+				}
+				desc = slavery_event.1142.a.a
+				custom_tooltip = slavery_event.1142.a.a.tt
+				trigger_event = {
+					id = slavery_event.1148
+				}
+			}
+			65 = {
+				desc = slavery_event.1142.a.b
+				custom_tooltip = slavery_event.1142.a.b.tt
+				trigger_event = {
+					id = slavery_event.1147
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1144 = { 
+	type = character_event
+	title = slavery_event.1142.t
+	desc = slavery_event.1144.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = rage	
+	}
+	option = {
+		name = slavery_event.1142.a
+		random_list = {
+			50 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 5
+				}
+				desc = slavery_event.1142.a.a
+				custom_tooltip = slavery_event.1142.a.a.tt
+				trigger_event = {
+					id = slavery_event.1148
+				}
+			}
+			50 = {
+				desc = slavery_event.1142.a.b
+				custom_tooltip = slavery_event.1142.a.b.tt
+				trigger_event = {
+					id = slavery_event.1147
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1145 = { 
+	type = character_event
+	title = slavery_event.1145.t
+	desc = slavery_event.1145.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	left_portrait = {
+		character = scope:john_brown
+		animation = rage
+	}
+	option = {
+		name = slavery_event.1145.a
+		custom_tooltip = slavery_event.1145.a.tt
+		scope:john_brown = {
+			death = {
+				killer = root
+			}
+		}
+	}
+}
+
+slavery_event.1146 = { 
+	type = character_event
+	title = slavery_event.1146.t
+	desc = slavery_event.1146.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1146.a
+		custom_tooltip = slavery_event.1146.a.tt
+		trigger_event = {
+			id = slavery_event.1161
+			days = 60
+		}
+	}
+}
+
+slavery_event.1147 = { 
+	type = character_event
+	title = slavery_event.1147.t
+	desc = slavery_event.1147.desc
+	theme = dynasty
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.1147.a
+		add_realm_law_skip_effects = slavery_authority_1
+		trigger_event = {
+			id = slavery_event.1162
+			days = 60
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.1147.a
+		add_realm_law_skip_effects = slavery_authority_2
+		trigger_event = {
+			id = slavery_event.1162
+			days = 60
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.1147.a
+		add_realm_law_skip_effects = slavery_authority_3
+		trigger_event = {
+			id = slavery_event.1162
+			days = 60
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.1147.a
+		custom_tooltip = slavery_event.2001.tt
+		trigger_event = {
+			id = slavery_event.2001
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.1148 = { 
+	type = character_event
+	title = slavery_event.1148.t
+	desc = slavery_event.1148.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1148.a
+		custom_tooltip = slavery_event.1148.a.tt
+		trigger_event = {
+			id = slavery_event.1161
+			days = 60
+		}
+	}
+}
+
+slavery_event.1161 = { 
+	type = character_event
+	title = slavery_event.1161.t
+	desc = slavery_event.1161.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	right_portrait = {
+		character = cp:councillor_marshal
+		animation = marshal
+	}
+	option = {
+		name = slavery_event.1161.a
+		custom_tooltip = slavery_event.1161.a.tt
+		trigger_event = {
+			id = slavery_event.1181
+			days = 60
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+	option = {
+		name = slavery_event.1161.b
+		remove_short_term_gold = medium_gold_value
+		trigger_event = {
+			id = slavery_event.1182
+			days = 60
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = slavery_event.1161.c
+		remove_short_term_gold = major_gold_value
+		trigger_event = {
+			id = slavery_event.1171
+			days = 30
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+}
+
+slavery_event.1162 = { 
+	type = character_event
+	title = slavery_event.1162.t
+	desc = slavery_event.1162.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	right_portrait = {
+		character = cp:councillor_marshal
+		animation = marshal
+	}
+	option = {
+		name = slavery_event.1162.a
+		custom_tooltip = slavery_event.1162.a.tt
+		trigger_event = {
+			id = slavery_event.1183
+			days = 60
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+	option = {
+		name = slavery_event.1162.b
+		remove_short_term_gold = medium_gold_value
+		trigger_event = {
+			id = slavery_event.1181
+			days = 60
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+}
+
+slavery_event.1171 = { 
+	type = character_event
+	title = slavery_event.1171.t
+	desc = slavery_event.1171.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1171.a
+		custom_tooltip = slavery_event.1171.a.tt
+		random_list = {
+			30 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 5
+				}
+				desc = slavery_event.1171.a.a
+				custom_tooltip = slavery_event.1171.a.a.tt
+				trigger_event = {
+					id = slavery_event.1184
+					days = 30
+				}
+			}
+			70 = {
+				desc = slavery_event.1171.a.b
+				custom_tooltip = slavery_event.1171.a.b.tt
+				trigger_event = {
+					id = slavery_event.1182s
+					days = 30
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1181 = { 
+	type = character_event
+	title = slavery_event.1181.t
+	desc = slavery_event.1181.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	option = {
+		name = slavery_event.1181.a
+		custom_tooltip = slavery_event.1181.a.tt
+		trigger_event = {
+			id = slavery_event.1191
+			days = 30
+		}
+	}
+}
+
+slavery_event.1182 = { 
+	type = character_event
+	title = slavery_event.1182.t
+	desc = slavery_event.1182.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	option = {
+		name = slavery_event.1182.a
+		custom_tooltip = slavery_event.1182.a.tt
+		trigger_event = {
+			id = slavery_event.1192
+			days = 30
+		}
+	}
+}
+
+slavery_event.1183 = { 
+	type = character_event
+	title = slavery_event.1183.t
+	desc = slavery_event.1183.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	option = {
+		name = slavery_event.1183.a
+		custom_tooltip = slavery_event.1183.a.tt
+		trigger_event = {
+			id = slavery_event.1193
+			days = 30
+		}
+	}
+}
+
+slavery_event.1184 = { 
+	type = character_event
+	title = slavery_event.1184.t
+	desc = slavery_event.1184.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1184.a
+		custom_tooltip = slavery_event.1184.a.tt
+	}
+}
+
+slavery_event.1191 = { 
+	type = character_event
+	title = slavery_event.1191.t
+	desc = slavery_event.1191.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	option = {
+		name = slavery_event.1191.a
+		random_list = {
+			65 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 3
+				}
+				desc = slavery_event.1191.a.a
+				custom_tooltip = slavery_event.1191.a.a.tt
+				trigger_event = {
+					id = slavery_event.1194
+				}
+			}
+			35 = {
+				desc = slavery_event.1191.a.b
+				custom_tooltip = slavery_event.1191.a.b.tt
+				trigger_event = {
+					id = slavery_event.1195
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1192 = { 
+	type = character_event
+	title = slavery_event.1191.t
+	desc = slavery_event.1192.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	option = {
+		name = slavery_event.1191.a
+		random_list = {
+			80 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 3
+				}
+				desc = slavery_event.1191.a.a
+				custom_tooltip = slavery_event.1191.a.a.tt
+				trigger_event = {
+					id = slavery_event.1194
+				}
+			}
+			20 = {
+				desc = slavery_event.1191.a.b
+				custom_tooltip = slavery_event.1191.a.b.tt
+				trigger_event = {
+					id = slavery_event.1195
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1193 = { 
+	type = character_event
+	title = slavery_event.1191.t
+	desc = slavery_event.1193.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	option = {
+		name = slavery_event.1191.a
+		random_list = {
+			50 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 3
+				}
+				desc = slavery_event.1191.a.a
+				custom_tooltip = slavery_event.1191.a.a.tt
+				trigger_event = {
+					id = slavery_event.1194
+				}
+			}
+			50 = {
+				desc = slavery_event.1191.a.b
+				custom_tooltip = slavery_event.1191.a.b.tt
+				trigger_event = {
+					id = slavery_event.1195
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1194 = { 
+	type = character_event
+	title = slavery_event.1194.t
+	desc = slavery_event.1194.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	option = {
+		name = slavery_event.1194.a
+		custom_tooltip = slavery_event.1194.a.tt
+		trigger_event = {
+			id = slavery_event.1196
+		}
+	}
+}
+
+slavery_event.1195 = { 
+	type = character_event
+	title = slavery_event.1195.t
+	desc = slavery_event.1195.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	option = {
+		name = slavery_event.1195.a
+		custom_tooltip = slavery_event.1195.a.tt
+		trigger_event = {
+			id = slavery_event.1197
+		}
+	}
+}
+
+slavery_event.1196 = { 
+	type = character_event
+	title = slavery_event.1196.t
+	desc = slavery_event.1196.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	option = {
+		name = slavery_event.1196.a
+		custom_tooltip = slavery_event.1196.a.tt
+		trigger_event = {
+			id = slavery_event.1201
+			days = 30
+		}
+	}
+}
+
+slavery_event.1197 = { 
+	type = character_event
+	title = slavery_event.1197.t
+	desc = slavery_event.1197.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_0
+		}
+		name = slavery_event.1197.a
+		add_realm_law_skip_effects = slavery_authority_1
+		add_prestige = massive_prestige_loss
+		trigger_event = {
+			id = slavery_event.1202
+			days = 30
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_1
+		}
+		name = slavery_event.1197.a
+		add_realm_law_skip_effects = slavery_authority_2
+		add_prestige = massive_prestige_loss
+		trigger_event = {
+			id = slavery_event.1202
+			days = 30
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_2
+		}
+		name = slavery_event.1197.a
+		add_realm_law_skip_effects = slavery_authority_3
+		add_prestige = massive_prestige_loss
+		trigger_event = {
+			id = slavery_event.1202
+			days = 30
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		trigger = {
+			has_realm_law = slavery_authority_3
+		}
+		name = slavery_event.1197.a
+		custom_tooltip = slavery_event.2001.tt
+		add_prestige = massive_prestige_loss
+		trigger_event = {
+			id = slavery_event.2001
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+slavery_event.1201 = { 
+	type = character_event
+	title = slavery_event.1201.t
+	desc = slavery_event.1201.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1201.a
+		custom_tooltip = slavery_event.1201.a.tt
+	}
+}
+
+slavery_event.1202 = { 
+	type = character_event
+	title = slavery_event.1202.t
+	desc = slavery_event.1202.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	option = {
+		name = slavery_event.1202.a
+		custom_tooltip = slavery_event.1202.a.tt
+		trigger_event = {
+			id = slavery_event.1211
+			days = 30
+		}
+	}
+}
+
+slavery_event.1211 = { 
+	type = character_event
+	title = slavery_event.1211.t
+	desc = slavery_event.1211.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	option = {
+		name = slavery_event.1211.a
+		random_list = {
+			60 = {
+				compare_modifier = {
+					value = martial
+					multiplier = 3
+				}
+				desc = slavery_event.1211.a.a
+				custom_tooltip = slavery_event.1211.a.a.tt
+				trigger_event = {
+					id = slavery_event.1212
+				}
+			}
+			40 = {
+				desc = slavery_event.1211.a.b
+				custom_tooltip = slavery_event.1211.a.b.tt
+				trigger_event = {
+					id = slavery_event.1213
+				}
+			}
+		}
+	}
+}
+
+slavery_event.1212 = { 
+	type = character_event
+	title = slavery_event.1212.t
+	desc = slavery_event.1212.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	option = {
+		name = slavery_event.1212.a
+		custom_tooltip = slavery_event.1212.a.tt
+		trigger_event = {
+			id = slavery_event.1214
+		}
+	}
+}
+
+slavery_event.1213 = { 
+	type = character_event
+	title = slavery_event.1213.t
+	desc = slavery_event.1213.desc
+	theme = battle
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+	option = {
+		name = slavery_event.1213.a
+		custom_tooltip = slavery_event.1213.a.tt
+		trigger_event = {
+			id = slavery_event.1215
+		}
+	}
+}
+
+slavery_event.1214 = { 
+	type = character_event
+	title = slavery_event.1214.t
+	desc = slavery_event.1214.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1214.a
+		custom_tooltip = slavery_event.1214.a.tt
+	}
+}
+
+slavery_event.1215 = { 
+	type = character_event
+	title = slavery_event.1215.t
+	desc = slavery_event.1215.desc
+	theme = crown
+	left_portrait = {
+		character = root
+		animation = shame
+	}
+	right_portrait = {
+		character = scope:john_brown
+		animation = happiness
+	}
+	option = {
+		name = slavery_event.1215.a
+		change_government = feudal_government
+		add_prestige = massive_prestige_loss
+	}
+}
+
+###########################################################################
 
 slavery_event.2001 = { #노예제의 붕괴
 	type = character_event
@@ -1041,5 +4311,7 @@ slavery_event.2003 = { #노예제의 붕괴
 		}
 	}
 }
+
+
 
 ############################################################################
