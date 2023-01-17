@@ -683,6 +683,9 @@ slavery_authority = {
 		}
 		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
+		flag = can_change_succession_laws
+		flag = titles_cannot_leave_realm_on_succession
+
 		can_keep = { 
 			realm_law_use_slavery_authority = yes 
 		}
@@ -696,7 +699,9 @@ slavery_authority = {
 		}
 		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
-		
+		flag = can_change_succession_laws
+		flag = titles_cannot_leave_realm_on_succession
+
 		can_keep = { realm_law_use_slavery_authority = yes }
 
 		can_pass = {
@@ -718,6 +723,7 @@ slavery_authority = {
 		}
 		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
+		flag = can_change_succession_laws
 		
 		can_keep = { realm_law_use_slavery_authority = yes }
 		
