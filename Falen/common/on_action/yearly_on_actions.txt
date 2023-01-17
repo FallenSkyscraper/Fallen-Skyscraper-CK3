@@ -30,16 +30,6 @@ yearly_global_pulse = {
 				add_county_modifier = old_world_culture_penalty
 			}
 		}
-		change_global_variable = { name = election_term subtract = 1 }
-		#if = {
-		#	limit = {
-		#		global_var:election_term = { compare_value < 0 }
-		#	}
-		#	trigger_event = {
-		#		id = joson_election.1
-		#		days = 3
-		#	}
-		}
 		if = {
 			limit = {
 				current_date = 2666.1.1
