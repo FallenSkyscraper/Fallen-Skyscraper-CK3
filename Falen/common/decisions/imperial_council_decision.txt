@@ -1,0 +1,37 @@
+imperial_council_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_check_interval = 60
+	desc = imperial_council_decision_desc
+	selection_tooltip = imperial_council_tooltip
+	confirm_text= imperial_council_confirm
+	cooldown = { years = 30 }
+	is_shown = {
+		has_title = title:e_hec
+	}
+
+	is_valid = {
+		AND={
+		has_primary_title = title:e_hec
+		faith = faith:imperial_church
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+	}
+	effect = {
+		trigger_event = {
+			on_action = imperial_council
+		}
+		custom_tooltip = imperial_council_decision_tt
+	}
+	cost = { piety = 50 }
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}

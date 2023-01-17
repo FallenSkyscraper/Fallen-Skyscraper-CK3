@@ -1,14 +1,13 @@
 namespace = imperial_council
 
-
-imperial_council.0001 = {
+imperial_council.0101 = {
     type = character_event
-	title = imperial_council.0001.t
-	desc = imperial_council.0001.desc
+	title = imperial_council.0101.t
+	desc = imperial_council.0101.desc
 	theme = diplomacy_majesty_focus
 	left_portrait = {
 		character = root
-		animation = worry
+		animation = personality_zealous
 	}
 	right_portrait = scope:holyleader
 	immediate = {
@@ -17,217 +16,212 @@ imperial_council.0001 = {
 		}
 	}
 	option = {
-		name = imperial_council.0001.a
-		custom_tooltip = imperial_council.0001.a.tt
+		name = imperial_council.0101.a
+		custom_tooltip = imperial_council.0101.a.tt
 		trigger_event = {
-			id = imperial_council.0002
+			id = imperial_council.0102
+			days = 7
 		}
 	}
 }
 
-imperial_council.0002 = { 
+imperial_council.0102 = { 
     type = character_event
-	title = imperial_council.0002.t
-	desc = imperial_council.0002.desc
+	title = imperial_council.0102.t
+	desc = imperial_council.0102.desc
 	theme = faith	
 	lower_center_portrait = {
 		character = root
 		animation = personality_zealous
 	}
 	left_portrait = scope:holyleader
-	immediate = {
-		set_global_variable = {
-			name = first_imperial_council
-			value = yes
-		}
-	}
 	option = {
-		name = imperial_council.0002.a
-		custom_tooltip = imperial_council.0002.a.tt
+		name = imperial_council.0102.a
+		custom_tooltip = imperial_council.0102.a.tt
 		trigger_event = {
-			id = imperial_council.0003
+			id = imperial_council.0103
 		}
 	}
 }
 
-imperial_council.0003 = { 
+imperial_council.0103 = { 
     type = character_event
-	title = imperial_council.0003.t
-	desc = imperial_council.0003.desc
+	title = imperial_council.0103.t
+	desc = imperial_council.0103.desc
 	theme = faith	
 	left_portrait = {
 		character = root
 		animation = personality_zealous
 	}
 	option = {
-		name = imperial_council.0003.a
-		custom_tooltip = imperial_council.0003.a.tt
+		name = imperial_council.0103.a
+		custom_tooltip = imperial_council.0103.a.tt
 		trigger_event = {
-			id = imperial_council.0041
+			id = imperial_council.0111
 		}
 		ai_chance = {
-			base = 75
+			base = 50
 		}
 	}
 	option = {
-		name = imperial_council.0003.b
-		custom_tooltip = imperial_council.0003.b.tt
+		name = imperial_council.0103.b
+		custom_tooltip = imperial_council.0103.b.tt
 		trigger_event = {
-			id = imperial_council.0042
+			id = imperial_council.0112
 		}
 		ai_chance = {
-			base = 20
+			base = 25
 		}
 	}
 	option = {
-		name = imperial_council.0003.c
-		custom_tooltip = imperial_council.0003.c.tt
+		name = imperial_council.0103.c
+		custom_tooltip = imperial_council.0103.c.tt
 		trigger_event = {
-			id = imperial_council.0043
+			id = imperial_council.0113
 		}
 		ai_chance = {
-			base = 5
+			base = 25
 		}
 	}
 }
 
-imperial_council.0041 = { 
+imperial_council.0111 = { 
     type = character_event
-	title = imperial_council.0041.t
-	desc = imperial_council.0041.desc
+	title = imperial_council.0111.t
+	desc = imperial_council.0111.desc
 	theme = faith	
 	left_portrait = {
 		character = root
 		animation = personality_zealous
 	}
 	option = {
-		name = imperial_council.0041.a
-		custom_tooltip = imperial_council.0041.a.tt
+		name = imperial_council.0111.a
+		custom_tooltip = imperial_council.0111.a.tt
 		faith:imperial_church = {
 			hidden_effect = { 
-			remove_doctrine = doctrine_pluralism_fundamentalist
-			remove_doctrine = doctrine_pluralism_righteous
-			remove_doctrine = doctrine_pluralism_pluralistic
+			remove_doctrine = doctrine_gender_male_dominated
+			remove_doctrine = doctrine_gender_equal
+			remove_doctrine = doctrine_gender_female_dominated
 			}
-			add_doctrine = doctrine_pluralism_fundamentalist
+			add_doctrine = doctrine_gender_male_dominated
 		}
 		every_player = {
 			limit = {
 				faith = faith:imperial_church
 			}
 			trigger_event = {
-				id =  imperial_council.0051
-				days = 2
+				id =  imperial_council.0121
+				days = 3
 			}
 		}
 	}
 }
 
-imperial_council.0042 = { 
+imperial_council.0112 = { 
     type = character_event
-	title = imperial_council.0042.t
-	desc = imperial_council.0042.desc
+	title = imperial_council.0112.t
+	desc = imperial_council.0112.desc
 	theme = faith	
 	left_portrait = {
 		character = root
 		animation = personality_zealous
 	}
 	option = {
-		name = imperial_council.0042.a
-		custom_tooltip = imperial_council.0042.a.tt
+		name = imperial_council.0112.a
+		custom_tooltip = imperial_council.0112.a.tt
 		faith:imperial_church = {
-			hidden_effect = { 
-			remove_doctrine = doctrine_pluralism_fundamentalist
-			remove_doctrine = doctrine_pluralism_righteous
-			remove_doctrine = doctrine_pluralism_pluralistic
+		hidden_effect = { 
+			remove_doctrine = doctrine_gender_male_dominated
+			remove_doctrine = doctrine_gender_equal
+			remove_doctrine = doctrine_gender_female_dominated
 			}
-			add_doctrine = doctrine_pluralism_righteous
+			add_doctrine = doctrine_gender_equal
 		}
 		every_player = {
 			limit = {
 				faith = faith:imperial_church
 			}
 			trigger_event = {
-				id =  imperial_council.0052
-				days = 2
+				id =  imperial_council.0122
+				days = 3
 			}
 		}
 	}
 }
 
-imperial_council.0043 = { 
+imperial_council.0113 = { 
     type = character_event
-	title = imperial_council.0043.t
-	desc = imperial_council.0043.desc
+	title = imperial_council.0113.t
+	desc = imperial_council.0113.desc
 	theme = faith	
 	left_portrait = {
 		character = root
 		animation = personality_zealous
 	}
 	option = {
-		name = imperial_council.0043.a
-		custom_tooltip = imperial_council.0043.a.tt
+		name = imperial_council.0113.a
+		custom_tooltip = imperial_council.0113.a.tt
 		faith:imperial_church = {
 			hidden_effect = { 
-			remove_doctrine = doctrine_pluralism_fundamentalist
-			remove_doctrine = doctrine_pluralism_righteous
-			remove_doctrine = doctrine_pluralism_pluralistic
+			remove_doctrine = doctrine_gender_male_dominated
+			remove_doctrine = doctrine_gender_equal
+			remove_doctrine = doctrine_gender_female_dominated
 			}
-			add_doctrine = doctrine_pluralism_pluralistic
+			add_doctrine = doctrine_gender_female_dominated
 		}
 		every_player = {
 			limit = {
 				faith = faith:imperial_church
 			}
 			trigger_event = {
-				id =  imperial_council.0053
-				days = 2
+				id =  imperial_council.0123
+				days = 3
 			}
 		}
 	}
 }
 
-imperial_council.0051 = {
+imperial_council.0121 = {
 	type = letter_event
 	opening = {
-		desc = imperial_council.0051.t
+		desc = imperial_council.0121.t
 	}
 	sender = {
 		character = scope:holyleader
 	}
-	desc = imperial_council.0051.desc
+	desc = imperial_council.0121.desc
 	option = {
-		name = imperial_council.0051.a
-		custom_tooltip = imperial_council.0051.a.tt
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0121.a.tt
 	}
 }
 
-imperial_council.0052 = {
+imperial_council.0122 = {
 	type = letter_event
 	opening = {
-		desc = imperial_council.0052.t
+		desc = imperial_council.0122.t
 	}
 	sender = {
 		character = scope:holyleader
 	}
-	desc = imperial_council.0052.desc
+	desc = imperial_council.0122.desc
 	option = {
-		name = imperial_council.0052.a
-		custom_tooltip = imperial_council.0052.a.tt
+		name = imperial_council.0122.a
+		custom_tooltip = imperial_council.0122.a.tt
 	}
 }
 
-imperial_council.0053 = {
+imperial_council.0123 = {
 	type = letter_event
 	opening = {
-		desc = imperial_council.0053.t
+		desc = imperial_council.0123.t
 	}
 	sender = {
 		character = scope:holyleader
 	}
-	desc = imperial_council.0053.desc
+	desc = imperial_council.0123.desc
 	option = {
-		name = imperial_council.0053.a
-		custom_tooltip = imperial_council.0053.a.tt
+		name = imperial_council.0123.a
+		custom_tooltip = imperial_council.0123.a.tt
 	}
 }
