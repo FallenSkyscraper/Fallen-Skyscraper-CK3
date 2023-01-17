@@ -352,6 +352,46 @@ ManchurianRelic = {
 	}
 }
 
+MechanismRelic = {
+	type = character
+
+	text = {
+		trigger = {
+			scope:mechanism_relic_name = flag:radio
+		}
+		localization_key = artifact_pedestal_reliquary_mechanism_radio
+	}
+
+	text = {
+		trigger = {
+			scope:mechanism_relic_name = flag:calc
+		}
+		localization_key = artifact_pedestal_reliquary_mechanism_calc
+	}
+}
+
+CommunismRelic = {
+	type = character
+
+	text = {
+		trigger = {
+			scope:communism_relic_name = flag:soviet_medal
+		}
+		localization_key = artifact_pedestal_reliquary_communism_soviet_medal
+	}
+}
+
+JucheRelic = {
+	type = character
+
+	text = {
+		trigger = {
+			scope:juche_relic_name = flag:juche_medal
+		}
+		localization_key = artifact_pedestal_reliquary_juche_medal
+	}
+}
+
 RandomSaint = { # Used for statue artifact
 	type = character
 

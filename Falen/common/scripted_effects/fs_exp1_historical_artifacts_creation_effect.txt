@@ -287,32 +287,22 @@ create_artifact_pedestal_mechanism_relic_effect_hist = {
 				value = flag:crown
 			}
 		}
+		10 = {
+			save_scope_value_as = {
+				name = mechanism_relic_name
+				value = flag:radio
+			}
+		}
+		10 = {
+			save_scope_value_as = {
+				name = mechanism_relic_name
+				value = flag:calc
+			}
+		}
 	}
 
 	# Create the artifact
 	if = {
-		limit = {
-			exists = scope:mechanism_relic_name
-			scope:mechanism_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = mechanism_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
 		limit = {
 			exists = scope:mechanism_relic_name
 			OR = {
@@ -321,13 +311,13 @@ create_artifact_pedestal_mechanism_relic_effect_hist = {
 		}
 		set_artifact_rarity_illustrious = yes
 		create_artifact = {
-			name = artifact_pedestal_reliquary_mechanism_name
-			description = artifact_pedestal_reliquary_mechanism_description
+			name = artifact_giho_crown_mechanism_name
+			description = artifact_giho_crown_mechanism_description
 			type = pedestal
 			wealth = scope:wealth
 			quality = scope:quality
 			template = mechanism_artifact_template
-			visuals = pedestal_mechanism_relic
+			visuals = crown
 			history = {
 				type = created_before_history
 			}
@@ -364,13 +354,6 @@ create_artifact_pedestal_mechanism_relic_effect_hist = {
 				scope:mechanism_relic_name = flag:crown
 			}
 			set_variable = mechanism_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:mechanism_relic_name
-				scope:mechanism_relic_name = flag:lance
-			}
-			set_variable = mechanism_lance
 		}
 		add_scaled_artifact_modifier_piety_effect = yes
 		add_scaled_artifact_modifier_grandeur_small_effect = yes
@@ -710,6 +693,186 @@ create_artifact_pedestal_steelers_pagan_relic_effect_hist = {
 			add_scaled_artifact_modifier_devotion_effect = yes
 		}
 		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier #overwrite default creation modifier
+		save_scope_as = epic
+	}
+}
+
+create_artifact_pedestal_communism_relic_effect_hist = {
+	$OWNER$ = { save_scope_as = owner }
+	set_artifact_rarity_illustrious = yes
+
+	random_list = {
+		10 = {
+			save_scope_value_as = {
+				name = communism_relic_name
+				value = flag:communist_manifesto
+			}
+		}
+		10 = {
+			save_scope_value_as = {
+				name = communism_relic_name
+				value = flag:soviet_medal
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = communism_relic_name
+			scope:communism_relic_name = flag:communist_manifesto
+		}
+		set_artifact_rarity_illustrious = yes
+		create_artifact = {
+			name = artifact_communist_manifesto_name
+			description = artifact_communist_manifesto_description
+			type = pedestal
+			template = communism_artifact_template
+			visuals = ep1_western_book_big_01_a_entity
+			wealth = scope:wealth
+			quality = scope:quality
+			history = {
+				type = created_before_history
+			}
+			modifier = artifact_placeholder_modifier
+			save_scope_as = newly_created_artifact
+		}
+	}
+	else = {
+		set_artifact_rarity_illustrious = yes
+		create_artifact = {
+			name = artifact_pedestal_reliquary_communism_name
+			description = artifact_pedestal_reliquary_communism_description
+			type = pedestal
+			template = communism_artifact_template
+			visuals = reliquary
+			wealth = scope:wealth
+			quality = scope:quality
+			history = {
+				type = created_before_history
+			}
+			modifier = artifact_placeholder_modifier
+			save_scope_as = newly_created_artifact
+		}
+	}
+
+	scope:newly_created_artifact = {
+		set_variable = { name = historical_unique_artifact value = yes }
+		set_variable = {
+			name = relic
+			value = flag:communism
+		}
+		if = {
+			limit = {
+				exists = scope:communism_relic_name
+				scope:naturalism_relic_name = flag:communist_manifesto
+			}
+			set_variable = communism_communist_manifesto
+		}
+		add_scaled_artifact_modifier_piety_effect = yes
+		add_scaled_artifact_modifier_grandeur_small_effect = yes
+		if = {
+			limit = {
+				OR = {
+					rarity = famed
+					rarity = illustrious
+				}
+			}
+			add_2_scaled_artifact_modifier_devotion_effect = yes
+		}
+		else = {
+			add_scaled_artifact_modifier_devotion_effect = yes
+		}
+		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier
+		save_scope_as = epic
+	}
+}
+
+create_artifact_pedestal_juche_relic_effect_hist = {
+	$OWNER$ = { save_scope_as = owner }
+	set_artifact_rarity_illustrious = yes
+
+	random_list = {
+		10 = {
+			save_scope_value_as = {
+				name = juche_relic_name
+				value = flag:juche_medal
+			}
+		}
+		10 = {
+			save_scope_value_as = {
+				name = juche_relic_name
+				value = flag:juche_with_centries
+			}
+		}
+	}
+
+	if = {
+		limit = {
+			exists = juche_relic_name
+			scope:juche_relic_name = flag:juche_medal
+		}
+		set_artifact_rarity_illustrious = yes
+		create_artifact = {
+			name = artifact_pedestral_reliquary_juche_name
+			description = artifact_pedestral_reliquary_juche_description
+			type = pedestal
+			template = juche_artifact_template
+			visuals = reliquary
+			wealth = scope:wealth
+			quality = scope:quality
+			history = {
+				type = created_before_history
+			}
+			modifier = artifact_placeholder_modifier
+			save_scope_as = newly_created_artifact
+		}
+	}
+	else = {
+		set_artifact_rarity_illustrious = yes
+		create_artifact = {
+			name = artifact_juche_with_centries_name
+			description = artifact_juche_with_centries_description
+			type = pedestal
+			template = juche_artifact_template
+			visuals = ep1_western_book_big_01_a_entity
+			wealth = scope:wealth
+			quality = scope:quality
+			history = {
+				type = created_before_history
+			}
+			modifier = artifact_placeholder_modifier
+			save_scope_as = newly_created_artifact
+		}
+	}
+
+	scope:newly_created_artifact = {
+		set_variable = { name = historical_unique_artifact value = yes }
+		set_variable = {
+			name = relic
+			value = flag:juche
+		}
+		if = {
+			limit = {
+				exists = scope:juche_relic_name
+				scope:naturalism_relic_name = flag:juche_with_centries
+			}
+			set_variable = juche_with_centries
+		}
+		add_scaled_artifact_modifier_piety_effect = yes
+		add_scaled_artifact_modifier_grandeur_small_effect = yes
+		if = {
+			limit = {
+				OR = {
+					rarity = famed
+					rarity = illustrious
+				}
+			}
+			add_2_scaled_artifact_modifier_devotion_effect = yes
+		}
+		else = {
+			add_scaled_artifact_modifier_devotion_effect = yes
+		}
+		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier
 		save_scope_as = epic
 	}
 }
