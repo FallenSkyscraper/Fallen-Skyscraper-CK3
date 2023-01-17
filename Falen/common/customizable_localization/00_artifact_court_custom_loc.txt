@@ -316,6 +316,42 @@ BuddhismRelicName = {
 	}
 }
 
+NaturalismRelic = {
+	type = character
+
+	text = {
+		trigger = {
+			scope:naturalism_relic_name = flag:bottle
+		}
+		localization_key = artifact_pedestal_reliquary_naturalism_bottle
+	}
+
+	text = {
+		trigger = {
+			scope:naturalism_relic_name = flag:mine
+		}
+		localization_key = artifact_pedestal_reliquary_naturalism_mine
+	}
+
+	text = {
+		trigger = {
+			scope:naturalism_relic_name = flag:letter
+		}
+		localization_key = artifact_pedestal_reliquary_naturalism_letter
+	}
+}
+
+ManchurianRelic = {
+	type = character
+
+	text = {
+		trigger = {
+			scope:manchurian_relic_name = flag:saddle
+		}
+		localization_key = artifact_pedestal_reliquary_manchurian_saddle
+	}
+}
+
 RandomSaint = { # Used for statue artifact
 	type = character
 
@@ -2084,3 +2120,23 @@ RandomDuelTitle4 = {	#artifact.4080 - expanding a weapon's name through duels wo
 
 #EpistleReciever = { #For Muhammads Letters
 #}
+
+BranchTree = {
+	type = character
+
+	random_valid = yes
+
+	text = {
+		trigger = {
+			scope:branch_name = flag:segyesu
+		}
+		localization_key = artifact_pedestal_branch_segyesu
+	}
+
+	text = {
+		trigger = {
+			scope:branch_name = flag:segyesu_fruit
+		}
+		localization_key = artifact_pedestal_branch_segyesu_fruit
+	}
+}
