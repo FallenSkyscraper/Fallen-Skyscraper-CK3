@@ -32,13 +32,13 @@ prk_gui_close = {
 prk_gui_abc = {
 	scope = character
 	is_shown = {
-		#root = {
-		#	OR = {
-		#		has_title = title:k_prk
-		#		top_liege = { has_title = title:k_prk }
-		#	}
-		#}
-		always = no
+		root = {
+			OR = {
+				has_title = title:k_prk
+				top_liege = { has_title = title:k_prk }
+			}
+		}
+		#always = no
 	}
 }
 prk_get_president = {

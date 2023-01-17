@@ -3,9 +3,6 @@ namespace = joson_election
 joson_election.1 = {
     type = empty
 	hidden = yes
-	trigger = {
-		global_var:election_term = { compare_value < 0 }
-	}
 	immediate = {
 		every_living_character = { ## 후보자 명부 설정
 			limit = { has_variable = candidate }
@@ -17,9 +14,6 @@ joson_election.1 = {
 		}
 		title:k_prk.holder = {
 		every_realm_county = {
-			#limit = {
-			#	development_level > 0
-			#}
 			holder = {
 				if = {
 					limit = {
