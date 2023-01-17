@@ -989,40 +989,40 @@ inspiration_adventure_create_artifact_effect = {
 										}
 											
 									}
-									#100 = {
-									#	trigger = {
-									#		scope:location.title_province = {
-									#			OR = {
-									#				faith.religion = religion:cheondo_religion
-									#				geographical_region = world_gwanseo
-									#			}
-									#		}
-									#	}
-									#	modifier = {
-									#		NOT = { scope:location.title_province = { faith.religion = religion:cheondo_religion } }
-									#		add = -75
-									#	}
-									#	create_artifact_pedestal_cheondo_relic_effect_hist = {
-									#		OWNER = root
-									#	}
-									#}
-									#100 = {
-									#	trigger = {
-									#		scope:location.title_province = {
-									#			OR = {
-									#				faith.religion = religion:confucianism_religion
-									#				geographical_region = world_korea
-									#			}
-									#		}
-									#	}
-									#	modifier = {
-									#		NOT = { scope:location.title_province = { faith.religion = religion:confucianism_religion } }
-									#		add = -75
-									#	}
-									#	create_artifact_pedestal_confucianism_relic_effect_hist = {
-									#		OWNER = root
-									#	}
-									#}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:cheondo_religion
+													geographical_region = world_gwanseo
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:cheondo_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_cheondo_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:confucianism_religion
+													geographical_region = world_korea
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:confucianism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_confucianism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
 									100 = {
 										trigger = {
 											scope:location.title_province = {
@@ -1040,23 +1040,23 @@ inspiration_adventure_create_artifact_effect = {
 											OWNER = root
 										}
 									}
-									#100 = {
-									#	trigger = {
-									#		scope:location.title_province = {
-									#			OR = {
-									#				faith.religion = religion:koreanism_religion
-									#				geographical_region = world_korea_south
-									#			}
-									#		}
-									#	}
-									#	modifier = {
-									#		NOT = { scope:location.title_province = { faith.religion = religion:koreanism_religion } }
-									#		add = -75
-									#	}
-									#	create_artifact_pedestal_koreanism_relic_effect_hist = {
-									#		OWNER = root
-									#	}
-									#}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:koreanism_religion
+													geographical_region = world_korea_south
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:koreanism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_koreanism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
 									100 = {
 										trigger = {
 											scope:location.title_province = {
@@ -1141,28 +1141,27 @@ inspiration_adventure_create_artifact_effect = {
 											NOT = { scope:location.title_province = { faith.religion = religion:protestant_religion } }
 											add = -75
 										}
-										#create_artifact_pedestal_protestant_relic_effect_hist = {
-										create_artifact_pedestal_christian_relic_effect_hist = {
+										create_artifact_pedestal_protestant_relic_effect_hist = {
 											OWNER = root
 										}
 									}
-									#100 = {
-									#	trigger = {
-									#		scope:location.title_province = {
-									#			OR = {
-									#				faith.religion = religion:won_buddhism_religion
-									#				geographical_region = world_hoseo
-									#			}
-									#		}
-									#	}
-									#	modifier = {
-									#		NOT = { scope:location.title_province = { faith.religion = religion:won_buddhism_religion } }
-									#		add = -75
-									#	}
-									#	create_artifact_pedestal_won_buddhism_relic_effect_hist = {
-									#		OWNER = root
-									#	}
-									#}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:won_buddhism_religion
+													geographical_region = world_hoseo
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:won_buddhism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_won_buddhism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
 									100 = {
 										trigger = {
 											scope:location.title_province = {
@@ -1179,73 +1178,73 @@ inspiration_adventure_create_artifact_effect = {
 											OWNER = root
 										}
 									}
-									#100 = {
-									#	trigger = {
-									#		scope:location.title_province = {
-									#			OR = {
-									#				faith.religion = religion:tengrism_religion
-									#				geographical_region = world_pyeongan_north
-									#				geographical_region = world_liao
-									#			}
-									#		}
-									#	}
-									#	modifier = {
-									#		NOT = { scope:location.title_province = { faith.religion = religion:tengrism_religion } }
-									#		add = -75
-									#	}
-									#	create_artifact_pedestal_tengrism_relic_effect_hist = {
-									#		OWNER = root
-									#	}
-									#}
-									#100 = {
-									#	trigger = {
-									#		scope:location.title_province = {
-									#			OR = {
-									#				faith.religion = religion:taoism_religion
-									#			}
-									#		}
-									#	}
-									#	modifier = {
-									#		NOT = { scope:location.title_province = { faith.religion = religion:taoism_religion } }
-									#		add = -75
-									#	}
-									#	create_artifact_pedestal_taoism_relic_effect_hist = {
-									#		OWNER = root
-									#	}
-									#}
-									#100 = {
-									#	trigger = {
-									#		scope:location.title_province = {
-									#			OR = {
-									#				faith.religion = religion:pagan_religion
-									#				geographical_region = world_gangwon
-									#			}
-									#		}
-									#	}
-									#	modifier = {
-									#		NOT = { scope:location.title_province = { faith.religion = religion:pagan_religion } }
-									#		add = -75
-									#	}
-									#	create_artifact_pedestal_pagan_relic_effect_hist = {
-									#		OWNER = root
-									#	}
-									#}
-									#100 = {
-									#	trigger = {
-									#		scope:location.title_province = {
-									#			OR = {
-									#				faith.religion = religion:atomism_religion
-									#			}
-									#		}
-									#	}
-									#	modifier = {
-									#		NOT = { scope:location.title_province = { faith.religion = religion:atomism_religion } }
-									#		add = -75
-									#	}
-									#	create_artifact_pedestal_atomism_relic_effect_hist = {
-									#		OWNER = root
-									#	}
-									#}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:tengrism_religion
+													geographical_region = world_pyeongan_north
+													geographical_region = world_liao
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:tengrism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_tengrism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:taoism_religion
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:taoism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_taoism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:pagan_religion
+													geographical_region = world_gangwon
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:pagan_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_pagan_relic_effect_hist = {
+											OWNER = root
+										}
+									}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:atomism_religion
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:atomism_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_atomism_relic_effect_hist = {
+											OWNER = root
+										}
+									}
 									100 = {
 										trigger = {
 											scope:location.title_province = {
@@ -1261,8 +1260,7 @@ inspiration_adventure_create_artifact_effect = {
 											NOT = { scope:location.title_province = { faith.religion = religion:orthodox_religion } }
 											add = -75
 										}
-										#create_artifact_pedestal_orthodox_relic_effect_hist = {
-										create_artifact_pedestal_christian_relic_effect_hist = {
+										create_artifact_pedestal_orthodox_relic_effect_hist = {
 											OWNER = root
 										}
 									}
@@ -1278,28 +1276,27 @@ inspiration_adventure_create_artifact_effect = {
 											NOT = { scope:location.title_province = { faith.religion = religion:eternal_kingdom_religion } }
 											add = -75
 										}
-										#create_artifact_pedestal_eternal_kingdom_relic_effect_hist = {
-										create_artifact_pedestal_christian_relic_effect_hist = {
+										create_artifact_pedestal_eternal_kingdom_relic_effect_hist = {
 											OWNER = root
 										}
 									}
-									#100 = {
-									#	trigger = {
-									#		scope:location.title_province = {
-									#			OR = {
-									#				faith.religion = religion:jeju_religion
-									#				geographical_region = world_jeju
-									#			}
-									#		}
-									#	}
-									#	modifier = {
-									#		NOT = { scope:location.title_province = { faith.religion = religion:jeju_religion } }
-									#		add = -75
-									#	}
-									#	create_artifact_pedestal_jeju_relic_effect_hist = {
-									#		OWNER = root
-									#	}
-									#}
+									100 = {
+										trigger = {
+											scope:location.title_province = {
+												OR = {
+													faith.religion = religion:jeju_religion
+													geographical_region = world_jeju
+												}
+											}
+										}
+										modifier = {
+											NOT = { scope:location.title_province = { faith.religion = religion:jeju_religion } }
+											add = -75
+										}
+										create_artifact_pedestal_jeju_relic_effect_hist = {
+											OWNER = root
+										}
+									}
 									
 									1 = { #Fallback Relic
 										create_artifact_pedestal_branch_relic_general_effect = {
