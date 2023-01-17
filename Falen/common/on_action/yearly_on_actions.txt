@@ -30,6 +30,7 @@ yearly_global_pulse = {
 				add_county_modifier = old_world_culture_penalty
 			}
 		}
+		change_global_variable = { name = election_term subtract = 1 }
 		if = {
 			limit = {
 				current_date = 2666.1.1
