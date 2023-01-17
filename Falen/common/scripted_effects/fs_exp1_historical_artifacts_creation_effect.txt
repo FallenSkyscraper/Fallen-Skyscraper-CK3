@@ -77,104 +77,6 @@ create_artifact_pedestal_cheondo_relic_effect_hist = {
 	# Identify which relic it is
 	random_list = {
 		10 = {
-			save_scope_value_as = {
-				name = cheondo_relic_name
-				value = flag:nail
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = _relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = cheondo_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = cheondo_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = cheondo_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = cheondo_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = cheondo_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = cheondo_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = cheondo_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = cheondo_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = cheondo_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = cheondo_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = cheondo_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = cheondo_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = cheondo_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
 			trigger = {
 				NOT = {
 					any_artifact = {
@@ -187,53 +89,16 @@ create_artifact_pedestal_cheondo_relic_effect_hist = {
 				value = flag:crown
 			}
 		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = cheondo_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = cheondo_relic_name
-				value = flag:veronica
-			}
-		}
 	}
 
 	# Create the artifact
 	if = {
 		limit = {
 			exists = scope:cheondo_relic_name
-			scope:cheondo_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = cheondo_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:cheondo_relic_name
 			OR = {
-				scope:cheondo_relic_name = flag:sandals
-				scope:cheondo_relic_name = flag:girdle
-				scope:cheondo_relic_name = flag:loincloth
+
 				scope:cheondo_relic_name = flag:crown
-				scope:cheondo_relic_name = flag:veronica
+
 			}
 		}
 		set_artifact_rarity_illustrious = yes
@@ -245,26 +110,6 @@ create_artifact_pedestal_cheondo_relic_effect_hist = {
 			quality = scope:quality
 			template = cheondo_artifact_template
 			visuals = pedestal_cheondo_relic
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:cheondo_relic_name
-			scope:cheondo_relic_name = flag:skull
-		}
-		create_artifact = {
-			name = artifact_pedestal_reliquary_cheondo_name
-			description = artifact_pedestal_reliquary_cheondo_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = cheondo_artifact_template
-			visuals = human_skull
 			history = {
 				type = created_before_history
 			}
@@ -298,58 +143,9 @@ create_artifact_pedestal_cheondo_relic_effect_hist = {
 		if = {
 			limit = {
 				exists = scope:cheondo_relic_name
-				scope:cheondo_relic_name = flag:veronica
-			}
-			set_variable = cheondo_veil
-		}
-		else_if = {
-			limit = {
-				exists = scope:cheondo_relic_name
 				scope:cheondo_relic_name = flag:crown
 			}
 			set_variable = cheondo_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:cheondo_relic_name
-				scope:cheondo_relic_name = flag:loincloth
-			}
-			set_variable = cheondo_loincloth
-		}
-		else_if = {
-			limit = {
-				exists = scope:cheondo_relic_name
-				scope:cheondo_relic_name = flag:lance
-			}
-			set_variable = cheondo_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:cheondo_relic_name
-				scope:cheondo_relic_name = flag:arm
-			}
-			set_variable = cheondo_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:cheondo_relic_name
-				scope:cheondo_relic_name = flag:sandals
-			}
-			set_variable = cheondo_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:cheondo_relic_name
-				scope:cheondo_relic_name = flag:girdle
-			}
-			set_variable = cheondo_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:cheondo_relic_name
-				scope:cheondo_relic_name = flag:skull
-			}
-			set_variable = cheondo_skull
 		}
 		add_scaled_artifact_modifier_piety_effect = yes
 		add_scaled_artifact_modifier_grandeur_small_effect = yes
@@ -381,104 +177,6 @@ create_artifact_pedestal_confucianism_relic_effect_hist = {
 	# Identify which relic it is
 	random_list = {
 		10 = {
-			save_scope_value_as = {
-				name = confucianism_relic_name
-				value = flag:nail
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = confucianism_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = confucianism_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = confucianism_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = confucianism_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = confucianism_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = confucianism_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = confucianism_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = confucianism_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = confucianism_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = confucianism_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = confucianism_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = confucianism_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = confucianism_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = confucianism_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
 			trigger = {
 				NOT = {
 					any_artifact = {
@@ -491,53 +189,14 @@ create_artifact_pedestal_confucianism_relic_effect_hist = {
 				value = flag:crown
 			}
 		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = confucianism_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = confucianism_relic_name
-				value = flag:veronica
-			}
-		}
 	}
 
 	# Create the artifact
 	if = {
 		limit = {
 			exists = scope:confucianism_relic_name
-			scope:confucianism_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = confucianism_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:confucianism_relic_name
 			OR = {
-				scope:confucianism_relic_name = flag:sandals
-				scope:confucianism_relic_name = flag:girdle
-				scope:confucianism_relic_name = flag:loincloth
 				scope:confucianism_relic_name = flag:crown
-				scope:confucianism_relic_name = flag:veronica
 			}
 		}
 		set_artifact_rarity_illustrious = yes
@@ -549,26 +208,6 @@ create_artifact_pedestal_confucianism_relic_effect_hist = {
 			quality = scope:quality
 			template = confucianism_artifact_template
 			visuals = pedestal_confucianism_relic
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:confucianism_relic_name
-			scope:confucianism_relic_name = flag:skull
-		}
-		create_artifact = {
-			name = artifact_pedestal_reliquary_confucianism_name
-			description = artifact_pedestal_reliquary_confucianism_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = confucianism_artifact_template
-			visuals = human_skull
 			history = {
 				type = created_before_history
 			}
@@ -602,58 +241,9 @@ create_artifact_pedestal_confucianism_relic_effect_hist = {
 		if = {
 			limit = {
 				exists = scope:confucianism_relic_name
-				scope:confucianism_relic_name = flag:veronica
-			}
-			set_variable = confucianism_veil
-		}
-		else_if = {
-			limit = {
-				exists = scope:confucianism_relic_name
 				scope:confucianism_relic_name = flag:crown
 			}
 			set_variable = confucianism_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:confucianism_relic_name
-				scope:confucianism_relic_name = flag:loincloth
-			}
-			set_variable = confucianism_loincloth
-		}
-		else_if = {
-			limit = {
-				exists = scope:confucianism_relic_name
-				scope:confucianism_relic_name = flag:lance
-			}
-			set_variable = confucianism_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:confucianism_relic_name
-				scope:confucianism_relic_name = flag:arm
-			}
-			set_variable = confucianism_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:confucianism_relic_name
-				scope:confucianism_relic_name = flag:sandals
-			}
-			set_variable = confucianism_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:confucianism_relic_name
-				scope:confucianism_relic_name = flag:girdle
-			}
-			set_variable = confucianism_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:confucianism_relic_name
-				scope:confucianism_relic_name = flag:skull
-			}
-			set_variable = confucianism_skull
 		}
 		add_scaled_artifact_modifier_piety_effect = yes
 		add_scaled_artifact_modifier_grandeur_small_effect = yes
@@ -685,104 +275,6 @@ create_artifact_pedestal_mechanism_relic_effect_hist = {
 	# Identify which relic it is
 	random_list = {
 		10 = {
-			save_scope_value_as = {
-				name = mechanism_relic_name
-				value = flag:nail
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = mechanism_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = mechanism_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = mechanism_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = mechanism_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = mechanism_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = mechanism_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = mechanism_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = mechanism_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = mechanism_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = mechanism_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = mechanism_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = mechanism_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = mechanism_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = mechanism_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
 			trigger = {
 				NOT = {
 					any_artifact = {
@@ -793,19 +285,6 @@ create_artifact_pedestal_mechanism_relic_effect_hist = {
 			save_scope_value_as = {
 				name = mechanism_relic_name
 				value = flag:crown
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = mechanism_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = mechanism_relic_name
-				value = flag:veronica
 			}
 		}
 	}
@@ -837,11 +316,7 @@ create_artifact_pedestal_mechanism_relic_effect_hist = {
 		limit = {
 			exists = scope:mechanism_relic_name
 			OR = {
-				scope:mechanism_relic_name = flag:sandals
-				scope:mechanism_relic_name = flag:girdle
-				scope:mechanism_relic_name = flag:loincloth
 				scope:mechanism_relic_name = flag:crown
-				scope:mechanism_relic_name = flag:veronica
 			}
 		}
 		set_artifact_rarity_illustrious = yes
@@ -853,26 +328,6 @@ create_artifact_pedestal_mechanism_relic_effect_hist = {
 			quality = scope:quality
 			template = mechanism_artifact_template
 			visuals = pedestal_mechanism_relic
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:mechanism_relic_name
-			scope:mechanism_relic_name = flag:skull
-		}
-		create_artifact = {
-			name = artifact_pedestal_reliquary_mechanism_name
-			description = artifact_pedestal_reliquary_mechanism_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = mechanism_artifact_template
-			visuals = human_skull
 			history = {
 				type = created_before_history
 			}
@@ -906,23 +361,9 @@ create_artifact_pedestal_mechanism_relic_effect_hist = {
 		if = {
 			limit = {
 				exists = scope:mechanism_relic_name
-				scope:mechanism_relic_name = flag:veronica
-			}
-			set_variable = mechanism_veil
-		}
-		else_if = {
-			limit = {
-				exists = scope:mechanism_relic_name
 				scope:mechanism_relic_name = flag:crown
 			}
 			set_variable = mechanism_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:mechanism_relic_name
-				scope:mechanism_relic_name = flag:loincloth
-			}
-			set_variable = mechanism_loincloth
 		}
 		else_if = {
 			limit = {
@@ -931,34 +372,6 @@ create_artifact_pedestal_mechanism_relic_effect_hist = {
 			}
 			set_variable = mechanism_lance
 		}
-		else_if = {
-			limit = {
-				exists = scope:mechanism_relic_name
-				scope:mechanism_relic_name = flag:arm
-			}
-			set_variable = mechanism_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:mechanism_relic_name
-				scope:mechanism_relic_name = flag:sandals
-			}
-			set_variable = mechanism_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:mechanism_relic_name
-				scope:mechanism_relic_name = flag:girdle
-			}
-			set_variable = mechanism_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:mechanism_relic_name
-				scope:mechanism_relic_name = flag:skull
-			}
-			set_variable = mechanism_skull
-		}
 		add_scaled_artifact_modifier_piety_effect = yes
 		add_scaled_artifact_modifier_grandeur_small_effect = yes
 		if = {
@@ -979,917 +392,6 @@ create_artifact_pedestal_mechanism_relic_effect_hist = {
 	}
 }
 
-create_artifact_pedestal_koreanism_relic_effect_hist = {
-	# Get the character the artifact is being made for.
-	$OWNER$ = { save_scope_as = owner }
-	# Not really used, but if we don't set the scopes we get errors in the feature selection
-	get_artifact_quality_effect = yes
-	get_artifact_wealth_effect = yes
-
-	# Identify which relic it is
-	random_list = {
-		10 = {
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:nail
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = koreanism_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = koreanism_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = koreanism_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = koreanism_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = koreanism_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = koreanism_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = koreanism_crown
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:crown
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = koreanism_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = koreanism_relic_name
-				value = flag:veronica
-			}
-		}
-	}
-
-	# Create the artifact
-	if = {
-		limit = {
-			exists = scope:koreanism_relic_name
-			scope:koreanism_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = koreanism_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:koreanism_relic_name
-			OR = {
-				scope:koreanism_relic_name = flag:sandals
-				scope:koreanism_relic_name = flag:girdle
-				scope:koreanism_relic_name = flag:loincloth
-				scope:koreanism_relic_name = flag:crown
-				scope:koreanism_relic_name = flag:veronica
-			}
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {
-			name = artifact_pedestal_reliquary_koreanism_name
-			description = artifact_pedestal_reliquary_koreanism_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = koreanism_artifact_template
-			visuals = pedestal_koreanism_relic
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:koreanism_relic_name
-			scope:koreanism_relic_name = flag:skull
-		}
-		create_artifact = {
-			name = artifact_pedestal_reliquary_koreanism_name
-			description = artifact_pedestal_reliquary_koreanism_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = koreanism_artifact_template
-			visuals = human_skull
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else = {
-		create_artifact = {
-			name = artifact_pedestal_reliquary_koreanism_name
-			description = artifact_pedestal_reliquary_koreanism_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = koreanism_artifact_template
-			visuals = reliquary
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-
-	scope:newly_created_artifact = {
-		set_variable = { name = historical_unique_artifact value = yes }
-		set_variable = {
-			name = relic
-			value = flag:koreanism
-		}
-		if = {
-			limit = {
-				exists = scope:koreanism_relic_name
-				scope:koreanism_relic_name = flag:veronica
-			}
-			set_variable = koreanism_veil
-		}
-		else_if = {
-			limit = {
-				exists = scope:koreanism_relic_name
-				scope:koreanism_relic_name = flag:crown
-			}
-			set_variable = koreanism_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:koreanism_relic_name
-				scope:koreanism_relic_name = flag:loincloth
-			}
-			set_variable = koreanism_loincloth
-		}
-		else_if = {
-			limit = {
-				exists = scope:koreanism_relic_name
-				scope:koreanism_relic_name = flag:lance
-			}
-			set_variable = koreanism_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:koreanism_relic_name
-				scope:koreanism_relic_name = flag:arm
-			}
-			set_variable = koreanism_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:koreanism_relic_name
-				scope:koreanism_relic_name = flag:sandals
-			}
-			set_variable = koreanism_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:koreanism_relic_name
-				scope:koreanism_relic_name = flag:girdle
-			}
-			set_variable = koreanism_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:koreanism_relic_name
-				scope:koreanism_relic_name = flag:skull
-			}
-			set_variable = koreanism_skull
-		}
-		add_scaled_artifact_modifier_piety_effect = yes
-		add_scaled_artifact_modifier_grandeur_small_effect = yes
-		if = {
-			limit = {
-				OR = {
-					rarity = famed
-					rarity = illustrious
-				}
-			}
-			add_2_scaled_artifact_modifier_devotion_effect = yes
-			
-		}
-		else = {
-			add_scaled_artifact_modifier_devotion_effect = yes
-		}
-		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier #overwrite default creation modifier
-		save_scope_as = epic
-	}
-}
-
-create_artifact_pedestal_juche_relic_effect_hist = {
-	# Get the character the artifact is being made for.
-	$OWNER$ = { save_scope_as = owner }
-	# Not really used, but if we don't set the scopes we get errors in the feature selection
-	get_artifact_quality_effect = yes
-	get_artifact_wealth_effect = yes
-
-	# Identify which relic it is
-	random_list = {
-		10 = {
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:nail
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = juche_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = juche_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = juche_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = juche_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = juche_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = juche_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = juche_crown
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:crown
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = juche_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = juche_relic_name
-				value = flag:veronica
-			}
-		}
-	}
-
-	# Create the artifact
-	if = {
-		limit = {
-			exists = scope:juche_relic_name
-			scope:juche_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = juche_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:juche_relic_name
-			OR = {
-				scope:juche_relic_name = flag:sandals
-				scope:juche_relic_name = flag:girdle
-				scope:juche_relic_name = flag:loincloth
-				scope:juche_relic_name = flag:crown
-				scope:juche_relic_name = flag:veronica
-			}
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {
-			name = artifact_pedestal_reliquary_juche_name
-			description = artifact_pedestal_reliquary_juche_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = juche_artifact_template
-			visuals = pedestal_juche_relic
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:juche_relic_name
-			scope:juche_relic_name = flag:skull
-		}
-		create_artifact = {
-			name = artifact_pedestal_reliquary_juche_name
-			description = artifact_pedestal_reliquary_juche_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = juche_artifact_template
-			visuals = human_skull
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else = {
-		create_artifact = {
-			name = artifact_pedestal_reliquary_juche_name
-			description = artifact_pedestal_reliquary_juche_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = juche_artifact_template
-			visuals = reliquary
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-
-	scope:newly_created_artifact = {
-		set_variable = { name = historical_unique_artifact value = yes }
-		set_variable = {
-			name = relic
-			value = flag:juche
-		}
-		if = {
-			limit = {
-				exists = scope:juche_relic_name
-				scope:juche_relic_name = flag:veronica
-			}
-			set_variable = juche_veil
-		}
-		else_if = {
-			limit = {
-				exists = scope:juche_relic_name
-				scope:juche_relic_name = flag:crown
-			}
-			set_variable = juche_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:juche_relic_name
-				scope:juche_relic_name = flag:loincloth
-			}
-			set_variable = juche_loincloth
-		}
-		else_if = {
-			limit = {
-				exists = scope:juche_relic_name
-				scope:juche_relic_name = flag:lance
-			}
-			set_variable = juche_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:juche_relic_name
-				scope:juche_relic_name = flag:arm
-			}
-			set_variable = juche_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:juche_relic_name
-				scope:juche_relic_name = flag:sandals
-			}
-			set_variable = juche_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:juche_relic_name
-				scope:juche_relic_name = flag:girdle
-			}
-			set_variable = juche_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:juche_relic_name
-				scope:juche_relic_name = flag:skull
-			}
-			set_variable = juche_skull
-		}
-		add_scaled_artifact_modifier_piety_effect = yes
-		add_scaled_artifact_modifier_grandeur_small_effect = yes
-		if = {
-			limit = {
-				OR = {
-					rarity = famed
-					rarity = illustrious
-				}
-			}
-			add_2_scaled_artifact_modifier_devotion_effect = yes
-			
-		}
-		else = {
-			add_scaled_artifact_modifier_devotion_effect = yes
-		}
-		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier #overwrite default creation modifier
-		save_scope_as = epic
-	}
-}
-
-create_artifact_pedestal_communsim_relic_effect_hist = {
-	# Get the character the artifact is being made for.
-	$OWNER$ = { save_scope_as = owner }
-	# Not really used, but if we don't set the scopes we get errors in the feature selection
-	get_artifact_quality_effect = yes
-	get_artifact_wealth_effect = yes
-
-	# Identify which relic it is
-	random_list = {
-		10 = {
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:nail
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = communsim_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = communsim_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = communsim_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = communsim_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = communsim_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = communsim_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = communsim_crown
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:crown
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = communsim_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = communsim_relic_name
-				value = flag:veronica
-			}
-		}
-	}
-
-	# Create the artifact
-	if = {
-		limit = {
-			exists = scope:communsim_relic_name
-			scope:communsim_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = communsim_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:communsim_relic_name
-			OR = {
-				scope:communsim_relic_name = flag:sandals
-				scope:communsim_relic_name = flag:girdle
-				scope:communsim_relic_name = flag:loincloth
-				scope:communsim_relic_name = flag:crown
-				scope:communsim_relic_name = flag:veronica
-			}
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {
-			name = artifact_pedestal_reliquary_communsim_name
-			description = artifact_pedestal_reliquary_communsim_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = communsim_artifact_template
-			visuals = pedestal_communsim_relic
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:communsim_relic_name
-			scope:communsim_relic_name = flag:skull
-		}
-		create_artifact = {
-			name = artifact_pedestal_reliquary_communsim_name
-			description = artifact_pedestal_reliquary_communsim_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = communsim_artifact_template
-			visuals = human_skull
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else = {
-		create_artifact = {
-			name = artifact_pedestal_reliquary_communsim_name
-			description = artifact_pedestal_reliquary_communsim_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = communsim_artifact_template
-			visuals = reliquary
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-
-	scope:newly_created_artifact = {
-		set_variable = { name = historical_unique_artifact value = yes }
-		set_variable = {
-			name = relic
-			value = flag:communsim
-		}
-		if = {
-			limit = {
-				exists = scope:communsim_relic_name
-				scope:communsim_relic_name = flag:veronica
-			}
-			set_variable = communsim_veil
-		}
-		else_if = {
-			limit = {
-				exists = scope:communsim_relic_name
-				scope:communsim_relic_name = flag:crown
-			}
-			set_variable = communsim_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:communsim_relic_name
-				scope:communsim_relic_name = flag:loincloth
-			}
-			set_variable = communsim_loincloth
-		}
-		else_if = {
-			limit = {
-				exists = scope:communsim_relic_name
-				scope:communsim_relic_name = flag:lance
-			}
-			set_variable = communsim_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:communsim_relic_name
-				scope:communsim_relic_name = flag:arm
-			}
-			set_variable = communsim_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:communsim_relic_name
-				scope:communsim_relic_name = flag:sandals
-			}
-			set_variable = communsim_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:communsim_relic_name
-				scope:communsim_relic_name = flag:girdle
-			}
-			set_variable = communsim_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:communsim_relic_name
-				scope:communsim_relic_name = flag:skull
-			}
-			set_variable = communsim_skull
-		}
-		add_scaled_artifact_modifier_piety_effect = yes
-		add_scaled_artifact_modifier_grandeur_small_effect = yes
-		if = {
-			limit = {
-				OR = {
-					rarity = famed
-					rarity = illustrious
-				}
-			}
-			add_2_scaled_artifact_modifier_devotion_effect = yes
-			
-		}
-		else = {
-			add_scaled_artifact_modifier_devotion_effect = yes
-		}
-		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier #overwrite default creation modifier
-		save_scope_as = epic
-	}
-}
 
 create_artifact_pedestal_manchurian_relic_effect_hist = {
 	# Get the character the artifact is being made for.
@@ -1901,127 +403,33 @@ create_artifact_pedestal_manchurian_relic_effect_hist = {
 	# Identify which relic it is
 	random_list = {
 		10 = {
-			save_scope_value_as = {
+			save_scope_as = {
 				name = manchurian_relic_name
-				value = flag:nail
+				value = flag:spear_court
+			}
+		}
+		#10 = {
+		#	save_scope_as = {
+		#		name = manchurian_relic_name
+		#		value = flag:bow_court
+		#	}
+		#}
+		10 = {
+			save_scope_as = {
+				name = manchurian_relic_name
+				value = flag:banner
 			}
 		}
 		10 = {
-			save_scope_value_as = {
+			save_scope_as = {
 				name = manchurian_relic_name
-				value = flag:thorn
+				value = flag:armor
 			}
 		}
 		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = manchurian_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
+			save_scope_as = {
 				name = manchurian_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = manchurian_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = manchurian_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = manchurian_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = manchurian_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = manchurian_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = manchurian_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = manchurian_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = manchurian_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = manchurian_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = manchurian_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = manchurian_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = manchurian_crown
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = manchurian_relic_name
-				value = flag:crown
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = manchurian_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = manchurian_relic_name
-				value = flag:veronica
+				value = flag:saddle
 			}
 		}
 	}
@@ -2029,46 +437,19 @@ create_artifact_pedestal_manchurian_relic_effect_hist = {
 	# Create the artifact
 	if = {
 		limit = {
-			exists = scope:manchurian_relic_name
-			scope:manchurian_relic_name = flag:lance
+			exists = manchurian_relic_name
+			OR = {
+				scope:manchurian_relic_name = flag:spear_court
+			}
 		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
+		create_artifact = {
+			name = artifact_pedestal_reliquary_manchurian_name
+			description = artifact_pedestal_reliquary_manchurian_description
 			type = pedestal
+			wealth = scope:wealth
+			quality = scope:quality
 			template = manchurian_artifact_template
 			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:manchurian_relic_name
-			OR = {
-				scope:manchurian_relic_name = flag:sandals
-				scope:manchurian_relic_name = flag:girdle
-				scope:manchurian_relic_name = flag:loincloth
-				scope:manchurian_relic_name = flag:crown
-				scope:manchurian_relic_name = flag:veronica
-			}
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {
-			name = artifact_pedestal_reliquary_manchurian_name
-			description = artifact_pedestal_reliquary_manchurian_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = manchurian_artifact_template
-			visuals = pedestal_manchurian_relic
 			history = {
 				type = created_before_history
 			}
@@ -2078,8 +459,8 @@ create_artifact_pedestal_manchurian_relic_effect_hist = {
 	}
 	else_if = {
 		limit = {
-			exists = scope:manchurian_relic_name
-			scope:manchurian_relic_name = flag:skull
+			exists = manchurian_relic_name
+			scope:manchurian_relic_name = flag:saddle
 		}
 		create_artifact = {
 			name = artifact_pedestal_reliquary_manchurian_name
@@ -2088,7 +469,7 @@ create_artifact_pedestal_manchurian_relic_effect_hist = {
 			wealth = scope:wealth
 			quality = scope:quality
 			template = manchurian_artifact_template
-			visuals = human_skull
+			visuals = saddle
 			history = {
 				type = created_before_history
 			}
@@ -2096,15 +477,40 @@ create_artifact_pedestal_manchurian_relic_effect_hist = {
 			save_scope_as = newly_created_artifact
 		}
 	}
-	else = {
+	else_if = {
+		limit = {
+			exists = manchurian_relic_name
+			scope:manchurian_relic_name = flag:banner
+		}
 		create_artifact = {
 			name = artifact_pedestal_reliquary_manchurian_name
 			description = artifact_pedestal_reliquary_manchurian_description
-			type = pedestal
+			type = wall_big
 			wealth = scope:wealth
 			quality = scope:quality
 			template = manchurian_artifact_template
-			visuals = reliquary
+			visuals = ep1_mena_banner_03_entity
+			history = {
+				type = created_before_history
+			}
+			modifier = artifact_placeholder_modifier
+			save_scope_as = newly_created_artifact
+		}
+		
+	}
+	else_if = {
+		limit = {
+			exists = manchurian_relic_name
+			scope:manchurian_relic_name = flag:armor
+		}
+		create_artifact = {
+			name = artifact_pedestal_reliquary_manchurian_name
+			description = artifact_pedestal_reliquary_manchurian_description
+			type = armorstand
+			wealth = scope:wealth
+			quality = scope:quality
+			template = manchurian_artifact_template
+			visuals = armor_court
 			history = {
 				type = created_before_history
 			}
@@ -2112,7 +518,6 @@ create_artifact_pedestal_manchurian_relic_effect_hist = {
 			save_scope_as = newly_created_artifact
 		}
 	}
-
 	scope:newly_created_artifact = {
 		set_variable = { name = historical_unique_artifact value = yes }
 		set_variable = {
@@ -2122,58 +527,30 @@ create_artifact_pedestal_manchurian_relic_effect_hist = {
 		if = {
 			limit = {
 				exists = scope:manchurian_relic_name
-				scope:manchurian_relic_name = flag:veronica
+				scope:manchurian_relic_name = flag:spear_court
 			}
-			set_variable = manchurian_veil
+			set_variable = manchurian_spear
 		}
 		else_if = {
 			limit = {
 				exists = scope:manchurian_relic_name
-				scope:manchurian_relic_name = flag:crown
+				scope:manchurian_relic_name = flag:armor
 			}
-			set_variable = manchurian_crown
+			set_variable = manchurian_armor
 		}
 		else_if = {
 			limit = {
 				exists = scope:manchurian_relic_name
-				scope:manchurian_relic_name = flag:loincloth
+				scope:manchurian_relic_name = flag:banner
 			}
-			set_variable = manchurian_loincloth
+			set_variable = manchurian_banner
 		}
 		else_if = {
 			limit = {
 				exists = scope:manchurian_relic_name
-				scope:manchurian_relic_name = flag:lance
+				scope:manchurian_relic_name = flag:saddle
 			}
-			set_variable = manchurian_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:manchurian_relic_name
-				scope:manchurian_relic_name = flag:arm
-			}
-			set_variable = manchurian_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:manchurian_relic_name
-				scope:manchurian_relic_name = flag:sandals
-			}
-			set_variable = manchurian_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:manchurian_relic_name
-				scope:manchurian_relic_name = flag:girdle
-			}
-			set_variable = manchurian_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:manchurian_relic_name
-				scope:manchurian_relic_name = flag:skull
-			}
-			set_variable = manchurian_skull
+			set_variable = manchurian_saddle
 		}
 		add_scaled_artifact_modifier_piety_effect = yes
 		add_scaled_artifact_modifier_grandeur_small_effect = yes
@@ -2195,500 +572,6 @@ create_artifact_pedestal_manchurian_relic_effect_hist = {
 	}
 }
 
-create_artifact_pedestal_protestant_relic_effect_hist = {
-	# Get the character the artifact is being made for.
-	$OWNER$ = { save_scope_as = owner }
-	# Not really used, but if we don't set the scopes we get errors in the feature selection
-	get_artifact_quality_effect = yes
-	get_artifact_wealth_effect = yes
-
-	# Identify which relic it is
-	random_list = {
-		10 = {
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:nail
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = protestant_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = protestant_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = protestant_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = protestant_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = protestant_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = protestant_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = protestant_crown
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:crown
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = protestant_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = protestant_relic_name
-				value = flag:veronica
-			}
-		}
-	}
-
-	# Create the artifact
-	if = {
-		limit = {
-			exists = scope:protestant_relic_name
-			scope:protestant_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = protestant_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:protestant_relic_name
-			OR = {
-				scope:protestant_relic_name = flag:sandals
-				scope:protestant_relic_name = flag:girdle
-				scope:protestant_relic_name = flag:loincloth
-				scope:protestant_relic_name = flag:crown
-				scope:protestant_relic_name = flag:veronica
-			}
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {
-			name = artifact_pedestal_reliquary_protestant_name
-			description = artifact_pedestal_reliquary_protestant_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = protestant_artifact_template
-			visuals = pedestal_protestant_relic
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:protestant_relic_name
-			scope:protestant_relic_name = flag:skull
-		}
-		create_artifact = {
-			name = artifact_pedestal_reliquary_protestant_name
-			description = artifact_pedestal_reliquary_protestant_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = protestant_artifact_template
-			visuals = human_skull
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else = {
-		create_artifact = {
-			name = artifact_pedestal_reliquary_protestant_name
-			description = artifact_pedestal_reliquary_protestant_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = protestant_artifact_template
-			visuals = reliquary
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-
-	scope:newly_created_artifact = {
-		set_variable = { name = historical_unique_artifact value = yes }
-		set_variable = {
-			name = relic
-			value = flag:protestant
-		}
-		if = {
-			limit = {
-				exists = scope:protestant_relic_name
-				scope:protestant_relic_name = flag:veronica
-			}
-			set_variable = protestant_veil
-		}
-		else_if = {
-			limit = {
-				exists = scope:protestant_relic_name
-				scope:protestant_relic_name = flag:crown
-			}
-			set_variable = protestant_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:protestant_relic_name
-				scope:protestant_relic_name = flag:loincloth
-			}
-			set_variable = protestant_loincloth
-		}
-		else_if = {
-			limit = {
-				exists = scope:protestant_relic_name
-				scope:protestant_relic_name = flag:lance
-			}
-			set_variable = protestant_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:protestant_relic_name
-				scope:protestant_relic_name = flag:arm
-			}
-			set_variable = protestant_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:protestant_relic_name
-				scope:protestant_relic_name = flag:sandals
-			}
-			set_variable = protestant_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:protestant_relic_name
-				scope:protestant_relic_name = flag:girdle
-			}
-			set_variable = protestant_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:protestant_relic_name
-				scope:protestant_relic_name = flag:skull
-			}
-			set_variable = protestant_skull
-		}
-		add_scaled_artifact_modifier_piety_effect = yes
-		add_scaled_artifact_modifier_grandeur_small_effect = yes
-		if = {
-			limit = {
-				OR = {
-					rarity = famed
-					rarity = illustrious
-				}
-			}
-			add_2_scaled_artifact_modifier_devotion_effect = yes
-			
-		}
-		else = {
-			add_scaled_artifact_modifier_devotion_effect = yes
-		}
-		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier #overwrite default creation modifier
-		save_scope_as = epic
-	}
-}
-
-create_artifact_pedestal_won_buddhism_relic_effect_hist = {
-	# Get the character the artifact is being made for.
-	$OWNER$ = { save_scope_as = owner }
-	# Not really used, but if we don't set the scopes we get errors in the feature selection
-	get_artifact_quality_effect = yes
-	get_artifact_wealth_effect = yes
-
-	# Identify which relic it is
-	random_list = {
-		10 = {
-			save_scope_value_as = {
-				name = won_buddhism_relic_name
-				value = flag:tooth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = won_buddhism_relic_name
-				value = flag:bone
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = won_buddhism_robe
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = won_buddhism_relic_name
-				value = flag:robe
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = won_buddhism_bowl
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = won_buddhism_relic_name
-				value = flag:bowl
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = won_buddhism_tongue
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = won_buddhism_relic_name
-				value = flag:tongue
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = won_buddhism_relic_name
-				value = flag:hair
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = won_buddhism_relic_name
-				value = flag:sarira
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = won_buddhism_relic_name
-				value = flag:bo
-			}
-		}
-	}
-
-	# Create the artifact
-	if = {
-		limit = {
-			exists = scope:won_buddhism_relic_name
-			OR = {
-				scope:won_buddhism_relic_name = flag:robe
-				scope:won_buddhism_relic_name = flag:bowl
-				scope:won_buddhism_relic_name = flag:tongue
-			}
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_reliquary_won_buddhism_name
-			description = artifact_pedestal_reliquary_won_buddhism_description
-			type = pedestal
-			template = won_buddhism_artifact_template
-			visuals = pedestal_won_buddhism_relic
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:won_buddhism_relic_name
-			scope:won_buddhism_relic_name = flag:tooth
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_reliquary_won_buddhism_name
-			description = artifact_pedestal_reliquary_won_buddhism_description
-			type = pedestal
-			template = won_buddhism_artifact_template
-			visuals = buddha_tooth
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else = {
-		create_artifact = {	
-			name = artifact_pedestal_reliquary_won_buddhism_name
-			description = artifact_pedestal_reliquary_won_buddhism_description
-			type = pedestal
-			template = won_buddhism_artifact_template
-			visuals = pedestal_won_buddhism_relic
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-
-	scope:newly_created_artifact = {
-		set_variable = { name = historical_unique_artifact value = yes }
-		set_variable = {
-			name = relic
-			value = flag:won_buddhism
-		}
-		if = {
-			limit = {
-				exists = scope:won_buddhism_relic_name
-				scope:won_buddhism_relic_name = flag:tongue
-			}
-			set_variable = won_buddhism_tongue
-		}
-		else_if = {
-			limit = {
-				exists = scope:won_buddhism_relic_name
-				scope:won_buddhism_relic_name = flag:bowl
-			}
-			set_variable = won_buddhism_bowl
-		}
-		else_if = {
-			limit = {
-				exists = scope:won_buddhism_relic_name
-				scope:won_buddhism_relic_name = flag:robe
-			}
-			set_variable = won_buddhism_robe
-		}
-		add_scaled_artifact_modifier_piety_effect = yes
-		add_scaled_artifact_modifier_grandeur_small_effect = yes
-		if = {
-			limit = {
-				OR = {
-					rarity = famed
-					rarity = illustrious
-				}
-			}
-			add_2_scaled_artifact_modifier_devotion_effect = yes
-			
-		}
-		else = {
-			add_scaled_artifact_modifier_devotion_effect = yes
-		}
-		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier #overwrite default creation modifier
-		save_scope_as = epic
-	}
-}
 
 create_artifact_pedestal_steelers_pagan_relic_effect_hist = {
 	# Get the character the artifact is being made for.
@@ -2702,125 +585,19 @@ create_artifact_pedestal_steelers_pagan_relic_effect_hist = {
 		10 = {
 			save_scope_value_as = {
 				name = steelers_pagan_relic_name
-				value = flag:nail
+				value = flag:astroid
 			}
 		}
 		10 = {
 			save_scope_value_as = {
 				name = steelers_pagan_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = steelers_pagan_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = steelers_pagan_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = steelers_pagan_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = steelers_pagan_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = steelers_pagan_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = steelers_pagan_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = steelers_pagan_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = steelers_pagan_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = steelers_pagan_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = steelers_pagan_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = steelers_pagan_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = steelers_pagan_relic_name
-				value = flag:loincloth
+				value = flag:hammer
 			}
 		}
 		10 = {
 			save_scope_value_as = {
 				name = steelers_pagan_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = steelers_pagan_crown
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = steelers_pagan_relic_name
-				value = flag:crown
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = steelers_pagan_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = steelers_pagan_relic_name
-				value = flag:veronica
+				value = flag:goblet
 			}
 		}
 	}
@@ -2828,46 +605,18 @@ create_artifact_pedestal_steelers_pagan_relic_effect_hist = {
 	# Create the artifact
 	if = {
 		limit = {
-			exists = scope:steelers_pagan_relic_name
-			scope:steelers_pagan_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = steelers_pagan_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:steelers_pagan_relic_name
-			OR = {
-				scope:steelers_pagan_relic_name = flag:sandals
-				scope:steelers_pagan_relic_name = flag:girdle
-				scope:steelers_pagan_relic_name = flag:loincloth
-				scope:steelers_pagan_relic_name = flag:crown
-				scope:steelers_pagan_relic_name = flag:veronica
-			}
+			exists = steelers_pagan_relic_name
+			scope:steelers_pagan_relic_name = flag:astroid
 		}
 		set_artifact_rarity_illustrious = yes
 		create_artifact = {
 			name = artifact_pedestal_reliquary_steelers_pagan_name
 			description = artifact_pedestal_reliquary_steelers_pagan_description
 			type = pedestal
+			template = steelers_pagan_artifact_template
+			visuals = rock
 			wealth = scope:wealth
 			quality = scope:quality
-			template = steelers_pagan_artifact_template
-			visuals = pedestal_steelers_pagan_relic
 			history = {
 				type = created_before_history
 			}
@@ -2877,17 +626,18 @@ create_artifact_pedestal_steelers_pagan_relic_effect_hist = {
 	}
 	else_if = {
 		limit = {
-			exists = scope:steelers_pagan_relic_name
-			scope:steelers_pagan_relic_name = flag:skull
+			exists = steelers_pagan_relic_name
+			scope:steelers_pagan_relic_name = flag:hammer
 		}
+		set_artifact_rarity_illustrious = yes
 		create_artifact = {
 			name = artifact_pedestal_reliquary_steelers_pagan_name
 			description = artifact_pedestal_reliquary_steelers_pagan_description
 			type = pedestal
+			template = steelers_pagan_artifact_template
+			visuals = hammer_court
 			wealth = scope:wealth
 			quality = scope:quality
-			template = steelers_pagan_artifact_template
-			visuals = human_skull
 			history = {
 				type = created_before_history
 			}
@@ -2895,15 +645,20 @@ create_artifact_pedestal_steelers_pagan_relic_effect_hist = {
 			save_scope_as = newly_created_artifact
 		}
 	}
-	else = {
+	else_if = {
+		limit = {
+			exists = steelers_pagan_relic_name
+			scope:steelers_pagan_relic_name = flag:goblet
+		}
+		set_artifact_rarity_illustrious = yes
 		create_artifact = {
 			name = artifact_pedestal_reliquary_steelers_pagan_name
 			description = artifact_pedestal_reliquary_steelers_pagan_description
 			type = pedestal
+			template = steelers_pagan_artifact_template
+			visuals = goblet
 			wealth = scope:wealth
 			quality = scope:quality
-			template = steelers_pagan_artifact_template
-			visuals = reliquary
 			history = {
 				type = created_before_history
 			}
@@ -2921,58 +676,23 @@ create_artifact_pedestal_steelers_pagan_relic_effect_hist = {
 		if = {
 			limit = {
 				exists = scope:steelers_pagan_relic_name
-				scope:steelers_pagan_relic_name = flag:veronica
+				scope:steelers_pagan_relic_name = flag:astroid
 			}
-			set_variable = steelers_pagan_veil
+			set_variable = steelers_pagan_asteroid
 		}
 		else_if = {
 			limit = {
 				exists = scope:steelers_pagan_relic_name
-				scope:steelers_pagan_relic_name = flag:crown
+				scope:steelers_pagan_relic_name = flag:hammer
 			}
-			set_variable = steelers_pagan_crown
+			set_variable = steelers_pagan_hammer
 		}
 		else_if = {
 			limit = {
 				exists = scope:steelers_pagan_relic_name
-				scope:steelers_pagan_relic_name = flag:loincloth
+				scope:steelers_pagan_relic_name = flag:goblet
 			}
-			set_variable = steelers_pagan_loincloth
-		}
-		else_if = {
-			limit = {
-				exists = scope:steelers_pagan_relic_name
-				scope:steelers_pagan_relic_name = flag:lance
-			}
-			set_variable = steelers_pagan_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:steelers_pagan_relic_name
-				scope:steelers_pagan_relic_name = flag:arm
-			}
-			set_variable = steelers_pagan_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:steelers_pagan_relic_name
-				scope:steelers_pagan_relic_name = flag:sandals
-			}
-			set_variable = steelers_pagan_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:steelers_pagan_relic_name
-				scope:steelers_pagan_relic_name = flag:girdle
-			}
-			set_variable = steelers_pagan_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:steelers_pagan_relic_name
-				scope:steelers_pagan_relic_name = flag:skull
-			}
-			set_variable = steelers_pagan_skull
+			set_variable = steelers_pagan_goblet
 		}
 		add_scaled_artifact_modifier_piety_effect = yes
 		add_scaled_artifact_modifier_grandeur_small_effect = yes
@@ -2994,184 +714,65 @@ create_artifact_pedestal_steelers_pagan_relic_effect_hist = {
 	}
 }
 
-create_artifact_pedestal_tengrism_relic_effect_hist = {
-	# Get the character the artifact is being made for.
+create_artifact_pedestal_naturalism_relic_effect_hist = {
 	$OWNER$ = { save_scope_as = owner }
-	# Not really used, but if we don't set the scopes we get errors in the feature selection
-	get_artifact_quality_effect = yes
-	get_artifact_wealth_effect = yes
+	set_artifact_rarity_illustrious = yes
 
-	# Identify which relic it is
 	random_list = {
 		10 = {
 			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:nail
+				name = branch_name
+				value = flag:segyesu
 			}
 		}
 		10 = {
 			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = tengrism_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = tengrism_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = tengrism_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = tengrism_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = tengrism_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = tengrism_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:loincloth
+				name = naturalism_relic_name
+				value = flag:bone
 			}
 		}
 		10 = {
 			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:cross
+				name = branch_name
+				value = flag:segyesu_fruit
 			}
 		}
 		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = tengrism_crown
-					}
-				}
-			}
 			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:crown
+				name = naturalism_relic_name
+				value = flag:bottle
 			}
 		}
 		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = tengrism_veil
-					}
-				}
-			}
 			save_scope_value_as = {
-				name = tengrism_relic_name
-				value = flag:veronica
+				name = naturalsim_relic_name
+				value = flag:letter
+			}
+		}
+		10 = {
+			save_scope_value_as = {
+				name = naturalism_relic_name
+				value = flag:mine
 			}
 		}
 	}
 
-	# Create the artifact
 	if = {
 		limit = {
-			exists = scope:tengrism_relic_name
-			scope:tengrism_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = tengrism_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:tengrism_relic_name
+			exists = scope:naturalism_relic_name
 			OR = {
-				scope:tengrism_relic_name = flag:sandals
-				scope:tengrism_relic_name = flag:girdle
-				scope:tengrism_relic_name = flag:loincloth
-				scope:tengrism_relic_name = flag:crown
-				scope:tengrism_relic_name = flag:veronica
+				scope:naturalism_relic_name = flag:bone
 			}
 		}
 		set_artifact_rarity_illustrious = yes
 		create_artifact = {
-			name = artifact_pedestal_reliquary_tengrism_name
-			description = artifact_pedestal_reliquary_tengrism_description
+			name = artifact_pedestal_reliquary_naturalism_name
+			description = artifact_pedestal_reliquary_naturalism_description
 			type = pedestal
+			template = naturalism_artifact_template
+			visuals = human_skull
 			wealth = scope:wealth
 			quality = scope:quality
-			template = tengrism_artifact_template
-			visuals = pedestal_tengrism_relic
 			history = {
 				type = created_before_history
 			}
@@ -3181,17 +782,20 @@ create_artifact_pedestal_tengrism_relic_effect_hist = {
 	}
 	else_if = {
 		limit = {
-			exists = scope:tengrism_relic_name
-			scope:tengrism_relic_name = flag:skull
+			exists = scope:branch_name
+			OR = {
+				scope:naturalism_relic_name = flag:segyesu
+				scope:naturalism_relic_name = flag:segyesu_fruit
+			}
 		}
+		set_artifact_rarity_illustrious = yes
 		create_artifact = {
-			name = artifact_pedestal_reliquary_tengrism_name
-			description = artifact_pedestal_reliquary_tengrism_description
+			name = artifact_pedestal_branch_name
+			description = artifact_pedestal_branch_description
 			type = pedestal
+			visuals = pedestal_branch_relic_zoroastr
 			wealth = scope:wealth
 			quality = scope:quality
-			template = tengrism_artifact_template
-			visuals = human_skull
 			history = {
 				type = created_before_history
 			}
@@ -3199,15 +803,59 @@ create_artifact_pedestal_tengrism_relic_effect_hist = {
 			save_scope_as = newly_created_artifact
 		}
 	}
-	else = {
+	else_if = {
+		limit = {
+			exists = scope:naturalism_relic_name
+			scope:naturalism_relic_name = flag:bottle
+		}
+		set_artifact_rarity_illustrious = yes
 		create_artifact = {
-			name = artifact_pedestal_reliquary_tengrism_name
-			description = artifact_pedestal_reliquary_tengrism_description
+			name = artifact_pedestal_reliquary_naturalism_name
+			description = artifact_pedestal_reliquary_naturalism_description
 			type = pedestal
+			visuals = bottle
 			wealth = scope:wealth
 			quality = scope:quality
-			template = tengrism_artifact_template
-			visuals = reliquary
+			history = {
+				type = created_before_history
+			}
+			modifier = artifact_placeholder_modifier
+			save_scope_as = newly_created_artifact
+		}
+	}
+	else_if = {
+		limit = {
+			exists = scope:naturalism_relic_name
+			scope:naturalism_relic_name = flag:mine
+		}
+		set_artifact_rarity_illustrious = yes
+		create_artifact = {
+			name = artifact_pedestal_reliquary_naturalism_name
+			description = artifact_pedestal_reliquary_naturalism_description
+			type = pedestal
+			visuals = mine
+			wealth = scope:wealth
+			quality = scope:quality
+			history = {
+				type = created_before_history
+			}
+			modifier = artifact_placeholder_modifier
+			save_scope_as = newly_created_artifact
+		}
+	}
+	else_if = {
+		limit = {
+			exists = scope:naturalism_relic_name
+			scope:naturalism_relic_name = flag:letter
+		}
+		set_artifact_rarity_illustrious = yes
+		create_artifact = {
+			name = artifact_pedestal_reliquary_naturalism_name
+			description = artifact_pedestal_reliquary_naturalism_description
+			type = pedestal
+			visuals = letter
+			wealth = scope:wealth
+			quality = scope:quality
 			history = {
 				type = created_before_history
 			}
@@ -3220,63 +868,49 @@ create_artifact_pedestal_tengrism_relic_effect_hist = {
 		set_variable = { name = historical_unique_artifact value = yes }
 		set_variable = {
 			name = relic
-			value = flag:tengrism
+			value = flag:naturalism
 		}
 		if = {
 			limit = {
-				exists = scope:tengrism_relic_name
-				scope:tengrism_relic_name = flag:veronica
+				exists = scope:naturalism_relic_name
+				scope:naturalism_relic_name = flag:bone
 			}
-			set_variable = tengrism_veil
+			set_variable = naturalism_bone
 		}
 		else_if = {
 			limit = {
-				exists = scope:tengrism_relic_name
-				scope:tengrism_relic_name = flag:crown
+				exists = scope:naturalism_relic_name
+				scope:naturalism_relic_name = flag:mine
 			}
-			set_variable = tengrism_crown
+			set_variable = naturalism_mine
 		}
 		else_if = {
 			limit = {
-				exists = scope:tengrism_relic_name
-				scope:tengrism_relic_name = flag:loincloth
+				exists = scope:naturalism_relic_name
+				scope:naturalism_relic_name = flag:bottle
 			}
-			set_variable = tengrism_loincloth
+			set_variable = naturalism_bottle
 		}
 		else_if = {
 			limit = {
-				exists = scope:tengrism_relic_name
-				scope:tengrism_relic_name = flag:lance
+				exists = scope:naturalism_relic_name
+				scope:naturalism_relic_name = flag:mine
 			}
-			set_variable = tengrism_lance
+			set_variable = naturalism_mine
 		}
 		else_if = {
 			limit = {
-				exists = scope:tengrism_relic_name
-				scope:tengrism_relic_name = flag:arm
+				exists = scope:branch_name
+				scope:branch_name = flag:segyesu
 			}
-			set_variable = tengrism_arm
+			set_variable = naturalism_segyesu
 		}
 		else_if = {
 			limit = {
-				exists = scope:tengrism_relic_name
-				scope:tengrism_relic_name = flag:sandals
+				exists = scope:branch_name
+				scope:branch_name = flag:segyesu_fruit
 			}
-			set_variable = tengrism_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:tengrism_relic_name
-				scope:tengrism_relic_name = flag:girdle
-			}
-			set_variable = tengrism_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:tengrism_relic_name
-				scope:tengrism_relic_name = flag:skull
-			}
-			set_variable = tengrism_skull
+			set_variable = naturalism_segyesu_fruit
 		}
 		add_scaled_artifact_modifier_piety_effect = yes
 		add_scaled_artifact_modifier_grandeur_small_effect = yes
@@ -3288,925 +922,11 @@ create_artifact_pedestal_tengrism_relic_effect_hist = {
 				}
 			}
 			add_2_scaled_artifact_modifier_devotion_effect = yes
-			
 		}
 		else = {
 			add_scaled_artifact_modifier_devotion_effect = yes
 		}
-		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier #overwrite default creation modifier
+		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier
 		save_scope_as = epic
 	}
 }
-
-create_artifact_pedestal_orthodox_relic_effect_hist = {
-	# Get the character the artifact is being made for.
-	$OWNER$ = { save_scope_as = owner }
-	# Not really used, but if we don't set the scopes we get errors in the feature selection
-	get_artifact_quality_effect = yes
-	get_artifact_wealth_effect = yes
-
-	# Identify which relic it is
-	random_list = {
-		10 = {
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:nail
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = orthodox_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = orthodox_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = orthodox_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = orthodox_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = orthodox_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = orthodox_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = orthodox_crown
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:crown
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = orthodox_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = orthodox_relic_name
-				value = flag:veronica
-			}
-		}
-	}
-
-	# Create the artifact
-	if = {
-		limit = {
-			exists = scope:orthodox_relic_name
-			scope:orthodox_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = orthodox_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:orthodox_relic_name
-			OR = {
-				scope:orthodox_relic_name = flag:sandals
-				scope:orthodox_relic_name = flag:girdle
-				scope:orthodox_relic_name = flag:loincloth
-				scope:orthodox_relic_name = flag:crown
-				scope:orthodox_relic_name = flag:veronica
-			}
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {
-			name = artifact_pedestal_reliquary_orthodox_name
-			description = artifact_pedestal_reliquary_orthodox_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = orthodox_artifact_template
-			visuals = pedestal_orthodox_relic
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:orthodox_relic_name
-			scope:orthodox_relic_name = flag:skull
-		}
-		create_artifact = {
-			name = artifact_pedestal_reliquary_orthodox_name
-			description = artifact_pedestal_reliquary_orthodox_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = orthodox_artifact_template
-			visuals = human_skull
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else = {
-		create_artifact = {
-			name = artifact_pedestal_reliquary_orthodox_name
-			description = artifact_pedestal_reliquary_orthodox_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = orthodox_artifact_template
-			visuals = reliquary
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-
-	scope:newly_created_artifact = {
-		set_variable = { name = historical_unique_artifact value = yes }
-		set_variable = {
-			name = relic
-			value = flag:orthodox
-		}
-		if = {
-			limit = {
-				exists = scope:orthodox_relic_name
-				scope:orthodox_relic_name = flag:veronica
-			}
-			set_variable = orthodox_veil
-		}
-		else_if = {
-			limit = {
-				exists = scope:orthodox_relic_name
-				scope:orthodox_relic_name = flag:crown
-			}
-			set_variable = orthodox_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:orthodox_relic_name
-				scope:orthodox_relic_name = flag:loincloth
-			}
-			set_variable = orthodox_loincloth
-		}
-		else_if = {
-			limit = {
-				exists = scope:orthodox_relic_name
-				scope:orthodox_relic_name = flag:lance
-			}
-			set_variable = orthodox_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:orthodox_relic_name
-				scope:orthodox_relic_name = flag:arm
-			}
-			set_variable = orthodox_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:orthodox_relic_name
-				scope:orthodox_relic_name = flag:sandals
-			}
-			set_variable = orthodox_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:orthodox_relic_name
-				scope:orthodox_relic_name = flag:girdle
-			}
-			set_variable = orthodox_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:orthodox_relic_name
-				scope:orthodox_relic_name = flag:skull
-			}
-			set_variable = orthodox_skull
-		}
-		add_scaled_artifact_modifier_piety_effect = yes
-		add_scaled_artifact_modifier_grandeur_small_effect = yes
-		if = {
-			limit = {
-				OR = {
-					rarity = famed
-					rarity = illustrious
-				}
-			}
-			add_2_scaled_artifact_modifier_devotion_effect = yes
-			
-		}
-		else = {
-			add_scaled_artifact_modifier_devotion_effect = yes
-		}
-		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier #overwrite default creation modifier
-		save_scope_as = epic
-	}
-}
-
-create_artifact_pedestal_eternal_kingdom_relic_effect_hist = {
-	# Get the character the artifact is being made for.
-	$OWNER$ = { save_scope_as = owner }
-	# Not really used, but if we don't set the scopes we get errors in the feature selection
-	get_artifact_quality_effect = yes
-	get_artifact_wealth_effect = yes
-
-	# Identify which relic it is
-	random_list = {
-		10 = {
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:nail
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = eternal_kingdom_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = eternal_kingdom_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = eternal_kingdom_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = eternal_kingdom_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = eternal_kingdom_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = eternal_kingdom_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = eternal_kingdom_crown
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:crown
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = eternal_kingdom_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = eternal_kingdom_relic_name
-				value = flag:veronica
-			}
-		}
-	}
-
-	# Create the artifact
-	if = {
-		limit = {
-			exists = scope:eternal_kingdom_relic_name
-			scope:eternal_kingdom_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = eternal_kingdom_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:eternal_kingdom_relic_name
-			OR = {
-				scope:eternal_kingdom_relic_name = flag:sandals
-				scope:eternal_kingdom_relic_name = flag:girdle
-				scope:eternal_kingdom_relic_name = flag:loincloth
-				scope:eternal_kingdom_relic_name = flag:crown
-				scope:eternal_kingdom_relic_name = flag:veronica
-			}
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {
-			name = artifact_pedestal_reliquary_eternal_kingdom_name
-			description = artifact_pedestal_reliquary_eternal_kingdom_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = eternal_kingdom_artifact_template
-			visuals = pedestal_eternal_kingdom_relic
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:eternal_kingdom_relic_name
-			scope:eternal_kingdom_relic_name = flag:skull
-		}
-		create_artifact = {
-			name = artifact_pedestal_reliquary_eternal_kingdom_name
-			description = artifact_pedestal_reliquary_eternal_kingdom_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = eternal_kingdom_artifact_template
-			visuals = human_skull
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else = {
-		create_artifact = {
-			name = artifact_pedestal_reliquary_eternal_kingdom_name
-			description = artifact_pedestal_reliquary_eternal_kingdom_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = eternal_kingdom_artifact_template
-			visuals = reliquary
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-
-	scope:newly_created_artifact = {
-		set_variable = { name = historical_unique_artifact value = yes }
-		set_variable = {
-			name = relic
-			value = flag:eternal_kingdom
-		}
-		if = {
-			limit = {
-				exists = scope:eternal_kingdom_relic_name
-				scope:eternal_kingdom_relic_name = flag:veronica
-			}
-			set_variable = eternal_kingdom_veil
-		}
-		else_if = {
-			limit = {
-				exists = scope:eternal_kingdom_relic_name
-				scope:eternal_kingdom_relic_name = flag:crown
-			}
-			set_variable = eternal_kingdom_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:eternal_kingdom_relic_name
-				scope:eternal_kingdom_relic_name = flag:loincloth
-			}
-			set_variable = eternal_kingdom_loincloth
-		}
-		else_if = {
-			limit = {
-				exists = scope:eternal_kingdom_relic_name
-				scope:eternal_kingdom_relic_name = flag:lance
-			}
-			set_variable = eternal_kingdom_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:eternal_kingdom_relic_name
-				scope:eternal_kingdom_relic_name = flag:arm
-			}
-			set_variable = eternal_kingdom_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:eternal_kingdom_relic_name
-				scope:eternal_kingdom_relic_name = flag:sandals
-			}
-			set_variable = eternal_kingdom_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:eternal_kingdom_relic_name
-				scope:eternal_kingdom_relic_name = flag:girdle
-			}
-			set_variable = eternal_kingdom_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:eternal_kingdom_relic_name
-				scope:eternal_kingdom_relic_name = flag:skull
-			}
-			set_variable = eternal_kingdom_skull
-		}
-		add_scaled_artifact_modifier_piety_effect = yes
-		add_scaled_artifact_modifier_grandeur_small_effect = yes
-		if = {
-			limit = {
-				OR = {
-					rarity = famed
-					rarity = illustrious
-				}
-			}
-			add_2_scaled_artifact_modifier_devotion_effect = yes
-			
-		}
-		else = {
-			add_scaled_artifact_modifier_devotion_effect = yes
-		}
-		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier #overwrite default creation modifier
-		save_scope_as = epic
-	}
-}
-
-create_artifact_pedestal_jeju_relic_effect_hist = {
-	# Get the character the artifact is being made for.
-	$OWNER$ = { save_scope_as = owner }
-	# Not really used, but if we don't set the scopes we get errors in the feature selection
-	get_artifact_quality_effect = yes
-	get_artifact_wealth_effect = yes
-
-	# Identify which relic it is
-	random_list = {
-		10 = {
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:nail
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:thorn
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = jeju_sandals
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:sandals
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = jeju_girdle
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:girdle
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = jeju_lance
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:lance
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = jeju_skull
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:skull
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						count > 5
-						has_variable = jeju_arm
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:arm
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = jeju_loincloth
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:loincloth
-			}
-		}
-		10 = {
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:cross
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = jeju_crown
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:crown
-			}
-		}
-		10 = {
-			trigger = {
-				NOT = {
-					any_artifact = {
-						has_variable = jeju_veil
-					}
-				}
-			}
-			save_scope_value_as = {
-				name = jeju_relic_name
-				value = flag:veronica
-			}
-		}
-	}
-
-	# Create the artifact
-	if = {
-		limit = {
-			exists = scope:jeju_relic_name
-			scope:jeju_relic_name = flag:lance
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {	
-			name = artifact_pedestal_spear_destiny_name
-			description = artifact_pedestal_spear_destiny
-			type = pedestal
-			template = jeju_artifact_template
-			visuals = pedestal_longinus
-			wealth = scope:wealth
-			quality = scope:quality
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:jeju_relic_name
-			OR = {
-				scope:jeju_relic_name = flag:sandals
-				scope:jeju_relic_name = flag:girdle
-				scope:jeju_relic_name = flag:loincloth
-				scope:jeju_relic_name = flag:crown
-				scope:jeju_relic_name = flag:veronica
-			}
-		}
-		set_artifact_rarity_illustrious = yes
-		create_artifact = {
-			name = artifact_pedestal_reliquary_jeju_name
-			description = artifact_pedestal_reliquary_jeju_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = jeju_artifact_template
-			visuals = pedestal_jeju_relic
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else_if = {
-		limit = {
-			exists = scope:jeju_relic_name
-			scope:jeju_relic_name = flag:skull
-		}
-		create_artifact = {
-			name = artifact_pedestal_reliquary_jeju_name
-			description = artifact_pedestal_reliquary_jeju_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = jeju_artifact_template
-			visuals = human_skull
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-	else = {
-		create_artifact = {
-			name = artifact_pedestal_reliquary_jeju_name
-			description = artifact_pedestal_reliquary_jeju_description
-			type = pedestal
-			wealth = scope:wealth
-			quality = scope:quality
-			template = jeju_artifact_template
-			visuals = reliquary
-			history = {
-				type = created_before_history
-			}
-			modifier = artifact_placeholder_modifier
-			save_scope_as = newly_created_artifact
-		}
-	}
-
-	scope:newly_created_artifact = {
-		set_variable = { name = historical_unique_artifact value = yes }
-		set_variable = {
-			name = relic
-			value = flag:jeju
-		}
-		if = {
-			limit = {
-				exists = scope:jeju_relic_name
-				scope:jeju_relic_name = flag:veronica
-			}
-			set_variable = jeju_veil
-		}
-		else_if = {
-			limit = {
-				exists = scope:jeju_relic_name
-				scope:jeju_relic_name = flag:crown
-			}
-			set_variable = jeju_crown
-		}
-		else_if = {
-			limit = {
-				exists = scope:jeju_relic_name
-				scope:jeju_relic_name = flag:loincloth
-			}
-			set_variable = jeju_loincloth
-		}
-		else_if = {
-			limit = {
-				exists = scope:jeju_relic_name
-				scope:jeju_relic_name = flag:lance
-			}
-			set_variable = jeju_lance
-		}
-		else_if = {
-			limit = {
-				exists = scope:jeju_relic_name
-				scope:jeju_relic_name = flag:arm
-			}
-			set_variable = jeju_arm
-		}
-		else_if = {
-			limit = {
-				exists = scope:jeju_relic_name
-				scope:jeju_relic_name = flag:sandals
-			}
-			set_variable = jeju_sandals
-		}
-		else_if = {
-			limit = {
-				exists = scope:jeju_relic_name
-				scope:jeju_relic_name = flag:girdle
-			}
-			set_variable = jeju_girdle
-		}
-		else_if = {
-			limit = {
-				exists = scope:jeju_relic_name
-				scope:jeju_relic_name = flag:skull
-			}
-			set_variable = jeju_skull
-		}
-		add_scaled_artifact_modifier_piety_effect = yes
-		add_scaled_artifact_modifier_grandeur_small_effect = yes
-		if = {
-			limit = {
-				OR = {
-					rarity = famed
-					rarity = illustrious
-				}
-			}
-			add_2_scaled_artifact_modifier_devotion_effect = yes
-			
-		}
-		else = {
-			add_scaled_artifact_modifier_devotion_effect = yes
-		}
-		add_artifact_modifier = artifact_monthly_prestige_penalty_modifier #overwrite default creation modifier
-		save_scope_as = epic
-	}
-}
-

@@ -33,9 +33,6 @@ crown_industrial_template = {
 
 	unique = yes
 }
-
-hec_crown_template = {
-}
 cheondo_artifact_template = {
 	can_equip = {
 		always = yes
@@ -43,13 +40,6 @@ cheondo_artifact_template = {
 
 	# can this character benefit from the full modifiers of the artifact?
 	can_benefit = {
-	    has_title = title:e_hec
-	}
-
-	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
-	fallback = { 
-	    monthly_prestige = 0.5
-
 		has_religion = religon:cheondo_religion
 	}
 
@@ -85,6 +75,176 @@ mechanism_artifact_template = {
 	# can this character benefit from the full modifiers of the artifact?
 	can_benefit = {
 		has_religion = religion:mechanism_religion
+	}
+
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		court_grandeur_baseline_add = 3
+	}
+
+	unique = yes
+}
+koreanism_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		has_religion = religion:koreanism_religon
+	}
+
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		court_grandeur_baseline_add = 3
+	}
+
+	unique = yes
+}
+juche_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		has_religion = religion:juche_religion
+	}
+
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		court_grandeur_baseline_add = 3
+	}
+
+	unique = yes
+}
+communism_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		communism_or_syncretic_with_communism_trigger = yes
+	}
+
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		court_grandeur_baseline_add = 3
+	}
+
+	unique = yes
+}
+manchurian_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		manchurian_or_syncretic_with_plain_faith_trigger = yes
+	}
+
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		court_grandeur_baseline_add = 3
+	}
+
+	unique = yes
+}
+protestant_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		christianity_or_syncretic_with_christianity_trigger = { CHARACTER = root }
+	}
+
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		court_grandeur_baseline_add = 3
+	}
+
+	unique = yes
+}
+won_buddhism_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		has_religion = religion:won_buddhism_religion
+	}
+
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		court_grandeur_baseline_add = 3
+	}
+
+	unique = yes
+}
+steelers_pagan_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		has_religion = religion:steelers_pagan_religion
+	}
+
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		court_grandeur_baseline_add = 3
+	}
+
+	unique = yes
+}
+tengrism_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		manchurian_or_syncretic_with_plain_faith_trigger = yes
+	}
+
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		court_grandeur_baseline_add = 3
+	}
+
+	unique = yes
+}
+orthodox_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		christianity_or_syncretic_with_christianity_trigger = { CHARACTER = root }
+	}
+
+	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
+	fallback = {
+		court_grandeur_baseline_add = 3
+	}
+
+	unique = yes
+}
+eternal_kingdom_artifact_template = {
+	can_equip = {
+		always = yes
+	}
+
+	# can this character benefit from the full modifiers of the artifact?
+	can_benefit = {
+		christianity_or_syncretic_with_christianity_trigger = { CHARACTER = root }
 	}
 
 	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
