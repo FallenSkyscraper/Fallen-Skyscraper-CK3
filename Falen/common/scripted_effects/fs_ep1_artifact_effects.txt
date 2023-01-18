@@ -1,0 +1,119 @@
+set_up_horned_mythical_creature_effect = {
+	#Save the location for Iceland-shenanigans
+	if = {
+		limit = { exists = capital_province }
+		capital_province = { save_scope_as = target_location }
+	}
+	else_if = {
+		limit = { exists = location }
+		location = { save_scope_as = target_location }
+	}
+	else = {
+		#You should not end up here, something is wrong
+	}
+	random_list = {
+		50 = {
+			set_variable = {
+				name = horned_mythical_creature
+				value = flag:tarasque
+			}
+		}
+		50 = {
+			set_variable = {
+				name = horned_mythical_creature
+				value = flag:indrik
+			}
+		}
+		50 = {
+			set_variable = {
+				name = horned_mythical_creature
+				value = flag:ophiotaurus
+			}
+		}
+		50 = {
+			set_variable = {
+				name = horned_mythical_creature
+				value = flag:monocerus
+			}
+		}
+		50 = {
+			set_variable = {
+				name = horned_mythical_creature
+				value = flag:centicore
+			}
+		}
+		50 = {
+			set_variable = {
+				name = horned_mythical_creature
+				value = flag:erchitu
+			}
+		}
+		50 = {
+			set_variable = {
+				name = horned_mythical_creature
+				value = flag:hadhayosh
+			}
+		}
+		50 = {
+			set_variable = {
+				name = horned_mythical_creature
+				value = flag:bulgu
+			}
+		}
+		5 = {
+			set_variable = {
+				name = horned_mythical_creature
+				value = flag:keewakw
+			}
+		}
+
+	}
+}
+
+
+set_up_regional_mythical_creature_effect = {
+	if = {
+		#Britannia
+		limit = {
+			$LOCATION$ = { geographical_region = world_korea }
+			NOT = { exists = var:regional_mythical_creature_trinket }
+		}
+		random_list = {
+			50 = {
+				set_variable = {
+					name = regional_mythical_creature_trinket
+					value = flag:water_leper
+				}
+			}
+			50 = {
+				set_variable = {
+					name = regional_mythical_creature_trinket
+					value = flag:fomorian
+				}
+			}
+			50 = {
+				set_variable = {
+					name = regional_mythical_creature_trinket
+					value = flag:fachan
+				}
+			}
+		}
+	}
+	#Fallback
+	else = {
+		random_list = {
+			100 = {
+				set_variable = {
+					name = regional_mythical_creature_trinket
+					value = flag:dragon
+				}
+			}
+			5 = {
+				set_variable = {
+					name = regional_mythical_creature_trinket
+					value = flag:cipactli
+				}
+			}
+		}
+	}	
+}

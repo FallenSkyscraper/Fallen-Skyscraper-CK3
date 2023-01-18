@@ -1,8 +1,63 @@
-has_same_language_group_trigger = {
-	var:language_group = { compare_value > 0 }
-	var:language_group = $TARGET$.var:language_group
+#has_same_language_group_trigger = {
+#	var:language_group = { compare_value > 0 }
+#	var:language_group = $TARGET$.var:language_group
+#}
+#has_same_heritage_group_trigger = {
+#	var:heritage_group = { compare_value > 0 }
+#	var:heritage_group = $TARGET$.var:heritage_group
+#}
+
+culture_in_winter_geographical_region_trigger = {
+	custom_description = {
+		text = culture_in_winter_geographical_region_trigger_desc
+		any_culture_county = {
+			any_county_province = {
+				OR = {
+					geographical_region = world_steppe
+					geographical_region = world_korea
+				}
+			}
+		}
+	}
 }
-has_same_heritage_group_trigger = {
-	var:heritage_group = { compare_value > 0 }
-	var:heritage_group = $TARGET$.var:heritage_group
+
+cultures_share_relevant_region_trigger = {
+	OR = {
+		AND = {
+			culture_overlaps_geographical_region = world_korea_south
+			scope:culture = {
+				culture_overlaps_geographical_region = world_korea_south
+			}
+		}
+		AND = {
+			culture_overlaps_geographical_region = world_korea_north
+			scope:culture = {
+				culture_overlaps_geographical_region = world_korea_north
+			}
+		}
+		AND = {
+				culture_overlaps_geographical_region = world_steppe_primorye
+			scope:culture = {
+					culture_overlaps_geographical_region = world_steppe_primorye
+			}
+		}
+		AND = {
+			OR = {
+				culture_overlaps_geographical_region = world_steppe_manchuria
+				culture_overlaps_geographical_region = world_steppe_mongolia
+			}
+			scope:culture = {
+				OR = {
+					culture_overlaps_geographical_region = world_steppe_manchuria
+					culture_overlaps_geographical_region = world_steppe_mongolia
+				}
+			}
+		}
+		AND = {
+			culture_overlaps_geographical_region = world_liao
+			scope:culture = {
+				culture_overlaps_geographical_region = world_liao
+			}
+		}
+	}
 }

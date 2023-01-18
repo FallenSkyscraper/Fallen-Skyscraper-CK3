@@ -515,13 +515,42 @@ material_hsb_seashell = {
 # Graphical Regions
 ###########################################################################
 
-graphical_western = { world_korea world_steppe_yanbian world_steppe_primorye }
+graphical_western = { 
+	graphical = yes
+	color = { 255 0 0 }
+	regions = { 
+		world_korea world_steppe_yanbian world_steppe_primorye
+	}
+}
 
-graphical_mena = { world_liao world_steppe_manchuria world_steppe_mongolia }
+graphical_mena = { 
+	graphical = yes
+	color = { 255 255 0 }
+	regions = {
+	}
+}
 
-graphical_mediterranean = {}
+graphical_mediterranean = {
+	graphical = yes
+	color = { 0 0 255 }
+	regions = {
+	}
+}
 
-graphical_india = {}
+graphical_india = {
+	graphical = yes
+	color = { 0 255 0 }
+	regions = {
+	}
+}
+
+graphical_steppe = {
+	graphical = yes
+	color = { 0 255 255 }
+	regions = {
+		world_liao world_steppe_manchuria world_steppe_mongolia
+	}
+}
 
 ##############################
 # Misc

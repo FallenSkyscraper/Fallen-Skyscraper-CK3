@@ -1,0 +1,99 @@
+set_favorite_treat_effect = {
+	if = {
+		limit = { NOT = { has_variable = favorite_treat } }
+		hidden_effect = {
+			random_list = {
+				10 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:roasted_almonds
+					}
+				}
+                10 = {
+                    set_variable = {
+						name = favorite_treat
+						value = flag:comfit #famous in sicily
+					}
+                }
+				10 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:marzipan #europeans & arabs, possibly eastern asaia
+					}
+				}
+				2 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:sweetroll #A northern delicacy
+					}
+				}
+				10 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:poached_pear
+					}
+				}
+				10 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:pudding
+					}
+				}
+				10 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:apple_tart
+					}
+				}
+				10 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:strawberry_compote
+					}
+				}
+				10 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:gingerbread #europe, armenia
+					}
+				}
+				5 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:frytour_blaunched #western europe
+					}
+				}
+				10 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:fig_pie
+					}
+				}
+				5 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:pokerounce #england
+					}
+				}
+				5 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:sambocade #western europe
+					}
+				}
+				5 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:sesame_cake #africa, middle east
+					}
+				}
+				2 = {
+					set_variable = {
+						name = favorite_treat
+						value = flag:baked_banana #africa
+					}
+				}
+			}
+		}
+	}
+}

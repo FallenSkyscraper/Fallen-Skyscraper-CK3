@@ -1,0 +1,38 @@
+graphical_wilderness_desert_trigger = {
+	OR = {
+		terrain = desert
+		terrain = desert_mountains
+		terrain = oasis
+		AND = {
+			terrain = hills
+			OR = {
+                geographical_region = world_steppe
+			}
+		}
+	}
+}
+
+graphical_wilderness_forest_pine_trigger = {
+	OR = {
+		terrain = taiga
+		AND = {
+			terrain = forest
+			OR = {
+				geographical_region = world_korea
+                geographical_region = world_steppe_primorye
+			}
+		}
+	}
+}
+
+graphical_wilderness_steppe_trigger = {
+	OR = {
+		terrain = steppe
+		AND = {
+			terrain = hills
+			OR = {
+				geographical_region = world_steppe
+			}
+		}
+	}
+}
