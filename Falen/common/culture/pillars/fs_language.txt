@@ -264,7 +264,7 @@ language_mandarin_jilu = { # Used in Hebei and Western Shandong
 	type = language
 	is_shown = {
 		language_is_shown_trigger = {
-			LANGUAGE = language_mandarin
+			LANGUAGE = language_mandarin_jilu
 		}
 	}
 	parameters = {
@@ -671,20 +671,3 @@ language_tungusic = {
 	color = jurchen
 }
 #월남
-language_vietnamese = {
-	type = language
-	is_shown = {
-		language_is_shown_trigger = {
-			LANGUAGE = language_veitnamese
-		}
-	}
-	ai_will_do = {
-		value = 10
-		if = {
-			limit = { has_cultural_pillar = language_vietnamese }
-			multiply = 10
-		}
-	}
-	
-	color = russian
-}

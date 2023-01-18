@@ -42,3 +42,101 @@ tengrism_or_syncretic_with_plain_faith_trigger = {
 		}
 	}
 }
+
+
+does_religion_exist_in_world_region_trigger = {
+	trigger_if = {
+		limit = { location = { geographical_region = world_korea_south } }
+		any_county_in_region = {
+			region = world_korea_south
+			faith.religion = $RELIGION$
+		}
+	}
+	trigger_else_if = {
+		limit = { location = { geographical_region = world_korea_north } }
+		any_county_in_region = {
+			region = world_korea_north
+			faith.religion = $RELIGION$
+		}
+	}
+	trigger_else_if = {
+		limit = { location = { geographical_region = world_steppe_primorye } }
+		any_county_in_region = {
+			region = world_steppe_primorye
+			faith.religion = $RELIGION$
+		}
+	}
+	trigger_else_if = {
+		limit = { location = { geographical_region = world_liao } }
+		any_county_in_region = {
+			region = world_liao
+			faith.religion = $RELIGION$
+		}
+	}
+	trigger_else_if = {
+		limit = { location = { geographical_region = world_steppe_manchuria } }
+		any_county_in_region = {
+			region = world_steppe_manchuria
+			faith.religion = $RELIGION$
+		}
+	}
+	trigger_else_if = {
+		limit = { location = { geographical_region = world_steppe_mongolia } }
+		any_county_in_region = {
+			region = world_steppe_mongolia
+			faith.religion = $RELIGION$
+		}
+	}
+	trigger_else_if = {
+		limit = { location = { geographical_region = world_steppe_yanbian } }
+		any_county_in_region = {
+			region = world_steppe_yanbian
+			faith.religion = $RELIGION$
+		}
+	}
+	trigger_else = {
+		always = no
+	}
+}
+
+refusing_conversion_is_crime_trigger = {
+	faith = {
+		OR = {
+			religion_tag = christianity_religion
+			religion_tag = islam_religion
+		}
+		NOT = {
+			faith_hostility_level = {
+				target = $CHARACTER$.faith
+				value <= faith_astray_level
+			}
+		}
+	}
+}
+
+is_valid_heresy = {
+	#The origin faith can never be its own heresy.
+	NOT = { $ORIGIN_FAITH$ = $HERETICAL_FAITH$ }
+	# A heretical faith can't be currently locked off via variable.
+	$HERETICAL_FAITH$ = {
+		NOR = {
+			has_variable = block_conversion_till_decision_taken
+			has_variable = block_conversion_till_nebulous_circumstances
+		}
+	}
+	#Depending on the origin faith's religion/religion group, there may have additional requirements for a heresy to be considered valid.
+	OR = {
+		#For Christian Faiths, the origin and heretical faiths must not both be Ecumenical (excepting the faiths which aren't technically ecumenical).
+
+		#No special requirements for Muslims, Jews, Yazidis, or Zoroastrians.
+		religion_tag = islam_religion
+		#Eastern Faiths can shift and spread amongst each other.
+		AND = {
+			OR = {
+				religion_tag = buddhism_religion
+			}		
+		}
+		#No special requirements for Pagan religions.
+		has_doctrine = pagan_hostility_doctrine
+	}
+}
