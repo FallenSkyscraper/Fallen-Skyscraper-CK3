@@ -211,13 +211,13 @@ culture_acceptance_baseline = {
 				desc = ACCEPTANCE_BASELINE_HERITAGE
 			}
 		}
-		else_if = {
-			limit = { has_same_heritage_group_trigger = { TARGET = scope:culture } }
-			add = {
-				value = 10
-				desc = ACCEPTANCE_BASELINE_HERITAGE_GROUP
-			}
-		}
+		#else_if = {
+		#	limit = { has_same_heritage_group_trigger = { TARGET = scope:culture } }
+		#	add = {
+		#		value = 10
+		#		desc = ACCEPTANCE_BASELINE_HERITAGE_GROUP
+		#	}
+		#}
 		# Increase base acceptance for sharing same language
 		if = {
 			limit = {
@@ -228,13 +228,13 @@ culture_acceptance_baseline = {
 				desc = ACCEPTANCE_BASELINE_LANGUAGE
 			}
 		}
-		else_if = {
-			limit = { has_same_language_group_trigger = { TARGET = scope:culture } }
-			add = {
-				value = 5
-				desc = ACCEPTANCE_BASELINE_LANGUAGE_GROUP
-			}
-		}
+		#else_if = {
+		#	limit = { has_same_language_group_trigger = { TARGET = scope:culture } }
+		#	add = {
+		#		value = 5
+		#		desc = ACCEPTANCE_BASELINE_LANGUAGE_GROUP
+		#	}
+		#}
 		# Increase base acceptance for sharing the same ethos if cultures are present within the same geographical area
 		if = {
 			limit = {
