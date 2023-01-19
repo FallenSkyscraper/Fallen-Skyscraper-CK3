@@ -498,6 +498,12 @@ secure_mediterranean_decision = {
 
 	is_shown = {
 		capital_province = { geographical_region = world_namhae }
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_secured_the_mediterranean
+			}
+		}
 	}
 
 	is_valid = {
