@@ -140,3 +140,15 @@ is_valid_heresy = {
 		has_doctrine = pagan_hostility_doctrine
 	}
 }
+
+believes_in_pilgrimage_trigger = {
+	NOR = {
+		# These Faiths historically shunned going on pilgrimages, saying they were a waste of time & money.
+	}
+	# Also we must have an actual holy site we can visit.
+	faith = {	
+		any_holy_site = {
+			exists = this
+		}
+	}
+}

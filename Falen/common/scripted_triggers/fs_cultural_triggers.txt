@@ -61,3 +61,16 @@ cultures_share_relevant_region_trigger = {
 		}
 	}
 }
+
+drinks_alcohol_trigger = {
+	OR = {
+		has_trait = drunkard
+		NOR = {
+			religion = religion:islam_religion # Prohibited by khamr, a prohibition against intoxicants
+			AND = {
+				has_trait = zealous
+				religion = religion:buddhism_religion # Discouraged as it disrupts progress along the eightfold path
+			}
+		}
+	}
+}

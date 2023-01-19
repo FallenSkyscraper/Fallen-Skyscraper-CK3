@@ -1,0 +1,134 @@
+select_personal_deity_hinduism_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+
+	desc = select_personal_deity_hinduism_decision_desc
+	selection_tooltip = select_personal_deity_hinduism_decision_tooltip
+
+	is_shown = {
+		always = no
+		faith = {
+			has_doctrine_parameter = select_personal_god_active
+		}
+	}
+
+	is_valid = {
+	}
+
+	is_valid_showing_failures_only = {
+		# Have to at _least_ not be in piety debt.
+		piety >= 0
+	}
+
+	cooldown = { years = 2 }
+
+	effect = {
+		custom_tooltip = select_personal_deity_hinduism_decision_tt
+		trigger_event = religious_decision.0101
+	}
+
+	ai_check_interval = 96
+	
+	ai_potential = {
+		piety >= minor_piety_value
+		NOR = {
+			has_character_modifier = bhakti_hinduism_ganga
+			has_character_modifier = bhakti_hinduism_saraswati
+			has_character_modifier = bhakti_hinduism_kali
+			has_character_modifier = bhakti_hinduism_kubera
+			has_character_modifier = bhakti_vaishnavism_lakishmi
+			has_character_modifier = bhakti_vaishnavism_jagganath
+			has_character_modifier = bhakti_vaishnavism_hayagriva
+			has_character_modifier = bhakti_shaivism_parvati
+			has_character_modifier = bhakti_shaivism_virabhadra
+			has_character_modifier = bhakti_shaivism_munishwarar
+			has_character_modifier = bhakti_shaivism_dakshinamoorthy
+			has_character_modifier = bhakti_smartism_ganesha
+			has_character_modifier = bhakti_smartism_vishnu
+			has_character_modifier = bhakti_smartism_shiva
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+select_personal_deity_germanic_decision = {
+	picture = "gfx/interface/illustrations/decisions/fp1_decisons_hold_bolt.dds"
+
+	desc = select_personal_deity_germanic_decision_desc
+	selection_tooltip = select_personal_deity_germanic_decision_tooltip
+
+	is_shown = {
+		# DLC check.
+		has_fp1_dlc_trigger = yes
+		# Following a valid religion & faith.
+		always = no
+		faith = { has_doctrine_parameter = select_personal_god_active }
+	}
+
+	is_valid = {
+	}
+
+	is_valid_showing_failures_only = {
+		# Have to at _least_ not be in piety debt.
+		piety >= 0
+	}
+
+	cooldown = { years = 2 }
+
+	effect = {
+		# Show the possible options.
+		show_as_tooltip = {
+			random_list = {
+				desc = select_personal_deity_germanic_decision_tt
+				100 = {
+					show_chance = no
+					desc = select_personal_deity_germanic_decision.select_odin
+					add_character_modifier = bhakti_germanic_generic_odin
+				}
+				100 = {
+					trigger = { is_vaguely_danish_bhakti_trigger = no }
+					show_chance = no
+					desc = select_personal_deity_germanic_decision.select_ullr
+					add_character_modifier = bhakti_germanic_not_danish_ullr
+				}
+				100 = {
+					trigger = { is_vaguely_danish_bhakti_trigger = yes }
+					show_chance = no
+					desc = select_personal_deity_germanic_decision.select_tyr
+					add_character_modifier = bhakti_germanic_danish_tyr
+				}
+				100 = {
+					show_chance = no
+					desc = select_personal_deity_germanic_decision.select_thor
+					add_character_modifier = bhakti_germanic_generic_thor
+				}
+				100 = {
+					show_chance = no
+					desc = select_personal_deity_germanic_decision.select_freyr
+					add_character_modifier = bhakti_germanic_generic_freyr
+				}
+			}
+		}
+		# And the actual effect.
+		trigger_event = religious_decision.0102
+	}
+
+	ai_check_interval = 96
+	
+	ai_potential = {
+		piety >= minor_piety_value
+		NOR = {
+			has_character_modifier = bhakti_germanic_generic_odin
+			has_character_modifier = bhakti_germanic_not_danish_ullr
+			has_character_modifier = bhakti_germanic_danish_tyr
+			has_character_modifier = bhakti_germanic_generic_thor
+			has_character_modifier = bhakti_germanic_generic_freyr
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}

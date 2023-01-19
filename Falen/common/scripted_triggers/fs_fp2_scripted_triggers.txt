@@ -47,15 +47,6 @@ eligible_for_fp2_dynasty_legacies_trigger = {
 					any_character_struggle = {
 						involvement = involved
 					}
-					culture = {
-						has_cultural_pillar = heritage_iberian
-					}
-					AND = {
-						exists = capital_province
-						capital_province = {
-							geographical_region = world_europe_west_iberia
-						}
-					}
 				}
 			}
 		}
@@ -64,14 +55,7 @@ eligible_for_fp2_dynasty_legacies_trigger = {
 
 
 is_toledo_ownership_valid_trigger = {
-	title:c_toledo.holder = {
-		OR = {
-			this = root
-			liege = root
-			top_liege = root
-		}
-		faith = { fp2_struggle_faith_is_mozarabic_trigger = yes }
-	}
+	always = no
 }
 
 ##################################################
@@ -486,16 +470,7 @@ fp2_struggle_compromise_transfer_duchy_trigger = {
 }
 
 fp2_struggle_faith_is_mozarabic_trigger = {
-	OR = {
-		this = faith:mozarabic_church
-		# trigger_if = { # TODO: Find a way for dead characters to store data
-		# 	limit = { exists = founder }
-        #     founder = {
-        #     	has_variable = foundational_faith
-        #     	var:foundational_faith = faith:mozarabic_church
-        #     }
-		# }
-    }
+	always = no
 }
 
 fp2_struggle_council_toledo_attendee_trigger = {

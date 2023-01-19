@@ -3614,41 +3614,6 @@ clothes = {
 
 ## Jewish ##
 
-	religious_jewish_high_clothes = {
-	    dna_modifiers = {
-	        accessory = {
-	            mode = add
-	            gene = clothes
-	            template = religious_jewish_high_clothes
-	            range = { 0 1 }
-	        }
-	        morph = {
-				mode = modify_multiply
-				gene = gene_bs_bust
-				value = 1.0
-				template = bust_clothes
-			}
-
-	    }
-	    outfit_tags = { priest_outfit }
-	    weight = {
-	        base = 0
-	        modifier = {
-				add = 110
-				exists = this
-				OR = {
-					has_character_flag = need_priest_outfit
-					is_theocratic_lessee = yes
-					AND = { is_ruler = yes has_government = theocracy_government }
-					has_council_position = councillor_court_chaplain
-				}
-				OR = {
-					religion = religion:judaism_religion
-					religion = religion:hellenism_religion
-				}
-			}
-	    }
-	}
 
 ## Muslim ##
 
@@ -3746,45 +3711,7 @@ clothes = {
 
 ## Northern ##
 
-	religious_northern_high_clothes = {
-	    dna_modifiers = {
-	        accessory = {
-	            mode = add
-	            gene = clothes
-	            template = religious_northern_high_clothes
-	            range = { 0 1 }
-	        }
-	        morph = {
-				mode = modify_multiply
-				gene = gene_bs_bust
-				value = 1.0
-				template = bust_clothes
-			}
-
-	    }
-	    outfit_tags = { priest_outfit }
-	    weight = {
-	        base = 0
-	        modifier = {
-				add = 100
-				exists = this
-				OR = {
-					has_character_flag = need_priest_outfit
-					is_theocratic_lessee = yes
-					AND = { is_ruler = yes has_government = theocracy_government }
-					has_council_position = councillor_court_chaplain
-				}
-				OR = {
-					religion = religion:germanic_religion
-					religion = religion:baltic_religion
-					religion = religion:finno_ugric_religion
-					religion = religion:paganism_religion
-					religion = religion:slavic_religion
-				}
-				
-			}
-	    }
-	}
+	
 
 
 ## Steppe ##
