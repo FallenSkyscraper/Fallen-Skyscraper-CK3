@@ -25,7 +25,7 @@
 		}
 
 		trigger_event = {
-			id = total_war.decisions.0001
+			id = total_war_decisions.0001
 		}
 	}
 	ai_will_do = {
@@ -87,12 +87,6 @@ militia_decision = {
 			faith = {
 				has_doctrine = tenet_populism
 			}
-			culture = {
-				has_tradition = tradition_federation
-			}
-			culture = {
-				has_tradition = tradition_federation
-			}
 		}
 		NOR = {
 			has_government = tribial_government
@@ -104,7 +98,7 @@ militia_decision = {
 	cost = { piety = 300 prestige = 500 }
 	effect = {
 		trigger_event = {
-			id = total_war.decisions.0002
+			id = total_war_decisions.0002
 		}
 	}
 	ai_will_do = {
