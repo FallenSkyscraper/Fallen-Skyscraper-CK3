@@ -178,3 +178,41 @@ change_gov_nomadic_tribal = {
 		base = 10
 	}
 }
+change_gov_feudal_communism = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	ai_check_interval = 60
+
+
+	desc = change_gov_feudal_communism_desc
+	selection_tooltip = change_gov_feudal_communism_tooltip
+	major = yes
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+		NOT = {
+			has_government = proletarian_government
+			has_government = tribal_government
+		}
+		faith = {
+			religion_tag = communism_religion
+		}
+	}
+	is_valid = {
+		NOT = {
+			has_government = proletarian_government
+			has_government = tribal_government
+		}
+		faith = {
+			religion_tag = communism_religion
+		}
+	}
+	effect = {
+		change_government = oligarchic_republic_government
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
