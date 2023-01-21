@@ -930,7 +930,10 @@
 	religion = marxism
 	culture = uiju
 	father = 6612
-	trait = education_martial_4
+	trait = education_martial_3
+	trait = zealous
+	trait = ambitious
+	trait = vengeful
 	2416.4.27 = {
 		birth = yes
 	}
@@ -943,6 +946,8 @@
 	dynasty = 6614
 	religion = tengri_pagan
 	culture = uiju
+	trait = fickle
+	trait = arbitary
 	2408.3.2 = {
 		birth = yes
 	}
@@ -955,7 +960,6 @@
 	dynasty = 6615
 	religion = tengri_pagan
 	culture = uiju
-	trait = deceitful
 	trait = cynical
 	2394.8.17 = {
 		birth = yes
@@ -996,9 +1000,14 @@
 	trait = education_martial_4
 	trait = peasant_leader
 	trait = zealous
+	trait = disloyal
+	trait = compassionate
 	female = yes
 	2398.7.19 = {
 		birth = yes
+	}
+	2420.1.1= {
+		add_matrilineal_spouse = 6616
 	}
 	2500.1.1 = {
 		death = yes
@@ -1009,6 +1018,7 @@
 	dynasty = 6617
 	religion = marxism
 	culture = uiju
+	trait = zealous
 	2414.1.9 = {
 		birth = yes
 	}
@@ -1021,6 +1031,7 @@
 	dynasty = 6620
 	religion = new_left
 	culture = uiju
+	trait = disloyal
 	2408.9.27 = {
 		birth = yes
 	}
@@ -1029,10 +1040,13 @@
 	}
 }
 6621 = {
-	name = "성만"
-	dynasty = 6621
+	name = "막심"
+	dynasty = 6610
 	religion = marxism
-	culture = uiju
+	culture = khanka
+	trait = education_martial_3
+	trait = peasant_leader
+	mother = 6921
 	2412.1.2 = {
 		birth = yes
 	}
@@ -1057,6 +1071,9 @@
 	dynasty = 6623
 	religion = marxism
 	culture = uiju
+	trait = education_stewardship_3
+	trait = disloyal
+	trait = greedy
 	2323.8.22 = {
 		birth = yes
 	}
@@ -1070,6 +1087,8 @@
 	religion = cheondo
 	culture = uiju
 	father = 6623
+	trait = content
+	trait = greedy
 	2358.9.1 = {
 		birth = yes
 	}
@@ -1080,9 +1099,10 @@
 6625 = {
 	name = "재선"
 	dynasty = 6623
-	religion = cheondo
+	religion = marxism
 	culture = uiju
 	father = 6624
+	trait = disloyal
 	2394.4.16 = {
 		birth = yes
 	}
@@ -1155,6 +1175,7 @@
 	dynasty = 6742
 	religion = marxism
 	culture = yeongbyeon
+	trait = brave
 	2420.3.15 = {
 		birth = yes
 	}
@@ -1196,6 +1217,49 @@
 		birth = yes
 	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+6919 = {
+	name = "리숙"
+	dynasty = 6618
+	religion = new_left
+	culture = uiju
+	trait = education_learning_3
+	trait = zealous
+	female = yes
+	mother = 6618
+	father = 6616
+	2420.3.15 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+6920 = {
+	name = "미하일"
+	dynasty = 6610
+	religion = marxism
+	culture = khanka
+	father = 6610
+	2337.9.11 = {
+		birth = yes
+	}
+	2410.6.8 = {
+		death = yes
+	}
+}
+6921 = {
+	name = "페오도라"
+	dynasty = 6610
+	religion = marxism
+	culture = khanka
+	father = 6920
+	2377.3.16 = {
+		birth = yes
+	}
+	2421.3.18 = {
 		death = yes
 	}
 }
