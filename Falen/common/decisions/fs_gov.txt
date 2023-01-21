@@ -195,6 +195,7 @@ change_gov_feudal_communism = {
 		NOT = {
 			has_government = proletarian_government
 			has_government = tribal_government
+			has_government = nomadic_government
 		}
 		faith = {
 			religion_tag = communism_religion
@@ -204,13 +205,14 @@ change_gov_feudal_communism = {
 		NOT = {
 			has_government = proletarian_government
 			has_government = tribal_government
+			has_government = nomadic_government
 		}
 		faith = {
 			religion_tag = communism_religion
 		}
 	}
 	effect = {
-		change_government = oligarchic_republic_government
+		change_government = proletarian_government
 	}
 	ai_will_do = {
 		base = 100
