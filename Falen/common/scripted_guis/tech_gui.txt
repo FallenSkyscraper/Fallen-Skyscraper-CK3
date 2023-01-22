@@ -1,0 +1,31 @@
+tech_gui_toggle = {
+	scope = character
+	
+	is_shown = {
+		has_variable = tech_gui_toggle
+	}
+
+	effect = {
+		if = {
+			limit = {
+				has_variable = tech_gui_toggle
+			}
+			remove_variable = tech_gui_toggle
+		}
+		else = {
+			set_variable = tech_gui_toggle
+		}
+	}
+}
+
+tech_gui_close = {
+	scope = character
+	
+	is_shown = {
+		always = yes
+	}
+
+	effect = {
+		remove_variable = prk_tech_toggle
+	}
+}
