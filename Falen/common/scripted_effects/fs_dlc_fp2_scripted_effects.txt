@@ -1,0 +1,60 @@
+fp2_struggle_compromise_create_new_kingdom_effect = {
+	
+}
+
+fp2_struggle_compromise_duchies_to_kingdoms_effect = {
+	
+}
+
+fp2_struggle_compromise_transfer_duchies_effect = {
+	
+}
+
+fp2_struggle_compromise_kingdoms_to_empires_effect = {
+	
+}
+
+fp2_struggle_compromise_distribute_kingdoms_to_neighbouring_empires_effect = {
+	
+}
+
+fp2_struggle_compromise_modifier_rewards_effect = {
+	struggle:juche_struggle = {
+		show_as_tooltip = {
+			every_involved_ruler = {
+				limit = { this = root }
+				custom = fp2_struggle_compromise_house_rewards_tt
+				fp2_struggle_compromise_modifier_rewards_personal_house_effect = yes
+			}
+			every_involved_ruler = {
+				limit = { this = root }
+				custom = fp2_struggle_compromise_defensive_rewards_tt
+				fp2_struggle_compromise_modifier_rewards_personal_county_effect = yes
+			}
+		}
+		hidden_effect = {
+			every_involved_ruler = {
+				limit = {
+					is_independent_ruler = yes
+					primary_title = { is_mercenary_company = no }
+					exists = house
+					NOT = {
+						house = { has_house_modifier = fp2_struggle_compromise_house_reward_modifier }
+					}
+				}
+				fp2_struggle_compromise_modifier_rewards_personal_house_effect = yes
+			}
+			every_involved_ruler = {
+				limit = {
+					is_independent_ruler = yes
+					primary_title = { is_mercenary_company = no }
+				}
+				fp2_struggle_compromise_modifier_rewards_personal_county_effect = yes
+			}
+		}
+	}
+}
+
+fp2_struggle_found_kingdom_toledo_empire_effect = {
+	
+}

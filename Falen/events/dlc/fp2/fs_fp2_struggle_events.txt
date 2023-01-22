@@ -58,7 +58,7 @@ fp2_juche_struggle.0003 = {
 					# Current Phase: Opportunity
 					#############################
 					if = {
-						limit = { root = { is_struggle_phase = struggle_iberia_phase_opportunity } }
+						limit = { root = { is_struggle_phase = struggle_juche_phase_opportunity } }
 						random_list = {
 							# Working towards Hostility
 							# It should be for characters looking for direct conflicts and domination, with the will and ability to expand their realms
@@ -94,7 +94,7 @@ fp2_juche_struggle.0003 = {
 					# Current Phase: Hostility
 					#############################
 					if = {
-						limit = { root = { is_struggle_phase = struggle_iberia_phase_hostility } }
+						limit = { root = { is_struggle_phase = struggle_juche_phase_hostility } }
 						random_list = {
 							# Working towards Hostility: it means that the character wants to stay in
 							100 = {
@@ -129,7 +129,7 @@ fp2_juche_struggle.0003 = {
 					# Current Phase: Compromise
 					#############################
 					if = {
-						limit = { root = { is_struggle_phase = struggle_iberia_phase_compromise } }
+						limit = { root = { is_struggle_phase = struggle_juche_phase_compromise } }
 						random_list = {
 
 							# Working towards Opportunity
@@ -165,7 +165,7 @@ fp2_juche_struggle.0003 = {
 					# Current Phase: Conciliation
 					#############################
 					if = {
-						limit = { root = { is_struggle_phase = struggle_iberia_phase_conciliation } }
+						limit = { root = { is_struggle_phase = struggle_juche_phase_conciliation } }
 						random_list = {
 							# Working towards Compromise
 							100 = {
@@ -416,7 +416,7 @@ fs_fp2_struggle.0900 = { # Hostility
 	after = {
 		# End Struggle
 		struggle:juche_struggle = {
-			end_struggle = struggle_iberia_ending_hostility_decision
+			end_struggle = struggle_juche_ending_hostility_decision
 		}
 		# Notify
 		every_player = {
@@ -607,7 +607,7 @@ fs_fp2_struggle.0901 = { # Compromise
 		}
 		# End Struggle
 		struggle:juche_struggle = {
-			end_struggle = struggle_iberia_ending_compromise_decision
+			end_struggle = struggle_juche_ending_compromise_decision
 		}
 		every_player = {
 			limit = {
@@ -745,7 +745,7 @@ fs_fp2_struggle_2.0902 = { # Conciliation
 	after = {
 		# End Struggle
 		struggle:juche_struggle = {
-			end_struggle = struggle_iberia_ending_conciliation_decision
+			end_struggle = struggle_juche_ending_conciliation_decision
 		}
 		stress_impact = {
 			arrogant = medium_stress_impact_gain

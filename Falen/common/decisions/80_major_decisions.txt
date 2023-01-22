@@ -797,9 +797,9 @@ found_empire_decision = {
 
 		trigger_if = {
 			limit = {
-				exists = struggle:iberian_struggle
+				exists = struggle:juche_struggle
 				# only display the condition for people from relevant faiths and cultures
-				struggle:iberian_struggle = {
+				struggle:juche_struggle = {
 					OR = {
 						is_culture_involved_in_struggle = root.culture
 						is_faith_involved_in_struggle = root.faith
@@ -820,7 +820,7 @@ found_empire_decision = {
 				text = found_empire_decision_not_part_of_iberian_struggle
 				NOT = {
 					any_character_struggle = {
-						is_struggle_type = iberian_struggle
+						is_struggle_type = juche_struggle
 					}
 				}
 			}

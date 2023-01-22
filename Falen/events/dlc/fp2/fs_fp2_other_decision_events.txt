@@ -1,0 +1,33 @@
+scripted_effect fp2_council_strife_catalyst_effect = {
+	struggle:iberian_struggle = {
+		if = {
+			limit = { is_struggle_phase = struggle_juche_phase_compromise }
+			change_struggle_phase = struggle_juche_phase_opportunity
+		}
+		else_if = {
+			limit = {
+				OR = {
+					is_struggle_phase = struggle_juche_phase_opportunity
+				}
+			}
+			change_struggle_phase = struggle_juche_phase_hostility
+		}
+	}
+}
+
+scripted_effect fp2_council_peace_catalyst_effect = {
+	struggle:iberian_struggle = {
+		if = {
+			limit = { is_struggle_phase = struggle_juche_phase_compromise }
+			change_struggle_phase = struggle_juche_phase_conciliation
+		}
+		else_if = {
+			limit = {
+				OR = {
+					is_struggle_phase = struggle_juche_phase_hostility 
+				}
+			}
+			change_struggle_phase = struggle_juche_phase_compromise
+		}
+	}
+}

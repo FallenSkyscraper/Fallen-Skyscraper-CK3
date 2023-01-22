@@ -245,7 +245,7 @@ fp2_struggle_ending_hold_de_jure_kingdom_trigger = {
 }
 
 # Checks less than half of Iberia owned
-fp2_struggle_ending_percent_iberia_trigger = {
+fp2_struggle_ending_percent_juche_trigger = {
 	any_county_in_region = {
 		region = world_korea_north
 		percent < fp2_struggle_compromise_owned_percent_decimal_value
@@ -254,7 +254,7 @@ fp2_struggle_ending_percent_iberia_trigger = {
 }
 
 # Checks no more than half of Iberia is owned by another
-fp2_struggle_ending_other_percent_iberia_trigger = {
+fp2_struggle_ending_other_percent_juche_trigger = {
 	struggle:juche_struggle = {
 		NOT = {
 			any_involved_ruler = {
@@ -486,23 +486,15 @@ fp2_struggle_council_toledo_decision_trigger = {
 }
 
 fp2_struggle_secure_iberian_foothold_iberian_kingdom_trigger = {
-	tier = tier_kingdom
-	de_jure_liege = title:e_spain
-	root = { completely_controls = prev }
-	save_temporary_scope_as = iberian_kingdom_temp
+	always = no
 }
 
 fp2_struggle_secure_iberian_foothold_faith_trigger = {
-	fp2_struggle_secure_iberian_foothold_faith_percent_value >= fp2_struggle_secure_iberian_foothold_faith_target_percent_value
+	always = no
 }
 
 fp2_struggle_secure_iberian_foothold_outsider_kingdom_trigger = {
-	any_de_jure_county = {
-		any_title_to_title_neighboring_and_across_water_county = {
-			NOT = { empire = title:e_spain }
-			kingdom.holder = root
-		}
-	}
+	always = no
 }
 
 fp2_struggle_iberian_reclamation_should_vassalize_trigger = {
@@ -516,7 +508,7 @@ fp2_struggle_iberian_reclamation_should_vassalize_trigger = {
 }
 
 fp2_struggle_any_realm_county_in_hispania_trigger = {
-	any_realm_county = { target_is_de_jure_liege_or_above = title:e_spain }
+	always = no
 }
 
 fp2_iberian_reclamation_vassalize_iberian_trigger = {
