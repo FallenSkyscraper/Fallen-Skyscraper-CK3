@@ -29,3 +29,26 @@ fs_initialize_technologies_effect = {
 	set_variable = { name = tech_electronics value = 0 }
 	set_variable = { name = tech_natural_science value = 0 }
 }
+
+tech_metallurgy_init = {
+	title:e_sinan = {
+		every_de_jure_county = {
+			set_variable = { name = tech_metallurgy value = 3.0 }
+		}
+	}
+	title:e_hec = {
+		every_de_jure_county = {
+			set_variable = { name = tech_metallurgy value = 3.0 }
+		}
+	}
+	title:k_gaya = {
+		every_de_jure_county = {
+			set_variable = { name = tech_metallurgy value = 2.0 }
+		}
+	}
+	title:d_pohang = {
+		every_de_jure_county = {
+			set_variable = { name = tech_metallurgy value = 6.0 }
+		}
+	}	
+}

@@ -242,7 +242,10 @@ on_game_start_after_lobby = {
 				days = 7
 			}
 		}
-
+		every_county = {
+			fs_initialize_technologies_effect = yes
+		}
+		tech_metallurgy_init = yes
 		### PRESTIGE/PIETY/RENOWN ON START
 		character:1 = { add_prestige = 1500 }
 		character:2 = { add_prestige = 1000 }

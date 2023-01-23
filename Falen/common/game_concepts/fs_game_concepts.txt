@@ -6,7 +6,78 @@ the_event={
 tech = {
 	parent = county_development
 	texture = "gfx/interface/icons/message_feed/technology.dds"
-	#alias = { technology }
+}
+tech_military = {
+	parent = tech
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_economy = {
+	parent = tech
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_special = {
+	parent = tech
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_metallurgy = {
+	parent = tech_military
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_siege = {
+	parent = tech_military
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_horseback_riding = {
+	parent = tech_military
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_fortification = {
+	parent = tech_military
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_conscription = {
+	parent = tech_military
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_archery = {
+	parent = tech_military
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_military_organization = {
+	parent = tech_military
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_agriculture = {
+	parent = tech_economy
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_commerce = {
+	parent = tech_economy
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_navigation = {
+	parent = tech_economy
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_construction = {
+	parent = tech_economy
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_urbanization = {
+	parent = tech_economy
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_mining = {
+	parent = tech_economy
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_electronics = {
+	parent = tech_special
+	texture = "gfx/interface/icons/message_feed/technology.dds"
+}
+tech_natural_science = {
+	parent = tech_special
+	texture = "gfx/interface/icons/message_feed/technology.dds"
 }
 
 nomadic = {
