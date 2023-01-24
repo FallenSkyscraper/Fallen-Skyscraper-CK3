@@ -6,7 +6,11 @@ k_chungcheong = {
 		color = { 85 39 81 }
 		
 		capital = c_cheongju
-
+		
+		can_create = {
+				NOT = { has_title = title:k_airforce_central_command }
+		}
+		
 		d_cheongju = {
 			color = { 85 39 81 }
 			

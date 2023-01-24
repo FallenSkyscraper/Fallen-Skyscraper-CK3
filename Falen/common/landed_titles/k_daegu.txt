@@ -6,7 +6,11 @@ k_daegu = {
         color = { 168 96 87 }
 
         capital = c_daegu
-
+		
+		can_create = {
+				NOT = { has_title = title:k_new_america }
+		}
+		
         d_daegu = {
             color = { 168 96 87 }
 
