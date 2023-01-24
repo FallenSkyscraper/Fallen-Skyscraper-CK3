@@ -2795,27 +2795,87 @@ types CountyViewTypes
 			text_single_big = {
 				text = "[tech_military|E]"
 			}
-			technology = {	blockoverride "tech_name" { text = "[tech_metallurgy|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_siege|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_horseback_riding|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_fortification|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_conscription|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_archery|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_military_organization|E]"} }
+			technology = {
+				blockoverride "tech_name" { text = "[tech_metallurgy|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_metallurgy').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_metallurgy').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_siege|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_siege').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_siege').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_horseback_riding|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_horseback_riding').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_horseback_riding').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_fortification|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_fortification').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_fortification').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_conscription|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_conscription').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_conscription').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_archery|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_archery').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_archery').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_military_organization|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_military_organization').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_military_organization').GetValue|1]" } 
+			}
 			text_single_big = {
 				text = "[tech_economy|E]"
 			}
-			technology = {	blockoverride "tech_name" { text = "[tech_agriculture|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_commerce|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_navigation|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_construction|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_urbanization|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_mining|E]"} }
+			technology = {
+				blockoverride "tech_name" { text = "[tech_agriculture|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_agriculture').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_agriculture').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_commerce|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_commerce').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_commerce').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_navigation|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_navigation').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_navigation').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_construction|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_construction').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_construction').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_urbanization|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_urbanization').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_urbanization').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_mining|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_mining').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_mining').GetValue|1]" } 
+			}
 			text_single_big = {
 				text = "[tech_special|E]"
 			}
-			technology = {	blockoverride "tech_name" { text = "[tech_electronics|E]"} }
-			technology = {	blockoverride "tech_name" { text = "[tech_natural_science|E]"} }
+			technology = {
+				blockoverride "tech_name" { text = "[tech_electronics|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_electronics').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_electronics').GetValue|1]" } 
+			}
+			technology = {
+				blockoverride "tech_name" { text = "[tech_natural_science|E]"} 
+				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_natural_science').GetValue]" } 
+				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_natural_science').GetValue|1]" } 
+			}
 		}		
 	}
 	type technology = hbox {
@@ -2831,13 +2891,12 @@ types CountyViewTypes
 				size = { 200 25 }
 				min = 0
 				max = 10
-				value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_metallurgy').GetValue]"
-				tooltip = "tooltip"
+				block "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_metallurgy').GetValue]" }
+				block "tooltip_txt" { tooltip = "tooltip" }
 			}
 			text_single = {
 				margin_left = 91
-				
-				text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_metallurgy').GetValue|1]"
+				block "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_metallurgy').GetValue|1]" }
 			}
 		}
 			
