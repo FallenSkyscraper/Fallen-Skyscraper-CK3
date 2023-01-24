@@ -1129,3 +1129,742 @@ imperial_council.0543 = {
 		custom_tooltip = imperial_council.0543.a.tt
 	}
 }
+
+imperial_council.0601 = {
+    type = character_event
+	title = imperial_council.0101.t
+	desc = imperial_council.0101.desc
+	theme = diplomacy_majesty_focus
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	right_portrait = scope:holyleader
+	immediate = {
+		title:d_iksan.holder = {
+			save_scope_as = holyleader
+		}
+	}
+	option = {
+		name = imperial_council.0101.a
+		custom_tooltip = imperial_council.0101.a.tt
+		trigger_event = {
+			id = imperial_council.0611
+			days = 7
+		}
+	}
+}
+
+imperial_council.0611 = { 
+    type = character_event
+	title = imperial_council.0102.t
+	desc = imperial_council.0611.desc
+	theme = faith	
+	lower_center_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	left_portrait = scope:holyleader
+	option = {
+		name = imperial_council.0102.a
+		custom_tooltip = imperial_council.0102.a.tt
+		trigger_event = {
+			id = imperial_council.0621
+		}
+	}
+}
+
+imperial_council.0621 = { 
+    type = character_event
+	title = imperial_council.0103.t
+	desc = imperial_council.0103.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0621.a
+		custom_tooltip = imperial_council.0621.a.tt
+		trigger_event = {
+			id = imperial_council.0631
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		name = imperial_council.0621.b
+		custom_tooltip = imperial_council.0621.b.tt
+		trigger_event = {
+			id = imperial_council.0632
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		name = imperial_council.0621.c
+		custom_tooltip = imperial_council.0621.c.tt
+		trigger_event = {
+			id = imperial_council.0633
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		name = imperial_council.0621.d
+		custom_tooltip = imperial_council.0621.d.tt
+		trigger_event = {
+			id = imperial_council.0634
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+}
+
+imperial_council.0631 = { 
+    type = character_event
+	title = imperial_council.0631.t
+	desc = imperial_council.0631.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0631.a
+		custom_tooltip = imperial_council.0631.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_consanguinity_restricted
+				remove_doctrine = doctrine_consanguinity_cousins
+				remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+				remove_doctrine = doctrine_consanguinity_unrestricted
+			}
+			add_doctrine = doctrine_consanguinity_restricted
+		}
+		every_player = {
+			limit = {
+				faith = faith:imperial_church
+			}
+			trigger_event = {
+				id =  imperial_council.0641
+				days = 3
+			}
+		}
+	}
+}
+
+imperial_council.0632 = { 
+    type = character_event
+	title = imperial_council.0632.t
+	desc = imperial_council.0632.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0632.a
+		custom_tooltip = imperial_council.0631.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_consanguinity_restricted
+				remove_doctrine = doctrine_consanguinity_cousins
+				remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+				remove_doctrine = doctrine_consanguinity_unrestricted
+			}
+			add_doctrine = doctrine_consanguinity_cousins
+		}
+		every_player = {
+			limit = {
+				faith = faith:imperial_church
+			}
+			trigger_event = {
+				id =  imperial_council.0642
+				days = 3
+			}
+		}
+	}
+}
+
+imperial_council.0633 = { 
+    type = character_event
+	title = imperial_council.0633.t
+	desc = imperial_council.0633.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0633.a
+		custom_tooltip = imperial_council.0633.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_consanguinity_restricted
+				remove_doctrine = doctrine_consanguinity_cousins
+				remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+				remove_doctrine = doctrine_consanguinity_unrestricted
+			}
+			add_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+		}
+		every_player = {
+			limit = {
+				faith = faith:imperial_church
+			}
+			trigger_event = {
+				id =  imperial_council.0643
+				days = 3
+			}
+		}
+	}
+}
+
+imperial_council.0634 = { 
+    type = character_event
+	title = imperial_council.0634.t
+	desc = imperial_council.0634.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0634.a
+		custom_tooltip = imperial_council.0633.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_consanguinity_restricted
+				remove_doctrine = doctrine_consanguinity_cousins
+				remove_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece
+				remove_doctrine = doctrine_consanguinity_unrestricted
+			}
+			add_doctrine = doctrine_consanguinity_unrestricted
+		}
+		every_player = {
+			limit = {
+				faith = faith:imperial_church
+			}
+			trigger_event = {
+				id =  imperial_council.0644
+				days = 3
+			}
+		}
+	}
+}
+
+imperial_council.0641 = {
+	type = letter_event
+	opening = {
+		desc = imperial_council.0121.t
+	}
+	sender = {
+		character = scope:holyleader
+	}
+	desc = imperial_council.0641.desc
+	option = {
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0641.a.tt
+	}
+}
+
+imperial_council.0642 = {
+	type = letter_event
+	opening = {
+		desc = imperial_council.0121.t
+	}
+	sender = {
+		character = scope:holyleader
+	}
+	desc = imperial_council.0642.desc
+	option = {
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0642.a.tt
+	}
+}
+
+imperial_council.0643 = {
+	type = letter_event
+	opening = {
+		desc = imperial_council.0121.t
+	}
+	sender = {
+		character = scope:holyleader
+	}
+	desc = imperial_council.0643.desc
+	option = {
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0643.a.tt
+	}
+}
+
+imperial_council.0644 = {
+	type = letter_event
+	opening = {
+		desc = imperial_council.0121.t
+	}
+	sender = {
+		character = scope:holyleader
+	}
+	desc = imperial_council.0643.desc
+	option = {
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0644.a.tt
+	}
+}
+
+imperial_council.0701 = {
+    type = character_event
+	title = imperial_council.0101.t
+	desc = imperial_council.0101.desc
+	theme = diplomacy_majesty_focus
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	right_portrait = scope:holyleader
+	immediate = {
+		title:d_iksan.holder = {
+			save_scope_as = holyleader
+		}
+	}
+	option = {
+		name = imperial_council.0101.a
+		custom_tooltip = imperial_council.0101.a.tt
+		trigger_event = {
+			id = imperial_council.0711
+			days = 7
+		}
+	}
+}
+
+imperial_council.0711 = { 
+    type = character_event
+	title = imperial_council.0102.t
+	desc = imperial_council.0711.desc
+	theme = faith	
+	lower_center_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	left_portrait = scope:holyleader
+	option = {
+		name = imperial_council.0102.a
+		custom_tooltip = imperial_council.0102.a.tt
+		trigger_event = {
+			id = imperial_council.0721
+		}
+	}
+}
+
+imperial_council.0721 = { 
+    type = character_event
+	title = imperial_council.0103.t
+	desc = imperial_council.0103.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0721.a
+		custom_tooltip = imperial_council.0721.a.tt
+		trigger_event = {
+			id = imperial_council.0731
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		name = imperial_council.0721.b
+		custom_tooltip = imperial_council.0721.b.tt
+		trigger_event = {
+			id = imperial_council.0732
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = imperial_council.0721.c
+		custom_tooltip = imperial_council.0721.c.tt
+		trigger_event = {
+			id = imperial_council.0733
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+}
+
+imperial_council.0731 = { 
+    type = character_event
+	title = imperial_council.0731.t
+	desc = imperial_council.0731.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0731.a
+		custom_tooltip = imperial_council.0731.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_bastardry_none
+				remove_doctrine = doctrine_bastardry_legitimization
+				remove_doctrine = doctrine_bastardry_all
+			}
+			add_doctrine = doctrine_bastardry_none
+		}
+		every_player = {
+			limit = {
+				faith = faith:imperial_church
+			}
+			trigger_event = {
+				id =  imperial_council.0741
+				days = 3
+			}
+		}
+	}
+}
+
+imperial_council.0732 = { 
+    type = character_event
+	title = imperial_council.0732.t
+	desc = imperial_council.0732.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0732.a
+		custom_tooltip = imperial_council.0732.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_bastardry_none
+				remove_doctrine = doctrine_bastardry_legitimization
+				remove_doctrine = doctrine_bastardry_all
+			}
+			add_doctrine = doctrine_bastardry_legitimization
+		}
+		every_player = {
+			limit = {
+				faith = faith:imperial_church
+			}
+			trigger_event = {
+				id =  imperial_council.0742
+				days = 3
+			}
+		}
+	}
+}
+
+imperial_council.0733 = { 
+    type = character_event
+	title = imperial_council.0733.t
+	desc = imperial_council.0733.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0733.a
+		custom_tooltip = imperial_council.0733.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_bastardry_none
+				remove_doctrine = doctrine_bastardry_legitimization
+				remove_doctrine = doctrine_bastardry_all
+			}
+			add_doctrine = doctrine_bastardry_all
+		}
+		every_player = {
+			limit = {
+				faith = faith:imperial_church
+			}
+			trigger_event = {
+				id =  imperial_council.0743
+				days = 3
+			}
+		}
+	}
+}
+
+imperial_council.0741 = {
+	type = letter_event
+	opening = {
+		desc = imperial_council.0121.t
+	}
+	sender = {
+		character = scope:holyleader
+	}
+	desc = imperial_council.0741.desc
+	option = {
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0741.a.tt
+	}
+}
+
+imperial_council.0742 = {
+	type = letter_event
+	opening = {
+		desc = imperial_council.0121.t
+	}
+	sender = {
+		character = scope:holyleader
+	}
+	desc = imperial_council.0742.desc
+	option = {
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0742.a.tt
+	}
+}
+
+imperial_council.0743 = {
+	type = letter_event
+	opening = {
+		desc = imperial_council.0121.t
+	}
+	sender = {
+		character = scope:holyleader
+	}
+	desc = imperial_council.0743.desc
+	option = {
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0743.a.tt
+	}
+}
+
+imperial_council.0801 = {
+    type = character_event
+	title = imperial_council.0101.t
+	desc = imperial_council.0101.desc
+	theme = diplomacy_majesty_focus
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	right_portrait = scope:holyleader
+	immediate = {
+		title:d_iksan.holder = {
+			save_scope_as = holyleader
+		}
+	}
+	option = {
+		name = imperial_council.0101.a
+		custom_tooltip = imperial_council.0101.a.tt
+		trigger_event = {
+			id = imperial_council.0811
+			days = 7
+		}
+	}
+}
+
+imperial_council.0811 = { 
+    type = character_event
+	title = imperial_council.0102.t
+	desc = imperial_council.0811.desc
+	theme = faith	
+	lower_center_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	left_portrait = scope:holyleader
+	option = {
+		name = imperial_council.0102.a
+		custom_tooltip = imperial_council.0102.a.tt
+		trigger_event = {
+			id = imperial_council.0821
+		}
+	}
+}
+
+imperial_council.0821 = { 
+    type = character_event
+	title = imperial_council.0103.t
+	desc = imperial_council.0103.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0821.a
+		custom_tooltip = imperial_council.0821.a.tt
+		trigger_event = {
+			id = imperial_council.0831
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		name = imperial_council.0821.b
+		custom_tooltip = imperial_council.0821.b.tt
+		trigger_event = {
+			id = imperial_council.0832
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = imperial_council.0821.c
+		custom_tooltip = imperial_council.0821.c.tt
+		trigger_event = {
+			id = imperial_council.0833
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+}
+
+imperial_council.0831 = { 
+    type = character_event
+	title = imperial_council.0831.t
+	desc = imperial_council.0831.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0831.a
+		custom_tooltip = imperial_council.0831.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_deviancy_crime
+				remove_doctrine = doctrine_deviancy_shunned
+				remove_doctrine = doctrine_deviancy_accepted
+			}
+			add_doctrine = doctrine_deviancy_crime
+		}
+		every_player = {
+			limit = {
+				faith = faith:imperial_church
+			}
+			trigger_event = {
+				id =  imperial_council.0841
+				days = 3
+			}
+		}
+	}
+}
+
+imperial_council.0832 = { 
+    type = character_event
+	title = imperial_council.0832.t
+	desc = imperial_council.0832.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0832.a
+		custom_tooltip = imperial_council.0832.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_deviancy_crime
+				remove_doctrine = doctrine_deviancy_shunned
+				remove_doctrine = doctrine_deviancy_accepted
+			}
+			add_doctrine = doctrine_deviancy_shunned
+		}
+		every_player = {
+			limit = {
+				faith = faith:imperial_church
+			}
+			trigger_event = {
+				id =  imperial_council.0842
+				days = 3
+			}
+		}
+	}
+}
+
+imperial_council.0833 = { 
+    type = character_event
+	title = imperial_council.0833.t
+	desc = imperial_council.0833.desc
+	theme = faith	
+	left_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	option = {
+		name = imperial_council.0833.a
+		custom_tooltip = imperial_council.0833.a.tt
+		faith:imperial_church = {
+			hidden_effect = { 
+				remove_doctrine = doctrine_deviancy_crime
+				remove_doctrine = doctrine_deviancy_shunned
+				remove_doctrine = doctrine_deviancy_accepted
+			}
+			add_doctrine = doctrine_deviancy_accepted
+		}
+		every_player = {
+			limit = {
+				faith = faith:imperial_church
+			}
+			trigger_event = {
+				id =  imperial_council.0843
+				days = 3
+			}
+		}
+	}
+}
+
+imperial_council.0841 = {
+	type = letter_event
+	opening = {
+		desc = imperial_council.0121.t
+	}
+	sender = {
+		character = scope:holyleader
+	}
+	desc = imperial_council.0841.desc
+	option = {
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0841.a.tt
+	}
+}
+
+imperial_council.0842 = {
+	type = letter_event
+	opening = {
+		desc = imperial_council.0121.t
+	}
+	sender = {
+		character = scope:holyleader
+	}
+	desc = imperial_council.0842.desc
+	option = {
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0842.a.tt
+	}
+}
+
+imperial_council.0843 = {
+	type = letter_event
+	opening = {
+		desc = imperial_council.0121.t
+	}
+	sender = {
+		character = scope:holyleader
+	}
+	desc = imperial_council.0843.desc
+	option = {
+		name = imperial_council.0121.a
+		custom_tooltip = imperial_council.0843.a.tt
+	}
+}
