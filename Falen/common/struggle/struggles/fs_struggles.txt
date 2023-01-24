@@ -88,11 +88,13 @@
 
 	phase_list = {
 		struggle_juche_phase_conquest = {
-			#background = ""
+			background = "gfx/interface/illustrations/struggle_backgrounds/struggle_opportunity_bg.dds"
 
 			future_phases = {
 				struggle_juche_phase_status_quo = {
-					catalyst_passing_of_time = passive_struggle_catalyst_gain
+					catalysts = {
+						catalyst_passing_of_time = duration_50_years_catalyst_gain
+					}
 				}
 			}
 
@@ -104,7 +106,7 @@
 		}
 
 		struggle_juche_phase_status_quo = {
-			#background = ""
+			background = "gfx/interface/illustrations/struggle_backgrounds/struggle_hostility_bg.dds"
 
 			future_phases = {
 				struggle_juche_phase_alliance = {
@@ -224,7 +226,7 @@
 		}
 
 		struggle_juche_phase_cease = {
-			#background = ""
+			background = "gfx/interface/illustrations/struggle_backgrounds/struggle_concilation_bg.dds"
 
 			future_phases = {
 				struggle_juche_phase_fragmentation = {
@@ -343,7 +345,7 @@
 		}
 
 		struggle_juche_phase_alliance = {
-			#background = ""
+			background = "gfx/interface/illustrations/struggle_backgrounds/struggle_tension_bg.dds"
 
 			future_phases = {
 				struggle_juche_phase_fragmentation = {
@@ -462,6 +464,8 @@
 		}
 
 		struggle_juche_phase_fragmentation = {
+
+			background = "gfx/interface/illustrations/struggle_backgrounds/struggle_tension_bg.dds"
 			future_phases = {
 				struggle_juche_phase_contention = {
 
@@ -572,6 +576,7 @@
 		}
 
 		struggle_juche_phase_contention = {
+			background = "gfx/interface/illustrations/struggle_backgrounds/struggle_opportunity_bg.dds"
 			future_phases = {
 				struggle_juche_phase_status_quo = {
 

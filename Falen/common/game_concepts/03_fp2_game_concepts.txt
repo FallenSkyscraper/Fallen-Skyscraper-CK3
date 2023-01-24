@@ -41,26 +41,40 @@ juche_struggle = {
 	requires_dlc_flag = the_fate_of_iberia
 }
 
-struggle_phase_juche_opportunity = {
+struggle_phase_juche_conquest = {
 	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_opportunity.dds"
 	parent = juche_struggle
 	requires_dlc_flag = the_fate_of_iberia
 }
-struggle_phase_juche_hostility = {
+struggle_phase_juche_status_quo = {
 	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_hostility.dds"
 	parent = juche_struggle
 	requires_dlc_flag = the_fate_of_iberia
 }
-struggle_phase_juche_compromise = {
-	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_compromise.dds"
-	parent = juche_struggle
-	requires_dlc_flag = the_fate_of_iberia
-}
-struggle_phase_juche_conciliation = {
+struggle_phase_juche_cease = {
 	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_conciliation.dds"
 	parent = juche_struggle
 	requires_dlc_flag = the_fate_of_iberia
 }
+
+struggle_phase_juche_alliance = {
+	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_tension.dds"
+	parent = juche_struggle
+	requires_dlc_flag = the_fate_of_iberia
+}
+
+struggle_phase_juche_fragmentation = {
+	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_tension.dds"
+	parent = juche_struggle
+	requires_dlc_flag = the_fate_of_iberia
+}
+
+struggle_phase_juche_contention = {
+	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_opportunity.dds"
+	parent = juche_struggle
+	requires_dlc_flag = the_fate_of_iberia
+}
+
 
 improve_city_province_decision = {
 	parent = decision

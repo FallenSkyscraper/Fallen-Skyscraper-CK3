@@ -2,12 +2,12 @@ scripted_effect fp2_council_strife_catalyst_effect = {
 	struggle:iberian_struggle = {
 		if = {
 			limit = { is_struggle_phase = struggle_juche_phase_compromise }
-			change_struggle_phase = struggle_juche_phase_opportunity
+			change_struggle_phase = struggle_juche_phase_conquest
 		}
 		else_if = {
 			limit = {
 				OR = {
-					is_struggle_phase = struggle_juche_phase_opportunity
+					is_struggle_phase = struggle_juche_phase_conquest
 				}
 			}
 			change_struggle_phase = struggle_juche_phase_hostility
