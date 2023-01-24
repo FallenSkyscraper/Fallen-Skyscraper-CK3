@@ -26,7 +26,37 @@ independence_faction_war = {
 		#on_declared_war = yes
 		# Remove offending HumSac modifiers.
 		scope:attacker = {
-			hidden_effect = { fp1_remove_humsac_offended_counties_effect = yes }
+			hidden_effect = { 
+				fp1_remove_humsac_offended_counties_effect = yes }
+
+				if = {
+					limit = {
+						catalyst_gave_independence_to_powerful_diff_faith_culture_vassal_preliminary_trigger = {
+							CHAR1 = scope:defender
+							CHAR2 = scope:current_member
+						}
+						any_character_struggle = {
+							involvement = involved
+							activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+								CATALYST = catalyst_independance_faction_war_declared
+								CHAR = scope:current_member
+							}
+						}
+					}
+					every_character_struggle = {
+						involvement = involved
+						limit = {
+							activate_struggle_catalyst_secondary_character_involvement_either_trigger = {
+								CATALYST = catalyst_independance_faction_war_declared
+								CHAR = scope:current_member
+							}
+						}
+						activate_struggle_catalyst = {
+							catalyst = catalyst_independance_faction_war_declared
+							character = scope:defender
+						}
+					}
+				}
 		}
 
 		# If no faction exists because we created it through history, we add a flag on the attackers to free them at the end
