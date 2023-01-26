@@ -231,7 +231,7 @@
 
 				###### Interlopers
 				interloper_parameters = {
-					unlocks_secure_iberian_foothold_decision = yes
+					
 				}
 
 				interloper_character_modifier = {
@@ -241,7 +241,7 @@
 
 				###### Uninvolved
 				uninvolved_parameters = {
-					unlocks_secure_iberian_foothold_decision = yes
+					
 				}
 
 				uninvolved_county_modifier = {
@@ -348,8 +348,6 @@
 				}
 
 				involved_parameters = {
-					unlocks_golden_age_jewish_science_decision = yes
-					unlocks_build_pilgrim_roads_decision = yes
 					truces_by_involved_or_interlopers_within_region_longer = yes
 					county_conversion_disabled_for_involved_faiths_within_region = yes
 					interfaith_marriages_available_between_involved_characters = yes
@@ -407,7 +405,6 @@
 				involved_parameters = {
 					# struggle_vips_and_culture_faith_heads_may_develop_spontaneous_positive_or_negative_relations = yes
 					struggle_unlocks_befriend_schemes_for_everyone = yes
-					unlocks_golden_age_jewish_science_decision = yes # To implement
 					struggle_prestige_from_feast = yes
 					struggle_gifts_involved_diff_faith_culture_leads_to_friendship = yes
 					struggle_grant_titles_diff_faith_culture_to_leads_to_friendship = yes
@@ -553,7 +550,6 @@
 				}
 
 				involved_parameters = {
-					unlocks_build_pilgrim_roads_decision = yes
 					truces_by_involved_or_interlopers_within_region_longer = yes
 					county_conversion_disabled_for_involved_faiths_within_region = yes
 					interfaith_marriages_available_between_involved_characters = yes
@@ -790,6 +786,7 @@
 					completing_building_in_castle_gives_development = yes
 					granting_independence_to_non_dejure_gives_renown = yes
 					struggle_grant_titles_diff_faith_culture_gives_prestige = yes
+					unlocks_incite_revolts_interaction = yes
 				}
 
 				involved_county_modifier = {
@@ -811,7 +808,7 @@
 			}
 
 			ending_decisions = {
-				#struggle_juche_ending_hostility_decision
+				struggle_juche_ending_hostility_decision
 				#struggle_juche_ending_compromise_decision
 				#struggle_juche_ending_conciliation_decision
 			}
@@ -965,7 +962,7 @@
 
 				###### Interlopers
 				interloper_parameters = {
-					unlocks_secure_iberian_foothold_decision = yes
+					
 				}
 
 				interloper_county_modifier = {
@@ -976,7 +973,7 @@
 
 				###### Uninvolved
 				uninvolved_parameters = {
-					unlocks_secure_iberian_foothold_decision = yes
+					
 				}
 
 				uninvolved_county_modifier = {
