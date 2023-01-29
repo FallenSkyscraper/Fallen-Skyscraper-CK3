@@ -39,6 +39,15 @@ alliance_decision = {
 				count >= 1
 				tier = tier_kingdom
 		}
+		prestige_level >= 3
+		NOR = {
+			has_government = tribal_government
+			has_government = nomadic_goverment
+			has_government = slavery_government
+			has_government = manchu_tribal_government
+			has_government = bureaucratic_government
+			has_government = secular_republic_government
+		}
 	}
 
 	effect = {
