@@ -1,0 +1,23 @@
+namespace = alliance_decision
+
+alliance_decision.0001 = {
+	type = character_event
+	title = alliance_decision.0001.t
+	desc = alliance_decision.0001.desc
+	theme = alliance
+	left_portrait = {
+		character = root
+		animation = war_over_win
+	}
+	override_background = {
+		event_background = throne_room
+	}
+
+	immediate = {
+		set_global_variable = alliance
+		root = { save_scope_as = alliance_leader }
+	}
+	option = {
+		name = alliance.decisions.0001.a
+	}
+}

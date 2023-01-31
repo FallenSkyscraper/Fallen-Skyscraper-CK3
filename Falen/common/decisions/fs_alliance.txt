@@ -35,10 +35,6 @@ alliance_decision = {
 		}
 		is_independent_ruler = yes
 		highest_held_title_tier = tier_kingdom
-		any_held_title = {
-				count >= 1
-				tier = tier_kingdom
-		}
 		prestige_level >= 3
 		NOR = {
 			has_government = tribal_government
@@ -51,7 +47,9 @@ alliance_decision = {
 	}
 
 	effect = {
+		change_government = alliance_government
 		trigger_event = alliance_decision.0001
+		change_struggle_phase = struggle_juche_phase_alliance
 	}
 
 	cost = { prestige = 500 }
