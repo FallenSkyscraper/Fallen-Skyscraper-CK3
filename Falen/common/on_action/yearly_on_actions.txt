@@ -113,11 +113,11 @@ yearly_playable_pulse = {
 	}
 }
 
-five_year_playable_pulse = {
-	on_actions = {
-		slavery_events_on_action
-	}
-}
+#five_year_playable_pulse = {
+#	on_actions = {
+#		slavery_events_on_action
+#	}
+#}
 slavery_events_on_action ={
 	trigger = {
 		has_government = slavery_government
@@ -303,6 +303,8 @@ five_year_playable_pulse = {
 		culture_hybridization_emergence_events
 		delay = { days = { 45 75 } }
 		culture_divergence_emergence_events
+
+		slavery_events_on_action
 	}
 }
 
