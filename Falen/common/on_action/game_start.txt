@@ -245,14 +245,7 @@ on_game_start_after_lobby = {
 		every_county = {
 			fs_initialize_technologies_effect = yes
 		}
-		tech_metallurgy_init = yes
-		tech_siege_init = yes
-		tech_horseback_riding_init = yes
-		tech_fortification_init = yes
-		tech_conscription_init = yes
-		tech_archery_init = yes
-		tech_military_organization_init = yes
-		fs_naturalism_tech_init = yes
+		fs_tech_init = yes
 		### PRESTIGE/PIETY/RENOWN ON START
 		character:1 = { add_prestige = 1500 }
 		character:2 = { add_prestige = 1000 }

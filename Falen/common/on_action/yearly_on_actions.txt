@@ -40,6 +40,13 @@ yearly_global_pulse = {
 				days = { 2 240 }
 			}
 		}
+		if = {
+			limit = {
+				var:election_term.compare_value < 0
+			}
+			#trigger_event = joson_election.1
+			trigger_event = kor_rise.1001
+		}
 	}
 }
 

@@ -29,7 +29,16 @@ fs_initialize_technologies_effect = {
 	set_variable = { name = tech_electronics value = 0 }
 	set_variable = { name = tech_natural_science value = 0 }
 }
-
+fs_tech_init = {
+	tech_metallurgy_init = yes
+	tech_siege_init = yes
+	tech_horseback_riding_init = yes
+	tech_fortification_init = yes
+	tech_conscription_init = yes
+	tech_archery_init = yes
+	tech_military_organization_init = yes
+	fs_naturalism_tech_init = yes
+}
 tech_metallurgy_init = {
 ### REGIONAL BASE TECH ###
 	every_county_in_region = {
@@ -574,11 +583,28 @@ tech_military_organization_init = {
 			set_variable = { name = tech_archery value = 5.0 }
 		}
 	}
+	title:c_suwon = {
+		set_variable = { name = tech_metallurgy value = 6.0 }
+		set_variable = { name = tech_siege value = 4.0 }
+		set_variable = { name = tech_fortification value = 4.5 }
+		set_variable = { name = tech_horseback_riding value = 3.0 }
+		set_variable = { name = tech_conscription value = 4.0 }
+		set_variable = { name = tech_archery value = 4.0 }
+		set_variable = { name = tech_military_organization value = 4.5 }
+		set_variable = { name = tech_agriculture value = 4.0 }
+		set_variable = { name = tech_commerce value = 4.0 }
+		set_variable = { name = tech_navigation value = 3.0 }
+		set_variable = { name = tech_construction value = 4.5 }
+		set_variable = { name = tech_urbanization value = 5.0 }
+		set_variable = { name = tech_mining value = 4.5 }
+		set_variable = { name = tech_natural_science value = 1.0 }
+	}
 }
 ##### ECONOMIC TECHS #####
 
 
 ##### SPECIAL REGIONS #####
+
 fs_naturalism_tech_init = {
 	every_county = {
 		limit = {
