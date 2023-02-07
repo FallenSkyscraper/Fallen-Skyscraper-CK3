@@ -219,8 +219,35 @@ joson_election.4 = { # 선거 결과 발표
 		character = scope:winner
 		animation = happiness
 	}
+	option = { # 우흥
+		name = joson_election.4.a
+		trigger = {
+			has_title = title:k_prk
+		}
+		hidden_effect = {
+			remove_global_variable = winner_vote
+			remove_global_variable = winner
+			clear_saved_scope = winner
+			
+		}
+	}
 	option = { # 알겟서요
 		name = joson_election.4.b
+		hidden_effect = {
+			remove_global_variable = winner_vote
+			remove_global_variable = winner
+			clear_saved_scope = winner
+			
+		}
+	}
+	option = {
+		name = joson_election.4.c
+		root = {
+			set_variable = candidate
+			remove_short_term_gold = 100
+			add_prestige = -100
+		}
+		custom_tooltip = joson_election.4.c.tooltip
 		hidden_effect = {
 			remove_global_variable = winner_vote
 			remove_global_variable = winner

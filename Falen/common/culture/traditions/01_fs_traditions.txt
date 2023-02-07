@@ -1067,9 +1067,13 @@ tradition_defend_our_home = {
 			}
 		}
 	}
-	
+	province_modifier = {
+		garrison_size = 0.2
+		levy_size = 0.1
+	}
 	character_modifier = {
-		garrison_size = 0.5
+		men_at_arms_maintenance = -0.15
+		defender_advantage = 5
 	}
 	
 	cost = {

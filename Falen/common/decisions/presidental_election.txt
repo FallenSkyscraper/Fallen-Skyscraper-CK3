@@ -1,6 +1,6 @@
 ﻿run_for_presidency_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
-	ai_check_interval = 1
+	ai_check_interval = 10
 
 
 	desc = run_for_presidency_decision_desc
@@ -55,5 +55,53 @@
 			add = 200
 			has_title = title:k_prk
 		}
+	}
+}
+delay_election_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	ai_check_interval = 10
+
+	desc = delay_election_decision_desc
+	
+	selection_tooltip = delay_election_decision_tooltip
+
+	is_shown = {
+		is_imprisoned = no
+		has_title = title:k_prk
+	}
+	is_valid = {
+		prestige_level >= 1
+	}
+	cost = { prestige = 400 }
+	effect = {
+		change_global_variable = { name = election_date add = 4 }
+		change_global_variable = { name = election_term add = 4 }
+		custom_tooltip = delay_election_decision_tt
+		if = {
+			limit = { is_at_war = yes }
+			every_vassal = {
+				add_opinion = {
+					modifier = dictactor_opinion
+					opinion = -10 # 전시면 좀 봐줌
+					target = prev
+				}
+			}
+		}
+		else = {
+			custom_tooltip = delay_election_decision_tt2
+			hidden_effect = { add_prestige_level = -1 }
+			every_vassal = {
+				add_opinion = {
+					modifier = dictactor_opinion
+					target = prev
+				}
+			}
+		}
+	}
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 0
 	}
 }
