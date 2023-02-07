@@ -110,6 +110,21 @@
 	}
 }
 
+4008 = {
+	name = "사윤"
+	female = yes
+	religion = imperial_church
+	culture = jeonju
+	2351.1.1 = {
+		birth = yes
+	}
+	2373.1.1 = {
+		add_spouse = 4007
+	}
+	2440.1.1 = {
+		death = yes
+	}
+}
 4009 = {
 	name = "한월"
 	dynasty_house = house_yi # 이
@@ -136,6 +151,20 @@
 		add_spouse = 4010
 	}
 	2500.1.1 = {
+		death = yes
+	}
+}
+4010 = {
+	name = "수빈"
+	female = yes
+	religion = imperial_church
+	culture = jeonju
+	2379.1.1 = {
+		birth = yes
+	}
+	2403.1.1 = {
+	}
+	2445.1.1 = {
 		death = yes
 	}
 }
@@ -515,7 +544,7 @@
 	religion = imperial_church
 	culture = namwon
 	father = 4035
-	mother = 4236
+	mother = 4036
 
 	#stat
 	martial = 4
@@ -1948,6 +1977,7 @@
 	name = "금월"
 	dynasty_house = house_yi # 이
 	father = 4007
+	mother = 4008
 	religion = imperial_church
 	culture = jeonju
 	2379.1.1 = {
@@ -1966,6 +1996,9 @@
 	2402.1.1 = {
 		birth = yes
 	}
+	2422.1.1 = {
+		add_spouse = 4251
+	}
 	2481.1.1 = {
 		death = yes
 	}
@@ -1974,6 +2007,7 @@
 	name = "선후"
 	dynasty_house = house_yi # 이
 	father = 4228
+	mother = 4251
 	religion = imperial_church
 	culture = jeonju
 	2431.1.1 = {
@@ -1988,6 +2022,7 @@
 	name = "채월"
 	dynasty_house = house_yi # 이
 	father = 4007
+	mother = 4008
 	religion = imperial_church
 	culture = jeonju
 	2382.1.1 = {
@@ -2070,6 +2105,7 @@
 	female = yes
 	dynasty_house = house_yi # 이
 	father = 4007
+	mother = 4008
 	religion = imperial_church
 	culture = jeonju
 	2386.1.1 = {
@@ -2083,6 +2119,7 @@
 	name = "안월"
 	dynasty_house = house_yi # 이
 	father = 4007
+	mother = 4008
 	religion = imperial_church
 	culture = jeonju
 	trait = brave
@@ -2110,6 +2147,18 @@
 }
 
 ##이씨종친 아내들#
+4251 = {
+	name = "단비"
+	female = yes
+	religion = imperial_church
+	culture = jeonju
+	2408.1.1 = {
+		birth = yes
+	}
+	2445.1.1 = {
+		death = yes
+	}
+}
 
 
 #무주원불교단일백작
