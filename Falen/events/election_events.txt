@@ -242,6 +242,21 @@ joson_election.4 = { # 선거 결과 발표
 	}
 	option = {
 		name = joson_election.4.c
+		trigger = {
+			OR = {
+				has_title = title:k_prk
+				top_liege = { has_title = title:k_prk }
+			}
+			gold >= 80
+			prestige >= 100
+			prestige_level >= 1
+		}
+		show_as_unavailable = {
+			OR = {
+				has_title = title:k_prk
+				top_liege = { has_title = title:k_prk }
+			}
+		}
 		root = {
 			set_variable = candidate
 			remove_short_term_gold = 100
