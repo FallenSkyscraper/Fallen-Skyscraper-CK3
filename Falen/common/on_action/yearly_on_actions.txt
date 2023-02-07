@@ -305,12 +305,14 @@ five_year_playable_pulse = {
 		game_rule.4 					# Empire Obscurity Game Rule
 	}
 	on_actions = {
+		slavery_events_on_action
+
 		delay = { days = { 45 75 } }
 		culture_hybridization_emergence_events
 		delay = { days = { 45 75 } }
 		culture_divergence_emergence_events
 
-		slavery_events_on_action
+		
 	}
 }
 
