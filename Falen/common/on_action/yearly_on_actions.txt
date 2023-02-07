@@ -42,10 +42,9 @@ yearly_global_pulse = {
 		}
 		if = {
 			limit = {
-				var:election_term.compare_value < 0
+				global_var:election_term < 0
 			}
-			#trigger_event = joson_election.1
-			trigger_event = kor_rise.1001
+			trigger_event = joson_election.1
 		}
 	}
 }

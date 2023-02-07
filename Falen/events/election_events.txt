@@ -3,9 +3,9 @@ namespace = joson_election
 joson_election.1 = {
     type = empty
 	hidden = yes
-	trigger = {
-		global_var:election_term = { compare_value < 0 }
-	}
+	#trigger = {
+	#	global_var:election_term < 0
+	#}
 	immediate = {
 		every_living_character = { ## 후보자 명부 설정
 			limit = { has_variable = candidate }
@@ -108,7 +108,7 @@ joson_election.1 = {
 			}
 			ordered_in_global_list = {
 				variable = candidates_real
-				order_by = var:score.compare_value
+				order_by = var:score
 				position = 0
 				change_variable = { name = votes add = { value = prev.var:voting_power } }
 			}
@@ -141,7 +141,7 @@ joson_election.3 = { # 선거 결과 계산
 	immediate = {
 		ordered_in_global_list = {
 			variable = candidates_real
-			order_by = var:votes.compare_value
+			order_by = var:votes
 			position = 0
 			save_scope_as = winner
 		}
