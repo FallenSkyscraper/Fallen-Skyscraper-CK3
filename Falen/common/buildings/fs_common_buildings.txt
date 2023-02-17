@@ -1,1 +1,1171 @@
-﻿
+﻿economy_district = {
+    construction_time = quick_construction_time
+
+    can_construct_potential ={
+        building_requirement_castle_city_church = {LEVEL = 01}
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = normal_building_tier_1_cost
+
+}
+
+### 농업계통 ###
+#2티어
+suburban_farm = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = economy_district
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        monthly_income = poor_building_tax_tier_1
+        
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.05
+    }
+
+    type_icon = "icon_building_farm_estates.dds"
+
+}
+#3티어
+out_of_wall_farm_1 = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = suburban_farm
+        NOT = {
+            has_building_or_higher = pastures
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        monthly_income = normal_building_tax_tier_1
+        
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.1
+    }
+
+    type_icon = "icon_building_farm_estates.dds"
+
+}
+
+out_of_wall_farm_2 = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = suburban_farm
+        NOR = {
+            terrain = mountains
+            terrain = taiga
+            terrain = jungle
+            terrain = steppe
+            terrain = drylands
+            terrain = desert
+            terrain = desert_mountains
+            terrain = oasis
+            terrain = wetlands
+        }
+        NOT = {
+            has_building_or_higher = pastures
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        monthly_income = normal_building_tax_tier_1
+        
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.1
+    }
+
+    type_icon = "icon_building_farm_estates.dds"
+
+}
+
+out_of_wall_farm_3 = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = out_of_wall_farm_1
+        OR = {
+            terrain = farmlands
+            has_building_or_higher = reclaimed_land
+        }
+        NOT = {
+            has_building_or_higher = pastures
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        monthly_income = normal_building_tax_tier_1
+        
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.1
+    }
+
+    type_icon = "icon_building_farm_estates.dds"
+
+}
+
+commodity_crops = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = suburban_farm
+        has_building_or_higher = marketplace
+        NOT = {
+            has_building_or_higher = pastures
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+pastures = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = suburban_farm
+        has_no_other_farming_facility_for_pastures_trigger = yes
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+#4티어
+grand_farmland = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        building_grand_farmland_trigger = yes
+        NOT = {
+            has_building_or_higher = pastures
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = main_building_tier_1_cost
+
+    province_modifier = {
+        monthly_income = good_building_tax_tier_1
+        
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.3
+    }
+
+    type_icon = "icon_building_farm_estates.dds"
+
+}
+
+reclaimed_land = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        building_common_tradeport_requirement_terrain = yes
+        has_building_or_higher = out_of_wall_farm_1
+        has_no_harbor_requirement_trigger = yes
+        NOT = {
+            has_building_or_higher = pastures
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = main_building_tier_1_cost
+
+    province_modifier = {
+        monthly_income = good_building_tax_tier_1
+        
+    }
+
+    county_modifier = {
+        development_growth_factor = 0.3
+    }
+
+    type_icon = "icon_building_farm_estates.dds"
+}
+
+mill = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = out_of_wall_farm_1
+        has_building_or_higher = food_processor
+        NOT = {
+            has_building_or_higher = pastures
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+grand_plantation = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = commodity_crops
+        has_building_or_higher = post_office
+        NOT = {
+            has_building_or_higher = pastures
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+### 산림 계통 ###
+
+lumberyard = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = economy_district
+        NOT = {
+            has_building_or_higher = huntyard
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+huntyard = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = economy_district
+        NOT = {
+            has_building_or_higher = lumberyard
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+#3티어
+
+saw_mill = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = lumberyard
+        NOT ={
+            has_building_or_higher = forest_garden
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+forest_garden = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = lumberyard
+        NOT = {
+            has_building_or_higher = saw_mill
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+huntsman_hut = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        OR = {
+            has_building_or_higher = huntyard
+            has_building_or_higher = forest_garden
+        }
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+#4티어
+
+royal_hunting_ground = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = huntyard
+        has_no_other_economy_district_not_for_royal_trigger = yes
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+hardwood_mill = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = saw_mill
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+construction_guild = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = saw_mill
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+### 광업 계통 ###
+#2티어
+mining_ground = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = economy_district
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+#3티어
+quarry = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = mining_ground
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+mine_1 = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = mining_ground
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+mine_2 = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = mine_1
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+coal_mine = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = mining_ground
+        geographical_region = world_coal_region
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+#4티어
+gold_mine = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = mining_ground
+        geographical_region = world_gold_region
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+salt_mine = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = mining_ground
+        geographical_region = world_salt_region
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+marble_quarry = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = quarry
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+grand_open_pit_mine = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = mine_1
+        has_building_or_higher = mine_2
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+### 생산 계통 ###
+#2티어
+rural_smithy = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = economy_district
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+    }
+}
+
+#3티어
+food_processor = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = rural_smithy
+        has_building_or_higher = suburban_farm
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+craft_guild = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = rural_smithy
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+tool_manufacture = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = rural_smithy
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+#4티어
+factory = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = tool_manufacture
+        has_building_or_higher = craft_guild
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+wool_factory = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = post_office
+        has_building_or_higher = pastures
+        has_building_or_higher = tool_manufacture
+        #is_in_the_3rd_era_requirement = yes
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+industrialized_factory = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = tool_manufacture
+        OR = {
+            has_building_or_higher = coal_mine
+            #has_building_or_higher = tradeport
+        }
+        #is_in_the_4th_era_requriement = yes
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+### 거래 계통 ###
+#2티어
+marketplace = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = economy_district
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+inn = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = marketplace
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+commercial_district = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = marketplace
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+post_office = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = marketplace
+        #has_building_or_higher = road
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+#4티어
+fur_exchange = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        OR = {
+            building_fur_exchange_trigger = yes
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+the_guild = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        has_building_or_higher = commercial_district
+        NOT = {
+            has_building_or_higher = royal_hunting_ground
+        }
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+local_bank = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        building_material_collection_point_trigger = yes
+        #has_innovation = bank
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+material_collection_point = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        building_material_collection_point_trigger = yes
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
+
+pantry = {
+    construction_time = quick_construction_time
+
+    can_construct_potential = {
+        building_pantry_trigger = yes 
+    }
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+
+    cost_gold = cheap_building_tier_1_cost
+
+    province_modifier = {
+        
+    }
+
+    county_modifier = {
+
+    }
+}
