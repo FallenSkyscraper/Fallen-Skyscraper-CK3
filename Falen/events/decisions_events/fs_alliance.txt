@@ -19,5 +19,87 @@ alliance_decision.0001 = {
 	}
 	option = {
 		name = alliance.decisions.0001.a
+		every_independent_ruler = {
+			limit = {
+				OR = {
+					struggle:juche_struggle = {
+						any_involved_ruler = {
+							NOT = { this = root }
+							is_independent_ruler = yes
+							exists = primary_title
+							primary_title = { is_mercenary_company = no }
+							save_temporary_scope_as = juche_realm
+							any_county_in_region = {
+								region = world_korea_north
+								percent > fp2_struggle_hostility_region_percent_decimal_value
+								holder.top_liege = scope:juche_realm
+							}
+						}
+					}
+				}
+				trigger_event = {
+					id = alliance_decision.0002
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+alliance_decision.0002 = {
+	type = letter_event
+	opening = {
+		desc = alliance_decision.0002.t
+	}
+	sender = scope:alliance_leader
+	desc = alliance_decision.0002.desc
+	option = {
+		trigger = {
+			highest_held_title_tier = tier_kingdom
+			NOT = { has_government = secular_republic_government }
+		}
+		name = alliance_decision.0002.a
+		create_title_and_vassal_change = {
+			type = swear_fealty
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		root = {
+			change_liege = {
+				liege = scope:alliance_leader
+				change = scope:change
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+		ai_chance = {
+			base = 50
+			modifier = {	#Weight down for stress.
+				add = -20
+				has_trait = craven
+			}
+			modifier = {	#Weight down for stress.
+				add = -100
+				has_trait = ambitious
+			}
+			modifier = {	#Weight down for stress.
+				add = -25
+				has_trait = paranoid
+			}
+			modifier = {	#Weight down for stress.
+				add = -100
+				has_trait = arrogant
+			}
+			modifier = {	#Weight down for stress.
+				add = -15
+				has_trait = shy
+			}
+		}
+	}
+	option = {
+		name = alliance_decision.0002.b
+		add_prestige = 50
+		ai_chance = {
+			base = 50
+		}
 	}
 }
