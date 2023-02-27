@@ -56,5 +56,39 @@ alliance_decision = {
 
 	ai_potential = { always = yes }
 
-	ai_will_do = { base = 100 }
+	ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				has_trait = brave
+			}
+			modifier = {
+				add = 20
+				has_trait = ambitious
+			}
+			modifier = {
+				add = 10
+				has_trait = diligent
+			}
+			modifier = {
+				add = 10
+				has_trait = gregarious
+			}
+			modifier = {
+				add = -100
+				has_trait = lazy
+			}
+			modifier = {
+				add = -100
+				has_trait = craven
+			}
+			modifier = {
+				add = -100
+				has_trait = content
+			}
+			modifier = {
+				add = -100
+				has_trait = shy
+			}
+		}
 }
