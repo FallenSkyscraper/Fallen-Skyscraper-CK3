@@ -1169,3 +1169,2998 @@ pantry = {
 
     }
 }
+
+#############################################################
+########################## 군사 ##############################
+##############################################################
+
+##### 1티어 #####
+
+#군사지구
+
+military_district_01 = {
+	construction_time = standard_construction_time
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	
+	cost = { gold = 150 }
+	
+	levy = 150
+
+	next_building = military_district_02
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+military_district_02 = {
+	construction_time = standard_construction_time
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	
+	cost = { gold = 225 }
+	
+	levy = 250
+
+	next_building = military_district_03
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+	}
+}
+
+military_district_03 = {
+	construction_time = standard_construction_time
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	
+	cost = { gold = 300 }
+	
+	levy = 350
+
+	next_building = military_district_04
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+military_district_04 = {
+	construction_time = standard_construction_time
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	
+	cost = { gold = 375 }
+	
+	levy = 450
+
+	next_building = military_district_05
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+military_district_05 = {
+	construction_time = standard_construction_time
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	
+	cost = { gold = 450 }
+	
+	levy = 550
+
+	next_building = military_district_06
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+military_district_06 = {
+	construction_time = standard_construction_time
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	
+	cost = { gold = 525 }
+	
+	levy = 650
+
+	next_building = military_district_07
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+military_district_07 = {
+	construction_time = standard_construction_time
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	
+	cost = { gold = 600 }
+	
+	levy = 750
+
+	next_building = military_district_08
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 4
+		ai_general_building_modifier = yes
+	}
+}
+
+military_district_08 = {
+	construction_time = standard_construction_time
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	
+	cost = { gold = 675 }
+	
+	levy = 850
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 3
+		ai_general_building_modifier = yes
+	}
+}
+
+##### 2티어 #####
+
+#둔전
+
+military_farm_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_farm_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 150 }
+	
+	province_modifier = {
+		monthly_income = 0.3
+	}
+
+	next_building = military_farm_02
+
+	type_icon = "icon_building_farm_estates.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+military_farm_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_farm_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+	
+	province_modifier = {
+		monthly_income = 0.7
+	}
+
+	next_building = military_farm_03
+
+	type_icon = "icon_building_farm_estates.dds"
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+	}
+}
+
+military_farm_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_farm_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 350 }
+	
+	province_modifier = {
+		monthly_income = 1.1
+	}
+
+	next_building = military_farm_04
+
+	type_icon = "icon_building_farm_estates.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+military_farm_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_farm_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 450 }
+	
+	province_modifier = {
+		monthly_income = 1.5
+	}
+
+	next_building = military_farm_05
+
+	type_icon = "icon_building_farm_estates.dds"
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+military_farm_05 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_farm_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 550 }
+	
+	province_modifier = {
+		monthly_income = 1.8
+	}
+
+	next_building = military_farm_06
+
+	type_icon = "icon_building_farm_estates.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+military_farm_06 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_farm_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 650 }
+	
+	province_modifier = {
+		monthly_income = 2.1
+	}
+
+	type_icon = "icon_building_farm_estates.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#행정청사
+
+administrative_office_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        administrative_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 150 }
+	
+	levy = 175
+
+	province_modifier = {
+		levy_reinforcement_rate = 0.15
+	}
+
+	next_building = administrative_office_02
+
+	type_icon = "icon_building_generic_house.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+administrative_office_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        administrative_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+	
+	levy = 300
+
+	province_modifier = {
+		levy_reinforcement_rate = 0.2
+	}
+
+	next_building = administrative_office_03
+
+	type_icon = "icon_building_generic_house.dds"
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+	}
+}
+
+administrative_office_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        administrative_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 350 }
+	
+	levy = 425
+
+	province_modifier = {
+		levy_reinforcement_rate = 0.25
+	}
+
+	next_building = administrative_office_04
+
+	type_icon = "icon_building_generic_house.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+administrative_office_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        administrative_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 450 }
+	
+	levy = 550
+
+	province_modifier = {
+		levy_reinforcement_rate = 0.3
+	}
+
+	next_building = administrative_office_05
+
+	type_icon = "icon_building_generic_house.dds"
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+administrative_office_05 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        administrative_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 550 }
+	
+	levy = 675
+
+	province_modifier = {
+		levy_reinforcement_rate = 0.35
+	}
+
+	next_building = administrative_office_06
+
+	type_icon = "icon_building_generic_house.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+administrative_office_06 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        administrative_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 650 }
+	
+	levy = 800
+
+	province_modifier = {
+		levy_reinforcement_rate = 0.4
+	}
+
+	type_icon = "icon_building_generic_house.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#징집소
+
+conscription_office_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        conscription_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 150 }
+	
+	levy = 300
+
+	next_building = conscription_office_02
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+conscription_office_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        conscription_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+	
+	levy = 450
+
+	next_building = conscription_office_03
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+	}
+}
+
+conscription_office_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        conscription_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 350 }
+	
+	levy = 600
+
+	next_building = conscription_office_04
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+conscription_office_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        conscription_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 450 }
+	
+	levy = 750
+
+	next_building = conscription_office_05
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+conscription_office_05 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        conscription_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 550 }
+	
+	levy = 900
+
+	next_building = conscription_office_06
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+conscription_office_06 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        conscription_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 650 }
+	
+	levy = 1050
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#대장간
+
+military_smithy_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_smithy_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 100 }
+
+	character_modifier = {
+		siege_weapon_recruitment_cost_mult = -0.1 
+		light_cavarly_recruitment_cost_mult = -0.1
+		pikemen_recruitment_cost_mult = -0.1
+		skirmishers_recruitment_cost_mult = -0.1
+		archers_recruitment_cost_mult = -0.1
+		heavy_infantry_recruitment_cost_mult = -0.1
+		archer_cavarly_recruitment_cost_mult = -0.1
+		heavy_cavarly_recruitment_cost_mult = -0.1
+	}
+	next_building = military_smithy_02
+
+	type_icon = "icon_building_blacksmiths.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+military_smithy_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_smithy_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 175 }
+
+	character_modifier = {
+		siege_weapon_recruitment_cost_mult = -0.12 
+		light_cavarly_recruitment_cost_mult = -0.12
+		pikemen_recruitment_cost_mult = -0.12
+		skirmishers_recruitment_cost_mult = -0.12
+		archers_recruitment_cost_mult = -0.12
+		heavy_infantry_recruitment_cost_mult = -0.12
+		archer_cavarly_recruitment_cost_mult = -0.12
+		heavy_cavarly_recruitment_cost_mult = -0.12
+	}
+	next_building = military_smithy_03
+
+	type_icon = "icon_building_blacksmiths.dds"
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+	}
+}
+
+military_smithy_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_smithy_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+
+	character_modifier = {
+		siege_weapon_recruitment_cost_mult = -0.14 
+		light_cavarly_recruitment_cost_mult = -0.14
+		pikemen_recruitment_cost_mult = -0.14
+		skirmishers_recruitment_cost_mult = -0.14
+		archers_recruitment_cost_mult = -0.14
+		heavy_infantry_recruitment_cost_mult = -0.14
+		archer_cavarly_recruitment_cost_mult = -0.14
+		heavy_cavarly_recruitment_cost_mult = -0.14
+	}
+	next_building = military_smithy_04
+
+	type_icon = "icon_building_blacksmiths.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+military_smithy_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_smithy_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 325 }
+
+	character_modifier = {
+		siege_weapon_recruitment_cost_mult = -0.16
+		light_cavarly_recruitment_cost_mult = -0.16
+		pikemen_recruitment_cost_mult = -0.16
+		skirmishers_recruitment_cost_mult = -0.16
+		archers_recruitment_cost_mult = -0.16
+		heavy_infantry_recruitment_cost_mult = -0.16
+		archer_cavarly_recruitment_cost_mult = -0.16
+		heavy_cavarly_recruitment_cost_mult = -0.16
+	}
+	next_building = military_smithy_05
+
+	type_icon = "icon_building_blacksmiths.dds"
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+military_smithy_05 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_smithy_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	character_modifier = {
+		siege_weapon_recruitment_cost_mult = -0.18
+		light_cavarly_recruitment_cost_mult = -0.18
+		pikemen_recruitment_cost_mult = -0.18
+		skirmishers_recruitment_cost_mult = -0.18
+		archers_recruitment_cost_mult = -0.18
+		heavy_infantry_recruitment_cost_mult = -0.18
+		archer_cavarly_recruitment_cost_mult = -0.18
+		heavy_cavarly_recruitment_cost_mult = -0.18
+	}
+	next_building = smithmilitary_smithy_06
+
+	type_icon = "icon_building_blacksmiths.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+military_smithy_06 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_smithy_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 475 }
+
+	character_modifier = {
+		siege_weapon_recruitment_cost_mult = -0.2
+		light_cavarly_recruitment_cost_mult = -0.2
+		pikemen_recruitment_cost_mult = -0.2
+		skirmishers_recruitment_cost_mult = -0.2
+		archers_recruitment_cost_mult = -0.2
+		heavy_infantry_recruitment_cost_mult = -0.2
+		archer_cavarly_recruitment_cost_mult = -0.2
+		heavy_cavarly_recruitment_cost_mult = -0.2
+	}
+
+	type_icon = "icon_building_blacksmiths.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#공성병기제작소
+
+siege_weapon_factory_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        siege_weapon_factory_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 100 }
+
+	character_modifier = {
+		siege_weapon_siege_value_mult = 0.1	
+	}
+	
+	next_building = siege_weapon_factory_02
+
+	type_icon = "icon_building_siege_works.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+siege_weapon_factory_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        siege_weapon_factory_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 175 }
+
+	character_modifier = {
+		siege_weapon_siege_value_mult = 0.13
+	}
+	
+	next_building = siege_weapon_factory_03
+
+	type_icon = "icon_building_siege_works.dds"
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+	}
+}
+
+siege_weapon_factory_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        siege_weapon_factory_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+
+	character_modifier = {
+		siege_weapon_siege_value_mult = 0.16
+	}
+	
+	next_building = siege_weapon_factory_04
+
+	type_icon = "icon_building_siege_works.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+siege_weapon_factory_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        siege_weapon_factory_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 325 }
+
+	character_modifier = {
+		siege_weapon_siege_value_mult = 0.19
+	}
+	
+	next_building = siege_weapon_factory_05
+
+	type_icon = "icon_building_siege_works.dds"
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+siege_weapon_factory_05 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        siege_weapon_factory_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	character_modifier = {
+		siege_weapon_siege_value_mult = 0.22
+	}
+	
+	next_building = siege_weapon_factory_06
+
+	type_icon = "icon_building_siege_works.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+siege_weapon_factory_06 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        siege_weapon_factory_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 475 }
+
+	character_modifier = {
+		siege_weapon_siege_value_mult = 0.25
+	}
+	
+	type_icon = "icon_building_siege_works.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#마굿간
+
+military_stall_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_stall_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 200 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.08
+	}
+	
+	next_building = military_stall_02
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+military_stall_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_stall_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 350 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.10
+		heavy_cavalry_toughness_mult = 0.02
+	}
+	
+	next_building = military_stall_03
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+	}
+}
+
+military_stall_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_stall_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 500 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.12
+		heavy_cavalry_toughness_mult = 0.04
+	}
+	
+	next_building = military_stall_04
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+military_stall_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_stall_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 650 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.14
+		heavy_cavalry_toughness_mult = 0.06
+	}
+	
+	next_building = military_stall_05
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+military_stall_05 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_stall_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 800 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.16
+		heavy_cavalry_toughness_mult = 0.08
+	}
+	
+	next_building = military_stall_06
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+military_stall_06 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_stall_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 950 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.18
+		heavy_cavalry_toughness_mult = 0.10
+	}
+	
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#목장
+
+military_pasture_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_pasture_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 150 }
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.06
+		light_cavalry_pursuit_mult = 0.06
+		archer_cavalry_damage_mult = 0.06
+		archer_cavalry_pursuit_mult = 0.06
+	}
+	
+	next_building = military_pasture_02
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+military_pasture_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_pasture_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.08
+		light_cavalry_pursuit_mult = 0.08
+		archer_cavalry_damage_mult = 0.08
+		archer_cavalry_pursuit_mult = 0.08
+	}
+	
+	next_building = military_pasture_03
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+	}
+}
+
+military_pasture_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_pasture_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 350 }
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.1
+		light_cavalry_pursuit_mult = 0.1
+		archer_cavalry_damage_mult = 0.1
+		archer_cavalry_pursuit_mult = 0.1
+		light_cavalry_toughness_mult = 0.02
+		light_cavalry_screen_mult = 0.02
+		archer_cavalry_toughness_mult = 0.02
+	}
+	
+	next_building = military_pasture_04
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+military_pasture_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_pasture_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 450 }
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.12
+		light_cavalry_pursuit_mult = 0.12
+		archer_cavalry_damage_mult = 0.12
+		archer_cavalry_pursuit_mult = 0.12
+		light_cavalry_toughness_mult = 0.04
+		light_cavalry_screen_mult = 0.04
+		archer_cavalry_toughness_mult = 0.04
+	}
+	
+	next_building = military_pasture_05
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+military_pasture_05 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_pasture_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 550 }
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.14
+		light_cavalry_pursuit_mult = 0.14
+		archer_cavalry_damage_mult = 0.14
+		archer_cavalry_pursuit_mult = 0.14
+		light_cavalry_toughness_mult = 0.06
+		light_cavalry_screen_mult = 0.06
+		archer_cavalry_toughness_mult = 0.06
+	}
+	
+	next_building = military_pasture_06
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+military_pasture_06 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_pasture_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 650 }
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.16
+		light_cavalry_pursuit_mult = 0.16
+		archer_cavalry_damage_mult = 0.16
+		archer_cavalry_pursuit_mult = 0.16
+		light_cavalry_toughness_mult = 0.08
+		light_cavalry_screen_mult = 0.08
+		archer_cavalry_toughness_mult = 0.08
+	}
+	
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#용병대
+
+mercenary_office_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        mercenary_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 150 }
+
+	character_modifier = {
+		pikemen_damage_mult = 0.08
+		heavy_infantry_damage_mult = 0.08
+	}
+	
+	next_building = mercenary_office_02
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+mercenary_office_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        mercenary_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+
+	character_modifier = {
+		pikemen_damage_mult = 0.1
+		heavy_infantry_damage_mult = 0.1
+		pikemen_toughness_mult = 0.02
+		heavy_infantry_toughness_mult = 0.02
+	}
+	
+	next_building = mercenary_office_03
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+	}
+}
+
+mercenary_office_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        mercenary_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 350 }
+
+	character_modifier = {
+		pikemen_damage_mult = 0.12
+		heavy_infantry_damage_mult = 0.12
+		pikemen_toughness_mult = 0.04
+		heavy_infantry_toughness_mult = 0.04
+	}
+	
+	next_building = mercenary_office_04
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+mercenary_office_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        mercenary_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 450 }
+
+	character_modifier = {
+		pikemen_damage_mult = 0.14
+		heavy_infantry_damage_mult = 0.14
+		pikemen_toughness_mult = 0.06
+		heavy_infantry_toughness_mult = 0.06
+	}
+	
+	next_building = mercenary_office_05
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+mercenary_office_05 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        mercenary_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 550 }
+
+	character_modifier = {
+		pikemen_damage_mult = 0.16
+		heavy_infantry_damage_mult = 0.16
+		pikemen_toughness_mult = 0.08
+		heavy_infantry_toughness_mult = 0.08
+	}
+	
+	next_building = mercenary_office_06
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+mercenary_office_06 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        mercenary_office_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 650 }
+
+	character_modifier = {
+		pikemen_damage_mult = 0.18
+		heavy_infantry_damage_mult = 0.18
+		pikemen_toughness_mult = 0.1
+		heavy_infantry_toughness_mult = 0.1
+	}
+	
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#사격장
+
+range_place_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        range_place_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 150 }
+
+	character_modifier = {
+		archers_damage_mult = 0.08
+		skirmishers_damage_mult = 0.06
+		skirmishers_pursuit_mult = 0.06
+	}
+	
+	next_building = range_place_02
+
+	type_icon = "icon_building_royal_hunting_grounds.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+range_place_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        range_place_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+
+	character_modifier = {
+		archers_damage_mult = 0.1
+		skirmishers_damage_mult = 0.08
+		skirmishers_pursuit_mult = 0.08
+	}
+	
+	next_building = range_place_03
+
+	type_icon = "icon_building_royal_hunting_grounds.dds"
+	
+	ai_value = {
+		base = 9
+		ai_general_building_modifier = yes
+	}
+}
+
+range_place_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        range_place_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 350 }
+
+	character_modifier = {
+		archers_damage_mult = 0.12
+		skirmishers_damage_mult = 0.1
+		skirmishers_pursuit_mult = 0.1
+		archers_toughness_mult = 0.02
+		skirmishers_toughness_mult = 0.02
+	}
+	
+	next_building = range_place_04
+
+	type_icon = "icon_building_royal_hunting_grounds.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+range_place_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        range_place_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 450 }
+
+	character_modifier = {
+		archers_damage_mult = 0.14
+		skirmishers_damage_mult = 0.12
+		skirmishers_pursuit_mult = 0.12
+		archers_toughness_mult = 0.04
+		skirmishers_toughness_mult = 0.04
+	}
+	
+	next_building = range_place_05
+
+	type_icon = "icon_building_royal_hunting_grounds.dds"
+	
+	ai_value = {
+		base = 7
+		ai_general_building_modifier = yes
+	}
+}
+
+range_place_05 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        range_place_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 550 }
+
+	character_modifier = {
+		archers_damage_mult = 0.16
+		skirmishers_damage_mult = 0.14
+		skirmishers_pursuit_mult = 0.14
+		archers_toughness_mult = 0.06
+		skirmishers_toughness_mult = 0.06
+	}
+	
+	next_building = range_place_06
+
+	type_icon = "icon_building_royal_hunting_grounds.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+range_place_06 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        range_place_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 650 }
+
+	character_modifier = {
+		archers_damage_mult = 0.18
+		skirmishers_damage_mult = 0.16
+		skirmishers_pursuit_mult = 0.16
+		archers_toughness_mult = 0.08
+		skirmishers_toughness_mult = 0.08
+	}
+	
+	type_icon = "icon_building_royal_hunting_grounds.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+###3티어####
+
+#수송창고
+
+transport_warehouse_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        transport_warehouse_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 200 }
+
+	province_modifier = {
+		monthly_income = 0.4
+	}
+
+	character_modifier = {
+		army_maintenance_mult = -0.04
+	}
+	
+	next_building = transport_warehouse_02
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+transport_warehouse_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        transport_warehouse_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 325 }
+
+	province_modifier = {
+		monthly_income = 0.7
+	}
+
+	character_modifier = {
+		army_maintenance_mult = -0.06
+	}
+	
+	next_building = transport_warehouse_03
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+transport_warehouse_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        transport_warehouse_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 450 }
+
+	province_modifier = {
+		monthly_income = 1.0
+	}
+
+	character_modifier = {
+		army_maintenance_mult = -0.08
+	}
+	
+	next_building = transport_warehouse_04
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+transport_warehouse_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        transport_warehouse_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 575 }
+
+	province_modifier = {
+		monthly_income = 1.3
+	}
+
+	character_modifier = {
+		army_maintenance_mult = -0.1
+	}
+	
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#예비군 소집소
+
+reserve_army_center_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        reserve_army_center_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+
+	levy = 700
+	
+	next_building = reserve_army_center_02
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+reserve_army_center_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        reserve_army_center_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	levy = 1000
+	
+	next_building = reserve_army_center_03
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+reserve_army_center_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        reserve_army_center_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 550 }
+
+	levy = 1300
+	
+	next_building = reserve_army_center_04
+
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+reserve_army_center_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        reserve_army_center_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 700 }
+
+	levy = 1600
+	
+	type_icon = "icon_building_military_camps.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#무기고
+
+arsenal_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        arsenal_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 200 }
+
+	character_modifier = {
+		men_at_arms_maintenance = -0.06
+	}
+	
+	next_building = arsenal_02
+
+	type_icon = "icon_building_royal_armory.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+arsenal_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        arsenal_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 325 }
+
+	character_modifier = {
+		men_at_arms_maintenance = -0.09
+	}
+	
+	next_building = arsenal_03
+
+	type_icon = "icon_building_royal_armory.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+arsenal_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        arsenal_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 450 }
+
+	character_modifier = {
+		men_at_arms_maintenance = -0.12
+	}
+	
+	next_building = arsenal_04
+
+	type_icon = "icon_building_royal_armory.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+arsenal_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        arsenal_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 575 }
+
+	character_modifier = {
+		men_at_arms_maintenance = -0.15
+	}
+	
+	type_icon = "icon_building_royal_armory.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#제철소
+
+military_iron_works_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_iron_works_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 200 }
+
+	character_modifier = {
+		knight_limit = 1
+		knight_effectiveness_mult = 0.1
+	}
+	
+	next_building = military_iron_works_02
+
+	type_icon = "icon_building_blacksmiths.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+military_iron_works_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_iron_works_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 325 }
+
+	character_modifier = {
+		knight_limit = 1
+		knight_effectiveness_mult = 0.15
+	}
+	
+	next_building = military_iron_works_03
+
+	type_icon = "icon_building_blacksmiths.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+military_iron_works_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_iron_works_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 450 }
+
+	character_modifier = {
+		knight_limit = 2
+		knight_effectiveness_mult = 0.2
+	}
+	
+	next_building = military_iron_works_04
+
+	type_icon = "icon_building_blacksmiths.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+military_iron_works_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_iron_works_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 575 }
+
+	character_modifier = {
+		knight_limit = 2
+		knight_effectiveness_mult = 0.25
+	}
+	
+	type_icon = "icon_building_blacksmiths.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#경마장
+
+racetrack_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        racetrack_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 300 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.06
+		heavy_cavalry_toughness_mult = 0.04
+	}
+	
+	next_building = racetrack_02
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+racetrack_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        racetrack_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 500 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.1
+		heavy_cavalry_toughness_mult = 0.06
+	}
+	
+	next_building = racetrack_03
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+racetrack_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        racetrack_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 700 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.14
+		heavy_cavalry_toughness_mult = 0.08
+	}
+	
+	next_building = racetrack_04
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+racetrack_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        racetrack_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 900 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.18
+		heavy_cavalry_toughness_mult = 0.1
+	}
+	
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#사냥터
+
+military_hunting_ground_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_hunting_ground_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.04
+		light_cavalry_pursuit_mult = 0.04
+		archer_cavalry_damage_mult = 0.04
+		archer_cavalry_pursuit_mult = 0.04
+		light_cavalry_toughness_mult = 0.02
+		light_cavalry_screen_mult = 0.02
+		archer_cavalry_toughness_mult = 0.02
+	}
+	
+	next_building = military_hunting_ground_02
+
+	type_icon = "icon_building_hunting_grounds.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+military_hunting_ground_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_hunting_ground_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.08
+		light_cavalry_pursuit_mult = 0.08
+		archer_cavalry_damage_mult = 0.08
+		archer_cavalry_pursuit_mult = 0.08
+		light_cavalry_toughness_mult = 0.04
+		light_cavalry_screen_mult = 0.04
+		archer_cavalry_toughness_mult = 0.04
+	}
+	
+	next_building = military_hunting_ground_03
+
+	type_icon = "icon_building_hunting_grounds.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+military_hunting_ground_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_hunting_ground_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 550 }
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.12
+		light_cavalry_pursuit_mult = 0.12
+		archer_cavalry_damage_mult = 0.12
+		archer_cavalry_pursuit_mult = 0.12
+		light_cavalry_toughness_mult = 0.06
+		light_cavalry_screen_mult = 0.06
+		archer_cavalry_toughness_mult = 0.06
+	}
+	
+	next_building = military_hunting_ground_04
+
+	type_icon = "icon_building_hunting_grounds.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+military_hunting_ground_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        military_hunting_ground_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 700 }
+
+	character_modifier = {
+		light_cavalry_damage_mult = 0.16
+		light_cavalry_pursuit_mult = 0.16
+		archer_cavalry_damage_mult = 0.16
+		archer_cavalry_pursuit_mult = 0.16
+		light_cavalry_toughness_mult = 0.08
+		light_cavalry_screen_mult = 0.08
+		archer_cavalry_toughness_mult = 0.08
+	}
+	
+	type_icon = "icon_building_hunting_grounds.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#훈련소
+
+training_school_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        training_school_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+
+	character_modifier = {
+		pikemen_damage_mult = 0.06
+		heavy_infantry_damage_mult = 0.06
+		pikemen_toughness_mult = 0.04
+		heavy_infantry_toughness_mult = 0.04
+	}
+	
+	next_building = training_school_02
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+training_school_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        training_school_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	character_modifier = {
+		pikemen_damage_mult = 0.1
+		heavy_infantry_damage_mult = 0.1
+		pikemen_toughness_mult = 0.06
+		heavy_infantry_toughness_mult = 0.06
+	}
+	
+	next_building = training_school_03
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+training_school_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        training_school_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 550 }
+
+	character_modifier = {
+		pikemen_damage_mult = 0.14
+		heavy_infantry_damage_mult = 0.14
+		pikemen_toughness_mult = 0.08
+		heavy_infantry_toughness_mult = 0.08
+	}
+	
+	next_building = training_school_04
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+training_school_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        training_school_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 700 }
+
+	character_modifier = {
+		pikemen_damage_mult = 0.18
+		heavy_infantry_damage_mult = 0.18
+		pikemen_toughness_mult = 0.1
+		heavy_infantry_toughness_mult = 0.1
+	}
+	
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#유격장
+
+range_traning_field_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        range_traning_field_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 250 }
+
+	character_modifier = {
+		archers_damage_mult = 0.06
+		skirmishers_damage_mult = 0.04
+		skirmishers_pursuit_mult = 0.04
+		archers_toughness_mult = 0.02
+		skirmishers_toughness_mult = 0.02
+	}
+	
+	next_building = range_traning_field_02
+
+	type_icon = "icon_building_regimental_grounds.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+range_traning_field_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        range_traning_field_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	character_modifier = {
+		archers_damage_mult = 0.1
+		skirmishers_damage_mult = 0.08
+		skirmishers_pursuit_mult = 0.08
+		archers_toughness_mult = 0.04
+		skirmishers_toughness_mult = 0.04
+	}
+	
+	next_building = range_traning_field_03
+
+	type_icon = "icon_building_regimental_grounds.dds"
+	
+	ai_value = {
+		base = 8
+		ai_general_building_modifier = yes
+	}
+}
+
+range_traning_field_03 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        range_traning_field_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 550 }
+
+	character_modifier = {
+		archers_damage_mult = 0.14
+		skirmishers_damage_mult = 0.12
+		skirmishers_pursuit_mult = 0.12
+		archers_toughness_mult = 0.06
+		skirmishers_toughness_mult = 0.06
+	}
+	
+	next_building = range_traning_field_04
+
+	type_icon = "icon_building_regimental_grounds.dds"
+	
+	ai_value = {
+		base = 6
+		ai_general_building_modifier = yes
+	}
+}
+
+range_traning_field_04 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        range_traning_field_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 700 }
+
+	character_modifier = {
+		archers_damage_mult = 0.18
+		skirmishers_damage_mult = 0.16
+		skirmishers_pursuit_mult = 0.16
+		archers_toughness_mult = 0.08
+		skirmishers_toughness_mult = 0.08
+	}
+	
+	type_icon = "icon_building_regimental_grounds.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+##4티어##
+
+#동원건물#
+
+mobilization_building_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        mobilization_building_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	province_culture_modifier = {
+		levy_size = 0.2
+	}
+	
+	next_building = mobilization_building_02
+
+	type_icon = "icon_building_military_academy.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+mobilization_building_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        mobilization_building_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 600 }
+
+	province_culture_modifier = {
+		levy_size = 0.4
+	}
+	
+	type_icon = "icon_building_military_academy.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#공병대 학교#
+sapper_school_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        sapper_school_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	county_modifier = {
+		build_gold_cost = -0.15
+	}
+
+	character_modifier = {
+		siege_weapon_siege_value_mult = 0.25
+		martial = 2	
+	}
+	
+	next_building = sapper_school_02
+
+	type_icon = "icon_building_military_academy.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+sapper_school_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        sapper_school_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 600 }
+
+	county_modifier = {
+		build_gold_cost = -0.3
+	}
+
+	character_modifier = {
+		siege_weapon_siege_value_mult = 0.25
+		martial = 4
+	}
+	
+	type_icon = "icon_building_military_academy.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#마상경기장
+
+jousting_arena_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        jousting_arena_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 500 }
+
+	character_modifier = {
+		knight_limit = 3
+		knight_effectiveness_mult = 0.5
+	}
+	
+	next_building = jousting_arena_02
+
+	type_icon = "icon_building_jousting_lists.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+jousting_arena_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        jousting_arena_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 1000 }
+
+	character_modifier = {
+		knight_limit = 6
+		knight_effectiveness_mult = 0.5
+	}
+	
+	type_icon = "icon_building_jousting_lists.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#군마양성소
+
+war_horse_center_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        war_horse_center_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 500 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.09
+		heavy_cavalry_toughness_mult = 0.05
+	}
+	
+	next_building = war_horse_center_02
+
+	type_icon = "icon_building_jousting_lists.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+war_horse_center_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        war_horse_center_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 1000 }
+
+	character_modifier = {
+		heavy_cavalry_damage_mult = 0.18
+		heavy_cavalry_toughness_mult = 0.1
+	}
+	
+	type_icon = "icon_building_jousting_lists.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#마시장
+
+horse_market_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+       horse_market_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	character_modifier = {
+		light_cavalry_damage_add = 4
+		light_cavalry_pursuit_add = 4
+		archer_cavalry_damage_add = 4
+		archer_cavalry_pursuit_add = 4
+		light_cavalry_toughness_add = 2
+		light_cavalry_screen_add = 2
+		archer_cavalry_toughness_add = 2
+	}
+	
+	next_building = horse_market_02
+
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+horse_market_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+       horse_market_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 600 }
+
+	character_modifier = {
+		light_cavalry_damage_add = 8
+		light_cavalry_pursuit_add = 8
+		archer_cavalry_damage_add = 8
+		archer_cavalry_pursuit_add = 8
+		light_cavalry_toughness_add = 4
+		light_cavalry_screen_add = 4
+		archer_cavalry_toughness_add = 4
+	}
+	
+	type_icon = "icon_building_pastures.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#근위대
+
+royal_guard_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        royal_guard_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	character_modifier = {
+		pikemen_damage_add = 4
+		heavy_infantry_damage_add = 4
+		pikemen_toughness_add = 2
+		heavy_infantry_toughness_add = 2
+	}
+	
+	next_building = royal_guard_02
+
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+royal_guard_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+        royal_guard_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 600 }
+
+	character_modifier = {
+		pikemen_damage_add = 9
+		heavy_infantry_damage_add = 9
+		pikemen_toughness_add = 5
+		heavy_infantry_toughness_add = 5
+	}
+	
+	type_icon = "icon_building_barracks.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
+
+#레인저양성소
+
+special_force_center_01 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+       special_force_center_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	character_modifier = {
+		archers_damage_add = 4
+		skirmishers_damage_add = 4
+		skirmishers_pursuit_add = 4
+		archers_toughness_add = 2
+		skirmishers_toughness_add = 2
+	}
+	
+	next_building = special_force_center_02
+
+	type_icon = "icon_building_warcamps.dds"
+	
+	ai_value = {
+		base = 10
+		ai_general_building_modifier = yes
+	}
+}
+
+special_force_center_02 = {
+    construction_time = standard_construction_time
+
+    can_construct_potential = {
+       special_force_center_trigger = yes
+	}
+
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost = { gold = 400 }
+
+	character_modifier = {
+		archers_damage_add = 9
+		skirmishers_damage_add = 8
+		skirmishers_pursuit_add = 8
+		archers_toughness_add = 4
+		skirmishers_toughness_add = 4
+	}
+
+	type_icon = "icon_building_warcamps.dds"
+	
+	ai_value = {
+		base = 5
+		ai_general_building_modifier = yes
+	}
+}
