@@ -1,143 +1,73 @@
-has_no_other_farming_facility_for_pastures_trigger = {
-    NOR ={
-        has_building_or_higher = out_of_wall_farm_1
-        has_building_or_higher = out_of_wall_farm_2
-        has_building_or_higher = out_of_wall_farm_3
-        has_building_or_higher = commodity_crops
-        has_building_or_higher = grand_farmland
-        has_building_or_higher = mill
-        has_building_or_higher = reclaimed_land
-        has_building_or_higher = grand_planatation
-    }
-}
-
-building_grand_farmland_trigger = {
-    OR = {
-        AND = {
-            has_building_or_higher = out_of_wall_farm_1
-            has_building_or_higher = out_of_wall_farm_2
-        }
-        AND = {
-
-            has_building_or_higher = out_of_wall_farm_1
-            has_building_or_higher = out_of_wall_farm_3
-        }
-    }
-}
-
-building_fur_exchange_trigger = {
-    OR = {
-        AND ={
-            has_building_or_higher = huntsman_hut
-            has_building_or_higher = inn
-        }
-        has_building_or_higher = the_guild
-    }
-    NOT = {
-        has_building_or_higher = royal_hunting_ground
-    }
-}
-
-building_material_collection_point_trigger = {
-    OR = {
-        AND ={
-            has_building_or_higher = commercial_district
-            #development
-        }
-        has_building_or_higher = the_guild
-    }
-    NOT = {
-        has_building_or_higher = royal_hunting_ground
-    }
-}
-
-building_material_collection_point_trigger = {
-    OR = {
-        AND ={
-            has_building_or_higher = post_office
-            #has_building_or_higher = road
-        }
-        has_building_or_higher = the_guild
-    }
-    NOT = {
-        has_building_or_higher = royal_hunting_ground
-    }
-}
-
-building_pantry_trigger = {
-    OR = {
-        AND ={
-            has_building_or_higher = post_office
-            has_building_or_higher = out_of_wall_farm
-            #has_building_or_higher = road
-        }
-        has_building_or_higher = the_guild
-    }
-    NOT = {
-        has_building_or_higher = royal_hunting_ground
-    }
-}
-
-has_no_harbor_requirement_trigger = {
+farming_root_trigger = {
+    has_building_or_higher = economy_district_01
     NOR = {
-        has_building_or_higher = harbor_district
+        has_building_or_higher = orchard_01
+        has_building_or_higher = lumberyard_01
+        has_building_or_higher = aboretum_01
+        has_building_or_higher = mining_ground_01
+        has_building_or_higher = handicraft_01
+        has_building_or_higher = rural_smithy_01
+        has_building_or_higher = inn_01
+        has_building_or_higher = marketplace_01
     }
 }
 
-has_no_other_economy_district_not_for_royal_trigger = {
+lumber_root_trigger = {
+    has_building_or_higher = economy_district_01
     NOR = {
-        has_building_or_higher = suburban_farm
-        has_building_or_higher = out_of_wall_farm_1
-        has_building_or_higher = out_of_wall_farm_2
-        has_building_or_higher = out_of_wall_farm_3
-        has_building_or_higher = commodity_crops
-        has_building_or_higher = pastures
-        has_building_or_higher = grand_farmland
-        has_building_or_higher = mill
-        has_building_or_higher = reclaimed_land
-        has_building_or_higher = grand_plantation
-        
-        has_building_or_higher = lumberyard
-        has_building_or_higher = saw_mill
-        has_building_or_higher = forest_garden
-        has_building_or_higher = huntsman_hut
-        has_building_or_higher = hardwood_mill
-        has_building_or_higher = construction_guild
+        has_building_or_higher = gristmill_01
+        has_building_or_higher = mining_ground_01
+        has_building_or_higher = handicraft_01
+        has_building_or_higher = rural_smithy_01
+        has_building_or_higher = inn_01
+        has_building_or_higher = marketplace_01
+    }
+}
 
-        has_building_or_higher = mining_ground
-        has_building_or_higher = quarry
-        has_building_or_higher = mine_1
-        has_building_or_higher = mine_2
-        has_building_or_higher = coal_mine
-        has_building_or_higher = gold_mine
-        has_building_or_higher = salt_mine
-        has_building_or_higher = marble_quarry
-        has_building_or_higher = grand_open_pit_mine
+mining_root_trigger = {
+    has_building_or_higher = economy_district_01
+    NOR = {
+        has_building_or_higher = gristmill_01
+        has_building_or_higher = orchard_01
+        has_building_or_higher = lumberyard_01
+        has_building_or_higher = aboretum_01
+        has_building_or_higher = rural_smithy_01
+        has_building_or_higher = inn_01
+        has_building_or_higher = marketplace_01
+    }
+}
 
-        has_building_or_higher = rural_smithy
-        has_building_or_higher = food_processor
-        has_building_or_higher = craft_guild
-        has_building_or_higher = tool_manufacture
-        has_building_or_higher = factory
-        has_building_or_higher = wool_factory
-        has_building_or_higher = industrialized_factory
+production_root_trigger = {
+    has_building_or_higher = economy_district_01
+    NOR = {
+        has_building_or_higher = gristmill_01
+        has_building_or_higher = orchard_01
+        has_building_or_higher = lumberyard_01
+        has_building_or_higher = aboretum_01
+        has_building_or_higher = mining_ground_01
+        has_building_or_higher = handicraft_01
+        has_building_or_higher = inn_01
+        has_building_or_higher = marketplace_01
+    }
+}
 
-        has_building_or_higher = marketplace
-        has_building_or_higher = inn
-        has_building_or_higher = commercial_district
-        has_building_or_higher = post_office
-        has_building_or_higher = fur_exchange
-        has_building_or_higher = the_guild
-        has_building_or_higher = local_bank
-        has_building_or_higher = material_collection_point
-        has_building_or_higher = pantry
+trade_root_trigger = {
+    has_building_or_higher = economy_district_01
+    NOR = {
+        has_building_or_higher = gristmill_01
+        has_building_or_higher = orchard_01
+        has_building_or_higher = lumberyard_01
+        has_building_or_higher = aboretum_01
+        has_building_or_higher = mining_ground_01
+        has_building_or_higher = handicraft_01
+        has_building_or_higher = rural_smithy_01
     }
 }
 
 
 
 
-########################### ±º»çÁö±¸ #########################
+########################### ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ #########################
 
 military_farm_trigger = {
 	has_building_or_higher = military_district_01
