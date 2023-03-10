@@ -1,2 +1,185 @@
 ﻿l_korean:
- innovation_metorpolis_building:0 "메트로폴리스 건설"
+ cb_discount_prestige_10:0 "[casus_belli|E] [prestige|E] 비용: #P -10%#!"
+ cb_discount_piety_10:0 "[casus_belli|E] [piety|E] 비용: #P -10%#!"
+ individual_county_de_jure_cb:0 "각각의 [de_jure|E] [county|E]"
+ individual_duchy_de_jure_cb:0 "각각의 [de_jure|E] [duchy|E]"
+ multiple_claim_wars:1 "한 전쟁에서 자신의 여러 [claims|E]으로 압박 가능"
+ multiple_claim_wars_others:0 "한 전쟁에서 타인의 여러 [claims|E]으로 압박 가능"
+ fabricate_claim_speed:0 ""영지 명분 위조" [councillor_task|E] 속도: #P +50%#!"
+ promote_culture_speed:0 ""문화 촉진" [councillor_task|E] 속도: #P +15%#!"
+ same_culture_group_reduced_factionalism:1 "당신의 [culture_group|E]에 속한 [vassals|E]이 [independence_factions|E]에 가담할 확률이 줄어듦"
+ reduce_develop_county_penalty_01:0 "이제 영지의 [development|E] 점수가 20일 때 [existing_development|E] 최대 불이익 상태가 됩니다."
+ reduce_develop_county_penalty_02:0 "이제 영지의 [development|E] 점수가 35일 때 [existing_development|E] 최대 불이익 상태가 됩니다."
+ reduce_develop_county_penalty_03:0 "이제 영지의 [development|E] 점수가 55일 때 [existing_development|E] 최대 불이익 상태가 됩니다."
+ reduce_develop_county_penalty_04:0 "이제 영지의 [development|E] 점수가 90일 때 [existing_development|E] 최대 불이익 상태가 됩니다."
+
+
+
+
+ unlock_tribal_economic_buildings:0 "모든 부족 시대 [economic_buildings|E] 잠금 해제"
+ unlock_tribal_military_buildings:0 "모든 부족 시대 [military_buildings|E] 잠금 해제"
+ unlock_tribal_fortification_buildings:0 "모든 부족 시대 [fortification_buildings|E] 잠금 해제"
+ unlock_early_medieval_economic_buildings:0 "모든 전기 중세 시대 [economic_buildings|E] 잠금 해제"
+ unlock_early_medieval_military_buildings:0 "모든 전기 중세 시대 [military_buildings|E] 잠금 해제"
+ unlock_early_medieval_fortification_buildings:0 "모든 전기 중세 시대 [fortification_buildings|E] 잠금 해제"
+ unlock_high_medieval_economic_buildings:0 "모든 성기 중세 시대 [economic_buildings|E] 잠금 해제"
+ unlock_high_medieval_military_buildings:0 "모든 성기 중세 시대 [military_buildings|E] 잠금 해제"
+ unlock_high_medieval_fortification_buildings:0 "모든 성기 중세 시대 [fortification_buildings|E] 잠금 해제"
+ unlock_late_medieval_economic_buildings:0 "모든 후기 중세 시대 [economic_buildings|E] 잠금 해제"
+ unlock_late_medieval_military_buildings:0 "모든 후기 중세 시대 [military_buildings|E] 잠금 해제"
+ unlock_late_medieval_fortification_buildings:0 "모든 후기 중세 시대 [fortification_buildings|E] 잠금 해제"
+ unlocks_naval_raiding:0 "[raid|E] 기능을 사용할 수 있다면 해상 [raid|E] 기능도 사용 가능"
+ unlocks_sailable_major_rivers:1 "대하를 항해할 수 있는 능력 잠금 해제"
+ 
+ unlock_march_contract:0 "#high $special_contract_march_short$#! [feudal_contract|E]이 잠금 해제됨"
+ unlock_scutage_contract:0 "#high $special_contract_scutage_short$#! [feudal_contract|E]이 잠금 해제됨"
+ unlock_palatinate_contract:0 "#high $special_contract_palatinate_short$#! [feudal_contract|E]이 잠금 해제됨"
+ unlock_fortification_rights_contract:0 "#high $fortification_rights$#! [feudal_contract|E]이 잠금 해제됨"
+ unlock_coinage_rights_contract:0 "#high $coinage_rights$#! [feudal_contract|E]이 잠금 해제됨"
+
+##############
+# Tribal Era #
+##############
+
+ innovation_hereditary_rule:0 "세습 제도"
+ innovation_hereditary_rule_desc:0 "자격 있는 후계자 모두에게 봉역을 균분하는 것은 분열의 원인이 되기도 합니다. 상속 때마다 봉역을 갈가리 찢느니 세습 제도를 확립, 핵심 영지를 확보해 안정과 번영을 꾀해야 합니다."
+ 
+ innovation_casus_belli:0 "전쟁 명분"
+ innovation_casus_belli_desc:0 "힘이 곧 법이다, 수세대에 걸쳐 내려온 이 땅의 법칙이긴 하지만, 우리의 전쟁을 정당화할 수만 있다면 이웃의 노여움과 전쟁에 뒤따르는 앙갚음을 피할 수 있을지도 모릅니다."
+
+ innovation_ledger:0 "장부"
+ innovation_ledger_desc:0 "영지가 성장함에 따라 더 훌륭한 재산 조사 방법이 필요해졌습니다. 재산을 장부에 기재해두면 가용한 자원이 어느 정도인지 언제나 확인할 수 있을 겁니다."
+ 
+ innovation_civic_council:0 "주민회의"
+ innovation_civic_council_desc:0 "대한민국은 사건이전 마을 주민들끼리 모여서 마을의 중대사를 결정했습니다. 우리도 옛관습을 따른다면 우리의 인력을 효율적으로 사용할 수 있을 것입니다"
+
+ innovation_public_works:0 "공공사업"
+ innovation_public_works_desc:0 "우리가 우리의 영지에 다양한 공공사업을 실시한다면 영지는 더 부유해질 것입니다. 그리고 이러한 기반은 도시가 발생할 수 있는 좋은 조건이 될 것입니다"
+
+ innovation_social_prestige:0 "사회적 위신"
+ innovation_social_prestige_desc:0 "위신은 중대문제입니다. 우리가 우리의 사회적인 지위를 높게 유지할 수만 있다면 우리는 더 효율적인 통치가 가능해질 것입니다"
+
+ innovation_national_church:0 "국민교회주의"
+ innovation_national_church_desc:0 "비효율적이고 분산된 민간신앙대신 조직적인 국가종교를 택한다면 우리는 신앙을 통해 더 효율적인 영지경영이 가능해 질 것입니다."
+
+ innovation_band:0 "악단"
+ innovation_band_desc:0 "우리 영지에는 사건이전부터 내려져오던 수많은 전통악기가 있습니다. 피아노, 바이올린, 리코더, 기타등등들을 모아 악단을 만든다면 우리는 우리삶을 더 풍족하게 보낼 수 있을 것입니다"
+
+ innovation_NH:0 "농협"
+ innovation_NH_desc:0 "사건이전부터 농업협동조합 일명 농협이 지역에 있었습니다. 이것을 재건한다면 농민들의 도움을 통해 지역을 재건하는데 많은 도움이 될 것입니다"
+
+ innovation_five_market:0 "오일장"
+ innovation_five_market_desc:0 "5일마다 열린다고 하여 이름붙여진 5일장은 사건이전 시골마을의 대표적인 시장입니다. 우리가 이 전통을 부활시킨다면 각 지역의 자원들을 더 효율적으로 사용하고 지역을 더 빠르게 발전시킬 수 있을 것입니다"
+
+
+######################
+# Early Medieval Era #
+###################### 
+  
+ innovation_genealogy:0 "계보학"
+ innovation_genealogy_desc:0 "우리 가문의 뿌리를 찾고 그것을 연구하는것은 가문의 자부심을 위해 많은 도움이 될 것입니다. 그리고 이러한 자부심은 우리가문을 유지하기 위해 구성원이 약간의 희생또한 감수하게 할수 있는 좋은 원동력이 됩니다"
+
+ innovation_royal_privilege:0 "왕가의 특권"
+ innovation_royal_privilege_desc:0 "왕의 지위가 다른사람과 조금 특별한 위치에 있다는 것은 상식입니다. 우리는 이 특별한 위치를 통해 우리의 권리를 강화할 수 있을 것입니다"
+
+ innovation_local_government:0 "지방관"
+ innovation_local_government_desc:0 "우리는 지역을 통제하기 위해 관리들을 보내야합니다. 이러한 관리들은 각 지역을 효율적으로 관리하는데 큰 도움이 될 것입니다"
+
+ innovation_communal_government:0 "공동체 정부"
+ innovation_communal_government_desc:0 "거대한 도시들은 정기적으로 일련의 복잡한 문제들과 씨름하게 됩니다. 지방 의회에 일부 권한을 위임하면 왕이 개입하지 않고도 문제를 해결할 수 있을 겁니다."
+
+ innovation_private_army_dismissal:0 "사병혁파"
+ innovation_private_army_dismissal_desc:0 "지방귀족들의 사병은 나라를 위태롭게만 할뿐 어떠한 도움이 되지 않습니다. 우리가 지방귀족들의 사병을 해체시킨다면 봉역을 안정적으로 운영할수 있을 것입니다"
+
+ innovation_seodang:0 "서당"
+ innovation_seodang_desc:0 "서당은 조선시대에 있었던 전근대적 교육기관입니다. 우리가 서당을 다시 재건한다면 우리가 주민들에게 효율적으로 일하는 법을 알려줄 수 있을 뿐 아니라 우리의 지배철학을 주입시켜 민중의 불만을 잠재울 수있을 것입니다"
+
+ innovation_university:0 "대학"
+ innovation_university_desc:0 "우리가 국가를 발전시키 위해서는 고등교육을 받은 인재가 필요합니다. 대학을 설립하는 것은 우리가 고등교육을 받은 인재를 양성하는데 있어 큰 도움이 될 것입니다"
+
+ innovation_royalty:0 "忠"
+ innovation_royalty_desc:0 "주군에게 충성하는것은 당연한 의무이자 그 자체만으로도 권리입니다. 우리는 이러한 충성을 강조함으로서 조금더 강력한 권한을 누릴수 있을 것입니다"
+
+ innovation_market_street:0 "저잣거리"
+ innovation_market_street_desc:0 "저잣거리는 가게가 늘어서 있는 거리를 말하는 말입니다. 저잣거리가 늘어나면서 우리는 더 효율적으로 지역을 발전시킬 수 있습니다 "
+
+ innovation_judge:0 "법관"
+ innovation_judge_desc:"더 공정하고 더 능력있는 법관의 존재는 나라가 발전하면서 당연히 필요한 존재입니다. 법관의 도움으로 우리는 사법체계를 효과적이고 정당하게 사용할 수 있을 것입니다"
+
+
+#####################
+# High Medieval Era #
+#####################
+
+ innovation_primogeniture:0 "장자상속제"
+ innovation_primogeniture_desc:0 "우리가 국가를 효과적으로 유지할려면 장자가 국가를 상속해야합니다. "
+
+ innovation_social_contract:0 "사회계약설"
+ innovation_social_contract_desc:0 "우리가 우리의 재산을 보호하기 위해 사회를 통하여 계약되었다는 사회계약설을 이용한다면 우리의 통치를 조금더 정당화 할 수 있습니다"
+
+ innovation_land_reform:0 "토지개혁"
+ innovation_land_reform_desc:0 "지주들이 가진 토지를 자영농에게 나눠주는 토지개혁은 지방의 힘을 약화시키고 중앙의 힘을 강화시킬 수 있습니다."
+ 
+ innovation_urbanization:0 "도시화"
+ innovation_urbanization_desc:0 "사회가 발전하면서 수많은 작업장과 시장, 주민들이 몰리고 있습니다."
+
+ innovation_kaozheng:0 "고증학"
+ innovation_kaozheng_desc:0 "사건 이전의 것을 연구하고 배우는 것은 많은 도움이 될 것입니다. 과거에 대한 이해를 바탕으로 우리는 현재를 발전시킬 수 있습니다"
+
+ innovation_patriotism:0 "애국주의"
+ innovation_patriotism_desc:0 "우리가 애국심을 강조한다면 조금더 효과적으로 시민들을 이용할수 있습니다. 애국이라는 말은 어떤한 돈이 들지 않습니다"
+
+ innovation_mercantilism:0 "중상주의"
+ innovation_mercantilism_desc:0 "강력한 관세를 기반으로 우리의 상업을 키우는 것은 국가경제에 큰 도움이 될 것입니다"
+
+ innovation_physiognomy:0 "중농주의"
+ innovation_physiognomy_desc:0 "오로지 땅에서 나는 것많이 가치를 창출합니다. 토지생산에서 나오는 부는 우리를 모두 풍요롭게 할 것입니다"
+
+ innovation_gwageoje:0 "과거제"
+ innovation_gwageoje_desc:0 "이제 추천으로 뽑던 시대는 사라졌습니다. 우리는 사람의 능력에 따라 중요한 인재를 뽑을 것입니다."
+
+ innovation_bank:0 "은행"
+ innovation_bank_desc:0 "은행의 설립은 화폐의 유통을 통해 효과적으로 우리 산업을 지원할 수 있습니다."
+
+#####################
+# Late Medieval Era #
+##################### 
+ 
+ innovation_levee_en_masse:0 "국민개병제"
+ innovation_levee_en_masse_desc:0 "우리 나라의 모든 시민은 국가를 위해 국방의 의무를 지는 것이 당연합니다. 우리는 이것을 통해 많은 숫자의 군대를 동원할 수 있습니다"
+
+ innovation_natural_rights:0 "천부인권"
+ innovation_natural_rights_desc:0 "모든 사람은 절대로 양도불가능한 하늘로부터 내려온 권리를 지니고 있습니다. 우리가 이러한 사상을 받아들이고 이용한다면 시민의 불만을 잠재울 수 있습니다"
+
+ innovation_public_school:0 "공립학교"
+ innovation_public_school_desc:0 "이제 학교또한 국가에서 운영합니다. 그리고 이러한 학교를 잘만 이용한다면 우리 지배계급의 이데올로기를 효과적으로 주입할 수 있습니다"
+
+ fast_conversion:0 "영지의 개종속도와 문화촉진속도가 50%상승합니다"
+ PUBLIC_SCHOOL:0 "공립학교"
+
+ innovation_constitution:0 "헌법"
+ innovation_constitution_desc:0 "체계적으로 구성된 헌법은 통치의 근간이자 핵심입니다. 굳건하게 세워진 헌법은 우리 나라를 굳건하게 세울 것입니다"
+
+ innovation_nationalism:0 "민족주의"
+ innovation_nationalism_desc:0 "이제 우리는 우리 민족끼리 뭉쳐야 합니다. 같은 민족끼리 하나의 국가가 되어 절대로 떨어지지 않을 것입니다"
+
+ innovation_official:0 "공무원"
+ innovation_official_desc:0 "선진적인 공무원제도는 더 많은 영지를 효과적으로 다스릴 수 있습니다. 이를 통해서 우리는 중앙의 영향을 확대할 수 있습니다"
+
+ innovation_press:0 "언론"
+ innovation_press_desc:0 "언론의 창설은 다양한 사실을 민중들에게 알릴수 있습니다. 그리고 이것을 이용한다면 나의 행동을 정당화하는데 큰 도움이 될 것입니다"
+
+ innovation_assembly:0 "의회"
+ innovation_assembly_desc:0 "시민들의 의견을 모을 수 있는 기관은 지방의 불만을 잠재우고, 또한 그자체만으로도 효과적인 통치의 기반입니다"
+
+ innovation_social_welfare:0 "사회복지"
+ innovation_social_welfare_desc:0 "우리는 국가의 빈민들을 돌봐야 합니다. 이것이 우리의 의무입니다"
+
+ innovation_police:0 "경찰"
+ innovation_police_desc:0 "강력한 경찰은 우리 봉역을 치안을 유지합니다. 또한 이러한 경찰들은 반항적인 영주들을 감시할 수 있는 일종의 수단이기도 합니다."
+
+ innovation_industrialization:0 "산업화"
+ innovation_industrialization_desc:0 "수많은 연기가 하늘을 다시 덮습니다. 흐린 하늘이 수백년만에 돌아왔습니다. 이제 다시 공장이 세워지고 돌아갑니다. 그리고 도시는 한층더 빠르게 발전합니다"
+
+ innovation_positivism:0 "실증주의"
+ innovation_positivism_desc:0 "우리는 우리가 경험한 것만을 다뤄야합니다. 초자연적인것에 대한 담론은 아무런 의미가 없습니다"

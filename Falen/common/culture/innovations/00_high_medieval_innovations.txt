@@ -31,172 +31,135 @@
 @special_maa_01 = "gfx/interface/icons/culture_innovations/innovation_special_maa_01.dds"
 @special_maa_02 = "gfx/interface/icons/culture_innovations/innovation_special_maa_02.dds"
 
-#culture_group_military
-innovation_hoardings = {
-	group = culture_group_military
+innovation_primogeniture = {
+	group = culture_group_civic
 	culture_era = culture_era_high_medieval
 	icon = @fortifications
 
-	custom = unlock_high_medieval_fortification_buildings
+	unlock_law = single_heir_succession_law
+	unlock_law = single_heir_succession_law_youngest
 
 	flag = global_regular
 	flag = high_medieval_era_regular
 }
 
-innovation_trebuchet = {
-	group = culture_group_military
+innovation_social_contract = {
+	group = culture_group_civic
 	culture_era = culture_era_high_medieval
 	icon = @siege_weapons
 
-	unlock_maa = trebuchet
+	unlock_law = crown_authority_3
+	modifier = {
+		short_reign_duration_mult = -0.2
+	}
 
 	flag = global_regular
 	flag = high_medieval_era_regular
 }
 
-innovation_castle_baileys = {
-	group = culture_group_military
+innovation_land_reform = {
+	group = culture_group_civic
 	culture_era = culture_era_high_medieval
 	icon = @levy_building
 
-	custom = unlock_high_medieval_military_buildings
-
 	modifier = {
-		levy_reinforcement_rate = 0.15
+		development_growth_factor = 0.1
 	}
 
 	flag = global_regular
 	flag = high_medieval_era_regular
 }
 
-innovation_men_at_arms = {
-	group = culture_group_military
-	culture_era = culture_era_high_medieval
-	icon = @maa_02
-
-	modifier = {
-		men_at_arms_cap = 1
-		men_at_arms_limit = 4
-	}
-
-	flag = global_regular
-	flag = high_medieval_era_regular
-}
-
-innovation_knighthood = {
-	group = culture_group_military
-	culture_era = culture_era_high_medieval
-	icon = @knight	
-
-	modifier = {
-		direct_vassal_opinion = 5
-		knight_effectiveness_mult = 0.2
-	}
-	custom = students_of_knighthood
-
-	flag = global_regular
-	flag = high_medieval_era_regular
-}
-
-innovation_advanced_bowmaking = {
-	group = culture_group_military
+innovation_urbanization = {
+	group = culture_group_civic
 	culture_era = culture_era_high_medieval
 	icon = @weapons_and_armor_01
 
-	unlock_maa = crossbowmen
-	maa_upgrade = {
-		type = archers
-		damage = 3
+	modifier = {
+		castle_holding_build_gold_cost = -0.2
+		city_holding_build_gold_cost = - 0.2
+		church_holding_build_gold_cost = -0.2
 	}
 
 	flag = global_regular
 	flag = high_medieval_era_regular
 }
 
-#culture_group_civic
-innovation_heraldry = {
+innovation_kaozheng = {
 	group = culture_group_civic
 	culture_era = culture_era_high_medieval
 	icon = @raised_banner
 
-	unlock_law = high_partition_succession_law
-	unlock_law = single_heir_dynasty_house
 	modifier = {
-		monthly_prestige_gain_mult = 0.05
+		monthly_lifestyle_xp_gain_mult = 0.1
 	}
 
 	flag = global_regular
 	flag = high_medieval_era_regular
 }
 
-innovation_windmills = {
+innovation_patriotism = {
 	group = culture_group_civic
 	culture_era = culture_era_high_medieval
 	icon = @civil_construction_1
 
-	custom = unlock_high_medieval_economic_buildings
-
 	modifier = {
-		domain_tax_mult = 0.05
+		levy_reinforcement_rate = 0.35
 	}
+	unlock_casus_belli = de_jure_cb
+	custom = multiple_claim_wars_others
 
 	flag = global_regular
 	flag = high_medieval_era_regular
 }
 
-innovation_divine_right = {
+innovation_mercantilism = {
 	group = culture_group_civic
 	culture_era = culture_era_high_medieval
 	icon = @majesty_03
 
-	custom = multiple_claim_wars
-
-	custom = unlock_palatinate_contract
-
 	modifier = {
-		short_reign_duration_mult = -0.1
-		monthly_piety_gain_mult = 0.1
-		title_creation_cost_mult = -0.2
+		tax_mult  = 0.1
 	}
 
 	flag = global_regular
 	flag = high_medieval_era_regular
 }
 
-innovation_land_grants = {
+innovation_physiognomy = {
 	group = culture_group_civic
 	culture_era = culture_era_high_medieval
 	icon = @administration_3
 
-	custom = fabricate_claim_speed
-	custom = cb_discount_prestige_10
-
-	flag = global_regular
-	flag = high_medieval_era_regular
-}
-
-innovation_scutage = {
-	group = culture_group_civic
-	culture_era = culture_era_high_medieval
-	icon = @leadership_2
-
-	custom = unlock_scutage_contract
-	
 	modifier = {
-		republic_government_tax_contribution_mult = 0.05
+		domain_tax_mult  = 0.1
+		levy_size = 0.1
 	}
 
 	flag = global_regular
 	flag = high_medieval_era_regular
 }
 
-innovation_guilds = {
+innovation_gwageoje = {
 	group = culture_group_civic
 	culture_era = culture_era_high_medieval
 	icon = @nobility_01
 
 	modifier = {
 		domain_limit = 1
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+innovation_bank = {
+	group = culture_group_civic
+	culture_era = culture_era_high_medieval
+	icon = @majesty_02
+
+	modifier = {
+		tax_mult = 0.07
 	}
 
 	flag = global_regular
@@ -214,13 +177,30 @@ innovation_development_03 = {
 	flag = high_medieval_era_regular
 }
 
-innovation_currency_03 = {
-	group = culture_group_civic
+innovation_trebuchet = {
+	group = culture_group_military
 	culture_era = culture_era_high_medieval
-	icon = @majesty_02
+	icon = @siege_weapons
 
+	unlock_maa = trebuchet
 	modifier = {
-		development_growth_factor = 0.1
+		men_at_arms_cap = 1
+		men_at_arms_limit = 4
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+innovation_advanced_bowmaking = {
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @weapons_and_armor_01
+
+	unlock_maa = crossbowmen
+	maa_upgrade = {
+		type = archers
+		damage = 3
 	}
 
 	flag = global_regular

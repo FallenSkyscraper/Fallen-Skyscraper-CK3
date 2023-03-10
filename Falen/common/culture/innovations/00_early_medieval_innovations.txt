@@ -31,111 +31,75 @@
 @special_maa_01 = "gfx/interface/icons/culture_innovations/innovation_special_maa_01.dds"
 @special_maa_02 = "gfx/interface/icons/culture_innovations/innovation_special_maa_02.dds"
 
-#culture_group_military
-innovation_battlements = {
-	group = culture_group_military
+innovation_genealogy = {
+	group = culture_group_civic
 	culture_era = culture_era_early_medieval
 	icon = @fortifications
 
-	custom = unlock_early_medieval_fortification_buildings
-	
-	custom = unlock_fortification_rights_contract
-	
-	modifier = {
-		men_at_arms_maintenance = -0.05
-	}
+	unlock_law = high_partition_succession_law
+	unlock_law = single_heir_dynasty_house	
 
 	flag = global_regular
 	flag = early_medieval_era_regular
 }
 
-
-
-innovation_mangonel = {
-	group = culture_group_military
+innovation_royal_privilege = {
+	group = culture_group_civic
 	culture_era = culture_era_early_medieval
 	icon = @siege_weapons
 
-	unlock_maa = mangonel
+	unlock_law = crown_authority_2
+	modifier = {
+		monthly_prestige_gain_mult = 0.1
+	}
+	custom = multiple_claim_wars
+	custom = unlock_palatinate_contract
 
 	flag = global_regular
 	flag = early_medieval_era_regular
 }
 
-innovation_burhs = {
-	group = culture_group_military
+innovation_local_government = {
+	group = culture_group_civic
 	culture_era = culture_era_early_medieval
 	icon = @civil_construction_2
-
-
-	custom = unlock_early_medieval_military_buildings
-
-	custom = unlock_march_contract
 	
 	modifier = {
-		levy_size = 0.05
+		title_creation_cost_mult = -0.2
 	}
+	custom = unlock_fortification_rights_contract
 
 	flag = global_regular
 	flag = early_medieval_era_regular
 }
 
-innovation_house_soldiers = {
-	group = culture_group_military
+innovation_communal_government = {
+	group = culture_group_civic
 	culture_era = culture_era_early_medieval
 	icon = @maa_01
 
 	modifier = {
-		men_at_arms_cap = 1
-		men_at_arms_limit = 3
+		domain_limit = 1
 	}
 
 	flag = global_regular
 	flag = early_medieval_era_regular
 }
 
-innovation_horseshoes = {
-	group = culture_group_military
-	culture_era = culture_era_early_medieval
-	icon = @weapons_and_armor_01
-
-	modifier = {
-		movement_speed = 0.1
-	}
-
-	flag = global_regular
-	flag = early_medieval_era_regular
-}
-
-innovation_arched_saddle = {
-	group = culture_group_military
+innovation_private_army_dismissal = {
+	group = culture_group_civic
 	culture_era = culture_era_early_medieval
 	icon = @knight
 
-	unlock_maa = armored_horsemen
-
-	flag = global_regular
-	flag = early_medieval_era_regular
-}
-
-#culture_group_civic
-
-
-innovation_hereditary_rule = {
-	group = culture_group_civic
-	culture_era = culture_era_early_medieval
-	icon = @majesty_02
-
-	unlock_law = partition_succession_law
 	modifier = {
-		monthly_prestige_gain_mult = 0.05
+		vassal_levy_contribution_mult = 0.15
 	}
 
 	flag = global_regular
 	flag = early_medieval_era_regular
 }
 
-innovation_manorialism = {
+innovation_seodang = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
 	icon = @fortifications
@@ -143,7 +107,68 @@ innovation_manorialism = {
 	custom = unlock_early_medieval_economic_buildings
 	
 	modifier = {
-		build_speed = -0.1
+		development_growth_factor = 0.05
+		county_opinion_add = 10
+	}
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+}
+
+innovation_university = {
+	group = culture_group_civic
+	culture_era = culture_era_early_medieval
+	icon = @nobility_03
+
+	modifier = {
+		monthly_lifestyle_xp_gain_mult = 0.05
+	}
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+}
+
+innovation_royalty = {
+	group = culture_group_civic
+	culture_era = culture_era_early_medieval
+	icon = @nobility_01
+	
+	custom = unlock_coinage_rights_contract
+
+	modifier = {
+		tyranny_gain_mult = -0.15
+	}
+	custom = unlock_scutage_contract
+
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+}
+
+innovation_market_street = {
+	group = culture_group_civic
+	culture_era = culture_era_early_medieval
+	icon = @administration_3
+
+	modifier = {
+		castle_holding_holding_build_gold_cost = -0.1
+		city_holding_holding_build_gold_cost = -0.1
+		church_holding_holding_build_gold_cost = -0.1
+	}
+	custom = unlock_coinage_rights_contract
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+}
+
+innovation_judge = {
+	group = culture_group_civic
+	culture_era = culture_era_early_medieval
+	icon = @leadership_1
+
+	modifier = {
+		vassal_opinion = 5
+		opinion_of_vassal = 5
 	}
 
 	flag = global_regular
@@ -161,79 +186,28 @@ innovation_development_02 = {
 	flag = early_medieval_era_regular
 }
 
-innovation_currency_02 = {
-	group = culture_group_civic
+innovation_mangonel = {
+	group = culture_group_military
 	culture_era = culture_era_early_medieval
-	icon = @nobility_01
-	
-	custom = unlock_coinage_rights_contract
+	icon = @siege_weapons
 
+	unlock_maa = mangonel
 	modifier = {
-		development_growth_factor = 0.1
+		men_at_arms_cap = 1
+		men_at_arms_limit = 3
 	}
 
 	flag = global_regular
 	flag = early_medieval_era_regular
 }
 
-innovation_royal_prerogative = {
-	group = culture_group_civic
+innovation_arched_saddle = {
+	group = culture_group_military
 	culture_era = culture_era_early_medieval
-	icon = @majesty_01
+	icon = @knight
 
-	unlock_law = crown_authority_2
-	unlock_law = crown_authority_3
+	unlock_maa = armored_horsemen
 
 	flag = global_regular
 	flag = early_medieval_era_regular
-}
-
-innovation_chronicle_writing = {
-	group = culture_group_civic
-	culture_era = culture_era_early_medieval
-	icon = @administration_3
-
-	unlock_casus_belli = individual_duchy_de_jure_cb
-	custom = cb_discount_prestige_10
-
-	flag = global_regular
-	flag = early_medieval_era_regular
-}
-
-innovation_armilary_sphere = {
-	group = culture_group_civic
-	culture_era = culture_era_early_medieval
-	icon = @misc_inventions
-
-	modifier = {
-		naval_movement_speed_mult = 0.25
-	}
-
-	flag = global_regular
-	flag = early_medieval_era_regular
-}
-
-innovation_baliffs = {
-	group = culture_group_civic
-	culture_era = culture_era_early_medieval
-	icon = @leadership_1
-
-	modifier = {
-		domain_limit = 1
-	}
-
-	flag = global_regular
-	flag = early_medieval_era_regular
-}
-
-innovation_metorpolis_building = { 
-	group = culture_group_civic
-    culture_era = culture_era_early_medieval
-	icon = @civil_construction_2
-
-	unlock_building = Metropolis_01
-
-    flag = global_regular
-	flag = early_medieval_era_regular
-	
 }

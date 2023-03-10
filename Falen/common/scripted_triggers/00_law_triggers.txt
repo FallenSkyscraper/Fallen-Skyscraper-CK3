@@ -142,7 +142,7 @@ can_have_high_partition_succession_law_trigger = {
 				culture = { has_cultural_parameter = can_enact_high_partition_succession_law }
 			}
 		}
-		culture = { has_innovation = innovation_heraldry }
+		culture = { has_innovation = innovation_genealogy }
 	}
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
@@ -213,7 +213,7 @@ can_have_high_youngest_partition_succession_law_trigger = {
 				culture = { has_cultural_parameter = can_enact_high_partition_succession_law }
 			}
 		}
-		culture = { has_innovation = innovation_heraldry }
+		culture = { has_innovation = innovation_genealogy }
 	}
 	custom_description = {
 		text = succession_laws_must_have_organised_nomadic_government_tooltip
@@ -315,7 +315,7 @@ can_have_single_heir_dynasty_house_trigger = {
 			culture = {
 				OR = {
 					has_cultural_pillar = heritage_west_slavic
-					NOT = {	has_innovation = innovation_heraldry }
+					NOT = {	has_innovation = innovation_genealogy }
 				}
 			}
 		}
@@ -325,7 +325,7 @@ can_have_single_heir_dynasty_house_trigger = {
 	}
 	trigger_else = {
 		culture = {
-			has_innovation = innovation_heraldry
+			has_innovation = innovation_genealogy
 		}
 	}
 	trigger_else = {

@@ -177,7 +177,7 @@ special_contract = {
 
 			is_valid = {
 				scope:liege.culture = {
-					has_innovation = innovation_scutage
+					has_innovation = innovation_royalty
 				}
 				scope:vassal.primary_title.tier >= tier_duchy
 			}
@@ -210,7 +210,7 @@ special_contract = {
 
 			is_valid = {
 				scope:liege.culture = {
-					has_innovation = innovation_burhs
+					has_innovation = innovation_civic_council
 				}
 				scope:vassal.primary_title.tier >= tier_duchy
 			}
@@ -246,7 +246,7 @@ special_contract = {
 
 			is_valid = {
 				scope:liege.culture = {
-					has_innovation = innovation_divine_right
+					has_innovation = innovation_royal_privilege
 				}
 				scope:vassal.primary_title.tier >= tier_duchy
 			}
@@ -327,7 +327,7 @@ fortification_rights = {
 	display_mode = checkbox
 	is_shown = {
 		scope:liege.culture = {
-			has_innovation = innovation_battlements
+			has_innovation = innovation_local_government
 		}
 	}
 	obligation_levels = {
@@ -341,7 +341,7 @@ fortification_rights = {
 		fortification_rights_granted = {
 			is_valid = {
 				scope:liege.culture = {
-					has_innovation = innovation_battlements
+					has_innovation = innovation_local_government
 				}
 			}
 			parent = fortification_rights_none
@@ -369,7 +369,7 @@ coinage_rights = {
 	display_mode = checkbox
 	is_shown = {
 		scope:liege.culture = {
-			has_innovation = innovation_currency_02
+			has_innovation = innovation_market_street
 		}
 	}
 	obligation_levels = {
@@ -383,7 +383,7 @@ coinage_rights = {
 		coinage_rights_granted = {
 			is_valid = {
 				scope:liege.culture = {
-					has_innovation = innovation_currency_02
+					has_innovation = innovation_market_street
 				}
 			}
 			parent = coinage_rights_none

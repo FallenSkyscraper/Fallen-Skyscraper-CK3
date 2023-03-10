@@ -238,7 +238,7 @@ city_01 = {
 	
 	can_construct = {
 		culture = {
-			has_innovation = innovation_city_planning
+			has_innovation = innovation_public_works
 		}
 	}
 	
@@ -565,7 +565,7 @@ city_02 = {
 	}
 	can_construct = {
 		culture = {
-			has_innovation = innovation_manorialism
+			has_innovation = innovation_public_works
 		}
 	}
 	cost_gold = main_building_tier_2_cost
@@ -859,7 +859,7 @@ city_03 = {
 	}
 	can_construct = {
 		culture = {
-			has_innovation = innovation_windmills
+			has_innovation = innovation_public_works
 		}
 	}
 	cost_gold = main_building_tier_3_cost
@@ -1154,7 +1154,7 @@ city_04 = {
 	}
 	can_construct = {
 		culture = {
-			has_innovation = innovation_cranes
+			has_innovation = innovation_public_works
 		}
 	}
 	cost_gold = main_building_tier_4_cost
@@ -1275,7 +1275,7 @@ guild_halls_02 = {
 		has_building_or_higher = city_01
 		culture = {
 			OR = {
-				has_innovation = innovation_crop_rotation
+				has_innovation = innovation_public_works
 				has_cultural_parameter = next_level_guild_halls
 			}
 		}
@@ -1313,9 +1313,9 @@ guild_halls_03 = {
 		has_building_or_higher = city_02
 		culture = {
 			OR = {
-				has_innovation = innovation_manorialism
+				has_innovation = innovation_public_works
 				AND = {
-					has_innovation = innovation_crop_rotation
+					has_innovation = innovation_public_works
 					has_cultural_parameter = next_level_guild_halls
 				}
 			}
@@ -1354,9 +1354,9 @@ guild_halls_04 = {
 		has_building_or_higher = city_02
 		culture = {
 			OR = {
-				has_innovation = innovation_manorialism
+				has_innovation = innovation_public_works
 				AND = {
-					has_innovation = innovation_crop_rotation
+					has_innovation = innovation_public_works
 					has_cultural_parameter = next_level_guild_halls
 				}
 			}
@@ -1395,9 +1395,9 @@ guild_halls_05 = {
 		has_building_or_higher = city_03
 		culture = {
 			OR = {
-				has_innovation = innovation_windmills
+				has_innovation = innovation_public_works
 				AND = {
-					has_innovation = innovation_manorialism
+					has_innovation = innovation_public_works
 					has_cultural_parameter = next_level_guild_halls
 				}
 			}
@@ -1436,9 +1436,9 @@ guild_halls_06 = {
 		has_building_or_higher = city_03
 		culture = {
 			OR = {
-				has_innovation = innovation_windmills
+				has_innovation = innovation_public_works
 				AND = {
-					has_innovation = innovation_manorialism
+					has_innovation = innovation_public_works
 					has_cultural_parameter = next_level_guild_halls
 				}
 			}
@@ -1477,9 +1477,9 @@ guild_halls_07 = {
 		has_building_or_higher = city_04
 		culture = {
 			OR = {
-				has_innovation = innovation_cranes
+				has_innovation = innovation_public_works
 				AND = {
-					has_innovation = innovation_windmills
+					has_innovation = innovation_public_works
 					has_cultural_parameter = next_level_guild_halls
 				}
 			}
@@ -1518,9 +1518,9 @@ guild_halls_08 = {
 		has_building_or_higher = city_04
 		culture = {
 			OR = {
-				has_innovation = innovation_cranes
+				has_innovation = innovation_public_works
 				AND = {
-					has_innovation = innovation_windmills
+					has_innovation = innovation_public_works
 					has_cultural_parameter = next_level_guild_halls
 				}
 			}

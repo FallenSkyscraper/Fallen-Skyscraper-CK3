@@ -41,7 +41,7 @@
 					culture = {
 						NOR = {
 							has_innovation = innovation_hereditary_rule
-							has_innovation = innovation_heraldry
+							has_innovation = innovation_genealogy
 						}
 					}
 				}
@@ -93,12 +93,12 @@
 				has_government = manchu_tribal_government
 				historical_succession_access_partition_succession_law_trigger = yes
 			}
-			#culture = {
-			#	has_innovation = innovation_hereditary_rule
-			#	NOT = {
-			#		has_innovation = innovation_heraldry
-			#	}
-			#}
+			culture = {
+				has_innovation = innovation_hereditary_rule
+				NOT = {
+					has_innovation = innovation_genealogy
+				}
+			}
 		}
 		succession = {
 			order_of_succession = inheritance
@@ -145,7 +145,7 @@
 				has_government = clan_government
 			}
 			culture = {
-				has_innovation = innovation_heraldry
+				has_innovation = innovation_genealogy
 				NOT = {
 					has_innovation = innovation_hereditary_rule
 				}
@@ -298,7 +298,7 @@
 				has_government = nomadic_government
 			}
 			culture = {
-				has_innovation = innovation_heraldry
+				has_innovation = innovation_genealogy
 				NOT = {
 					has_innovation = innovation_hereditary_rule
 				}
