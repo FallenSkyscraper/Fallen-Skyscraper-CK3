@@ -31,10 +31,19 @@
 @special_maa_01 = "gfx/interface/icons/culture_innovations/innovation_special_maa_01.dds"
 @special_maa_02 = "gfx/interface/icons/culture_innovations/innovation_special_maa_02.dds"
 
+@natural_rights = "gfx/interface/icons/culture_innovations/innovation_natural_rights.dds"
+@public_school = "gfx/interface/icons/culture_innovations/innovation_public_school.dds"
+@press = "gfx/interface/icons/culture_innovations/innovation_press.dds"
+@assembly = "gfx/interface/icons/culture_innovations/innovation_assembly.dds"
+@police = "gfx/interface/icons/culture_innovations/innovation_police.dds"
+@industrialization = "gfx/interface/icons/culture_innovations/innovation_industrialization.dds"
+@nationalism = "gfx/interface/icons/culture_innovations/innovation_nationalism.dds"
+
+
 innovation_levee_en_masse = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon = @fortifications
+	icon = @maa_02
 	
 	modifier = {
 		levy_size = 0.25
@@ -47,7 +56,7 @@ innovation_levee_en_masse = {
 innovation_natural_rights = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon = @siege_weapons
+	icon = @natural_rights
 
 	modifier = {
 		county_opinion_add = 30
@@ -60,7 +69,7 @@ innovation_natural_rights = {
 innovation_public_school = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon = @leadership_2
+	icon = @public_school
 	
 	custom = fast_conversion
 
@@ -71,7 +80,7 @@ innovation_public_school = {
 innovation_constitution = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon = @weapons_and_armor_01
+	icon = @administration_3
 	
 	modifier = {
 		monthly_county_control_change_add = 0.2
@@ -85,7 +94,7 @@ innovation_constitution = {
 innovation_nationalism = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon =  @weapons_and_armor_02
+	icon =  @nationalism
 	
 	modifier = {
 		same_culture_opinion = 15
@@ -99,7 +108,7 @@ innovation_nationalism = {
 innovation_official = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon = @civil_construction_1
+	icon = @nobility_04
 		
 	modifier = {
 		domain_limit = 1
@@ -112,7 +121,7 @@ innovation_official = {
 innovation_press = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon = @nobility_03
+	icon = @press
 	
 	modifier = {
 		tyranny_gain_mult = -0.3
@@ -125,7 +134,7 @@ innovation_press = {
 innovation_assembly = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon = @leadership_1
+	icon = @assembly
 	
 	modifier = {
 		vassal_tax_mult = 0.2
@@ -135,7 +144,7 @@ innovation_assembly = {
 innovation_social_welfare = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon = @majesty_03
+	icon = @administration_3
 	
 	modifier = {
 		general_opinion = 5
@@ -148,7 +157,7 @@ innovation_social_welfare = {
 innovation_police = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon = @misc_inventions
+	icon = @police
 
 	modifier = {
 		dread_baseline_add = 15
@@ -161,7 +170,7 @@ innovation_police = {
 innovation_industrialization = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
-	icon = @administration_1
+	icon = @industrialization
 
 	modifier = {
 		build_speed = -0.4

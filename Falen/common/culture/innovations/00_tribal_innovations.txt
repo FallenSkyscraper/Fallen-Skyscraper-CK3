@@ -27,6 +27,8 @@
 @misc_inventions = "gfx/interface/icons/culture_innovations/innovation_misc_inventions.dds"
 @church = "gfx/interface/icons/culture_innovations/innovation_national_church.dds"
 @band = "gfx/interface/icons/culture_innovations/innovation_band.dds"
+@nh = "gfx/interface/icons/culture_innovations/innovation_nh.dds"
+
 
 
 @camel = "gfx/interface/icons/culture_innovations/innovation_camel.dds"
@@ -136,7 +138,7 @@ innovation_band = {
 innovation_NH = {
 	group = culture_group_civic
 	culture_era = culture_era_tribal
-	icon = @administration_1
+	icon = @nh
 
 	modifier = {
 		development_growth_factor = 0.05

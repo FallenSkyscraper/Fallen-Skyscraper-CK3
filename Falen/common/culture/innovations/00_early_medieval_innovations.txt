@@ -30,11 +30,15 @@
 @elephant = "gfx/interface/icons/culture_innovations/innovation_elephant.dds"
 @special_maa_01 = "gfx/interface/icons/culture_innovations/innovation_special_maa_01.dds"
 @special_maa_02 = "gfx/interface/icons/culture_innovations/innovation_special_maa_02.dds"
+@seodang = "gfx/interface/icons/culture_innovations/innovation_seodang.dds"
+@university = "gfx/interface/icons/culture_innovations/innovation_university.dds"
+@judge = "gfx/interface/icons/culture_innovations/innovation_judge.dds"
+
 
 innovation_genealogy = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
-	icon = @fortifications
+	icon = @majesty_03
 
 	unlock_law = high_partition_succession_law
 	unlock_law = single_heir_dynasty_house	
@@ -46,7 +50,7 @@ innovation_genealogy = {
 innovation_royal_privilege = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
-	icon = @siege_weapons
+	icon = @majesty_02
 
 	unlock_law = crown_authority_2
 	modifier = {
@@ -62,7 +66,7 @@ innovation_royal_privilege = {
 innovation_local_government = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
-	icon = @civil_construction_2
+	icon = @nobility_04
 	
 	modifier = {
 		title_creation_cost_mult = -0.2
@@ -76,7 +80,7 @@ innovation_local_government = {
 innovation_communal_government = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
-	icon = @maa_01
+	icon = @nobility_02
 
 	modifier = {
 		domain_limit = 1
@@ -89,7 +93,7 @@ innovation_communal_government = {
 innovation_private_army_dismissal = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
-	icon = @knight
+	icon = @maa_01
 
 	modifier = {
 		vassal_levy_contribution_mult = 0.15
@@ -102,7 +106,7 @@ innovation_private_army_dismissal = {
 innovation_seodang = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
-	icon = @fortifications
+	icon = @seodang
 
 	custom = unlock_early_medieval_economic_buildings
 	
@@ -118,7 +122,7 @@ innovation_seodang = {
 innovation_university = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
-	icon = @nobility_03
+	icon = @university
 
 	modifier = {
 		monthly_lifestyle_xp_gain_mult = 0.05
@@ -148,7 +152,7 @@ innovation_royalty = {
 innovation_market_street = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
-	icon = @administration_3
+	icon = @nobility_02
 
 	modifier = {
 		castle_holding_holding_build_gold_cost = -0.1
@@ -164,7 +168,7 @@ innovation_market_street = {
 innovation_judge = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
-	icon = @leadership_1
+	icon = @judge
 
 	modifier = {
 		vassal_opinion = 5
