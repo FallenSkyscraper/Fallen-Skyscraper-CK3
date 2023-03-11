@@ -162,6 +162,8 @@ innovation_five_market = {
 	flag = tribal_era_regular
 }
 
+############################################################
+
 innovation_development_01 = {
 	group = culture_group_civic
 	culture_era = culture_era_tribal
@@ -219,6 +221,20 @@ innovation_war_camels = {
 	icon = @camel
 
 	unlock_maa = camel_rider
+
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+#############################################
+
+innovation_city_country = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	region = world_giho
+	icon = @administration_1
+
+	custom = city_tax_increase
 
 	flag = global_regional
 	flag = tribal_era_regional

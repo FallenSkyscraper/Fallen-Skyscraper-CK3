@@ -253,7 +253,14 @@ city_01 = {
 	province_modifier = {
 		monthly_income = good_building_tax_tier_2
 	}
-
+	province_modifier = {
+		trigger_if = {
+			culture = {
+				has_innovation = innovation_city_country
+			}
+		}
+		tax_mult = 0.1
+	}
 	province_culture_modifier = {
 		parameter = city_buildings_more_powerful
 		levy_size = 0.25
@@ -576,7 +583,14 @@ city_02 = {
 	province_modifier = {
 		monthly_income = good_building_tax_tier_4
 	}
-
+	province_modifier = {
+		trigger_if = {
+			culture = {
+				has_innovation = innovation_city_country
+			}
+		}
+		tax_mult = 0.1
+	}
 	province_culture_modifier = {
 		parameter = city_buildings_more_powerful
 		levy_size = 0.5
@@ -871,7 +885,14 @@ city_03 = {
 	province_modifier = {
 		monthly_income = good_building_tax_tier_6
 	}
-
+	province_modifier = {
+		trigger_if = {
+			culture = {
+				has_innovation = innovation_city_country
+			}
+		}
+		tax_mult = 0.1
+	}
 	province_culture_modifier = {
 		parameter = city_buildings_more_powerful
 		levy_size = 0.75
@@ -1165,7 +1186,14 @@ city_04 = {
 	province_modifier = {
 		monthly_income = good_building_tax_tier_8
 	}
-
+	province_modifier = {
+		trigger_if = {
+			culture = {
+				has_innovation = innovation_city_country
+			}
+		}
+		tax_mult = 0.1
+	}
 	province_culture_modifier = {
 		parameter = city_buildings_more_powerful
 		levy_size = 1
