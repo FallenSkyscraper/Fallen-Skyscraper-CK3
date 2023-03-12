@@ -41,7 +41,7 @@ economy_district_02 = {
     next_building = economy_district_03
 
     province_modifier = {
-        
+        development_growth_factor = 0.01
     }
 
     county_modifier = {
@@ -65,7 +65,8 @@ economy_district_03 = {
     next_building = economy_district_04
 
     province_modifier = {
-        
+        development_growth_factor = 0.01
+        tax_mult = 0.01
     }
 
     county_modifier = {
@@ -89,7 +90,8 @@ economy_district_04 = {
     next_building = economy_district_05
 
     province_modifier = {
-        
+        development_growth_factor = 0.01
+        tax_mult = 0.02
     }
 
     county_modifier = {
@@ -113,7 +115,8 @@ economy_district_05 = {
     next_building = economy_district_06
 
     province_modifier = {
-        
+        development_growth_factor = 0.02
+        tax_mult = 0.02
     }
 
     county_modifier = {
@@ -137,7 +140,8 @@ economy_district_06 = {
     next_building = economy_district_07
 
     province_modifier = {
-        
+        development_growth_factor = 0.02
+        tax_mult = 0.03
     }
 
     county_modifier = {
@@ -161,7 +165,8 @@ economy_district_07 = {
     next_building = economy_district_08
 
     province_modifier = {
-        
+        development_growth_factor = 0.02
+        tax_mult = 0.04
     }
 
     county_modifier = {
@@ -183,7 +188,8 @@ economy_district_08 = {
     cost_gold = normal_building_tier_1_cost
 
     province_modifier = {
-        
+        development_growth_factor = 0.02
+        tax_mult = 0.05
     }
 
     county_modifier = {
@@ -209,7 +215,7 @@ gristmill_01 = {
     next_building = gristmill_02
 
     province_modifier = {
-        
+        development_growth_factor = 0.05
     }
 
     county_modifier = {
@@ -234,7 +240,7 @@ gristmill_02 = {
     next_building = gristmill_03
 
     province_modifier = {
-        
+        development_growth_factor = 0.1
     }
 
     county_modifier = {
@@ -259,7 +265,7 @@ gristmill_03 = {
     next_building = gristmill_04
 
     province_modifier = {
-        
+        development_growth_factor = 0.15
     }
 
     county_modifier = {
@@ -284,7 +290,7 @@ gristmill_04 = {
     next_building = gristmill_05
 
     province_modifier = {
-        
+        development_growth_factor = 0.2
     }
 
     county_modifier = {
@@ -309,7 +315,7 @@ gristmill_05 = {
     next_building = gristmill_06
 
     province_modifier = {
-        
+        development_growth_factor = 0.25
     }
 
     county_modifier = {
@@ -332,7 +338,7 @@ gristmill_06 = {
 	cost_gold = cheap_building_tier_1_cost
 
     province_modifier = {
-        
+        development_growth_factor = 0.3
     }
 
     county_modifier = {
@@ -357,7 +363,7 @@ orchard_01 = {
     next_building = orchard_02
 
     province_modifier = {
-        
+        monthly_income = 0.25
     }
 
     county_modifier = {
@@ -382,7 +388,7 @@ orchard_02 = {
     next_building = orchard_03
 
     province_modifier = {
-        
+        monthly_income = 0.5
     }
 
     county_modifier = {
@@ -407,7 +413,7 @@ orchard_03 = {
     next_building = orchard_04
 
     province_modifier = {
-        
+        monthly_income = 0.75
     }
 
     county_modifier = {
@@ -432,7 +438,7 @@ orchard_04 = {
     next_building = orchard_05
 
     province_modifier = {
-        
+        monthly_income = 1
     }
 
     county_modifier = {
@@ -457,7 +463,7 @@ orchard_05 = {
     next_building = orchard_06
 
     province_modifier = {
-        
+        monthly_income = 1.25
     }
 
     county_modifier = {
@@ -480,7 +486,7 @@ orchard_06 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1.5
     }
 
     county_modifier = {
@@ -505,7 +511,10 @@ lumberyard_01 = {
     next_building = lumberyard_02
 
     province_modifier = {
-        
+        development_growth_factor = -0.05
+        build_gold_cost = -0.005
+		build_piety_cost = -0.005
+		build_prestige_cost = -0.005
     }
 
     county_modifier = {
@@ -530,11 +539,14 @@ lumberyard_02 = {
     next_building = lumberyard_03
 
     province_modifier = {
-        
+        monthly_income = 0.1
+        development_growth_factor = -0.05
     }
 
     county_modifier = {
-
+        build_gold_cost = -0.005
+		build_piety_cost = -0.005
+		build_prestige_cost = -0.005
     }
 }
 
@@ -555,11 +567,17 @@ lumberyard_03 = {
     next_building = lumberyard_04
 
     province_modifier = {
-        
+        monthly_income = 0.2
+        development_growth_factor = -0.05
+        build_gold_cost = -0.005
+		build_piety_cost = -0.005
+		build_prestige_cost = -0.005
     }
 
     county_modifier = {
-
+        build_gold_cost = -0.005
+		build_piety_cost = -0.005
+		build_prestige_cost = -0.005
     }
 }
 
@@ -580,11 +598,21 @@ lumberyard_04 = {
     next_building = lumberyard_05
 
     province_modifier = {
-        
+        monthly_income = 0.3
+        development_growth_factor = -0.1
+        build_gold_cost = -0.005
+		build_piety_cost = -0.005
+		build_prestige_cost = -0.005
     }
 
     county_modifier = {
 
+    }
+
+    character_modifier = {
+        build_gold_cost = -0.005
+		build_piety_cost = -0.005
+		build_prestige_cost = -0.005
     }
 }
 
@@ -605,11 +633,20 @@ lumberyard_05 = {
     next_building = lumberyard_06
 
     province_modifier = {
-        
+        monthly_income = 0.4
+        development_growth_factor = -0.1
     }
 
     county_modifier = {
+        build_gold_cost = -0.005
+		build_piety_cost = -0.005
+		build_prestige_cost = -0.005
+    }
 
+    character_modifier = {
+        build_gold_cost = -0.005
+		build_piety_cost = -0.005
+		build_prestige_cost = -0.005
     }
 }
 
@@ -628,11 +665,18 @@ lumberyard_06 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        development_growth_factor = -0.1
     }
 
     county_modifier = {
 
+    }
+
+    character_modifier = {
+        build_gold_cost = -0.01
+		build_piety_cost = -0.01
+		build_prestige_cost = -0.01
     }
 }
 
@@ -653,7 +697,7 @@ aboretum_01 = {
     next_building = aboretum_02
 
     province_modifier = {
-        
+        development_growth_factor = 0.05
     }
 
     county_modifier = {
@@ -678,7 +722,8 @@ aboretum_02 = {
     next_building = aboretum_03
 
     province_modifier = {
-        
+        monthly_income = 0.1
+        development_growth_factor = 0.05
     }
 
     county_modifier = {
@@ -703,7 +748,8 @@ aboretum_03 = {
     next_building = aboretum_04
 
     province_modifier = {
-        
+        monthly_income = 0.2
+        development_growth_factor = 0.05
     }
 
     county_modifier = {
@@ -728,7 +774,8 @@ aboretum_04 = {
     next_building = aboretum_05
 
     province_modifier = {
-        
+        monthly_income = 0.3
+        development_growth_factor = 0.1
     }
 
     county_modifier = {
@@ -753,7 +800,8 @@ aboretum_05 = {
     next_building = aboretum_06
 
     province_modifier = {
-        
+        monthly_income = 0.4
+        development_growth_factor = 0.1
     }
 
     county_modifier = {
@@ -776,7 +824,8 @@ aboretum_06 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        development_growth_factor = 0.1
     }
 
     county_modifier = {
@@ -801,7 +850,8 @@ mining_ground_01 = {
     next_building = mining_ground_02
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        development_growth_factor = -0.075
     }
 
     county_modifier = {
@@ -826,7 +876,8 @@ mining_ground_02 = {
     next_building = mining_ground_03
 
     province_modifier = {
-        
+        monthly_income = 0.6
+        development_growth_factor = -0.1
     }
 
     county_modifier = {
@@ -851,7 +902,8 @@ mining_ground_03 = {
     next_building = mining_ground_04
 
     province_modifier = {
-        
+        monthly_income = 0.7
+        development_growth_factor = -0.125
     }
 
     county_modifier = {
@@ -876,7 +928,8 @@ mining_ground_04 = {
     next_building = mining_ground_05
 
     province_modifier = {
-        
+        monthly_income = 0.8
+        development_growth_factor = -0.15
     }
 
     county_modifier = {
@@ -901,7 +954,8 @@ mining_ground_05 = {
     next_building = mining_ground_06
 
     province_modifier = {
-        
+        monthly_income = 0.9
+        development_growth_factor = -0.175
     }
 
     county_modifier = {
@@ -924,11 +978,11 @@ mining_ground_06 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1
+        development_growth_factor = -0.2
     }
 
     county_modifier = {
-
     }
 }
 
@@ -949,7 +1003,7 @@ handicraft_01 = {
     next_building = handicraft_02
 
     province_modifier = {
-        
+        monthly_income = 0.25
     }
 
     county_modifier = {
@@ -974,7 +1028,7 @@ handicraft_02 = {
     next_building = handicraft_03
 
     province_modifier = {
-        
+        monthly_income = 0.5
     }
 
     county_modifier = {
@@ -999,7 +1053,7 @@ handicraft_03 = {
     next_building = handicraft_04
 
     province_modifier = {
-        
+        monthly_income = 0.75
     }
 
     county_modifier = {
@@ -1024,7 +1078,7 @@ handicraft_04 = {
     next_building = handicraft_05
 
     province_modifier = {
-        
+        monthly_income = 1
     }
 
     county_modifier = {
@@ -1049,7 +1103,7 @@ handicraft_05 = {
     next_building = handicraft_06
 
     province_modifier = {
-        
+        monthly_income = 1.25
     }
 
     county_modifier = {
@@ -1072,7 +1126,7 @@ handicraft_06 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1.5
     }
 
     county_modifier = {
@@ -1097,7 +1151,7 @@ rural_smithy_01 = {
     next_building = rural_smithy_02
 
     province_modifier = {
-        
+        development_growth_factor = 0.02
     }
 
     county_modifier = {
@@ -1122,7 +1176,7 @@ rural_smithy_02 = {
     next_building = rural_smithy_03
 
     province_modifier = {
-        
+        development_growth_factor = 0.05
     }
 
     county_modifier = {
@@ -1147,7 +1201,7 @@ rural_smithy_03 = {
     next_building = rural_smithy_04
 
     province_modifier = {
-        
+        development_growth_factor = 0.08
     }
 
     county_modifier = {
@@ -1172,7 +1226,7 @@ rural_smithy_04 = {
     next_building = rural_smithy_05
 
     province_modifier = {
-        
+        development_growth_factor = 0.11
     }
 
     county_modifier = {
@@ -1197,7 +1251,7 @@ rural_smithy_05 = {
     next_building = rural_smithy_06
 
     province_modifier = {
-        
+        development_growth_factor = 0.15
     }
 
     county_modifier = {
@@ -1220,7 +1274,7 @@ rural_smithy_06 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        development_growth_factor = 0.2
     }
 
     county_modifier = {
@@ -1245,7 +1299,7 @@ inn_01 = {
     next_building = inn_02
 
     province_modifier = {
-        
+        monthly_income = 0.25
     }
 
     county_modifier = {
@@ -1270,7 +1324,7 @@ inn_02 = {
     next_building = inn_03
 
     province_modifier = {
-        
+        monthly_income = 0.5
     }
 
     county_modifier = {
@@ -1295,7 +1349,7 @@ inn_03 = {
     next_building = inn_04
 
     province_modifier = {
-        
+        monthly_income = 0.75
     }
 
     county_modifier = {
@@ -1320,7 +1374,7 @@ inn_04 = {
     next_building = inn_05
 
     province_modifier = {
-        
+        monthly_income = 1
     }
 
     county_modifier = {
@@ -1345,7 +1399,7 @@ inn_05 = {
     next_building = inn_06
 
     province_modifier = {
-        
+        monthly_income = 1.25
     }
 
     county_modifier = {
@@ -1368,7 +1422,7 @@ inn_06 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1.5
     }
 
     county_modifier = {
@@ -1393,7 +1447,7 @@ marketplace_01 = {
     next_building = marketplace_02
 
     province_modifier = {
-        
+        monthly_income = 0.15
     }
 
     county_modifier = {
@@ -1418,7 +1472,8 @@ marketplace_02 = {
     next_building = marketplace_03
 
     province_modifier = {
-        
+        monthly_income = 0.3
+        tax_mult = 0.01
     }
 
     county_modifier = {
@@ -1443,7 +1498,8 @@ marketplace_03 = {
     next_building = marketplace_04
 
     province_modifier = {
-        
+        monthly_income = 0.4
+        tax_mult = 0.02
     }
 
     county_modifier = {
@@ -1468,7 +1524,8 @@ marketplace_04 = {
     next_building = marketplace_05
 
     province_modifier = {
-        
+        monthly_income = 0.6
+        tax_mult = 0.03
     }
 
     county_modifier = {
@@ -1493,7 +1550,8 @@ marketplace_05 = {
     next_building = marketplace_06
 
     province_modifier = {
-        
+        monthly_income = 0.8
+        tax_mult = 0.04
     }
 
     county_modifier = {
@@ -1516,7 +1574,8 @@ marketplace_06 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1
+        tax_mult = 0.05
     }
 
     county_modifier = {
@@ -1542,7 +1601,8 @@ rural_farm_first_01 = {
     next_building = rural_farm_first_02
 
     province_modifier = {
-        
+        monthly_income = 0.15
+        development_growth_factor = 0.1
     }
 
     county_modifier = {
@@ -1567,7 +1627,8 @@ rural_farm_first_02 = {
     next_building = rural_farm_first_03
 
     province_modifier = {
-        
+        monthly_income = 0.25
+        development_growth_factor = 0.2
     }
 
     county_modifier = {
@@ -1592,7 +1653,8 @@ rural_farm_first_03 = {
     next_building = rural_farm_first_04
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        development_growth_factor = 0.3
     }
 
     county_modifier = {
@@ -1615,7 +1677,8 @@ rural_farm_first_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 0.75
+        development_growth_factor = 0.4
     }
 
     county_modifier = {
@@ -1640,7 +1703,8 @@ rural_farm_second_01 = {
     next_building = rural_farm_second_02
 
     province_modifier = {
-        
+        monthly_income = 0.15
+        development_growth_factor = 0.1
     }
 
     county_modifier = {
@@ -1665,7 +1729,8 @@ rural_farm_second_02 = {
     next_building = rural_farm_second_03
 
     province_modifier = {
-        
+        monthly_income = 0.25
+        development_growth_factor = 0.2
     }
 
     county_modifier = {
@@ -1690,7 +1755,8 @@ rural_farm_second_03 = {
     next_building = rural_farm_second_04
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        development_growth_factor = 0.3
     }
 
     county_modifier = {
@@ -1713,7 +1779,8 @@ rural_farm_second_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 0.75
+        development_growth_factor = 0.4
     }
 
     county_modifier = {
@@ -1738,7 +1805,8 @@ rural_farm_third_01 = {
     next_building = rural_farm_third_02
 
     province_modifier = {
-        
+        monthly_income = 0.15
+        development_growth_factor = 0.1
     }
 
     county_modifier = {
@@ -1763,7 +1831,8 @@ rural_farm_third_02 = {
     next_building = rural_farm_third_03
 
     province_modifier = {
-        
+        monthly_income = 0.25
+        development_growth_factor = 0.2
     }
 
     county_modifier = {
@@ -1788,7 +1857,8 @@ rural_farm_third_03 = {
     next_building = rural_farm_third_04
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        development_growth_factor = 0.3
     }
 
     county_modifier = {
@@ -1811,7 +1881,8 @@ rural_farm_third_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 0.75
+        development_growth_factor = 0.4
     }
 
     county_modifier = {
@@ -1836,7 +1907,8 @@ mill_01 = {
     next_building = mill_02
 
     province_modifier = {
-        
+        monthly_income = 0.25
+        development_growth_factor = 0.05
     }
 
     county_modifier = {
@@ -1861,7 +1933,8 @@ mill_02 = {
     next_building = mill_03
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        development_growth_factor = 0.1
     }
 
     county_modifier = {
@@ -1886,7 +1959,8 @@ mill_03 = {
     next_building = mill_04
 
     province_modifier = {
-        
+        monthly_income = 0.75
+        development_growth_factor = 0.15
     }
 
     county_modifier = {
@@ -1909,7 +1983,8 @@ mill_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1
+        development_growth_factor = 0.2
     }
 
     county_modifier = {
@@ -1934,7 +2009,11 @@ saw_mill_01 = {
     next_building = saw_mill_02
 
     province_modifier = {
-        
+        monthly_income = 0.25
+        development_growth_factor = -0.05
+        build_gold_cost = -0.005
+		build_piety_cost = -0.005
+		build_prestige_cost = -0.005
     }
 
     county_modifier = {
@@ -1959,7 +2038,11 @@ saw_mill_02 = {
     next_building = saw_mill_03
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        development_growth_factor = -0.1
+        build_gold_cost = -0.01
+		build_piety_cost = -0.01
+		build_prestige_cost = -0.01
     }
 
     county_modifier = {
@@ -1984,7 +2067,11 @@ saw_mill_03 = {
     next_building = saw_mill_04
 
     province_modifier = {
-        
+        monthly_income = 0.75
+        development_growth_factor = -0.15
+        build_gold_cost = -0.015
+		build_piety_cost = -0.015
+		build_prestige_cost = -0.015
     }
 
     county_modifier = {
@@ -2007,7 +2094,11 @@ saw_mill_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1
+        development_growth_factor = -0.2
+        build_gold_cost = -0.02
+		build_piety_cost = -0.02
+		build_prestige_cost = -0.02
     }
 
     county_modifier = {
@@ -2032,7 +2123,8 @@ reforestation_01 = {
     next_building = reforestation_02
 
     province_modifier = {
-        
+        monthly_income = 0.125
+        development_growth_factor = 0.1
     }
 
     county_modifier = {
@@ -2057,7 +2149,8 @@ reforestation_02 = {
     next_building = reforestation_03
 
     province_modifier = {
-        
+        monthly_income = 0.25
+        development_growth_factor = 0.2
     }
 
     county_modifier = {
@@ -2082,7 +2175,8 @@ reforestation_03 = {
     next_building = reforestation_04
 
     province_modifier = {
-        
+        monthly_income = 0.375
+        development_growth_factor = 0.3
     }
 
     county_modifier = {
@@ -2105,7 +2199,8 @@ reforestation_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        development_growth_factor = 0.4
     }
 
     county_modifier = {
@@ -2130,7 +2225,8 @@ mining_gallery_first_01 = {
     next_building = mining_gallery_first_02
 
     province_modifier = {
-        
+        monthly_income = 1
+        development_growth_factor = -0.05
     }
 
     county_modifier = {
@@ -2155,7 +2251,8 @@ mining_gallery_first_02 = {
     next_building = mining_gallery_first_03
 
     province_modifier = {
-        
+        monthly_income = 1.35
+        development_growth_factor = -0.1
     }
 
     county_modifier = {
@@ -2180,7 +2277,8 @@ mining_gallery_first_03 = {
     next_building = mining_gallery_first_04
 
     province_modifier = {
-        
+        monthly_income = 1.6
+        development_growth_factor = -0.15
     }
 
     county_modifier = {
@@ -2203,7 +2301,8 @@ mining_gallery_first_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1.75
+        development_growth_factor = -0.2
     }
 
     county_modifier = {
@@ -2228,7 +2327,8 @@ mining_gallery_second_01 = {
     next_building = mining_gallery_second_02
 
     province_modifier = {
-        
+        monthly_income = 1
+        development_growth_factor = -0.05
     }
 
     county_modifier = {
@@ -2253,7 +2353,8 @@ mining_gallery_second_02 = {
     next_building = mining_gallery_second_03
 
     province_modifier = {
-        
+        monthly_income = 1.35
+        development_growth_factor = -0.1
     }
 
     county_modifier = {
@@ -2278,7 +2379,8 @@ mining_gallery_second_03 = {
     next_building = mining_gallery_second_04
 
     province_modifier = {
-        
+        monthly_income = 1.6
+        development_growth_factor = -0.15
     }
 
     county_modifier = {
@@ -2301,7 +2403,8 @@ mining_gallery_second_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1.75
+        development_growth_factor = -0.2
     }
 
     county_modifier = {
@@ -2327,7 +2430,8 @@ mine_management_office_01 = {
     next_building = mine_management_office_02
 
     province_modifier = {
-        
+        monthly_income = -0.25
+        development_growth_factor = 0.1
     }
 
     county_modifier = {
@@ -2353,7 +2457,8 @@ mine_management_office_02 = {
     next_building = mine_management_office_03
 
     province_modifier = {
-        
+        monthly_income = -0.5
+        development_growth_factor = 0.15
     }
 
     county_modifier = {
@@ -2379,7 +2484,8 @@ mine_management_office_03 = {
     next_building = mine_management_office_04
 
     province_modifier = {
-        
+        monthly_income = -0.75
+        development_growth_factor = 0.2
     }
 
     county_modifier = {
@@ -2403,7 +2509,8 @@ mine_management_office_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = -1
+        development_growth_factor = 0.3
     }
 
     county_modifier = {
@@ -2429,7 +2536,8 @@ mine_directing_office_01 = {
     next_building = mine_directing_office_02
 
     province_modifier = {
-        
+        tax_mult = 0.05
+        development_growth_factor = -0.05
     }
 
     county_modifier = {
@@ -2455,7 +2563,8 @@ mine_directing_office_02 = {
     next_building = mine_directing_office_03
 
     province_modifier = {
-        
+        tax_mult = 0.07
+        development_growth_factor = -0.1
     }
 
     county_modifier = {
@@ -2481,7 +2590,8 @@ mine_directing_office_03 = {
     next_building = mine_directing_office_04
 
     province_modifier = {
-        
+        tax_mult = 0.09
+        development_growth_factor = -0.15
     }
 
     county_modifier = {
@@ -2505,7 +2615,8 @@ mine_directing_office_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        tax_mult = 0.1
+        development_growth_factor = -0.2
     }
 
     county_modifier = {
@@ -2530,7 +2641,7 @@ home_craft_first_01 = {
     next_building = home_craft_first_02
 
     province_modifier = {
-        
+        monthly_income = 0.25
     }
 
     county_modifier = {
@@ -2555,7 +2666,7 @@ home_craft_first_02 = {
     next_building = home_craft_first_03
 
     province_modifier = {
-        
+        monthly_income = 0.5
     }
 
     county_modifier = {
@@ -2580,7 +2691,7 @@ home_craft_first_03 = {
     next_building = home_craft_first_04
 
     province_modifier = {
-        
+        monthly_income = 0.75
     }
 
     county_modifier = {
@@ -2603,7 +2714,7 @@ home_craft_first_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1
     }
 
     county_modifier = {
@@ -2628,7 +2739,7 @@ home_craft_second_01 = {
     next_building = home_craft_second_02
 
     province_modifier = {
-        
+        monthly_income = 0.5
     }
 
     county_modifier = {
@@ -2653,7 +2764,7 @@ home_craft_second_02 = {
     next_building = home_craft_second_03
 
     province_modifier = {
-        
+        monthly_income = 1
     }
 
     county_modifier = {
@@ -2678,7 +2789,7 @@ home_craft_second_03 = {
     next_building = home_craft_second_04
 
     province_modifier = {
-        
+        monthly_income = 1.5
     }
 
     county_modifier = {
@@ -2701,7 +2812,7 @@ home_craft_second_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 2
     }
 
     county_modifier = {
@@ -2726,7 +2837,9 @@ home_craft_third_01 = {
     next_building = home_craft_third_02
 
     province_modifier = {
-        
+        monthly_income = 0.75
+        development_growth_factor = 0.025
+        tax_mult = 0.01
     }
 
     county_modifier = {
@@ -2751,7 +2864,9 @@ home_craft_third_02 = {
     next_building = home_craft_third_03
 
     province_modifier = {
-        
+        monthly_income = 1.5
+        development_growth_factor = 0.05
+        tax_mult = 0.02
     }
 
     county_modifier = {
@@ -2776,7 +2891,9 @@ home_craft_third_03 = {
     next_building = home_craft_third_04
 
     province_modifier = {
-        
+        monthly_income = 2.25
+        development_growth_factor = 0.075
+        tax_mult = 0.03
     }
 
     county_modifier = {
@@ -2799,7 +2916,9 @@ home_craft_third_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 3
+        development_growth_factor = 0.1
+        tax_mult = 0.05
     }
 
     county_modifier = {
@@ -2824,7 +2943,9 @@ home_craft_fourth_01 = {
     next_building = home_craft_fourth_02
 
     province_modifier = {
-        
+        monthly_income = 1
+        development_growth_factor = 0.025
+        tax_mult = 0.01
     }
 
     county_modifier = {
@@ -2849,7 +2970,9 @@ home_craft_fourth_02 = {
     next_building = home_craft_fourth_03
 
     province_modifier = {
-        
+        monthly_income = 2
+        development_growth_factor = 0.05
+        tax_mult = 0.02
     }
 
     county_modifier = {
@@ -2874,7 +2997,9 @@ home_craft_fourth_03 = {
     next_building = home_craft_fourth_04
 
     province_modifier = {
-        
+        monthly_income = 3
+        development_growth_factor = 0.075
+        tax_mult = 0.03
     }
 
     county_modifier = {
@@ -2897,7 +3022,9 @@ home_craft_fourth_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 4
+        development_growth_factor = 0.1
+        tax_mult = 0.05
     }
 
     county_modifier = {
@@ -2923,11 +3050,12 @@ post_system_01 = {
     next_building = post_system_02
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        tax_mult = 0.005
     }
 
     county_modifier = {
-
+        movement_speed = 0.025
     }
 }
 
@@ -2949,11 +3077,12 @@ post_system_02 = {
     next_building = post_system_03
 
     province_modifier = {
-        
+        monthly_income = 1
+        tax_mult = 0.015
     }
 
     county_modifier = {
-
+        movement_speed = 0.05
     }
 }
 
@@ -2975,11 +3104,12 @@ post_system_03 = {
     next_building = post_system_04
 
     province_modifier = {
-        
+        monthly_income = 1.5
+        tax_mult = 0.025
     }
 
     county_modifier = {
-
+        movement_speed = 0.075
     }
 }
 
@@ -2999,11 +3129,12 @@ post_system_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 2
     }
 
     county_modifier = {
-
+        movement_speed = 0.1
+        tax_mult = 0.025
     }
 }
 
@@ -3024,7 +3155,7 @@ currency_exchange_01 = {
     next_building = currency_exchange_02
 
     province_modifier = {
-        
+        tax_mult = 0.025
     }
 
     county_modifier = {
@@ -3049,7 +3180,7 @@ currency_exchange_02 = {
     next_building = currency_exchange_03
 
     province_modifier = {
-        
+        tax_mult = 0.05
     }
 
     county_modifier = {
@@ -3074,7 +3205,7 @@ currency_exchange_03 = {
     next_building = currency_exchange_04
 
     province_modifier = {
-        
+        tax_mult = 0.075
     }
 
     county_modifier = {
@@ -3097,11 +3228,11 @@ currency_exchange_04 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        tax_mult = 0.05
     }
 
     county_modifier = {
-
+        tax_mult = 0.025
     }
 }
 
@@ -3127,7 +3258,8 @@ grand_farmland_02 = {
     next_building = grand_farmland_01
 
     province_modifier = {
-        
+        monthly_income = 0.75
+        development_growth_factor = 0.25
     }
 
     county_modifier = {
@@ -3153,11 +3285,12 @@ grand_farmland_02 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 1.5
+        development_growth_factor = 0.25
     }
 
     county_modifier = {
-
+        development_growth_factor = 0.25
     }
 }
 
@@ -3180,11 +3313,20 @@ royal_saw_mill_01 = {
     next_building = royal_saw_mill_02
 
     province_modifier = {
-        
+        monthly_income = 1
+        development_growth_factor = -0.1
     }
 
     county_modifier = {
+        build_gold_cost = -0.015
+		build_piety_cost = -0.015
+		build_prestige_cost = -0.015
+    }
 
+    character_modifier = {
+        build_gold_cost = -0.015
+		build_piety_cost = -0.015
+		build_prestige_cost = -0.015
     }
 }
 
@@ -3205,11 +3347,18 @@ royal_saw_mill_02 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 2
+        development_growth_factor = -0.2
     }
 
     county_modifier = {
 
+    }
+
+    character_modifier = {
+        build_gold_cost = -0.03
+		build_piety_cost = -0.03
+		build_prestige_cost = -0.03
     }
 }
 
@@ -3236,7 +3385,8 @@ grand_mine_01 = {
     next_building = grand_mine_02
 
     province_modifier = {
-        
+        monthly_income = 2
+        development_growth_factor = -0.1
     }
 
     county_modifier = {
@@ -3265,7 +3415,8 @@ grand_mine_02 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 3
+        development_growth_factor = -0.2
     }
 
     county_modifier = {
@@ -3277,7 +3428,7 @@ factory_01 = {
     construction_time = quick_construction_time
 
     can_construct_potential = {
-        has_building_or_higher = home_craft_fourth_01
+        has_building_or_higher = home_craft_fourth_02
         production_root_trigger = yes
     }
 
@@ -3290,7 +3441,8 @@ factory_01 = {
     next_building = factory_02
 
     province_modifier = {
-        
+        monthly_income = 2
+        tax_mult = 0.05
     }
 
     county_modifier = {
@@ -3302,7 +3454,7 @@ factory_02 = {
     construction_time = quick_construction_time
 
     can_construct_potential = {
-        has_building_or_higher = home_craft_fourth_03
+        has_building_or_higher = home_craft_fourth_04
         production_root_trigger = yes
     }
 
@@ -3313,11 +3465,12 @@ factory_02 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 5
+        tax_mult = 0.05
     }
 
     county_modifier = {
-
+        tax_mult = 0.05
     }
 }
 
@@ -3339,7 +3492,8 @@ bill_exchange_01 = {
     next_building = bill_exchange_02
 
     province_modifier = {
-        
+        monthly_income = 0.25
+        tax_mult = 0.075
     }
 
     county_modifier = {
@@ -3363,10 +3517,12 @@ bill_exchange_02 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 0.5
+        tax_mult = 0.1
     }
 
     county_modifier = {
+        tax_mult = 0.05
 
     }
 }
@@ -3414,7 +3570,7 @@ guild_01 = {
     next_building = guild_02
 
     province_modifier = {
-        
+        monthly_income = 2
     }
 
     county_modifier = {
@@ -3438,7 +3594,7 @@ guild_02 = {
 	cost_gold = cheap_building_tier_1_cost 
 
     province_modifier = {
-        
+        monthly_income = 4
     }
 
     county_modifier = {
