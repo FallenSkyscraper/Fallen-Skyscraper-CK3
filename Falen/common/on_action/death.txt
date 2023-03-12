@@ -155,6 +155,16 @@ on_death = {
 				trigger_event = gw_mgga.4
 			}
 		}
+		if = {
+			limit = {
+				title:e_alliance = {
+					holder = root
+				}
+			}
+			title:e_alliance = {
+				trigger_event = alliance_decision.0003
+			}
+		}
 
 		
 		# Event Setup
