@@ -116,6 +116,7 @@ yearly_playable_pulse = {
 five_year_playable_pulse = {
 	on_actions = {
 		slavery_events_on_action
+		struggle_fragmentation_on_action
 	}
 }
 slavery_events_on_action ={
@@ -134,6 +135,32 @@ slavery_events_on_action ={
 		70 = slavery_event.0008 #해방노예 문제
 		100 = slavery_event.0009 #노예권리문제
 		800 = slavery_event.1001 #존브라운
+	}
+}
+struggle_fragmentation_on_action ={
+	trigger = {
+		struggle:juche_struggle = {
+			any_involved_ruler = {
+				NOT = { this = root }
+				is_independent_ruler = yes
+				exists = primary_title
+				primary_title = { is_mercenary_company = no }
+				save_temporary_scope_as = juche_realm
+				any_county_in_region = {
+					region = world_korea_north
+					percent > fp2_struggle_hostility_region_percent_decimal_value
+					holder.top_liege = scope:juche_realm
+				}
+			}
+		}
+		any_character_struggle = {
+			involvement = involved
+			is_struggle_type = juche_struggle
+			is_struggle_phase = struggle_juche_phase_fragmentation
+		}
+	}
+	random_events = {
+		100 = fs_struggle_event.0001
 	}
 }
 
