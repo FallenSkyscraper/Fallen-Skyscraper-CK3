@@ -3625,6 +3625,10 @@ military_district_01 = {
 	
 	cost = { gold = 150 }
 	
+	character_modifier = {
+		men_at_arms_maintenance = 0.02
+	}
+
 	levy = 150
 
 	next_building = military_district_02
@@ -3648,6 +3652,10 @@ military_district_02 = {
 	
 	levy = 250
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.02
+	}
+
 	next_building = military_district_03
 
 	type_icon = "icon_building_barracks.dds"
@@ -3668,6 +3676,10 @@ military_district_03 = {
 	cost = { gold = 300 }
 	
 	levy = 350
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.03
+	}
 
 	next_building = military_district_04
 
@@ -3690,6 +3702,10 @@ military_district_04 = {
 	
 	levy = 450
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.03
+	}
+
 	next_building = military_district_05
 
 	type_icon = "icon_building_barracks.dds"
@@ -3710,6 +3726,10 @@ military_district_05 = {
 	cost = { gold = 450 }
 	
 	levy = 550
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.04
+	}
 
 	next_building = military_district_06
 
@@ -3732,6 +3752,10 @@ military_district_06 = {
 	
 	levy = 650
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.04
+	}
+
 	next_building = military_district_07
 
 	type_icon = "icon_building_barracks.dds"
@@ -3753,6 +3777,10 @@ military_district_07 = {
 	
 	levy = 750
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.05
+	}
+
 	next_building = military_district_08
 
 	type_icon = "icon_building_barracks.dds"
@@ -3773,6 +3801,10 @@ military_district_08 = {
 	cost = { gold = 675 }
 	
 	levy = 850
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.05
+	}
 
 	type_icon = "icon_building_barracks.dds"
 	
@@ -3956,6 +3988,10 @@ administrative_office_01 = {
 	
 	levy = 175
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.01
+	}
+
 	province_modifier = {
 		levy_reinforcement_rate = 0.15
 	}
@@ -3983,6 +4019,10 @@ administrative_office_02 = {
 	cost = { gold = 250 }
 	
 	levy = 300
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.01
+	}
 
 	province_modifier = {
 		levy_reinforcement_rate = 0.2
@@ -4012,6 +4052,10 @@ administrative_office_03 = {
 	
 	levy = 425
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.02
+	}
+
 	province_modifier = {
 		levy_reinforcement_rate = 0.25
 	}
@@ -4039,6 +4083,10 @@ administrative_office_04 = {
 	cost = { gold = 450 }
 	
 	levy = 550
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.03
+	}
 
 	province_modifier = {
 		levy_reinforcement_rate = 0.3
@@ -4068,6 +4116,10 @@ administrative_office_05 = {
 	
 	levy = 675
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.04
+	}
+
 	province_modifier = {
 		levy_reinforcement_rate = 0.35
 	}
@@ -4095,6 +4147,10 @@ administrative_office_06 = {
 	cost = { gold = 650 }
 	
 	levy = 800
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.05
+	}
 
 	province_modifier = {
 		levy_reinforcement_rate = 0.4
@@ -4124,6 +4180,10 @@ conscription_office_01 = {
 	
 	levy = 300
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.05
+	}
+
 	next_building = conscription_office_02
 
 	type_icon = "icon_building_military_camps.dds"
@@ -4147,6 +4207,10 @@ conscription_office_02 = {
 	cost = { gold = 250 }
 	
 	levy = 450
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.06
+	}
 
 	next_building = conscription_office_03
 
@@ -4172,6 +4236,10 @@ conscription_office_03 = {
 	
 	levy = 600
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.07
+	}
+
 	next_building = conscription_office_04
 
 	type_icon = "icon_building_military_camps.dds"
@@ -4195,6 +4263,10 @@ conscription_office_04 = {
 	cost = { gold = 450 }
 	
 	levy = 750
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.08
+	}
 
 	next_building = conscription_office_05
 
@@ -4220,6 +4292,10 @@ conscription_office_05 = {
 	
 	levy = 900
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.09
+	}
+
 	next_building = conscription_office_06
 
 	type_icon = "icon_building_military_camps.dds"
@@ -4243,6 +4319,10 @@ conscription_office_06 = {
 	cost = { gold = 650 }
 	
 	levy = 1050
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.10
+	}
 
 	type_icon = "icon_building_military_camps.dds"
 	
@@ -4460,9 +4540,10 @@ siege_weapon_factory_01 = {
 	cost = { gold = 100 }
 
 	character_modifier = {
-		siege_weapon_siege_value_mult = 0.1	
+		siege_weapon_siege_value_mult = 0.1
+		men_at_arms_maintenance = 0.01
 	}
-	
+
 	next_building = siege_weapon_factory_02
 
 	type_icon = "icon_building_siege_works.dds"
@@ -4487,6 +4568,7 @@ siege_weapon_factory_02 = {
 
 	character_modifier = {
 		siege_weapon_siege_value_mult = 0.13
+		men_at_arms_maintenance = 0.01
 	}
 	
 	next_building = siege_weapon_factory_03
@@ -4513,6 +4595,7 @@ siege_weapon_factory_03 = {
 
 	character_modifier = {
 		siege_weapon_siege_value_mult = 0.16
+		men_at_arms_maintenance = 0.02
 	}
 	
 	next_building = siege_weapon_factory_04
@@ -4539,6 +4622,7 @@ siege_weapon_factory_04 = {
 
 	character_modifier = {
 		siege_weapon_siege_value_mult = 0.19
+		men_at_arms_maintenance = 0.03
 	}
 	
 	next_building = siege_weapon_factory_05
@@ -4565,6 +4649,7 @@ siege_weapon_factory_05 = {
 
 	character_modifier = {
 		siege_weapon_siege_value_mult = 0.22
+		men_at_arms_maintenance = 0.04
 	}
 	
 	next_building = siege_weapon_factory_06
@@ -4591,6 +4676,7 @@ siege_weapon_factory_06 = {
 
 	character_modifier = {
 		siege_weapon_siege_value_mult = 0.25
+		men_at_arms_maintenance = 0.05
 	}
 	
 	type_icon = "icon_building_siege_works.dds"
@@ -4617,6 +4703,7 @@ military_stall_01 = {
 
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.08
+		men_at_arms_maintenance = 0.05
 	}
 	
 	next_building = military_stall_02
@@ -4644,6 +4731,7 @@ military_stall_02 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.10
 		heavy_cavalry_toughness_mult = 0.02
+		men_at_arms_maintenance = 0.06
 	}
 	
 	next_building = military_stall_03
@@ -4671,6 +4759,7 @@ military_stall_03 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.12
 		heavy_cavalry_toughness_mult = 0.04
+		men_at_arms_maintenance = 0.07
 	}
 	
 	next_building = military_stall_04
@@ -4698,6 +4787,7 @@ military_stall_04 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.14
 		heavy_cavalry_toughness_mult = 0.06
+		men_at_arms_maintenance = 0.08
 	}
 	
 	next_building = military_stall_05
@@ -4725,6 +4815,7 @@ military_stall_05 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.16
 		heavy_cavalry_toughness_mult = 0.08
+		men_at_arms_maintenance = 0.09
 	}
 	
 	next_building = military_stall_06
@@ -4752,6 +4843,7 @@ military_stall_06 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.18
 		heavy_cavalry_toughness_mult = 0.10
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_pastures.dds"
@@ -4781,6 +4873,7 @@ military_pasture_01 = {
 		light_cavalry_pursuit_mult = 0.06
 		archer_cavalry_damage_mult = 0.06
 		archer_cavalry_pursuit_mult = 0.06
+		men_at_arms_maintenance = 0.05
 	}
 	
 	next_building = military_pasture_02
@@ -4810,6 +4903,7 @@ military_pasture_02 = {
 		light_cavalry_pursuit_mult = 0.08
 		archer_cavalry_damage_mult = 0.08
 		archer_cavalry_pursuit_mult = 0.08
+		men_at_arms_maintenance = 0.06
 	}
 	
 	next_building = military_pasture_03
@@ -4842,6 +4936,7 @@ military_pasture_03 = {
 		light_cavalry_toughness_mult = 0.02
 		light_cavalry_screen_mult = 0.02
 		archer_cavalry_toughness_mult = 0.02
+		men_at_arms_maintenance = 0.07
 	}
 	
 	next_building = military_pasture_04
@@ -4874,6 +4969,7 @@ military_pasture_04 = {
 		light_cavalry_toughness_mult = 0.04
 		light_cavalry_screen_mult = 0.04
 		archer_cavalry_toughness_mult = 0.04
+		men_at_arms_maintenance = 0.08
 	}
 	
 	next_building = military_pasture_05
@@ -4906,6 +5002,7 @@ military_pasture_05 = {
 		light_cavalry_toughness_mult = 0.06
 		light_cavalry_screen_mult = 0.06
 		archer_cavalry_toughness_mult = 0.06
+		men_at_arms_maintenance = 0.09
 	}
 	
 	next_building = military_pasture_06
@@ -4938,6 +5035,7 @@ military_pasture_06 = {
 		light_cavalry_toughness_mult = 0.08
 		light_cavalry_screen_mult = 0.08
 		archer_cavalry_toughness_mult = 0.08
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_pastures.dds"
@@ -4965,6 +5063,7 @@ mercenary_office_01 = {
 	character_modifier = {
 		pikemen_damage_mult = 0.08
 		heavy_infantry_damage_mult = 0.08
+		men_at_arms_maintenance = 0.05
 	}
 	
 	next_building = mercenary_office_02
@@ -4994,6 +5093,7 @@ mercenary_office_02 = {
 		heavy_infantry_damage_mult = 0.1
 		pikemen_toughness_mult = 0.02
 		heavy_infantry_toughness_mult = 0.02
+		men_at_arms_maintenance = 0.06
 	}
 	
 	next_building = mercenary_office_03
@@ -5023,6 +5123,7 @@ mercenary_office_03 = {
 		heavy_infantry_damage_mult = 0.12
 		pikemen_toughness_mult = 0.04
 		heavy_infantry_toughness_mult = 0.04
+		men_at_arms_maintenance = 0.07
 	}
 	
 	next_building = mercenary_office_04
@@ -5052,6 +5153,7 @@ mercenary_office_04 = {
 		heavy_infantry_damage_mult = 0.14
 		pikemen_toughness_mult = 0.06
 		heavy_infantry_toughness_mult = 0.06
+		men_at_arms_maintenance = 0.08
 	}
 	
 	next_building = mercenary_office_05
@@ -5081,6 +5183,7 @@ mercenary_office_05 = {
 		heavy_infantry_damage_mult = 0.16
 		pikemen_toughness_mult = 0.08
 		heavy_infantry_toughness_mult = 0.08
+		men_at_arms_maintenance = 0.09
 	}
 	
 	next_building = mercenary_office_06
@@ -5110,6 +5213,7 @@ mercenary_office_06 = {
 		heavy_infantry_damage_mult = 0.18
 		pikemen_toughness_mult = 0.1
 		heavy_infantry_toughness_mult = 0.1
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_barracks.dds"
@@ -5138,6 +5242,7 @@ range_place_01 = {
 		archers_damage_mult = 0.08
 		skirmishers_damage_mult = 0.06
 		skirmishers_pursuit_mult = 0.06
+		men_at_arms_maintenance = 0.05
 	}
 	
 	next_building = range_place_02
@@ -5166,6 +5271,7 @@ range_place_02 = {
 		archers_damage_mult = 0.1
 		skirmishers_damage_mult = 0.08
 		skirmishers_pursuit_mult = 0.08
+		men_at_arms_maintenance = 0.06
 	}
 	
 	next_building = range_place_03
@@ -5196,6 +5302,7 @@ range_place_03 = {
 		skirmishers_pursuit_mult = 0.1
 		archers_toughness_mult = 0.02
 		skirmishers_toughness_mult = 0.02
+		men_at_arms_maintenance = 0.07
 	}
 	
 	next_building = range_place_04
@@ -5226,6 +5333,7 @@ range_place_04 = {
 		skirmishers_pursuit_mult = 0.12
 		archers_toughness_mult = 0.04
 		skirmishers_toughness_mult = 0.04
+		men_at_arms_maintenance = 0.08
 	}
 	
 	next_building = range_place_05
@@ -5256,6 +5364,7 @@ range_place_05 = {
 		skirmishers_pursuit_mult = 0.14
 		archers_toughness_mult = 0.06
 		skirmishers_toughness_mult = 0.06
+		men_at_arms_maintenance = 0.09
 	}
 	
 	next_building = range_place_06
@@ -5286,6 +5395,7 @@ range_place_06 = {
 		skirmishers_pursuit_mult = 0.16
 		archers_toughness_mult = 0.08
 		skirmishers_toughness_mult = 0.08
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_royal_hunting_grounds.dds"
@@ -5433,6 +5543,10 @@ reserve_army_center_01 = {
 	cost = { gold = 250 }
 
 	levy = 700
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.04
+	}
 	
 	next_building = reserve_army_center_02
 
@@ -5457,6 +5571,10 @@ reserve_army_center_02 = {
 	cost = { gold = 400 }
 
 	levy = 1000
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.06
+	}
 	
 	next_building = reserve_army_center_03
 
@@ -5481,6 +5599,10 @@ reserve_army_center_03 = {
 	cost = { gold = 550 }
 
 	levy = 1300
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.08
+	}
 	
 	next_building = reserve_army_center_04
 
@@ -5505,6 +5627,10 @@ reserve_army_center_04 = {
 	cost = { gold = 700 }
 
 	levy = 1600
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.1
+	}
 	
 	type_icon = "icon_building_military_camps.dds"
 	
@@ -5635,8 +5761,9 @@ military_iron_works_01 = {
 	character_modifier = {
 		knight_limit = 1
 		knight_effectiveness_mult = 0.1
+		men_at_arms_maintenance = 0.04
 	}
-	
+
 	next_building = military_iron_works_02
 
 	type_icon = "icon_building_blacksmiths.dds"
@@ -5662,6 +5789,7 @@ military_iron_works_02 = {
 	character_modifier = {
 		knight_limit = 1
 		knight_effectiveness_mult = 0.15
+		men_at_arms_maintenance = 0.06
 	}
 	
 	next_building = military_iron_works_03
@@ -5689,6 +5817,7 @@ military_iron_works_03 = {
 	character_modifier = {
 		knight_limit = 2
 		knight_effectiveness_mult = 0.2
+		men_at_arms_maintenance = 0.08
 	}
 	
 	next_building = military_iron_works_04
@@ -5716,6 +5845,7 @@ military_iron_works_04 = {
 	character_modifier = {
 		knight_limit = 2
 		knight_effectiveness_mult = 0.25
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_blacksmiths.dds"
@@ -5743,6 +5873,7 @@ racetrack_01 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.06
 		heavy_cavalry_toughness_mult = 0.04
+		men_at_arms_maintenance = 0.04
 	}
 	
 	next_building = racetrack_02
@@ -5770,6 +5901,7 @@ racetrack_02 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.1
 		heavy_cavalry_toughness_mult = 0.06
+		men_at_arms_maintenance = 0.06
 	}
 	
 	next_building = racetrack_03
@@ -5797,6 +5929,7 @@ racetrack_03 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.14
 		heavy_cavalry_toughness_mult = 0.08
+		men_at_arms_maintenance = 0.08
 	}
 	
 	next_building = racetrack_04
@@ -5824,6 +5957,7 @@ racetrack_04 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.18
 		heavy_cavalry_toughness_mult = 0.1
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_pastures.dds"
@@ -5856,6 +5990,7 @@ military_hunting_ground_01 = {
 		light_cavalry_toughness_mult = 0.02
 		light_cavalry_screen_mult = 0.02
 		archer_cavalry_toughness_mult = 0.02
+		men_at_arms_maintenance = 0.04
 	}
 	
 	next_building = military_hunting_ground_02
@@ -5888,6 +6023,7 @@ military_hunting_ground_02 = {
 		light_cavalry_toughness_mult = 0.04
 		light_cavalry_screen_mult = 0.04
 		archer_cavalry_toughness_mult = 0.04
+		men_at_arms_maintenance = 0.06
 	}
 	
 	next_building = military_hunting_ground_03
@@ -5920,6 +6056,7 @@ military_hunting_ground_03 = {
 		light_cavalry_toughness_mult = 0.06
 		light_cavalry_screen_mult = 0.06
 		archer_cavalry_toughness_mult = 0.06
+		men_at_arms_maintenance = 0.08
 	}
 	
 	next_building = military_hunting_ground_04
@@ -5952,6 +6089,7 @@ military_hunting_ground_04 = {
 		light_cavalry_toughness_mult = 0.08
 		light_cavalry_screen_mult = 0.08
 		archer_cavalry_toughness_mult = 0.08
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_hunting_grounds.dds"
@@ -5981,6 +6119,7 @@ training_school_01 = {
 		heavy_infantry_damage_mult = 0.06
 		pikemen_toughness_mult = 0.04
 		heavy_infantry_toughness_mult = 0.04
+		men_at_arms_maintenance = 0.04
 	}
 	
 	next_building = training_school_02
@@ -6010,6 +6149,7 @@ training_school_02 = {
 		heavy_infantry_damage_mult = 0.1
 		pikemen_toughness_mult = 0.06
 		heavy_infantry_toughness_mult = 0.06
+		men_at_arms_maintenance = 0.06
 	}
 	
 	next_building = training_school_03
@@ -6039,6 +6179,7 @@ training_school_03 = {
 		heavy_infantry_damage_mult = 0.14
 		pikemen_toughness_mult = 0.08
 		heavy_infantry_toughness_mult = 0.08
+		men_at_arms_maintenance = 0.08
 	}
 	
 	next_building = training_school_04
@@ -6068,6 +6209,7 @@ training_school_04 = {
 		heavy_infantry_damage_mult = 0.18
 		pikemen_toughness_mult = 0.1
 		heavy_infantry_toughness_mult = 0.1
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_barracks.dds"
@@ -6098,6 +6240,7 @@ range_traning_field_01 = {
 		skirmishers_pursuit_mult = 0.04
 		archers_toughness_mult = 0.02
 		skirmishers_toughness_mult = 0.02
+		men_at_arms_maintenance = 0.04
 	}
 	
 	next_building = range_traning_field_02
@@ -6128,6 +6271,7 @@ range_traning_field_02 = {
 		skirmishers_pursuit_mult = 0.08
 		archers_toughness_mult = 0.04
 		skirmishers_toughness_mult = 0.04
+		men_at_arms_maintenance = 0.06
 	}
 	
 	next_building = range_traning_field_03
@@ -6158,6 +6302,7 @@ range_traning_field_03 = {
 		skirmishers_pursuit_mult = 0.12
 		archers_toughness_mult = 0.06
 		skirmishers_toughness_mult = 0.06
+		men_at_arms_maintenance = 0.08
 	}
 	
 	next_building = range_traning_field_04
@@ -6188,6 +6333,7 @@ range_traning_field_04 = {
 		skirmishers_pursuit_mult = 0.16
 		archers_toughness_mult = 0.08
 		skirmishers_toughness_mult = 0.08
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_regimental_grounds.dds"
@@ -6214,6 +6360,10 @@ mobilization_building_01 = {
     }
 	cost = { gold = 400 }
 
+	character_modifier = {
+		men_at_arms_maintenance = 0.05
+	}
+
 	province_culture_modifier = {
 		levy_size = 0.2
 	}
@@ -6239,6 +6389,10 @@ mobilization_building_02 = {
         building_requirement_tribal = no
     }
 	cost = { gold = 600 }
+
+	character_modifier = {
+		men_at_arms_maintenance = 0.1
+	}
 
 	province_culture_modifier = {
 		levy_size = 0.4
@@ -6271,9 +6425,10 @@ sapper_school_01 = {
 
 	character_modifier = {
 		siege_weapon_siege_value_mult = 0.25
-		martial = 2	
+		martial = 2
+		men_at_arms_maintenance = 0.05
 	}
-	
+
 	next_building = sapper_school_02
 
 	type_icon = "icon_building_military_academy.dds"
@@ -6303,6 +6458,7 @@ sapper_school_02 = {
 	character_modifier = {
 		siege_weapon_siege_value_mult = 0.25
 		martial = 4
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_military_academy.dds"
@@ -6330,6 +6486,7 @@ jousting_arena_01 = {
 	character_modifier = {
 		knight_limit = 3
 		knight_effectiveness_mult = 0.5
+		men_at_arms_maintenance = 0.05
 	}
 	
 	next_building = jousting_arena_02
@@ -6357,6 +6514,7 @@ jousting_arena_02 = {
 	character_modifier = {
 		knight_limit = 6
 		knight_effectiveness_mult = 0.5
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_jousting_lists.dds"
@@ -6384,6 +6542,7 @@ war_horse_center_01 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.09
 		heavy_cavalry_toughness_mult = 0.05
+		men_at_arms_maintenance = 0.05
 	}
 	
 	next_building = war_horse_center_02
@@ -6411,6 +6570,7 @@ war_horse_center_02 = {
 	character_modifier = {
 		heavy_cavalry_damage_mult = 0.18
 		heavy_cavalry_toughness_mult = 0.1
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_jousting_lists.dds"
@@ -6443,6 +6603,7 @@ horse_market_01 = {
 		light_cavalry_toughness_add = 2
 		light_cavalry_screen_add = 2
 		archer_cavalry_toughness_add = 2
+		men_at_arms_maintenance = 0.05
 	}
 	
 	next_building = horse_market_02
@@ -6475,6 +6636,7 @@ horse_market_02 = {
 		light_cavalry_toughness_add = 4
 		light_cavalry_screen_add = 4
 		archer_cavalry_toughness_add = 4
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_pastures.dds"
@@ -6504,6 +6666,7 @@ royal_guard_01 = {
 		heavy_infantry_damage_add = 4
 		pikemen_toughness_add = 2
 		heavy_infantry_toughness_add = 2
+		men_at_arms_maintenance = 0.05
 	}
 	
 	next_building = royal_guard_02
@@ -6533,6 +6696,7 @@ royal_guard_02 = {
 		heavy_infantry_damage_add = 9
 		pikemen_toughness_add = 5
 		heavy_infantry_toughness_add = 5
+		men_at_arms_maintenance = 0.1
 	}
 	
 	type_icon = "icon_building_barracks.dds"
@@ -6563,6 +6727,7 @@ special_force_center_01 = {
 		skirmishers_pursuit_add = 4
 		archers_toughness_add = 2
 		skirmishers_toughness_add = 2
+		men_at_arms_maintenance = 0.05
 	}
 	
 	next_building = special_force_center_02
@@ -6593,6 +6758,7 @@ special_force_center_02 = {
 		skirmishers_pursuit_add = 8
 		archers_toughness_add = 4
 		skirmishers_toughness_add = 4
+		men_at_arms_maintenance = 0.1
 	}
 
 	type_icon = "icon_building_warcamps.dds"
