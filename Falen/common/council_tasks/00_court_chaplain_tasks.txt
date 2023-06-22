@@ -196,6 +196,16 @@ task_conversion = {
 
 	effect_desc = {
 		desc = task_conversion_effect_desc
+		triggered_desc = {
+			trigger = {
+				scope:councillor_liege = {
+					any_vassal = {
+						has_vassal_stance = minority
+					}
+				}
+			}
+			desc = minority_disapproves_conversion_tooltip
+		}
 		desc = {
 			desc = council_task_possible_side_effects
 			triggered_desc = {
@@ -281,21 +291,6 @@ task_conversion = {
 			add = {
 				value = fp2_lyonese_monk_conversion_bonus_actual_value
 				desc = fp2_lyonese_monk_faith_conversion_task_desc
-			}
-		}
-
-		# Innovation Bonuses
-		if = {
-			limit = {
-				scope:councillor.liege = {
-					culture = {
-						has_innovation = innovation_public_school
-					}
-				}
-			}
-			add = {
-				value = public_school_faith_value
-				desc = PUBLIC_SCHOOL
 			}
 		}
 
@@ -444,7 +439,10 @@ task_conversion = {
 			NOT = { faith = scope:councillor.faith }
 			trigger_if = {
 				limit = {
-					scope:councillor_liege = { has_variable = hold_court_8120_religion_block }
+					scope:councillor_liege = {
+						is_alive = yes
+						has_variable = hold_court_8120_religion_block
+					}
 				}
 				custom_tooltip = {
 					text = hold_court_8120_conversion_tt
@@ -590,7 +588,7 @@ task_conversion = {
 					scope:councillor_liege = {
 						is_ai = yes
 						faith = faith:ashari
-						capital_province = { geographical_region = world_europe_west_iberia }
+						capital_province ?= { geographical_region = world_europe_west_iberia }
 						scope:county.faith = faith:muwalladi
 					}
 					scope:county = {
@@ -679,6 +677,27 @@ task_conversion = {
 	}
 
 	on_finish_task_county = {
+		scope:councillor_liege = {
+			if = {
+				limit = {
+					any_vassal = {
+						has_vassal_stance = minority
+					}
+				}
+				custom_tooltip = minority_disapproves_conversion
+				hidden_effect = {
+					every_vassal = {
+						limit = {
+							has_vassal_stance = minority
+						}
+						add_opinion = {
+							target = scope:councillor_liege
+							modifier = minority_disapproves_of_conversion_opinion
+						}
+					}
+				}
+			}
+		}
 		scope:county = {
 			set_county_faith = scope:councillor.faith
 		}
@@ -848,6 +867,21 @@ task_fabricate_claim = {
 			add = {
 				value = scope:councillor.court_chaplain_fabricate_claim_tradition_language_scholars_bonus
 				desc = FABRICATE_CLAIM_LANGUAGE_SCHOLARS_BONUS
+			}
+		}
+
+		# Innovation Bonuses
+		if = {
+			limit = {
+				scope:councillor.liege = {
+					culture = {
+						has_innovation = innovation_land_grants
+					}
+				}
+			}
+			add = {
+				value = scope:councillor.court_chaplain_fabricate_claim_innovation_bonus_land_grants
+				desc = COURT_CHAPLAIN_FABRICATE_CLAIM_INNOVATION_BONUS_LAND_GRANTS
 			}
 		}
 		if = {

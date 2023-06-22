@@ -2283,7 +2283,7 @@ weapon = {
 		weight = {
 			value = 3000
 			if = {
-				limit = { NOT = { has_government = tribal_government } }
+				limit = { NOT = { government_has_flag = government_is_tribal } }
 				multiply = 5
 			}
 		}
@@ -2292,7 +2292,7 @@ weapon = {
 		weight = {
 			value = 3000
 			if = {
-				limit = { has_government = tribal_government }
+				limit = { government_has_flag = government_is_tribal }
 				multiply = 5
 			}
 		}
@@ -2314,6 +2314,7 @@ weapon = {
 				limit = {
 					OR = {
 						culture = { has_cultural_pillar = heritage_mongolic }
+						culture = { has_cultural_pillar = heritage_turkic }
 					}
 				}
 				multiply = 5
@@ -2324,7 +2325,7 @@ weapon = {
 		weight = {
 			value = 1000
 			if = {
-				limit = { NOT = { has_government = tribal_government } }
+				limit = { NOT = { government_has_flag = government_is_tribal } }
 				multiply = 3
 			}
 		}
@@ -2336,7 +2337,7 @@ the_weapon = {
 		weight = {
 			value = 3000
 			if = {
-				limit = { NOT = { has_government = tribal_government } }
+				limit = { NOT = { government_has_flag = government_is_tribal } }
 				multiply = 5
 			}
 		}
@@ -2345,7 +2346,7 @@ the_weapon = {
 		weight = {
 			value = 3000
 			if = {
-				limit = { has_government = tribal_government }
+				limit = { government_has_flag = government_is_tribal }
 				multiply = 5
 			}
 		}
@@ -2367,6 +2368,7 @@ the_weapon = {
 				limit = {
 					OR = {
 						culture = { has_cultural_pillar = heritage_mongolic }
+						culture = { has_cultural_pillar = heritage_turkic }
 					}
 				}
 				multiply = 5
@@ -2377,7 +2379,7 @@ the_weapon = {
 		weight = {
 			value = 1000
 			if = {
-				limit = { NOT = { has_government = tribal_government } }
+				limit = { NOT = { government_has_flag = government_is_tribal } }
 				multiply = 3
 			}
 		}
@@ -2392,7 +2394,7 @@ the_weapon = {
 		weight = {
 			value = 1000
 			if = {
-				limit = { has_government = tribal_government }
+				limit = { government_has_flag = government_is_tribal }
 				multiply = 0.25
 			}
 		}
@@ -2409,6 +2411,18 @@ creature = {
 	ox = {
 	}
 	unicorn = {
+		trigger = {
+			NOR = {
+				culture = { has_cultural_pillar = heritage_west_african }
+				culture = { has_cultural_pillar = heritage_central_african }
+				culture = { has_cultural_pillar = heritage_sahelian }
+				culture = { has_cultural_pillar = heritage_senegambian }
+				culture = { has_cultural_pillar = heritage_akan }
+				culture = { has_cultural_pillar = heritage_yoruba }
+				culture = { has_cultural_pillar = heritage_dravidian }
+				culture = { has_cultural_pillar = heritage_indo_aryan }
+			}
+		}
 	}
 	dragon = {
 	}
@@ -2424,8 +2438,21 @@ creature = {
 	fox = {
 	}
 	tiger = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_dravidian }
+				culture = { has_cultural_pillar = heritage_indo_aryan }
+			}
+		}
 	}
 	elephant = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_dravidian }
+				culture = { has_cultural_pillar = heritage_indo_aryan }
+				culture = { has_cultural_pillar = heritage_sahelian }
+			}
+		}
 	}
 	hound = {
 		trigger = {
@@ -2443,6 +2470,7 @@ creature = {
 				limit = {
 					OR = {
 						culture = { has_cultural_pillar = heritage_mongolic }
+						culture = { has_cultural_pillar = heritage_turkic }
 					}
 				}
 				multiply = 5
@@ -2450,12 +2478,51 @@ creature = {
 		}
 	}
 	leopard = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_west_african }
+				culture = { has_cultural_pillar = heritage_sahelian }
+				culture = { has_cultural_pillar = heritage_senegambian }
+				culture = { has_cultural_pillar = heritage_central_african }
+			}
+		}
 	}
 	gazelle = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_west_african }
+				culture = { has_cultural_pillar = heritage_sahelian }
+				culture = { has_cultural_pillar = heritage_senegambian }
+				culture = { has_cultural_pillar = heritage_central_african }
+			}
+		}
 	}
 	hippopotamus = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_west_african }
+				culture = { has_cultural_pillar = heritage_sahelian }
+				culture = { has_cultural_pillar = heritage_senegambian }
+				culture = { has_cultural_pillar = heritage_central_african }
+			}
+		}
 	}
 	reindeer = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_balto_finnic }
+				culture = { has_cultural_pillar = heritage_ugro_permian }
+			}
+		}
+		weight = {
+			value = 1000
+			if = {
+				limit = {
+					has_culture = culture:sami
+				}
+				multiply = 5
+			}
+		}
 	}
 }
 
@@ -2484,8 +2551,24 @@ the_creature = {
 	the_fox = {
 	}
 	the_tiger = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_dravidian }
+				culture = { has_cultural_pillar = heritage_indo_aryan }
+			}
+		}
 	}
 	the_elephant = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_dravidian }
+				culture = { has_cultural_pillar = heritage_indo_aryan }
+				culture = { has_cultural_pillar = heritage_west_african }
+				culture = { has_cultural_pillar = heritage_west_african }
+				culture = { has_cultural_pillar = heritage_sahelian }
+				culture = { has_cultural_pillar = heritage_central_african }
+			}
+		}
 	}
 	the_hound = {
 		trigger = {
@@ -2503,6 +2586,7 @@ the_creature = {
 				limit = {
 					OR = {
 						culture = { has_cultural_pillar = heritage_mongolic }
+						culture = { has_cultural_pillar = heritage_turkic }
 					}
 				}
 				multiply = 5
@@ -2510,12 +2594,51 @@ the_creature = {
 		}
 	}
 	the_leopard = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_west_african }
+				culture = { has_cultural_pillar = heritage_sahelian }
+				culture = { has_cultural_pillar = heritage_senegambian }
+				culture = { has_cultural_pillar = heritage_central_african }
+			}
+		}
 	}
 	the_gazelle = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_west_african }
+				culture = { has_cultural_pillar = heritage_sahelian }
+				culture = { has_cultural_pillar = heritage_senegambian }
+				culture = { has_cultural_pillar = heritage_central_african }
+			}
+		}
 	}
 	the_hippopotamus = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_west_african }
+				culture = { has_cultural_pillar = heritage_sahelian }
+				culture = { has_cultural_pillar = heritage_senegambian }
+				culture = { has_cultural_pillar = heritage_central_african }
+			}
+		}
 	}
 	the_reindeer = {
+		trigger = {
+			OR = {
+				culture = { has_cultural_pillar = heritage_balto_finnic }
+				culture = { has_cultural_pillar = heritage_ugro_permian }
+			}
+		}
+		weight = {
+			value = 1000
+			if = {
+				limit = {
+					has_culture = culture:sami
+				}
+				multiply = 5
+			}
+		}
 	}
 }
 

@@ -1,0 +1,169 @@
+﻿
+##################################################
+# Template
+
+# CharXY
+#macro = {
+	#description = " / "
+	#definition = "Char#(CHARACTER)"
+	#replace_with = ""
+#}
+
+##################################################
+# Standard Grammar
+
+# CharHaveHas
+macro = {
+	description = "I You have / SheHe has"
+	definition = "CharHaveHas(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'have', 'has' )"
+}
+
+# CharMyHerHis
+macro = {
+	description = "My thing / HerHis thing"
+	definition = "CharMyHerHis(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'my', CHARACTER.GetHerHis )"
+}
+
+# CharAreIs
+macro = {
+	description = "You are / SheHe is"
+	definition = "CharAreIs(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'are', 'is' )"
+}
+
+# CharYourHerHis
+macro = {
+	description = "Your thing / HerHis thing"
+	definition = "CharYourHerHis(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'your', CHARACTER.GetHerHis )"
+}
+
+# CharYouSheHe
+macro = {
+	description = "You are / SheHe is"
+	definition = "CharYouSheHe(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'you', CHARACTER.GetSheHe )"
+}
+
+# CharYouHerHim
+macro = {
+	description = "Everyone calls you the XYZ / Everyone calls HerHim the XYZ"
+	definition = "CharYouHerHim(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'you', CHARACTER.GetHerHim )"
+}
+
+# CharWereWas
+macro = {
+	description = "You were / SheHe was"
+	definition = "CharWereWas(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'were', 'was' )"
+}
+
+# CharDoDoes
+macro = {
+	description = "You do / SheHe does"
+	definition = "CharDoDoes(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'do', 'does' )"
+}
+
+# CharGoGoes
+macro = {
+	description = "You go / SheHe goes"
+	definition = "CharGoGoes(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'go', 'goes' )"
+}
+
+# CharYoursHerHis
+macro = {
+	description = "Thing is yours / Thing is HerHis"
+	definition = "CharYoursHerHis(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'yours', CHARACTER.GetHerHis )"
+}
+
+# CharYourHerHimself
+macro = {
+	description = "About yourself / About HerHimself"
+	definition = "CharYourHerHimself(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'yourself', CHARACTER.GetHerselfHimself )"
+}
+
+
+
+
+
+
+
+
+
+
+##################################################
+# Contracted Grammar
+
+# We have to use loc keys here because the apostrophes in contractions make the loc system freak out and have a little cry.
+
+# CharDontDoesnt
+macro = {
+	description = "You don't / SheHe doesn't"
+	definition = "CharDontDoesnt(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, Localize( 'grammar_dont' ), Localize( 'grammar_doesnt' ) )"
+}
+
+
+
+
+
+
+
+
+
+
+
+##################################################
+# Hack Grammar
+
+# The awful definition keys here are for readability in a sentence, so that you get "YouSheHe look[_S(CHARACTER)] at the bird", rather than "YouSheHe look[Char_S(CHARACTER)] at the bird" or worse.
+
+# _s
+macro = {
+	description = "Puts an 's' at the end of the word if in the third person — avoids a million highly specific bindings"
+	definition = "_s(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, '', 's' )"
+}
+
+# _es
+## ^The awful definition key is for readability in a sentence, so that you get "YouSheHe look[_S(CHARACTER)] at the bird", rather than "YouSheHe look[Char_S(CHARACTER)] at the bird".
+macro = {
+	description = "Puts an 'ess' at the end of the word if in the third person — avoids a million highly specific bindings"
+	definition = "_es(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, '', 'es' )"
+}
+
+
+
+
+
+
+
+
+
+
+##################################################
+# Specific Grammar
+
+# For transformative suffixes that we can't hack-fix.
+
+# CharFancyFancies
+macro = {
+	description = "You fancy / SheHe fancies"
+	definition = "CharFancyFancies(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'fancy', 'fancies' )"
+}
+
+# CharTryTries
+macro = {
+	description = "You try / SheHe tries"
+	definition = "CharTryTries(CHARACTER)"
+	replace_with = "Select_CString( CHARACTER.IsLocalPlayer, 'try', 'tries' )"
+}

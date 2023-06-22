@@ -124,7 +124,7 @@ donghae.4 = { # All vassals in Korea break up
 	}
 	option = {
 		name = donghae.4.a
-		prestige = -1000
+		add_prestige = -1000
 	}
 }
 donghae.5 = { # Informs to vassal player
@@ -168,7 +168,7 @@ donghae.6 = {
 		add_gold = 300
 		add_piety = 800
 		add_piety_level = 1
-		hidden_tooltip = {
+		hidden_effect = {
 			if = {
 				limit = { NOT = { has_global_variable = donghae_civilwar_started } }
 				title:e_donghae.holder = { trigger_event = donghae.7 }
@@ -185,7 +185,7 @@ donghae.6 = {
 		add_gold = 300
 		add_piety = 800
 		add_piety_level = 1
-		hidden_tooltip = {
+		hidden_effect = {
 			if = {
 				limit = { NOT = { has_global_variable = donghae_civilwar_started } }
 				title:e_donghae.holder = { trigger_event = donghae.7 }

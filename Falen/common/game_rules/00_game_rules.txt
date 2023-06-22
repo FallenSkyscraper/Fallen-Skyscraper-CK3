@@ -227,6 +227,61 @@ regional_heresy = {
 	}
 }
 
+random_harm = {
+		
+	categories = {
+		difficulty health
+	}
+		
+	default = harm_dangerous
+	
+	harm_dangerous = {}
+	
+	harm_illusion_of_safety = {}
+	
+	harm_safe = {}
+	
+	harm_tragic = {}
+	
+	harm_spiteful = {}
+	
+	harm_tragically_spiteful = {}
+}
+
+random_harm_target = {
+		
+	categories = {
+		difficulty health
+	}
+		
+	default = harm_target_all
+	
+	harm_target_all = {}
+		
+	harm_target_player_only = {}
+		
+	harm_target_ai_only = {}
+}
+
+random_nickname_frequency = {
+	
+	categories = {
+		tweaks flavor
+	}
+	
+	default = random_nickname_frequency_default
+
+	random_nickname_frequency_default = {}
+	
+	random_nickname_frequency_halved = {}
+	
+	random_nickname_frequency_quartered = {}
+	
+	random_nickname_frequency_none = {}
+	
+	random_nickname_frequency_doubled = {}
+}
+
 casus_belli_costs = {
 	default = default_casus_belli_costs
 
@@ -450,5 +505,42 @@ random_ruler_placement = {
 
 	random_ruler_placement_on_conversion = {
 		flag = blocks_achievements
+	}
+}
+
+domain_limit_tweaks = {
+	
+	categories = {
+		difficulty tweaks
+	}
+	
+	default = domain_limit_default
+
+	domain_limit_default = {
+	
+	}
+
+	domain_limit_plus_one = {
+		apply_modifier = all:domain_limit_plus_one
+	}
+
+	domain_limit_plus_two = {
+		apply_modifier = all:domain_limit_plus_two
+	}
+
+	domain_limit_plus_three = {
+		apply_modifier = all:domain_limit_plus_three
+	}
+
+	domain_limit_minus_one = {
+		apply_modifier = all:domain_limit_minus_one
+	}
+
+	domain_limit_minus_two = {
+		apply_modifier = all:domain_limit_minus_two
+	}
+
+	domain_limit_minus_three = {
+		apply_modifier = all:domain_limit_minus_three
 	}
 }

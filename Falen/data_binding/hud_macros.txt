@@ -1,0 +1,5 @@
+﻿macro = {
+	description = "Is diarchy button visible"
+	definition = "IsDiarchyVisible"
+	replace_with = "Or( Character.HasActiveDiarchy, Character.IsDiarchOf( Character.GetLiege ) )"
+}

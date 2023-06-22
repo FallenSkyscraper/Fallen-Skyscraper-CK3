@@ -1,4 +1,4 @@
-#fs_initialize_culture_effect = {
+﻿#fs_initialize_culture_effect = {
 #	if = { limit = { has_cultural_parameter = heritage_group_korean } set_variable = { name = heritage_group value = 1 } }
 #	else_if = { limit = { has_cultural_parameter = heritage_group_japanese } set_variable = { name = heritage_group value = 2 } }
 #	else_if = { limit = { has_cultural_parameter = heritage_group_chinese } set_variable = { name = heritage_group value = 3 } }

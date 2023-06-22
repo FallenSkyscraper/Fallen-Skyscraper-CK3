@@ -1,6 +1,5 @@
 ﻿struggle = {
-	#TODO change with correct texture
-	texture = "gfx/interface/icons/message_feed/great_holy_war.dds"
+	texture = "gfx/interface/icons/message_feed/struggle.dds"
 	alias = { struggle_struggles }
 }
 struggle_phase = {
@@ -35,77 +34,63 @@ struggle_conquest = {
 	parent = struggle
 }
 
-juche_struggle = {
+iberian_struggle = {
 	alias = { struggle_region_region }
 	parent = struggle
 	requires_dlc_flag = the_fate_of_iberia
 }
 
-struggle_phase_juche_conquest = {
+struggle_phase_iberia_opportunity = {
 	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_opportunity.dds"
-	parent = juche_struggle
+	parent = iberian_struggle
 	requires_dlc_flag = the_fate_of_iberia
 }
-struggle_phase_juche_status_quo = {
+struggle_phase_iberia_hostility = {
 	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_hostility.dds"
-	parent = juche_struggle
+	parent = iberian_struggle
 	requires_dlc_flag = the_fate_of_iberia
 }
-struggle_phase_juche_cease = {
+struggle_phase_iberia_compromise = {
+	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_compromise.dds"
+	parent = iberian_struggle
+	requires_dlc_flag = the_fate_of_iberia
+}
+struggle_phase_iberia_conciliation = {
 	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_conciliation.dds"
-	parent = juche_struggle
+	parent = iberian_struggle
 	requires_dlc_flag = the_fate_of_iberia
 }
-
-struggle_phase_juche_alliance = {
-	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_tension.dds"
-	parent = juche_struggle
-	requires_dlc_flag = the_fate_of_iberia
-}
-
-struggle_phase_juche_fragmentation = {
-	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_tension.dds"
-	parent = juche_struggle
-	requires_dlc_flag = the_fate_of_iberia
-}
-
-struggle_phase_juche_contention = {
-	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_opportunity.dds"
-	parent = juche_struggle
-	requires_dlc_flag = the_fate_of_iberia
-}
-
 
 improve_city_province_decision = {
 	parent = decision
 }
 
 border_raid = {
-	texture = "gfx/interface/icons/map_icons/icon_raid.dds" #TODO_CD_FP2 (JP) correct art
+	texture = "gfx/interface/icons/map_icons/icon_raid.dds"
 	alias = { border_raiding border_raids }
 	requires_dlc_flag = the_fate_of_iberia
 }
 
 contract_assistance = {
-	texture = "gfx/interface/icons/icon_gold.dds" #TODO_CD_FP2 (JP) correct art
+	texture = "gfx/interface/icons/icon_gold.dds"
 	alias = { contracting_assistance }
 	requires_dlc_flag = the_fate_of_iberia
 }
 
 enforce_truce = {
-	texture = "gfx/interface/icons/character_interactions/icon_retreat.dds" #TODO_CD_FP2 (JP) correct art
+	texture = "gfx/interface/icons/character_interactions/icon_retreat.dds"
 	alias = { enforced_truce }
 	requires_dlc_flag = the_fate_of_iberia
 }
 
 iberian_reclamation = {
-	texture = "gfx/interface/icons/message_feed/great_holy_war.dds" #TODO_CD_FP2 (JP) correct art
+	texture = "gfx/interface/icons/message_feed/great_holy_war.dds"
 	alias = { iberian_reclaiming iberian_reclamations }
 	requires_dlc_flag = the_fate_of_iberia
 }
 
 bargain_fealty = {
-	texture = "gfx/interface/icons/icon_vassal.dds" #TODO_CD_FP2 (JP) correct art
+	texture = "gfx/interface/icons/icon_vassal.dds"
 	alias = { bargained_fealty }
 	requires_dlc_flag = the_fate_of_iberia
 }

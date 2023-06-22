@@ -1,0 +1,17 @@
+﻿macro = {
+	description = "Does the activity type have a cooldown"
+	definition = "ActivityTypeHasCooldown(Type)"
+	replace_with = "GreaterThan_int32( Type.CalcCooldownDays( GetPlayer ), '(int32)0' )"
+}
+
+macro = {
+	description = "Can the player pick another of this activity phase in the provided province when planning an activity"
+	definition = "PlannerCanPickActivityPhase(Phase,Location)"
+	replace_with = "And( Phase.CanPick( GetPlayer, Location.Self, ActivityPlanner.GetSelectedSpecialOption ), ActivityPlanner.CanPlanMorePhasesOfType( Phase.Self ) )"
+}
+
+macro = {
+	description = "Is the character the host of the activity"
+	definition = "IsActivityHost(Activity,Character)"
+	replace_with = "ObjectsEqual( Activity.GetHost.GetID, Character.GetID )"
+}

@@ -1,0 +1,5 @@
+﻿macro = {
+	description = "Get the tooltip for the scripted relation between owner and target"
+	definition = "GetScriptedRelationTooltip(Relation,Owner,Target)"
+	replace_with = "JoinText( Localize( 'double_line_break' ), Relation.GetDescription( Owner.Self, Target.Self ), Relation.GetReasonFor( Owner.Self, Target.Self ) )"
+}
