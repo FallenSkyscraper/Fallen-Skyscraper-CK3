@@ -419,6 +419,14 @@ trait = {
 	texture = "gfx/interface/icons/message_feed/trait.dds"
 	alias = { traits }
 }
+
+trait_level_track = {
+	parent = trait
+}
+trait_level_track_xp = {
+	parent = trait_level_track
+}
+
 spouse = {
 	texture = "gfx/interface/icons/message_feed/spouse_job.dds"
 	alias = {spouses}
@@ -2376,7 +2384,10 @@ modifier_base_contribution = {
 
 unreformed_pagan_combat_bonus = {}
 
-personality = {}
+personality = {
+	texture = "gfx/interface/icons/message_feed/trait.dds"
+	alias = { character_personality personalities personality_i }
+}
 
 gift = {
 	alias = { send_gift }
