@@ -1237,6 +1237,27 @@
 			1000 = "ce_pagan_dodola.dds"	
 			1000 = "ce_pagan_jumis.dds"
 			1000 = "ce_antler_pale.dds"	
+	}
+	pagan_circle_frame_list = {	
+		100 = "ce_pagan_circle_frame.dds"
+		
+		special_selection = {
+			trigger = {
+				scope:faith.religion = religion:germanic_religion
+			}		
+			# Circle frames using various viking styles
+			1000 = "ce_frame_circle_borre_double.dds"
+			1000 = "ce_frame_circle_borre_single.dds"
+			1000 = "ce_frame_circle_urnes_runes.dds"
+			1000 = "ce_frame_circle_broa.dds"
+			1000 = "ce_frame_circle_borre_doted.dds"
+			1000 = "ce_frame_circle_borre_single_knots.dds"
+			1000 = "ce_frame_circle_borre_single_knots_02.dds"
+			1000 = "ce_frame_circle_borre_double_knots.dds"	
+			1000 = "ce_frame_circle_borre_double_knots_02.dds"	
+			1000 = "ce_frame_circle_borre_double_knots_03.dds"	
+			1000 = "ce_frame_circle_urnes_pitney.dds"				
+		}		
 	}	
 	# Circled design with vertical correction to some of the charges
 	circled_pagan_charge_offset_list = {
@@ -1824,6 +1845,17 @@
 		30 = "ce_cross_crosslet.dds"			
 	}	
 
+	hr_three_charges_pall_list = {
+		# three charges that fit rotated template (scandinavia)
+			500 = "ce_waterlily.dds"	
+			500 = "ce_fleur.dds"		
+			250 = "ce_heart.dds"	
+			250 = "ce_oak_leaf.dds"
+			# 250 = "ce_crown_random.dds"		
+			# inv waterlily
+			# inv shell poss
+	}
+
 	hr_six_charges_list = {
 		# bestiary
 		150 = "ce_lion_rampant.dds"
@@ -2199,7 +2231,30 @@
 		50 = "ce_lion_rampant_small.dds"
 		50 = "ce_pot.dds"
 		50 = "ce_clam.dds"
-	}		
+		special_selection = {
+			trigger = {
+				coa_iberian_trigger = yes
+			}
+
+			100 = "ce_dragon_bundle.dds"
+			100 = "ce_eagle_iberia.dds"
+			100 = "ce_goat_02.dds"
+			100 = "ce_lion_rampant_wide_stance.dds"
+			100 = "ce_lion_rampant_wide_stance_crown.dds"
+			100 = "ce_wolf_passant.dds"
+			100 = "ce_wolf_passant_lamb.dds"
+			100 = "ce_crown_coronet.dds"
+			100 = "ce_shield_02.dds"
+			100 = "ce_basket.dds"
+			100 = "ce_chain.dds"
+			100 = "ce_column.dds"
+			100 = "ce_column_banner.dds"
+			100 = "ce_shield_02.dds"
+			100 = "ce_arabic_iberia.dds"
+			100 = "ce_thistle.dds"
+			100 = "ce_thistle_grass.dds"
+		}
+	}			
 	hr_canton_charges_list = {
 		50 = "ce_star_06.dds"
 		20 = "ce_cinquefoil_01.dds"	# check needed
@@ -2611,5 +2666,105 @@
 		100000 = "ce_bull_passant_humped.dds"
 		10000 = "ce_horse_statant.dds"
 		# Elephant, bull (humped), horse, lion, boar (the five main elements in indian bestiary)
-	}		
+	}	
+	
+	### A REPLACER
+
+	hr_charges_symetrical_list = {
+		# Symetrical that work for dimidiated designs
+		
+		30 = "ce_eagle_double.dds"		
+		10 = "ce_barbels_addorsed.dds"
+		10 = "ce_fleur.dds"
+		
+		special_selection = {
+			trigger = {
+				coa_scandinavian_trigger = yes
+			}
+			100 = "ce_antlers_attire.dds"
+			100 = "ce_vol.dds"
+			100 = "ce_fleur.dds"
+			100 = "ce_shrub.dds"
+		}
+
+		special_selection = {
+			trigger = {
+				coa_iberian_trigger = yes
+			}
+
+			100 = "ce_basket.dds"
+			100 = "ce_chain.dds"
+			100 = "ce_column.dds"
+			100 = "ce_thistle.dds"
+			100 = "ce_shield_02.dds"
+		}
+	}
+	hr_geometrical_symetrical_list = {
+	# for dimidiated designs
+
+		30 = "ce_barry_04.dds"
+		30 = "ce_barry_06.dds"
+		20 = "ce_barruly_08.dds"	
+		10 = "ce_barruly_10.dds"			
+
+		10 = "ce_ordinary_fess_5.dds"
+		30 = "ce_ordinary_bars_2.dds"
+		30 = "ce_bars_03.dds"
+		
+		5 = "ce_barry_undy.dds"		
+
+		30 = "ce_horizontal_stripes_02.dds"
+		30 = "ce_horizontal_stripes_03.dds"
+		
+		30 = "ce_bendy_04_dimidiated.dds"
+		30 = "ce_bendy_06_dimidiated.dds"
+		
+		30 = "ce_checky_04.dds"
+		30 = "ce_checkers_06.dds"
+		
+		30 = "ce_paly_08.dds"
+
+
+		
+		special_selection = {
+			trigger = {
+				coa_scandinavian_trigger = yes
+			}
+			30 = "ce_barry_04.dds"
+			30 = "ce_bendy_04_dimidiated.dds"		
+			30 = "ce_checkers_06.dds"
+			30 = "ce_ordinary_bars_2.dds"
+			10 = "ce_pile_inverted_dimidiated.dds"	
+		}	
+
+		special_selection = {
+			trigger = {
+				coa_iberian_trigger = yes
+			}
+
+			100 = "ce_column.dds"
+			100 = "ce_column_banner.dds"
+		}
+
+		
+		special_selection = {
+			trigger = {
+				coa_bishopric_trigger = yes
+			}
+			100 = "ce_ordinary_cross_5.dds"	
+			20 = "ce_cross_fretty.dds"
+			20 = "ce_cross_voided.dds"	
+			50 = "ce_cross_engrailed.dds"
+		}		
+	}
+hr_single_charge_bend_list = {
+		10 = "ce_fleur.dds"
+		10 = "ce_escallop.dds"
+		10 = "ce_waterlily.dds"
+		10 = "ce_oak_leaf.dds"
+		5 = "ce_ram_horn.dds"
+		5 = "ce_axe_long.dds"
+		5 = "ce_antler_pale.dds"
+		5 = "ce_heart.dds"
+	}
 }

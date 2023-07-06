@@ -25,6 +25,12 @@ strong_vassal = {
 	parent = vassal
 }
 
+vassal_stance = {
+	parent = vassal
+	alias = { vassal_stances preferred_heir unpreferred_heir preferred_heirs unpreferred_heirs }
+	texture = "gfx/interface/icons/icon_vassal.dds"
+}
+
 ruler = {
 	alias = { rulers rulerpossessive }
 }
@@ -841,18 +847,56 @@ activity = {
 	alias = { activities }
 }
 
-feast = {
-	texture = "gfx/interface/icons/activities/activity_feast.dds"
+activity_option = {
+	alias = { activity_options }
 	parent = activity
 }
 
-hunt = {
+activity_type = {
+	alias = { activity_types }
+	parent = activity
+}
+
+activity_state_passive = {
+	parent = activity
+}
+
+activity_state_active = {
+	parent = activity
+}
+
+activity_phase = {
+	alias = { activity_phases }
+	parent = activity
+}
+
+activity_phase_action = {
+	parent = activity_phase
+}
+
+activity_guest = {
+	alias = { activity_guest_short activity_guests activity_guests_short activity_attending }
+	parent = activity
+}
+activity_host = {
+	alias = { activity_host_short }
+	parent = activity
+}
+
+intent = {
+	alias = { intents }
+	parent = activity
+}
+
+hunt_success_chance = {
+	alias = { hunt_success_chance_no_prefix }
 	texture = "gfx/interface/icons/activities/activity_hunt.dds"
 	parent = activity
 }
 
-playdate = {
-	texture = "gfx/interface/icons/activities/activity_feast.dds"
+hunt_danger = {
+	alias = { hunt_danger_no_prefix hunt_dangerous }
+	texture = "gfx/interface/icons/activities/activity_hunt.dds"
 	parent = activity
 }
 
@@ -2616,6 +2660,32 @@ board_game_type = {
 purchase_truce_interaction = {
 }
 
+ai_warlike_personality = {
+	alias = { warlike_i }
+	texture = "gfx/interface/icons/vassal_stances/warlike.dds"
+	parent = economical_archetype
+}
+ai_cautious_personality = {
+	alias = { cautious_i }
+	texture = "gfx/interface/icons/vassal_stances/cautious.dds"
+	parent = economical_archetype
+}
+ai_economical_boom_personality = {
+	alias = { builder_i }
+	texture = "gfx/interface/icons/vassal_stances/builder.dds"
+	parent = economical_archetype
+}
+ai_economical_unpredictable_personality = {
+	alias = { unpredictable_i }
+	texture = "gfx/interface/icons/vassal_stances/unpredictable.dds"
+	parent = economical_archetype
+}
 
+piety_level_impact = {
+	parent = piety_level
+}
+prestige_level_impact = {
+	parent = prestige_level
+}
 
 

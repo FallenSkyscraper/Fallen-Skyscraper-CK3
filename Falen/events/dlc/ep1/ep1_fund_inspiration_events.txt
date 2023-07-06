@@ -1032,7 +1032,7 @@ scripted_effect fund_inspiration_0031_pick_options_to_show_effect = {
 					fund_inspiration_0031_title_based_option_trigger = yes
 				}
 				
-				else_if = {
+				if = {
 					limit = {
 						AND = {
 							exists = global_var:found_kingdom_decision
