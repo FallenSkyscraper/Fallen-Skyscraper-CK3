@@ -1403,6 +1403,7 @@ inspiration_adventure_create_artifact_effect = {
 					scope:owner = { 
 						create_artifact_necklace_effect = {
 							OWNER = scope:artifact_origin
+							SMITH = scope:artifact_origin
 						}
 					}
 					scope:newly_created_artifact = { save_scope_as = necklace }

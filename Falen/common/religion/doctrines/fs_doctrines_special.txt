@@ -121,13 +121,13 @@ the_pantheon = {
 			has_doctrine = special_doctrine_munsunjae_worship
 			has_doctrine = special_doctrine_yingzhao_worship
 			has_doctrine = special_doctrine_sinnong_worship
-			has_doctrine = special_doctrine_pantheon
 		}
+		has_doctrine = special_doctrine_no_decision
 	}
 
 	special_doctrine_aisingioro_worship = { #아이신기오로 숭배
 		can_pick = {
-			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+			doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
 		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
@@ -147,7 +147,7 @@ the_pantheon = {
 	}
 	special_doctrine_wanyan_worship = { # 완안 숭배
 		can_pick = {
-			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+			doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
 		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
@@ -167,7 +167,7 @@ the_pantheon = {
 	}
 	special_doctrine_khan_worship = { # 징기스칸 숭배
 		can_pick = {
-			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+			doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
 		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
@@ -188,7 +188,7 @@ the_pantheon = {
 	}
 	special_doctrine_cheewoo_worship = { # 치우 숭배
 		can_pick = {
-			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+			doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
 		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
@@ -208,7 +208,7 @@ the_pantheon = {
 	}
 	special_doctrine_munsunjae_worship = { # 공자 숭배
 		can_pick = {
-			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+			doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
 		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
@@ -231,7 +231,7 @@ the_pantheon = {
 	}
 	special_doctrine_yingzhao_worship = { # 진시황 숭배
 		can_pick = {
-			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+			doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
 		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
@@ -254,7 +254,7 @@ the_pantheon = {
 	}
 	special_doctrine_sinnong_worship = { # 신농 숭배
 		can_pick = {
-			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+			doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
 		}
 		piety_cost = {
 			value = faith_tenet_cost_mid
@@ -274,54 +274,44 @@ the_pantheon = {
 			monthly_piety_gain_mult = -0.15
 		}
 	}
-	special_doctrine_pantheon = { # 만신전
+}
+
+pantheon_reformed = {
+	group = "main_group"
+	is_available_on_create = {
+			has_religion = religion:manchurian
+	}
+	special_doctrine_no_decision = {
 		can_pick = {
-			OR = {
-				#ROOT = {
-				#	has_character_flag = restore_the_pantheon
-				#}
-				has_doctrine = special_doctrine_pantheon
-			}
-			flag:tenet_ancestor_worship = { is_in_list = selected_doctrines }
-		}
-		piety_cost = {
-			value = faith_tenet_cost_mid
-			# Multiplier for keeping same tenet
-			if = {
-				limit = { has_doctrine = special_doctrine_pantheon }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
-		}
-		character_modifier = {
-			opinion_of_different_faith = 15
-			different_faith_opinion = 15
-			same_faith_opinion = 10
-			opinion_of_same_faith = 10
-			different_faith_county_opinion_mult = 0.15
-			faith_conversion_piety_cost_mult = -0.25
-			faith_creation_piety_cost_mult = -0.25
-			monthly_income_mult = -0.1
-			monthly_prestige_gain_mult = -0.1
-			monthly_piety_gain_mult = -0.3
+			always = no
 		}
 	}
-	special_doctrine_purge_the_pantheon = { #조상숭배 해체
+	special_doctrine_status_quo = {
 		can_pick = {
-			AND = {
-				NOT = { flag:tenet_ancestor_worship = { is_in_list = selected_doctrines } }
-				flag:tenet_aniconism = { is_in_list = selected_doctrines}
-			}
-		}
-		piety_cost = {
-			value = faith_tenet_cost_high
-			# Multiplier for keeping same tenet
-			if = {
-				limit = { has_doctrine = special_doctrine_purge_the_pantheon }
-				multiply = faith_unchanged_doctrine_cost_mult
-			}
+			has_doctrine = special_doctrine_no_decision
+			#has_innovation = innovation_northern_reformation_movement
 		}
 
 	}
+	special_doctrine_adopt_monothesism ={
+		can_pick = {
+			has_doctrine = special_doctrine_no_decision
+			#has_innovation = innovation_northern_reformation_movement
+		}
+	}
+	special_doctrine_restore_pantheon = {
+		can_pick = {
+			has_doctrine = special_doctrine_no_decision
+			#has_innovation = innovation_northern_reformation_movement
+		}
+	}
+	special_doctrine_end_of_pantheon = {
+		can_pick = {
+			has_doctrine = special_doctrine_no_decision
+			#has_innovation = innovation_northern_reformation_movement
+		}
+	}
+
 }
 
 path_divided = {
@@ -336,7 +326,7 @@ path_divided = {
 	}
 	special_doctrine_path_of_peoples = {
 		can_pick = {
-			flag:special_doctrine_path_of_peoples = { is_in_list = selected_doctrines }
+			doctrine:special_doctrine_path_of_peoples = { is_in_list = selected_doctrines }
 		}
 		parameters = {
 			hostility_override_special_doctrine_path_of_seoul = 3
@@ -345,7 +335,7 @@ path_divided = {
 	}
 	special_doctrine_path_of_seoul = {
 		can_pick = {
-			flag:special_doctrine_path_of_seoul = { is_in_list = selected_doctrines }
+			doctrine:special_doctrine_path_of_seoul = { is_in_list = selected_doctrines }
 		}
 		parameters = {
 			hostility_override_special_doctrine_path_of_peoples = 3
@@ -354,7 +344,7 @@ path_divided = {
 	}
 	special_doctrine_path_of_authority = {
 		can_pick = {
-			flag:special_doctrine_path_of_authority = { is_in_list = selected_doctrines }
+			doctrine:special_doctrine_path_of_authority = { is_in_list = selected_doctrines }
 		}
 		parameters = {
 			hostility_override_special_doctrine_path_of_peoples = 1
@@ -362,7 +352,7 @@ path_divided = {
 	}
 	special_doctrine_path_of_unity = {
 		can_pick = {
-			flag:special_doctrine_path_of_unity = { is_in_list = selected_doctrines }
+			doctrine:special_doctrine_path_of_unity = { is_in_list = selected_doctrines }
 		}
 		parameters = {
 			hostiltiy_override_special_doctrine_path_of_seoul = 1

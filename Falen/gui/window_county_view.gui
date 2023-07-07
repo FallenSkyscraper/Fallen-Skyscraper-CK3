@@ -494,7 +494,7 @@ window = {
 
 					button_group = {
 						# shortcut = "innovations_window"
-						onclick = "[DefaultOnCultureClick(Culture.GetID)]"
+						onclick = "[OpenGameViewData( 'culture_window', Culture.GetID )]"
 
 						text_single = {
 							text = "CULTURE_COUNTY_WINDOW"
@@ -550,7 +550,7 @@ window = {
 
 					button_group = {
 						# shortcut = "faith_window"
-						onclick = "[DefaultOnFaithClick(Faith.GetID)]"
+						onclick = "[OpenGameViewData( 'faith', GetPlayer.GetFaith.GetID )]"
 
 						text_single = {
 							text = "[Faith.GetNameNoTooltip]"
@@ -2726,7 +2726,7 @@ types CountyViewTypes
 			text = "HOLDING_VIEW_BUILDING_IN_VASSAL"
 		}
 	}
-	type tech_window widget = {
+	type tech_window = widget {
 		name = "tech_window"
 		size = { 380 610 }
 		position = { 600 10 }
