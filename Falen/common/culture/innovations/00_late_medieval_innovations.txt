@@ -45,7 +45,7 @@ innovation_levee_en_masse = {
 	culture_era = culture_era_late_medieval
 	icon = @maa_02
 	
-	modifier = {
+	character_modifier = {
 		levy_size = 0.25
 	}
 
@@ -58,7 +58,7 @@ innovation_natural_rights = {
 	culture_era = culture_era_late_medieval
 	icon = @natural_rights
 
-	modifier = {
+	character_modifier = {
 		county_opinion_add = 30
 	}
 
@@ -82,7 +82,7 @@ innovation_constitution = {
 	culture_era = culture_era_late_medieval
 	icon = @administration_3
 	
-	modifier = {
+	character_modifier = {
 		monthly_county_control_change_add = 0.2
 		monthly_county_control_change_factor = 0.2
 	}
@@ -96,7 +96,7 @@ innovation_nationalism = {
 	culture_era = culture_era_late_medieval
 	icon =  @nationalism
 	
-	modifier = {
+	character_modifier = {
 		same_culture_opinion = 15
 		opinion_of_same_culture = 15
 	}
@@ -110,7 +110,7 @@ innovation_official = {
 	culture_era = culture_era_late_medieval
 	icon = @nobility_04
 		
-	modifier = {
+	character_modifier = {
 		domain_limit = 1
 	}
 
@@ -123,7 +123,7 @@ innovation_press = {
 	culture_era = culture_era_late_medieval
 	icon = @press
 	
-	modifier = {
+	character_modifier = {
 		tyranny_gain_mult = -0.3
 	}
 
@@ -136,7 +136,7 @@ innovation_assembly = {
 	culture_era = culture_era_late_medieval
 	icon = @assembly
 	
-	modifier = {
+	character_modifier = {
 		vassal_tax_mult = 0.2
 	}
 }
@@ -146,7 +146,7 @@ innovation_social_welfare = {
 	culture_era = culture_era_late_medieval
 	icon = @administration_3
 	
-	modifier = {
+	character_modifier = {
 		general_opinion = 5
 	}
 
@@ -159,7 +159,7 @@ innovation_police = {
 	culture_era = culture_era_late_medieval
 	icon = @police
 
-	modifier = {
+	character_modifier = {
 		dread_baseline_add = 15
 		dread_loss_mult = -0.3
 	}
@@ -172,7 +172,7 @@ innovation_industrialization = {
 	culture_era = culture_era_late_medieval
 	icon = @industrialization
 
-	modifier = {
+	county_modifier = {
 		build_speed = -0.4
 		holding_build_speed = -0.4
 	}
@@ -186,7 +186,7 @@ innovation_positivism = {
 	culture_era = culture_era_late_medieval
 	icon = @administration_1
 
-	modifier = {
+	character_modifier = {
 		monthly_lifestyle_xp_gain_mult = 0.1
 	}
 
@@ -211,7 +211,7 @@ innovation_bombard = {
 	icon = @siege_weapons
 
 	unlock_maa = bombard
-	modifier = {
+	character_modifier = {
 		men_at_arms_cap = 1
 		men_at_arms_limit = 5
 	}

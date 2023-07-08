@@ -222,7 +222,7 @@
 			HOSTILE_BASE_VALUE = faction_county_opinion_hostile
 			EVIL_BASE_VALUE = faction_county_opinion_evil
 			BASE_FAITH = faith
-			TARGET_FAITH = scope:target.faith
+			TARGET = scope:target
 		}
 
 		# Greatly reduced chance for a character's capital county to form a faction against them (extra -25 opinion needed).
@@ -320,7 +320,7 @@
 			HOSTILE_BASE_VALUE = faction_county_opinion_hostile
 			EVIL_BASE_VALUE = faction_county_opinion_evil
 			BASE_FAITH = faith
-			TARGET_FAITH = scope:faction.faction_target.faith
+			TARGET = scope:faction.faction_target
 		}
 
 		# Reduced chance for a character's capital county to join a faction against them (extra -10 opinion needed).
@@ -469,7 +469,7 @@
 			HOSTILE_BASE_VALUE = 75
 			EVIL_BASE_VALUE = 125
 			BASE_FAITH = faith
-			TARGET_FAITH = scope:faction.faction_target.faith
+			TARGET = scope:faction.faction_target
 		}
 
 		legalism_virtue_and_sin_modifier = {

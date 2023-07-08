@@ -46,15 +46,17 @@ apply_hold_court_grace_effect = {
 employ_character_as_position_in_current_scope_court_effect = {
 	if = {
 		limit = {
-			can_employ_court_position_type = $POSITION$
-			$CHARACTER$ = { can_be_employed_as = $POSITION$ }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = $POSITION$
+			}
 		}
 		#If character isn't already in your court, but a wandering guest, you recruit them
 		if = {
 			limit = {
 				$CHARACTER$ = { is_pool_guest = yes }
 			}
-			recruit_courtier = $CHARACTER$
+			add_courtier = $CHARACTER$
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -488,9 +490,11 @@ employ_character_as_marked_court_position_effect = {
 	if = {
 		limit = {
 			$POSITION$ = flag:court_physician_court_position
-			#Making sure they still can be employed int he position
-			can_employ_court_position_type = court_physician_court_position
-			$CHARACTER$ = { can_be_employed_as = court_physician_court_position }
+			#Making sure they still can be employed in the position
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = court_physician_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -501,8 +505,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:master_of_horse_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = master_of_horse_court_position
-			$CHARACTER$ = { can_be_employed_as = master_of_horse_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = master_of_horse_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -513,8 +519,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:master_of_hunt_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = master_of_hunt_court_position
-			$CHARACTER$ = { can_be_employed_as = master_of_hunt_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = master_of_hunt_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -525,8 +533,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:keeper_of_swans_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = keeper_of_swans_court_position
-			$CHARACTER$ = { can_be_employed_as = keeper_of_swans_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = keeper_of_swans_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -537,8 +547,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:court_jester_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = court_jester_court_position
-			$CHARACTER$ = { can_be_employed_as = court_jester_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = travel_leader_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -561,8 +573,38 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:seneschal_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = seneschal_court_position
-			$CHARACTER$ = { can_be_employed_as = seneschal_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = court_jester_court_position
+			}
+		}
+		appoint_court_position = {
+			recipient = $CHARACTER$
+			court_position = seneschal_court_position
+		}
+	}
+	else_if = {
+		limit = {
+			$POSITION$ = flag:high_almoner_court_position
+			#Making sure they still can be employed in the position
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = high_almoner_court_position
+			}
+		}
+		appoint_court_position = {
+			recipient = $CHARACTER$
+			court_position = high_almoner_court_position
+		}
+	}
+	else_if = {
+		limit = {
+			$POSITION$ = flag:seneschal_court_position
+			#Making sure they still can be employed in the position
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = seneschal_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -573,8 +615,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:court_tutor_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = court_tutor_court_position
-			$CHARACTER$ = { can_be_employed_as = court_tutor_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = court_tutor_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -585,8 +629,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:cupbearer_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = cupbearer_court_position
-			$CHARACTER$ = { can_be_employed_as = cupbearer_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = cupbearer_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -597,8 +643,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:chief_eunuch_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = chief_eunuch_court_position
-			$CHARACTER$ = { can_be_employed_as = chief_eunuch_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = chief_eunuch_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -609,8 +657,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:antiquarian_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = antiquarian_court_position
-			$CHARACTER$ = { can_be_employed_as = antiquarian_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = antiquarian_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -621,8 +671,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:royal_architect_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = royal_architect_court_position
-			$CHARACTER$ = { can_be_employed_as = royal_architect_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = royal_architect_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -633,8 +685,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:lady_in_waiting_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = lady_in_waiting_court_position
-			$CHARACTER$ = { can_be_employed_as = lady_in_waiting_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = lady_in_waiting_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -657,8 +711,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:court_musician_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = court_musician_court_position
-			$CHARACTER$ = { can_be_employed_as = court_musician_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = court_musician_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -669,8 +725,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:bodyguard_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = bodyguard_court_position
-			$CHARACTER$ = { can_be_employed_as = bodyguard_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = bodyguard_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -681,8 +739,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:champion_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = champion_court_position
-			$CHARACTER$ = { can_be_employed_as = champion_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = champion_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -693,8 +753,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:food_taster_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = food_taster_court_position
-			$CHARACTER$ = { can_be_employed_as = food_taster_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = food_taster_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -705,8 +767,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:executioner_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = executioner_court_position
-			$CHARACTER$ = { can_be_employed_as = executioner_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = executioner_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -717,8 +781,10 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$POSITION$ = flag:garuda_court_position
 			#Making sure they still can be employed int he position
-			can_employ_court_position_type = garuda_court_position
-			$CHARACTER$ = { can_be_employed_as = garuda_court_position }
+			can_appoint_char_to_court_position = {
+				CHAR = $CHARACTER$
+				COURT_POS = garuda_court_position
+			}
 		}
 		appoint_court_position = {
 			recipient = $CHARACTER$
@@ -731,7 +797,7 @@ employ_character_as_marked_court_position_effect = {
 		limit = {
 			$CHARACTER$ = { is_pool_guest = yes }
 		}
-		recruit_courtier = $CHARACTER$
+		add_courtier = $CHARACTER$
 	}
 }
 

@@ -53,7 +53,7 @@ innovation_royal_privilege = {
 	icon = @majesty_02
 
 	unlock_law = crown_authority_2
-	modifier = {
+	character_modifier = {
 		monthly_prestige_gain_mult = 0.1
 	}
 	custom = multiple_claim_wars
@@ -68,7 +68,7 @@ innovation_local_government = {
 	culture_era = culture_era_early_medieval
 	icon = @nobility_04
 	
-	modifier = {
+	character_modifier = {
 		title_creation_cost_mult = -0.2
 	}
 	custom = unlock_fortification_rights_contract
@@ -82,7 +82,7 @@ innovation_communal_government = {
 	culture_era = culture_era_early_medieval
 	icon = @nobility_02
 
-	modifier = {
+	character_modifier = {
 		domain_limit = 1
 	}
 
@@ -95,7 +95,7 @@ innovation_private_army_dismissal = {
 	culture_era = culture_era_early_medieval
 	icon = @maa_01
 
-	modifier = {
+	character_modifier = {
 		vassal_levy_contribution_mult = 0.15
 	}
 
@@ -110,7 +110,7 @@ innovation_seodang = {
 
 	custom = unlock_early_medieval_economic_buildings
 	
-	modifier = {
+	character_modifier = {
 		development_growth_factor = 0.05
 		county_opinion_add = 10
 	}
@@ -124,7 +124,7 @@ innovation_university = {
 	culture_era = culture_era_early_medieval
 	icon = @university
 
-	modifier = {
+	character_modifier = {
 		monthly_lifestyle_xp_gain_mult = 0.05
 	}
 
@@ -139,7 +139,7 @@ innovation_royalty = {
 	
 	custom = unlock_coinage_rights_contract
 
-	modifier = {
+	character_modifier = {
 		tyranny_gain_mult = -0.15
 	}
 	custom = unlock_scutage_contract
@@ -154,7 +154,7 @@ innovation_market_street = {
 	culture_era = culture_era_early_medieval
 	icon = @nobility_02
 
-	modifier = {
+	character_modifier = {
 		castle_holding_holding_build_gold_cost = -0.1
 		city_holding_holding_build_gold_cost = -0.1
 		church_holding_holding_build_gold_cost = -0.1
@@ -170,7 +170,7 @@ innovation_judge = {
 	culture_era = culture_era_early_medieval
 	icon = @judge
 
-	modifier = {
+	character_modifier = {
 		vassal_opinion = 5
 		opinion_of_vassal = 5
 	}
@@ -196,7 +196,7 @@ innovation_mangonel = {
 	icon = @siege_weapons
 
 	unlock_maa = mangonel
-	modifier = {
+	character_modifier = {
 		men_at_arms_cap = 1
 		men_at_arms_limit = 3
 	}
