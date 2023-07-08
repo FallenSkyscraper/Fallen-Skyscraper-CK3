@@ -409,6 +409,11 @@ regiment = {
 	texture = "gfx/interface/icons/icon_soldier.dds"
 	alias = { regiments }
 }
+stationed_regiment = {
+	parent = regiment
+	texture = "gfx/interface/icons/message_feed/marshal_job.dds"
+	alias = { station_regiment stationed station stationed_holding }
+}
 realm = {
 	texture = "gfx/interface/skinned/hud_maintab/maintab_my_realm.dds"
 	framesize = { 132 108 }
@@ -1537,7 +1542,7 @@ implicit_claim = {
 }
 
 county_development = {
-	alias = { development }
+	alias = { development development_i }
 	texture = "gfx/interface/icons/council_task_types/task_develop_county.dds"
 }
 
@@ -1550,8 +1555,8 @@ existing_development = {
 	texture = "gfx/interface/icons/council_task_types/task_develop_county.dds"
 }
 
-control = {
-	alias = { county_control }
+county_control = {
+	alias = { control control_i }
 	texture = "gfx/interface/icons/council_task_types/task_increase_control.dds"
 }
 
