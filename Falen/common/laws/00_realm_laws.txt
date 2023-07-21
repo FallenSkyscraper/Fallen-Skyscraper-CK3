@@ -912,4 +912,54 @@ communism_authority = {
 			}
 		}
 	}
+	#국가 연합
+	alliance_authority = {
+		default = alliance_authority_0
+		cumulative = no
+		flag = realm_law
+		alliance_authority_0 = {
+			modifier = {
+				direct_vassal_opinion = 15
+				feudal_government_tax_contribution_mult = -0.1
+				vassal_levy_contribution_mult = -0.1
+			}
+			flag = can_change_succession_laws
+
+			can_keep = { realm_law_use_alliance_authority = yes }
+		}
+
+		crown_authority_1 = {
+			modifier = {
+				direct_vassal_opinion = -30
+			}
+			flag = can_change_succession_laws
+
+			can_keep = { realm_law_use_alliance_authority = yes prestige_level >= 5 }
+
+			can_pass = {
+				trigger_if = {
+					limit = { has_realm_law = alliance_authority_0 }
+					custom_description = {
+						subject = root
+						text = "has_crown_authority_cooldown"
+						NOT = { has_variable = crown_authority_cooldown }
+					}
+				}
+			}
+
+			pass_cost = {
+				prestige = {
+					crown_authority_prestige_cost
+				}
+			}
+
+
+			ai_will_do = {
+				if = {
+					limit = { has_realm_law = alliance_authority_0 }
+					value = 1
+				}
+			}
+		}
+	}
 }
