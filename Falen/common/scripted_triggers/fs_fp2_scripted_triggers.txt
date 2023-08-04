@@ -231,7 +231,7 @@ fp2_struggle_contract_assistance_war_insufficient_trigger = {
 ### Common
 
 # Checks a de jure kingdom of Hispania is completely controlled
-fp2_struggle_ending_hold_de_jure_kingdom_trigger = {
+fp2_struggle_ending_hold_de_jure_kingdom_trigger2 = {
 	any_held_title = {
 		tier = tier_kingdom
 		de_jure_liege = title:e_northern_joeseon
@@ -242,6 +242,20 @@ fp2_struggle_ending_hold_de_jure_kingdom_trigger = {
 		completely_controls = scope:spanish_kingdom
 	}
 	trigger_else = { always = no }
+}
+fp2_struggle_ending_hold_de_jure_kingdom_trigger = {
+	title:e_northern_joeseon ?= {
+		any_in_de_jure_hierarchy = {
+			tier = tier_kingdom
+			any_in_de_jure_hierarchy = {
+				tier = tier_county
+			}
+			holder = root
+			root = {
+				completely_controls = prev
+			}
+		}
+	}
 }
 
 # Checks less than half of Iberia owned

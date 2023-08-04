@@ -9,6 +9,7 @@
 	sort_order = 80
 
 	is_shown = {
+		exists = struggle:iberian_struggle
 		has_fp2_dlc_trigger = yes
 	}
 
@@ -141,7 +142,7 @@ struggle_juche_ending_compromise_decision = {
 			any_character_struggle = {
 				involvement = involved
 				is_struggle_type = juche_struggle
-				is_struggle_phase = struggle_juche_phase_compromise
+				is_struggle_phase = struggle_juche_phase_cease
 			}
 		}
 		OR = {
@@ -322,7 +323,7 @@ struggle_juche_ending_conciliation_decision = {
 			any_character_struggle = {
 				involvement = involved
 				is_struggle_type = juche_struggle
-				is_struggle_phase = struggle_juche_phase_conciliation
+				is_struggle_phase = struggle_juche_phase_cease
 			}
 		}
 
