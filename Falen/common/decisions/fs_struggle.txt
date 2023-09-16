@@ -37,12 +37,12 @@
 		highest_held_title_tier = tier_kingdom
 		prestige_level >= 3
 		NOR = {
-			has_government = tribal_government
-			has_government = nomadic_goverment
-			has_government = slavery_government
-			has_government = manchu_tribal_government
-			has_government = bureaucratic_government
-			has_government = secular_republic_government
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_nomadic_goverment
+			government_has_flag = government_is_slavery
+			government_has_flag = government_is_manchu_tribal
+			government_has_flag = government_is_bureaucratic
+			government_has_flag = government_is_secular_republic
 		}
 	}
 

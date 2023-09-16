@@ -24,6 +24,8 @@
 		jizya_special_rights
 	}
 	
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_feudal
 	color = hsv{ 0.67 1.00 0.78 }
 }
 
@@ -35,10 +37,14 @@ republic_government = {
 	ai = {
 		arrange_marriage = no
 		use_goals = no
+		use_scripted_guis = no
 		perform_religious_reformation = no
 	}
 
 	vassal_contract = { republic_government_obligations }
+
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_republic
 	color = hsv{ 0.00 1.00 0.98 }
 }
 
@@ -58,6 +64,9 @@ theocracy_government = {
 	}
 
 	vassal_contract = { theocracy_government_obligations }
+
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_theocracy
 	color = hsv{ 0.00 0.00 0.78 }
 }
 
@@ -136,6 +145,9 @@ clan_government = {
 			}
 		}
 	}
+
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_clan
 	color = hsv{ 0.39 0.93 0.54 }
 }
 
@@ -146,6 +158,7 @@ tribal_government = {
 	supply_limit_mult_for_others = -0.5
 	primary_holding = tribal_holding
 	required_county_holdings = { tribal_holding }
+	royal_court = yes
 
 	valid_holdings = { castle_holding }
 
@@ -161,11 +174,16 @@ tribal_government = {
 		feudal_government_vassal_opinion = -20
 		clan_government_vassal_opinion = -20
 		republic_government_vassal_opinion = -20
+		
+		character_travel_safety = 10
 	
 		ai_war_chance = 0.25
+		monthly_prestige = 0.2
 	}
 	
 	flag = government_can_raid_rule
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_tribal
 	color = hsv{ 0.02 0.75 0.36 }
 }
 
@@ -178,10 +196,13 @@ mercenary_government = {
 	ai = {
 		arrange_marriage = no
 		use_goals = no
+		use_scripted_guis = no
 		perform_religious_reformation = no
 	}
 
 	flag = can_not_be_vassal_or_liege
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_mercenary
 	color = hsv{ 0.00 0.00 0.66 }
 }
 
@@ -194,11 +215,14 @@ holy_order_government = {
 	ai = {
 		arrange_marriage = no
 		use_goals = no
+		use_scripted_guis = no
 		perform_religious_reformation = no
 	}
 
-	flag = can_not_be_vassal_or_liege
+	valid_holdings = { castle_holding city_holding }
 
-	valid_holdings = { castle_holding }
+	flag = can_not_be_vassal_or_liege
+	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	flag = government_is_holy_order
 	color = hsv{ 0.00 0.00 0.66 }
 }

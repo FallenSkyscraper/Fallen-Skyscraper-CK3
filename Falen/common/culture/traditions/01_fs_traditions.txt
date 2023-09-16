@@ -230,7 +230,7 @@ tradition_legacy_of_city_union = {
 					scope:character = {
 						any_vassal = {
 							primary_title.tier > tier_county
-							has_government = republic_government
+							government_has_flag = government_is_republic
 						}
 					}
 				}
@@ -346,7 +346,7 @@ tradition_korean_succession = {
 	
 	can_pick = {
 		scope:character = {
-			has_government = feudal_government
+			government_has_flag = government_is_feudal
 		}
 	}
 	
@@ -389,7 +389,7 @@ tradition_korean_succession = {
 							any_vassal = {
 								count >= 10
 								primary_title.tier >= tier_county
-								has_government = feudal_government
+								government_has_flag = government_is_feudal
 							}
 						}
 					}
@@ -543,7 +543,7 @@ tradition_federation = {
 	
 	can_pick = {
 		scope:character = {
-			has_government = feudal_government
+			government_has_flag = government_is_feudal
 		}
 	}
 	

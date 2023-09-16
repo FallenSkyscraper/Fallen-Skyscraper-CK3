@@ -1,4 +1,4 @@
-ï»¿# Custom CBs for FP1
+ï»?# Custom CBs for FP1
 
 # fp1_scandi_adventurer_conquest is kept in event wars due to being AI-only & for performance reasons.
 
@@ -715,7 +715,7 @@ fp1_varangian_adventurer_conquest = {
 			### Otherwise, tribals go by pure levy count.
 			else_if = {
 				limit = {
-					scope:attacker = { has_government = tribal_government }
+					scope:attacker = government_is_{ government_has_flag = government_is_tribal }
 				}
 				ordered_in_list = {
 					list = target_titles
@@ -964,7 +964,7 @@ fp1_varangian_adventurer_conquest = {
 			if = {
 				limit = {
 					capital_province = { has_holding_type = tribal_holding }
-					NOT = { has_government = tribal_government }
+					NOT = government_is_{ government_has_flag = government_is_tribal }
 				}
 				# Change government to tribal.
 				change_government = tribal_government
@@ -976,7 +976,7 @@ fp1_varangian_adventurer_conquest = {
 						capital_province = { has_holding_type = tribal_holding }
 					}
 					# Might have turned theocratic before from gaining a new capital holding
-					#has_government = tribal_government
+					#government_has_flag = government_is_tribal
 				}
 				# Change government to feudal.
 				change_government = feudal_government

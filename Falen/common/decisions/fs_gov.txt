@@ -12,7 +12,7 @@ change_gov_feudal_republic = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = feudal_government
+		government_has_flag = government_is_feudal
 	}
 	is_valid = {
 		prestige_level >= 2
@@ -43,7 +43,7 @@ change_gov_republic_feudal = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = oligarchic_republic_government
+		government_has_flag = government_is_oligarchic_republic
 	}
 	is_valid = {
 		prestige_level >= 4
@@ -74,7 +74,7 @@ change_gov_feudal_military = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = feudal_government
+		government_has_flag = government_is_feudal
 	}
 	is_valid = {
 		prestige_level >= 4
@@ -110,7 +110,7 @@ change_gov_military_feudal = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = military_government
+		government_has_flag = government_is_military
 	}
 	is_valid = {
 		prestige_level >= 4
@@ -144,7 +144,7 @@ change_gov_nomadic_tribal = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		has_government = nomadic_government
+		government_has_flag = government_is_nomadic
 	}
 	is_valid = {
 		prestige_level >= 3
@@ -193,9 +193,9 @@ change_gov_feudal_communism = {
 		is_imprisoned = no
 		is_independent_ruler = yes
 		NOT = {
-			has_government = proletarian_government
-			has_government = tribal_government
-			has_government = nomadic_government
+			government_has_flag = government_is_proletarian
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_nomadic
 		}
 		faith = {
 			religion_tag = communism_religion
@@ -203,9 +203,9 @@ change_gov_feudal_communism = {
 	}
 	is_valid = {
 		NOT = {
-			has_government = proletarian_government
-			has_government = tribal_government
-			has_government = nomadic_government
+			government_has_flag = government_is_proletarian
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_nomadic
 		}
 		faith = {
 			religion_tag = communism_religion
