@@ -186,7 +186,7 @@ window = {
 				blockoverride "button_close"
 				{
 					onclick = "[HoldingView.Close]"
-					onclick = "[GetScriptedGui('tech_gui_close').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)"
+					onclick = "[GetScriptedGui('tech_gui_close').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End]"
 				}
 			}
 		}
@@ -641,7 +641,6 @@ window = {
 					size = { 32 32 }
 				}
 				tooltip = "VIEW_COUNTY_TECH"
-				onclick = ""
 			}
 		}
 
@@ -1178,8 +1177,6 @@ window = {
 							size = { 35 35 }
 							tooltip = "PROVINCE_VIEW_TOOLTIP_WINTER"
 						}
-
-						spacing = 3
 
 						icon = {
 							name = "terrain"

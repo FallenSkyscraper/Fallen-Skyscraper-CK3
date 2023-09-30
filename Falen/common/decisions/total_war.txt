@@ -12,12 +12,12 @@
 		is_ruler = yes
 		is_landed = yes
 		is_imprisoned = no
-		has_government = military_government
+		government_has_flag = government_is_military
 		is_independent_ruler = yes
 	}
 	is_valid = {
 		is_at_war = yes
-		has_government = military_government
+		government_has_flag = government_is_military
 	}
 	effect = {
 		add_character_modifier = {
@@ -89,8 +89,8 @@ militia_decision = {
 			}
 		}
 		NOR = {
-			has_government = tribial_government
-			has_government = manchu_tribial_government
+			has_government = tribal_government
+			has_government = manchu_tribal_government
 			has_government = nomadic_government
 			has_government = military_government
 		}

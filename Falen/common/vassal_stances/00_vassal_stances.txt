@@ -690,6 +690,21 @@ minority = {
 								}
 							}
 							AND = {
+								scope:liege.faith.religion = religion:communism_religion
+								faith = {
+									has_doctrine = tenet_communism_syncretism
+								}
+							}
+							AND = {
+								OR = {
+									scope:liege.faith.religion = religion:tengrism_religion
+									scope:liege.faith.religion = religion:manchurian_religion
+								}
+								faith = {
+									has_doctrine = tenet_plain_faith_syncretism
+								}
+							}
+							AND = {
 								scope:liege.faith = {
 									has_doctrine_parameter = unreformed
 								}
@@ -785,12 +800,6 @@ minority = {
 						scope:liege.faith.religion = religion:islam_religion
 						faith = {
 							has_doctrine = tenet_islamic_syncretism
-						}
-					}
-					AND = {
-						scope:liege.faith.religion = religion:judaism_religion
-						faith = {
-							has_doctrine = tenet_jewish_syncretism
 						}
 					}
 					AND = {
