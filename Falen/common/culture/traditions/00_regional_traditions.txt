@@ -11,7 +11,7 @@ tradition_lords_of_the_elephant = {
 		1 = indian
 		4 = elephant.dds
 	}
-	
+
 	is_shown = {
 		OR = {
 			any_culture_county = {
@@ -25,7 +25,7 @@ tradition_lords_of_the_elephant = {
 	can_pick = {
 		has_innovation = innovation_elephantry
 	}
-	
+
 	parameters = {
 		can_recruit_jungle_specialist = yes
 		elephant_pens_building_bonuses = yes
@@ -36,8 +36,9 @@ tradition_lords_of_the_elephant = {
 		elephant_cavalry_maintenance_mult = -0.15
 		elephant_cavalry_toughness_mult = 0.1
 		elephant_cavalry_damage_mult = 0.1
+		jungle_travel_danger = jungle_medium_danger_reduction
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -48,9 +49,9 @@ tradition_lords_of_the_elephant = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_bellicose }
-						any_in_list = { list = traits this = flag:ethos_courtly }
-						any_in_list = { list = traits this = flag:ethos_stoic }
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -74,11 +75,11 @@ tradition_lords_of_the_elephant = {
 					desc = elephant_pens_percentage_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
@@ -101,21 +102,23 @@ tradition_caravaneers = {
 		1 = mena
 		4 = camel.dds
 	}
-	
+
 	is_shown = {
 		always = no
 	}
-	
+
 	parameters = {
 		wanderers_gain_extra_economic_skills = yes
 		more_likely_to_leave_court = yes
 	}
-	
+
 	character_modifier = {
 		movement_speed = 0.05
 		diplomatic_range_mult = 0.2
+		character_travel_safety_mult = 0.2
+		character_travel_speed_mult = 0.2
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -126,7 +129,7 @@ tradition_caravaneers = {
 			if = {
 				limit = {
 					NOT = {
-						any_in_list = { list = traits this = flag:ethos_egalitarian }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -134,7 +137,7 @@ tradition_caravaneers = {
 					desc = not_egalitarian_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
@@ -157,11 +160,10 @@ tradition_horse_lords = {
 			has_cultural_pillar = heritage_turkic
 		}
 	}
-	
+
 	can_pick = {
 		custom_description = {
 			text = culture_in_steppe_desc
-			always = no
 			any_culture_county = {
 				percent >= 0.4
 				any_county_province = {
@@ -170,10 +172,12 @@ tradition_horse_lords = {
 			}
 		}
 	}
-	
+
 	parameters = {
 		unlock_maa_horse_archers = yes
 		can_recruit_open_specialist = yes
+		unlock_horse_pastures_building = yes
+		steppe_hunt_success_chance = yes
 	}
 
 	character_modifier = {
@@ -182,8 +186,14 @@ tradition_horse_lords = {
 		steppe_cancel_negative_supply = yes
 		supply_duration = 1
 		movement_speed = 0.1
+		character_travel_speed_mult = 0.2
+		character_travel_safety_mult = 0.2
+		steppe_travel_danger = steppe_high_danger_reduction
+		movement_speed_land_raiding = 0.3
+		hostile_county_attrition_raiding = -0.5
+
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -194,8 +204,8 @@ tradition_horse_lords = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_bellicose }
-						any_in_list = { list = traits this = flag:ethos_communal }
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -203,7 +213,7 @@ tradition_horse_lords = {
 					desc = not_bellicose_or_communal_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 			if = {
 				limit = {
@@ -219,7 +229,7 @@ tradition_horse_lords = {
 		}
 	}
 	
-	ai_will_do = {
+		ai_will_do = {
 		value = 100
 	}
 }
@@ -232,9 +242,13 @@ tradition_desert_nomads = {
 		1 = mena
 		4 = camel.dds
 	}
-	
+
 	is_shown = {
 		OR = {
+			this = culture:bedouin
+			any_parent_culture_or_above = {
+				this = culture:bedouin
+			}
 			any_parent_culture = {
 				has_cultural_tradition = tradition_desert_nomads
 			}
@@ -250,18 +264,25 @@ tradition_desert_nomads = {
 			}
 		}
 	}
-	
+
 	parameters = {
 		desert_warrior_trait_is_better = yes
+		desert_hunt_success_chance = yes
 	}
 	character_modifier = {
 		camel_cavalry_maintenance_mult = -0.2
 		camel_cavalry_recruitment_cost_mult = -0.2
+		character_travel_speed = 10
+		desert_travel_danger = desert_high_danger_reduction
+		drylands_travel_danger = drylands_high_danger_reduction
+		desert_mountains_travel_danger = desert_mountains_high_danger_reduction
+		movement_speed_land_raiding = 0.2
+		hostile_county_attrition_raiding = -0.3
 	}
 	province_modifier = {
 		desert_tax_mult = 0.1
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -272,8 +293,8 @@ tradition_desert_nomads = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_spiritual }
-						any_in_list = { list = traits this = flag:ethos_stoic }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -297,11 +318,11 @@ tradition_desert_nomads = {
 					desc = culture_in_camel_region_percentage_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
@@ -330,10 +351,11 @@ tradition_steppe_tolerance = {
 		1 = mena
 		4 = greeting.dds
 	}
-	
+
 	is_shown = {
 		NOR = {
-			any_in_list = { list = traits this = flag:tradition_religion_blending }
+			culture_tradition:tradition_african_tolerance = { is_in_list = traits }
+			culture_tradition:tradition_religion_blending = { is_in_list = traits }
 		}
 		OR = {
 			has_cultural_pillar = heritage_mongolic
@@ -352,8 +374,8 @@ tradition_steppe_tolerance = {
 	}
 
 	parameters = { #easily convert and don't force conversion
-		more_easily_converted = yes 
-		less_likely_to_force_conversion = yes 
+		more_easily_converted = yes
+		less_likely_to_force_conversion = yes
 	}
 
 	character_modifier = { # easier to self-convert and create or reform faith
@@ -373,9 +395,9 @@ tradition_steppe_tolerance = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_bellicose }
-						any_in_list = { list = traits this = flag:ethos_egalitarian }
-						any_in_list = { list = traits this = flag:ethos_communal }
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -384,16 +406,16 @@ tradition_steppe_tolerance = {
 				}
 			}
 			# No extra cost here, since we have a fairly restrictive can_pick block.
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
 			limit = {
-				any_in_list = { list = traits this = flag:ethos_spiritual }
+				culture_pillar:ethos_spiritual = { is_in_list = traits }
 			}
 			multiply = 0.25
 		}
