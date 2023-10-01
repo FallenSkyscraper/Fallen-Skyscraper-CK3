@@ -1,4 +1,4 @@
-character_gender_can_rule_title_trigger = {
+﻿character_gender_can_rule_title_trigger = {
 	trigger_if = {
 		limit = {
 			$GENDER$ = { is_male = yes }
@@ -65,30 +65,30 @@ realm_law_use_crown_authority = {
 }
 
 realm_law_use_nomadic_authority = {
-	has_government = nomadic_government
+	government_has_flag = government_is_nomadic
 }
 
 realm_law_use_tribal_authority = {
 	AND = {
 		realm_law_use_nomadic_authority = no
 		OR = {
-			has_government = tribal_government
-			has_government = manchu_tribal_government
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_manchu_tribal
 		}
 	}
 }
 
 can_have_confederate_partition_succession_law_trigger = {
 	OR = {
-		has_government = feudal_government
-		has_government = tribal_government
-		has_government = clan_government
-#fs_모드의
-		has_government = proletarian_government 
-		has_government = military_government 
-		has_government = maritime_government 
-		has_government = secular_republic_government
-		has_government = slavery_government
+		government_has_flag = government_is_feudal
+		government_has_flag = government_is_tribal
+		government_has_flag = government_is_clan
+#fs_모드
+		government_has_flag = government_is_proletarian 
+		government_has_flag = government_is_military 
+		government_has_flag = government_is_maritime 
+		government_has_flag = government_is_secular_republic
+		government_has_flag = government_is_slavery
 	}
 }
 
@@ -112,14 +112,14 @@ can_have_partition_succession_law_trigger = {
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-			#fs_모드의
-			has_government = proletarian_government 
-			has_government = military_government 
-			has_government = maritime_government 
-			has_government = secular_republic_government 
-			has_government = slavery_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_clan
+			#fs_모드
+			government_has_flag = government_is_proletarian 
+			government_has_flag = government_is_military 
+			government_has_flag = government_is_maritime 
+			government_has_flag = government_is_secular_republic 
+			government_has_flag = government_is_slavery
 		}
 	}
 }
@@ -148,23 +148,23 @@ can_have_high_partition_succession_law_trigger = {
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-			#fs_모드의
-			has_government = proletarian_government 
-			has_government = military_government 
-			has_government = maritime_government 
-			has_government = secular_republic_government 
-			has_government = slavery_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_clan
+			#fs_모드
+			government_has_flag = government_is_proletarian 
+			government_has_flag = government_is_military 
+			government_has_flag = government_is_maritime 
+			government_has_flag = government_is_secular_republic 
+			government_has_flag = government_is_slavery
 		}
 	}
 }
 
 can_have_youngest_confederate_partition_succession_law_trigger = {
 	OR = {
-		has_government = tribal_government
-		has_government = manchu_tribal_government
-		has_government = nomadic_government
+		government_has_flag = government_is_tribal
+		government_has_flag = government_is_manchu_tribal
+		government_has_flag = government_is_nomadic
 	}
 }
 
@@ -175,9 +175,9 @@ can_keep_youngest_partition_succession_law_trigger = {
 		}
 		OR = {
 			can_have_youngest_partition_succession_law_trigger = yes
-			has_government = tribal_government
-			has_government = manchu_tribal_government
-			has_government = nomadic_government
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_manchu_tribal
+			government_has_flag = government_is_nomadic
 		}
 	}
 }
@@ -189,9 +189,9 @@ can_have_youngest_partition_succession_law_trigger = {
 	custom_description = {
 		text = succession_laws_must_have_nomadic_government_tooltip
 		OR = {
-			has_government = tribal_government
-			has_government = manchu_tribal_government
-			has_government = nomadic_government
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_manchu_tribal
+			government_has_flag = government_is_nomadic
 		}
 	}
 }
@@ -219,8 +219,8 @@ can_have_high_youngest_partition_succession_law_trigger = {
 	custom_description = {
 		text = succession_laws_must_have_organised_nomadic_government_tooltip
 		OR = {
-			has_government = manchu_tribal_government
-			has_government = nomadic_government
+			government_has_flag = government_is_manchu_tribal
+			government_has_flag = government_is_nomadic
 		}
 	}
 }
@@ -241,9 +241,9 @@ can_keep_single_heir_succession_law_trigger = {
 
 can_have_single_heir_succession_law_trigger = {
 	OR = {
-		has_government = military_government
-		has_government = proletarian_government
-		has_government = oligarchic_republic_government
+		government_has_flag = government_is_military
+		government_has_flag = government_is_proletarian
+		government_has_flag = government_is_oligarchic_republic
 	culture = {
 		has_innovation = innovation_primogeniture
 	}
@@ -252,13 +252,13 @@ can_have_single_heir_succession_law_trigger = {
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-#fs_모드의
-			has_government = proletarian_government  
-			has_government = maritime_government 
-			has_government = secular_republic_government
-			has_government = slavery_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_clan
+#fs_모드
+			government_has_flag = government_is_proletarian  
+			government_has_flag = government_is_maritime 
+			government_has_flag = government_is_secular_republic
+			government_has_flag = government_is_slavery
 		}
 	}
 }
@@ -284,14 +284,14 @@ can_have_single_heir_youngest_succession_law_trigger = {
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-#fs_모드의
-			has_government = proletarian_government 
-			has_government = military_government 
-			has_government = maritime_government 
-			has_government = secular_republic_government
-			has_government = slavery_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_clan
+#fs_모드
+			government_has_flag = government_is_proletarian 
+			government_has_flag = government_is_military 
+			government_has_flag = government_is_maritime 
+			government_has_flag = government_is_secular_republic
+			government_has_flag = government_is_slavery
 		}
 	}
 }
@@ -330,18 +330,18 @@ can_have_single_heir_dynasty_house_trigger = {
 		}
 	}
 	trigger_else = {
-		has_government = military_government
+		government_has_flag = government_is_military
 	}
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
-#fs_모드의
-			has_government = proletarian_government 
-			has_government = maritime_government 
-			has_government = secular_republic_government
-			has_government = slavery_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_clan
+#fs_모드
+			government_has_flag = government_is_proletarian 
+			government_has_flag = government_is_maritime 
+			government_has_flag = government_is_secular_republic
+			government_has_flag = government_is_slavery
 		}
 	}
 }
@@ -349,7 +349,7 @@ can_have_single_heir_dynasty_house_trigger = {
 can_have_bishop_theocratic_succession_law_trigger = {
 	OR = {
 		is_theocratic_lessee = yes
-		has_government = theocracy_government
+		government_has_flag = government_is_theocracy
 	}
 }
 
@@ -364,15 +364,15 @@ can_title_have_law_general_trigger = {
 }
 
 can_have_holy_order_succession_law_trigger = {
-	has_government = holy_order_government
+	government_has_flag = government_is_holy_order
 }
 
 can_have_mercenary_succession_law_trigger = {
-	has_government = mercenary_government
+	government_has_flag = government_is_mercenary
 }
 
 can_have_city_succession_law_trigger = {
-	has_government = republic_government
+	government_has_flag = government_is_republic
 }
 
 title_can_reduce_partition_law_trigger = {
@@ -399,17 +399,17 @@ title_can_reduce_partition_law_trigger = {
 }
 
 realm_law_use_military_authority = {
-	has_government = military_government
+	government_has_flag = government_is_military
 }
 
 realm_law_use_communism_authority = {
-	has_government = proletarian_government
+	government_has_flag = government_is_proletarian
 }
 
 realm_law_use_slavery_authority = {
-	has_government = slavery_government
+	government_has_flag = government_is_slavery
 }
 
 realm_law_use_alliance_authority = {
-	has_government = alliance_government
+	government_has_flag = government_is_alliance
 }
