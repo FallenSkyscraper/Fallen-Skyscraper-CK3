@@ -1,0 +1,543 @@
+#ADD RANDOM HASTILUDES SKILL LEVELS
+# with some mighty stacks of modifiers to make them culturally appropriate
+add_random_tourney_participant_level_effect = {
+	if = {
+		limit = {
+			has_trait = tourney_participant
+		}
+		random_list = {
+			40 = { }
+			# FOOT XP
+			15 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = foot
+					value = 20
+				}
+				modifier = {
+					add = 40
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_fp1_coastal_warriors
+							has_cultural_tradition = tradition_stand_and_fight
+						}
+					}
+				}
+				modifier = {
+					add = 20
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_metal_craftsmanship
+							has_cultural_tradition = tradition_mountain_homes
+							has_cultural_tradition = tradition_fp1_trials_by_combat
+							has_cultural_tradition = tradition_fp1_performative_honour
+						}
+					}
+				}
+				modifier = {
+					add = -20
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_frugal_armorsmiths
+							has_cultural_tradition = tradition_strength_in_numbers
+						}
+					}
+				}
+				modifier = {
+					add = -25
+					prowess <= 8
+				}
+			}
+			10 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = foot
+					value = 50
+				}
+				modifier = {
+					add = 30
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_fp1_coastal_warriors
+							has_cultural_tradition = tradition_stand_and_fight
+						}
+					}
+				}
+				modifier = {
+					add = 15
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_metal_craftsmanship
+							has_cultural_tradition = tradition_mountain_homes
+							has_cultural_tradition = tradition_formation_fighting
+							has_cultural_tradition = tradition_fp1_trials_by_combat
+							has_cultural_tradition = tradition_fp1_performative_honour						}
+					}
+				}
+				modifier = {
+					add = -20
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_frugal_armorsmiths
+							has_cultural_tradition = tradition_strength_in_numbers
+						}
+					}
+				}
+				modifier = {
+					add = -25
+					prowess <= 8
+				}
+			}
+			5 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = foot
+					value = 80
+				}
+				modifier = {
+					add = 20
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_fp1_coastal_warriors
+							has_cultural_tradition = tradition_stand_and_fight
+						}
+					}
+				}
+				modifier = {
+					add = 10
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_metal_craftsmanship
+							has_cultural_tradition = tradition_mountain_homes
+							has_cultural_tradition = tradition_formation_fighting
+							has_cultural_tradition = tradition_fp1_trials_by_combat
+						}
+					}
+				}
+				modifier = {
+					add = -15
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_frugal_armorsmiths
+							has_cultural_tradition = tradition_strength_in_numbers
+						}
+					}
+				}
+				modifier = {
+					add = -25
+					prowess <= 8
+				}
+			}
+			# HORSE XP
+			15 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = horse
+					value = 20
+				}
+				modifier = {
+					add = 40
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_horse_breeder
+						}
+					}
+				}
+				modifier = {
+					add = 20
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_dryland_dwellers
+							has_cultural_tradition = tradition_pastoralists
+							has_cultural_tradition = tradition_hit_and_run
+							has_cultural_tradition = tradition_hunters
+							has_cultural_tradition = tradition_sacred_hunts
+							has_cultural_tradition = tradition_lords_of_the_elephant
+						}
+					}
+				}
+				modifier = {
+					add = -20
+					prowess <= 4
+				}
+			}
+			10 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = horse
+					value = 50
+				}
+				modifier = {
+					add = 30
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_horse_breeder
+							has_cultural_tradition = tradition_chivalry
+						}
+					}
+				}
+				modifier = {
+					add = 15
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_dryland_dwellers
+							has_cultural_tradition = tradition_pastoralists
+							has_cultural_tradition = tradition_hit_and_run
+							has_cultural_tradition = tradition_hunters
+							has_cultural_tradition = tradition_sacred_hunts
+						}
+					}
+				}
+				modifier = {
+					add = -20
+					prowess <= 4
+				}
+			}
+			5 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = horse
+					value = 80
+				}
+				modifier = {
+					add = 20
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_horse_breeder
+							has_cultural_tradition = tradition_chivalry
+							has_cultural_tradition = tradition_desert_ribat
+							has_cultural_tradition = tradition_desert_nomads
+							has_cultural_tradition = tradition_horse_lords
+							has_cultural_tradition = tradition_hussar
+							has_cultural_tradition = tradition_lords_of_the_elephant
+							has_cultural_tradition = tradition_saharan_nomads
+						}
+					}
+				}
+				modifier = {
+					add = 10
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_dryland_dwellers
+							has_cultural_tradition = tradition_pastoralists
+							has_cultural_tradition = tradition_hit_and_run
+							has_cultural_tradition = tradition_hunters
+							has_cultural_tradition = tradition_sacred_hunts
+						}
+					}
+				}
+				modifier = {
+					add = -20
+					prowess <= 4
+				}
+			}
+			# WIT XP
+			10 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = wit
+					value = 20
+				}
+				modifier = {
+					add = 45
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_astute_diplomats
+							has_cultural_tradition = tradition_welcoming
+							has_cultural_tradition = tradition_poetry
+							has_cultural_tradition = tradition_storytellers
+							has_cultural_tradition = tradition_fp1_northern_stories
+							has_cultural_tradition = tradition_fp2_strategy_gamers
+							has_cultural_tradition = tradition_chanson_de_geste
+						}
+					}
+				}
+				modifier = {
+					add = -25
+					diplomacy <= 10
+					learning <= 10
+				}
+				modifier = {
+					add = 20
+					OR = {
+						diplomacy >= 15
+						learning >= 15
+					}
+				}
+				modifier = {
+					add = 25
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_esteemed_hospitality
+							has_cultural_tradition = tradition_forbearing
+							has_cultural_tradition = tradition_life_is_just_a_joke
+							has_cultural_tradition = tradition_chivalry
+							has_cultural_tradition = tradition_philosopher_culture
+							has_cultural_tradition = tradition_music_theory
+							has_cultural_tradition = tradition_things
+						}
+					}
+				}
+			}
+			5 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = wit
+					value = 50
+				}
+				modifier = {
+					add = 35
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_astute_diplomats
+							has_cultural_tradition = tradition_welcoming
+							has_cultural_tradition = tradition_poetry
+							has_cultural_tradition = tradition_storytellers
+							has_cultural_tradition = tradition_fp1_northern_stories
+							has_cultural_tradition = tradition_fp2_strategy_gamers
+							has_cultural_tradition = tradition_chanson_de_geste
+						}
+					}
+				}
+				modifier = {
+					add = 20
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_esteemed_hospitality
+							has_cultural_tradition = tradition_forbearing
+							has_cultural_tradition = tradition_life_is_just_a_joke
+							has_cultural_tradition = tradition_chivalry
+							has_cultural_tradition = tradition_philosopher_culture
+							has_cultural_tradition = tradition_music_theory
+							has_cultural_tradition = tradition_things
+						}
+					}
+				}
+				modifier = {
+					add = -25
+					diplomacy <= 10
+					learning <= 10
+				}
+				modifier = {
+					add = 20
+					OR = {
+						diplomacy >= 15
+						learning >= 15
+					}
+				}
+			}
+			5 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = wit
+					value = 80
+				}
+				modifier = {
+					add = 20
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_astute_diplomats
+							has_cultural_tradition = tradition_welcoming
+							has_cultural_tradition = tradition_poetry
+							has_cultural_tradition = tradition_storytellers
+							has_cultural_tradition = tradition_fp1_northern_stories
+							has_cultural_tradition = tradition_fp2_strategy_gamers
+							has_cultural_tradition = tradition_chanson_de_geste
+						}
+					}
+				}
+				modifier = {
+					add = 10
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_esteemed_hospitality
+							has_cultural_tradition = tradition_forbearing
+							has_cultural_tradition = tradition_life_is_just_a_joke
+							has_cultural_tradition = tradition_chivalry
+							has_cultural_tradition = tradition_philosopher_culture
+							has_cultural_tradition = tradition_music_theory
+							has_cultural_tradition = tradition_things
+						}
+					}
+				}
+				modifier = {
+					add = -25
+					diplomacy <= 10
+					learning <= 10
+				}
+				modifier = {
+					add = 20
+					OR = {
+						diplomacy >= 15
+						learning >= 15
+					}
+				}
+			}
+			# BOW XP
+			10 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = bow
+					value = 20
+				}
+				modifier = {
+					add = 45
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_adaptive_skirmishing
+							has_cultural_tradition = tradition_hunters
+							has_cultural_tradition = tradition_bush_hunting
+							has_cultural_tradition = tradition_forest_wardens
+							has_cultural_tradition = tradition_horse_lords
+							has_cultural_tradition = tradition_land_of_the_bow
+							has_cultural_tradition = tradition_longbow_competitions
+						}
+					}
+				}
+				modifier = {
+					add = 25
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_forest_folk
+							has_cultural_tradition = tradition_jungle_dwellers
+							has_cultural_tradition = tradition_polders
+							has_cultural_tradition = tradition_fp1_coastal_warriors
+							has_cultural_tradition = tradition_formation_fighting
+							has_cultural_tradition = tradition_hit_and_run
+							has_cultural_tradition = tradition_sacred_hunts
+							has_cultural_tradition = tradition_mobile_guards
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_trait = blind
+						has_trait = maimed
+					}
+				}
+				modifier = {
+					add = 15
+					has_trait = lifestyle_hunter
+				}
+			}
+			5 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = bow
+					value = 50
+				}
+				modifier = {
+					add = 35
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_adaptive_skirmishing
+							has_cultural_tradition = tradition_hunters
+							has_cultural_tradition = tradition_bush_hunting
+							has_cultural_tradition = tradition_forest_wardens
+							has_cultural_tradition = tradition_horse_lords
+						}
+					}
+				}
+				modifier = {
+					add = 15
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_forest_folk
+							has_cultural_tradition = tradition_jungle_dwellers
+							has_cultural_tradition = tradition_polders
+							has_cultural_tradition = tradition_fp1_coastal_warriors
+							has_cultural_tradition = tradition_formation_fighting
+							has_cultural_tradition = tradition_hit_and_run
+							has_cultural_tradition = tradition_sacred_hunts
+						}
+					}
+				}
+				modifier = {
+					add = 15
+					has_trait = lifestyle_hunter
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_trait = blind
+						has_trait = maimed
+					}
+				}
+			}
+			5 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = bow
+					value = 80
+				}
+				modifier = {
+					add = 20
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_adaptive_skirmishing
+							has_cultural_tradition = tradition_hunters
+							has_cultural_tradition = tradition_bush_hunting
+							has_cultural_tradition = tradition_forest_wardens
+							has_cultural_tradition = tradition_horse_lords
+						}
+					}
+				}
+				modifier = {
+					add = 10
+					culture = {
+						OR = {
+							has_cultural_tradition = tradition_forest_folk
+							has_cultural_tradition = tradition_fp1_coastal_warriors
+							has_cultural_tradition = tradition_formation_fighting
+							has_cultural_tradition = tradition_hit_and_run
+							has_cultural_tradition = tradition_sacred_hunts
+						}
+					}
+				}
+				modifier = {
+					add = 15
+					has_trait = lifestyle_hunter
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_trait = blind
+						has_trait = maimed
+					}
+				}
+			}
+		}
+		random_list = {
+			60 = { }
+			10 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = foot
+					value = 20
+				}
+			}
+			10 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = bow
+					value = 20
+				}
+			}
+			10 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = horse
+					value = 20
+				}
+			}
+			10 = {
+				add_trait_xp = {
+					trait = tourney_participant
+					track = wit
+					value = 20
+				}
+			}
+		}
+	}
+}

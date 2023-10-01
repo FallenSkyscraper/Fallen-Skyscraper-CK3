@@ -16,7 +16,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = judaism_religion
 						religion_tag = islam_religion
 					}
 				}
@@ -146,7 +145,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = judaism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -155,7 +153,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_massive
@@ -188,7 +185,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_mid
@@ -227,7 +223,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = judaism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -293,9 +288,6 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = dualism_religion
-						religion_tag = hinduism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -346,9 +338,7 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = islam_religion
-						religion_tag = dualism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -384,8 +374,6 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = dualism_religion
-						religion_tag = zoroastrianism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -393,9 +381,7 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = judaism_religion
 						religion_tag = islam_religion
-						religion_tag = hinduism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -449,9 +435,7 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = dualism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -459,8 +443,6 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = hinduism_religion
-						religion_tag = zoroastrianism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -501,9 +483,7 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = dualism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -511,7 +491,6 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = zoroastrianism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -634,8 +613,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = hinduism_religion
-						religion_tag = zoroastrianism_religion
 					}
 				}
 				value = faith_tenet_cost_mid
@@ -670,7 +647,6 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = judaism_religion
 						religion_tag = islam_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
@@ -681,7 +657,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -714,9 +689,7 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = dualism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -724,7 +697,6 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = zoroastrianism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -987,9 +959,7 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = judaism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -1042,9 +1012,6 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = hinduism_religion
-						religion_tag = jainism_religion
-						religion_tag = zoroastrianism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -1079,7 +1046,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -1089,8 +1055,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = islam_religion
-						religion_tag = judaism_religion
-						religion_tag = zoroastrianism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -1127,7 +1091,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = islam_religion
-						religion_tag = judaism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -1177,10 +1140,7 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = dualism_religion
-						religion_tag = hinduism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -1217,8 +1177,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = hinduism_religion
-						religion_tag = zoroastrianism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -1228,7 +1186,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = islam_religion
-						religion_tag = judaism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -1254,7 +1211,6 @@ doctrine_core_tenets = {
 				}
 				triggered_desc = {
 					trigger = {
-						religion_tag = judaism_religion
 					}
 					desc = tenet_religious_legal_pronouncements_halakha
 				}
@@ -1321,10 +1277,7 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = dualism_religion
-						religion_tag = hinduism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -1332,7 +1285,6 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = zoroastrianism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -1364,7 +1316,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = dualism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -1422,7 +1373,6 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = zoroastrianism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -1432,9 +1382,7 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = dualism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 						religion_tag = taoism_religion
 					}
 				}
@@ -1461,7 +1409,6 @@ doctrine_core_tenets = {
 			first_valid = {
 				triggered_desc = {
 					trigger = {
-						religion_tag = zoroastrianism_religion
 					}
 					desc = tenet_zurvanism_name
 				}
@@ -1473,7 +1420,6 @@ doctrine_core_tenets = {
 			first_valid = {
 				triggered_desc = {
 					trigger = {
-						religion_tag = zoroastrianism_religion
 					}
 					desc = tenet_zurvanism_desc
 				}
@@ -1535,7 +1481,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -1621,9 +1566,7 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = hinduism_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -1649,7 +1592,6 @@ doctrine_core_tenets = {
 			first_valid = {
 				triggered_desc = {
 					trigger = {
-						religion_tag = hinduism_religion
 					}
 					desc = tenet_ritual_hospitality_alternate_name
 				}
@@ -1745,7 +1687,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = judaism_religion
 						religion_tag = islam_religion
 					}
 				}
@@ -1754,7 +1695,6 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = zoroastrianism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -1788,7 +1728,6 @@ doctrine_core_tenets = {
 					OR = {
 						religion_tag = christianity_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_massive
@@ -1797,7 +1736,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = islam_religion
-						religion_tag = judaism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -1805,7 +1743,6 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = hinduism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -1958,8 +1895,6 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = hinduism_religion
-						religion_tag = zoroastrianism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -2033,7 +1968,6 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = hinduism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -2145,7 +2079,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 						religion_tag = taoism_religion
 					}
 				}
@@ -2380,7 +2313,6 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = dualism_religion
 						has_doctrine = pagan_hostility_doctrine
 					}
 				}
@@ -2497,7 +2429,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = islam_religion
-						religion_tag = dualism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -2552,7 +2483,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = dualism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -2604,9 +2534,7 @@ doctrine_core_tenets = {
 			if = {
 				limit = {
 					OR = {
-						religion_tag = judaism_religion
 						religion_tag = christianity_religion
-						religion_tag = dualism_religion
 					}
 				}
 				value = faith_tenet_cost_low
@@ -2675,7 +2603,6 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = hinduism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -2775,7 +2702,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						has_doctrine = pagan_hostility_doctrine
-						religion_tag = hinduism_religion
 						religion_tag = islam_religion
 					}
 				}
@@ -2784,7 +2710,6 @@ doctrine_core_tenets = {
 			else_if = {
 				limit = {
 					OR = {
-						religion_tag = judaism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -2886,7 +2811,6 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = islam_religion
-						religion_tag = judaism_religion
 					}
 				}
 				value = faith_tenet_cost_high
@@ -2930,10 +2854,8 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						religion_tag = christianity_religion
-						religion_tag = judaism_religion
 						religion_tag = islam_religion
 						religion_tag = buddhism_religion
-						religion_tag = jainism_religion
 					}
 				}
 				value = faith_tenet_cost_high
