@@ -47,6 +47,11 @@ doctrine_core_tenets = {
 			church_holding_holding_build_speed = -0.33
 			church_holding_holding_build_gold_cost = -0.33
 		}
+
+		parameters = {
+			reforging_artifacts_costs_piety = yes
+			destroying_artifacts_is_pious = yes
+		}
 	}
 
 	tenet_alexandrian_catechism = {
@@ -111,6 +116,10 @@ doctrine_core_tenets = {
 				text = incompatible_tenet_dharmic_pacifism_trigger
 				NOT = { doctrine:tenet_dharmic_pacifism = { is_in_list = selected_doctrines } }
 			}
+			custom_description = {
+				text = incompatible_tenet_armed_pilgrimages_vs_forbidden_pilgrimages
+				NOT = { doctrine:doctrine_pilgrimage_forbidden = { is_in_list = selected_doctrines } }
+			}
 		}
 
 		parameters = {
@@ -118,6 +127,9 @@ doctrine_core_tenets = {
 			great_holy_wars_active = yes
 			ghw_no_hof_conversion_buffs_active = yes
 			pilgrimage_decision_active = yes
+		}
+		character_modifier = {
+			accolade_glory_gain_mult = 0.1
 		}
 	}
 
@@ -885,9 +897,9 @@ doctrine_core_tenets = {
 					}
 					# ... or cannibal-HoF thinks you need to chill the hell out whilst they eat this dude.
 					AND = {
-						doctrine:tenet_ritual_cannibalism = { is_in_list = selected_doctrines }
+						religious_head.faith = { has_doctrine = tenet_ritual_cannibalism }						
 						NOT = {
-							religious_head.faith = { has_doctrine = tenet_ritual_cannibalism }
+							doctrine:tenet_ritual_cannibalism = { is_in_list = selected_doctrines }
 						}
 					}
 				}
@@ -1141,6 +1153,7 @@ doctrine_core_tenets = {
 			virtues = {
 				education_learning_3
 				education_learning_4
+				education_learning_5
 				scholar
 			}
 		}
@@ -1934,7 +1947,7 @@ doctrine_core_tenets = {
 		}
 
 		traits = {
-			virtues = { mystic_3 = 5 }
+			virtues = { lifestyle_mystic = 5 }
 		}
 	}
 
@@ -2180,6 +2193,7 @@ doctrine_core_tenets = {
 		character_modifier = {
 			ai_war_chance = 0.5
 			ai_war_cooldown = -0.25
+			accolade_glory_gain_mult = 0.1
 		}
 	}
 
