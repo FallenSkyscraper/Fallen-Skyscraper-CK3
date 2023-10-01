@@ -2462,8 +2462,8 @@ ES_only_el_GetTitledFirstName = {
 			is_female = no
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -2483,8 +2483,8 @@ ES_only_el_GetTitledFirstName = {
 			is_female = yes
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -2502,7 +2502,7 @@ ES_only_el_GetTitledFirstName = {
 	text = {
 		trigger = { # Reina madre
 			is_female = yes
-			has_government = feudal_government
+			government_has_flag = government_is_feudal
 			any_child = { primary_title.tier = tier_kingdom }
 			primary_title.tier < tier_kingdom
 		}
@@ -2521,7 +2521,7 @@ ES_only_el_GetTitledFirstName = {
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
 					primary_title.tier = tier_county
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					faith = faith:ismaili
 				}
 			}
@@ -2562,8 +2562,8 @@ ES_only_del_GetTitledFirstName = {
 			is_female = no
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -2583,8 +2583,8 @@ ES_only_del_GetTitledFirstName = {
 			is_female = yes
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -2602,7 +2602,7 @@ ES_only_del_GetTitledFirstName = {
 	text = {
 		trigger = { # Reina madre
 			is_female = yes
-			has_government = feudal_government
+			government_has_flag = government_is_feudal
 			any_child = { primary_title.tier = tier_kingdom }
 			primary_title.tier < tier_kingdom
 		}
@@ -2621,14 +2621,14 @@ ES_only_del_GetTitledFirstName = {
 				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
 					holds_landed_title = yes
 					primary_title.tier = tier_duchy
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					scope:character.religion = {is_in_family = rf_pagan}
 					religion = religion:taoism_religion
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
 					primary_title.tier = tier_county
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					faith = faith:ismaili
 				}
 			}
@@ -2669,8 +2669,8 @@ ES_only_al_GetTitledFirstName = {
 			is_female = no
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -2690,8 +2690,8 @@ ES_only_al_GetTitledFirstName = {
 			is_female = yes
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -2709,7 +2709,7 @@ ES_only_al_GetTitledFirstName = {
 	text = {
 		trigger = { # Reina madre
 			is_female = yes
-			has_government = feudal_government
+			government_has_flag = government_is_feudal
 			any_child = { primary_title.tier = tier_kingdom }
 			primary_title.tier < tier_kingdom
 		}
@@ -2728,14 +2728,14 @@ ES_only_al_GetTitledFirstName = {
 				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
 					holds_landed_title = yes
 					primary_title.tier = tier_duchy
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					scope:character.religion = {is_in_family = rf_pagan}
 					religion = religion:taoism_religion
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
 					primary_title.tier = tier_county
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					faith = faith:ismaili
 				}
 			}
@@ -2782,8 +2782,8 @@ ES_only_el_GetShortUIName = {
 			is_female = no
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -2803,8 +2803,8 @@ ES_only_el_GetShortUIName = {
 			is_female = yes
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -2822,7 +2822,7 @@ ES_only_el_GetShortUIName = {
 	text = {
 		trigger = { # Reina madre
 			is_female = yes
-			has_government = feudal_government
+			government_has_flag = government_is_feudal
 			any_child = { primary_title.tier = tier_kingdom }
 			primary_title.tier < tier_kingdom
 		}
@@ -2841,14 +2841,14 @@ ES_only_el_GetShortUIName = {
 				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
 					holds_landed_title = yes
 					primary_title.tier = tier_duchy
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					scope:character.religion = {is_in_family = rf_pagan}
 					religion = religion:taoism_religion
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
 					primary_title.tier = tier_county
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					faith = faith:ismaili
 				}
 			}
@@ -2895,8 +2895,8 @@ ES_only_de_GetShortUIName = {
 			is_female = no
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -2916,8 +2916,8 @@ ES_only_de_GetShortUIName = {
 			is_female = yes
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -2935,7 +2935,7 @@ ES_only_de_GetShortUIName = {
 	text = {
 		trigger = { # Reina madre
 			is_female = yes
-			has_government = feudal_government
+			government_has_flag = government_is_feudal
 			any_child = { primary_title.tier = tier_kingdom }
 			primary_title.tier < tier_kingdom
 		}
@@ -2954,14 +2954,14 @@ ES_only_de_GetShortUIName = {
 				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
 					holds_landed_title = yes
 					primary_title.tier = tier_duchy
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					scope:character.religion = {is_in_family = rf_pagan}
 					religion = religion:taoism_religion
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
 					primary_title.tier = tier_county
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					faith = faith:ismaili
 				}
 			}
@@ -3008,8 +3008,8 @@ ES_only_a_GetShortUIName = {
 			is_female = no
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -3029,8 +3029,8 @@ ES_only_a_GetShortUIName = {
 			is_female = yes
 			primary_title.tier <= tier_kingdom
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			OR = {
 				AND = {
@@ -3048,7 +3048,7 @@ ES_only_a_GetShortUIName = {
 	text = {
 		trigger = { # Reina madre
 			is_female = yes
-			has_government = feudal_government
+			government_has_flag = government_is_feudal
 			any_child = { primary_title.tier = tier_kingdom }
 			primary_title.tier < tier_kingdom
 		}
@@ -3067,14 +3067,14 @@ ES_only_a_GetShortUIName = {
 				AND = { # duke_theocracy_male_paganism_religion (Arcipreste), duke_theocracy_female_paganism_religion (Archisacerdotisa)
 					holds_landed_title = yes
 					primary_title.tier = tier_duchy
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					scope:character.religion = {is_in_family = rf_pagan}
 					religion = religion:taoism_religion
 				}
 				AND = { # count_theocracy_male_ismaili (Ayatolá), count_theocracy_female_ismaili (Ayatolá)
 					holds_landed_title = yes
 					primary_title.tier = tier_county
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					faith = faith:ismaili
 				}
 			}

@@ -14496,7 +14496,7 @@ fund_inspiration.4001 = {
 		}
 		
 		NOT = {
-			has_government = tribal_government # No changing amenities above what's legal for tribals
+			government_has_flag = tribal_government # No changing amenities above what's legal for tribals
 		}
 	}
 
@@ -16154,7 +16154,7 @@ fund_inspiration.6200 = {
 		name = fund_inspiration.6200.a
 		trigger = {
 			NOT = {
-				has_government = tribal_government # No changing amenities above what's legal for tribals
+				government_has_flag = tribal_government # No changing amenities above what's legal for tribals
 			}
 		}
 		add_learning_lifestyle_xp = medium_lifestyle_xp

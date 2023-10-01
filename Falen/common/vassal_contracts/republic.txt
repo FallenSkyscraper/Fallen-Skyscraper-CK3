@@ -17,7 +17,7 @@
 			}
 			tax = {
 				if = {
-					limit = { scope:liege = { has_government = tribal_government } }
+					limit = { scope:liege = { government_has_flag = tribal_government } }
 					value = 0.05
 				}
 				else_if = {
@@ -38,7 +38,7 @@
 			contribution_desc = {
 				first_valid = {
 					triggered_desc = {
-						trigger = { scope:liege = { has_government = tribal_government } }
+						trigger = { scope:liege = { government_has_flag = tribal_government } }
 						desc = "tribal_liege_inefficiency"
 					}
 					triggered_desc = {

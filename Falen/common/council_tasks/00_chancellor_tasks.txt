@@ -235,7 +235,7 @@ task_domestic_affairs = {
 					diplomacy > mediocre_skill_rating
 					liege = {
 						any_vassal = {
-							has_government = feudal_government
+							government_has_flag = government_is_feudal
 							primary_title.tier > tier_barony
 						}
 					}
@@ -265,7 +265,7 @@ task_domestic_affairs = {
 					diplomacy < high_skill_rating
 					liege = {
 						any_vassal = {
-							has_government = feudal_government
+							government_has_flag = government_is_feudal
 							primary_title.tier > tier_barony
 						}
 					}
@@ -614,7 +614,7 @@ task_bestow_royal_favor = {
 					scope:councillor.diplomacy < high_skill_rating
 					liege = {
 						any_vassal = {
-							has_government = feudal_government
+							government_has_flag = government_is_feudal
 							primary_title.tier > tier_barony
 						}
 					}

@@ -22,7 +22,7 @@ military_government = {
 	
 		ai_war_chance = 1.5
 	}	
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_military
 	color = hsv{ 130 45 55 }
 }
@@ -49,7 +49,7 @@ bureaucratic_government = {
 		title_revocation_rights
 		jizya_special_rights
 	}
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_bureaucratic
 	color = { 118 255 163 }
 }
@@ -94,7 +94,7 @@ maritime_government = {
 		dread_baseline_add = 10
 		ai_war_chance = 1.5
 	}	
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_maritime
 	color = { 20 35 160 }#만약 파란색이 안나오면 	233°	88°	62°
 }
@@ -120,7 +120,7 @@ theocratic_feudal_government = {
 		title_revocation_rights
 		jizya_special_rights
 	}
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_theocratic_feudal
 	color = { 207 145 90 }
 }
@@ -139,7 +139,7 @@ proletarian_government = {
 		council_rights
 		title_revocation_rights
 	}
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_proletarian
 	color = hsv{ 1.00 0.90 0.67 }
 }
@@ -191,7 +191,7 @@ chinese_bureaucracy_government = {
 	#	}
 	#}
 			
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_chinese_bureaucracy
 	color = hsv{ 0.60 1.00 1.00 }
 }
@@ -217,7 +217,7 @@ secular_republic_government = {
 		title_revocation_rights
 		jizya_special_rights
 	}
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_secular_republic
 	color = { 193 121 121 }
 	
@@ -244,7 +244,7 @@ merchant_republic_government = {
 		council_rights
 		##title_revocation_rights
 	}
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_merchant_republic
 	color = { 243 61 71 }
 	
@@ -274,7 +274,7 @@ oligarchic_republic_government = {
 		council_rights
 		##title_revocation_rights
 	}
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_oligarchic_republic
 	color = { 193 121 121 }
 }
@@ -315,7 +315,7 @@ nomadic_government = {
 	}
 	
 	flag = government_can_raid_rule
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_nomadic
 	color = { 201 179 36 }
 }
@@ -400,7 +400,7 @@ manchu_tribal_government = {
 			}
 		}
 	}
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_manchu_tribal
 	color = hsv{ 0.12 0.85 0.36 }
 }
@@ -433,7 +433,7 @@ slavery_government = {
 	character_modifier = {
 		levy_size = -0.25
 	}	
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_slavery
 	color = { 4 30 66 }
 }
@@ -449,7 +449,7 @@ alliance_government = {
 		feudal_government_taxes
 		feudal_government_levies
 	}
-	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
+	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_alliance
 	color = { 80 188 223 }
 }

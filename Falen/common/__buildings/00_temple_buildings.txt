@@ -356,7 +356,7 @@ temple_01 = {
 		modifier = {
 			factor = 0
 			scope:holder = {
-				NOT = { has_government = theocracy_government }
+				NOT = { government_has_flag = government_is_theocracy }
 			}
 		}
 		modifier = {
@@ -1214,7 +1214,7 @@ monastic_schools_01 = {
 			add = 500
 			scope:holder = {
 				OR = {
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					is_theocratic_lessee = yes
 				}
 			}
@@ -1496,7 +1496,7 @@ megalith_01 = {
 			add = 500
 			scope:holder = {
 				OR = {
-					has_government = theocracy_government
+					government_has_flag = government_is_theocracy
 					is_theocratic_lessee = yes
 				}
 			}

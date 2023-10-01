@@ -438,7 +438,7 @@ reclaim_relic_artifact_war = {
 			}
 			if = {
 				limit = {
-					scope:attacker = { has_government = tribal_government }
+					scope:attacker = { government_has_flag = government_is_tribal }
 				}
 				multiply = {
 					value = 0.5

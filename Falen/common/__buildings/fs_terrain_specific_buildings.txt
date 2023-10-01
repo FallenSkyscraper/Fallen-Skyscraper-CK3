@@ -44,7 +44,7 @@
 #		modifier = {
 #			factor = 0
 #			scope:holder = {
-#				has_government = republic_government #의미 모름
+#				government_has_flag = republic_government #의미 모름
 #			}
 #			NOT = {
 #				has_building_or_higher = guild_halls_01
@@ -141,7 +141,7 @@ road_01 = {
 		modifier = {
 			factor = 0
 			scope:holder = {
-				has_government = republic_government #의미 모름
+				government_has_flag = government_is_republic #의미 모름
 			}
 			NOT = {
 				has_building_or_higher = guild_halls_01

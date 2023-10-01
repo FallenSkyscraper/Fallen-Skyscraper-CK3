@@ -1740,7 +1740,7 @@ nation_fracturing_faction_war = {
 				limit = {
 					scope:attacker.faith = scope:defender.faith
 					scope:defender = {
-						has_government = theocracy_government
+						government_has_flag = government_is_theocracy
 					}
 				}
 				add = {
@@ -1758,7 +1758,7 @@ nation_fracturing_faction_war = {
 			if = {
 				limit = {
 					scope:attacker = {
-						has_government = tribal_government
+						government_has_flag = government_is_tribal
 					}
 				}
 				multiply = {

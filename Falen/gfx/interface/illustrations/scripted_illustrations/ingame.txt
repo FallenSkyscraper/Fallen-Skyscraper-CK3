@@ -80,7 +80,7 @@ character_view_bg = {
 		reference = "character_view/throneroom_tribal.dds"
 
 		trigger = {
-			has_government = tribal_government
+			government_has_flag = tribal_government
 		}
 	}
 
@@ -88,7 +88,7 @@ character_view_bg = {
 		reference = "environment_cw_tribal_main"
 
 		trigger = {
-			has_government = tribal_government
+			government_has_flag = tribal_government
 			is_character_window_main_character = yes
 		}
 	}
@@ -101,13 +101,13 @@ character_view_bg = {
 				AND = {
 					exists = primary_spouse
 					primary_spouse = {
-						has_government = tribal_government
+						government_has_flag = tribal_government
 					}
 				}
 				AND = {
 					exists = betrothed
 					betrothed = {
-						has_government = tribal_government
+						government_has_flag = tribal_government
 					}
 				}
 			}
@@ -724,7 +724,7 @@ character_location_exterior = {
 		reference = "holding_types/tribe_arid.dds"
 
 		trigger = {
-			has_government = tribal_government
+			government_has_flag = tribal_government
 			exists = capital_province
 			capital_province = {
 				OR = {
@@ -742,7 +742,7 @@ character_location_exterior = {
 		reference = "event_scenes/steppe.dds"
 
 		trigger = {
-			has_government = tribal_government
+			government_has_flag = tribal_government
 			exists = capital_province
 			capital_province = {
 				always = no
@@ -754,7 +754,7 @@ character_location_exterior = {
 		reference = "event_scenes/desert.dds"
 
 		trigger = {
-			has_government = tribal_government
+			government_has_flag = tribal_government
 			exists = capital_province
 			capital_province = {
 				OR = {
@@ -768,7 +768,7 @@ character_location_exterior = {
 		reference = "event_scenes/market_tribal.dds"
 
 		trigger = {
-			has_government = tribal_government
+			government_has_flag = tribal_government
 		}
 	}
 

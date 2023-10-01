@@ -39,7 +39,7 @@ princely_elective = { #HRE Elective.
 			add = 2
 			NOT = { this = scope:holder }
 			OR = {
-				has_government = theocracy_government
+				government_has_flag = theocracy_government
 				has_council_position = councillor_court_chaplain
 			}
 			faith = scope:holder.faith
@@ -73,7 +73,7 @@ princely_elective = { #HRE Elective.
 					is_independent_ruler = yes
 				}
 				trigger_if = { #Must be true priests
-					limit = { has_government = theocracy_government }
+					limit = { government_has_flag = theocracy_government }
 					trigger_if = {
 						limit = { is_female = yes }
 						faith_dominant_gender_female_or_equal = yes
@@ -116,24 +116,24 @@ princely_elective = { #HRE Elective.
 					}
 					if = { #Slightly favor theocracies of same faith.
 						limit = {
-							has_government = theocracy_government
+							government_has_flag = theocracy_government
 							faith = scope:holder.faith
 						}
 						add = 4
 					}
 					if = { #Malus for other governments.
 						limit = {
-							has_government = republic_government
+							government_has_flag = republic_government
 						}
 						subtract = 5
 					}
 					if = { #Malus for other governments.
 						limit = {
 							OR = {
-								has_government = tribal_government
-								has_government = clan_government
-								has_government = mercenary_government
-								has_government = holy_order_government
+								government_has_flag = tribal_government
+								government_has_flag = clan_government
+								government_has_flag = mercenary_government
+								government_has_flag = holy_order_government
 							}
 						}
 						subtract = 4

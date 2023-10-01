@@ -16,7 +16,7 @@
 	#ai_check_interval = 36
 	#	
 	#is_shown = {
-		#has_government = tribal_government
+		#government_has_flag = tribal_government
 	#}
 	#	
 	#is_valid = {
@@ -47,7 +47,7 @@
 		#base = 100
 		#modifier = { #Go for the more lenient decision if this is the case
 			#add = -100
-			#liege = { has_government = feudal_government }
+			#liege = { government_has_flag = feudal_government }
 		#}
 	#}
 #}
@@ -67,13 +67,13 @@ convert_to_feudalism_liege_converted_decision = {
 
 	is_shown = {
 		OR = {
-			has_government = tribal_government
-			has_government = manchu_tribal_government
+			government_has_flag = tribal_government
+			government_has_flag = manchu_tribal_government
 		}
 		liege = {
 			OR = {
-				has_government = feudal_government
-				has_government = clan_government
+				government_has_flag = feudal_government
+				government_has_flag = clan_government
 			}
 		}
 		NOT = {
@@ -147,8 +147,8 @@ convert_whole_realm_to_feudalism_decision = {
 			}
 		}
 		OR = {
-			has_government = tribal_government
-			has_government = manchu_tribal_government
+			government_has_flag = tribal_government
+			government_has_flag = manchu_tribal_government
 		}
 		OR = {
 			is_independent_ruler = yes
@@ -156,8 +156,8 @@ convert_whole_realm_to_feudalism_decision = {
 				is_independent_ruler = no
 				liege = {
 					NOR = {
-						has_government = feudal_government
-						has_government = clan_government
+						government_has_flag = feudal_government
+						government_has_flag = clan_government
 					}
 				}
 			}
@@ -253,8 +253,8 @@ convert_to_tribalism_decision = {
 			}
 		}
 		OR = {
-			has_government = feudal_government
-			has_government = clan_government
+			government_has_flag = feudal_government
+			government_has_flag = clan_government
 		}
 	}
 
@@ -302,7 +302,7 @@ convert_whole_realm_to_feudalism_west_african_pagan_decision = {
 
 	is_shown = {
 		# Only tribals need formalise.
-		has_government = tribal_government
+		government_has_flag = tribal_government
 		# Unreformed West African Pagans are our targets.
 		faith_qualifies_for_west_african_pagan_feudalisation_trigger = yes
 	}
@@ -989,11 +989,11 @@ tribal_challenge_ruler_decision = {
 	cooldown = { days = 3650 }
 
 	is_shown = {
-		has_government = tribal_government
+		government_has_flag = tribal_government
 		exists = liege
 		liege = {
 			NOT = { this = root }
-			has_government = tribal_government
+			government_has_flag = tribal_government
 			exists = primary_title
 			primary_title = {
 				save_temporary_scope_as = title_check

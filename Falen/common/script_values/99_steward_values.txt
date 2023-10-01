@@ -291,9 +291,9 @@ steward_develop_county_tribal_penalty = {
 		limit = {
 			exists = scope:county
 			scope:county.holder = {
-				has_government = tribal_government
+				government_has_flag = tribal_government
 				any_neighboring_realm_same_rank_owner = {
-					NOT = { has_government = feudal_government }
+					NOT = { government_has_flag = feudal_government }
 				}
 			}
 		}

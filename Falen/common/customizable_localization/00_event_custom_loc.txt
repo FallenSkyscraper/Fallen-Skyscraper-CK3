@@ -21,14 +21,14 @@
 
 	text = {
 		trigger = {
-			NOT = { has_government = tribal_government }
+			NOT = { government_has_flag = government_is_tribal }
 		}
 		localization_key = private_object_royal_scepter
 	}
 
 	text = {
 		trigger = {
-			NOT = { has_government = tribal_government }
+			NOT = { government_has_flag = government_is_tribal }
 		}
 		localization_key = private_object_coronation_crown
 	}

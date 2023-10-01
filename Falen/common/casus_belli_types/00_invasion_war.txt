@@ -7,7 +7,7 @@
 
 	allowed_for_character = {
 		OR = {
-			has_government = tribal_government
+			government_has_flag = government_is_tribal
 			faith = {
 				has_doctrine_parameter = invasion_cb_enabled
 			}
@@ -283,7 +283,7 @@ clan_invasion_war = {
 	mutually_exclusive_titles = { always = yes }
 
 	allowed_for_character = {
-		has_government = clan_government
+		government_has_flag = government_is_clan
 		NOR = {
 			has_character_flag = used_lifetime_invasion
 			faith = { has_doctrine_parameter = invasion_cb_enabled }
@@ -596,7 +596,7 @@ mongol_invasion_war = {
 
 	allowed_for_character = {
 		this = title:e_mongol_empire.holder
-		has_government = tribal_government
+		government_has_flag = government_is_tribal
 		prestige_level >= 1
 	}
 	

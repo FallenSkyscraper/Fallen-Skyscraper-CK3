@@ -4,24 +4,24 @@ StatecraftGetVassalType = {
 	type = character
 
 	text = {
-		trigger = { has_government = feudal_government}
+		trigger = { government_has_flag = feudal_government}
 		localization_key = statecraft_ongoing.4010.nobility
 		fallback = yes
 	}
 	text = {
-		trigger = { has_government = clan_government}
+		trigger = { government_has_flag = clan_government}
 		localization_key = statecraft_ongoing.4010.clan
 	}
 	text = {
-		trigger = { has_government = tribal_government}
+		trigger = { government_has_flag = tribal_government}
 		localization_key = statecraft_ongoing.4010.chieftains
 	}
 	text = {
-		trigger = { has_government = theocracy_government}
+		trigger = { government_has_flag = theocracy_government}
 		localization_key = statecraft_ongoing.4010.clergy
 	}
 	text = {
-		trigger = { has_government = republic_government}
+		trigger = { government_has_flag = republic_government}
 		localization_key = statecraft_ongoing.4010.citizenry
 	}
 }

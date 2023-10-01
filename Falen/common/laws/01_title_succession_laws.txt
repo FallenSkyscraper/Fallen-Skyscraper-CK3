@@ -3,14 +3,14 @@
 	feudal_elective_succession_law = {
 		can_have = {
 			OR = {
-				has_government = feudal_government
+				government_has_flag = feudal_government
 				#fs_모드의
-				has_government = proletarian_government 
-				has_government = military_government 
-				has_government = maritime_government 
-				has_government = secular_republic_government 
-				has_government = oligarchic_republic_government
-				has_government = slavery_government
+				government_has_flag = proletarian_government 
+				government_has_flag = military_government 
+				government_has_flag = maritime_government 
+				government_has_flag = secular_republic_government 
+				government_has_flag = oligarchic_republic_government
+				government_has_flag = slavery_government
 			}
 			highest_held_title_tier >= tier_duchy #이걸로 어디부터 해당 상속제를 실시할수 있는지 결정하는듯
 		}
@@ -40,7 +40,7 @@
 	#HRE Succession
 	princely_elective_succession_law = {
 		can_have = {
-			has_government = feudal_government
+			government_has_flag = feudal_government
 			highest_held_title_tier = tier_empire
 		}
 		can_pass = {
@@ -70,8 +70,8 @@
 	federal_elective_succession_law = {
 		can_have = {
 			OR = {
-				has_government = feudal_government
-				has_government = tribal_government
+				government_has_flag = feudal_government
+				government_has_flag = tribal_government
 			}
 			highest_held_title_tier >= tier_duchy
 		}

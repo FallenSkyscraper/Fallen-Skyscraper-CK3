@@ -142,7 +142,7 @@ WarDeclaredFlavor = {
 	text = { # Tribal characters have special text for declaring conquest or subjugation wars.
 		trigger = {
 			root.primary_attacker = {
-				has_government = tribal_government
+				government_has_flag = tribal_government
 			}
 			root = {
 				OR = {

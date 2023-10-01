@@ -301,10 +301,10 @@
 			if = {
 				limit = {
 					scope:attacker = {
-						NOT = { has_government = tribal_government }
+						NOT = { government_has_flag = government_is_tribal }
 					}
 					scope:defender = {
-							has_government = tribal_government
+							government_has_flag = government_is_tribal
 					}
 				}
 				add = -1000
