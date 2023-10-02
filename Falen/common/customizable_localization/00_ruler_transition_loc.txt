@@ -1027,7 +1027,7 @@ HeirMessageInterface = {
 		trigger = {
 			is_adult = yes
 			has_learning_lifestyle_trait_trigger = yes
-			NOT = { government_has_flag = theocracy_government }
+			NOT = { government_has_flag = government_is_theocracy }
 		}
 	}
 	text = {
@@ -1668,8 +1668,8 @@ HeirMessageInterface = {
 		trigger = {
 			any_child = { count >= 8 }
 			NOR = {
-				government_has_flag = republic_government
-				government_has_flag = theocracy_government
+				government_has_flag = government_is_republic
+				government_has_flag = government_is_theocracy
 			}
 		}
 	}

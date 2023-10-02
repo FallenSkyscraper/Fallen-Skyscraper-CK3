@@ -127,8 +127,8 @@ game_rule.1001 = { #by Mathilda Bjarnehed
 			is_holy_order = no
 		}
 		NOR = {
-			government_has_flag = republic_government
-			government_has_flag = theocracy_government
+			government_has_flag = government_is_republic
+			government_has_flag = government_is_theocracy
 			AND = {
 				exists = character:7757
 				this = character:7757 #Matilda Canossa, her bookmark start is about overcoming the issue of no heir

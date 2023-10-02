@@ -5,12 +5,12 @@
 		can_keep = {
 			always = yes
 			NOR = {
-				government_has_flag = imperial_government
-				government_has_flag = proletarian_government 
-				government_has_flag = military_government 
-				government_has_flag = oligarchic_republic_government
-				government_has_flag = merchant_republic_government
-				government_has_flag = slavery_government
+				government_has_flag = government_is_imperial
+				government_has_flag = government_is_proletarian 
+				government_has_flag = government_is_military
+				government_has_flag = government_is_oligarchic_republic
+				government_has_flag = government_is_merchant_republic
+				government_has_flag = government_is_slavery
 			}
 		}
 		can_pass = {
@@ -28,14 +28,14 @@
 			OR = {
 				AND = {
 					OR = {
-						government_has_flag = feudal_government
-						government_has_flag = clan_government
+						government_has_flag = government_is_feudal
+						government_has_flag = government_is_clan
 							#fs_모드의 것들
-						government_has_flag = bureaucratic_government
-						government_has_flag = maritime_government 
-						government_has_flag = theocratic_feudal_government
-						government_has_flag = secular_republic_government  
-						government_has_flag = slavery_government
+						government_has_flag = government_is_bureaucratic
+						government_has_flag = government_is_maritime
+						government_has_flag = government_is_theocratic_feudal
+						government_has_flag = government_is_secular_republic
+						government_has_flag = government_is_slavery
 
 					}
 					culture = {
@@ -45,7 +45,7 @@
 						}
 					}
 				}
-				government_has_flag = tribal_government
+				government_has_flag = government_is_tribal
 			}
 		}
 		succession = {
@@ -83,14 +83,14 @@
 				historical_succession_access_single_heir_dynasty_house_trigger = yes
 			}
 			OR = {
-				government_has_flag = feudal_government
-				government_has_flag = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 				#fs_모드의
-				government_has_flag = bureaucratic_government
-				government_has_flag = maritime_government 
-				government_has_flag = theocratic_feudal_government
-				government_has_flag = secular_republic_government
-				government_has_flag = manchu_tribal_government
+				government_has_flag = government_is_bureaucratic
+				government_has_flag = government_is_maritime 
+				government_has_flag = government_is_theocratic_feudal
+				government_has_flag = government_is_secular_republic
+				government_has_flag = government_is_manchu_tribal
 				historical_succession_access_partition_succession_law_trigger = yes
 			}
 			culture = {
@@ -141,8 +141,8 @@
 				historical_succession_access_single_heir_dynasty_house_trigger = yes
 			}
 			OR = {
-				government_has_flag = feudal_government
-				government_has_flag = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			culture = {
 				has_innovation = innovation_genealogy
@@ -184,11 +184,11 @@
 		can_keep = {
 			always = yes
 			NOR = {
-				government_has_flag = imperial_government
-				government_has_flag = proletarian_government 
-				government_has_flag = military_government 
-				government_has_flag = oligarchic_republic_government
-				government_has_flag = merchant_republic_government
+				government_has_flag = government_is_imperial
+				government_has_flag = government_is_proletarian 
+				government_has_flag = government_is_military 
+				government_has_flag = government_is_oligarchic_republic
+				government_has_flag = government_is_merchant_republic
 			}
 		}
 		can_have = {
@@ -197,15 +197,15 @@
 		can_pass = {
 			can_change_partition_succession_law_trigger = no
 			OR = {
-				government_has_flag = manchu_tribal_government
-				government_has_flag = nomadic_government
+				government_has_flag = government_is_manchu_tribal
+				government_has_flag = government_is_nomadic
 			}	
 		}
 		should_start_with = {
 			NOR = {
 				historical_succession_access_partition_succession_law_trigger = yes
 			}
-			government_has_flag = nomadic_government
+			government_has_flag = government_is_nomadic
 		}
 		succession = {
 			order_of_succession = inheritance
@@ -234,8 +234,8 @@
 			NOT = { has_realm_law = crown_authority_0 }
 			NOT = { has_realm_law = tribal_authority_0 }
 			OR = {
-				government_has_flag = manchu_tribal_government
-				government_has_flag = nomadic_government
+				government_has_flag = government_is_manchu_tribal
+				government_has_flag = government_is_nomadic
 			}
 		}
 		can_have = {
@@ -246,8 +246,8 @@
 				historical_succession_access_partition_succession_law_trigger = yes
 			}
 			OR = {
-				government_has_flag = manchu_tribal_government
-				government_has_flag = nomadic_government
+				government_has_flag = government_is_manchu_tribal
+				government_has_flag = government_is_nomadic
 			}
 		}
 		succession = {
@@ -280,8 +280,8 @@
 		can_pass = {
 			can_change_partition_succession_law_trigger = no
 			OR = {
-				government_has_flag = nomadic_government
-				government_has_flag = manchu_tribal_government
+				government_has_flag = government_is_nomadic
+				government_has_flag = government_is_manchu_tribal
 			}
 			NOT = {has_realm_law = crown_authority_0}
 			NOT = {has_realm_law = tribal_authority_0}
@@ -294,8 +294,8 @@
 				historical_succession_access_partition_succession_law_trigger = yes
 			}
 			OR = {
-				government_has_flag = manchu_tribal_government
-				government_has_flag = nomadic_government
+				government_has_flag = government_is_manchu_tribal
+				government_has_flag = government_is_nomadic
 			}
 			culture = {
 				has_innovation = innovation_genealogy
@@ -352,9 +352,9 @@
 		}
 		should_start_with = {
 			OR = {
-				government_has_flag = military_government
-				government_has_flag = proletarian_government
-				government_has_flag = oligarchic_government
+				government_has_flag = government_is_military
+				government_has_flag = government_is_proletarian
+				government_has_flag = government_is_oligarchic
 				historical_succession_access_single_heir_succession_law_trigger = yes
 			}
 		}
@@ -509,7 +509,7 @@
 			can_have_holy_order_succession_law_trigger = yes
 		}
 		should_start_with = {
-			government_has_flag = holy_order_government
+			government_has_flag = government_is_holy_order
 		}
 		succession = {
 			order_of_succession = theocratic
@@ -526,7 +526,7 @@
 			can_have_mercenary_succession_law_trigger = yes
 		}
 		should_start_with = {
-			government_has_flag = mercenary_government
+			government_has_flag = government_is_mercenary
 		}
 		succession = {
 			order_of_succession = company
@@ -542,7 +542,7 @@
 			can_have_city_succession_law_trigger = yes
 		}
 		should_start_with = {
-			government_has_flag = republic_government
+			government_has_flag = government_is_republic
 		}
 		succession = {
 			order_of_succession = generate
@@ -554,18 +554,18 @@
 	oligarchic_republic_elective_succession_law = {
 		can_have = {
 			#OR = {
-				#government_has_flag = oligarchic_republic_government
+				#government_has_flag = government_is_oligarchic_republic
 			#}
 		}
 		can_pass = {
 			can_change_title_law_trigger = yes
 			#OR = {
-			#	government_has_flag = oligarchic_republic_government
+			#	government_has_flag = government_is_oligarchic_republic
 			#}
 		}
 		should_start_with = {
 			#OR = {
-			#	government_has_flag = oligarchic_republic_government
+			#	government_has_flag = government_is_oligarchic_republic
 			#}
 		}
 		succession = {

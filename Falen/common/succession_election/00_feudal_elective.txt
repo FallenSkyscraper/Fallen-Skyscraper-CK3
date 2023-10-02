@@ -52,7 +52,7 @@ feudal_elective = {
 			add = 1
 			NOT = { this = scope:holder }
 			OR = {
-				government_has_flag = theocracy_government
+				government_has_flag = government_is_theocracy
 				has_council_position = councillor_court_chaplain
 			}
 			faith = scope:holder.faith

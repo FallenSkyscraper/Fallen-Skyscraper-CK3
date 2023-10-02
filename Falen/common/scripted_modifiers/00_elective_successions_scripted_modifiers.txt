@@ -652,22 +652,22 @@ elector_voting_pattern_circumstances_feudal_elective_modifier = {
 		add = -15
 		desc = tooltip_feudal_elector_vote_uncivilized
 		OR = {
-			government_has_flag = feudal_government
-			government_has_flag = republic_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_republic
 		}
 		scope:candidate = {
 			OR = {
-				government_has_flag = clan_government
-				government_has_flag = tribal_government
+				government_has_flag = government_is_clan
+				government_has_flag = government_is_tribal
 			}
 		}
 	}
 	modifier = {
 		add = -15
 		desc = tooltip_feudal_elector_vote_settled
-		government_has_flag = clan_government
+		government_has_flag = government_is_clan
 		scope:candidate = {
-			NOT = { government_has_flag = clan_government }
+			NOT = { government_has_flag = government_is_clan }
 		}
 	}
 	#Nepotism

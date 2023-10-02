@@ -930,7 +930,7 @@ FR_le_Char_P = {
 	text = {
 		trigger = { # queen_mother (Reine mère)
 			is_female = yes
-			government_has_flag = feudal_government
+			government_has_flag = government_is_feudal
 			any_child = { primary_title.tier = tier_kingdom }
 			primary_title.tier < tier_kingdom
 		}
@@ -942,12 +942,12 @@ FR_le_Char_P = {
 				AND = { # prince_male_iberian_group (Infant), prince_female_iberian_group (Infante)
 					primary_title.tier < tier_kingdom
 					culture = { has_cultural_pillar = heritage_iberian }
-					government_has_flag = feudal_government
+					government_has_flag = government_is_feudal
 					any_parent = { even_if_dead = yes primary_title.tier >= tier_kingdom }
 				}
 				AND = { # empress_mother (Impératrice mère)
 					is_female = yes
-					government_has_flag = feudal_government
+					government_has_flag = government_is_feudal
 					any_child = { primary_title.tier = tier_empire }
 					primary_title.tier < tier_empire
 				}
@@ -960,8 +960,8 @@ FR_le_Char_P = {
 			is_female = no
 			primary_title.tier < tier_kingdom
 			OR = {
-				government_has_flag = feudal_government
-				government_has_flag = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			any_parent = { even_if_dead = yes primary_title.tier >= tier_kingdom }
 		}
@@ -972,8 +972,8 @@ FR_le_Char_P = {
 			is_female = yes
 			primary_title.tier < tier_kingdom
 			OR = {
-				government_has_flag = feudal_government
-				government_has_flag = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			any_parent = { even_if_dead = yes primary_title.tier >= tier_kingdom }
 		}
@@ -1002,9 +1002,9 @@ FR_le_Char = {
 					NOT = {
 						AND = { # emperor_feudal_male_altaic_group (Khagan)
 							OR = {
-								government_has_flag = feudal_government
-								government_has_flag = clan_government
-								government_has_flag = tribal_government
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+								government_has_flag = government_is_tribal
 							}
 							OR = {
 								culture = { has_cultural_pillar = heritage_mongolic }
@@ -1014,7 +1014,7 @@ FR_le_Char = {
 				}
 				AND = { # duke_theocracy_male_paganism_religion (Archiprêtre), duke_theocracy_female_paganism_religion (Archiprêtresse)
 					highest_held_title_tier = tier_duchy
-					government_has_flag = theocracy_government
+					government_has_flag = government_is_theocracy
 					OR = {
 						scope:character.religion = {is_in_family = rf_pagan}
 						religion = religion:taoism_religion
@@ -1031,8 +1031,8 @@ FR_le_Char = {
 								culture = { has_cultural_pillar = heritage_arabic }
 							}
 							OR = {
-								government_has_flag = feudal_government
-								government_has_flag = clan_government
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
 							}
 						}
 					}
@@ -1041,8 +1041,8 @@ FR_le_Char = {
 					}
 					highest_held_title_tier = tier_duchy
 					OR = {
-						government_has_flag = feudal_government
-						government_has_flag = clan_government
+						government_has_flag = government_is_feudal
+						government_has_flag = government_is_clan
 					}
 				}
 				# AND = {
@@ -1050,7 +1050,7 @@ FR_le_Char = {
 				# 	highest_held_title_tier = tier_county
 				# 	OR = {
 				# 		AND = { # count_feudal_male_english (Earl)
-				# 			government_has_flag = feudal_government
+				# 			government_has_flag = government_is_feudal
 				# 			primary_title = { 
 				# 				target_is_de_jure_liege_or_above = title:e_britannia
 				# 				NOT = { target_is_de_jure_liege_or_above = title:k_wales } # count_feudal_male_k_wales (Lord)
@@ -1058,8 +1058,8 @@ FR_le_Char = {
 				# 		}
 				# 		AND = { # count_feudal_male_e_britannia (Earl)
 				# 			OR = {
-				# 				government_has_flag = feudal_government
-				# 				government_has_flag = tribal_government
+				# 				government_has_flag = government_is_feudal
+				# 				government_has_flag = government_is_tribal
 				# 			}
 				# 			culture = { has_name_list = name_list_english }
 				# 			culture = { has_name_list = name_list_anglo_saxon }
@@ -1069,14 +1069,14 @@ FR_le_Char = {
 				# }
 				AND = { # count_theocracy_male_ismaili (Ayatollah), count_theocracy_female_ismaili (Ayatollah)
 					highest_held_title_tier = tier_county
-					government_has_flag = theocracy_government
+					government_has_flag = government_is_theocracy
 					faith = faith:ismaili
 				}
 				AND = { # baron_feudal_male_iranian_group (Argbadh)
 					highest_held_title_tier = tier_barony
 					OR = {
-						government_has_flag = feudal_government
-						government_has_flag = clan_government
+						government_has_flag = government_is_feudal
+						government_has_flag = government_is_clan
 					}
 					culture = { has_cultural_pillar = heritage_iranian }
 				}
@@ -1196,7 +1196,7 @@ FR_du_Char_P = {
 	text = {
 		trigger = { # queen_mother (Reine mère)
 			is_female = yes
-			government_has_flag = feudal_government
+			government_has_flag = government_is_feudal
 			any_child = { primary_title.tier = tier_kingdom }
 			primary_title.tier < tier_kingdom
 		}
@@ -1208,12 +1208,12 @@ FR_du_Char_P = {
 				AND = { # prince_male_iberian_group (Infant), prince_female_iberian_group (Infante)
 					primary_title.tier < tier_kingdom
 					culture = { has_cultural_pillar = heritage_iberian }
-					government_has_flag = feudal_government
+					government_has_flag = government_is_feudal
 					any_parent = { even_if_dead = yes primary_title.tier >= tier_kingdom }
 				}
 				AND = { # empress_mother (Impératrice mère)
 					is_female = yes
-					government_has_flag = feudal_government
+					government_has_flag = government_is_feudal
 					any_child = { primary_title.tier = tier_empire }
 					primary_title.tier < tier_empire
 				}
@@ -1226,8 +1226,8 @@ FR_du_Char_P = {
 			is_female = no
 			primary_title.tier < tier_kingdom
 			OR = {
-				government_has_flag = feudal_government
-				government_has_flag = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			any_parent = { even_if_dead = yes primary_title.tier >= tier_kingdom }
 		}
@@ -1238,8 +1238,8 @@ FR_du_Char_P = {
 			is_female = yes
 			primary_title.tier < tier_kingdom
 			OR = {
-				government_has_flag = feudal_government
-				government_has_flag = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			any_parent = { even_if_dead = yes primary_title.tier >= tier_kingdom }
 		}
@@ -1268,9 +1268,9 @@ FR_du_Char = {
 					NOT = {
 						AND = { # emperor_feudal_male_altaic_group (Khagan)
 							OR = {
-								government_has_flag = feudal_government
-								government_has_flag = clan_government
-								government_has_flag = tribal_government
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+								government_has_flag = government_is_tribal
 							}
 							OR = {
 								culture = { has_cultural_pillar = heritage_mongolic }
@@ -1280,7 +1280,7 @@ FR_du_Char = {
 				}
 				AND = { # duke_theocracy_male_paganism_religion (Archiprêtre), duke_theocracy_female_paganism_religion (Archiprêtresse)
 					highest_held_title_tier = tier_duchy
-					government_has_flag = theocracy_government
+					government_has_flag = government_is_theocracy
 					OR = {
 						scope:character.religion = {is_in_family = rf_pagan}
 						religion = religion:taoism_religion
@@ -1297,8 +1297,8 @@ FR_du_Char = {
 								culture = { has_cultural_pillar = heritage_arabic }
 							}
 							OR = {
-								government_has_flag = feudal_government
-								government_has_flag = clan_government
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
 							}
 						}
 					}
@@ -1307,8 +1307,8 @@ FR_du_Char = {
 					}
 					highest_held_title_tier = tier_duchy
 					OR = {
-						government_has_flag = feudal_government
-						government_has_flag = clan_government
+						government_has_flag = government_is_feudal
+						government_has_flag = government_is_clan
 					}
 				}
 				# AND = {
@@ -1316,7 +1316,7 @@ FR_du_Char = {
 				# 	highest_held_title_tier = tier_county
 				# 	OR = {
 				# 		AND = { # count_feudal_male_english (Earl)
-				# 			government_has_flag = feudal_government
+				# 			government_has_flag = government_is_feudal
 				# 			primary_title = { 
 				# 				target_is_de_jure_liege_or_above = title:e_britannia
 				# 				NOT = { target_is_de_jure_liege_or_above = title:k_wales } # count_feudal_male_k_wales (Lord)
@@ -1324,8 +1324,8 @@ FR_du_Char = {
 				# 		}
 				# 		AND = { # count_feudal_male_e_britannia (Earl)
 				# 			OR = {
-				# 				government_has_flag = feudal_government
-				# 				government_has_flag = tribal_government
+				# 				government_has_flag = government_is_feudal
+				# 				government_has_flag = government_is_tribal
 				# 			}
 				# 			culture = { has_name_list = name_list_english }
 				# 			culture = { has_name_list = name_list_anglo_saxon }
@@ -1335,14 +1335,14 @@ FR_du_Char = {
 				# }
 				AND = { # count_theocracy_male_ismaili (Ayatollah), count_theocracy_female_ismaili (Ayatollah)
 					highest_held_title_tier = tier_county
-					government_has_flag = theocracy_government
+					government_has_flag = government_is_theocracy
 					faith = faith:ismaili
 				}
 				AND = { # baron_feudal_male_iranian_group (Argbadh)
 					highest_held_title_tier = tier_barony
 					OR = {
-						government_has_flag = feudal_government
-						government_has_flag = clan_government
+						government_has_flag = government_is_feudal
+						government_has_flag = government_is_clan
 					}
 					culture = { has_cultural_pillar = heritage_iranian }
 				}
@@ -1462,7 +1462,7 @@ FR_au_Char_P = {
 	text = {
 		trigger = { # queen_mother (Reine mère)
 			is_female = yes
-			government_has_flag = feudal_government
+			government_has_flag = government_is_feudal
 			any_child = { primary_title.tier = tier_kingdom }
 			primary_title.tier < tier_kingdom
 		}
@@ -1474,12 +1474,12 @@ FR_au_Char_P = {
 				AND = { # prince_male_iberian_group (Infant), prince_female_iberian_group (Infante)
 					primary_title.tier < tier_kingdom
 					culture = { has_cultural_pillar = heritage_iberian }
-					government_has_flag = feudal_government
+					government_has_flag = government_is_feudal
 					any_parent = { even_if_dead = yes primary_title.tier >= tier_kingdom }
 				}
 				AND = { # empress_mother (Impératrice mère)
 					is_female = yes
-					government_has_flag = feudal_government
+					government_has_flag = government_is_feudal
 					any_child = { primary_title.tier = tier_empire }
 					primary_title.tier < tier_empire
 				}
@@ -1492,8 +1492,8 @@ FR_au_Char_P = {
 			is_female = no
 			primary_title.tier < tier_kingdom
 			OR = {
-				government_has_flag = feudal_government
-				government_has_flag = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			any_parent = { even_if_dead = yes primary_title.tier >= tier_kingdom }
 		}
@@ -1504,8 +1504,8 @@ FR_au_Char_P = {
 			is_female = yes
 			primary_title.tier < tier_kingdom
 			OR = {
-				government_has_flag = feudal_government
-				government_has_flag = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 			any_parent = { even_if_dead = yes primary_title.tier >= tier_kingdom }
 		}
@@ -1534,9 +1534,9 @@ FR_au_Char = {
 					NOT = {
 						AND = { # emperor_feudal_male_altaic_group (Khagan)
 							OR = {
-								government_has_flag = feudal_government
-								government_has_flag = clan_government
-								government_has_flag = tribal_government
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+								government_has_flag = government_is_tribal
 							}
 							OR = {
 								culture = { has_cultural_pillar = heritage_mongolic }
@@ -1546,7 +1546,7 @@ FR_au_Char = {
 				}
 				AND = { # duke_theocracy_male_paganism_religion (Archiprêtre), duke_theocracy_female_paganism_religion (Archiprêtresse)
 					highest_held_title_tier = tier_duchy
-					government_has_flag = theocracy_government
+					government_has_flag = government_is_theocracy
 					OR = {
 						scope:character.religion = {is_in_family = rf_pagan}
 						religion = religion:taoism_religion
@@ -1563,8 +1563,8 @@ FR_au_Char = {
 								culture = { has_cultural_pillar = heritage_arabic }
 							}
 							OR = {
-								government_has_flag = feudal_government
-								government_has_flag = clan_government
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
 							}
 						}
 					}
@@ -1573,8 +1573,8 @@ FR_au_Char = {
 					}
 					highest_held_title_tier = tier_duchy
 					OR = {
-						government_has_flag = feudal_government
-						government_has_flag = clan_government
+						government_has_flag = government_is_feudal
+						government_has_flag = government_is_clan
 					}
 				}
 				# AND = {
@@ -1582,7 +1582,7 @@ FR_au_Char = {
 				# 	highest_held_title_tier = tier_county
 				# 	OR = {
 				# 		AND = { # count_feudal_male_english (Earl)
-				# 			government_has_flag = feudal_government
+				# 			government_has_flag = government_is_feudal
 				# 			primary_title = { 
 				# 				target_is_de_jure_liege_or_above = title:e_britannia
 				# 				NOT = { target_is_de_jure_liege_or_above = title:k_wales } # count_feudal_male_k_wales (Lord)
@@ -1590,8 +1590,8 @@ FR_au_Char = {
 				# 		}
 				# 		AND = { # count_feudal_male_e_britannia (Earl)
 				# 			OR = {
-				# 				government_has_flag = feudal_government
-				# 				government_has_flag = tribal_government
+				# 				government_has_flag = government_is_feudal
+				# 				government_has_flag = government_is_tribal
 				# 			}
 				# 			culture = { has_name_list = name_list_english }
 				# 			culture = { has_name_list = name_list_anglo_saxon }
@@ -1601,14 +1601,14 @@ FR_au_Char = {
 				# }
 				AND = { # count_theocracy_male_ismaili (Ayatollah), count_theocracy_female_ismaili (Ayatollah)
 					highest_held_title_tier = tier_county
-					government_has_flag = theocracy_government
+					government_has_flag = government_is_theocracy
 					faith = faith:ismaili
 				}
 				AND = { # baron_feudal_male_iranian_group (Argbadh)
 					highest_held_title_tier = tier_barony
 					OR = {
-						government_has_flag = feudal_government
-						government_has_flag = clan_government
+						government_has_flag = government_is_feudal
+						government_has_flag = government_is_clan
 					}
 					culture = { has_cultural_pillar = heritage_iranian }
 				}

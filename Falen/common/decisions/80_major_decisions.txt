@@ -16,7 +16,7 @@
 	#ai_check_interval = 36
 	#	
 	#is_shown = {
-		#government_has_flag = tribal_government
+		#government_has_flag = government_is_tribal
 	#}
 	#	
 	#is_valid = {
@@ -34,7 +34,7 @@
 	#}
 	#	
 	#effect = {
-		#change_government = feudal_government
+		#change_government = government_is_feudal
 		#trigger_event = major_decisions.0001
 		#add_realm_law_skip_effects = crown_authority_0
 	#}
@@ -47,7 +47,7 @@
 		#base = 100
 		#modifier = { #Go for the more lenient decision if this is the case
 			#add = -100
-			#liege = { government_has_flag = feudal_government }
+			#liege = { government_has_flag = government_is_feudal }
 		#}
 	#}
 #}
@@ -67,13 +67,13 @@ convert_to_feudalism_liege_converted_decision = {
 
 	is_shown = {
 		OR = {
-			government_has_flag = tribal_government
-			government_has_flag = manchu_tribal_government
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_manchu_tribal
 		}
 		liege = {
 			OR = {
-				government_has_flag = feudal_government
-				government_has_flag = clan_government
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
 			}
 		}
 		NOT = {
@@ -147,8 +147,8 @@ convert_whole_realm_to_feudalism_decision = {
 			}
 		}
 		OR = {
-			government_has_flag = tribal_government
-			government_has_flag = manchu_tribal_government
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_manchu_tribal
 		}
 		OR = {
 			is_independent_ruler = yes
@@ -156,8 +156,8 @@ convert_whole_realm_to_feudalism_decision = {
 				is_independent_ruler = no
 				liege = {
 					NOR = {
-						government_has_flag = feudal_government
-						government_has_flag = clan_government
+						government_has_flag = government_is_feudal
+						government_has_flag = government_is_clan
 					}
 				}
 			}
@@ -253,8 +253,8 @@ convert_to_tribalism_decision = {
 			}
 		}
 		OR = {
-			government_has_flag = feudal_government
-			government_has_flag = clan_government
+			government_has_flag = government_is_feudal
+			government_has_flag = government_is_clan
 		}
 	}
 
@@ -265,7 +265,7 @@ convert_to_tribalism_decision = {
 
 	effect = {
 		trigger_event = major_decisions.0200
-		change_government = tribal_government
+		change_government = government_is_tribal
 		add_prestige = {
 			add = -150
 		}
@@ -302,7 +302,7 @@ convert_whole_realm_to_feudalism_west_african_pagan_decision = {
 
 	is_shown = {
 		# Only tribals need formalise.
-		government_has_flag = tribal_government
+		government_has_flag = government_is_tribal
 		# Unreformed West African Pagans are our targets.
 		faith_qualifies_for_west_african_pagan_feudalisation_trigger = yes
 	}
@@ -989,11 +989,11 @@ tribal_challenge_ruler_decision = {
 	cooldown = { days = 3650 }
 
 	is_shown = {
-		government_has_flag = tribal_government
+		government_has_flag = government_is_tribal
 		exists = liege
 		liege = {
 			NOT = { this = root }
-			government_has_flag = tribal_government
+			government_has_flag = government_is_tribal
 			exists = primary_title
 			primary_title = {
 				save_temporary_scope_as = title_check
