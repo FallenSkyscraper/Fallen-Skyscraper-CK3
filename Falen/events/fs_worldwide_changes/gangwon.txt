@@ -7,7 +7,7 @@ gw_mgga.1 = {
 	desc = gw_mgga.1.desc
 	theme = hunting
 	override_background = {
-		event_background = sitting_room
+		reference = sitting_room
 	}
 	left_portrait = root
 
@@ -90,7 +90,7 @@ gw_mgga.2 = {
 	title = gw_mgga.2.t
 	desc = gw_mgga.2.desc
 	override_background = {
-		event_background = sitting_room
+		reference = sitting_room
 	}
 	left_portrait = root
 	option = {
@@ -142,7 +142,7 @@ gw_mgga.4 = {
 		NOT = { has_global_variable = gw_rebuilt }
 	}
 	override_background = {
-		event_background = sitting_room
+		reference = sitting_room
 	}
 	left_portrait = root
 	option = {
@@ -202,7 +202,7 @@ gw_mgga.6 = {
 		character = root
 		animation = personality_zealous
 	}
-	override_background = { event_background = wilderness_mountains }
+	override_background = { reference = wilderness_mountains }
 
 	immediate = { play_music_cue = "mx_cue_faith_conversion" }
 	

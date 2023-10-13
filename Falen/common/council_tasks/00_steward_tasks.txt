@@ -581,6 +581,16 @@ task_promote_culture = {
 			desc = task_promote_culture_effect_desc
 			triggered_desc = {
 				trigger = {
+					scope:councillor_liege = {
+						any_vassal = {
+							has_vassal_stance = minority
+						}
+					}
+				}
+				desc = minority_disapproves_conversion_tooltip
+			}
+			triggered_desc = {
+				trigger = {
 					trigger_if = {
 						limit = { exists = scope:county }
 						scope:county = {
@@ -691,21 +701,6 @@ task_promote_culture = {
 			}
 		}
 		
-		# Innovation Bonuses
-		if = {
-			limit = {
-				scope:councillor.liege = {
-					culture = {
-						has_innovation = innovation_public_school
-					}
-				}
-			}
-			add = {
-				value = public_school_culture_value
-				desc = PUBLIC_SCHOOL
-			}
-		}
-
 		# Conversion speed game rules
 		if = {
 			limit = {
@@ -763,6 +758,18 @@ task_promote_culture = {
 				desc = fp2_struggle_hostility_culture_conversion_task_desc
 			}
 		}
+		if = {
+			limit = {
+				scope:councillor_liege = {
+					has_character_modifier = devoted_to_tradition_modifier
+				}
+			}
+			multiply = {
+				value = 1.25
+				desc = bp2_devoted_to_tradition_modifier_conversion_task_desc
+			}
+		}
+
 	}
 
 	potential_county = {

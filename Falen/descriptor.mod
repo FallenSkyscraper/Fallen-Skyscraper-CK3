@@ -3,7 +3,6 @@ tags={
 	"Total Conversion"
 }
 name="Fallen Skyscraper"
-replace_path="common/achivements"
 replace_path="common/bookmark_portraits"
 replace_path="common/bookmarks"
 replace_path="common/religion/religions"

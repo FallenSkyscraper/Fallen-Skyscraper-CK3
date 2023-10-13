@@ -3146,7 +3146,7 @@ fund_inspiration.0044 = {
 	desc = fund_inspiration.0044.desc
 	theme = realm
 	override_background = {
-		event_background = study
+		reference = study
 	}
 	left_portrait = {
 		character = scope:antiquarian
@@ -8094,7 +8094,7 @@ fund_inspiration.9005 = {
 		}
 	}
 	theme = realm
-	override_background = { event_background = study }
+	override_background = { reference = study }
 	left_portrait = scope:inherited_insp_owner
 	
 	trigger = {
@@ -8726,7 +8726,7 @@ fund_inspiration.2003 = {
 
 	theme = realm
 	override_background = {
-		event_background = courtyard
+		reference = courtyard
 	}
 	left_portrait = {
 		character = scope:inspiration_owner
@@ -9081,7 +9081,7 @@ fund_inspiration.2004 = {
 	}
 	theme = realm
 	override_background = {
-		event_background = market
+		reference = market
 	}
 	left_portrait = {
 		character = scope:inspiration_owner
@@ -9300,7 +9300,7 @@ fund_inspiration.2005 = {
 	}
 	theme = realm
 	override_background = {
-		event_background = armory
+		reference = armory
 	}
 	left_portrait = {
 		character = scope:inspiration_owner
@@ -9649,7 +9649,7 @@ fund_inspiration.2030 = {
 	desc = fund_inspiration.2030.desc
 	theme = realm
 	override_background = {
-		event_background = corridor_day
+		reference = corridor_day
 	}
 	left_portrait = {
 		character = scope:friend
@@ -9718,7 +9718,7 @@ fund_inspiration.2040 = {
 	desc = fund_inspiration.2040.desc
 	theme = realm
 	override_background = {
-		event_background = corridor_day
+		reference = corridor_day
 	}
 	left_portrait = {
 		character = scope:inspiration_owner
@@ -10104,7 +10104,7 @@ fund_inspiration.2050 = {
 	desc = fund_inspiration.2050.desc
 	theme = realm
 	override_background = {
-		event_background = study
+		reference = study
 	}
 	left_portrait = {
 		character = scope:inspiration_owner
@@ -11506,7 +11506,7 @@ fund_inspiration.2100 = {
 		animation = admiration
 	}
 	override_background = {
-		event_background = feast
+		reference = feast
 	}
 	cooldown = { years = 2 }
 
@@ -12037,7 +12037,7 @@ fund_inspiration.2120 = {
 	}
 	theme = realm
 	override_background = {
-		event_background = sitting_room
+		reference = sitting_room
 	}
 	left_portrait = {
 		character = root
@@ -12584,7 +12584,7 @@ fund_inspiration.2130 = {
 	desc = fund_inspiration.2130.desc
 	theme = realm
 	override_background = {
-		event_background = corridor_day
+		reference = corridor_day
 	}
 	left_portrait = {
 		character = root 
@@ -13122,20 +13122,20 @@ fund_inspiration.2131 = {
 			exists = scope:fi_2130_room
 			scope:fi_2130_room = flag:fi_2130_library
 		}
-		event_background = study
+		reference = study
 	}
 	override_background = {
 		trigger = {
 			exists = scope:fi_2130_room
 			scope:fi_2130_room = flag:fi_2130_armory
 		}
-		event_background = armory
+		reference = armory
 	}
 	override_background = {
 		trigger = {
 			NOT = { exists = scope:fi_2130_room }
 		}
-		event_background = throne_room
+		reference = throne_room
 	}
 	left_portrait = {
 		character = scope:inspiration_owner
@@ -13643,7 +13643,7 @@ fund_inspiration.3001 = {
 	}
 	theme = realm
 	override_background = {
-		event_background = study
+		reference = study
 	}
 	left_portrait = {
 		character = scope:court_chaplain
@@ -15600,7 +15600,7 @@ fund_inspiration.6102 = {
 	theme = realm
 
 	override_background = {
-		event_background = corridor_night
+		reference = corridor_night
 	}
 	left_portrait = {
 		character = scope:inspiration_owner
@@ -16010,7 +16010,7 @@ fund_inspiration.6105 = {
 		animation = happiness
 	}
 	override_background = {
-		event_background = corridor_day
+		reference = corridor_day
 	}
 	trigger = {
 		AND = {
@@ -16270,7 +16270,7 @@ fund_inspiration.6300 = {
 	type = character_event
 	title = fund_inspiration.6300.t
 	override_background = {
-		event_background = study
+		reference = study
 	}
 	desc = {
 		desc = fund_inspiration.6300.intro
@@ -16711,7 +16711,7 @@ fund_inspiration.6500 = {
 
 	theme = hunting
 	override_background = {
-		event_background = wilderness_forest
+		reference = wilderness_forest
 	}
 
 	left_portrait = { 
@@ -16980,7 +16980,7 @@ fund_inspiration.6501 = {
 
 	theme = hunting
 	override_background = {
-		event_background = wilderness_mountains
+		reference = wilderness_mountains
 	}
 
 	left_portrait = { 
@@ -17129,7 +17129,7 @@ fund_inspiration.6502 = {
 
 	theme = hunting
 	override_background = {
-		event_background = wilderness_desert 
+		reference = wilderness_desert 
 	}
 	left_portrait = { 
 		character = scope:inspiration_owner
@@ -17236,7 +17236,7 @@ fund_inspiration.6503 = {
 	}
 	
 	override_background = {
-		event_background = wilderness_steppe
+		reference = wilderness_steppe
 	}
 
 	left_portrait = { 
@@ -17341,7 +17341,7 @@ fund_inspiration.6504 = {
 	}
 	
 	override_background = {
-		event_background = farmland
+		reference = farmland
 	}
 
 	left_portrait = { 
@@ -17575,7 +17575,7 @@ fund_inspiration.6505 = {
 	}
 	theme = hunting
 	override_background = {
-		event_background = wilderness_desert
+		reference = wilderness_desert
 	}
 	left_portrait = {
 		character = scope:inspiration_owner
@@ -17776,7 +17776,7 @@ fund_inspiration.6400 = {
 	desc = fund_inspiration.6400.desc
 	theme = realm
 	override_background = {
-		event_background = tavern
+		reference = tavern
 	}
 	left_portrait = { 
 		character = scope:inspiration_owner
@@ -17916,7 +17916,7 @@ fund_inspiration.6506 = {
 
 	theme = hunting
 	override_background = {
-		event_background = wilderness_steppe
+		reference = wilderness_steppe
 	}
 
 	left_portrait = { 
@@ -18076,7 +18076,7 @@ fund_inspiration.6507 = {
 
 	theme = hunting
 	override_background = {
-		event_background = wilderness_steppe
+		reference = wilderness_steppe
 	}
 
 	left_portrait = { 
@@ -18285,7 +18285,7 @@ fund_inspiration.6508 = {
 	}
 	theme = hunting
 	override_background = {
-		event_background = wilderness_steppe
+		reference = wilderness_steppe
 	}
 
 	left_portrait = { 
@@ -18490,7 +18490,7 @@ fund_inspiration.6509 = {
 	}
 	theme = hunting
 	override_background = {
-		event_background = wilderness_steppe
+		reference = wilderness_steppe
 	}
 
 	left_portrait = { 
@@ -18597,7 +18597,7 @@ fund_inspiration.6510 = {
 	}
 	theme = hunting
 	override_background = {
-		event_background = wilderness_forest
+		reference = wilderness_forest
 	}
 
 	left_portrait = { 
@@ -18761,7 +18761,7 @@ fund_inspiration.6511 = {
 	}
 	theme = death
 	override_background = {
-		event_background = wilderness_mountains
+		reference = wilderness_mountains
 	}
 
 	left_portrait = { 
@@ -18820,7 +18820,7 @@ fund_inspiration.6512 = {
 	}
 	theme = hunting
 	override_background = {
-		event_background = wilderness_mountains
+		reference = wilderness_mountains
 	}
 
 	left_portrait = { 
