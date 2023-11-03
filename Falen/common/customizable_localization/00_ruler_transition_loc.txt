@@ -85,7 +85,7 @@ DeathMessageIntro = {
 				}
 				AND = {
 					has_trait = deviant
-					NOT = { faith = { has_doctrine = doctrine_deviancy_accepted } }
+					NOT = { faith = { has_doctrine_parameter = deviancy_accepted } }
 				}
 				AND = {
 					has_trait = cannibal
@@ -122,7 +122,7 @@ DeathMessageIntro = {
 				}
 				AND = {
 					has_trait = witch
-					NOT = { faith = { has_doctrine = doctrine_witchcraft_accepted } }
+					NOT = { faith = { has_doctrine_parameter = witchcraft_accepted } }
 				}
 			}
 		}
@@ -172,12 +172,34 @@ DeathMessageIntro = {
 		}
 	}
 	text = {
+		localization_key = SUCCESSION_EVENT_WINDOW_DEAD_INTRO_NORSE_1
+		trigger = {
+			faith.religion = faith:norse_pagan.religion
+		}
+	}
+	text = {
+		localization_key = SUCCESSION_EVENT_WINDOW_DEAD_INTRO_HELLENIC_1
+		trigger = {
+			faith.religion = faith:hellenic_pagan.religion
+		}
+	}
+	text = {
 		localization_key = SUCCESSION_EVENT_WINDOW_DEAD_INTRO_EASTERN_1
 		trigger = {
 			OR = {
-				faith.religion = faith:jogye.religion
-				faith.religion = faith:maitreya.religion
-				faith.religion = faith:bailian.religion
+				faith.religion = faith:vaishnavism.religion
+				faith.religion = faith:theravada.religion
+				faith.religion = faith:digambara.religion
+			}
+		}
+	}
+	text = {
+		localization_key = SUCCESSION_EVENT_WINDOW_DEAD_INTRO_TRIBAL_1
+		trigger = {
+			OR = {
+				faith.religion = faith:finnish_pagan.religion
+				faith.religion = faith:west_african_bori_pagan.religion
+				government_has_flag = government_is_tribal
 			}
 		}
 	}
@@ -465,7 +487,7 @@ DeathMessageOutro = {
 		localization_key = SUCCESSION_EVENT_WINDOW_DEAD_OUTRO_SCANDAL_DEVIANT
 		trigger = {
 			has_trait = deviant
-			NOT = { faith = { has_doctrine = doctrine_deviancy_accepted } }
+			NOT = { faith = { has_doctrine_parameter = deviancy_accepted } }
 		}
 		weight_multiplier = {
 			base = 2
@@ -554,7 +576,7 @@ DeathMessageOutro = {
 		localization_key = SUCCESSION_EVENT_WINDOW_DEAD_OUTRO_SCANDAL_WITCH
 		trigger = {
 			has_trait = witch
-			NOT = { faith = { has_doctrine = doctrine_witchcraft_accepted } }
+			NOT = { faith = { has_doctrine_parameter = witchcraft_accepted } }
 		}
 		weight_multiplier = {
 			base = 2
@@ -1365,7 +1387,7 @@ HeirMessageInterface = {
 			}
 			AND = {
 				has_trait = deviant
-				NOT = { faith = { has_doctrine = doctrine_deviancy_accepted } }
+				NOT = { faith = { has_doctrine_parameter = deviancy_accepted } }
 			}
 			AND = {
 				has_trait = sodomite
@@ -1402,7 +1424,7 @@ HeirMessageInterface = {
 			is_adult = yes
 			AND = {
 				has_trait = witch
-				NOT = { faith = { has_doctrine = doctrine_witchcraft_accepted } }
+				NOT = { faith = { has_doctrine_parameter = witchcraft_accepted } }
 			}
 		}
 	}
@@ -2016,6 +2038,13 @@ GameOverMessageNotableAchievements = {
 		trigger = {
 			exists = global_var:form_portugal_decision
 			dynasty = global_var:form_portugal_decision.dynasty
+		}
+	}
+	text = {
+		localization_key = SUCCESSION_EVENT_WINDOW_END_DATE_CREATED_CANARIAS_DESC
+		trigger = {
+			exists = global_var:declare_canarias_decision
+			dynasty = global_var:declare_canarias_decision.dynasty
 		}
 	}
 

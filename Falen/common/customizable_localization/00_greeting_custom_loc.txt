@@ -428,8 +428,7 @@ NegativeSupplimentaryGreeting = {
 	text = { # Your misdeeds are told from Ireland to Cathay
 		trigger = {
 			# Must be in Western or Northern Europe
-			exists = capital_province
-			capital_province = {
+			location = {
 				OR = {
 					geographical_region = world_europe_west
 					geographical_region = world_europe_north
@@ -442,8 +441,7 @@ NegativeSupplimentaryGreeting = {
 	text = { # Your low character is the subject of Greek plays.
 		trigger = {
 			# Must be in Western or Northern Europe
-			exists = capital_province
-			capital_province = {
+			location = {
 				OR = {
 					geographical_region = world_europe_east
 					geographical_region = world_europe_south

@@ -145,3 +145,59 @@ DamageArtifactActionFollowup = {
 		localization_key = evidence_artifact_unspeakable
 	}
 }
+
+GetMedievalDance = {
+	type = character
+	
+	random_valid = yes
+
+	text = {
+		trigger = {
+			liege ?= {
+				capital_province ?= {
+					geographical_region = world_europe
+				}
+			}
+			culture = { has_cultural_era_or_later = culture_era_late_medieval }
+		}
+		localization_key = medieval_dance_carole
+	}
+	
+	text = {
+		trigger = {
+			liege ?= {
+				capital_province ?= {
+					geographical_region = world_europe_north
+				}
+			}
+		}
+		localization_key = medieval_dance_ring
+	}
+	
+	text = {
+		trigger = {
+			liege ?= {
+				capital_province ?= {
+					geographical_region = world_europe
+				}
+			}
+		}
+		localization_key = medieval_dance_couple
+	}
+	
+	text = {
+		trigger = {
+			liege ?= {
+				capital_province ?= {
+					geographical_region = world_europe_west
+				}
+			}
+			culture = { has_cultural_era_or_later = culture_era_late_medieval }
+		}
+		localization_key = medieval_dance_estampie
+	}
+	
+	text = {
+		localization_key = medieval_dance_round
+	}
+}

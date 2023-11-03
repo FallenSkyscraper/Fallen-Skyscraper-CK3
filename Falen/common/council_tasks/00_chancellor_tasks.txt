@@ -299,6 +299,12 @@ task_domestic_affairs = {
 	}
 
 	council_owner_modifier = {
+		name = task_domestic_affairs_parochial_opinion_moidifier
+		parochial_opinion = 1
+		scale = chancellor_domestic_affairs_opinion_scale
+	}
+
+	council_owner_modifier = {
 		name = task_domestic_affairs_opinion_moidifier
 		tyranny_loss_mult = 0.01
 		scale = chancellor_domestic_affairs_tyranny_base
@@ -714,6 +720,7 @@ task_bestow_royal_favor = {
 				}
 				is_vassal_or_below_of = scope:councillor_liege
 			}
+			is_alive = yes
 			highest_held_title_tier >= tier_county
 			NOT = { is_at_war_with = scope:councillor_liege }
 		}

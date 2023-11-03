@@ -1,9 +1,11 @@
 ﻿# Triggers as a result of the Independence Faction demand
 # Note: Wars for Independence started by individual characters is a separate CB
 independence_faction_war = {
+	icon = independence_faction_war
 	group = civil_war
 	ai_only_against_liege = yes
 	target_titles = independence_domain
+	allow_hostages = no
 	allowed_for_character = {
 		scope:attacker = {
 			is_leading_faction_type = independence_faction
@@ -26,37 +28,7 @@ independence_faction_war = {
 		#on_declared_war = yes
 		# Remove offending HumSac modifiers.
 		scope:attacker = {
-			hidden_effect = { 
-				fp1_remove_humsac_offended_counties_effect = yes }
-
-				if = {
-					limit = {
-						catalyst_gave_independence_to_powerful_diff_faith_culture_vassal_preliminary_trigger = {
-							CHAR1 = scope:defender
-							CHAR2 = scope:current_member
-						}
-						any_character_struggle = {
-							involvement = involved
-							activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-								CATALYST = catalyst_independance_faction_war_declared
-								CHAR = scope:current_member
-							}
-						}
-					}
-					every_character_struggle = {
-						involvement = involved
-						limit = {
-							activate_struggle_catalyst_secondary_character_involvement_either_trigger = {
-								CATALYST = catalyst_independance_faction_war_declared
-								CHAR = scope:current_member
-							}
-						}
-						activate_struggle_catalyst = {
-							catalyst = catalyst_independance_faction_war_declared
-							character = scope:defender
-						}
-					}
-				}
+			hidden_effect = { fp1_remove_humsac_offended_counties_effect = yes }
 		}
 
 		# If no faction exists because we created it through history, we add a flag on the attackers to free them at the end
@@ -130,11 +102,15 @@ independence_faction_war = {
 			}
 			desc = independence_war_victory_desc # Desc for a third party involved
 		}
-		
+
 	}
 
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
+
+		#EP2 Accolade glory gain from winning against higher ranked enemy
+		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
+
 		create_title_and_vassal_change = {
 			type = independency
 			save_scope_as = change
@@ -277,6 +253,18 @@ independence_faction_war = {
 				limit = { has_realm_law = crown_authority_3 }
 				add_realm_law = crown_authority_2
 			}
+			if = {
+				limit = { has_realm_law = tribal_authority_1 }
+				add_realm_law = tribal_authority_0
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_2 }
+				add_realm_law = tribal_authority_1
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_3 }
+				add_realm_law = tribal_authority_2
+			}
 		}
 		resolve_title_and_vassal_change = scope:change
 	}
@@ -309,12 +297,12 @@ independence_faction_war = {
 			desc = independence_war_white_peace_desc
 		}
 		desc = independence_war_white_peace_end_desc
-		
+
 	}
 
 	on_white_peace = {
-		scope:attacker = { 
-			show_pow_release_message_effect = yes 
+		scope:attacker = {
+			show_pow_release_message_effect = yes
 			stress_impact = {
  				ambitious = medium_stress_impact_gain
  				arrogant = medium_stress_impact_gain
@@ -374,7 +362,7 @@ independence_faction_war = {
 			desc = player_independence_war_defeat_desc #same loc as for player
 		}
 		desc = independence_defeat_end_desc
-		
+
 	}
 
 	on_defeat = {
@@ -419,14 +407,19 @@ independence_faction_war = {
 
 	max_attacker_score_from_battles = 100
 	max_defender_score_from_battles = 50
+	
+	max_defender_score_from_occupation = 150
+	max_attacker_score_from_occupation = 150
 
 	max_ai_diplo_distance_to_title = 500
 }
 
 # Triggers as a result of the Liberty Faction demand
 liberty_faction_war = {
+	icon = dissolution_war
 	group = civil_war
 	ai_only_against_liege = yes
+	allow_hostages = no
 	allowed_for_character = {
 		scope:attacker = {
 			is_leading_faction_type = liberty_faction
@@ -456,11 +449,15 @@ liberty_faction_war = {
 			desc = liberty_war_victory_desc
 		}
 		desc = liberty_war_victory_end_desc
-		
+
 	}
 
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
+
+		#EP2 Accolade glory gain from winning against higher ranked enemy
+		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
+
 		scope:defender = {
 			if = {
 				limit = { has_realm_law = crown_authority_1 }
@@ -474,6 +471,19 @@ liberty_faction_war = {
 				limit = { has_realm_law = crown_authority_3 }
 				add_realm_law = crown_authority_2
 			}
+			if = {
+				limit = { has_realm_law = tribal_authority_1 }
+				add_realm_law = tribal_authority_0
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_2 }
+				add_realm_law = tribal_authority_1
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_3 }
+				add_realm_law = tribal_authority_2
+			}
+			
 			add_prestige = -500
 
 			every_character_war = {
@@ -537,7 +547,7 @@ liberty_faction_war = {
 					}
 				}
 			}
-		}	
+		}
 	}
 
 	on_white_peace_desc = {
@@ -557,7 +567,7 @@ liberty_faction_war = {
 			desc = liberty_war_white_peace_desc
 		}
 		desc = liberty_war_white_peace_end_desc
-		
+
 	}
 
 	on_white_peace = {
@@ -607,7 +617,7 @@ liberty_faction_war = {
 			desc = liberty_war_defeat_desc
 		}
 		desc = liberty_war_defeat_end_desc
-		
+
 	}
 
 	on_defeat = {
@@ -645,14 +655,19 @@ liberty_faction_war = {
 
 	max_attacker_score_from_battles = 100
 	max_defender_score_from_battles = 50
+	
+	max_defender_score_from_occupation = 150
+	max_attacker_score_from_occupation = 150
 
 	max_ai_diplo_distance_to_title = 500
 }
 
 populist_war = {
+	icon = peasant_war
 	group = civil_war
 	ai_only_against_liege = yes
 	target_titles = claim
+	allow_hostages = no
 	allowed_for_character =	{
 		scope:attacker = {
 			is_leading_faction_type = populist_faction
@@ -884,16 +899,21 @@ populist_war = {
 
 	max_attacker_score_from_battles = 100
 	max_defender_score_from_battles = 50
+	
+	max_defender_score_from_occupation = 150
+	max_attacker_score_from_occupation = 150
 
 	max_ai_diplo_distance_to_title = 500
 }
 
 # Triggers as a result of a Claimant Faction demand being refused
 claimant_faction_war = {
+	icon = claim_cb
 	group = civil_war
 	ai_only_against_liege = no
 	target_titles = claim
-	allowed_for_character =	{
+	allow_hostages = no
+	allowed_for_character = {
 		scope:attacker = {
 			is_leading_faction_type = claimant_faction
 		}
@@ -932,11 +952,15 @@ claimant_faction_war = {
 
 	on_victory_desc = {
 		desc = claimant_faction_war_victory_desc
-		
+
 	}
 
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
+
+		#EP2 Accolade glory gain from winning against higher ranked enemy
+		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
+
 		hidden_effect = {
 			scope:attacker = {
 				add_truce_both_ways = {
@@ -961,7 +985,7 @@ claimant_faction_war = {
 
 	on_white_peace_desc = {
 		desc = claimant_faction_war_white_peace_desc
-		
+
 	}
 
 	on_white_peace = {
@@ -1000,7 +1024,7 @@ claimant_faction_war = {
 
 	on_defeat_desc = {
 		desc = claimant_faction_war_defeat_desc
-		
+
 	}
 
 	on_defeat = {
@@ -1033,14 +1057,19 @@ claimant_faction_war = {
 
 	max_attacker_score_from_battles = 50
 	max_defender_score_from_battles = 100
+	
+	max_defender_score_from_occupation = 150
+	max_attacker_score_from_occupation = 150
 
 	max_ai_diplo_distance_to_title = 500
 }
 
 depose_war = {
+	icon = dissolution_war
 	group = civil_war
 	ai_only_against_liege = yes
 	target_titles = none
+	allow_hostages = no
 	allowed_for_character = {
 	}
 
@@ -1109,6 +1138,9 @@ depose_war = {
 			}
 		}
 
+		#EP2 Accolade glory gain from winning against higher ranked enemy
+		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
+
 		scope:defender = {
 			# If we win the rebellion, our liege loses any legal right to imprison us/banish us/revoke our titles.
 			consume_all_criminal_reasons_effect = {
@@ -1150,7 +1182,7 @@ depose_war = {
 			}
 			desc = depose_war_white_peace_desc
 		}
-		
+
 	}
 
 	on_white_peace = {
@@ -1177,7 +1209,7 @@ depose_war = {
 			}
 			desc = depose_war_defeat_desc
 		}
-		
+
 	}
 
 	on_defeat = {
@@ -1187,7 +1219,7 @@ depose_war = {
 			add_dread = medium_dread_gain
 		}
 	}
-	
+
 	on_invalidated_desc = msg_invalidate_war_title
 
 	check_attacker_inheritance_validity = no
@@ -1212,13 +1244,18 @@ depose_war = {
 	defender_score_from_occupation_scale = 50
 	max_attacker_score_from_battles = 100
 	max_defender_score_from_battles = 100
+	
+	max_defender_score_from_occupation = 150
+	max_attacker_score_from_occupation = 150
 
 	max_ai_diplo_distance_to_title = 500
 }
 
 refused_liege_demand_war = {
+	icon = dissolution_war
 	group = civil_war
 	ai_only_against_liege = yes
+	allow_hostages = no
 	allowed_for_character = {
 		scope:attacker = {
 			is_leading_faction_type = liberty_faction
@@ -1291,6 +1328,10 @@ refused_liege_demand_war = {
 
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
+
+		#EP2 Accolade glory gain from winning against higher ranked enemy
+		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
+
 		scope:defender = {
 			if = {
 				limit = { has_realm_law = crown_authority_1 }
@@ -1303,6 +1344,18 @@ refused_liege_demand_war = {
 			if = {
 				limit = { has_realm_law = crown_authority_3 }
 				add_realm_law = crown_authority_2
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_1 }
+				add_realm_law = tribal_authority_0
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_2 }
+				add_realm_law = tribal_authority_1
+			}
+			if = {
+				limit = { has_realm_law = tribal_authority_3 }
+				add_realm_law = tribal_authority_2
 			}
 
 			add_character_flag = {
@@ -1362,7 +1415,7 @@ refused_liege_demand_war = {
 			}
 			desc = refused_liege_demand_war_white_peace_desc
 		}
-		
+
 	}
 
 	on_white_peace = {
@@ -1400,7 +1453,7 @@ refused_liege_demand_war = {
 			}
 			desc = refused_liege_demand_war_defeat_desc
 		}
-		
+
 	}
 
 	on_defeat = {
@@ -1411,23 +1464,6 @@ refused_liege_demand_war = {
 				years = 10
 			}
 			add_dread = medium_dread_gain
-		}
-		# For revoking titles of character's imprisoned abroard who have lost a revocation war
-		hidden_effect = {
-			if = {
-				limit = {
-					scope:attacker = {
-						is_imprisoned = yes
-						NOT = { is_imprisoned_by = scope:defender }
-					}
-				}
-				scope:defender = {
-					add_opinion = {
-						target = scope:attacker
-						modifier = foreign_prison_revocation_opinion
-					}
-				}
-			}
 		}
 		on_lost_request_revolt_war = yes
 	}
@@ -1454,20 +1490,25 @@ refused_liege_demand_war = {
 
 	max_attacker_score_from_battles = 100
 	max_defender_score_from_battles = 50
+	
+	max_defender_score_from_occupation = 150
+	max_attacker_score_from_occupation = 150
 
 	max_ai_diplo_distance_to_title = 500
 }
 
 independence_war = {
+	icon = independence_faction_war
 	group = independence
 	ai = no # AI targeting is handled through game_rule events.
 
+	allow_hostages = no
 	allowed_against_character = {
 		scope:attacker = {
 			liege = scope:defender
 		}
 	}
-	
+
 	cost = {
 		piety = {
 			value = 0
@@ -1511,11 +1552,15 @@ independence_war = {
 			}
 			desc = independence_war_victory_desc_local_player_attacker_alone # Desc for a third party involved
 		}
-		
+
 	}
 
 	on_victory = {
 		scope:attacker = { show_pow_release_message_effect = yes }
+
+		#EP2 Accolade glory gain from winning against higher ranked enemy
+		scope:attacker = { accolade_attacker_war_end_glory_gain_high_effect = yes }
+
 		scope:attacker = {
 			add_character_flag = ai_should_not_transfer
 		}
@@ -1578,7 +1623,7 @@ independence_war = {
 		}
 
 		resolve_title_and_vassal_change = scope:change
-	
+
 	}
 
 	on_white_peace_desc = {
@@ -1597,7 +1642,7 @@ independence_war = {
 			}
 			desc = player_independence_war_white_peace_desc
 		}
-		
+
 	}
 
 	on_white_peace = {
@@ -1643,7 +1688,7 @@ independence_war = {
 			}
 			desc = player_independence_war_defeat_desc
 		}
-		
+
 	}
 
 	on_defeat = {
@@ -1655,7 +1700,7 @@ independence_war = {
 				PRESTIGE_VALUE = medium_prestige_value
 			}
 		}
-		
+
 		scope:attacker = {
 			hard_imprison_character_effect = {
 				TARGET = this
@@ -1676,7 +1721,7 @@ independence_war = {
 
 	on_primary_attacker_death = inherit
 	on_primary_defender_death = inherit
-	
+
 	attacker_allies_inherit = yes
 	defender_allies_inherit = yes
 
@@ -1690,14 +1735,18 @@ independence_war = {
 
 	max_attacker_score_from_battles = 100
 	max_defender_score_from_battles = 50
+	
+	max_defender_score_from_occupation = 150
+	max_attacker_score_from_occupation = 150
 
 	max_ai_diplo_distance_to_title = 500
 }
 
 
 nation_fracturing_faction_war = {
+	icon = dissolution_war
 	group = civil_war
-
+	allow_hostages = no
 	allowed_for_character = {
 		scope:attacker = {
 			is_ai = no
@@ -1707,193 +1756,6 @@ nation_fracturing_faction_war = {
 	allowed_against_character = {
 		scope:attacker = {
 			liege = scope:defender
-		}
-	}
-	
-	cost = {
-		piety = {
-			value = 0
-			if = { # Attacking your HoF is impious
-				limit = {
-					exists = scope:attacker.faith.religious_head
-					scope:attacker.faith.religious_head = scope:defender
-				}
-				if = {
-					limit = {
-						scope:attacker.faith = {
-							has_doctrine = doctrine_spiritual_head
-						}
-					}
-					add = {
-						value = massive_piety_value
-						desc = CB_ATTACKER_HOF
-					}
-				}
-				else = {
-					add = {
-						value = medium_piety_value
-						desc = CB_ATTACKER_HOF
-					}
-				}
-			}
-			if = {
-				limit = {
-					scope:attacker.faith = scope:defender.faith
-					scope:defender = {
-						government_has_flag = government_is_theocracy
-					}
-				}
-				add = {
-					value = medium_piety_value
-					desc = CB_ATTACKER_THEOCRACY
-				}
-			}
-		}
-		prestige = {
-			value = 0
-			add = {
-				value = 500
-				desc = CB_BASE_COST
-			}
-			if = {
-				limit = {
-					scope:attacker = {
-						government_has_flag = government_is_tribal
-					}
-				}
-				multiply = {
-					value = 0.5
-					desc = CB_TRIBAL_COST
-				}
-			}
-
-			#Innovation Prestige Discounts
-			if = {
-				limit = {
-					scope:attacker = {
-						culture = {
-							has_innovation = innovation_chronicle_writing
-							has_innovation = innovation_land_grants
-							has_innovation = innovation_rightful_ownership
-						}
-					}
-				}
-				multiply = {
-					value = 0.7
-					desc = CB_ATTACKER_INNOVATIONS
-				}
-			}
-			else_if = {
-				limit = {
-					scope:attacker = {
-						culture = {
-							OR = {
-								has_innovation = innovation_chronicle_writing
-								has_innovation = innovation_land_grants
-							}
-							OR = {
-								has_innovation = innovation_land_grants
-								has_innovation = innovation_rightful_ownership
-							}
-							OR = {
-								has_innovation = innovation_chronicle_writing
-								has_innovation = innovation_rightful_ownership
-							}
-						}
-					}
-				}
-				multiply = {
-					value = 0.8
-					desc = CB_ATTACKER_INNOVATIONS
-				}
-			}
-			else_if = {
-				limit = {
-					scope:attacker = {
-						culture = {
-							OR = {
-								has_innovation = innovation_chronicle_writing
-								has_innovation = innovation_land_grants
-								has_innovation = innovation_rightful_ownership
-							}
-						}
-					}
-				}
-				multiply = {
-					value = 0.9
-					desc = CB_ATTACKER_INNOVATIONS
-				}
-			}
-
-			# Bellum Justum Perk
-			if = {
-				limit = {
-					scope:attacker = {
-						has_perk = bellum_justum_perk
-					}
-				}
-				multiply = {
-					add = bellum_justum_discount_percentage
-					divide = 100
-					desc = CB_ATTACKER_BELLUM_JUSTUM
-				}
-			}
-
-			# Dynasty Warfare Perk
-			if = {
-				limit = {
-					scope:attacker = {
-						has_dynasty = yes
-						dynasty = {
-							has_dynasty_perk = warfare_legacy_2
-						}
-					}
-				}
-				multiply = {
-					value = warfare_legacy_2_discount
-					desc = CB_ATTACKER_DYNASTY_WARFARE
-				}
-			}
-
-			# Culture
-			if = {
-				limit = {
-					scope:attacker = {
-						culture = {
-							has_cultural_parameter = cheaper_cbs
-						}
-					}
-				}
-				multiply = {
-					value = 0.8
-					desc = "CB_ATTACKER_CULTURE"
-				}
-			}
-
-			# Vassal contract in-realm cost reduction
-			if = {
-				limit = {
-					scope:attacker = {
-						is_independent_ruler = no
-						vassal_contract_has_flag = vassal_contract_war_override
-						liege = scope:defender.liege
-					}
-				}
-				multiply = {
-					value = war_declaration_rights_allowed_cost_reduction
-					desc = "CB_ATTACKER_VASSAL_CONTRACT"
-				}
-			}
-			
-			if = {
-				limit = {
-					has_game_rule = no_cost_casus_belli_costs
-				}
-				multiply = {
-					value = 0
-					desc = CB_GAME_RULE_NO_COST
-				}
-			}
 		}
 	}
 
@@ -1925,12 +1787,16 @@ nation_fracturing_faction_war = {
 			}
 			desc = nation_fracturing_faction_war_victory_desc_local_player_attacker_alone # Desc for a third party involved
 		}
-		
+
 	}
 
 	on_victory = {
 
 		scope:attacker = { show_pow_release_message_effect = yes }
+
+		#EP2 Accolade glory gain from winning against higher ranked enemy
+		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
+		
 		create_title_and_vassal_change = {
 			type = independency
 			save_scope_as = change
@@ -2040,7 +1906,7 @@ nation_fracturing_faction_war = {
 			}
 			desc = player_nation_fracturing_faction_war_white_peace_desc
 		}
-		
+
 	}
 
 	on_white_peace = {
@@ -2093,7 +1959,7 @@ nation_fracturing_faction_war = {
 			}
 			desc = player_nation_fracturing_faction_war_defeat_desc
 		}
-		
+
 	}
 
 	on_defeat = {
@@ -2120,7 +1986,7 @@ nation_fracturing_faction_war = {
 
 	on_primary_attacker_death = inherit
 	on_primary_defender_death = inherit
-	
+
 	attacker_allies_inherit = yes
 	defender_allies_inherit = yes
 
@@ -2134,6 +2000,9 @@ nation_fracturing_faction_war = {
 
 	max_attacker_score_from_battles = 100
 	max_defender_score_from_battles = 50
+	
+	max_defender_score_from_occupation = 150
+	max_attacker_score_from_occupation = 150
 
-	max_ai_diplo_distance_to_title = 500	
+	max_ai_diplo_distance_to_title = 500
 }

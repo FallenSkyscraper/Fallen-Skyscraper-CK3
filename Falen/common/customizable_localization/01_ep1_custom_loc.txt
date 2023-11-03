@@ -410,8 +410,8 @@ InspirationArtisanType = {
 		trigger = {
 			var:artifact_artisan_type = flag:artisan_type_cabinet
 			NOR = {
-				artifact_should_use_gfx_type_trigger = { TYPE = indian_building }
-				artifact_should_use_gfx_type_trigger = { TYPE = mena_building }
+				artifact_use_indian_building_visuals_trigger = yes
+				artifact_use_mena_building_visuals_trigger = yes
 			}
 		}
 		localization_key = inspiration_artisan_type_cabinet
@@ -420,7 +420,7 @@ InspirationArtisanType = {
 	text = { #
 		trigger = {
 			var:artifact_artisan_type = flag:artisan_type_cabinet
-			artifact_should_use_gfx_type_trigger = { TYPE = indian_building }
+			artifact_use_indian_building_visuals_trigger = yes
 		}
 		localization_key = inspiration_artisan_type_diwan
 	}
@@ -428,7 +428,7 @@ InspirationArtisanType = {
 	text = { #
 		trigger = {
 			var:artifact_artisan_type = flag:artisan_type_cabinet
-			artifact_should_use_gfx_type_trigger = { TYPE = mena_building }
+			artifact_use_mena_building_visuals_trigger = yes
 		}
 		localization_key = inspiration_artisan_type_table
 	}
@@ -438,6 +438,20 @@ InspirationArtisanType = {
 			var:artifact_artisan_type = flag:artisan_type_throne
 		}
 		localization_key = inspiration_artisan_type_throne
+	}
+
+	text = { #
+		trigger = {
+			var:artifact_artisan_type = flag:artisan_type_scientific_apparatus
+		}
+		localization_key = inspiration_artisan_type_scientific_apparatus
+	}
+
+	text = { #
+		trigger = {
+			var:artifact_artisan_type = flag:artisan_type_urn
+		}
+		localization_key = inspiration_artisan_type_urn
 	}
 }
 
@@ -471,6 +485,13 @@ InspirationSmithType = {
 			var:artifact_smith_type = flag:smith_type_goblet
 		}
 		localization_key = inspiration_smith_type_goblet
+	}
+
+	text = { #
+		trigger = {
+			var:artifact_smith_type = flag:smith_type_aquamanile
+		}
+		localization_key = inspiration_smith_type_aquamanile
 	}
 }
 
@@ -540,151 +561,172 @@ InspirationTapestryScene = {
 InspirationAdventureDestination = {
 	type = character
 
-	text = {
+	text = { #africa
 		trigger = {
-			var:adventure_destination = flag:steppe_manchuria
+			var:adventure_destination = flag:africa
 		}
-		localization_key = world_steppe_manchuria
+		localization_key = world_africa
 	}
 
-	text = {
+	text = { #world_africa_west
 		trigger = {
-			var:adventure_destination = flag:jianzhou
+			var:adventure_destination = flag:africa_west
 		}
-		localization_key = world_jianzhou
+		localization_key = world_africa_west
 	}
 
-	text = {
+	text = { #africa_north
 		trigger = {
-			var:adventure_destination = flag:haixi
+			var:adventure_destination = flag:africa_north
 		}
-		localization_key = world_haixi
+		localization_key = world_africa_north
 	}
 
-	text = {
+	text = { #africa_east
 		trigger = {
-			var:adventure_destination = flag:steppe_mongolia
+			var:adventure_destination = flag:africa_east
 		}
-		localization_key = world_steppe_mongolia
+		localization_key = world_africa_east
 	}
 
-	text = {
+	text = { #europe
 		trigger = {
-			var:adventure_destination = flag:steppe_primorye
+			var:adventure_destination = flag:europe
 		}
-		localization_key = world_steppe_primorye
+		localization_key = world_europe
 	}
 
-	text = {
+	text = { #europe_north
 		trigger = {
-			var:adventure_destination = flag:primorye_pyotr
+			var:adventure_destination = flag:europe_north
 		}
-		localization_key = world_primorye_pyotr
+		localization_key = world_europe_north
 	}
 
-	text = {
+	text = { #europe_south
 		trigger = {
-			var:adventure_destination = flag:primorye_khanka
+			var:adventure_destination = flag:europe_south
 		}
-		localization_key = world_primorye_khanka
+		localization_key = world_europe_south
 	}
 
-	text = {
+	text = { #europe_west
 		trigger = {
-			var:adventure_destination = flag:primorye_sikhotealin
+			var:adventure_destination = flag:europe_west
 		}
-		localization_key = world_primorye_sikhotealin
+		localization_key = world_europe_west
 	}
 
-	text = {
+	text = { #europe_east
+		trigger = {
+			var:adventure_destination = flag:europe_east
+		}
+		localization_key = world_europe_east
+	}
+
+	text = { #middle_east
+		trigger = {
+			var:adventure_destination = flag:middle_east
+		}
+		localization_key = adventure_inspiration_world_middle_east
+	}
+
+	text = { #middle_east_jerusalem
+		trigger = {
+			var:adventure_destination = flag:middle_east_jerusalem
+		}
+		localization_key = world_middle_east_jerusalem
+	}
+
+	text = { #middle_east_arabia
+		trigger = {
+			var:adventure_destination = flag:middle_east_arabia
+		}
+		localization_key = world_middle_east_arabia
+	}
+
+	text = { #middle_east_persia
+		trigger = {
+			var:adventure_destination = flag:middle_east_persia
+		}
+		localization_key = world_middle_east_persia
+	}
+
+	text = { #india
+		trigger = {
+			var:adventure_destination = flag:india
+		}
+		localization_key = world_india
+	}
+
+	text = { #india_deccan
+		trigger = {
+			var:adventure_destination = flag:india_deccan
+		}
+		localization_key = world_india_deccan
+	}
+
+	text = { #india_bengal
+		trigger = {
+			var:adventure_destination = flag:india_bengal
+		}
+		localization_key = world_india_bengal
+	}
+
+	text = { #india_rajastan
+		trigger = {
+			var:adventure_destination = flag:india_rajastan
+		}
+		localization_key = world_india_rajastan
+	}
+
+	text = { #steppe
 		trigger = {
 			var:adventure_destination = flag:steppe
 		}
-		localization_key = world_steppe
+		localization_key = adventure_inspiration_world_steppe
 	}
 
-	text = {
+	text = { #steppe_west
 		trigger = {
-			var:adventure_destination = flag:korea_south
+			var:adventure_destination = flag:steppe_west
 		}
-		localization_key = world_korea_south
+		localization_key = adventure_inspiration_world_steppe_west
 	}
 
-	text = {
+	text = { #steppe_east
 		trigger = {
-			var:adventure_destination = flag:korea_north
+			var:adventure_destination = flag:steppe_east
 		}
-		localization_key = world_korea_north
+		localization_key = adventure_inspiration_world_steppe_east
 	}
 
-	text = {
+	text = { #steppe_tarim
 		trigger = {
-			var:adventure_destination = flag:korea
+			var:adventure_destination = flag:steppe_tarim
 		}
-		localization_key = world_korea
+		localization_key = world_steppe_tarim
 	}
 
-	text = {
+	text = { #asia_minor
 		trigger = {
-			var:adventure_destination = flag:gyeonggi
+			var:adventure_destination = flag:asia_minor
 		}
-		localization_key = world_gyeonggi
+		localization_key = world_asia_minor
 	}
 
-	text = {
+	text = { #tibet
 		trigger = {
-			var:adventure_destination = flag:gangwon
+			var:adventure_destination = flag:tibet
 		}
-		localization_key = world_gangwon
+		localization_key = world_tibet
 	}
 
-	text = {
+	text = { #burma
 		trigger = {
-			var:adventure_destination = flag:hoseo
+			var:adventure_destination = flag:burma
 		}
-		localization_key = world_hoseo
-	}
-
-	text = {
-		trigger = {
-			var:adventure_destination = flag:honam
-		}
-		localization_key = world_honam
-	}
-
-	text = {
-		trigger = {
-			var:adventure_destination = flag:yeongnam
-		}
-		localization_key = world_yeongnam
-	}
-
-	text = {
-		trigger = {
-			var:adventure_destination = flag:doseo
-		}
-		localization_key = world_doseo
-	}
-
-	text = {
-		trigger = {
-			var:adventure_destination = flag:hwanghae
-		}
-		localization_key = world_hwanghae
-	}
-
-	text = {
-		trigger = {
-			var:adventure_destination = flag:gwanseo
-		}
-		localization_key = world_gwanseo
-	}
-
-	text = {
-		trigger = {
-			var:adventure_destination = flag:gwanbuk
-		}
-		localization_key = world_gwanbuk
+		localization_key = world_burma
 	}
 }
 
@@ -820,6 +862,58 @@ GetBeautifulMetaphor = {
 		localization_key = gbm_angel
 		trigger = {
 			religion_has_angels_trigger = yes
+		}
+	}
+	text = {
+		localization_key = gbm_valkyrie
+		trigger = {
+			is_female = yes
+			faith.religion = faith:norse_pagan.religion
+		}
+	}
+	text = {
+		localization_key = gbm_aphrodite
+		trigger = {
+			is_female = yes
+			faith = {
+				religion = religion:hellenism_religion
+			}
+		}
+	}
+	text = {
+		localization_key = gbm_adonis
+		trigger = {
+			is_male = yes
+			faith = {
+				religion = religion:hellenism_religion
+			}
+		}
+	}
+	text = {
+		localization_key = gbm_rati
+		trigger = {
+			is_female = yes
+			faith = {
+				religion_tag = hinduism_religion
+			}
+		}
+	}
+	text = {
+		localization_key = gbm_kamadeva
+		trigger = {
+			is_male = yes
+			faith = {
+				religion_tag = hinduism_religion
+			}
+		}
+	}
+	text = {
+		localization_key = gbm_lilith
+		trigger = {
+			is_female = yes
+			faith = {
+				religion_tag = judaism_religion
+			}
 		}
 	}
 	text = {
@@ -1058,23 +1152,11 @@ GetScholarType = {
 		localization_key = trait_theologian
 	}
 	text = {
-		trigger = {
-			OR = {
-				has_trait = mystic_1
-				has_trait = mystic_2
-				has_trait = mystic_3
-			}
-		}
+		trigger = { has_trait = lifestyle_mystic }
 		localization_key = trait_mystic_2
 	}
 	text = {
-		trigger = {
-			OR = {
-				has_trait = physician_1
-				has_trait = physician_2
-				has_trait = physician_3
-			}
-		}
+		trigger = { has_trait = lifestyle_physician }
 		localization_key = trait_physician_2
 	}
 	text = {
@@ -1553,6 +1635,13 @@ GetInspirationMaterialType = {
 	}
 	text = { 
 		trigger = {
+			inspiration = { has_inspiration_type = artisan_inspiration }
+			var:artifact_artisan_type = flag:artisan_type_urn
+		}
+		localization_key = inspiration_type_material_clay
+	}
+	text = { 
+		trigger = {
 			inspiration = { has_inspiration_type = alchemy_inspiration }
 		}
 		localization_key = inspiration_type_material_ingredients
@@ -1591,6 +1680,16 @@ InspirationArtisanBaseType = {
 		trigger = { var:artifact_artisan_type = flag:artisan_type_throne }
 		localization_key = inspiration_artisan_base_type_throne
 	}
+
+	text = {
+		trigger = { var:artifact_artisan_type = flag:artisan_type_scientific_apparatus }
+		localization_key = inspiration_artisan_base_type_scientific_apparatus
+	}
+
+	text = {
+		trigger = { var:artifact_artisan_type = flag:artisan_type_urn }
+		localization_key = inspiration_artisan_base_type_urn
+	}
 }
 
 InspirationSmithBaseType = {
@@ -1623,33 +1722,48 @@ InspirationArtisanToolType = {
 
 	text = {
 		trigger = {
-			NOT = { var:artifact_artisan_type = flag:artisan_type_sculpture }
+			NOR = {
+				var:artifact_artisan_type = flag:artisan_type_sculpture
+				var:artifact_artisan_type = flag:artisan_type_urn
+			}
 		}
 		localization_key = inspiration_type_tool_plane
 	}
 
 	text = {
 		trigger = {
-			NOT = { var:artifact_artisan_type = flag:artisan_type_sculpture }
+			NOR = {
+				var:artifact_artisan_type = flag:artisan_type_sculpture
+				var:artifact_artisan_type = flag:artisan_type_urn
+			}
 		}
 		localization_key = inspiration_type_tool_saw
 	}
 
 	text = {
 		trigger = {
-			NOT = { var:artifact_artisan_type = flag:artisan_type_sculpture }
+			NOR = {
+				var:artifact_artisan_type = flag:artisan_type_sculpture
+				var:artifact_artisan_type = flag:artisan_type_urn
+			}
 		}
 		localization_key = inspiration_type_tool_awl
 	}
 
 	text = {
-		trigger = { always = yes }
+		trigger = { var:artifact_artisan_type = flag:artisan_type_sculpture }
 		localization_key = inspiration_type_tool_chisel
 	}
 
 	text = {
-		trigger = { always = yes }
+		trigger = { var:artifact_artisan_type = flag:artisan_type_sculpture }
 		localization_key = inspiration_type_tool_hammer
+	}
+
+	text = {
+		trigger = { always = no }
+		fallback = yes
+		localization_key = inspiration_type_tool_fallback
 	}
 }
 
@@ -1657,13 +1771,21 @@ InspirationArtisanJobType = {
 	type = character
 
 	text = {
-		trigger = { var:artifact_artisan_type = flag:artisan_type_sculpture }				
+		trigger = { var:artifact_artisan_type = flag:artisan_type_sculpture }
 		localization_key = inspiration_artisan_job_type_sculptor
 	}
 
 	text = {
+		trigger = { var:artifact_artisan_type = flag:artisan_type_urn }
+		localization_key = inspiration_artisan_job_type_potter
+	}
+
+	text = {
 		trigger = {
-			NOT = { var:artifact_artisan_type = flag:artisan_type_sculpture }
+			NOR = {
+				var:artifact_artisan_type = flag:artisan_type_sculpture
+				var:artifact_artisan_type = flag:artisan_type_urn
+			}
 		}				
 		localization_key = inspiration_artisan_job_type_carpenter
 	}
@@ -1713,5 +1835,191 @@ InspirationBannerType = {
 		trigger = { always = no }
 		fallback = yes
 		localization_key = weaver_inspiration_banner_fallback_description
+	}
+}
+
+GetTargetCourtPosition = {
+	type = character
+
+	text = {
+		trigger = { var:target_court_position = flag:royal_architect }
+		localization_key = court_position_architect
+	}
+	text = {
+		trigger = { var:target_court_position = flag:seneschal }
+		localization_key = court_position_seneschal
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_tutor }
+		localization_key = court_position_tutor
+	}
+	text = {
+		trigger = { var:target_court_position = flag:high_almoner }
+		localization_key = court_position_almoner
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_physician }
+		localization_key = court_position_physician
+	}
+	text = {
+		trigger = { var:target_court_position = flag:antiquarian }
+		localization_key = court_position_antiquarian
+	}
+	text = {
+		trigger = { var:target_court_position = flag:master_of_horse }
+		localization_key = court_position_horse
+	}
+	text = {
+		trigger = { var:target_court_position = flag:bodyguard }
+		localization_key = court_position_bodyguard
+	}
+	text = {
+		trigger = { var:target_court_position = flag:champion }
+		localization_key = court_position_champion
+	}
+	text = {
+		trigger = { var:target_court_position = flag:master_of_hunt }
+		localization_key = court_position_hunt
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_poet }
+		localization_key = court_position_poet
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_musician }
+		localization_key = court_position_musician
+	}
+	text = {
+		trigger = { var:target_court_position = flag:cupbearer }
+		localization_key = court_position_cupbearer
+	}
+	text = {
+		trigger = { var:target_court_position = flag:lady_in_waiting }
+		localization_key = court_position_lady
+	}
+	text = {
+		trigger = { var:target_court_position = flag:chief_eunuch }
+		localization_key = court_position_eunuch
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_gardener }
+		localization_key = court_position_gardener
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_artificer }
+		localization_key = court_position_artificer
+	}
+	text = {
+		trigger = { var:target_court_position = flag:cultural_emissary }
+		localization_key = court_position_emissary
+	}
+	text = {
+		trigger = { var:target_court_position = flag:chief_qadi }
+		localization_key = court_position_qadi
+	}
+	text = {
+		trigger = { var:target_court_position = flag:garuda }
+		localization_key = court_position_garuda
+	}
+	text = {
+		trigger = { var:target_court_position = flag:keeper_of_swans }
+		localization_key = court_position_keeper_of_swans
+	}
+	text = {
+		trigger = { var:target_court_position = flag:travel_leader }
+		localization_key = court_position_travel_leader
+	}
+}
+
+GetTargetCourtPositionDesc = {
+	type = character
+
+	text = {
+		trigger = { var:target_court_position = flag:royal_architect }
+		localization_key = court_position_desc_architect
+	}
+	text = {
+		trigger = { var:target_court_position = flag:seneschal }
+		localization_key = court_position_desc_seneschal
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_tutor }
+		localization_key = court_position_desc_tutor
+	}
+	text = {
+		trigger = { var:target_court_position = flag:high_almoner }
+		localization_key = court_position_desc_almoner
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_physician }
+		localization_key = court_position_desc_physician
+	}
+	text = {
+		trigger = { var:target_court_position = flag:antiquarian }
+		localization_key = court_position_desc_antiquarian
+	}
+	text = {
+		trigger = { var:target_court_position = flag:master_of_horse }
+		localization_key = court_position_desc_horse
+	}
+	text = {
+		trigger = { var:target_court_position = flag:bodyguard }
+		localization_key = court_position_desc_bodyguard
+	}
+	text = {
+		trigger = { var:target_court_position = flag:champion }
+		localization_key = court_position_desc_champion
+	}
+	text = {
+		trigger = { var:target_court_position = flag:master_of_hunt }
+		localization_key = court_position_desc_hunt
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_poet }
+		localization_key = court_position_desc_poet
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_musician }
+		localization_key = court_position_desc_musician
+	}
+	text = {
+		trigger = { var:target_court_position = flag:cupbearer }
+		localization_key = court_position_desc_cupbearer
+	}
+	text = {
+		trigger = { var:target_court_position = flag:lady_in_waiting }
+		localization_key = court_position_desc_lady
+	}
+	text = {
+		trigger = { var:target_court_position = flag:chief_eunuch }
+		localization_key = court_position_desc_eunuch
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_gardener }
+		localization_key = court_position_desc_gardener
+	}
+	text = {
+		trigger = { var:target_court_position = flag:court_artificer }
+		localization_key = court_position_desc_artificer
+	}
+	text = {
+		trigger = { var:target_court_position = flag:cultural_emissary }
+		localization_key = court_position_desc_emissary
+	}
+	text = {
+		trigger = { var:target_court_position = flag:chief_qadi }
+		localization_key = court_position_desc_qadi
+	}
+	text = {
+		trigger = { var:target_court_position = flag:garuda }
+		localization_key = court_position_desc_garuda
+	}
+	text = {
+		trigger = { var:target_court_position = flag:keeper_of_swans }
+		localization_key = court_position_desc_keeper_of_swans
+	}
+	text = {
+		trigger = { var:target_court_position = flag:travel_leader }
+		localization_key = court_position_desc_travel_leader
 	}
 }
