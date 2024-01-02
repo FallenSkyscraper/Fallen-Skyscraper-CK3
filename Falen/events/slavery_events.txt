@@ -3114,10 +3114,10 @@ slavery_event.1121 = {
 			has_realm_law = slavery_authority_0
 		}
 		name = slavery_event.1121.a
-		add_character_modifier = {
-			modifier = 
-			years = 5
-		}
+		#add_character_modifier = {
+		#	modifier = 
+		#	years = 5
+		#}
 		trigger_event = {
 			id = slavery_event.1142
 			days = 60
@@ -3576,7 +3576,7 @@ slavery_event.1145 = {
 		character = root
 		animation = happiness
 	}
-	left_portrait = {
+	right_portrait = {
 		character = scope:john_brown
 		animation = rage
 	}

@@ -99,7 +99,7 @@ on_game_start = {
 			}
 		}
 		religion:buddhism_religion = {
-				every_faith = {
+			every_faith = {
 				every_holy_site = {
 					limit = {
 						title_province = {
@@ -173,6 +173,40 @@ on_game_start = {
 				}
 			}
 		}
+		
+		### REGENCIES ###
+		## If you start as a child, incapable, or imprisoned, you get a regency.
+		every_ruler = {
+			limit = {
+				OR = {
+					is_adult = no
+					is_incapable = yes
+					is_imprisoned = yes
+					government_has_flag = government_is_clan
+				}
+			}
+			# We don't want to check over so many characters *twice*, so we check again inside the block to determine what type of regency to put 'em in.
+			## Temporary Regencies.
+			if = {
+				limit = { is_imprisoned = yes }
+				trigger_event = {
+					id = diarchy.0001
+					delayed = yes
+				}
+			}
+			if = {
+				limit = { government_has_flag = government_is_clan }
+			}
+			## Entrenched Regencies.
+			else = {
+				trigger_event = {
+					id = diarchy.0011
+					delayed = yes
+				}
+			}
+		}
+		# Sort custom regencies.
+		
 	}
 }
 
@@ -287,7 +321,7 @@ on_game_start_after_lobby = {
 		}
 
 		### ACHIEVEMENT: FROM RAGS TO RICHES
-	every_player = {
+		every_player = {
 			trigger_event = startup.1
 		}
 		title:e_donghae.holder = {

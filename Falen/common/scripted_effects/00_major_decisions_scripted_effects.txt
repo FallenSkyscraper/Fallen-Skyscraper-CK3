@@ -1,0 +1,268 @@
+﻿create_roman_empire_scripted_effect = {
+}
+create_roman_empire_holy_scripted_effect = {
+}
+create_roman_empire_italy_scripted_effect = {
+}
+mend_great_schism_scripted_effect = {
+	root.faith = {
+		if = { #If from obscure branch of Christianity, make it official.
+			limit = {
+				root.faith = { NOT = { has_doctrine = special_doctrine_ecumenical_christian } }
+			}
+			add_doctrine = special_doctrine_ecumenical_christian
+		}
+		change_fervor = {
+			value = 25
+			desc = fervor_gain_mended_schism
+		}
+	}
+	every_player = { #Notify all players of the same Faith.
+		limit = {
+			NOT = { this = root }
+			faith = root.faith
+		}
+		trigger_event = roman_restoration.0103
+	}
+	every_ruler = { #Notify rulers of other Christian branches that they are no longer valid and offer chance at conversion.
+		limit = {
+			faith.religion = root.faith.religion
+			NOT = { faith = root.faith }
+			NOT = { government_has_flag = government_is_theocracy }
+			NOT = { this = this.faith.religious_head }
+			faith = {
+				has_doctrine = special_doctrine_ecumenical_christian
+			}
+		}
+		trigger_event = roman_restoration.0101
+	}
+	every_player = { #Then notify all infidel players that might be around.
+		limit = {
+			OR = {
+				AND = { #Either filthy heretics...
+					faith.religion = root.faith.religion
+					faith = { NOT = { has_doctrine = special_doctrine_ecumenical_christian } }
+				}
+				NOT = { faith.religion = root.faith.religion } #...Or Heathens.
+			}
+		}
+		trigger_event = roman_restoration.0102
+	}
+	religion:christianity_religion = {
+		every_faith = { #All main branches of Christianity that were considered Ecumenical are now heresies.
+			custom = every_ecumenical_christian_faith.tt
+			limit = {
+				this.religion = root.faith.religion
+				has_doctrine = special_doctrine_ecumenical_christian
+				NOT = { this = root.faith }
+			}
+			remove_doctrine = special_doctrine_ecumenical_christian
+			change_fervor = {
+				value = -25
+				desc = fervor_loss_mended_schism
+			}
+		}
+	}
+
+	set_nickname_effect = { NICKNAME = nick_the_ecumenist }
+}
+
+restore_papacy_scripted_effect = 
+}
+
+destroy_papacy_scripted_effect = {
+}
+
+form_switzerland_scripted_effect = {
+}
+
+form_austria_scripted_effect = {
+}
+
+form_carolingian_empire_scripted_effect = {
+}
+
+unite_burgundies_scripted_effect = {
+}
+
+form_outremer_scripted_effect = {
+}
+
+restore_sunni_caliphate_scripted_effect = {
+	add_piety = major_piety_gain
+	save_scope_as = reformer
+	create_title_and_vassal_change = {
+		type = returned
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	title:d_sunni = {
+		save_scope_as = sunni_caliphate
+		change_title_holder = {
+			holder = scope:reformer
+			change = scope:change
+		}
+	}
+	resolve_title_and_vassal_change = scope:change
+	faith:ashari = {
+		change_fervor = {
+			value = 15
+			desc = fervor_gain_restored_sunni_caliphate
+		}
+	}
+}
+create_israel_scripted_effect = {
+}
+create_rum_scripted_effect = {
+}
+
+declare_bloodline_holy_decision_effect = {
+	save_scope_as = progenitor_holy_blood
+
+	faith = {
+		set_variable = {
+			name = variable_savior_found
+			value = yes
+		}
+		change_fervor = {
+			value = 25
+			desc = fervor_gain_holy_bloodline
+		}
+	}
+	if = { #Temporal.
+		limit = {
+			root.faith.religious_head = root
+		}
+		add_trait = savior
+		root.dynasty = {
+			add_dynasty_prestige = 1000
+			add_dynasty_prestige_level = 1
+		}
+	}
+	else = { #Spiritual.
+		add_trait = paragon
+		root.dynasty = {
+			add_dynasty_prestige = 500
+		}
+	}
+
+	every_child = {
+		even_if_dead = yes
+		trigger_event = major_decisions.0101
+	
+		every_child = {
+			even_if_dead = yes
+			limit = { 
+				OR = {
+					is_grandchild_of = scope:progenitor_holy_blood 
+					is_great_grandchild_of = scope:progenitor_holy_blood  
+				}
+			}
+			trigger_event = major_decisions.0101
+
+			every_child = {
+				even_if_dead = yes
+				limit = { 
+					OR = {
+						is_grandchild_of = scope:progenitor_holy_blood 
+						is_great_grandchild_of = scope:progenitor_holy_blood  
+					}
+				}
+				trigger_event = major_decisions.0101
+			}
+		}
+	}
+}
+
+sicilian_parliament_building_scripted_effect = {
+}
+sicilian_parliament_kingdom_split_scripted_effect = {
+}
+
+empower_sicilian_parliament_decision_scripted_effect = {
+}
+
+promote_gothic_innovations_decision_scripted_effect = {
+}
+
+promote_hungarian_settlement_decision_scripted_effect = {
+}
+
+revive_magyar_paganism_decision_scripted_effect = {
+}
+
+restore_dumnonia_decision_scripted_effect = {
+}
+
+revive_armenian_empire_decision_scripted_effect = {
+}
+
+restore_holy_roman_empire_decision_scripted_effect = {
+}
+
+found_kingdom_of_bosnia_decision_scripted_effect = {
+}
+
+found_kingdom_of_livonia_decision_scripted_effect = {
+}
+
+unite_bene_israel_effect = {
+}
+
+hre_elector_list_save_effect = {
+	ordered_in_global_list = {
+		variable = hre_elector_list
+		max = 7
+		check_range_bounds = no
+		order_by = tier
+		save_temporary_scope_as = hre_elector_title
+		title:e_hre = {
+			if = {
+				limit = { NOT = { has_variable = hre_elector_1 } } 
+				set_variable = { name = hre_elector_1 value = scope:hre_elector_title }
+			}
+			else_if = {
+				limit = { NOT = { has_variable = hre_elector_2 } } 
+				set_variable = { name = hre_elector_2 value = scope:hre_elector_title }
+			}
+			else_if = {
+				limit = { NOT = { has_variable = hre_elector_3 } } 
+				set_variable = { name = hre_elector_3 value = scope:hre_elector_title }
+			}
+			else_if = {
+				limit = { NOT = { has_variable = hre_elector_4 } } 
+				set_variable = { name = hre_elector_4 value = scope:hre_elector_title }
+			}
+			else_if = {
+				limit = { NOT = { has_variable = hre_elector_5 } } 
+				set_variable = { name = hre_elector_5 value = scope:hre_elector_title }
+			}
+			else_if = {
+				limit = { NOT = { has_variable = hre_elector_6 } } 
+				set_variable = { name = hre_elector_6 value = scope:hre_elector_title }
+			}
+			else_if = {
+				limit = { NOT = { has_variable = hre_elector_7 } } 
+				set_variable = { name = hre_elector_7 value = scope:hre_elector_title }
+			}
+		}
+	}
+}
+
+favour_the_countryside_basques_decision_generic_effects_scripted_effect = {
+}
+
+favour_the_countryside_basques_decision_fundamentalist_path_scripted_effect = {
+}
+
+favour_the_countryside_basques_decision_righteous_path_scripted_effect = {
+}
+
+favour_the_countryside_basques_decision_pluralist_path_scripted_effect = {
+}
+
+favour_the_countryside_basques_decision_default_path_scripted_effect = {
+}
+
+create_kingdom_of_saxony_effect = {
+}

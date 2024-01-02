@@ -41,7 +41,7 @@ river_provinces = RANGE { 4123 4129 }		#Hun
 # LAKES
 ########
 
-lakes = LIST { 3793 4233 } # Ç×Ä« È£,ÃµÁö
+lakes = LIST { 3793 4233 } # í•­ì¹´ í˜¸,ì²œì§€
 
 #####################
 # IMPASSABLE TERRAIN
@@ -49,15 +49,15 @@ lakes = LIST { 3793 4233 } # Ç×Ä« È£,ÃµÁö
 # Can be colored by whoever owns the most of the province's neighbours.
 # Blocks unit movement.
 
-#ÇÁ¸®¸ð¸®¿¹
+#í”„ë¦¬ëª¨ë¦¬ì˜ˆ
 impassable_mountains = RANGE { 3777 3792 } 
 
-#¸¸ÁÖ»ç¸·
+#ë§Œì£¼ì‚¬ë§‰
 impassable_mountains = RANGE { 3794 3803 }
 
 impassable_mountains = LIST { 1501 3529 }
 
-#ÇÑ±¹ »ê¸Æ
+#í•œêµ­ ì‚°ë§¥
 impassable_mountains = RANGE { 4131 4232 }
 impassable_mountains = LIST { 4234 }
 ############
@@ -74,3 +74,5 @@ impassable_seas = RANGE { 8 10 }
 # These provinces cause issues because they are passable land, but not part of any title.
 # They are probably not visible anywhere on the map, so feel free to reuse them (after double checking that they are actually missing).
 
+impassable_mountains = RANGE { 11 24 }
+impassable_mountains = LIST { 56 57 68 71 72 86 }
