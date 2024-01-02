@@ -1,7 +1,7 @@
 namespace = joson_election
 
 joson_election.1 = {
-    type = empty
+    scope = none
 	hidden = yes
 	#trigger = {
 	#	global_var:election_term < 0
@@ -128,7 +128,7 @@ joson_election.1 = {
 	}
 }
 joson_election.2 = {
-	type = empty
+	scope = none
 	hidden = yes
 	immediate = {
 		change_global_variable = { name = election_date add = 4 }
@@ -136,7 +136,7 @@ joson_election.2 = {
 	}
 }
 joson_election.3 = { # 선거 결과 계산
-	type = empty
+	scope = none
 	hidden = yes
 	immediate = {
 		ordered_in_global_list = {
