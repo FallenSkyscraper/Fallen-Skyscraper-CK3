@@ -1,4 +1,4 @@
-﻿colored_emblem_texture_lists = {
+colored_emblem_texture_lists = {
 
 	charge = {
 		10 	= "ce_anchor.dds"
@@ -133,7 +133,7 @@
 		# Christian Cross
 		special_selection = {
 			trigger = {
-				always = yes
+				coa_cross_trigger = yes
 			}
 			5 = "ce_cross_alcantara.dds"
 			10 = "ce_cross_03.dds"
@@ -168,7 +168,7 @@
 		# African
 		special_selection = {
 			trigger = {
-				always = no
+				coa_african_trigger = yes
 			}
 			50 = "ce_african_bird.dds"
 			50 = "ce_african_crescent_star.dds"
@@ -176,7 +176,7 @@
 			50 = "ce_african_cross_ghana.dds"
 			50 = "ce_african_cross_gur.dds"
 			50 = "ce_african_cross_jenne.dds"
-			50 = "ce_african_cross_NU.dds"
+			50 = "ce_african_cross_nu.dds"
 			50 = "ce_african_cross_yoruba.dds"
 			50 = "ce_african_flower.dds"
 			50 = "ce_african_knot_hausa.dds"
@@ -196,7 +196,7 @@
 		# Christian
 		special_selection = {
 			trigger = {
-				always = no
+				scope:faith.religion = religion:christianity_religion
 			}
 			10 = "ce_chi_rho.dds"
 			1 = "ce_crown_papal.dds"
@@ -208,7 +208,7 @@
 		# Christian Feudal # TODO needs trigger fixed
 		special_selection = {
 			trigger = {
-				always = no
+				coa_feudal_trigger = yes
 			}
 			10 	= "ce_crown.dds"
 			20 	= "ce_castle.dds"
@@ -220,7 +220,7 @@
 		# Christian Theocracy # TODO needs trigger fixed
 		special_selection = {
 			trigger = {
-				always = no
+				coa_bishopric_trigger = yes
 			}
 			#10000 = "ce_crown_papal.dds"
 			200000 = "ce_keys.dds"
@@ -230,7 +230,7 @@
 		# Finno-Ugric
 		special_selection = {
 			trigger = {
-				always = no
+				coa_suomenusko_trigger = yes
 			}			
 			5000 = "ce_wildman.dds"
 			5000 = "ce_suomenusko_kazym.dds"
@@ -241,7 +241,7 @@
 		# Tribal/Pagan
 		special_selection = {
 			trigger = {
-				always = no
+				scope:faith.religion = { is_in_family = rf_pagan }
 			}
 			100 = "ce_star_07.dds"
 			100 = "ce_cross_auskelis.dds"
@@ -318,7 +318,7 @@
 		# Indian
 		special_selection = {
 			trigger = {
-				always = no
+				coa_indian_trigger = yes
 			}
 			10000 = "ce_moon_sun.dds"
 			10000 = "ce_elephant.dds"
@@ -352,7 +352,8 @@
 		# Iberian cross
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = iberian_group_coa_gfx }
+				coa_cross_trigger = yes
 			}
 			50 = "ce_cross_alcantara.dds"
 			1 = "ce_cross_asturias.dds"
@@ -361,14 +362,15 @@
 		#Castilian
 		special_selection = {
 			trigger = {
-				always = no
+				coa_castilian_trigger = yes
 			}
 			100 = "ce_castle.dds"
 		}
+		
 		#Leonese
 		special_selection = {
 			trigger = {
-				always = no
+				coa_leonese_trigger = yes
 			}
 			100 = "ce_lion_rampant.dds"
 		}
@@ -376,28 +378,17 @@
 		# Islamic
 		special_selection = {
 			trigger = {
-				always = no
+				scope:faith.religion = religion:islam_religion
 			}
 			50 = "ce_arabic_allah.dds"
 			50 = "ce_arabic_basmala_kufic.dds"
 			50 = "ce_arabic_allah_kufic.dds"
-		}
-		
-		
-		# Norse
-		special_selection = {
-			trigger = {
-				always = no
-			}
-			100 = "ce_irminsul.dds"
-			100 = "ce_attire.dds"
-			100 = "ce_norse_raven.dds"
-		}
+		}	
 		
 		# Middle East
 		special_selection = {
 			trigger = {
-				always = no
+				coa_mena_trigger = yes
 			}
 			100 = "ce_double_bow_islamic.dds"
 			100 = "ce_islamic_lis.dds"
@@ -413,20 +404,16 @@
 			100 = "ce_eagle_islamic.dds"
 		}
 		
-		# Irish
-		special_selection = {
-			trigger = {
-				always = no
-			}
-			10 = "ce_harp.dds"
-			20 = "ce_hand.dds"
-			10 = "ce_shamrock.dds"
-		}
-		
 		# Norse
 		special_selection = {
 			trigger = {
-				always = no
+				# TODO add is_coastal or similar
+				scope:culture = {
+					OR = {
+						has_coa_gfx = norse_coa_gfx
+						has_coa_gfx = norwegian_coa_gfx
+					}
+				}
 			}
 			100 = "ce_ship_mast.dds"
 			100 = "ce_ship_longship.dds"
@@ -436,15 +423,21 @@
 		# Persian
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = iranian_group_coa_gfx }
 			}
 			100 = "ce_lion_passant_sword.dds"
+			100 = "ce_simurgh.dds"
+			100 = "ce_huma.dds"
+			100 = "ce_isfahan.dds"
+			100 = "ce_persian_bull.dds"
+			100 = "ce_persian_lion.dds"
+			100 = "ce_persian_duck.dds"
 		}
 		
 		# Scottish
 		special_selection = {
 			trigger = {
-				always = no
+				coa_scottish_trigger = yes
 			}
 			100 = "ce_ship_lymphad.dds"
 			50 = "ce_star_05.dds"
@@ -455,7 +448,7 @@
 		# Manx
 		special_selection = {
 			trigger = {
-				always = no
+				coa_manx_trigger = yes
 			}
 			100 = "ce_triskelion.dds"
 		}
@@ -463,7 +456,7 @@
 		# Byzantine/Greek		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_byzantine_trigger = yes
 			}
 			100 = "ce_beta.dds"
 			100 = "ce_letter_omega.dds"
@@ -478,7 +471,7 @@
 		# Coptic/Nubian	
 		special_selection = {
 			trigger = {
-				always = no
+				coa_coptic_trigger = yes
 			}
 			100 = "ce_cross_coptic.dds"
 			100 = "ce_cross_greek.dds"
@@ -488,7 +481,9 @@
 		# Greek Cross
 		special_selection = {
 			trigger = {
-				always = no
+				coa_cross_trigger = yes
+				coa_byzantine_trigger = yes
+				coa_coptic_trigger = yes
 			}
 			100 = "ce_cross_armenian.dds"
 			100 = "ce_cross_coptic.dds"
@@ -498,7 +493,7 @@
 		# Jewish/Israelite
 		special_selection = {
 			trigger = {
-				always = no
+				coa_jewish_trigger = yes
 			}
 			1000 = "ce_menorah.dds"
 			1000 = "ce_solomon_star_08.dds"
@@ -508,7 +503,7 @@
 		# Welsh/Cumbrian/Cornish	
 		special_selection = {
 			trigger = {
-				always = no
+				coa_welsh_trigger = yes
 			}
 			100 = "ce_dragon.dds"
 			100 = "ce_wyvern.dds"
@@ -518,7 +513,7 @@
 		# Steppe, Tamgha for central asia
 		special_selection = {
 			trigger = {
-				always = no
+				coa_tamga_trigger = yes
 			}
 			1000 = "ce_bow.dds"
 			1000 = "ce_hamades_03.dds"
@@ -565,6 +560,13 @@
 			5000 = "ce_tamgha_baruun.dds"
 			5000 = "ce_tamgha_aarlud.dds"
 		}
+
+		special_selection = {
+			trigger = {
+				coa_iberian_trigger = yes
+			}
+			100 = "ce_eagle_iberia.dds"
+		}
 	}
 	
 	# thirds that are designed to line up propely with Mena tricolours
@@ -573,14 +575,14 @@
 		1 = "ce_greyhound_courant.dds"
 		special_selection = {
 			trigger = {
-				always = no
+				scope:faith.religion = religion:islam_religion
 			}
 			10 = "ce_arabic_nazrid.dds"
 			10 = "ce_arabic_shahada.dds"
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				coa_mena_trigger = yes
 			}
 			10 = "ce_penbox.dds"
 			10 = "ce_zulfiqar.dds"
@@ -597,7 +599,7 @@
 		3 = "ce_border_shield_engrailed_02.dds"
 		special_selection = {
 			trigger = {
-				always = no
+				coa_scottish_trigger = yes
 			}
 			100 = "ce_double_tressure.dds"
 		}
@@ -633,7 +635,7 @@
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_cross_trigger = yes
 			}
 			10 = "ce_ordinary_cross_3.dds"
 			10 = "ce_ordinary_cross_4.dds"
@@ -643,13 +645,14 @@
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_bishopric_trigger = yes
 			}
 			10000 = "ce_ordinary_pall_5.dds"
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				coa_bishopric_trigger = yes
+				coa_cross_trigger = yes
 			}
 			5000 = "ce_ordinary_cross_3.dds"
 			5000 = "ce_ordinary_cross_4.dds"
@@ -658,7 +661,9 @@
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				coa_bishopric_trigger = yes
+				coa_cross_trigger = yes
+				coa_scottish_trigger = yes
 			}
 			10000 = "ce_ordinary_saltire_5.dds"
 		}
@@ -666,7 +671,8 @@
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_scottish_trigger = yes
+				coa_cross_trigger = yes
 			}
 			50 = "ce_ordinary_saltire_5.dds"
 		}
@@ -699,7 +705,7 @@
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_feudal_trigger = yes
 			}
 			10 = "ce_ordinary_chevron_2.dds"
 			10 = "ce_ordinary_chevron_3.dds"
@@ -708,17 +714,18 @@
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_cross_trigger = yes
 			}
 			1 = "ce_ordinary_saltire_5.dds"
 		}
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_scottish_trigger = yes
+				coa_cross_trigger = yes
 			}
 			50 = "ce_ordinary_saltire_5.dds"
-		}
+		}		
 	}
 	
 	ordinaries_vertically_scalable = {
@@ -739,7 +746,7 @@
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_feudal_trigger = yes
 			}
 			10 = "ce_ordinary_chevron_2.dds"
 			10 = "ce_ordinary_chevron_3.dds"
@@ -748,14 +755,15 @@
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_cross_trigger = yes
 			}
 			1 = "ce_ordinary_saltire_5.dds"
 		}
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_scottish_trigger = yes
+				coa_cross_trigger = yes
 			}
 			50 = "ce_ordinary_saltire_5.dds"
 		}
@@ -777,7 +785,7 @@
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_breton_trigger = yes
 			}
 			20 = "ce_ermine.dds"
 		}
@@ -861,128 +869,132 @@
 	religion_icons = {
 		1 =  ce_star_08.dds # fallback
 		
-		special_selection = { trigger = { faith = { has_icon = "akanism" } } 10000000 = "ce_religion_akanism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "akanism_reformed" } } 10000000 = "ce_religion_akanism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "ari_buddhism" } } 10000000 = "ce_religion_buddhism_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "armenian" } } 10000000 = "ce_religion_christianity_nestorian.dds" }
-		special_selection = { trigger = { faith = { has_icon = "ashari" } } 10000000 = "ce_religion_islam_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "azariqa" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "baltic" } } 10000000 = "ce_religion_pagan_romuva.dds" }
-		special_selection = { trigger = { faith = { has_icon = "baltic_custom" } } 10000000 = "ce_religion_pagan_romuva.dds" }
-		special_selection = { trigger = { faith = { has_icon = "baltic_reformed" } } 10000000 = "ce_religion_pagan_romuva.dds" }
-		special_selection = { trigger = { faith = { has_icon = "bon" } } 10000000 = "ce_religion_bon.dds" }
-		special_selection = { trigger = { faith = { has_icon = "buddhism" } } 10000000 = "ce_religion_buddhism_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "buddhism_custom" } } 10000000 = "ce_religion_buddhism_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "catholic" } } 10000000 = "ce_religion_christianity_catholic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "catholic_custom" } } 10000000 = "ce_religion_christianity_catholic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "christianity_Armenian" } } 10000000 = "ce_religion_armenian.dds" }
-		special_selection = { trigger = { faith = { has_icon = "christianity_bogomilist" } } 10000000 = "ce_religion_bogomilist.dds" }
-		special_selection = { trigger = { faith = { has_icon = "christianity_cathar" } } 10000000 = "ce_religion_cathar.dds" }
-		special_selection = { trigger = { faith = { has_icon = "christianity_Iconoclasm" } } 10000000 = "ce_religion_iconoclasm.dds" }
-		special_selection = { trigger = { faith = { has_icon = "christianity_lollard" } } 10000000 = "ce_religion_lollard.dds" }
-		special_selection = { trigger = { faith = { has_icon = "christianity_messalian" } } 10000000 = "ce_religion_messalian.dds" }
-		special_selection = { trigger = { faith = { has_icon = "christianity_paulicanism" } } 10000000 = "ce_religion_paulicanism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "christianity_waldensian" } } 10000000 = "ce_religion_waldensian.dds" }
-		special_selection = { trigger = { faith = { has_icon = "coptic" } } 10000000 = "ce_religion_christianity_nestorian.dds" }
-		special_selection = { trigger = { faith = { has_icon = "coptic_custom" } } 10000000 = "ce_religion_christianity_nestorian.dds" }
-		special_selection = { trigger = { faith = { has_icon = "custom_faith_1" } } 10000000 = "ce_religion_custom_faith_1.dds" }
-		special_selection = { trigger = { faith = { has_icon = "custom_faith_2" } } 10000000 = "ce_religion_custom_faith_2.dds" }
-		special_selection = { trigger = { faith = { has_icon = "custom_faith_3" } } 10000000 = "ce_religion_custom_faith_3.dds" }
-		special_selection = { trigger = { faith = { has_icon = "custom_faith_4" } } 10000000 = "ce_religion_islam_ismailism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "custom_faith_5" } } 10000000 = "ce_religion_custom_faith_5.dds" }
-		special_selection = { trigger = { faith = { has_icon = "custom_faith_6" } } 10000000 = "ce_religion_custom_faith_6.dds" }
-		special_selection = { trigger = { faith = { has_icon = "custom_faith_7" } } 10000000 = "ce_religion_custom_faith_7.dds" }
-		special_selection = { trigger = { faith = { has_icon = "custom_faith_8" } } 10000000 = "ce_religion_custom_faith_8.dds" }
-		special_selection = { trigger = { faith = { has_icon = "custom_faith_9" } } 10000000 = "ce_religion_custom_faith_9.dds" }
-		special_selection = { trigger = { faith = { has_icon = "custom_faith_10" } } 10000000 = "ce_religion_custom_faith_10.dds" }
-		special_selection = { trigger = { faith = { has_icon = "default" } } 10000000 = "ce_religion_pagan_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "default_custom" } } 10000000 = "ce_religion_pagan_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "donyipoloism" } } 10000000 = "ce_religion_pagan_zunist.dds" }
-		special_selection = { trigger = { faith = { has_icon = "dualism" } } 10000000 = "ce_religion_dualism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "exp_ari_buddhism" } } 10000000 = "ce_religion_buddhism_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "finno_ugric" } } 10000000 = "ce_religion_pagan_suomenusko.dds" }
-		special_selection = { trigger = { faith = { has_icon = "finno_ugric_custom" } } 10000000 = "ce_religion_pagan_suomenusko.dds" }
-		special_selection = { trigger = { faith = { has_icon = "finno_ugric_reformed" } } 10000000 = "ce_religion_pagan_suomenusko.dds" }
-		special_selection = { trigger = { faith = { has_icon = "germanic" } } 10000000 = "ce_religion_pagan_germanic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "germanic_custom" } } 10000000 = "ce_religion_pagan_germanic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "germanic_reformed" } } 10000000 = "ce_religion_pagan_germanic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "ghulat" } } 10000000 = "ce_religion_islam_asharism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "hellenic" } } 10000000 = "ce_religion_pagan_hellenic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "hellenic_custom" } } 10000000 = "ce_religion_pagan_hellenic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "hellenic_reformed" } } 10000000 = "ce_religion_pagan_hellenic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "hinduism" } } 10000000 = "ce_religion_hinduism_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "hinduism_custom" } } 10000000 = "ce_religion_hinduism_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "iamaism_buddhism" } } 10000000 = "ce_religion_buddhism_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "ibadi" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "ibadi_custom" } } 10000000 = "ce_religion_islam_asharism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "icon_religion_catholicism" } } 10000000 = "ce_religion_christianity_catholic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "imami" } } 10000000 = "ce_religion_islam_asharism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "islam_druze" } } 10000000 = "ce_religion_druze.dds" }
-		special_selection = { trigger = { faith = { has_icon = "jainism" } } 10000000 = "ce_religion_jain_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "jainism_custom" } } 10000000 = "ce_religion_jain_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "judaism" } } 10000000 = "ce_religion_judaism_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "judaism_custom" } } 10000000 = "ce_religion_judaism_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "kushism" } } 10000000 = "ce_religion_kushism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "kushism_reformed" } } 10000000 = "ce_religion_kushism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "lamaism_buddhism" } } 10000000 = "ce_religion_buddhism_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "manichean" } } 10000000 = "ce_religion_manichean.dds" }
-		special_selection = { trigger = { faith = { has_icon = "masmudi" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "maturidi" } } 10000000 = "ce_religion_islam_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "melieism" } } 10000000 = "ce_religion_melieism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "miaphysite" } } 10000000 = "ce_religion_christianity_nestorian.dds" }
-		special_selection = { trigger = { faith = { has_icon = "muhakkima" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "muhakkima_1" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "muhakkima_2" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "muhakkima_3" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "muhakkima_4" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "muhakkima_5" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "muhakkima_6" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "mutazila" } } 10000000 = "ce_religion_islam_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "muwalladi" } } 10000000 = "ce_religion_islam_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "nadjat" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "nestorian" } } 10000000 = "ce_religion_christianity_coptic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "nestorian_custom" } } 10000000 = "ce_religion_christianity_coptic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "orthodox" } } 10000000 = "ce_religion_christianity_orthodox.dds" }
-		special_selection = { trigger = { faith = { has_icon = "orthodox_custom" } } 10000000 = "ce_religion_christianity_orthodox.dds" }
-		special_selection = { trigger = { faith = { has_icon = "pagan" } } 10000000 = "ce_religion_pagan_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "pagan_default" } } 10000000 = "ce_religion_pagan_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "pagan_magyar" } } 10000000 = "ce_religion_magyar.dds" }
-		special_selection = { trigger = { faith = { has_icon = "pagan_reformed" } } 10000000 = "ce_religion_pagan_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "quranism" } } 10000000 = "ce_religion_islam_iibadi.dds" }
-		special_selection = { trigger = { faith = { has_icon = "rrmeaism" } } 10000000 = "ce_religion_rrmeaism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "sedism" } } 10000000 = "ce_religion_sedism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "shia" } } 10000000 = "ce_religion_islam_asharism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "shia_custom" } } 10000000 = "ce_religion_islam_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "slavic" } } 10000000 = "ce_religion_pagan_slavic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "slavic_custom" } } 10000000 = "ce_religion_pagan_slavic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "slavic_reformed" } } 10000000 = "ce_religion_pagan_slavic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "spirit_bon" } } 10000000 = "ce_religion_bon.dds" }
-		special_selection = { trigger = { faith = { has_icon = "sufri" } } 10000000 = "ce_religion_islam_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "sunni" } } 10000000 = "ce_religion_islam_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "sunni_custom" } } 10000000 = "ce_religion_islam_generic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "taoism" } } 10000000 = "ce_religion_taoism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "tengri" } } 10000000 = "ce_religion_pagan_tengri.dds" }
-		special_selection = { trigger = { faith = { has_icon = "tengri_custom" } } 10000000 = "ce_religion_pagan_tengri.dds" }
-		special_selection = { trigger = { faith = { has_icon = "tengri_reformed" } } 10000000 = "ce_religion_pagan_tengri.dds" }
-		special_selection = { trigger = { faith = { has_icon = "unselected" } } 10000000 = "ce_religion_christianity_catholic.dds" }
-		special_selection = { trigger = { faith = { has_icon = "mande" } } 10000000 = "ce_religion_vodun.dds" }
-		special_selection = { trigger = { faith = { has_icon = "waaqism" } } 10000000 = "ce_religion_waaqism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "waaqism_reformed" } } 10000000 = "ce_religion_waaqism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "west_african" } } 10000000 = "ce_religion_pagan_westafrican.dds" }
-		special_selection = { trigger = { faith = { has_icon = "west_african_bori" } } 10000000 = "ce_religion_west_african_bori.dds" }
-		special_selection = { trigger = { faith = { has_icon = "west_african_bori_reformed" } } 10000000 = "ce_religion_west_african_bori.dds" }
-		special_selection = { trigger = { faith = { has_icon = "west_african_custom" } } 10000000 = "ce_religion_pagan_westafrican.dds" }
-		special_selection = { trigger = { faith = { has_icon = "west_african_dogon" } } 10000000 = "ce_religion_west_african_bori.dds" }
-		special_selection = { trigger = { faith = { has_icon = "west_african_reformed" } } 10000000 = "ce_religion_pagan_westafrican.dds" }
-		special_selection = { trigger = { faith = { has_icon = "west_african_roog_sene" } } 10000000 = "ce_religion_african_roog_sene.dds" }
-		special_selection = { trigger = { faith = { has_icon = "west_african_roog_sene_reformed" } } 10000000 = "ce_religion_african_roog_sene.dds" }
-		special_selection = { trigger = { faith = { has_icon = "yazidism" } } 10000000 = "ce_religion_yazidism.dds" }
-		special_selection = { trigger = { faith = { has_icon = "yoruba" } } 10000000 = "ce_religion_yoruba.dds" }
-		special_selection = { trigger = { faith = { has_icon = "zoroastrian" } } 10000000 = "ce_religion_zoroastrianism_generic_faravahar.dds" }
-		special_selection = { trigger = { faith = { has_icon = "zoroastrian_custom" } } 10000000 = "ce_religion_zoroastrianism_generic_faravahar.dds" }
-		special_selection = { trigger = { faith = { has_icon = "zunist" } } 10000000 = "ce_religion_pagan_zunist.dds" }
-		special_selection = { trigger = { faith = { has_icon = "zunist_custom" } } 10000000 = "ce_religion_pagan_zunist.dds" }
-		special_selection = { trigger = { faith = { has_icon = "zunist_reformed" } } 10000000 = "ce_religion_pagan_zunist.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "akanism" } } 10000000 = "ce_religion_akanism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "akanism_reformed" } } 10000000 = "ce_religion_akanism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "ari_buddhism" } } 10000000 = "ce_religion_buddhism_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "armenian" } } 10000000 = "ce_religion_christianity_nestorian.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "ashari" } } 10000000 = "ce_religion_islam_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "azariqa" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "baltic" } } 10000000 = "ce_religion_pagan_romuva.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "baltic_custom" } } 10000000 = "ce_religion_pagan_romuva.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "baltic_reformed" } } 10000000 = "ce_religion_pagan_romuva.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "bon" } } 10000000 = "ce_religion_bon.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "buddhism" } } 10000000 = "ce_religion_buddhism_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "buddhism_custom" } } 10000000 = "ce_religion_buddhism_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "catholic" } } 10000000 = "ce_religion_christianity_catholic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "catholic_custom" } } 10000000 = "ce_religion_christianity_catholic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "christianity_armenian" } } 10000000 = "ce_religion_armenian.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "christianity_bogomilist" } } 10000000 = "ce_religion_bogomilist.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "christianity_cathar" } } 10000000 = "ce_religion_cathar.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "christianity_iconoclasm" } } 10000000 = "ce_religion_iconoclasm.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "christianity_lollard" } } 10000000 = "ce_religion_lollard.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "christianity_messalian" } } 10000000 = "ce_religion_messalian.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "christianity_paulicanism" } } 10000000 = "ce_religion_paulicanism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "christianity_waldensian" } } 10000000 = "ce_religion_waldensian.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "coptic" } } 10000000 = "ce_religion_christianity_nestorian.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "coptic_custom" } } 10000000 = "ce_religion_christianity_nestorian.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "custom_faith_1" } } 10000000 = "ce_religion_custom_faith_1.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "custom_faith_2" } } 10000000 = "ce_religion_custom_faith_2.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "custom_faith_3" } } 10000000 = "ce_religion_custom_faith_3.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "custom_faith_4" } } 10000000 = "ce_religion_islam_ismailism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "custom_faith_5" } } 10000000 = "ce_religion_custom_faith_5.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "custom_faith_6" } } 10000000 = "ce_religion_custom_faith_6.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "custom_faith_7" } } 10000000 = "ce_religion_custom_faith_7.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "custom_faith_8" } } 10000000 = "ce_religion_custom_faith_8.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "custom_faith_9" } } 10000000 = "ce_religion_custom_faith_9.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "custom_faith_10" } } 10000000 = "ce_religion_custom_faith_10.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "default" } } 10000000 = "ce_religion_pagan_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "default_custom" } } 10000000 = "ce_religion_pagan_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "donyipoloism" } } 10000000 = "ce_religion_pagan_zunist.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "dualism" } } 10000000 = "ce_religion_dualism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "exp_ari_buddhism" } } 10000000 = "ce_religion_buddhism_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "finno_ugric" } } 10000000 = "ce_religion_pagan_suomenusko.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "finno_ugric_custom" } } 10000000 = "ce_religion_pagan_suomenusko.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "finno_ugric_reformed" } } 10000000 = "ce_religion_pagan_suomenusko.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "germanic" } } 10000000 = "ce_religion_pagan_germanic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "germanic_custom" } } 10000000 = "ce_religion_pagan_germanic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "germanic_reformed" } } 10000000 = "ce_religion_pagan_germanic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "ghulat" } } 10000000 = "ce_religion_islam_asharism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "hellenic" } } 10000000 = "ce_religion_pagan_hellenic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "hellenic_custom" } } 10000000 = "ce_religion_pagan_hellenic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "hellenic_reformed" } } 10000000 = "ce_religion_pagan_hellenic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "hinduism" } } 10000000 = "ce_religion_hinduism_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "hinduism_custom" } } 10000000 = "ce_religion_hinduism_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "iamaism_buddhism" } } 10000000 = "ce_religion_buddhism_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "ibadi" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "ibadi_custom" } } 10000000 = "ce_religion_islam_asharism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "icon_religion_catholicism" } } 10000000 = "ce_religion_christianity_catholic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "imami" } } 10000000 = "ce_religion_islam_asharism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "islam_druze" } } 10000000 = "ce_religion_druze.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "jainism" } } 10000000 = "ce_religion_jain_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "jainism_custom" } } 10000000 = "ce_religion_jain_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "judaism" } } 10000000 = "ce_religion_judaism_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "judaism_custom" } } 10000000 = "ce_religion_judaism_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "kushism" } } 10000000 = "ce_religion_kushism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "kushism_reformed" } } 10000000 = "ce_religion_kushism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "lamaism_buddhism" } } 10000000 = "ce_religion_buddhism_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "manichean" } } 10000000 = "ce_religion_manichean.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "masmudi" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "maturidi" } } 10000000 = "ce_religion_islam_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "melieism" } } 10000000 = "ce_religion_melieism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "miaphysite" } } 10000000 = "ce_religion_christianity_nestorian.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "muhakkima" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "muhakkima_1" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "muhakkima_2" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "muhakkima_3" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "muhakkima_4" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "muhakkima_5" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "muhakkima_6" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "mutazila" } } 10000000 = "ce_religion_islam_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "muwalladi" } } 10000000 = "ce_religion_islam_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "nadjat" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "nestorian" } } 10000000 = "ce_religion_christianity_coptic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "nestorian_custom" } } 10000000 = "ce_religion_christianity_coptic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "orthodox" } } 10000000 = "ce_religion_christianity_orthodox.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "orthodox_custom" } } 10000000 = "ce_religion_christianity_orthodox.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "pagan" } } 10000000 = "ce_religion_pagan_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "pagan_default" } } 10000000 = "ce_religion_pagan_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "pagan_magyar" } } 10000000 = "ce_religion_magyar.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "pagan_reformed" } } 10000000 = "ce_religion_pagan_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "quranism" } } 10000000 = "ce_religion_islam_iibadi.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "rrmeaism" } } 10000000 = "ce_religion_rrmeaism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "sedism" } } 10000000 = "ce_religion_sedism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "shia" } } 10000000 = "ce_religion_islam_asharism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "shia_custom" } } 10000000 = "ce_religion_islam_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "slavic" } } 10000000 = "ce_religion_pagan_slavic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "slavic_custom" } } 10000000 = "ce_religion_pagan_slavic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "slavic_reformed" } } 10000000 = "ce_religion_pagan_slavic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "spirit_bon" } } 10000000 = "ce_religion_bon.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "sufri" } } 10000000 = "ce_religion_islam_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "sunni" } } 10000000 = "ce_religion_islam_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "sunni_custom" } } 10000000 = "ce_religion_islam_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "taoism" } } 10000000 = "ce_religion_taoism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "tengri" } } 10000000 = "ce_religion_pagan_tengri.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "tengri_custom" } } 10000000 = "ce_religion_pagan_tengri.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "tengri_reformed" } } 10000000 = "ce_religion_pagan_tengri.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "unselected" } } 10000000 = "ce_religion_christianity_catholic.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "mande" } } 10000000 = "ce_religion_vodun.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "waaqism" } } 10000000 = "ce_religion_waaqism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "waaqism_reformed" } } 10000000 = "ce_religion_waaqism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "west_african" } } 10000000 = "ce_religion_pagan_westafrican.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "west_african_bori" } } 10000000 = "ce_religion_west_african_bori.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "west_african_bori_reformed" } } 10000000 = "ce_religion_west_african_bori.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "west_african_custom" } } 10000000 = "ce_religion_pagan_westafrican.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "west_african_dogon" } } 10000000 = "ce_religion_west_african_bori.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "west_african_reformed" } } 10000000 = "ce_religion_pagan_westafrican.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "west_african_roog_sene" } } 10000000 = "ce_religion_african_roog_sene.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "west_african_roog_sene_reformed" } } 10000000 = "ce_religion_african_roog_sene.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "yazidism" } } 10000000 = "ce_religion_yazidism.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "yoruba" } } 10000000 = "ce_religion_yoruba.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "zoroastrian" } } 10000000 = "ce_religion_zoroastrianism_generic_faravahar.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "zoroastrian_custom" } } 10000000 = "ce_religion_zoroastrianism_generic_faravahar.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "zunist" } } 10000000 = "ce_religion_pagan_zunist.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "zunist_custom" } } 10000000 = "ce_religion_pagan_zunist.dds" }
+		special_selection = { trigger = { scope:faith = { has_icon = "zunist_reformed" } } 10000000 = "ce_religion_pagan_zunist.dds" }
+
+		special_selection = { trigger = { scope:faith = { has_doctrine = muhammad_succession_sunni_doctrine } } 50000 = "ce_religion_islam_generic.dds" }
+		special_selection = { trigger = { scope:faith = { has_doctrine = muhammad_succession_shia_doctrine } } 50000 = "ce_religion_islam_asharism.dds" }
+		special_selection = { trigger = { scope:faith = { has_doctrine = muhammad_succession_muhakkima_doctrine } } 50000 = "ce_religion_islam_iibadi.dds" }
 	}
 	
 ###
@@ -1033,141 +1045,7 @@
 		1000 	= "ce_rosetta_06.dds"
 		1000 	= "ce_star_07.dds"		
 		
-		# Sub divisions to refine frequencies
-		
-		special_selection = {
-			trigger = {
-				always = no
-			}
-			1000 = "ce_cross_auskelis.dds"	
-			1000 = "ce_religion_pagan_slavic.dds"
-			1000 = "ce_african_cross_gur.dds"			
-			1000 = "ce_religion_bogomilist.dds"				
-			1000 = "ce_pagan_cross_tursas.dds"
-			1000 = "ce_cross_auseklis_02.dds"
-			1000 = "ce_cross_auseklis_03.dds"
-			1000 = "ce_pagan_thunder_cross.dds"
-			1000 = "ce_pagan_cross_dhata.dds"
-			1000 = "ce_pagan_cross_yarovrat.dds"				
-			1000 = "ce_pagan_cross_ognevitsa.dds"	
-			1000 = "ce_pagan_cross_svarog.dds"	
-			1000 = "ce_pagan_cross_svarog_02.dds"			
-			1000 = "ce_pagan_hands_svarog.dds"			
-			1000 = "ce_pagan_dazbog.dds"
-			1000 = "ce_pagan_hors.dds"
-			1000 = "ce_pagan_kolovrat.dds"
-			1000 = "ce_pagan_kolovrat_02.dds"	
-			1000 = "ce_pagan_cross_yarovik.dds"				
-			1000 = "ce_pagan_perun.dds"
-			1000 = "ce_pagan_rod.dds"	
-			1000 = "ce_pagan_cross_06.dds"		
-			1000 = "ce_pagan_star_08.dds"	
-			1000 = "ce_solar_cross.dds"		
-			1000 = "ce_pagan_cross_08.dds"	
-			1000 = "ce_pagan_cross_mara.dds"				
-			1000 = "ce_pagan_rose.dds"	
-			1000 = "ce_pagan_nemiza.dds"	
-			1000 = "ce_pagan_dodola.dds"	
-			1000 = "ce_pagan_tamga_01.dds"	
-			1000 = "ce_pagan_tamga_02.dds"	
-			1000 = "ce_pagan_tamga_03.dds"	
-			1000 = "ce_pagan_svarga.dds"
-			1000 = "ce_crescent_knot.dds"
-		}	
-		special_selection = {
-			trigger = {
-				always = no
-			}
-			1000 = "ce_tamga_gediminas.dds"			
-			1000 = "ce_cross_auskelis.dds"	
-			1000 = "ce_pagan_star_08.dds"	
-			1000 = "ce_pagan_cross_mara.dds"	
-			1000 = "ce_pagan_kolovrat.dds"
-			1000 = "ce_pagan_kolovrat_02.dds"	
-			1000 = "ce_cross_auseklis_02.dds"
-			1000 = "ce_cross_auseklis_03.dds"
-			1000 = "ce_pagan_thunder_cross.dds"	
-			1000 = "ce_pagan_moon_cross.dds"
-			1000 = "ce_pagan_saule.dds"	
-			1000 = "ce_pagan_cross_02.dds"
-			1000 = "ce_pagan_cross_07.dds"		
-			1000 = "ce_tursansydan.dds"			
-			1000 = "ce_pagan_usins.dds"			
-			1000 = "ce_pagan_usins_02.dds"	
-			1000 = "ce_austras_koks.dds"	
-			1000 = "ce_snake_fylfot.dds"
-			1000 = "ce_pagan_svarga.dds"
-			1000 = "ce_pagan_laima.dds"	
-			1000 = "ce_pagan_jumis.dds"	
-		}		
-		special_selection = {
-			trigger = {
-				always = no
-			}
-			1000 = "ce_tursansydan.dds"
-			1000 = "ce_pagan_cross_tursas.dds"
-			1000 = "ce_pagan_cross_tursas_02.dds"	
-			1000 = "ce_suomenusko_sun.dds"	
-			1000 = "ce_suomenusko_sun_02.dds"				
-			1000 = "ce_hannunvaakuna.dds"
-			1000 = "ce_pagan_cross_03.dds"	
-			1000 = "ce_pagan_cross_04.dds"	
-			1000 = "ce_pagan_cross_05.dds"				
-			1000 = "ce_pagan_looped_knot.dds"		
-			1000 = "ce_pagan_cross_arrows_02.dds"	
-			1000 = "ce_pagan_endless_knot.dds"		
-			1000 = "ce_pagan_endless_knot_square.dds"	
-			1000 = "ce_religion_pagan_suomenusko.dds"	
-			1000 = "ce_suomenusko_kazym.dds"	
-			1000 = "ce_suomenusko_kondair.dds"		
-			1000 = "ce_suomenusko_udmurt.dds"		
-			1000 = "ce_ukkos_hammer.dds"	
-			1000 = "ce_suomenusko_moon.dds"	
-			1000 = "ce_ukkokirves.dds"
-			
-			special_selection = {
-				trigger = {
-				always = no
-				}
-				1000 = "ce_suomenusko_sun.dds"	
-				1000 = "ce_suomenusko_sun_02.dds"	
-				1000 = "ce_suomenusko_moon.dds"				
-				1000 = "ce_religion_pagan_suomenusko.dds"	
-				1000 = "ce_pagan_hands_svarog.dds"	
-				1000 = "ce_suomenusko_sun_moon.dds"	
-				1000 = "ce_suomenusko_sun_07.dds"	
-			}			
-		}
-		special_selection = {
-			trigger = {
-				always = no
-			}
-			1000 = "ce_mjolnir.dds"
-			1000 = "ce_irminsul.dds"			
-			1000 = "ce_rune_odal.dds"
-			1000 = "ce_rune_tiwaz.dds" # ou tyr ?
-			1000 = "ce_rune_hagal.dds"
-			1000 = "ce_norse_raven.dds"
-			1000 = "ce_pagan_vehmic.dds"		
-			1000 = "ce_pagan_wolf_triskel.dds"	
-			1000 = "ce_walknut.dds"	
-			1000 = "ce_ship_longships.dds"	
-			1000 = "ce_ship_longship.dds"	
-			1000 = "ce_pagan_wotan_cross.dds"
-			1000 = "ce_wolf_head.dds"
-			1000 = "ce_heart.dds"
-			1000 = "ce_sleipnir.dds"
-			1000 = "ce_odins_mask.dds"		
-			1000 = "ce_dragon_fylfot.dds"		
-			500 = "ce_norse_spirals.dds"
-			1000 = "ce_aegishjalmr.dds"
-			1000 = "ce_vegvisir.dds"	
-			1000 = "ce_ordroerir.dds"
-			1000 = "ce_gotland_spiral.dds"
-			1000 = "ce_triskel.dds"
-			1000 = "ce_triskel_02.dds"
-			1000 = "ce_yggdrasil.dds"
-		}		
+		# Sub divisions to refine frequencies		
 	}
 	geometrical_pagan_charge_list = {
 		1000 	= "ce_pattern_vertical_split_01.dds"
@@ -1181,103 +1059,68 @@
 		1000 	= "ce_pily_barry.dds"		
 		1000	= "ce_pagan_saltire_cross.dds"
 		500 	= "ce_pagan_saltire_cross_02.dds"	
-		500 	= "ce_stripes_horizontal_15.dds"	
-		special_selection = {
-			trigger = {
-				always = no
-			}
-			500 	= "ce_pagan_saltire_cross.dds"
-			1000 	= "ce_pagan_saltire_cross_02.dds"			
-		}
-		special_selection = {
-			trigger = {
-				always = no
-			}
-			500 	= "ce_piles_conjoined.dds"
-			500 	= "ce_pile_mask.dds"	
-		}		
-		special_selection = {
-			trigger = {
-				always = no
-			}
-			1500 	= "ce_stripes_horizontal_15.dds"
-			1000 	= "ce_pily_barry.dds"			
-		}		
+		500 	= "ce_stripes_horizontal_15.dds"			
 	}	
 	# Circled design for central and eastern europe (list to be refined, rather similar to the basic list without triggers)
 	circled_pagan_charge_list = {
-			1000 = "ce_pagan_kolovrat.dds"
-			1000 = "ce_pagan_kolovrat_02.dds"	
-			1000 = "ce_star_06.dds"
-			1000 = "ce_star_07.dds"			
-			1000 = "ce_star_08.dds"	
-			1000 = "ce_pagan_cross_mara.dds"		
-			1000 = "ce_pagan_cross_dhata.dds"	
-			1000 = "ce_pagan_perun.dds"	
-			1000 = "ce_pagan_tamga_01.dds"	
-			1000 = "ce_pagan_hands_svarog.dds"					
-			1000 = "ce_pagan_cross_tursas.dds"
-			1000 = "ce_cross_auseklis_02.dds"
-			1000 = "ce_cross_auseklis_03.dds"
-			1000 = "ce_pagan_thunder_cross.dds"
-			1000 = "ce_pagan_cross_yarovrat.dds"				
-			1000 = "ce_pagan_cross_ognevitsa.dds"	
-			1000 = "ce_pagan_cross_svarog.dds"	
-			1000 = "ce_pagan_cross_svarog_02.dds"			
-			1000 = "ce_pagan_dazbog.dds"
-			1000 = "ce_pagan_hors.dds"
-			1000 = "ce_pagan_cross_yarovik.dds"	
-			1000 = "ce_pagan_rod.dds"	
-			1000 = "ce_pagan_cross_06.dds"		
-			1000 = "ce_pagan_star_08.dds"	
-			1000 = "ce_solar_cross.dds"		
-			1000 = "ce_pagan_cross_08.dds"				
-			1000 = "ce_pagan_rose.dds"	
-			1000 = "ce_pagan_nemiza.dds"	
-			1000 = "ce_pagan_dodola.dds"	
-			1000 = "ce_pagan_jumis.dds"
-			1000 = "ce_antler_pale.dds"	
+		1000 = "ce_pagan_kolovrat.dds"
+		1000 = "ce_pagan_kolovrat_02.dds"	
+		1000 = "ce_star_06.dds"
+		1000 = "ce_star_07.dds"			
+		1000 = "ce_star_08.dds"	
+		1000 = "ce_pagan_cross_mara.dds"		
+		1000 = "ce_pagan_cross_dhata.dds"	
+		1000 = "ce_pagan_perun.dds"	
+		1000 = "ce_pagan_tamga_01.dds"	
+		1000 = "ce_pagan_hands_svarog.dds"					
+		1000 = "ce_pagan_cross_tursas.dds"
+		1000 = "ce_cross_auseklis_02.dds"
+		1000 = "ce_cross_auseklis_03.dds"
+		1000 = "ce_pagan_thunder_cross.dds"
+		1000 = "ce_pagan_cross_yarovrat.dds"				
+		1000 = "ce_pagan_cross_ognevitsa.dds"	
+		1000 = "ce_pagan_cross_svarog.dds"	
+		1000 = "ce_pagan_cross_svarog_02.dds"			
+		1000 = "ce_pagan_dazbog.dds"
+		1000 = "ce_pagan_hors.dds"
+		1000 = "ce_pagan_cross_yarovik.dds"	
+		1000 = "ce_pagan_rod.dds"	
+		1000 = "ce_pagan_cross_06.dds"		
+		1000 = "ce_pagan_star_08.dds"	
+		1000 = "ce_solar_cross.dds"		
+		1000 = "ce_pagan_cross_08.dds"				
+		1000 = "ce_pagan_rose.dds"	
+		1000 = "ce_pagan_nemiza.dds"	
+		1000 = "ce_pagan_dodola.dds"	
+		1000 = "ce_pagan_jumis.dds"
+		1000 = "ce_antler_pale.dds"	
+			
+		# Norse - A few designs excluded due to vertical offset
+		# TODO (if too many undesired outcomes pop up) make this a separate list  				
+			
 	}
 	pagan_circle_frame_list = {	
-		100 = "ce_pagan_circle_frame.dds"
-		
-		special_selection = {
-			trigger = {
-				always = no
-			}		
-			# Circle frames using various viking styles
-			1000 = "ce_frame_circle_borre_double.dds"
-			1000 = "ce_frame_circle_borre_single.dds"
-			1000 = "ce_frame_circle_urnes_runes.dds"
-			1000 = "ce_frame_circle_broa.dds"
-			1000 = "ce_frame_circle_borre_doted.dds"
-			1000 = "ce_frame_circle_borre_single_knots.dds"
-			1000 = "ce_frame_circle_borre_single_knots_02.dds"
-			1000 = "ce_frame_circle_borre_double_knots.dds"	
-			1000 = "ce_frame_circle_borre_double_knots_02.dds"	
-			1000 = "ce_frame_circle_borre_double_knots_03.dds"	
-			1000 = "ce_frame_circle_urnes_pitney.dds"				
-		}		
+		100 = "ce_pagan_circle_frame.dds"	
 	}	
 	# Circled design with vertical correction to some of the charges
 	circled_pagan_charge_offset_list = {
-			1000 = "ce_bear_passant.dds"	
-			1000 = "ce_bow.dds"
-			1000 = "ce_bear_rampant.dds"		
-			1000 = "ce_horse_statant.dds"					
-			1000 = "ce_boar_passant.dds"	
-			1000 = "ce_griffin_rampant.dds"
-			1000 = "ce_stag.dds"
-			1000 = "ce_griffin_head.dds"
-			1000 = "ce_boar_head.dds"			
-			1000 = "ce_bear_head.dds"
-			1000 = "ce_wyvern.dds"	
-			1000 = "ce_attire.dds"	
-			1000 = "ce_crescent.dds"				
+		1000 = "ce_bear_passant.dds"	
+		1000 = "ce_bow.dds"
+		1000 = "ce_bear_rampant.dds"		
+		1000 = "ce_horse_statant.dds"					
+		1000 = "ce_boar_passant.dds"	
+		1000 = "ce_griffin_rampant.dds"
+		1000 = "ce_stag.dds"
+		1000 = "ce_griffin_head.dds"
+		1000 = "ce_boar_head.dds"			
+		1000 = "ce_bear_head.dds"
+		1000 = "ce_wyvern.dds"	
+		1000 = "ce_attire.dds"	
+		1000 = "ce_crescent.dds"				
 	}	
 	tamgha_circle_frame_list = {	
-			1000 = "ce_tamgha_regular_circle_frame.dds"
-			1000 = "ce_tamgha_doted_circle_frame.dds"				
+		1000 = "ce_tamgha_regular_circle_frame.dds"
+		1000 = "ce_tamgha_doted_circle_frame.dds"				
 	}				
 	# Basic tamgha list
 	base_tamgha_charge_list	= {
@@ -1410,10 +1253,11 @@
 		1000 = "ce_tamgha_mongol_20.dds"	
 		1000 = "ce_tamgha_mongol_21.dds"	
 		1000 = "ce_tamgha_mongol_22.dds"	
-		1000 = "ce_tamgha_mongol_23.dds"		
+		1000 = "ce_tamgha_mongol_23.dds"
+		
 		special_selection = { # Mongols
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = mongol_coa_gfx }
 			}
 			1000 = "ce_tamgha_mongol_mengu_timur.dds"
 			1000 = "ce_tamgha_mongol_kaidu.dds"
@@ -1454,48 +1298,10 @@
 			1000 = "ce_tamgha_mongol_21.dds"	
 			1000 = "ce_tamgha_mongol_22.dds"	
 			1000 = "ce_tamgha_mongol_23.dds"				
-		}						
-		special_selection = {
-			trigger = {
-				always = no
-			}
-			2000 = "ce_tamgha_magyar_01.dds"
-			2000 = "ce_tamgha_magyar_02.dds"
-			2000 = "ce_falcon.dds"
 		}		
 		special_selection = {
 			trigger = {
-				always = no
-			}
-			5000 = "ce_moon_sun.dds"
-			5000 = "ce_crescent.dds"
-			5000 = "ce_religion_zoroastrianism_generic_faravahar.dds"
-			5000 = "ce_zoroastrian_fire_altar.dds"
-			5000 = "ce_rosetta_06.dds"
-			5000 = "ce_star_07.dds"
-			5000 = "ce_tamgha_zoroastrian_01.dds"		
-			5000 = "ce_tamgha_zoroastrian_02.dds"	
-			5000 = "ce_tamgha_zoroastrian_03.dds"	
-			5000 = "ce_tamgha_zoroastrian_04.dds"		
-			5000 = "ce_tamgha_zoroastrian_05.dds"	
-			5000 = "ce_tamgha_zoroastrian_06.dds"	
-			5000 = "ce_tamgha_zoroastrian_07.dds"	
-			5000 = "ce_tamgha_zoroastrian_08.dds"	
-			5000 = "ce_tamgha_zoroastrian_09.dds"	
-			5000 = "ce_tamgha_zoroastrian_10.dds"				
-			5000 = "ce_tamgha_sassan.dds"
-			5000 = "ce_tamgha_artabanos.dds"			
-			5000 = "ce_tamgha_hormizd.dds"
-			5000 = "ce_tamgha_shapur.dds"
-			5000 = "ce_tamgha_shapur_02.dds"		
-			5000 = "ce_star_ishtar.dds"
-			5000 = "ce_star_shamash.dds"
-			5000 = "ce_star_sassanian.dds"
-			5000 = "ce_triskel_sassanian.dds"
-		}		
-		special_selection = {
-			trigger = {
-				always = no
+				scope:faith = faith:nestorian
 			}
 			20000 = "ce_tamgha_nestorian_01.dds"
 			20000 = "ce_tamgha_nestorian_02.dds"
@@ -1510,24 +1316,6 @@
 			20000 = "ce_nestorian_bird.dds"	
 			20000 = "ce_nestorian_gammate_cross.dds"	
 			20000 = "ce_nestorian_cross_birds.dds"				
-		}		
-		special_selection = { # Jewish Khazars
-			trigger = {
-				always = no
-			}
-			10000 = "ce_tamgha_khazar.dds"			
-			10000 = "ce_tamgha_sarkel_01.dds"
-			10000 = "ce_tamgha_sarkel_02.dds"
-			10000 = "ce_tamgha_sarkel_03.dds"
-			10000 = "ce_tamgha_sarkel_04.dds"
-			10000 = "ce_tamgha_sarkel_05.dds"	
-			10000 = "ce_tamgha_sarkel_06.dds"				
-			10000 = "ce_rosetta_06.dds"	
-			10000 = "ce_pagan_rose.dds"		
-			10000 = "ce_solomon_star_06.dds"	
-			10000 = "ce_hexagram_khazaria.dds"	
-			10000 = "ce_hexagram_khazaria_02.dds"				
-			10000 = "ce_religion_judaism_generic.dds"			
 		}			
 	}
 	african_circle_frame_list = {	
@@ -1552,7 +1340,7 @@
 		1000 = "ce_african_cross_ghana.dds"
 		1000 = "ce_african_cross_gur.dds"
 		1000 = "ce_african_cross_jenne.dds"
-		1000 = "ce_african_cross_NU.dds"
+		1000 = "ce_african_cross_nu.dds"
 		1000 = "ce_african_cross_yoruba.dds"
 		1000 = "ce_african_flower.dds"
 		1000 = "ce_african_knot_hausa.dds"
@@ -1587,41 +1375,6 @@
 		1000 = "ce_african_otumfuo.dds"		
 		1000 = "ce_african_tamfo.dds"	
 		
-		special_selection = {
-			trigger = {  # Serere
-				always = no
-			}
-			2000 = "ce_african_jaaniw.dds"
-			2000 = "ce_religion_african_roog_sene.dds"			
-			2000 = "ce_african_koh.dds"
-			2000 = "ce_african_hidoox.dds"
-			2000 = "ce_african_ja_ir.dds"			
-			2000 = "ce_bull_passant.dds"	
-			2000 = "ce_antelope.dds"	
-			2000 = "ce_camel.dds"	
-			# Raampa symbols, totemic animals : camel, antelope, lion, hare etc
-		}	
-		special_selection = { # Hausa
-			trigger = {
-				always = no
-			}
-			1000 = "ce_arewa_knot.dds"	
-			1000 = "ce_hausa_cross.dds"	
-			1000 = "ce_hausa_knot.dds"			
-		}		
-		special_selection = { # Mandé
-			trigger = {
-				always = no
-			}
-			1000 = "ce_kanaga.dds"	
-			1000 = "ce_african_munun_ti.dds"	
-			1000 = "ce_african_mende.dds"		
-			1000 = "ce_african_venus.dds"		
-			1000 = "ce_african_fu_ti.dds"		
-			1000 = "ce_african_kara.dds"	
-			1000 = "ce_african_kile.dds"
-			1000 = "ce_african_karaka.dds"			
-		}			
 	}	
 	african_geometrical_charge_list = {			
 		1000 = "ce_african_pattern_dancetty.dds"			
@@ -1727,7 +1480,7 @@
 
 		special_selection = {	
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = polish_coa_gfx }
 			}			
 			30 = "ce_griffin_rampant.dds"
 			30 = "ce_stag.dds"
@@ -1779,14 +1532,58 @@
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				scope:faith.religion = religion:christianity_religion
+				exists = root
+				any_liege_or_above = {
+					primary_title = {
+						this = title:k_ruthenia
+					}
+				}
 			}
 			1 = "ce_rurikid_izyaslav.dds"	
 			1 = "ce_rurikid_vzevolod_02.dds"	
 			1 = "ce_rurikid_vzevolod_01.dds"	
 			# TODO PM : Those should be restricted to dynasties only (or possibly reserved for cadets of Rurikids) - and then expanded with more designs
-		}		
+		}			
+		special_selection = {
+			trigger = {
+				coa_scandinavian_trigger = yes
+			}
+			100 = "ce_ram_horn.dds"
+			100 = "ce_bear_claw.dds"
+			100 = "ce_boat.dds"
+			100 = "ce_arrows_saltire.dds"	
+			100 = "ce_bull_horn.dds"
+			100 = "ce_eagle_claw.dds"	
+			100 = "ce_antlers_attire.dds"
+			100 = "ce_vol.dds"
+		}
+
+		special_selection = {
+			trigger = {
+				coa_iberian_trigger = yes
+			}
+
+			100 = "ce_dragon_bundle.dds"
+			100 = "ce_eagle_iberia.dds"
+			100 = "ce_goat_02.dds"
+			100 = "ce_lion_rampant_wide_stance.dds"
+			100 = "ce_lion_rampant_wide_stance_crown.dds"
+			100 = "ce_wolf_passant.dds"
+			100 = "ce_wolf_passant_lamb.dds"
+			100 = "ce_crown_coronet.dds"
+			100 = "ce_shield_02.dds"
+			100 = "ce_basket.dds"
+			100 = "ce_chain.dds"
+			100 = "ce_column.dds"
+			100 = "ce_column_banner.dds"
+			100 = "ce_shield_02.dds"
+			100 = "ce_arabic_iberia.dds"
+			100 = "ce_thistle.dds"
+			100 = "ce_thistle_grass.dds"
+		}
 	}
+
 	hr_three_charges_list = {
 		# bestiary
 		150 = "ce_lion_rampant.dds"
@@ -1842,9 +1639,48 @@
 		30 = "ce_cross_fleury.dds"
 		30 = "ce_cross_couped.dds"
 		30 = "ce_cross_04.dds"	
-		30 = "ce_cross_crosslet.dds"			
-	}	
+		30 = "ce_cross_crosslet.dds"	
+				
+		special_selection = {
+			trigger = {
+				coa_scandinavian_trigger = yes
+			}
+			
+			500 = "ce_cinquefoil_01.dds"
+			500 = "ce_waterlily.dds"		
+			500 = "ce_star_06.dds"		
+			250 = "ce_star_07.dds"	
+			250 = "ce_annulet.dds"	
+			500 = "ce_clam.dds"		
+			250 = "ce_cross_patty.dds"	
+			250 = "ce_bugle_horn_random.dds"	
+			250 = "ce_crown_random.dds"		
+			200	= "ce_lion_head.dds"	
+			500 = "ce_fleur.dds"	
+		
+		}
 
+		special_selection = {
+			trigger = {
+				coa_iberian_trigger = yes
+			}
+
+			200 = "ce_dragon_bundle.dds"
+			200 = "ce_eagle_iberia.dds"
+			200 = "ce_goat_02.dds"
+			200 = "ce_lion_rampant_wide_stance.dds"
+			200 = "ce_lion_rampant_wide_stance_crown.dds"
+			200 = "ce_wolf_passant.dds"
+			200 = "ce_wolf_passant_lamb.dds"
+			200 = "ce_shield_02.dds"
+			200 = "ce_chain.dds"
+			200 = "ce_column.dds"
+			200 = "ce_column_banner.dds"
+			200 = "ce_thistle.dds"
+			200 = "ce_thistle_grass.dds"
+		}
+	}	
+	
 	hr_three_charges_pall_list = {
 		# three charges that fit rotated template (scandinavia)
 			500 = "ce_waterlily.dds"	
@@ -1854,7 +1690,7 @@
 			# 250 = "ce_crown_random.dds"		
 			# inv waterlily
 			# inv shell poss
-	}
+	}	
 
 	hr_six_charges_list = {
 		# bestiary
@@ -1937,7 +1773,37 @@
 		30 = "ce_clam.dds"
 		30 = "ce_mascle.dds"	
 		30 = "ce_lozenge.dds"	
-		# TODO lion's head 		
+		# TODO lion's head 	
+		
+		special_selection = {
+			trigger = {
+				coa_scandinavian_trigger = yes
+			}		
+			5000 = "ce_cinquefoil_01.dds"
+			5000 = "ce_waterlily.dds"
+			5000 = "ce_star_06.dds"		
+			5000 = "ce_clam.dds"	
+			5000 = "ce_heart.dds"
+			2000 = "ce_star_07.dds"	
+			2000 = "ce_annulet.dds"		
+			1000 = "ce_lozenge.dds"	
+			1000 = "ce_circle.dds"			
+		}
+
+		special_selection = {
+			trigger = {
+				coa_iberian_trigger = yes
+			}
+
+			100 = "ce_dragon_bundle.dds"
+			100 = "ce_eagle_iberia.dds"
+			100 = "ce_goat_02.dds"
+			100 = "ce_lion_rampant_wide_stance.dds"
+			100 = "ce_lion_rampant_wide_stance_crown.dds"
+			100 = "ce_wolf_passant.dds"
+			100 = "ce_wolf_passant_lamb.dds"
+			100 = "ce_shield_02.dds"
+		}
 	}	
 	hr_geometrical_list = {
 	# geometrical pieces - divisions + ordinaries
@@ -2063,7 +1929,7 @@
 		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_bishopric_trigger = yes
 			}
 			100 = "ce_ordinary_cross_5.dds"	
 			20 = "ce_cross_fretty.dds"
@@ -2254,14 +2120,14 @@
 			100 = "ce_thistle.dds"
 			100 = "ce_thistle_grass.dds"
 		}
-	}			
+	}		
 	hr_canton_charges_list = {
 		50 = "ce_star_06.dds"
 		20 = "ce_cinquefoil_01.dds"	# check needed
 		50 = "ce_ordinary_cross_5.dds"	
 		special_selection = {
 			trigger = {
-				always = no
+				coa_bishopric_trigger = yes
 			}
 			500 = "ce_ordinary_cross_5.dds"
 			500 = "ce_keys.dds"
@@ -2373,7 +2239,7 @@
 		10 = "ce_cross_couped.dds"		
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = byzantine_group_coa_gfx }
 			}		
 			50 = "ce_star_06.dds"
 			25 = "ce_star_05.dds"			
@@ -2405,6 +2271,8 @@
 		1000 = "ce_tamgha_doted_circle_frame.dds"	
 		5000 = "ce_octogon_frame.dds"
 		5000 = "ce_polylobe_frame.dds"
+		2000 = "ce_sun_frame.dds"
+		1000  = "ce_rubh_el_hizb_iranian_frame.dds"
 	}	
 	mena_roundel_frame_list = {
 		1000 = "ce_tamgha_roundel_frame.dds"
@@ -2413,6 +2281,7 @@
 		1000 = "ce_polylobe_plain_frame.dds"
 		1000 = "ce_polylobe_circle_frame.dds"
 	}		
+
 	base_islamic_charge_list = {
 	# Centered single charges that fit within the various frames
 		100 = "ce_mena_sun.dds"
@@ -2435,15 +2304,70 @@
 		100 = "ce_star_ibadi.dds"
 		100 = "ce_moon_sun.dds"
 		100 = "ce_crescent_random.dds"
-		# TODO mamluk heater shield charge
+		100 = "ce_rubh_el_hizb_flower.dds"
+		100 = "ce_rubh_el_hizb_arch.dds"
+		100 = "ce_ali_knot.dds"
+		100 = "ce_rubh_el_hizb_knot.dds"
+		100  = "ce_rubh_el_hizb_iranian.dds"
+
 		
+		# TODO mamluk heater shield charge
+
 		special_selection = {
 			trigger = {
-				always = no
+				scope:faith.religion = religion:islam_religion
+			}
+			100 = "ce_arabic_ali.dds"
+		}
+
+		special_selection = {
+			trigger = {
+				scope:culture = { has_coa_gfx = indo_aryan_group_coa_gfx }
 			}		
 			50 = "ce_elephant.dds"
 		}	
 		
+		special_selection = {
+			trigger = {
+				coa_iberian_trigger = yes
+			}
+			100 = "ce_eagle_iberia.dds"
+		}
+
+		special_selection = {
+			trigger = {
+				coa_iranian_trigger = yes
+			}
+			100 = "ce_isfahan.dds"
+		}
+
+		special_selection = {
+			trigger = {
+				coa_iranian_trigger = yes
+			}
+			100 = "ce_huma.dds"
+		}
+
+		special_selection = {
+			trigger = {
+				coa_iranian_trigger = yes
+			}
+			100 = "ce_persian_duck.dds"
+		}
+
+		special_selection = {
+			trigger = {
+				coa_iranian_trigger = yes
+			}
+			100 = "ce_persian_bull.dds"
+		}
+
+		special_selection = {
+			trigger = {
+				coa_iranian_trigger = yes
+			}
+			100 = "ce_persian_lion.dds"
+		}
 	}	
 
 	mena_base_charges_list = {
@@ -2464,7 +2388,14 @@
 		500 = "ce_mena_lion.dds"
 		500 = "ce_mena_axe.dds"
 		500 = "ce_eagle_islamic.dds"
-		500 = "ce_mena_crescent.dds"			
+		500 = "ce_mena_crescent.dds"
+
+		special_selection = {
+			trigger = {
+				coa_iberian_trigger = yes
+			}
+			100 = "ce_eagle_iberia.dds"
+		}
 	}
 	
 	mena_middle_charges_list = {
@@ -2498,6 +2429,8 @@
 		100 = "ce_mena_chalice_axe_penbox.dds"	
 		100 = "ce_mena_chalice_khanja.dds"		
 		500 = "ce_mena_axe_fess.dds"			
+		500 = "ce_zulfiqar_and_shield.dds"
+		500 = "ce_baglama.dds"
 	}
 
 	mena_horizontal_addorsed_charges_list = {
@@ -2524,6 +2457,7 @@
 		500 = "ce_barry_undy.dds"
 		500 = "ce_bars_dancetty_02.dds"
 		500 = "ce_pily_barry.dds"
+		500 = "ce_iranian_floral_pattern.dds"
 		# pales
 		200 = "ce_mena_pale.dds"
 		500 = "ce_paly_04.dds"
@@ -2537,7 +2471,12 @@
 		100 = "ce_points_12.dds"	
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = {
+					OR = {
+						has_coa_gfx = arabic_group_coa_gfx
+						has_coa_gfx = berber_group_coa_gfx
+					}
+				}
 			}
 			500 = "ce_checky_04.dds"
 			500 = "ce_points_12.dds"			
@@ -2667,8 +2606,8 @@
 		10000 = "ce_horse_statant.dds"
 		# Elephant, bull (humped), horse, lion, boar (the five main elements in indian bestiary)
 	}	
-	
-	### A REPLACER
+
+### A REPLACER
 
 	hr_charges_symetrical_list = {
 		# Symetrical that work for dimidiated designs
