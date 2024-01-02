@@ -86,17 +86,16 @@ clan_government = {
 	always_use_patronym = no
 	dynasty_named_realms = no
 
+	house_unity = clan_house_unity
+	tax_slot_type = clan_tax_slot
+
 	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
+		clan_tax_collector_obligations
 		special_contract
 		religious_rights
 		war_declaration_rights
 		council_rights
 		title_revocation_rights
-	#	jizya_special_rights
-	#	iqta_special_rights
-	#	ghazi_special_rights
 		marriage_favor_rights
 	}
 	

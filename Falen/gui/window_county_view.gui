@@ -10,10 +10,6 @@ window = {
 	movable = no
 	layer = windows_layer
 	size = { 625 620 }
-	datacontext = "[HoldingView.GetHolding]"
-	datacontext = "[HoldingView.GetProvince]"
-	datacontext = "[HoldingView.GetHolder]"
-	datacontext = "[Province.GetCounty]"
 	tech_window = {}
 
 	background = {
@@ -44,6 +40,16 @@ window = {
 		using = Animation_FadeIn_BottomLeft
 	}
 
+	state = {
+		name = _hide
+		on_start = "[GetVariableSystem.Clear( 'county_view_open' )]"
+		on_start = "[GetVariableSystem.Clear( 'hide_bottom_left_HUD' )]"
+
+		using = Animation_FadeOut_Standard
+		using = Sound_WindowHide_Standard
+		using = Animation_FadeOut_BottomLeft
+	}
+	
 	state = {
 		name = _hide
 		on_start = "[GetVariableSystem.Clear( 'county_view_open' )]"
@@ -223,11 +229,12 @@ window = {
 				datamodel = "[HoldingView.GetCountyModifiers]"
 
 				item = {
-					icon = {
+					modifier_item_icon = {
 						size = { 30 30 }
-						texture = "[ModifierItem.GetIcon]"
-						using = tooltip_ne
-						tooltip = "[ModifierItem.GetTooltip]"
+
+						blockoverride "icon_data" {
+							using = tooltip_ne
+						}
 					}
 				}
 			}
@@ -1051,21 +1058,6 @@ window = {
 										}
 									}
 								}
-
-								hbox = {
-									datacontext = "[HoldingView.GetTitle]"
-									visible = "[Title.IsUnderTheocraticLease]"
-									tooltip = "CHURCH_PROPERTY_TOOLTIP"
-									layoutpolicy_horizontal = expanding
-
-									icon = {
-										name = "church_property"
-										texture = "gfx/interface/icons/icon_holding_church.dds"
-										size = { 30 30 }
-									}
-
-									expand = {}
-								}
 							}
 
 							text_single = {
@@ -1228,12 +1220,13 @@ window = {
 						flipdirection = yes
 
 						item = {
-							icon = {
+							modifier_item_icon = {
 								size = { 30 30 }
-								alwaystransparent = no
-								texture = "[ModifierItem.GetIcon]"
-								using = tooltip_ne
-								tooltip = "[ModifierItem.GetTooltip]"
+
+								blockoverride "icon_data" {
+									using = tooltip_ne
+									alwaystransparent = no
+								}
 							}
 						}
 					}
@@ -2966,3 +2959,4 @@ types CountyViewTypes
 			
 	}
 }
+

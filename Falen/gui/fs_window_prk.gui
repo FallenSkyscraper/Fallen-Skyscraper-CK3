@@ -1,0 +1,145 @@
+window = {
+	name = "prk_window"
+	parentanchor = center
+	position = { 50 100 }
+	size = { 900 600 }
+	layer = windows_layer
+	filter_mouse = all
+	alwaystransparent = no
+
+	using = Window_Background
+	using = Window_Decoration
+	movable = yes
+	datacontext = "[GetScriptedGui('prk_gui_toggle')]"
+	visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+	state = {
+		name = _show
+		using = Animation_FadeIn_Quick
+		using = Sound_WindowShow_Standard
+		using = Window_Position_MainTab
+
+		on_start = "[GetVariableSystem.Set( 'right_window_open', 'true' )]"
+	}
+
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+		using = Sound_WindowHide_Standard
+		using = Window_Position_MainTab_Hide
+
+		on_start = "[GetVariableSystem.Clear( 'right_window_open')]"
+		on_start = "[GetScriptedGui('prk_clear_list').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+	}
+	vbox = {
+		header_pattern = {
+			layoutpolicy_horizontal = expanding						
+			blockoverride "header_text"
+			{
+				text = "PRK_VIEW_TITLE"
+				margin = { -10 0 }
+				parentanchor = center
+			}
+			blockoverride "button_close"
+			{
+				datacontext = "[GetScriptedGui('prk_gui_close')]"
+				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			}
+		}
+
+		hbox = {
+			using = Window_Margins
+			layoutpolicy_horizontal = expanding
+			margin_top = 5
+			margin_bottom = 5
+			state = {
+				name = get_list
+				trigger_on_create = yes
+				duration = 2
+				on_start = "[GetScriptedGui('prk_get_president').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				next = get_list
+			}
+
+			vbox = {
+
+				text_single_big = { text = "현직:" }
+				datacontext = "[GetPlayer.MakeScope.Var('prk_president').GetCharacter]"
+				portrait_head = {}
+				text_single = { text = "[Character.GetFirstNameNicknamedNoTooltip]" }
+			}
+			icon = {
+				texture = "gfx/interface/gui/peoples_republic_korea.dds"
+				size = { 58% 100% }
+			}
+			vbox = {
+				text_single_big = { text="다음 선거:"}
+				text_single = { text="[GetGlobalVariable('election_date').GetValue|0].1.1"}
+				text_single = { text = "선거까지" }
+				text_single = { text="[GetGlobalVariable('election_term').GetValue|0]년" }
+			}
+
+		}
+		text_single_large = { text = "후보들" }
+		hbox = {
+			using = Window_Margins
+				datamodel = "[GetPlayer.MakeScope.GetList('prk_candidates')]"
+				state = {
+							name = get_list
+							trigger_on_create = yes
+							duration = 2
+							on_start = "[GetScriptedGui('prk_candidate').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							next = get_list
+						}
+				item = {
+					vbox = {
+						portrait_head_small = {
+							datacontext = "[Scope.GetCharacter]"
+						}
+						text_single = { text = "[Scope.GetCharacter.GetFirstNameNicknamedOrMe]" }
+					}
+				}
+
+		}
+		hbox = {
+			button_standard = {
+				name = "run_candidate"
+				size = { 100 25 }
+				datacontext = "[GetScriptedGui('prk_run_candidate')]"
+				enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				tooltip = "RUN_CANDIDATE_TOOLTIP"
+				using = tooltip_se
+				hbox = {
+					margin = { 20 0 }
+					margin_right = 10
+
+					text_single = {
+						layoutpolicy_horizontal = growing
+						text = "출마"
+						align = nobaseline
+					}
+				}
+			}
+			button_standard = {
+				name = "resign_candidate"
+				size = { 100 25 }
+				datacontext = "[GetScriptedGui('prk_resign_candidate')]"
+				enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				hbox = {
+					margin = { 20 0 }
+					margin_right = 10
+
+					text_single = {
+						layoutpolicy_horizontal = growing
+						text = "사퇴"
+						align = nobaseline
+					}
+				}
+			}
+		}
+		#icon = {
+		#	size = { 200 200 }
+		#	texture = "gfx/interface/component_overlay/overlay_texture.dds"
+		#}
+	}
+}
