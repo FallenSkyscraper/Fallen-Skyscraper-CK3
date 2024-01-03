@@ -90,6 +90,9 @@
 1050 = {	#Hoehyeon
 	holding = none
 }
+57 = { # Miseong
+	holding = city_holding
+}
 ###c_old_gunsan_islands
 3818 = { # 옥도
 	culture = gunsan
@@ -140,20 +143,43 @@
 1034 = {	#Buryang
 	holding = none
 }
+1037 = {	#Baeksan
+	holding = none
+}
+1032 = {	#Juksan
+	holding = none
+}
+
+###c_geumgu
+
+1041 = {	#Geumgu
+	culture = jeonju
+	religion = holyist
+	holding = castle_holding
+}
 1039 = {	#Bongnam
 	holding = none
 }
 1040 = {	#Geumsan
 	holding = none
 }
-1041 = {	#Geumgu
-	holding = none
-}
 1042 = {	#Hwangsan
 	holding = none
 }
- 
- 
+
+###c_mangyeong 
+1035 = {	#Mangyeong
+	culture = jeonju
+	religion = holyist
+	holding = castle_holding
+}
+1038 = {	#Cheongha
+	holding = none
+}
+1044 = {	#Gongdeok
+	holding = none
+}
+
 ###c_baekgu 
 
 120={#Baekgu
@@ -165,15 +191,6 @@
 1043 = {	#Yongji
 	holding = none
 }
-1037 = {	#Baeksan
-	holding = none
-}
-1038 = {	#Cheongha
-	holding = none
-}
-1044 = {	#Gongdeok
-	holding = none
-}
  
 ###c_jinbong 
 
@@ -183,13 +200,8 @@
 	holding = castle_holding
 }
 
-1035 = {	#Mangyeong
-	holding = none
-}
+
 1033 = {	#Seongdeok
-	holding = none
-}
-1032 = {	#Juksan
 	holding = none
 }
 1031 = {	#Gwanghwal
@@ -266,19 +278,13 @@
 	holding = none
 }
 
+##d_buan
 ###c_buan 
 
 978={#Buan
 	culture = saemangeum
 	religion = holyist
 	holding = castle_holding
-}
-
-974 = {	#Jusan
-	holding = none
-}
-979 = {	#Baeksan
-	holding = none
 }
   
 977 = {	#Dongjeon
@@ -301,7 +307,7 @@
 }
 
 970 = {	#Jinseo
-	holding = none
+	holding = city_holding
 }
 972 = {	#Haseo
 	holding = none
@@ -310,12 +316,19 @@
 973 = {	#Sangseo
 	holding = none
 }
+
+###c_boan
+
 971 = {	#Boan
+	culture = saemangeum
+	religion = holyist
+	holding = castle_holding
+}
+974 = {	#Jusan
 	holding = none
 }
-  
 121 = {	#Julpo
-	holding = none
+	holding = city_holding
 }   
 
 
@@ -334,22 +347,23 @@
 980 = {	#Ibam
 	holding = none
 }
-981 = {	#Soseong
-	holding = none
+56 = { #Naejang
+	holding = church_holding
 }
+
+###c_gobu
+
 982 = {	#Gobu
-	holding = none
-}
-
-
-###c_sintaein 
-
-987={#Sintaein
 	culture = jeonju
 	religion = holyist
 	holding = castle_holding
 }
-
+981 = {	#Soseong
+	holding = none
+}
+979 = {	#Baeksan
+	holding = none
+}
 989 = {	#Jeongu
 	holding = none
 }
@@ -369,7 +383,9 @@
 	religion = holyist
 	holding = castle_holding
 }
-
+987={#Sintaein
+	holding = city_holding
+}
 988 = {	#Gamgok
 	holding = none
 }

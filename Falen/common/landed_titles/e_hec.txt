@@ -589,13 +589,18 @@ e_hec = {
 					
 					color = { 85 159 151 }
 				}
+				b_1050 = { # Hoehyeon
+					province = 1050
+					
+					color = { 85 159 151 }
+				}
 				b_1051 = { # Oksan
 					province = 1051
 					
 					color = { 85 159 151 }
 				}
-				b_1050 = { # Hoehyeon
-					province = 1050
+				b_57 = { # Miseong
+					province = 57
 					
 					color = { 85 159 151 }
 				}
@@ -663,8 +668,27 @@ e_hec = {
 					
 					color = { 0 21 65 }
 				}
+				b_1032 = { # Juksan
+					province = 1032
+					
+					color = { 168 3 62 }
+				}
 				b_1034 = { # Buryang
 					province = 1034
+					
+					color = { 0 21 65 }
+				}
+				b_1037 = { # Baeksan
+					province = 1037
+					
+					color = { 0 147 60 }
+				}
+			}
+			c_geumgu = {
+				color = { 0 41 54 }
+			
+				b_1041 = { # Geumgu
+					province = 1041
 					
 					color = { 0 21 65 }
 				}
@@ -678,15 +702,29 @@ e_hec = {
 					
 					color = { 0 21 65 }
 				}
-				b_1041 = { # Geumgu
-					province = 1041
-					
-					color = { 0 21 65 }
-				}
 				b_1042 = { # Hwangsan
 					province = 1042
 					
 					color = { 0 21 65 }
+				}
+			}
+			c_mangyeong = {
+				color = { 0 111 177 }
+				
+				b_1035 = { # Mangyeong
+					province = 1035
+					
+					color = { 168 3 62 }
+				}
+				b_1038 = { # Cheongha
+					province = 1038
+					
+					color = { 0 147 60 }
+				}
+				b_1044 = { # Gongdeok
+					province = 1044
+					
+					color = { 0 147 60 }
 				}
 			}
 			c_baekgu = {
@@ -702,21 +740,6 @@ e_hec = {
 					
 					color = { 0 147 60 }
 				}
-				b_1037 = { # Baeksan
-					province = 1037
-					
-					color = { 0 147 60 }
-				}
-				b_1038 = { # Cheongha
-					province = 1038
-					
-					color = { 0 147 60 }
-				}
-				b_1044 = { # Gongdeok
-					province = 1044
-					
-					color = { 0 147 60 }
-				}
 			}
 			c_jinbong = {
 				color = { 168 3 62 }
@@ -726,23 +749,13 @@ e_hec = {
 					
 					color = { 168 3 62 }
 				}
-				b_1035 = { # Mangyeong
-					province = 1035
+				b_1031 = { # Gwanghwal
+					province = 1031
 					
 					color = { 168 3 62 }
 				}
 				b_1033 = { # Seongdeok
 					province = 1033
-					
-					color = { 168 3 62 }
-				}
-				b_1032 = { # Juksan
-					province = 1032
-					
-					color = { 168 3 62 }
-				}
-				b_1031 = { # Gwanghwal
-					province = 1031
 					
 					color = { 168 3 62 }
 				}
@@ -842,21 +855,16 @@ e_hec = {
 					color = { 145 65 233 }
 				}
 			}
+		}
+		d_buan = {
+			color = { 20 53 167 }
+			capital = c_buan
+			
 			c_buan = {
 				color = { 0 39 160 }
 				
 				b_978 = { # Buan
 					province = 978
-					
-					color = { 0 39 160 }
-				}
-				b_974 = { # Jusan
-					province = 974
-					
-					color = { 0 39 160 }
-				}
-				b_979 = { # Baeksan
-					province = 979
 					
 					color = { 0 39 160 }
 				}
@@ -874,6 +882,25 @@ e_hec = {
 					province = 976
 					
 					color = { 0 39 160 }
+				}
+			}
+			c_boan = {
+				color = { 23 100 117 }
+				
+				b_971 = { # Boan
+					province = 971
+					
+					color = { 84 87 76 }
+				}
+				b_974 = { # Jusan
+					province = 974
+					
+					color = { 0 39 160 }
+				}
+				b_121 = { # Julpo
+					province = 121
+					
+					color = { 84 87 76 }
 				}
 			}
 			c_byeonsan = {
@@ -896,16 +923,6 @@ e_hec = {
 				}
 				b_973 = { # Sangseo
 					province = 973
-					
-					color = { 84 87 76 }
-				}
-				b_971 = { # Boan
-					province = 971
-					
-					color = { 84 87 76 }
-				}
-				b_121 = { # Julpo
-					province = 121
 					
 					color = { 84 87 76 }
 				}
@@ -934,24 +951,30 @@ e_hec = {
 					
 					color = { 42 57 163 }
 				}
-				b_981 = { # Soseong
-					province = 981
+				b_56 = { # Naejang
+					province = 56
 					
 					color = { 42 57 163 }
 				}
+			}
+			c_gobu = {
+				color = { 168 66 37 }
+				
+				
 				b_982 = { # Gobu
 					province = 982
 					
 					color = { 42 57 163 }
 				}
-			}
-			c_sintaein = {
-				color = { 168 66 37 }
-				
-				b_987 = { # Sintaein
-					province = 987
+				b_981 = { # Soseong
+					province = 981
 					
-					color = { 168 66 37 }
+					color = { 42 57 163 }
+				}
+				b_979 = { # Baeksan
+					province = 979
+					
+					color = { 0 39 160 }
 				}
 				b_989 = { # Jeongu
 					province = 989
@@ -981,6 +1004,11 @@ e_hec = {
 					province = 992
 					
 					color = { 168 81 167 }
+				}
+				b_987 = { # Sintaein
+					province = 987
+					
+					color = { 168 66 37 }
 				}
 				b_988 = { # Gamgok
 					province = 988
