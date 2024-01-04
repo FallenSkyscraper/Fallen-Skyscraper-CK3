@@ -136,9 +136,50 @@ type_icon = "icon_building_Hwaseong_Fortress.dds"
 }
 
 #목포 대시장
-Mokpo_Grand_Market = {
-type_icon = "icon_building_Mokpo_Grand_Market.dds"
+mokpo_grand_market = {
 
+	type_icon = "icon_building_market_villages.dds"
+	
+	construction_time = slow_construction_time
+
+	can_construct_potential = {
+		barony = title:b_542
+		building_requirement_tribal = no
+	}
+	show_disabled = yes
+	
+	cost_gold = expensive_building_tier_5_cost
+	
+	duchy_capital_county_modifier = {
+		county_opinion_add = 10
+		development_growth_factor = 0.3
+	}
+	county_modifier = {
+		development_growth = 0.25
+		levy_reinforcement_rate_same_faith = 0.25
+		levy_size = 0.25
+	}
+	province_modifier = {
+		monthly_income = 9
+	}
+	character_modifier = {
+		martial = 1
+		stewardship_per_prestige_level = 1
+		monthly_income_mult = 0.15
+		monthly_prestige = 0.25
+	}
+	
+	type = duchy_capital
+	
+	ai_value = {
+		base = 100
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+
+	flag = travel_point_of_interest_economic
 }
 
 #신안 염전
@@ -255,8 +296,48 @@ type_icon = "icon_building_Bullet_Men.dds"
 }
 
 #경기전(전주)
-Jeonju_Gyeonggijeon = {
-type_icon = "icon_building_Jeonju_Gyeonggijeon.dds"
+gyeonggijeon = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "sungkyunkwan_university.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		monthly_piety = 0.5
+		monthly_prestige = 0.5
+		learning_per_piety_level = 1
+		monthly_dynasty_prestige_mult = 0.15
+		monthly_county_control_change_factor = 0.1
+	}
+	
+	county_modifier = {
+		tax_mult = 0.15
+		development_growth_factor = 0.2
+		development_growth = 0.1
+		levy_size = 0.25
+	}
+	
+	province_modifier = {
+		monthly_income = 5
+		fort_level = 1
+	}
+	
+	ai_value = {
+		base = 100
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_religious
 
 }
 
