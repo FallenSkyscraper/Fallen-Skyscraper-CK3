@@ -3,23 +3,36 @@
 ### c_iksan
 
 
-1059={#Iksan
+1059={#Iri
 	culture =  jeonju
 	religion = imperial_church
 	holding = castle_holding
 }
-
-1055 = {	#Osan
-	holding = none
+68 = {	#Okya
+	holding = city_holding
 }
+71 = {	#Palbong
+	holding = church_holding
+}
+72 = {	#Bukil
+	holding = city_holding
+}
+1055 = {	#Osan
+	holding = church_holding
+}
+
+###c_geumma
+
 1060 = {	#Chunpo
 	holding = none
 }
 1061 = {	#Wanggung
-	holding = none
+	holding = church_holding
 }
 1063 = {	#Geumma
-	holding = none
+	culture =  jeonju
+	religion = imperial_church
+	holding = castle_holding
 }
 
 ###c_yeosan 
@@ -30,40 +43,42 @@
 }
 
 114 = {	#Mangseong
-	holding = none
+	holding = city_holding
 }
-1072 = {	#Yongdong
-	holding = none
-}
+
 1070 = {	#Nangsan
-	holding = none
+	holding = castle_holding
 }
 1064 = {	#Samgi
 	holding = none
 }
-###c_hwangdeung 
+###c_hamyeol
 1065={#Hwangdeung
+	holding = castle_holding
+}
+1066 = {	#Hamna
 	culture = gunsan
 	religion = imperial_church
 	holding = castle_holding
 }
-
-1066 = {	#Hamna
-	holding = none
-}
 1067 = {	#Ungpo
-	holding = none
+	holding = city_holding
 }
 1068 = {	#Seongdang
-	holding = none
+	holding = church_holding
 }
 1069 = {	#Hamyeol
-	holding = none
+	holding = city_holding
 }
+###c_yongan
 1071 = {	#Yongan
-	holding = none
+	culture = gunsan
+	religion = imperial_church
+	holding = castle_holding
 }
- 
+1072 = {	#Yongdong
+	holding = city_holding
+}
 
  
  
@@ -359,10 +374,10 @@
 	holding = castle_holding
 }
 981 = {	#Soseong
-	holding = none
+	holding = church_holding
 }
 979 = {	#Baeksan
-	holding = none
+	holding = city_holding
 }
 989 = {	#Jeongu
 	holding = none
@@ -374,7 +389,7 @@
 	holding = none
 } 
 986 = {	#Ipyeong
-	holding = none
+	holding = city_holding
 } 
 ###c_taein 
 
@@ -392,14 +407,18 @@
 993 = {	#Ongdong
 	holding = none
 }
+
+###c_chilbo
 994 = {	#Sanoe
-	holding = none
+	holding = city_holding
 }
 123 = {	#Sannae
-	holding = none
+	holding = church_holding
 }  
 991 = {	#Chilbo
-	holding = none
+	culture = jeonju
+	religion = holyist
+	holding = castle_holding
 }   
 
 ###c_gurim 

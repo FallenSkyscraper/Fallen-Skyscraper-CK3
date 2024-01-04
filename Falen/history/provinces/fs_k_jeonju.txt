@@ -182,24 +182,6 @@
 680 = {	#Samae
 	holding = city_holding
 }
-681 = {	#Deokgwa
-	holding = church_holding
-}
-682 = {	#Bojeol
-	holding = castle_holding
-}
-683 = {	#Sandong
-	holding = none
-}
-  
-
-###c_unbong 
-
-685={#Unbong
-	culture = namwon
-	religion = holyist
-	holding = castle_holding
-}
 
 684 = {	#Ibaek
 	holding = city_holding
@@ -207,14 +189,36 @@
 678 = {	#Jucheon
 	holding = none
 }
+
+### c_bojeol
+681 = {	#Deokgwa
+	holding = church_holding
+}
+682 = {	#Bojeol
+	culture = namwon
+	religion = holyist
+	holding = castle_holding
+}
+683 = {	#Sandong
+	holding = none
+}
+  
+###c_unbong 
+
+685={#Unbong
+	culture = namwon
+	religion = won_buddhism
+	holding = castle_holding
+}
+
 686 = {	#Sannae
 	holding = church_holding
 }
 687 = {	#Inwol
-	holding = church_holding
+	holding = city_holding
 }
 142 = {	#Ayeong
-	holding = none
+	holding = church_holding
 }
 ###c_geumji 
 
