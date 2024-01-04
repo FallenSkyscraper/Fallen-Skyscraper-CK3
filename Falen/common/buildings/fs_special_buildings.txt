@@ -1,0 +1,123 @@
+﻿#염전(신안,여수,인천)
+
+salt_farm_00 = {
+    type_icon = "icon_building_salt_farm.dds"
+
+    construction_time = 300
+
+    cost_gold = 125
+
+    can_construct_potential = {
+        scope:holder.culture = {
+            culture =  sinan
+        }
+    }
+
+    province_modifier = {
+        monthly_income = 3
+    }
+
+    county_modifier = {
+        county_opinion_add = -5
+    }
+
+}
+
+#### 서울시(25구)
+seoul_metropolis_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_building_guild_halls.dds"
+	
+	can_construct_potential ={
+        building_requirement_castle_city_church = {LEVEL = 01}
+		barony = {
+			target_is_de_jure_liege_or_above = title:k_seoul
+		}
+    }
+	
+    can_construct_showing_failures_only = {
+        building_requirement_tribal = no
+    }
+	cost_gold = 2000
+	
+	levy = 100
+	province_modifier = {
+		monthly_income = 5
+		fort_level = 2
+		garrison_size = 0.5
+		travel_danger = -20
+	}
+	county_modifier = {
+		development_growth_factor = -0.1
+		hostile_raid_time = 0.5
+		levy_size = 0.3
+	}
+	
+	ai_value = {
+		base = 100
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	#type = special
+
+	flag = travel_point_of_interest_economic
+}
+
+
+### 한양도성
+hanyang_city_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_visby_ringmur.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+		OR = {
+			barony = title:b_28
+			barony = title:b_29
+		}
+	}
+
+	can_construct = {
+		scope:holder.culture = {
+			has_cultural_pillar = heritage_seoul
+		}
+	}
+	
+	cost_gold = 1500
+	
+	duchy_capital_county_modifier = {
+		levy_size = 0.15
+		tax_mult = 0.15
+	}
+	county_modifier = {
+		defender_holding_advantage = 5
+		development_growth_factor = 0.15
+		tax_mult = 0.15
+		county_opinion_add = 5
+		hostile_raid_time = 0.5
+		travel_danger = -20
+	}
+	
+	province_modifier = {
+		garrison_size = 0.25
+		fort_level = 1
+	}
+	
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = duchy_capital
+
+	flag = travel_point_of_interest_martial
+}

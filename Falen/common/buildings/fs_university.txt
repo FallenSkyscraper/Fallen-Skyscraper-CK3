@@ -1,0 +1,1257 @@
+﻿###더 해야할거:프로빈스 지정 못한 대학들 다 지정하기,종교 지정하기,못 넣은 대학들 마저 넣기###
+
+#서울지역
+
+#서울대
+seoul_national_university_01 = {
+
+	construction_time = slow_construction_time
+	
+#	type_icon = "icon_structure_alamut_castle.dds"
+	
+	type_icon = "seoul_national_university.dds"
+	
+	can_construct_potential = {
+	}
+	
+	cost_gold = 400
+
+	province_modifier = {
+		monthly_income = 0.5
+		travel_danger = 15 # Gwanak Mountain
+		hostile_raid_time = 1
+		stationed_maa_toughness_mult = normal_maa_toughness_tier_2
+	}
+
+	county_modifier = {
+		fort_level = good_building_fort_level_tier_1
+	}
+	
+	character_modifier = {
+		monthly_county_control_change_factor = 0.1
+		monthly_lifestyle_xp_gain_mult = 0.05
+		learning = 1
+	}
+	
+	ai_value = {
+		base = 100
+		culture_likely_to_fortify_modifier = yes
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+
+	show_disabled = yes
+
+	next_building = seoul_national_university_02
+	
+	type = special
+
+	flag = travel_point_of_interest_martial # fortress
+}
+
+seoul_national_university_02 = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "seoul_national_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+			learning >= 25
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 5000
+
+	character_modifier = {
+		learning = 2
+		learning_per_prestige_level = 2
+		stewardship_per_prestige_level = 1
+		diplomacy_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.25
+		cultural_head_fascination_mult = 0.1
+		monthly_dynasty_prestige = 0.25
+	}
+	province_modifier = {
+		monthly_income = 3
+		fort_level = good_building_fort_level_tier_1
+	}
+	county_modifier = {
+		tax_mult = 0.1
+		development_growth_factor = 0.25
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#연세대(개신)
+yonsei_university = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "icon_building_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+			religion = religion:protestant_religion
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#동국대(불교)
+dongguk_university = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "icon_building_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+			religion = religion:buddhism_religion
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#서강대(천주교)
+sogang_university = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "icon_building_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+			religion = religion:christianity_religion
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#성균관대(유교)
+sungkyunkwan_university = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "sungkyunkwan_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+			religion = religion:confucianism_religion
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#고려대(천도교)
+korea_university = {
+		construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "icon_building_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+			religion = religion:cheondo_religion
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#경희대
+kyunghee_university = {
+		construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "icon_building_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#경상도
+
+#경북대
+kyungpook_national_university = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "kyungpook_national_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#부산대
+pusan_national_university = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "pusan_national_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#포스텍
+POSTECH = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "POSTECH.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#안동 태학
+andong_taehak = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "icon_building_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#경상대
+gyeongsang_university = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "gyeongsang_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#충청도
+
+#카이스트
+KAIST = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "KAIST.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#충북대
+chungbuk_university = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "chungbuk_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#충남대
+chungnam_university = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
+
+	type_icon = "chungnam_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.05
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
+}
+
+#제주도
+#제주대
+
+#전라도
+
+#전북대
+
+#전남대
+
+#강원도
+
+#강원대
+
+#경기도
+
+#인하대
+
+#아주대
