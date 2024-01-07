@@ -529,6 +529,21 @@ widget = {
 						onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 					}
 				}
+				widget_hud_main_tab = {
+					datacontext = "[GetScriptedGui('prk_gui_toggle')]"
+					visible = "[GetScriptedGui('prk_gui_abc').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+					allow_outside = yes
+					name = "tab_prk"
+					tooltip = "PRK_BUTTON"
+					down = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+					blockoverride "maintab_button"
+					{
+						texture = "gfx/interface/skinned/hud_maintab/maintab_prk.dds"
+						onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					}
+				}
 			}
 		}
 
@@ -2230,60 +2245,6 @@ widget = {
 					}
 				}
 
-			}
-			button_normal = {
-				name = "prk_button"
-				tooltip = "PRK_BUTTON"
-				size = { 50 50 }
-				icon = {
-					texture = "gfx/interface/icons/icon_prk.dds"
-					size = { 100% 100% }
-				}
-				datacontext = "[GetScriptedGui('prk_gui_toggle')]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				down = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				visible = "[GetScriptedGui('prk_gui_abc').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				
-				state = {
-					name = _mouse_enter
-					duration = 0.03
-					scale = 1.2
-
-					using = Animation_Curve_Default
-
-					modify_texture = {
-						name = "glow"
-						translate_uv = { 0 0 }
-						alpha = 0.4
-					}
-				}
-
-				state = {
-					name = _mouse_leave
-					duration = 0.1
-					scale = 1
-
-					using = Animation_Curve_Default
-
-					modify_texture = {
-						name = "glow"
-						translate_uv = { 1 0 }
-						alpha = 0
-					}
-				}
-
-				state = {
-					name = _mouse_press
-
-					using = Animation_Curve_Default
-				}
-
-				state = {
-					name = _mouse_release
-					duration = 0.15
-
-					using = Animation_Curve_Default
-				}
 			}
 		}
 

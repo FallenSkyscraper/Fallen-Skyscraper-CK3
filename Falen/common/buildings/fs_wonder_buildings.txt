@@ -342,9 +342,89 @@ gyeonggijeon = {
 }
 
 #도산서원(예안)
-Dosanseowon_Confucian_Academy = {
-type_icon = "icon_building_Dosanseowon_Confucian_Academy.dds"
+dosan_academy = {
+	construction_time = very_slow_construction_time
+	effect_desc = {
+		desc = unlocks_building_desc
+		triggered_desc = {
+			trigger = { has_dlc_feature = tours_and_tournaments }
+			desc = university_toto_effect_desc
+		}
+		triggered_desc = {
+			trigger = { has_dlc_feature = royal_court }
+			desc = university_roco_effect_desc
+		}
+		desc = university_effect_desc
+	}
 
+	type_icon = "sungkyunkwan_university.dds"
+
+	can_construct_potential = {
+		building_requirement_tribal = no
+		building_university_requirement = yes
+	}
+	
+	can_construct = {
+		scope:holder = {
+			highest_held_title_tier >= tier_duchy
+			prestige_level >= 4
+			religion = religion:confucianism_religion
+		}
+		county = {
+			development_level >= 30
+		}
+	}
+	
+	show_disabled = yes
+	
+	on_complete = {
+		county.holder = {
+			save_scope_as = founder
+
+			found_university_decision_event_effect = yes
+
+			every_player = {
+				limit = {
+					NOT = { this = scope:founder }
+					is_within_diplo_range = { CHARACTER = scope:founder }
+				}
+				trigger_event = major_decisions.2002
+			}
+		}
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		learning_per_prestige_level = 1
+		learning_per_piety_level = 2
+		monthly_piety = 0.5
+		monthly_prestige = 0.25
+		monthly_lifestyle_xp_gain_mult = 0.1
+		cultural_head_fascination_mult = 0.1
+		monthly_dynasty_prestige = 0.25
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.1
+		development_growth = 0.05
+	}
+	
+	province_modifier = {
+		monthly_income = 1.5
+	}
+	
+	ai_value = {
+		base = 8
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_learning
 }
 
 #에버랜드(용인)
@@ -453,4 +533,78 @@ type_icon = "icon_building_Gyeongbuk_Palace.dds"
 Gyesan_Cathedral = {
 type_icon = "icon_building_Gyesan_Cathedral.dds"
 
+}
+
+byeokkolje = {
+	type_icon = "icon_structure_iron_pillar_of_delhi.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		monthly_county_control_change_factor = 0.15
+		monthly_income_mult = 0.05
+	}
+	
+	county_modifier = {
+		tax_mult = 0.25
+		development_growth_factor = 0.4
+		development_growth = 0.05
+		levy_size = 0.25
+	}
+	
+	province_modifier = {
+		monthly_income = 3
+	}
+	
+	ai_value = {
+		base = 100
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_economic_minor
+}
+
+maitreya_temple = {
+	type_icon = "mezquita_cordoba.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 1000
+
+	character_modifier = {
+		monthly_piety = 0.5
+		learning_per_piety_level = 1
+		monthly_dynasty_prestige_mult = 0.1
+	}
+	
+	county_modifier = {
+		monthly_income_mult = 0.15
+	}
+	
+	province_modifier = {
+		monthly_income = 0.5
+	}
+	
+	ai_value = {
+		base = 100
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_religious
 }
