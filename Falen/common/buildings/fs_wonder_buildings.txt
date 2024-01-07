@@ -130,9 +130,46 @@ type_icon = "icon_building_six_republic_bunker.dds"
 }
 
 #수원화성
-Hwaseong_Fortress = {
-type_icon = "icon_building_Hwaseong_Fortress.dds"
+hwaseong_fortress = {
+	
+	asset = {
+		type = pdxmesh
+		name = "fp2_building_special_roman_wall_of_lugo_01_a_mesh"
+	}
 
+	construction_time = very_slow_construction_time
+	
+	type_icon = "lugo_walls.dds" 
+	
+	can_construct_potential = {
+	}
+	
+	cost_gold = 300
+	
+	character_modifier = {
+		learning_per_prestige_level = 1
+		martial = 1
+		monthly_dynasty_prestige_mult = 0.05
+	}
+
+	province_modifier = {
+		monthly_income = 3
+		garrison_size = 0.2
+		fort_level = 1
+		travel_danger = -10
+	}
+	
+	ai_value = {
+		base = 100
+		modifier = { # Fill all building slots before going for special buildings
+			factor = 0
+			free_building_slots > 0
+		}
+	}
+	
+	type = special
+
+	flag = travel_point_of_interest_martial
 }
 
 #목포 대시장
@@ -397,17 +434,22 @@ dosan_academy = {
 
 	character_modifier = {
 		learning_per_prestige_level = 1
-		learning_per_piety_level = 2
-		monthly_piety = 0.5
 		monthly_prestige = 0.25
-		monthly_lifestyle_xp_gain_mult = 0.1
-		cultural_head_fascination_mult = 0.1
 		monthly_dynasty_prestige = 0.25
 	}
 	
 	county_modifier = {
 		development_growth_factor = 0.1
 		development_growth = 0.05
+	}
+	
+	county_holder_character_modifier = {
+		learning = 1
+		learning_per_piety_level = 2
+		monthly_lifestyle_xp_gain_mult = 0.1
+		monthly_piety = 0.5
+		cultural_head_fascination_mult = 0.1
+		monthly_dynasty_prestige_mult = 0.05
 	}
 	
 	province_modifier = {
