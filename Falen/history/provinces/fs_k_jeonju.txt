@@ -23,10 +23,7 @@
 	holding = city_holding
 	
 	2400.1.1 = {
-		special_building_slot = jeonbuk_university
-	}
-	2500.1.1 = {
-		special_building = jeonbuk_university
+		special_building = generic_university
 	}
 }
 1045 = {	#Iseo
@@ -265,9 +262,6 @@
 	holding = castle_holding
 }
 
-1004 = {	#Gwanchon
-	holding = city_holding
-}
 1005 = {	#Seongsu
 	holding = none
 }
@@ -275,7 +269,7 @@
 	holding = none
 }
 998 = {	#Osu
-	holding = none
+	holding = city_holding
 }
  997 = {	#Samgye
 	holding = church_holding
@@ -288,13 +282,6 @@
 	religion = holyist
 	holding = castle_holding
 }
-
-1001 = {	#Sindeok
-	holding = none
-}
-1002 = {	#Sinpyeong
-	holding = none
-}
 995 = {	#Gangjin
 	holding = church_holding
 }
@@ -304,7 +291,19 @@
 996 = {	#Deokchi
 	holding = none
 }
+###c_gwanchon
 
+1004 = {	#Gwanchon
+	culture = jeonju
+	religion = holyist
+	holding = castle_holding
+}
+1001 = {	#Sindeok
+	holding = none
+}
+1002 = {	#Sinpyeong
+	holding = none
+}
 ##d_sunchang
 ###c_sunchang 
 
