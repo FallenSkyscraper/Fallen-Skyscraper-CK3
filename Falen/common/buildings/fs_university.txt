@@ -1059,7 +1059,7 @@ KAIST = {
 	character_modifier = {
 		learning_per_prestige_level = 1
 		monthly_lifestyle_xp_gain_mult = 0.1
-		cultural_head_fascination_mult = 0.05
+		cultural_head_fascination_mult = 0.15
 		monthly_dynasty_prestige = 0.25
 	}
 	
@@ -1159,83 +1159,7 @@ chungbuk_university = {
 	flag = travel_point_of_interest_learning
 }
 
-#충남대
-chungnam_university = {
-	construction_time = very_slow_construction_time
-	effect_desc = {
-		desc = unlocks_building_desc
-		triggered_desc = {
-			trigger = { has_dlc_feature = tours_and_tournaments }
-			desc = university_toto_effect_desc
-		}
-		triggered_desc = {
-			trigger = { has_dlc_feature = royal_court }
-			desc = university_roco_effect_desc
-		}
-		desc = university_effect_desc
-	}
-
-	type_icon = "chungnam_university.dds"
-
-	can_construct_potential = {
-		building_requirement_tribal = no
-		building_university_requirement = yes
-	}
-	
-	can_construct = {
-		scope:holder = {
-			highest_held_title_tier >= tier_duchy
-			prestige_level >= 4
-		}
-		county = {
-			development_level >= 30
-		}
-	}
-	
-	show_disabled = yes
-	
-	on_complete = {
-		county.holder = {
-			save_scope_as = founder
-
-			found_university_decision_event_effect = yes
-
-			every_player = {
-				limit = {
-					NOT = { this = scope:founder }
-					is_within_diplo_range = { CHARACTER = scope:founder }
-				}
-				trigger_event = major_decisions.2002
-			}
-		}
-	}
-	
-	cost_gold = 1000
-
-	character_modifier = {
-		learning_per_prestige_level = 1
-		monthly_lifestyle_xp_gain_mult = 0.1
-		cultural_head_fascination_mult = 0.05
-		monthly_dynasty_prestige = 0.25
-	}
-	
-	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
-	}
-	
-	ai_value = {
-		base = 8
-		modifier = { # Fill all building slots before going for special buildings
-			factor = 0
-			free_building_slots > 0
-		}
-	}
-	
-	type = special
-
-	flag = travel_point_of_interest_learning
-}
+#충남대-서비스종료
 
 #제주도
 #제주대
