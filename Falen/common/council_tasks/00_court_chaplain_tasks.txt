@@ -1162,3 +1162,271 @@ task_fabricate_claim = {
 		}
 	}
 } 
+
+task_aggressive_conversion = {
+	position = councillor_court_chaplain
+
+	task_type = task_type_county
+	county_target = all
+	ai_county_target = neighbor_land
+	task_progress = task_progress_percentage
+
+	is_valid_showing_failures_only = {
+		liege = {
+			custom_description = {
+				
+			}
+		}
+	}
+
+	on_finish_task_county = {
+		start_default_task = yes
+	}
+
+	progress = {
+		value = 0
+		add = {
+			value = court_chaplain_aggressive_conversion_base
+			desc = COURT_CHAPLAIN_PROGRESS_BASE
+		}
+		add = {
+			value = court_chaplain_aggressive_conversion_monthly_increase_base
+			desc = SCALED_COUNCILLOR_LEARNING_VALUE
+		}
+		#Fervor of Court Chaplain's Faith
+		if = {
+			limit = { # Conditional in order to not mess up the preview-tooltip
+				exists = scope:county
+				exists = scope:councillor.faith	
+				exists = scope:county.faith
+			}
+			add = {
+				add = {
+					add = scope:councillor.court_chaplain_progress_percentage
+					multiply = scope:councillor.faith.fervor
+					multiply = convert_faith_fervor_modifier_scale
+				}
+				subtract = {
+					add = scope:councillor.court_chaplain_progress_percentage
+					multiply = scope:county.faith.fervor
+					multiply = convert_faith_fervor_modifier_scale
+				}
+				if = {
+					limit = {
+						scope:councillor_liege = { has_perk = religious_icon_perk }
+					}
+					min = 0
+				}
+				desc = COURT_CHAPLAIN_CONVERSION_FERVOR_IMPACT
+			}
+		}
+		add = court_chaplain_conversion_contextual_bonuses
+
+		# Development reduces the speed. Should be the last non-multiply modifier applied to avoid negative values
+		if = {
+			limit = {
+				exists = scope:county
+				scope:county = {
+					development_level > 0
+				}
+			}
+			add = {
+				value = scope:county.convert_faith_development_penalty
+				desc = STEWARD_PROMOTE_CULTURE_DEVELOPMENT_PENALTY
+			}
+		}
+
+		# Conversion speed game rules
+		if = {
+			limit = {
+				has_game_rule = slower_faith_conversion_speed
+			}
+			multiply = {
+				value = slower_game_rule_value
+				desc = GAME_RULE_SLOWER_REASON
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = significantly_slower_faith_conversion_speed
+			}
+			multiply = {
+				value = significantly_slower_game_rule_value
+				desc = GAME_RULE_SIGNIFICANTLY_SLOWER_REASON
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = faster_faith_conversion_speed
+			}
+			multiply = {
+				value = faster_game_rule_value
+				desc = GAME_RULE_FASTER_REASON
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = significantly_faster_faith_conversion_speed
+			}
+			multiply = {
+				value = significantly_faster_game_rule_value
+				desc = GAME_RULE_SIGNIFICANTLY_FASTER_REASON
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:county
+				OR = {
+					AND = {
+						scope:councillor.faith = { has_doctrine_parameter = unreformed_syncretic_actor_opinion_active }
+						scope:county.faith = { has_doctrine_parameter = unreformed }
+					}
+					AND = {
+						scope:councillor.faith = { has_doctrine_parameter = christian_syncretic_actor_opinion_active }
+						scope:county.faith = { religion_tag = christianity_religion }
+					}
+					AND = {
+						scope:councillor.faith = { has_doctrine_parameter = islamic_syncretic_actor_opinion_active }
+						scope:county.faith = { religion_tag = islam_religion }
+					}
+				}
+			}
+			min = {
+				value = 0.1
+				desc = minimum_conversion
+			}
+		}
+	}
+
+
+	potential_county = {
+		scope:county = {
+			NOR = { 
+				faith = scope:councillor.faith
+				holder = scope:councillor_liege
+			}
+			trigger_if = {
+				limit = {
+					scope:councillor_liege = {
+						is_alive = yes
+						has_variable = hold_court_8120_religion_block
+					}
+				}
+				custom_tooltip = {
+					text = hold_court_8120_conversion_tt
+					NOT = { faith = scope:councillor_liege.var:hold_court_8120_religion_block }
+				}
+			}
+			custom_description = {
+				text = "is_protected_via_contract_self_or_liege"
+				subject = holder
+				NAND = { # Vassal Contract forbids meddling by liege
+					exists = holder.liege
+					holder = {
+						OR = {
+							AND = {
+								liege = scope:councillor_liege
+								is_ruler = yes
+								is_independent_ruler = no
+								vassal_contract_has_flag = religiously_protected
+							}
+							any_liege_or_above = {
+								exists = liege
+								liege = scope:councillor_liege
+								is_ruler = yes
+								is_independent_ruler = no
+								vassal_contract_has_flag = religiously_protected
+							}
+						}
+					}
+				}
+			}
+			trigger_if = {
+				limit = {	
+					AND = {
+						has_variable = cannot_be_converted_by_value
+						var:cannot_be_converted_by_value = scope:councillor_liege		
+					}
+				}
+				custom_tooltip = {
+					text = promised_to_not_convert_county	
+					NOR = {
+						has_variable = cannot_be_converted_by_value
+						var:cannot_be_converted_by_value = scope:councillor_liege	
+					}
+				}
+			}
+		}
+		scope:county.holder.top_liege = {
+			in_diplomatic_range = scope:councillor_liege
+		}
+	}
+	on_start_task = {
+		scope:county = {save_scope_as = set_county}
+		trigger_event = {
+			id =
+			days = 2
+		}
+	}
+
+	on_cancel_task = {
+		trigger_event = {
+			id =
+			days = 1
+		}	
+	}
+
+	on_finish_task_county = {
+		scope:county.faith = {save_scope_as = old_faith}
+		scope:councillor_liege = {
+			if = {
+				custom_tooltip = aggressive_conversion_reaction
+				hidden_effect = {
+					scope:county.holder = {
+						add_opinion = {
+							target = scope:councillor_liege
+							modifier = aggressive_conversion_impact_opinion
+						}
+					}
+					every_character_to_title_neigboring_kingdom = {
+						limit = {
+							has_faith = old_faith
+						}
+						add_opinion = {
+							target = scope:councillor_liege
+							modifier = aggressive_conversion_wide_impact_opinion
+						}
+					}
+				}
+			}
+		}
+		scope:county = {
+			set_county_faith = scope:councillor.faith
+		}
+		if = {
+			limit = {
+				scope:councillor = {
+					has_council_position = councillor_court_chaplain
+				}
+			}
+			scope:councillor = {
+				start_default_task = yes
+			}
+		}
+	}
+
+	monthly_on_action = task_aggressive_convert_side_effects
+
+	ai_will_do = {
+		value = 1000 # Always convert if possible
+
+		if = {	#Unless you're a crypto-religionist.
+			limit = {
+				scope:councillor_liege = {
+					any_secret = { secret_type = secret_crypto_religionist }
+				}
+			}
+			multiply = 0
+		}
+	}
+}
