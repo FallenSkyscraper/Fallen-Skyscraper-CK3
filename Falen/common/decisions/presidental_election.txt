@@ -42,14 +42,34 @@
 	ai_will_do = {
 		base = 5
 
-		ai_value_modifier = {
-			ai_brave = 20
-			ai_craven = -10
-			ai_arbitrary = 20
-			ai_shy = -25
-			ai_honor = -1.0
-			ai_content = -50
-			ai_ambitious = 100
+		modifier = {
+			add = {
+				value = ai_boldness
+				multiply = 0.2
+			}
+		}
+		modifier = {
+			add = {
+				value = ai_energy
+				multiply = 0.5
+			}
+		}
+		modifier = {
+			add = 200
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -100
+			has_trait = content
+		}
+		modifier = {
+			add = ai_sociability
+		}
+		modifier = {
+			add = {
+				value = ai_honor
+				multiply = -0.2
+			}
 		}
 		modifier = {
 			add = 200
