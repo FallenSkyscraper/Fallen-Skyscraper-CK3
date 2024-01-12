@@ -1,16 +1,16 @@
-#fs_initialize_culture_effect = {
-#	if = { limit = { has_cultural_parameter = heritage_group_korean } set_variable = { name = heritage_group value = 1 } }
-#	else_if = { limit = { has_cultural_parameter = heritage_group_japanese } set_variable = { name = heritage_group value = 2 } }
-#	else_if = { limit = { has_cultural_parameter = heritage_group_chinese } set_variable = { name = heritage_group value = 3 } }
-#	else_if = { limit = { has_cultural_parameter = heritage_group_aryan } set_variable = { name = heritage_group value = 4 } }
-#	else = { set_variable = { name = heritage_group value = 0 } }
+fs_initialize_culture_effect = {
+	if = { limit = { has_cultural_parameter = heritage_group_korean } set_variable = { name = heritage_group value = 1 } }
+	else_if = { limit = { has_cultural_parameter = heritage_group_japanese } set_variable = { name = heritage_group value = 2 } }
+	else_if = { limit = { has_cultural_parameter = heritage_group_chinese } set_variable = { name = heritage_group value = 3 } }
+	else_if = { limit = { has_cultural_parameter = heritage_group_aryan } set_variable = { name = heritage_group value = 4 } }
+	else = { set_variable = { name = heritage_group value = 0 } }
 	
-#	if = { limit = { has_cultural_parameter = language_group_korean } set_variable = { name = language_group value = 1 } }
-#	else_if = { limit = { has_cultural_parameter = language_group_japanese } set_variable = { name = language_group value = 2 } }
-#	else_if = { limit = { has_cultural_parameter = language_group_chinese } set_variable = { name = language_group value = 3 } }
-#	else = { set_variable = { name = language_group value = 0 } }
+	if = { limit = { has_cultural_parameter = language_group_korean } set_variable = { name = language_group value = 1 } }
+	else_if = { limit = { has_cultural_parameter = language_group_japanese } set_variable = { name = language_group value = 2 } }
+	else_if = { limit = { has_cultural_parameter = language_group_chinese } set_variable = { name = language_group value = 3 } }
+	else = { set_variable = { name = language_group value = 0 } }
 	#Indo-European Languages are excluded for some reasons
-#}
+}
 
 fs_initialize_technologies_effect = {
 	set_variable = { name = tech_metallurgy value = 0 }

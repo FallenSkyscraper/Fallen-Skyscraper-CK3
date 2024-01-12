@@ -9,14 +9,7 @@ on_game_start = {
 	effect = {
 		### INITIALIZE CULTURAL GROUPS ###
 		every_culture_global = {
-			#fs_initialize_culture_effect = yes
-		}
-		if = {
-			limit = { NOT = { has_global_variable = startup_settings } }
-			set_global_variable = { name = election_date value = 2445 }
-			set_global_variable = { name = election_term value = 1 }
-			set_global_variable = { name = startup_settings value = yes }
-			set_global_variable = { name = imperial_authority value = 20.00 }
+			fs_initialize_culture_effect = yes
 		}
 		### HRE SETUP ###
 		if = {
@@ -220,6 +213,13 @@ on_game_start = {
 # Like on_game_start, except it is called once the host (or player, in single player) exits the lobby. Good for anything where you need to know who the players are, or what the game rules are
 on_game_start_after_lobby = {
 	effect = {
+		if = {
+			limit = { NOT = { has_global_variable = startup_settings } }
+			set_global_variable = { name = election_date value = 2445 }
+			set_global_variable = { name = election_term value = 1 }
+			set_global_variable = { name = startup_settings value = yes }
+			set_global_variable = { name = imperial_authority value = 20.00 }
+		}
 		# Make sure that Realm Priests are landed theocrats where it makes sense
 		every_ruler = {
 			limit = {

@@ -1,11 +1,11 @@
-#has_same_language_group_trigger = {
-#	var:language_group = { compare_value > 0 }
-#	var:language_group = $TARGET$.var:language_group
-#}
-#has_same_heritage_group_trigger = {
-#	var:heritage_group = { compare_value > 0 }
-#	var:heritage_group = $TARGET$.var:heritage_group
-#}
+has_same_language_group_trigger = {
+	var:language_group > 0
+	var:language_group == $TARGET$.var:language_group
+}
+has_same_heritage_group_trigger = {
+	var:heritage_group > 0
+	var:heritage_group == $TARGET$.var:heritage_group
+}
 
 culture_in_winter_geographical_region_trigger = {
 	custom_description = {
