@@ -342,6 +342,37 @@ court_chaplain_heretic_bonus = {
 }
 
 #######################
+# Aggressive Conversion
+#######################
+
+court_chaplain_aggressive_conversion_base = {
+	add = 0
+}
+
+court_chaplain_aggressive_conversion_monthly_increase_base = {
+	add = learning
+	divide = 50
+}
+
+court_chaplain_aggressive_conversion_base_total = {
+	add = court_chaplain_aggressive_conversion_base
+	add = court_chaplain_aggressive_conversion_monthly_increase_base
+}
+
+court_chaplain_aggressive_conversion_contextual_bonuses = {
+	if = {
+		limit = {
+			scope:county.faith = imperial_church
+		}
+		add = 0.1
+	}
+	scope:councillor_liege = {
+		add = learning
+		divide = 50
+	}
+}
+
+#######################
 # Conversion
 #######################
 
