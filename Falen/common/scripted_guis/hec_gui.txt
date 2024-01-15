@@ -87,9 +87,31 @@ conservative = {
 }
 reform_approve = {
 	scope = character
-	is_valid = {}
+	is_valid = {
+		OR = {
+			has_trait = hec_reformist
+			AND = {
+				has_trait = hec_religious
+				title:e_hec.holder.opinion = {
+					target = title:k_imperial_church.holder
+					value >= 50
+				}
+			}
+		}
+	}
 }
 reform_against = {
 	scope = character
-	is_valid = {}
+	is_valid = {
+		OR = {
+			has_trait = hec_conservative
+			AND = {
+				has_trait = hec_religious
+				title:e_hec.holder.opinion = {
+					target = title:k_imperial_church.holder
+					value < 50
+				}
+			}
+		}
+	}
 }

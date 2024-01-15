@@ -55,7 +55,7 @@ window = {
 			}
 			hbox = {
 				datacontext = "[GetTitleByKey('e_hec').GetHolder]"
-				
+				margin_left = 100
 				coa_realm_huge_crown = {
 					datacontext = "[Character]"
 					scale = 1.0
@@ -63,18 +63,18 @@ window = {
 					#position = { 0 90 }
 				}
 				vbox = {
-					margin_left = 100
+					margin_left = 30
 					margin_right = 100
-					text_single_big = {
-						text = "Who_is_HEC_Emperor"
-						
-					}
+					portrait_head = { datacontext = "[Character]" }
+					
 					hbox = {
-					text_single = { text = "Imperial_Authority" tooltip = "Tooltip_Imperial_Authority" } # Imperial Authority
-					text_single = { text = "Imperial_Authority_Changes" tooltip = "Tooltip_Imperial_Authority_Changes" }
+					text_single_big = { text = "Imperial_Authority" tooltip = "Tooltip_Imperial_Authority" } # Imperial Authority
+					text_single_medium = { text = "Imperial_Authority_Changes" tooltip = "Tooltip_Imperial_Authority_Changes" }
 					}
 				}
-				portrait_head = { datacontext = "[Character]" }
+				text_single_big = {
+					text = "Who_is_HEC_Emperor"	
+				}
 			}
 			hbox = {
 				vbox = {
@@ -93,7 +93,7 @@ window = {
 						onclick = ""
 						text_single = {
 							text = "황권 재정비"
-							tooltip = "Tooltip_Reforms_3"
+						#	tooltip = "Tooltip_Reforms_3"
 							parentanchor = center
 						}
 					}
@@ -254,7 +254,7 @@ window = {
 									flowcontainer = {
 										margin_left = 10
 										icon = {
-											#visible = "[GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End ) ]"
+											visible = "[GetScriptedGui('reform_approve').IsValid(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End)]"
 											size = { 25 25 }
 											#parentanchor = bottom|right
 											texture = "gfx/interface/icons/symbols/icon_check.dds"
@@ -262,7 +262,7 @@ window = {
 										}
 
 										icon = {
-											#visible = "[Not(GetScriptedGui('RHOMAIOI_senator_is_supportive').IsValid( GuiScope.SetRoot( Scope.GetCharacter.MakeScope ).AddScope('senatorruler', GetPlayer.MakeScope).End )) ]"
+											visible = "[Not(GetScriptedGui('reform_approve').IsValid(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End))]"
 											size = { 25 25 }
 											#parentanchor = bottom|right
 											texture = "gfx/interface/icons/symbols/icon_cross.dds"
