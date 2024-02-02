@@ -97,9 +97,14 @@ sun_from_north.2 = {
 	desc = sun_from_north.2.desc
 	option = {
 		trigger = {
-			OR = {
-				root.faith = faith:juche
-				root.faith = faith:haeseoan
+			AND = {
+				OR = {
+					root.faith = faith:juche
+					root.faith = faith:haeseoan
+				}
+				NOT = {
+					has_title = title:e_north_korea
+				}
 			}
 		}
 		name = sun_from_north.2.a

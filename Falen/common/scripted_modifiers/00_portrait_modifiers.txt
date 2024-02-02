@@ -70,6 +70,22 @@ portrait_fp2_iberian_muslim_clothing_modifier = {
 	}
 }
 
+### FP3 ###
+
+portrait_fp3_iranian_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_fp3_iranian_clothing_trigger = yes
+	}
+}
+
+portrait_fp3_turkic_clothing_modifier = {
+	modifier = {
+		add = 50
+        portrait_fp3_turkic_clothing_trigger = yes
+	}
+}
+
 # Different likelyhood of a clean shaven look in different cultures
 portrait_clean_shaven_clothing_modifier = {
     modifier = {
@@ -88,6 +104,10 @@ portrait_clean_shaven_clothing_modifier = {
         add = -50
         portrait_mena_clothing_trigger = yes
     }
+    modifier = {
+        add = -50
+        portrait_fp2_iberian_muslim_clothing_trigger = yes
+    }
 }
 
 portrait_western_beards_clothes_modifier = {
@@ -100,7 +120,7 @@ portrait_western_beards_clothes_modifier = {
 	}
 }
 
-portrait_mean_beards_clothes_modifier = {
+portrait_mena_beards_clothes_modifier = {
 	modifier = {
 		add = 70
 		OR = {

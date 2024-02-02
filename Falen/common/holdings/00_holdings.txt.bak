@@ -1,0 +1,362 @@
+﻿castle_holding = {
+	primary_building = castle_01
+	buildings = {
+		curtain_walls_01
+		watchtowers_01
+		outposts_01
+		hill_forts_01
+		ramparts_01
+		farm_estates_01
+		cereal_fields_01
+		pastures_01
+		peat_quarries_01
+		hill_farms_01
+		logging_camps_01
+		plantations_01
+		quarries_01
+		orchards_01
+		elephant_pens_01
+		hunting_grounds_01
+		regimental_grounds_01
+		barracks_01
+		military_camps_01
+		camel_farms_01
+		stables_01
+		smiths_01
+		hillside_grazing_01
+		warrior_lodges_01
+		horse_pastures_01
+		windmills_01
+		watermills_01
+		caravanserai_01
+		workshops_01
+		wind_furnace_01
+
+		common_tradeport_01
+		hall_of_heroes_01
+		special_sicilian_parliament_01
+		#special_greenhouse_01
+		special_greenhouse_01
+
+		economy_district_01
+
+		gristmill_01
+		orchard_01
+		lumberyard_01
+		aboretum_01
+		mining_ground_01
+		handicraft_01
+		rural_smithy_01
+		inn_01
+		marketplace_01
+
+		rural_farm_first_01
+		rural_farm_second_01
+		rural_farm_third_01
+		mill_01
+		saw_mill_01
+		reforestation_01
+		mining_gallery_first_01
+		mining_gallery_second_01
+		mine_directing_office_01
+		mine_management_office_01
+		home_craft_first_01
+		home_craft_second_01
+		home_craft_third_01
+		home_craft_fourth_01
+		post_system_01
+		currency_exchange_01
+
+		grand_farmland_01
+		royal_saw_mill_01
+		grand_mine_01
+		factory_01
+		bill_exchange_01
+		local_bank_01
+		guild_01
+
+
+
+		military_district_01
+
+		military_farm_01
+		administrative_office_01
+		conscription_office_01
+		military_smithy_01
+		siege_weapon_factory_01
+		military_stall_01
+		military_pasture_01
+		mercenary_office_01
+		range_place_01
+
+		transport_warehouse_01
+		reserve_army_center_01
+		arsenal_01
+		military_iron_works_01
+		racetrack_01
+		military_hunting_ground_01
+		training_school_01
+		range_traning_field_01
+
+		mobilization_building_01
+		sapper_school_01
+		jousting_arena_01
+		war_horse_center_01
+		horse_market_01
+		royal_guard_01
+		special_force_center_01
+	}
+}
+
+tribal_holding = {
+	primary_building = tribe_01
+
+	buildings = {
+		palisades_01
+		war_camps_01
+		longhouses_01
+		market_villages_01
+		
+		#자연교(추가중)
+		divine_tree_00
+		umjib_00
+		earthen_castle_00
+		hillside_grazing_01
+		warrior_lodges_01
+		horse_pastures_01
+
+		common_tradeport_01 # only for trade_ports_enabled_for_tribals culture parameter
+	}
+
+	flag = tribal
+}
+
+city_holding = {
+	primary_building = city_01
+	buildings = {
+		outposts_01
+		farm_estates_01
+		cereal_fields_01
+		pastures_01
+		peat_quarries_01
+		hill_farms_01
+		logging_camps_01
+		plantations_01
+		quarries_01
+		orchards_01
+		elephant_pens_01
+		hunting_grounds_01
+		regimental_grounds_01
+		barracks_01
+		military_camps_01
+		camel_farms_01
+		stables_01
+		smiths_01
+		hillside_grazing_01
+		warrior_lodges_01
+		horse_pastures_01
+		windmills_01
+		watermills_01
+		caravanserai_01
+		workshops_01
+		wind_furnace_01
+
+		guild_halls_01
+
+		common_tradeport_01
+		economy_district_01
+
+		gristmill_01
+		orchard_01
+		lumberyard_01
+		aboretum_01
+		mining_ground_01
+		handicraft_01
+		rural_smithy_01
+		inn_01
+		marketplace_01
+
+		rural_farm_first_01
+		rural_farm_second_01
+		rural_farm_third_01
+		mill_01
+		saw_mill_01
+		reforestation_01
+		mining_gallery_first_01
+		mining_gallery_second_01
+		mine_directing_office_01
+		mine_management_office_01
+		home_craft_first_01
+		home_craft_second_01
+		home_craft_third_01
+		home_craft_fourth_01
+		post_system_01
+		currency_exchange_01
+
+		grand_farmland_01
+		royal_saw_mill_01
+		grand_mine_01
+		factory_01
+		bill_exchange_01
+		local_bank_01
+		guild_01
+
+		military_district_01
+
+		military_farm_01
+		administrative_office_01
+		conscription_office_01
+		military_smithy_01
+		siege_weapon_factory_01
+		military_stall_01
+		military_pasture_01
+		mercenary_office_01
+		range_place_01
+
+		transport_warehouse_01
+		reserve_army_center_01
+		arsenal_01
+		military_iron_works_01
+		racetrack_01
+		military_hunting_ground_01
+		training_school_01
+		range_traning_field_01
+
+		mobilization_building_01
+		sapper_school_01
+		jousting_arena_01
+		war_horse_center_01
+		horse_market_01
+		royal_guard_01
+		special_force_center_01
+	}
+
+	can_be_inherited = yes
+}
+
+church_holding = {
+	primary_building = temple_01
+	buildings = {
+		outposts_01
+		farm_estates_01
+		cereal_fields_01
+		pastures_01
+		peat_quarries_01
+		hill_farms_01
+		logging_camps_01
+		plantations_01
+		quarries_01
+		orchards_01
+		elephant_pens_01
+		hunting_grounds_01
+		regimental_grounds_01
+		barracks_01
+		military_camps_01
+		camel_farms_01
+		stables_01
+		smiths_01
+		hillside_grazing_01
+		warrior_lodges_01
+		horse_pastures_01
+		windmills_01
+		watermills_01
+		caravanserai_01
+		workshops_01
+		wind_furnace_01
+		
+		monastic_schools_01
+		megalith_01
+		
+		common_tradeport_01
+		hall_of_heroes_01
+		economy_district_01
+
+		gristmill_01
+		orchard_01
+		lumberyard_01
+		aboretum_01
+		mining_ground_01
+		handicraft_01
+		rural_smithy_01
+		inn_01
+		marketplace_01
+
+		rural_farm_first_01
+		rural_farm_second_01
+		rural_farm_third_01
+		mill_01
+		saw_mill_01
+		reforestation_01
+		mining_gallery_first_01
+		mining_gallery_second_01
+		mine_directing_office_01
+		mine_management_office_01
+		home_craft_first_01
+		home_craft_second_01
+		home_craft_third_01
+		home_craft_fourth_01
+		post_system_01
+		currency_exchange_01
+
+		grand_farmland_01
+		royal_saw_mill_01
+		grand_mine_01
+		factory_01
+		bill_exchange_01
+		local_bank_01
+		guild_01
+
+		military_district_01
+
+		military_farm_01
+		administrative_office_01
+		conscription_office_01
+		military_smithy_01
+		siege_weapon_factory_01
+		military_stall_01
+		military_pasture_01
+		mercenary_office_01
+		range_place_01
+
+		transport_warehouse_01
+		reserve_army_center_01
+		arsenal_01
+		military_iron_works_01
+		racetrack_01
+		military_hunting_ground_01
+		training_school_01
+		range_traning_field_01
+
+		mobilization_building_01
+		sapper_school_01
+		jousting_arena_01
+		war_horse_center_01
+		horse_market_01
+		royal_guard_01
+		special_force_center_01
+	}
+
+	can_be_inherited = yes
+}
+
+#metropolis_holding = {
+#    primary_building = Metropolis_01
+#	buildings = {
+#	    Giant_Square_01
+#	    International_market_01
+#	    Great_Wall_01
+#		Palace_01
+#		parade_ground_01
+#		moat_01
+#		irrigation_water_01
+#		Hydrologic_gate_01
+		
+		#공용
+#		common_wall_01
+#		common_Village_01
+#		common_Prison_01
+#		common_Port_01
+#		common_naval_port_01
+#		common_administrative_office_01
+#	}
+#}

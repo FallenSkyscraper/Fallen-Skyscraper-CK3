@@ -1,0 +1,965 @@
+﻿@crown_authority_cooldown_years = 20
+@tribal_authority_cooldown_years = 10
+@nomadic_authority_cooldown_years = 10
+@military_authority_cooldown_years = 10
+
+crown_authority = {
+	default = crown_authority_1
+	cumulative = yes
+	flag = realm_law
+	crown_authority_0 = {
+		modifier = {
+			direct_vassal_opinion = 10
+			#feudal_government_tax_contribution_mult = -0.1
+			#vassal_levy_contribution_mult = -0.1
+		}
+
+		can_keep = { realm_law_use_crown_authority = yes }
+	}
+	
+	crown_authority_1 = {
+		modifier = {
+			direct_vassal_opinion = -10
+			#feudal_government_tax_contribution_mult = 0.1
+			#vassal_levy_contribution_mult = 0.1
+		}
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		flag = can_change_partition_succession_laws
+
+		can_keep = { realm_law_use_crown_authority = yes }
+
+		can_pass = {
+			trigger_if = {
+				limit = { has_realm_law = crown_authority_0 }
+				custom_description = {
+					subject = root
+					text = "has_crown_authority_cooldown"
+					NOT = { has_variable = crown_authority_cooldown }
+				}
+			}
+			root.culture = { has_innovation = innovation_social_prestige }
+		}
+		
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOR = {
+							has_realm_law = crown_authority_2
+							has_realm_law = crown_authority_3
+						}
+					}
+					add = increase_crown_authority_prestige_cost
+				}
+			}
+		}
+		
+		on_pass = {
+			if = {
+				limit = {
+					NOT = { has_realm_law = crown_authority_2 }
+				}
+			}
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = crown_authority_0 }
+				value = 1
+			}
+		}
+	}
+	
+	crown_authority_2 = {
+		modifier = {
+			direct_vassal_opinion = -10
+			feudal_government_tax_contribution_mult = 0.1
+			vassal_levy_contribution_mult = 0.1
+		}
+		flag = vassal_internal_wars_banned
+		flag = vassal_refusal_is_treason
+		flag = can_change_succession_laws
+		flag = titles_cannot_leave_realm_on_succession # Hardcoded flag
+		
+		can_keep = { realm_law_use_crown_authority = yes }
+
+		can_pass = {
+			trigger_if = {
+				limit = {
+					NOT = { has_realm_law = crown_authority_3 }
+				}
+				has_realm_law = crown_authority_1
+				custom_description = {
+					subject = root
+					text = "has_crown_authority_cooldown"
+					NOT = { has_variable = crown_authority_cooldown }
+				}
+			}
+			root.culture = { has_innovation = innovation_royal_privilege }
+		}
+
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOT = { has_realm_law = crown_authority_3 }
+					}
+					add = increase_crown_authority_prestige_cost
+				}
+			}
+		}
+		
+		on_pass = {
+			if = {
+				limit = {
+					NOT = { has_realm_law = crown_authority_3 }
+				}
+			}
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = crown_authority_1 }
+				value = 1
+			}
+		}
+	}
+	
+	crown_authority_3 = {
+		modifier = {
+			direct_vassal_opinion = -20
+			feudal_government_tax_contribution_mult = 0.25
+			vassal_levy_contribution_mult = 0.25
+		}
+		flag = vassal_all_wars_banned
+		flag = can_designate_heirs
+		
+		can_keep = { realm_law_use_crown_authority = yes }
+
+		can_pass = {
+			has_realm_law = crown_authority_2
+			custom_description = {
+				subject = root
+				text = "has_crown_authority_cooldown"
+				NOT = { has_variable = crown_authority_cooldown }
+			}
+			root.culture = { has_innovation = innovation_social_contract }
+		}
+		
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOT = { has_realm_law = crown_authority_3 }
+					}
+					add = increase_crown_authority_prestige_cost
+				}
+			}
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+	}
+}
+
+tribal_authority = {
+	default = tribal_authority_1
+	cumulative = yes
+	flag = realm_law
+	
+	tribal_authority_0 = {
+		modifier = { direct_vassal_opinion = 10 }
+
+		can_keep = { realm_law_use_tribal_authority = yes }
+		#Imprisonment is disabled if you have this law. Script is in the interaction, currently in 00_prison_interactions.
+	}
+	
+	tribal_authority_1 = {
+		modifier = { direct_vassal_opinion = -10 }
+		
+		can_keep = { realm_law_use_tribal_authority = yes }
+
+		can_pass = {
+			trigger_if = {
+				limit = { has_realm_law = tribal_authority_0 }
+				custom_description = {
+					subject = root
+					text = "has_tribal_authority_cooldown"
+					NOT = { has_variable = tribal_authority_cooldown }
+				}
+			}
+		}
+		
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOR = {
+							has_realm_law = tribal_authority_2
+							has_realm_law = tribal_authority_3
+						}
+					}
+					add = increase_tribal_authority_prestige_cost
+				}
+			}
+		}
+		
+		on_pass = {
+			if = {
+				limit = {
+					NOR = {
+						has_realm_law = tribal_authority_2
+						has_realm_law = tribal_authority_3
+					}
+				}
+			}
+			set_variable = {
+				name = tribal_authority_cooldown
+				years = @tribal_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = tribal_authority_0 }
+				value = 1
+			}
+		}
+	}
+	
+	tribal_authority_2 = {
+		modifier = { direct_vassal_opinion = -10 }
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		
+		can_keep = { realm_law_use_tribal_authority = yes }
+		
+		can_pass = {
+			trigger_if = {
+				limit = {
+					NOT = { has_realm_law = tribal_authority_3 }
+				}
+				has_realm_law = tribal_authority_1
+				custom_description = {
+					subject = root
+					text = "has_tribal_authority_cooldown"
+					NOT = { has_variable = tribal_authority_cooldown }
+				}
+			}
+		}
+
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOT = { has_realm_law = tribal_authority_3 }
+					}
+					add = increase_tribal_authority_prestige_cost
+				}
+			}
+		}
+		
+		on_pass = {
+			if = {
+				limit = {
+					NOT = { has_realm_law = tribal_authority_3 }
+				}
+			}
+			set_variable = {
+				name = tribal_authority_cooldown
+				years = @tribal_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = tribal_authority_1 }
+				value = 1
+			}
+		}
+	}
+	
+	tribal_authority_3 = {
+		modifier = { direct_vassal_opinion = -20 }
+		#Settling is disabled unless you have this law. Script is in the decisions, currently in 80_major_decisions.
+		#Reforming pagan religions (but not creating other faiths) is disabled unless you have this law. Script is in the reformation prereqs, currently in 00_rules.
+		
+		can_keep = { realm_law_use_tribal_authority = yes }
+		
+		can_pass = {
+			has_realm_law = tribal_authority_2
+			custom_description = {
+				subject = root
+				text = "has_tribal_authority_cooldown"
+				NOT = { has_variable = tribal_authority_cooldown }
+			}
+		}
+		
+		pass_cost = { prestige = increase_tribal_authority_prestige_cost }
+		
+		on_pass = {
+			set_variable = {
+				name = tribal_authority_cooldown
+				years = @tribal_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = tribal_authority_2 }
+				value = 1
+			}
+		}
+	}
+}
+
+#유목정
+
+nomadic_authority = {
+	default = nomadic_authority_0
+	cumulative = yes
+	flag = realm_law
+	
+	nomadic_authority_0 = {
+		modifier = {
+			direct_vassal_opinion = 10
+			vassal_tax_mult = -0.3
+			vassal_levy_contribution_mult = -0.3
+		}
+
+		can_keep = { realm_law_use_nomadic_authority = yes }
+		#Imprisonment is disabled if you have this law. Script is in the interaction, currently in 00_prison_interactions.
+	}
+	
+	nomadic_authority_1 = {
+		modifier = {
+			vassal_tax_mult = 0.1
+			direct_vassal_opinion = -10
+			vassal_levy_contribution_mult = 0.1
+			domain_limit = -5
+			feudal_government_vassal_opinion = 5
+			clan_government_vassal_opinion = 5
+			republic_government_vassal_opinion = 5
+			domain_tax_mult = 0.1
+		}
+		
+		can_keep = { realm_law_use_nomadic_authority = yes }
+
+		can_pass = {
+			trigger_if = {
+				limit = { has_realm_law = nomadic_authority_0 }
+				custom_description = {
+					subject = root
+					text = "has_tribal_authority_cooldown"
+					NOT = { has_variable = nomadic_authority_cooldown }
+				}
+			}
+		}
+		
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOR = {
+							has_realm_law = nomadic_authority_2
+							has_realm_law = nomadic_authority_3
+						}
+					}
+					add = increase_nomadic_authority_prestige_cost
+				}
+			}
+		}
+		
+		on_pass = {
+			if = {
+				limit = {
+					NOR = {
+						has_realm_law = nomadic_authority_2
+						has_realm_law = nomadic_authority_3
+					}
+				}
+			}
+			set_variable = {
+				name = nomadic_authority_cooldown
+				years = @nomadic_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = nomadic_authority_0 }
+				value = 1
+			}
+		}
+	}
+	
+	nomadic_authority_2 = {
+		modifier = {
+			direct_vassal_opinion = -10
+			vassal_tax_mult = 0.1
+			vassal_levy_contribution_mult = 0.1
+			domain_limit = -5
+			feudal_government_vassal_opinion = 5
+			republic_government_vassal_opinion = 5
+			domain_tax_mult = 0.1
+		}
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		
+		can_keep = { realm_law_use_nomadic_authority = yes }
+		
+		can_pass = {
+			trigger_if = {
+				limit = {
+					NOT = { has_realm_law = nomadic_authority_3 }
+				}
+				has_realm_law = nomadic_authority_1
+				custom_description = {
+					subject = root
+					text = "has_tribal_authority_cooldown"
+					NOT = { has_variable = nomadic_authority_cooldown }
+				}
+			}
+		}
+
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOT = { has_realm_law = nomadic_authority_3 }
+					}
+					add = increase_tribal_authority_prestige_cost
+				}
+			}
+		}
+		
+		on_pass = {
+			if = {
+				limit = {
+					NOT = { has_realm_law = nomadic_authority_3 }
+				}
+			}
+			set_variable = {
+				name = nomadic_authority_cooldown
+				years = @nomadic_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = nomadic_authority_1 }
+				value = 1
+			}
+		}
+	}
+	
+	nomadic_authority_3 = {
+		modifier = {
+			direct_vassal_opinion = -10
+			domain_limit = -5
+			vassal_tax_mult = 0.1
+			vassal_levy_contribution_mult = 0.1
+			feudal_government_vassal_opinion = 5
+			clan_government_vassal_opinion = 5
+			republic_government_vassal_opinion = 5
+			domain_tax_mult = 0.2
+		}
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		#Settling is disabled unless you have this law. Script is in the decisions, currently in 80_major_decisions.
+		#Reforming pagan religions (but not creating other faiths) is disabled unless you have this law. Script is in the reformation prereqs, currently in 00_rules.
+		
+		can_keep = { realm_law_use_nomadic_authority = yes }
+		
+		can_pass = {
+			has_realm_law = nomadic_authority_2
+			custom_description = {
+				subject = root
+				text = "has_tribal_authority_cooldown"
+				NOT = { has_variable = nomadic_authority_cooldown }
+			}
+		}
+		
+		pass_cost = { prestige = increase_tribal_authority_prestige_cost }
+		
+		on_pass = {
+			set_variable = {
+				name = nomadic_authority_cooldown
+				years = @nomadic_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = nomadic_authority_2 }
+				value = 1
+			}
+		}
+	}
+}
+
+#군정
+
+military_authority = {
+	default = military_authority_3
+	cumulative = no
+	flag = realm_law
+
+	military_authority_0 = {
+		modifier = {
+			men_at_arms_recruitment_cost = -0.25
+			levy_size = -0.15
+			army_maintenance_mult = -0.15
+		}
+
+		can_keep = { realm_law_use_military_authority = yes }
+		
+		can_pass = {
+			custom_description = {
+				subject = root
+				text = "has_military_authority_cooldown"
+				NOT = { has_variable = military_authority_cooldown }
+			}
+		}
+		
+		pass_cost = {
+			prestige = increase_crown_authority_prestige_cost
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = military_authority_cooldown
+				years = @military_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			ai_value_modifier = {
+				ai_brave = 1
+			}
+		}
+	}
+
+	military_authority_1 = {
+		modifier = {
+			knight_effectiveness_mult = 0.5
+			knight_limit = 2
+			controlled_province_advantage = -3
+			movement_speed = 0.15
+		}
+
+		can_keep = { realm_law_use_military_authority = yes }
+		
+		can_pass = {
+			custom_description = {
+				subject = root
+				text = "has_military_authority_cooldown"
+				NOT = { has_variable = military_authority_cooldown }
+			}
+		}
+		
+		pass_cost = {
+			prestige = increase_crown_authority_prestige_cost
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = military_authority_cooldown
+				years = @military_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			ai_value_modifier = {
+				ai_impatient = 1
+			}
+		}
+	}
+		
+	
+	military_authority_2 = {
+		modifier = {
+			monthly_war_income_mult = 0.1
+			monthly_county_control_change_add = 0.1
+		}
+
+		can_keep = { realm_law_use_military_authority = yes }
+		
+		can_pass = {
+			custom_description = {
+				subject = root
+				text = "has_military_authority_cooldown"
+				NOT = { has_variable = military_authority_cooldown }
+			}
+		}
+		
+		pass_cost = {
+			prestige = increase_crown_authority_prestige_cost
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = military_authority_cooldown
+				years = @military_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			ai_value_modifier = {
+				ai_greedy = 1
+			}
+		}
+	}
+	
+	military_authority_3 = {
+		modifier = {
+			levy_reinforcement_rate_friendly_territory = 0.5
+			army_maintenance_mult = -0.15
+			garrison_size = 0.2
+		}
+		
+		can_keep = { realm_law_use_military_authority = yes }
+		
+		can_pass = {
+			custom_description = {
+				subject = root
+				text = "has_military_authority_cooldown"
+				NOT = { has_variable = military_authority_cooldown }
+			}
+		}
+		
+		pass_cost = {
+			prestige = increase_crown_authority_prestige_cost
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = military_authority_cooldown
+				years = @military_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			ai_value_modifier = {
+				ai_callous = 1
+			}
+		}
+	}
+}
+
+slavery_authority = {
+	default = slavery_authority_0
+	cumulative = no
+	flag = realm_law
+	
+	slavery_authority_0 = {
+		modifier = {
+			monthly_income_mult = 0.4
+			levy_size = 0
+			development_growth_factor = 0.4
+			county_opinion_add = 0
+		}
+		can_pass = {
+			always = no
+		}
+		pass_cost = {
+			prestige = { add = 0 }
+		}
+		on_pass = {
+			always = no
+		}
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		flag = can_change_succession_laws
+		flag = titles_cannot_leave_realm_on_succession
+
+		can_keep = { 
+			realm_law_use_slavery_authority = yes 
+		}
+	}
+	slavery_authority_1 = {
+		modifier = {
+			monthly_income_mult = 0.2
+			levy_size = -0.1
+			development_growth_factor = 0.2
+			county_opinion_add = -10
+		}
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		flag = can_change_succession_laws
+		flag = titles_cannot_leave_realm_on_succession
+
+		can_keep = { realm_law_use_slavery_authority = yes }
+
+		can_pass = {
+			always = no
+		}
+		pass_cost = {
+			prestige = { add = 0 }
+		}
+		on_pass = {
+			always = no
+		}
+	}
+	slavery_authority_2 = {
+		modifier = {
+			monthly_income_mult = 0
+			levy_size = -0.2
+			development_growth_factor = -0.2
+			county_opinion_add = -20
+		}
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		flag = can_change_succession_laws
+		
+		can_keep = { realm_law_use_slavery_authority = yes }
+		
+		can_pass = {
+			always = no
+		}
+		pass_cost = {
+			prestige = { add = 0 }
+		}
+		on_pass = {
+			always = no
+		}
+	}
+	slavery_authority_3 = {
+		modifier = {
+			monthly_income_mult = -0.2
+			levy_size = -0.4
+			development_growth_factor = -0.4
+			county_opinion_add = -40
+		}
+		can_keep = { realm_law_use_slavery_authority = yes }
+		can_pass = {
+			always = no
+		}
+		pass_cost = {
+			prestige = { add = 0 }
+		}
+		on_pass = {
+			always = no
+		}
+	}
+}
+
+#프롤독재
+
+communism_authority = {
+	default = communism_authority_1
+	cumulative = no
+	flag = realm_law
+	
+	communism_authority_0 = {
+		modifier = {
+			holding_build_gold_cost = -0.3
+			holding_build_piety_cost = -0.3
+			holding_build_prestige_cost = -0.3
+			build_gold_cost = -0.3
+			build_piety_cost = -0.3
+			build_prestige_cost = -0.3
+			build_speed = -0.3
+			holding_build_speed = -0.3
+			county_opinion_add = 20
+			development_growth_factor = 0.15
+			domain_limit = -1
+			domain_tax_mult = -0.1
+			republic_government_vassal_opinion = 10
+		}
+		flag = government_titles_cannot_leave_realm_on_succession
+
+		can_keep = { realm_law_use_communism_authority = yes }
+	}
+	
+	communism_authority_1 = {
+		modifier = {
+			direct_vassal_opinion = 15
+			county_opinion_add = 10
+			republic_government_vassal_opinion = 5
+			vassal_tax_mult = 0.5
+			vassal_levy_contribution_mult = 0.5
+		}
+		flag = government_title_revocation_allowed
+		flag = government_vassal_retraction_allowed
+		flag = government_vassal_refusal_is_treason
+		flag = government_titles_cannot_leave_realm_on_succession
+		flag = government_can_revoke_at_all_levels
+		flag = government_has_wider_tyranny_free_revocation
+
+		can_keep = {
+			realm_law_use_communism_authority = yes
+			NOR = {
+					has_realm_law = crown_authority_0
+					has_faith = faith:new_left
+			}
+		}
+
+		can_pass = {
+			NOR = {
+					has_realm_law = crown_authority_0
+					has_faith = faith:new_left
+			}
+			trigger_if = {
+				limit = { has_realm_law = communism_authority_0 }
+				custom_description = {
+					subject = root
+					text = "has_crown_authority_cooldown"
+					NOT = { has_variable = crown_authority_cooldown }
+				}
+			}
+			root.culture = { has_innovation = innovation_social_prestige }
+		}
+		
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = communism_authority_2
+						}
+					}
+					add = increase_crown_authority_prestige_cost
+				}
+			}
+		}
+		
+		on_pass = {
+			if = {
+				limit = {
+					NOT = { has_realm_law = communism_authority_2 }
+				}
+			}
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = communism_authority_0 }
+				value = 1
+			}
+		}
+	}
+	
+	communism_authority_2 = {
+		modifier = {
+			direct_vassal_opinion = -20
+			domain_limit = 1
+			levy_size = 0.2
+			dread_baseline_add = 10
+			dread_gain_mult = 0.2
+		}
+		flag = government_title_revocation_allowed
+		flag = government_vassal_retraction_allowed
+		flag = government_titles_cannot_leave_realm_on_succession
+		flag = government_can_revoke_at_all_levels
+		flag = government_has_wider_tyranny_free_revocation
+		flag = vassal_internal_wars_banned
+		flag = vassal_refusal_is_treason
+		flag = can_designate_heirs
+		
+		can_keep = {
+				realm_law_use_communism_authority = yes
+				has_realm_law = crown_authority_3
+		}
+
+		can_pass = {
+			trigger_if = {
+				has_realm_law = communism_authority_1
+				has_realm_law = crown_authority_3
+				custom_description = {
+					subject = root
+					text = "has_crown_authority_cooldown"
+					NOT = { has_variable = crown_authority_cooldown }
+				}
+			}
+			root.culture = { has_innovation = innovation_royal_privilege }
+		}
+
+		pass_cost = {
+			prestige = {
+				increase_crown_authority_prestige_cost
+			}
+		}
+		
+		on_pass = {
+			set_variable = {
+				name = crown_authority_cooldown
+				years = @crown_authority_cooldown_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = communism_authority_1 }
+				value = 1
+			}
+		}
+	}
+	#국가 연합
+	alliance_authority = {
+		default = alliance_authority_0
+		cumulative = no
+		flag = realm_law
+		alliance_authority_0 = {
+			modifier = {
+				direct_vassal_opinion = 15
+				feudal_government_tax_contribution_mult = -0.1
+				vassal_levy_contribution_mult = -0.1
+			}
+			flag = can_change_succession_laws
+
+			can_keep = { realm_law_use_alliance_authority = yes }
+		}
+
+		crown_authority_1 = {
+			modifier = {
+				direct_vassal_opinion = -30
+			}
+			flag = can_change_succession_laws
+
+			can_keep = { realm_law_use_alliance_authority = yes prestige_level >= 5 }
+
+			can_pass = {
+				trigger_if = {
+					limit = { has_realm_law = alliance_authority_0 }
+					custom_description = {
+						subject = root
+						text = "has_crown_authority_cooldown"
+						NOT = { has_variable = crown_authority_cooldown }
+					}
+				}
+			}
+
+			pass_cost = {
+				prestige = {
+					crown_authority_prestige_cost
+				}
+			}
+
+
+			ai_will_do = {
+				if = {
+					limit = { has_realm_law = alliance_authority_0 }
+					value = 1
+				}
+			}
+		}
+	}
+}

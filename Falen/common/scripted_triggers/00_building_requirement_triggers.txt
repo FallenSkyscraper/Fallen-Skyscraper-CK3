@@ -14,10 +14,12 @@ building_requirement_tribal = {
 }
 
 building_requirement_tribal_holding_in_county = {
+	NOT = {
 	county = {
 		any_county_province = {
 			has_holding_type = tribal_holding
 		}
+	}
 	}
 }
 
@@ -123,6 +125,7 @@ building_orchards_requirement_terrain = {
 	OR = {
 		terrain = floodplains
 		terrain = oasis
+		has_building_or_higher = qanats_05
 	}
 }
 
@@ -161,6 +164,7 @@ building_ramparts_requirement_terrain = {
 	OR = {
 		terrain = taiga
 		terrain = forest
+		terrain = jungle
 	}
 }
 
@@ -169,6 +173,7 @@ building_curtain_walls_requirement_terrain = {
 		terrain = farmlands
 		terrain = plains
 		terrain = wetlands
+		terrain = floodplains
 	}
 }
 
@@ -177,8 +182,6 @@ building_watchtowers_requirement_terrain = {
 		terrain = desert
 		terrain = drylands
 		terrain = oasis
-		terrain = floodplains
-		terrain = jungle
 		terrain = steppe
 		terrain = ruined_city
 	}
@@ -190,6 +193,10 @@ building_cereal_fields_requirement_terrain = {
 		terrain = plains
 		terrain = drylands
 		terrain = floodplains
+		county = {
+			has_county_modifier = fertile_desert_mountains_modifier
+		}
+		has_building_or_higher = qanats_05
 	}
 }
 
@@ -229,7 +236,20 @@ building_camel_farms_requirement_terrain = {
 		terrain = desert_mountains
 		terrain = oasis
 		terrain = floodplains
+		terrain = drylands # new
 	}
+}
+
+building_stables_requirement_terrain = {
+	# All terrains
+}
+
+building_smiths_requirement_terrain = {
+	# All terrains
+}
+
+building_workshops_requirement_terrain = {
+	# All terrains
 }
 
 building_logging_camps_requirement_terrain = {
@@ -251,6 +271,14 @@ building_hill_farms_requirement_terrain = {
 building_elephant_pens_requirement_terrain = {
 	terrain = jungle
 	geographical_region = world_innovation_elephants
+}
+
+building_horse_pastures_requirement_terrain = {
+	OR = {
+		terrain = steppe
+		geographical_region = world_steppe_east
+		culture = { has_cultural_parameter = unlock_horse_pastures_building }
+	}
 }
 
 building_plantations_requirement_terrain = {
@@ -279,6 +307,99 @@ building_hill_forts_requirement_terrain = {
 		terrain = mountains
 		terrain = desert_mountains
 		terrain = hills
+	}
+}
+
+building_windmills_requirement_terrain = {
+	county ?= {
+		any_county_province = {
+			OR = {
+				terrain = farmlands
+				terrain = plains
+				terrain = hills
+				is_coastal = yes
+			}
+		}
+	}
+}
+
+building_watermills_requirement_terrain = {
+	county ?= {
+		any_county_province = {
+			OR = {
+				terrain = mountains
+				terrain = wetlands
+				terrain = forest
+				terrain = taiga
+				terrain = jungle
+				is_riverside_province = yes
+			}
+		}
+	}
+}
+
+building_caravanserai_requirement_terrain = {
+	county ?= {
+		any_county_province = {
+			OR = {
+				terrain = drylands
+				terrain = desert
+				terrain = oasis
+				terrain = floodplains
+				terrain = steppe
+				terrain = desert_mountains
+				AND = {
+					geographical_region = world_europe_west_iberia
+					has_global_variable = fp2_struggle_conciliation_ending
+				}
+			}
+		}
+	}
+}
+
+building_qanat_requirement_terrain = {
+	county ?= {
+		any_county_province = {
+			OR = {
+				terrain = hills
+				terrain = mountains
+				terrain = desert_mountains
+				terrain = desert
+				terrain = drylands
+			}
+		}
+	}
+}
+
+has_any_special_mine_trigger = {
+	OR = {
+		has_building_or_higher = rammelsberg_mines_01
+		has_building_or_higher = kutna_hora_mines_01
+		has_building_or_higher = kremnica_mines_01
+		has_building_or_higher = falun_mines_01
+		has_building_or_higher = schwaz_mines_01
+		has_building_or_higher = argentiera_mines_01
+		has_building_or_higher = kollur_mines_01
+		has_building_or_higher = siderokausia_mines_01
+		has_building_or_higher = mali_mines_01
+		has_building_or_higher = konasamudram_mines_01
+		has_building_or_higher = dean_mines_01
+		has_building_or_higher = zawar_mines_01
+		has_building_or_higher = takkeda_mines_01
+		has_building_or_higher = khetri_mines_01
+		has_building_or_higher = taghaza_mines_01
+		has_building_or_higher = ijil_mines_01
+		has_building_or_higher = turda_mines_01
+		has_building_or_higher = phocaea_mines_01
+		has_building_or_higher = pansjhir_mines_01
+		has_building_or_higher = trepca_mines_01
+		has_building_or_higher = rudnik_mines_01
+		has_building_or_higher = cevennes_mines_01
+		has_building_or_higher = allaq_mines_01
+		has_building_or_higher = verespatak_mines_01
+		has_building_or_higher = nishapur_mines_01
+		has_building_or_higher = srebrenica_mines_01
+		has_building_or_higher = ratnapura_mines_01
 	}
 }
 

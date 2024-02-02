@@ -634,6 +634,42 @@ change_artifact_quality_effect = {
 	}
 	if = {
 		limit = {
+			scope:inspiration = { has_inspiration_type = research_inspiration }
+		}
+		if = {
+			limit = {
+				$AMOUNT$ > 3
+			}
+			custom_tooltip = fp3_scholarship_research_success_gain_effect
+		}
+		else_if = {
+			limit = {
+				$AMOUNT$ < -3
+			}
+			custom_tooltip = fp3_scholarship_research_success_loss_effect
+		}
+		else_if = {
+			limit = {
+				$AMOUNT$ > 0
+			}
+			custom_tooltip = fp3_scholarship_research_success_slight_gain_effect
+		}
+		else_if = {
+			limit = {
+				$AMOUNT$ < 0
+			}
+			custom_tooltip = fp3_scholarship_research_success_slight_loss_effect
+		}
+		scope:inspiration_owner = {
+			change_variable = {
+				name = research_success_chance
+				add = $AMOUNT$
+			}	
+		}
+	}
+	else = {
+		if = {
+			limit = {
 			$AMOUNT$ > 3
 		}
 		custom_tooltip = change_artifact_quality_effect_gain
@@ -674,6 +710,7 @@ change_artifact_quality_effect = {
 				add = $AMOUNT$
 			}
 		}
+	}
 	}
 }
 
