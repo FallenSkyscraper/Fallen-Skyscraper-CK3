@@ -66,7 +66,7 @@ impassable_mountains = LIST { 4234 }
 # These are actually supposed to be Wasteland:
 # Cannot be colored. Blocks unit movement, used for things like Sahara desert. 
 impassable_mountains = RANGE { 2 7 }
-
+impassable_mountains = LIST { 11 }
 # IMPASSABLE SEA ZONES
 # These sea provinces cannot be crossed/sailed
 impassable_seas = RANGE { 8 10 }
@@ -74,7 +74,7 @@ impassable_seas = RANGE { 8 10 }
 # These provinces cause issues because they are passable land, but not part of any title.
 # They are probably not visible anywhere on the map, so feel free to reuse them (after double checking that they are actually missing).
 
-impassable_mountains = RANGE { 11 24 }
+impassable_mountains = RANGE { 12 24 }
 impassable_mountains = LIST { 86 }
 impassable_mountains = RANGE { 2377 2494 }
 impassable_mountains = RANGE { 4235 9659 }
