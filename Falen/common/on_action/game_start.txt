@@ -206,7 +206,18 @@ on_game_start = {
 			}
 		}
 		# Sort custom regencies.
-		
+		# LEGITIMACY CONFIG
+		## 867.
+		if = {
+			limit = { game_start_date = 2444.1.1 }
+			## 정일남, 임요한 버프
+			character:4169 = {
+				add_legitimacy = major_legitimacy_gain
+			}
+			character:9008 = {
+				add_legitimacy = major_legitimacy_gain
+			}
+		}
 	}
 }
 
@@ -384,6 +395,23 @@ on_game_start_after_lobby = {
 					set_vassal_contract_modification_blocked = no
 				}
 			}
+		}
+		### CE1 LEGITIMACY SETUP ###
+		every_ruler = {
+			limit = {
+				exists = dynasty
+				highest_held_title_tier >= tier_county
+				# Exclude unplayable for now
+				NOR = {
+					government_has_flag = government_is_republic
+					government_has_flag = government_is_theocracy
+				}
+				is_landed = yes
+			}
+			add_legitimacy = base_legitimacy_value
+		}
+		character:801 = {
+			add_legitimacy = -300
 		}
 	}
 

@@ -31,6 +31,7 @@ bureaucratic_government = {
 	create_cadet_branches = yes
 	rulers_should_have_dynasty = yes
 	royal_court = yes
+	legitimacy = yes
 
 	primary_holding = castle_holding
 	valid_holdings = { metropolis_holding }
@@ -66,6 +67,7 @@ maritime_government = {
 	flag = government_can_raid_rule#해당 정부체제의 약탈 가능여부
 	primary_cultures = { sinan }
 	royal_court = yes
+	legitimacy = yes
 	fallback = 3
 	
 	# 다음부터 징세 징병관련 할 때 vassal_contracts 폴더에 military 혹은 페더, 혹은 리퍼블릭 형식으로 암튼 같은 방식으로 제작할것
@@ -149,6 +151,8 @@ chinese_bureaucracy_government = {
  	create_cadet_branches = yes
 	rulers_should_have_dynasty = yes
 	royal_court = yes
+	legitimacy = yes
+	
 	primary_holding = castle_holding
 	valid_holdings = { metropolis_holding city_holding}
 	required_county_holdings = { castle_holding city_holding church_holding }
@@ -292,6 +296,7 @@ nomadic_government = {
 	prestige_opinion_override = { -10 0 3 5 10 20 }
 	always_use_patronym = yes	
 	royal_court = yes
+	legitimacy = yes
 
 	vassal_contract = { tribal_government_obligations }
 	
