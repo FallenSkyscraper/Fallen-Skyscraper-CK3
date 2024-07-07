@@ -1,18 +1,37 @@
 ﻿k_gonghong = { 2300.1.1 = { de_jure_liege = e_industry } }
 
+d_seosan = {
+	2380.3.22 = {
+		holder = 4508
+		liege = "k_n_grandduke"
+	}
+	2412.2.30 = {
+		holder = 4509
+		liege = "k_n_grandduke"
+	}
+	2436.2.15 = {
+		holder = 4510
+		liege = "k_n_grandduke"
+	}
+}
+
 c_seosan = {
     2000.1.1 = { change_development_level = 6 }
-	2403.1.1 = {
-		holder = 4163
-		liege = "k_n_grandduke"
+	2400.1.1 = {
+		holder = 4513
+		liege = "d_seosan"
+	}
+	2443.3.18 = {
+		holder = 4514
+		liege = "d_seosan"
 	}
 }
 
 
 c_seongyeon = {
     2000.1.1 = { change_development_level = 6 }
-	2403.1.1 = {
-		holder = 4165
+	2440.1.1 = {
+		holder = 4510
 		liege = "k_n_grandduke"
 	}
 }
@@ -20,17 +39,33 @@ c_seongyeon = {
 
 c_haemi = {
     2000.1.1 = { change_development_level = 4 }
-	2403.1.1 = {
-		holder = 4163
-		liege = "k_n_grandduke"
+	2400.1.1 = {
+		holder = 4513
+		liege = "d_seosan"
+	}
+	2443.3.18 = {
+		holder = 4514
+		liege = "d_seosan"
 	}
 }
 
 
 c_taean = {
     2000.1.1 = { change_development_level = 6 }
-	2403.1.1 = {
-		holder = 4165
+	2340.1.1 = {
+		holder = 4507
+		liege = "k_n_grandduke"
+	}
+	2366.3.22 = {
+		holder = 4508
+		liege = "k_n_grandduke"
+	}
+	2412.2.30 = {
+		holder = 4509
+		liege = "k_n_grandduke"
+	}
+	2436.2.15 = {
+		holder = 4510
 		liege = "k_n_grandduke"
 	}
 }
@@ -38,17 +73,29 @@ c_taean = {
 
 c_anmyeon = {
     2000.1.1 = { change_development_level = 6 }
-	2403.1.1 = {
-		holder = 4165
-		liege = "k_n_grandduke"
+	2380.3.22 = {
+		holder = 4508
+		liege = "d_seosan"
+	}
+	2412.2.30 = {
+		holder = 4504
+		liege = "d_seosan"
+	}
+	2418.1.17 = {
+		holder = 4505
+		liege = "d_seosan"
 	}
 }
 
 
 c_myeoncheon = {
     2000.1.1 = { change_development_level = 10 }
-	2403.1.1 = {
-		holder = 4167
+	2400.1.1 = {
+		holder = 4516
+		liege = "k_n_grandduke"
+	}
+	2436.5.5 = {
+		holder = 4517
 		liege = "k_n_grandduke"
 	}
 }
@@ -56,16 +103,20 @@ c_myeoncheon = {
 
 c_dangjin = {
     2000.1.1 = { change_development_level = 6 }
-	2403.1.1 = {
-		holder = 4167
+	2400.1.1 = {
+		holder = 4516
+		liege = "k_n_grandduke"
+	}
+	2436.5.5 = {
+		holder = 4517
 		liege = "k_n_grandduke"
 	}
 }
 
 
 d_hongju = {
-	2422.1.1 = {
-		holder = 4163
+	2400.1.1 = {
+		holder = 4523
 		liege = "k_n_grandduke"
 	}
 }
@@ -73,36 +124,52 @@ d_hongju = {
 
 c_gyeolseong = {
     2000.1.1 = { change_development_level = 7 }
-	2422.1.1 = {
-		holder = 4163
-		liege = "d_hongju"
+	2400.1.1 = {
+		holder = 4523
+		liege = "k_n_grandduke"
+	}
+	2439.9.18 = {
+		holder = 4525
+		liege = "k_n_grandduke"
 	}
 }
 
 
 c_sapgyo = {
     2000.1.1 = { change_development_level = 5 }
-	2422.1.1 = {
-		holder = 4163
-		liege = "d_hongju"
+	2400.1.1 = {
+		holder = 4523
+		liege = "k_n_grandduke"
+	}
+	2439.9.18 = {
+		holder = 4524
+		liege = "k_n_grandduke"
 	}
 }
 
 
 c_yesan = {
     2000.1.1 = { change_development_level = 5 }
-	2422.1.1 = {
-		holder = 4163
-		liege = "d_hongju"
+	2400.1.1 = {
+		holder = 4523
+		liege = "k_n_grandduke"
+	}
+	2439.9.18 = {
+		holder = 4524
+		liege = "k_n_grandduke"
 	}
 }
 
 
 c_hongju = {
     2000.1.1 = { change_development_level = 10 }
-	2422.1.1 = {
-		holder = 4163
-		liege = "d_hongju"
+	2400.1.1 = {
+		holder = 4523
+		liege = "k_n_grandduke"
+	}
+	2439.9.18 = {
+		holder = 4525
+		liege = "k_n_grandduke"
 	}
 }
 
@@ -220,16 +287,16 @@ c_nampo = {
 
 c_cheongyang = {
     2000.1.1 = { change_development_level = 6 }
-	2402.1.1 = {
-		holder = 4169
+	2440.1.1 = {
+		holder = 4521
 		liege = "k_n_grandduke"
 	}
 }
 
 c_jeongsan = {
     2000.1.1 = { change_development_level = 6 }
-	2402.1.1 = {
-		holder = 4169
+	2440.1.1 = {
+		holder = 4522
 		liege = "k_n_grandduke"
 	}
 }

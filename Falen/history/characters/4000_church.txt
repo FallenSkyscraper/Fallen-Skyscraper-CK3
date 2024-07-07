@@ -2161,7 +2161,356 @@
 	}
 }
 
+#북부 대공령
 
+4501 = {
+	name = "웅"
+	dynasty = 119 #채
+	religion = mechanism
+	culture = cheonan
+	father = 123
+	2330.7.24 = {
+		birth = yes
+	}
+	2387.11.12 = {
+		death = yes
+	}
+}
+4502 = {
+	name = "민재"
+	dynasty = 119 #채
+	religion = mechanism
+	culture = cheonan
+	father = 4501
+	2362.8.16 = {
+		birth = yes
+	}
+	2409.5.26 = {
+		death = yes
+	}
+}
+4503 = {
+	name = "정우"
+	dynasty = 119 #채
+	religion = mechanism
+	culture = cheonan
+	father = 4502
+	2391.8.9 = {
+		birth = yes
+	}
+	2410.1.1 = {
+		add_spouse = 4504
+	}
+	2431.6.8 = {
+		death = yes
+	}
+}
+4504 = {
+	name = "지민"
+	dynasty = 4504
+	religion = mechanism
+	culture = seosan
+	father = 4509
+	female = yes
+	2382.4.3 = {
+		birth = yes
+	}
+	2424.3.26 = {
+		death = yes
+	}
+}
+4505 = {
+	name = "석재"
+	dynasty = 119 #채
+	religion = mechanism
+	culture = cheonan
+	father = 4503
+	mother = 4504
+	trait = education_stewardship_4
+	trait = diligent 
+	trait = greedy 
+	trait = ambitious
+	trait = disloyal
+	2418.1.17 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4506 = {
+	name = "영희"
+	dynasty = 119 #채
+	religion = mechanism
+	culture = cheonan
+	father = 4503
+	mother = 4504
+	female = yes
+	2419.12.3 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4507 {
+	name = "명우"
+	dynasty = 4504
+	religion = mechanism
+	culture = seosan
+	trait = education_stewardship_3
+	2320.1.5 = {
+		birth = yes
+	}
+	2366.3.22 = {
+		death = yes
+	}
+}
+4508 = {
+	name = "태우"
+	dynasty = 4504
+	religion = mechanism
+	culture = seosan
+	father = 4507
+	trait = education_stewardship_4
+	2345.11.29 = {
+		birth = yes
+	}
+	2412.2.30 = {
+		death = yes
+	}
+}
+4509 = {
+	name = "연아"
+	dynasty = 4504
+	religion = mechanism
+	culture = seosan
+	father = 4508
+	female = yes
+	2380.8.18 = {
+		birth = yes
+	}
+	2436.2.15 = {
+		death = yes
+	}
+}
+4510 = {
+	name = "영희"
+	dynasty = 4504
+	religion = mechanism
+	culture = seosan
+	mother = 4509
+	female = yes
+	2402.12.19 = {
+		birth = yes
+	}
+	2422.12.19 = {
+		add_matrilineal_spouse = 4512
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4511 = {
+	name = "승훈"
+	dynasty = 4504
+	religion = mechanism
+	culture = seosan
+	father = 4512
+	mother = 4510
+	2433.8.7 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4512 = {
+	name = "철훈"
+	dynasty = 4512
+	religion = mechanism
+	culture = seosan
+	father = 4513
+	2400.9.25 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4513 = {
+	name = "민호"
+	dynasty = 4512
+	religion = mechanism
+	culture = seosan
+	2371.8.13 = {
+		birth = yes
+	}
+	2443.3.18 = {
+		death = yes
+	}
+}
+4514 = {
+	name = "철민"
+	dynasty = 4512
+	religion = mechanism
+	culture = seosan
+	father = 4513
+	2397.5.20 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4515 = {
+	name = "세훈"
+	dynasty = 4512
+	religion = mechanism
+	culture = seosan
+	father = 4514
+	2430.9.8 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4516 = {
+	name = "철훈"
+	dynasty = 4516
+	religion = mechanism
+	culture = seosan
+	2371.7.25 = {
+		birth = yes
+	}
+	2436.5.5 = {
+		death = yes
+	}
+}
+4517 = {
+	name = "승재"
+	dynasty = 4516
+	religion = mechanism
+	culture = seosan
+	father = 4516
+	2397.6.8 = {
+		birth = yes
+	}
+	2422.12.19 = {
+		add_spouse = 4520
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4518 = {
+	name = "정미"
+	dynasty = 4516
+	religion = mechanism
+	culture = seosan
+	father = 4516
+	female = yes
+	2418.6.25 = {
+		birth = yes
+	}
+	2422.12.19 = {
+		add_spouse = 150
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4519 = {
+	name = "준화"
+	dynasty = 4516
+	religion = mechanism
+	culture = seosan
+	father = 4517
+	mother = 4520
+	2441.10.23 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4520 = {
+	name = "다솜"
+	dynasty = 4520
+	religion = mechanism
+	culture = seosan
+	female = yes
+	2377.4.26 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4521 = {
+	name = "준석"
+	dynasty = 4521
+	religion = imperial_church
+	culture = buyeo
+	2416.6.30 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4522 = {
+	name = "유진"
+	dynasty = 4522
+	religion = imperial_church
+	culture = buyeo
+	female = yes
+	2422.1.25 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4523 = {
+	name = "민수"
+	dynasty = 4533
+	religion = imperial_church
+	culture = hongseong
+	2385.3.12 = {
+		birth = yes
+	}
+	2439.9.18 = {
+		death = yes
+	}
+}
+4524 = {
+	name = "정훈"
+	dynasty = 4533
+	religion = imperial_church
+	culture = hongseong
+	father = 4523
+	2412.2.28 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
+4525 = {
+	name = "정우"
+	dynasty = 4533
+	religion = imperial_church
+	culture = hongseong
+	father = 4523
+	2417.8.21 = {
+		birth = yes
+	}
+	2500.1.1 = {
+		death = yes
+	}
+}
 #무주원불교단일백작
 4991 = {
 	name = "유성"
