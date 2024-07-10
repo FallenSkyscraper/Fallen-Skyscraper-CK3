@@ -40,34 +40,7 @@ huscarl = {
 	icon = danish_huskarls
 }
 
-landsknecht = {
-	type = pikemen
-	
-	damage = 30
-	toughness = 24
-	pursuit = 0
-	screen = 0
-	
-	terrain_bonus = {
-		mountains = { damage = 5 toughness = 12 }
-		desert_mountains = { damage = 5 toughness = 12 }
-		hills = { damage = 3 toughness = 8 }
-	}
-
-	counters = {
-		pikemen = 0.5
-		light_cavalry = 2
-		heavy_cavalry = 2
-	}
-
-	buy_cost = { gold = landsknecht_recruitment_cost }
-	low_maintenance_cost = { gold = landsknecht_low_maint_cost }
-	high_maintenance_cost = { gold = landsknecht_high_maint_cost }
-	
-	stack = 100
-	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = pikemen
-}
+#
 
 longbowmen = {
 	type = archers
@@ -100,128 +73,13 @@ longbowmen = {
 	icon = bowmen
 }
 
-goedendag = {
-	type = skirmishers
-	
-	damage = 13
-	toughness = 18
-	pursuit = 0
-	screen = 16
-	
-	counters = {
-		heavy_infantry = 1
-		heavy_cavalry = 1
-	}
+#
 
-	buy_cost = { gold = goedendag_recruitment_cost }
-	low_maintenance_cost = { gold = goedendag_low_maint_cost }
-	high_maintenance_cost = { gold = goedendag_high_maint_cost }
-	
-	stack = 100
-	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = skirmishers
-}
+#
 
-gendarme = {
-	type = heavy_cavalry
-	
-	damage = 125
-	toughness = 40
-	pursuit = 20
-	screen = 10
-	
-	terrain_bonus = {
-		plains = { damage = 30 }
-		drylands = { damage = 30 }
-		hills = { damage = -10 }
-		jungle = { damage = -25 }
-		mountains = { damage = -50 }
-		desert_mountains = { damage = -50 }
-		wetlands = { damage = -75 }
-	}
+#
 
-	counters = {
-		archers = 1
-	}
-
-	winter_bonus = {
-		normal_winter = { damage = -15 toughness = -5 }
-		harsh_winter = { damage = -30 toughness = -10 }
-	}
-
-	buy_cost = { gold = gendarme_recruitment_cost }
-	low_maintenance_cost = { gold = gendarme_low_maint_cost }
-	high_maintenance_cost = { gold = gendarme_high_maint_cost }
-	
-	stack = 50
-	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = heavy_cavalry
-}
-
-chasseur = {
-	type = light_cavalry
-	
-	damage = 40
-	toughness = 15
-	pursuit = 40
-	screen = 15
-	
-	terrain_bonus = {
-		plains = { damage = 10 }
-		drylands = { damage = 10 }
-		desert = { damage = 10 }
-		hills = { damage = -5 }
-		mountains = { damage = -25 }
-		desert_mountains = { damage = -25 }
-		wetlands = { damage = -30 toughness = -10 pursuit = -25 screen = -15 }
-	}
-
-	counters = {
-		archers = 1
-	}
-
-	winter_bonus = {
-		harsh_winter = { damage = -5 toughness = -2 }
-	}
-
-	buy_cost = { gold = chasseur_recruitment_cost }
-	low_maintenance_cost = { gold = chasseur_low_maint_cost }
-	high_maintenance_cost = { gold = chasseur_high_maint_cost }
-	
-	stack = 100
-	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = light_cavalry
-}
-
-picchieri = {
-	type = pikemen
-	
-	damage = 40
-	toughness = 24
-	pursuit = 0
-	screen = 0
-	
-	terrain_bonus = {
-		mountains = { toughness = 12 }
-		desert_mountains = { toughness = 12 }
-		hills = { toughness = 10 }
-	}
-
-	counters = {
-		light_cavalry = 1
-		heavy_cavalry = 1
-		camel_cavalry = 1
-		elephant_cavalry = 1
-	}
-
-	buy_cost = { gold = picchieri_recruitment_cost }
-	low_maintenance_cost = { gold = picchieri_low_maint_cost }
-	high_maintenance_cost = { gold = picchieri_high_maint_cost }
-	
-	stack = 100
-	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = pikemen
-}
+#
 
 praetorian = {
 	type = heavy_infantry
@@ -244,39 +102,7 @@ praetorian = {
 	icon = heavy_infantry
 }
 
-caballero = {
-	type = light_cavalry
-	
-	damage = 22
-	toughness = 16
-	pursuit = 30
-	screen = 50
-	
-	terrain_bonus = {
-		hills = { damage = 15 toughness = 10 }
-		plains = { damage = 10 }
-		drylands = { damage = 10 }
-		mountains = { damage = -8 pursuit = -10 }
-		desert_mountains = { damage = -12 pursuit = -20 }
-		wetlands = { damage = -15 toughness = -10 pursuit = -20 screen = -20 }
-	}
-
-	counters = {
-		archers = 1
-	}
-
-	winter_bonus = {
-		harsh_winter = { damage = -5 toughness = -2 }
-	}
-
-	buy_cost = { gold = caballero_recruitment_cost }
-	low_maintenance_cost = { gold = caballero_low_maint_cost }
-	high_maintenance_cost = { gold = caballero_high_maint_cost }
-	
-	stack = 100
-	ai_quality = { value = @[cultural_maa_extra_ai_score + 20] }
-	icon = light_cavalry
-}
+#
 
 monaspa = {
 	type = heavy_cavalry
@@ -355,67 +181,9 @@ cataphract = {
 	icon = heavy_cavalry
 }
 
-hobelar = {
-	type = light_cavalry
-	
-	damage = 22
-	toughness = 15
-	pursuit = 50
-	screen = 30
-	
-	terrain_bonus = {
-		forest = { damage = 15 }
-		hills = { damage = 10 }
-		mountains = { damage = -10 pursuit = -30 }
-		desert_mountains = { damage = -15 pursuit = -30 }
-		wetlands = { damage = -10 pursuit = -20 screen = -15 }
-	}
+#
 
-	counters = {
-		archers = 1
-	}
-
-	winter_bonus = {
-		harsh_winter = { damage = -5 }
-	}
-
-	buy_cost = { gold = hobelar_recruitment_cost }
-	low_maintenance_cost = { gold = hobelar_low_maint_cost }
-	high_maintenance_cost = { gold = hobelar_high_maint_cost }
-	
-	stack = 100
-	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = light_cavalry
-}
-
-schiltron = {
-	type = pikemen
-	
-	damage = 36
-	toughness = 28
-	pursuit = 0
-	screen = 0
-	
-	terrain_bonus = {
-		mountains = { toughness = 12 }
-		desert_mountains = { toughness = 12 }
-		hills = { toughness = 8 }
-		plains = { damage = 8 }
-	}
-
-	counters = {
-		light_cavalry = 1
-		heavy_cavalry = 1
-	}
-
-	buy_cost = { gold = schiltron_recruitment_cost }
-	low_maintenance_cost = { gold = schiltron_low_maint_cost }
-	high_maintenance_cost = { gold = schiltron_high_maint_cost }
-	
-	stack = 100
-	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = pikemen
-}
+#
 
 metsanvartija = {
 	type = archers
@@ -889,42 +657,7 @@ mountaineer = {
 	icon = heavy_infantry
 }
 
-sahel_horsemen = {
-	type = light_cavalry
-	
-	damage = 22
-	toughness = 15
-	pursuit = 30
-	screen = 30
-	
-	terrain_bonus = {
-		drylands = { damage = 15 toughness = 3 }
-		floodplains = { damage = 15 toughness = 3 }
-		desert = { damage = 10 }
-		oasis = { damage = 10 }
-		hills = { damage = -10 pursuit = -10 }
-		desert_mountains = { damage = -10 pursuit = -20 }
-		mountains = { damage = -15 pursuit = -20 }
-		wetlands = { damage = -15 toughness = -10 pursuit = -30 screen = -30 }
-	}
-
-	counters = {
-		archers = 1
-		heavy_infantry = 1
-	}
-
-	winter_bonus = {
-		harsh_winter = { damage = -5 toughness = -2 }
-	}
-
-	buy_cost = { gold = sahel_rider_recruitment_cost }
-	low_maintenance_cost = { gold = sahel_rider_low_maint_cost }
-	high_maintenance_cost = { gold = sahel_rider_high_maint_cost }
-	
-	stack = 100
-	ai_quality = { value = @[cultural_maa_extra_ai_score + 30] }
-	icon = light_cavalry
-}
+#
 
 guinea_warrior = { #AKA Guinean uplander
 	type = skirmishers
@@ -957,34 +690,7 @@ guinea_warrior = { #AKA Guinean uplander
 	icon = skirmishers
 }
 
-sarawit = { #AKA Ethiopian mountaineer
-	type = heavy_infantry
-	
-	damage = 32
-	toughness = 26
-	pursuit = 0
-	screen = 10
-	
-	terrain_bonus = {
-		mountains = { damage = 12 toughness = 10 }
-		desert_mountains = { damage = 10 toughness = 8 }
-		hills = { damage = 8 toughness = 5 }
-		drylands = { screen = -10 }
-		desert = { toughness = -10 screen = -10 }
-	}
-	
-	counters = {
-		light_cavalry = 1
-	}
-	
-	buy_cost = { gold = sarawit_recruitment_cost }
-	low_maintenance_cost = { gold = sarawit_low_maint_cost }
-	high_maintenance_cost = { gold = sarawit_high_maint_cost }
-	
-	stack = 100
-	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = heavy_infantry
-}
+#
 
 abudrar = { #AKA Jabali - Berber mountaineer
 	type = skirmishers
@@ -1082,60 +788,6 @@ palace_guards = {
 	icon = heavy_infantry
 }
 
-chu_ko_nu = {
-	type = archers
-	
-	damage = 30
-	toughness = 20
-	pursuit = 0
-	screen = 0
-	
-	terrain_bonus = {
-		hills = { damage = 10 toughness = 4 }
-		mountains = { damage = 8 toughness = 2 }
-		desert_mountains = { damage = 8 toughness = 2 }
-	}
-	
-	counters = {
-		skirmishers = 1
-		archer_cavalry = 0.5
-	}
-	
-	buy_cost = { gold = chu_ko_nu_recruitment_cost }
-	low_maintenance_cost = { gold = chu_ko_nu_low_maint_cost }
-	high_maintenance_cost = { gold = chu_ko_nu_high_maint_cost }
-	
-	stack = 100
-	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = crossbowmen
-}
+#
 
-guanch_vaulter = {
-	type = skirmishers
-	
-	damage = 10
-	toughness = 12
-	pursuit = 15
-	screen = 20
-	siege_value = 0.1
-	
-	terrain_bonus = {
-		hills = { damage = 4 toughness = 6 }
-		mountains = { damage = 4 pursuit = 6 }
-		desert_mountains = { damage = 4 pursuit = 6 }
-		wetlands = { damage = 4 pursuit = 6 }
-	}
-
-	counters = {
-		heavy_infantry = 1
-	}
-
-	buy_cost = { gold = guanch_vaulter_recruitment_cost }
-	low_maintenance_cost = { gold = guanch_vaulter_low_maint_cost }
-	high_maintenance_cost = { gold = guanch_vaulter_high_maint_cost }
-	
-	
-	stack = 100
-	ai_quality = { value = culture_ai_weight_skirmishers }
-	icon = skirmishers
-}
+#
