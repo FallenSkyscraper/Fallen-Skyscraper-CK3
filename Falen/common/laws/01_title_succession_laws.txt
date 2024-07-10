@@ -12,13 +12,12 @@
 				government_has_flag = government_is_oligarchic_republic
 				government_has_flag = government_is_slavery
 			}
-			highest_held_title_tier >= tier_duchy #이걸로 어디부터 해당 상속제를 실시할수 있는지 결정하는듯
 		}
 		can_pass = {
 			can_change_title_law_trigger = yes
 		}
 		can_title_have = {
-			tier >= tier_duchy
+			can_title_have_law_general_trigger = yes
 		}
 		succession = {
 			order_of_succession = election
@@ -26,9 +25,7 @@
 		 
 		}
 		flag = elective_succession_law
-		modifier = {
-			direct_vassal_opinion = 10
-		}
+		title_allegiance_opinion = 10
 		revoke_cost = {
 			prestige = change_title_succession_law_prestige_cost
 		}
@@ -40,7 +37,10 @@
 	#HRE Succession
 	princely_elective_succession_law = {
 		can_have = {
+			OR = {
 			government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
+			}
 			highest_held_title_tier = tier_empire
 		}
 		can_pass = {
@@ -55,9 +55,10 @@
 			election_type = princely_elective
 		}
 		flag = elective_succession_law
+		title_allegiance_opinion = 10
 		modifier = {
-			direct_vassal_opinion = 10
 			vassal_limit = 20
+			minority_opinion = -15
 		}
 		revoke_cost = {
 			prestige = change_hre_title_succession_law_prestige_cost

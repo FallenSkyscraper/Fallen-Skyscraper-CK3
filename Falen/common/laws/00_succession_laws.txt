@@ -349,6 +349,12 @@
 		}
 		can_pass = {
 			can_change_succession_law_trigger = yes
+			trigger_if = {
+				limit = {
+					government_has_flag = government_is_clan
+				}
+				piety_level >= 3
+			}
 		}
 		should_start_with = {
 			OR = {
@@ -366,11 +372,25 @@
 		}
 		flag = advanced_succession_law
 		modifier = {
+			glory_hound_opinion = -10
+			parochial_opinion = -5
 			player_heir_opinion = 20
 			eligible_child_except_player_heir_opinion = -5
 		}
 		pass_cost = {
 			prestige = change_succession_law_prestige_cost
+			piety = {
+				value = 0
+				if = {
+					limit = {
+						government_has_flag = government_is_clan
+					}
+					add = {
+						desc = "clan_government_cost_tooltip"
+						value = 1500
+					}
+				}
+			}
 		}
 		revoke_cost = {
 			prestige = change_succession_law_prestige_cost
@@ -407,6 +427,12 @@
 		}
 		can_pass = {
 			can_change_succession_law_trigger = yes
+			trigger_if = {
+				limit = {
+					government_has_flag = government_is_clan
+				}
+				piety_level >= 3
+			}
 		}
 		succession = {
 			order_of_succession = inheritance
@@ -417,11 +443,25 @@
 		
 		flag = advanced_succession_law
 		modifier = {
+			glory_hound_opinion = -10
+			parochial_opinion = -5
 			player_heir_opinion = 20
 			eligible_child_except_player_heir_opinion = -5
 		}
 		pass_cost = {
 			prestige = change_succession_law_prestige_cost
+			piety = {
+				value = 0
+				if = {
+					limit = {
+						government_has_flag = government_is_clan
+					}
+					add = {
+						desc = "clan_government_cost_tooltip"
+						value = 1500
+					}
+				}
+			}
 		}
 		revoke_cost = {
 			prestige = change_succession_law_prestige_cost
@@ -445,6 +485,12 @@
 		}
 		can_pass = {
 			can_change_single_heir_dynasty_house_succession_law_trigger = yes
+			trigger_if = {
+				limit = {
+					government_has_flag = government_is_clan
+				}
+				piety_level >= 3
+			}
 		}
 		should_start_with = {
 			historical_succession_access_single_heir_dynasty_house_trigger = yes
@@ -458,29 +504,27 @@
 		
 		flag = advanced_succession_law
 		modifier = {
+			glory_hound_opinion = -5
 			eligible_child_except_player_heir_opinion = -15
-			direct_vassal_opinion = -5
 			dynasty_house_opinion = 5
 		}
 		pass_cost = {
 			prestige = change_succession_law_prestige_cost
+			piety = {
+				value = 0
+				if = {
+					limit = {
+						government_has_flag = government_is_clan
+					}
+					add = {
+						desc = "clan_government_cost_tooltip"
+						value = 1500
+					}
+				}
+			}
 		}
 		revoke_cost = {
 			prestige = change_succession_law_prestige_cost
-		}
-
-		ai_will_do = {
-			if = {
-				limit = {
-					primary_title.tier > tier_county
-					OR = {
-						#West Slavic
-						has_culture = culture:czech
-						has_culture = culture:slovien
-					}
-				}
-				value = 2
-			}
 		}
 	}
 
@@ -499,6 +543,10 @@
 			faith = same_faith
 			pool_character_config = pool_theocratic_succession
 		}
+
+		potential = {
+			can_have_bishop_theocratic_succession_law_trigger = yes
+		}
 	}
 
 	holy_order_succession_law = {
@@ -516,6 +564,10 @@
 			faith = same_faith
 			pool_character_config = pool_holy_order_succession
 		}
+
+		potential = {
+			can_have_holy_order_succession_law_trigger = yes
+		}
 	}
 	
 	mercenary_company_succession_law = {
@@ -532,6 +584,10 @@
 			order_of_succession = company
 			pool_character_config = pool_mercenary_succession
 		}
+
+		potential = {
+			can_have_mercenary_succession_law_trigger = yes
+		}
 	}
 
 	city_succession_law = {
@@ -547,6 +603,10 @@
 		succession = {
 			order_of_succession = generate
 			pool_character_config = pool_city_succession
+		}
+
+		potential = {
+			can_have_city_succession_law_trigger = yes
 		}
 	}
 	
@@ -636,11 +696,23 @@ succession_gender_laws = {
 					NOT = { has_doctrine = doctrine_gender_female_dominated }
 				}
 			}
+			custom_tooltip = {
+				text = culture_not_female_only_tt
+				OR = {
+					faith = { has_doctrine = doctrine_gender_male_dominated }
+					NOT = {
+						culture = { has_cultural_parameter = female_only_inheritance }
+					}
+				}
+			}
 		}
 		can_pass = {
 			can_change_succession_law_trigger = yes
 		}
 		should_start_with = {
+			NOT = {
+				culture = { has_cultural_parameter = female_preference_inheritance }
+			}
 			OR = {
 				faith = {
 					NOT = {
@@ -676,10 +748,20 @@ succession_gender_laws = {
 		can_keep = {
 			trigger_if = {
 				faith = { has_doctrine = doctrine_gender_equal }
+					AND = { #Culture is female dominated but religion is male dominated
+						faith = { has_doctrine = doctrine_gender_male_dominated }
+						culture = { has_cultural_parameter = female_only_inheritance }
+					}
+					AND = { #Culture is male dominated but faith is female dominated
+						faith = { has_doctrine = doctrine_gender_female_dominated }
+						NOT = { culture = { has_cultural_parameter = female_only_inheritance }
+					}
+				}
 			}
 		}
 		can_pass = {
-			can_change_to_equal_succession_law_trigger = yes
+			#can_change_to_equal_succession_law_trigger = yes
+			can_change_succession_law_trigger = yes
 		}
 		should_start_with = {
 			faith = {
@@ -703,8 +785,18 @@ succession_gender_laws = {
 		}
 
 		ai_will_do = {
+			if = {
+				limit = {
+					primary_title.tier > tier_county
+					faith = {
+						NOT = {
+							has_dominant_ruling_gender = prev
+						}
+					}
+				}
 			value = 2
 		}
+	}
 	}
 	
 	female_preference_law = {
@@ -715,8 +807,8 @@ succession_gender_laws = {
 			always = no
 		}
 		can_keep = {
-			custom_description = {
-				text = change_law_female_preference_faith_requirement
+			custom_tooltip = {
+				text = female_preference_law_faith_or_culture_trigger
 				faith = {
 					NOT = { has_doctrine = doctrine_gender_male_dominated }
 				}
@@ -755,8 +847,12 @@ succession_gender_laws = {
 			always = no
 		}
 		can_keep = {
-			faith = {
-				has_doctrine = doctrine_gender_female_dominated
+			custom_tooltip = {
+				text = female_only_law_faith_or_culture_trigger
+				OR = {
+					faith = { has_doctrine = doctrine_gender_female_dominated }
+					culture = { has_cultural_parameter = female_only_inheritance }
+				}
 			}
 		}
 		can_pass = {
@@ -773,6 +869,29 @@ succession_gender_laws = {
 		}
 		revoke_cost = {
 			prestige = change_succession_law_prestige_cost
+		}
+
+		should_start_with = {
+			OR = {
+				culture = { has_cultural_parameter = female_only_inheritance }
+			}
+		}
+	}
+}
+
+succession_faith = {
+	same_faith_only_law = {
+		can_keep = {
+			should_have_same_faith_succession_trigger = yes
+		}
+		can_pass = {
+			should_have_same_faith_succession_trigger = yes
+		}
+		should_start_with = {
+			should_have_same_faith_succession_trigger = yes
+		}
+		succession = {
+			faith = same_faith
 		}
 	}
 }
