@@ -1,0 +1,14 @@
+grandduke_struggle = {
+	alias = { struggle_grandduke_region }
+	parent = struggle
+}
+struggle_phase_grandduke_under_control = {
+	texture = "gfx/interface/icons/struggle_types/struggle_iberia_phase_opportunity.dds"
+	parent = grandduke_struggle
+	requires_dlc_flag = the_fate_of_iberia
+}
+struggle_phase_grandduke_out_of_control = {
+	texture = "gfx/interface/icons/struggle_types/struggle_brittania_phase_hostility.dds"
+	parent = grandduke_struggle
+	requires_dlc_flag = the_fate_of_iberia
+}
