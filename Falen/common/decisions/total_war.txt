@@ -1,107 +1,107 @@
-﻿total_war_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
-	ai_check_interval = 60
-
-	cooldown = { days = 7300 }
-
-
-	desc = total_war_decision_desc
-	selection_tooltip = total_war_decision_tooltip
-
-	is_shown = {
-		is_ruler = yes
-		is_landed = yes
-		is_imprisoned = no
-		government_has_flag = government_is_military
-		is_independent_ruler = yes
-	}
-	is_valid = {
-		is_at_war = yes
-		government_has_flag = government_is_military
-	}
-	effect = {
-		add_character_modifier = {
-			modifier = total_war_modifier
-		}
-
-		trigger_event = {
-			id = total_war_decisions.0001
-		}
-	}
-	ai_will_do = {
-		base = 0
-
-		ai_value_modifier = {
-			ai_brave = 5
-			ai_craven = -5
-			ai_content = -10
-			ai_ambitious = 10
-			ai_callous = 5
-		}
-	}
-}
-
-militia_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
-	ai_check_interval = 60
-
-	cooldown = { days = 7300 }
-
-
-	desc = militia_decision_desc
-	selection_tooltip = militia_decision_tooltip
-
-	is_shown = {
-		is_ruler = yes
-		is_landed = yes
-		is_imprisoned = no
-		is_independent_ruler = yes
-		OR = {
-			faith = {
-				has_doctrine = tenet_righteous_army
-			}
-			faith = {
-				has_doctrine = tenet_world_revolution
-			}
-			faith = {
-				has_doctrine = tenet_populism
-			}
-		}
-		NOR = {
-			government_has_flag = government_is_tribal
-			government_has_flag = government_is_manchu_tribal
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_military
-		}
-		
-	}
-	is_valid = {
-		is_at_war = yes
-		OR = {
-			faith = {
-				has_doctrine = tenet_righteous_army
-			}
-			faith = {
-				has_doctrine = tenet_world_revolution
-			}
-			faith = {
-				has_doctrine = tenet_populism
-			}
-		}
-		NOR = {
-			government_has_flag = government_is_tribal
-			government_has_flag = government_is_manchu_tribal
-			government_has_flag = government_is_nomadic
-			government_has_flag = government_is_military
-		}
-	}
-	cost = { piety = 300 prestige = 500 }
-	effect = {
-		trigger_event = {
-			id = total_war_decisions.0002
-		}
-	}
-	ai_will_do = {
-		base = 10
-	}
-}
+﻿#total_war_decision = {
+#	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+#	ai_check_interval = 60
+#
+#	cooldown = { days = 7300 }
+#
+#
+#	desc = total_war_decision_desc
+#	selection_tooltip = total_war_decision_tooltip
+#
+#	is_shown = {
+#		is_ruler = yes
+#		is_landed = yes
+#		is_imprisoned = no
+#		government_has_flag = government_is_military
+#		is_independent_ruler = yes
+#	}
+#	is_valid = {
+#		is_at_war = yes
+#		government_has_flag = government_is_military
+#	}
+#	effect = {
+#		add_character_modifier = {
+#			modifier = total_war_modifier
+#		}
+#
+#		trigger_event = {
+#			id = total_war_decisions.0001
+#		}
+#	}
+#	ai_will_do = {
+#		base = 0
+#
+#		ai_value_modifier = {
+#			ai_brave = 5
+#			ai_craven = -5
+#			ai_content = -10
+#			ai_ambitious = 10
+#			ai_callous = 5
+#		}
+#	}
+#}
+#
+#militia_decision = {
+#	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+#	ai_check_interval = 60
+#
+#	cooldown = { days = 7300 }
+#
+#
+#	desc = militia_decision_desc
+#	selection_tooltip = militia_decision_tooltip
+#
+#	is_shown = {
+#		is_ruler = yes
+#		is_landed = yes
+#		is_imprisoned = no
+#		is_independent_ruler = yes
+#		OR = {
+#			faith = {
+#				has_doctrine = tenet_righteous_army
+#			}
+#			faith = {
+#				has_doctrine = tenet_world_revolution
+#			}
+#			faith = {
+#				has_doctrine = tenet_populism
+#			}
+#		}
+#		NOR = {
+#			government_has_flag = government_is_tribal
+#			government_has_flag = government_is_manchu_tribal
+#			government_has_flag = government_is_nomadic
+#			government_has_flag = government_is_military
+#		}
+#		
+#	}
+#	is_valid = {
+#		is_at_war = yes
+#		OR = {
+#			faith = {
+#				has_doctrine = tenet_righteous_army
+#			}
+#			faith = {
+#				has_doctrine = tenet_world_revolution
+#			}
+#			faith = {
+#				has_doctrine = tenet_populism
+#			}
+#		}
+#		NOR = {
+#			government_has_flag = government_is_tribal
+#			government_has_flag = government_is_manchu_tribal
+#			government_has_flag = government_is_nomadic
+#			government_has_flag = government_is_military
+#		}
+#	}
+#	cost = { piety = 300 prestige = 500 }
+#	effect = {
+#		trigger_event = {
+#			id = total_war_decisions.0002
+#		}
+#	}
+#	ai_will_do = {
+#		base = 10
+#	}
+#}
