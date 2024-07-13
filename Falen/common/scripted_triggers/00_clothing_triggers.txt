@@ -757,7 +757,7 @@ portrait_era2_trigger = { # Intended to primarily cover the years 1000 to 1150
 		}	
 		AND = { # Children under 16 will not be early adopters
 			scope:year_of_birth >= 1010
-			scope:year_of_birth < 1150
+			scope:year_of_birth < 1166
 			scope:age < 16
 		}	
 	}
@@ -781,7 +781,7 @@ portrait_era3_trigger = { # Intended to primarily cover the years 1150 to 1300
 		}	
 		AND = { # Children under 16 will not be early adopters
 			scope:year_of_birth >= 1160
-			scope:year_of_birth < 1300
+			scope:year_of_birth < 1316
 			scope:age < 16
 		}	
 	}
@@ -1608,6 +1608,7 @@ portrait_sickness_trigger = {
 		has_short_disease_trigger = yes #affliction that would plausibly leave them bedridden for treatment
 		has_character_flag = use_sickness_clothes
 	}
+	NOT = { has_dead_character_flag = ignore_sickness_clothes }
 	portrait_ep2_wedding_clothes_trigger = no
 }
 

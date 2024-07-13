@@ -36,6 +36,9 @@ farmlands = {
 	
 	province_modifier = {
 		supply_limit_mult = 0.5
+	}
+
+	county_capital_modifier = {
 		development_growth_factor = 0.2
 	}
 	
@@ -49,8 +52,11 @@ hills = {
 	
 	province_modifier = {
 		supply_limit_mult = -0.1
-		development_growth_factor = -0.1
 		travel_danger = hills_danger_value
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = -0.1
 	}
 	
 	defender_combat_effects = {
@@ -72,8 +78,11 @@ mountains = {
 	
 	province_modifier = {
 		supply_limit_mult = -0.5
-		development_growth_factor = -0.25
 		travel_danger = mountains_danger_value
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = -0.25
 	}
 	
 	defender_combat_effects = {
@@ -95,8 +104,11 @@ desert = {
 	
 	province_modifier = {
 		supply_limit_mult = -0.3
-		development_growth_factor = -0.5
 		travel_danger = desert_danger_value
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = -0.5
 	}
 	
 	movement_speed = 0.7
@@ -111,8 +123,11 @@ desert_mountains = {
 	
 	province_modifier = {
 		supply_limit_mult = -0.6
-		development_growth_factor = -0.5
 		travel_danger = desert_mountains_danger_value
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = -0.5
 	}
 	
 	defender_combat_effects = {
@@ -138,8 +153,11 @@ oasis = {
 	
 	province_modifier = {
 		supply_limit_mult = 0.1
-		development_growth_factor = 0.1
 		travel_danger = 10
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = 0.1
 	}
 	
 	movement_speed = 1
@@ -154,8 +172,11 @@ jungle = {
 	
 	province_modifier = {
 		supply_limit_mult = -0.25
-		development_growth_factor = -0.4
 		travel_danger = jungle_danger_value
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = -0.4
 	}
 	
 	defender_combat_effects = {
@@ -190,6 +211,8 @@ forest = {
 	combat_width = 0.9
 
 	audio_parameter = 4.0
+
+	entity = "forest_birds_01"
 }
 
 taiga = {
@@ -199,8 +222,11 @@ taiga = {
 	
 	province_modifier = {
 		supply_limit_mult = -0.2
-		development_growth_factor = -0.05
 		travel_danger = taiga_danger_value
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = -0.05
 	}
 	
 	defender_combat_effects = {
@@ -222,8 +248,11 @@ wetlands = {
 	
 	province_modifier = {
 		supply_limit_mult = -0.25
-		development_growth_factor = -0.25
 		travel_danger = wetlands_danger_value
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = -0.25
 	}
 	
 	attacker_modifier = {
@@ -255,8 +284,11 @@ steppe = {
 	
 	province_modifier = {
 		supply_limit_mult = 0
-		development_growth_factor = -0.5
 		travel_danger = steppe_danger_value
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = -0.5
 	}
 	
 	audio_parameter = 5.0
@@ -269,8 +301,11 @@ floodplains = {
 	
 	province_modifier = {
 		supply_limit_mult = 0.35
-		development_growth_factor = 0.2
 		travel_danger = floodplains_danger_value
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = 0.2
 	}
 	
 	combat_width = 0.75
@@ -285,8 +320,11 @@ drylands = {
 	
 	province_modifier = {
 		supply_limit_mult = 0
-		development_growth_factor = -0.05
 		travel_danger = drylands_danger_value
+	}
+	
+	county_capital_modifier = {
+		development_growth_factor = -0.05
 	}
 	
 	audio_parameter = 1.0
@@ -299,8 +337,11 @@ ruined_city = {
 	
 	province_modifier = {
 		supply_limit_mult = 0.5
-		development_growth_factor = 0.2
 		travel_danger = 15
+	}
+	
+	county_modifier = {
+		development_growth_factor = 0.2
 	}
 	
 	movement_speed = 0.8
