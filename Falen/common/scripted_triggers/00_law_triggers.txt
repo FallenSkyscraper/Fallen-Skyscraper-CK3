@@ -52,6 +52,11 @@ has_partition_succession_realm_law_trigger = {
 		has_realm_law = confederate_partition_succession_law
 		has_realm_law = partition_succession_law
 		has_realm_law = high_partition_succession_law
+		has_realm_law = clan_antagonistic_partition_succession_law
+		has_realm_law = clan_competitive_partition_succession_law
+		has_realm_law = clan_impassive_partition_succession_law
+		has_realm_law = clan_friendly_partition_succession_law
+		has_realm_law = clan_harmonious_partition_succession_law
 	}
 }
 
@@ -134,6 +139,7 @@ can_keep_high_partition_succession_law_trigger = {
 			can_have_high_partition_succession_law_trigger = yes
 		}
 	}
+	NOT = { government_has_flag = government_is_clan}
 }
 
 can_have_high_partition_succession_law_trigger = {
@@ -143,7 +149,7 @@ can_have_high_partition_succession_law_trigger = {
 				culture = { has_cultural_parameter = can_enact_high_partition_succession_law }
 			}
 		}
-		culture = { has_innovation = innovation_genealogy }
+		culture = { has_innovation = innovation_heraldry }
 	}
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
@@ -316,7 +322,7 @@ can_have_single_heir_dynasty_house_trigger = {
 			culture = {
 				OR = {
 					has_cultural_pillar = heritage_west_slavic
-					NOT = {	has_innovation = innovation_genealogy }
+					NOT = {	has_innovation = innovation_heraldry }
 				}
 			}
 		}
@@ -324,9 +330,9 @@ can_have_single_heir_dynasty_house_trigger = {
 			has_innovation = innovation_table_of_princes
 		}
 	}
-	trigger_else_if = {
+	trigger_else = {
 		culture = {
-			has_innovation = innovation_genealogy
+			has_innovation = innovation_heraldry
 		}
 	}
 	trigger_else = {
@@ -412,4 +418,16 @@ realm_law_use_slavery_authority = {
 
 realm_law_use_alliance_authority = {
 	government_has_flag = government_is_alliance
+}
+
+can_pass_law_ca1_trigger = {
+	culture = { has_innovation = innovation_plenary_assemblies }
+}
+
+can_pass_law_ca2_trigger = {
+	culture = { has_innovation = innovation_royal_prerogative }
+}
+
+can_pass_law_ca3_trigger = {
+	culture = { has_innovation = innovation_royal_prerogative }
 }

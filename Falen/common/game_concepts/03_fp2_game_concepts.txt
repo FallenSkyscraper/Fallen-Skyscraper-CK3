@@ -1,9 +1,9 @@
 ﻿struggle = {
-	#TODO change with correct texture
-	texture = "gfx/interface/icons/message_feed/great_holy_war.dds"
+	texture = "gfx/interface/icons/message_feed/struggle.dds"
 	alias = { struggle_struggles }
 }
 struggle_phase = {
+	texture = "gfx/interface/icons/message_feed/struggle.dds"
 	alias = { struggle_phase_phase struggle_phase_phases }
 	parent = struggle
 }
@@ -12,11 +12,11 @@ struggle_catalyst = {
 	parent = struggle
 }
 struggle_involved = {
-	texture = "gfx/interface/icons/struggle_banners/involved_banner.dds"
+	texture = "gfx/interface/icons/message_feed/struggle_involved.dds"
 	parent = struggle
 }
 struggle_interloper = {
-	texture = "gfx/interface/icons/struggle_banners/interloper_banner.dds"
+	texture = "gfx/interface/icons/message_feed/struggle_interloper.dds"
 	alias = { struggle_interloper_interlopers }
 	parent = struggle
 }
@@ -81,31 +81,31 @@ improve_city_province_decision = {
 }
 
 border_raid = {
-	texture = "gfx/interface/icons/map_icons/icon_raid.dds" #TODO_CD_FP2 (JP) correct art
+	texture = "gfx/interface/icons/map_icons/icon_raid.dds"
 	alias = { border_raiding border_raids }
 	requires_dlc_flag = the_fate_of_iberia
 }
 
 contract_assistance = {
-	texture = "gfx/interface/icons/icon_gold.dds" #TODO_CD_FP2 (JP) correct art
+	texture = "gfx/interface/icons/icon_gold.dds"
 	alias = { contracting_assistance }
 	requires_dlc_flag = the_fate_of_iberia
 }
 
 enforce_truce = {
-	texture = "gfx/interface/icons/character_interactions/icon_retreat.dds" #TODO_CD_FP2 (JP) correct art
+	texture = "gfx/interface/icons/character_interactions/icon_retreat.dds"
 	alias = { enforced_truce }
 	requires_dlc_flag = the_fate_of_iberia
 }
 
 iberian_reclamation = {
-	texture = "gfx/interface/icons/message_feed/great_holy_war.dds" #TODO_CD_FP2 (JP) correct art
+	texture = "gfx/interface/icons/message_feed/great_holy_war.dds"
 	alias = { iberian_reclaiming iberian_reclamations }
 	requires_dlc_flag = the_fate_of_iberia
 }
 
 bargain_fealty = {
-	texture = "gfx/interface/icons/icon_vassal.dds" #TODO_CD_FP2 (JP) correct art
+	texture = "gfx/interface/icons/icon_vassal.dds"
 	alias = { bargained_fealty }
 	requires_dlc_flag = the_fate_of_iberia
 }
@@ -125,7 +125,7 @@ struggle_involved_culture = {
 }
 
 dissolution_faction = {
-	alias = { dissolution_factions }
+	alias = { dissolution_factions dissolution_faction_dissolved }
 	parent = faction 
 }
 

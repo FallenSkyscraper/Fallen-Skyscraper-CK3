@@ -59,10 +59,6 @@ GetFaithSacredLanguage = {
 		trigger = {
 			OR = {
 				faith = faith:catholic
-				faith = faith:conversos
-				faith = faith:lollard
-				faith = faith:insular_celtic
-				faith = faith:mozarabic_church
 			}
 		}
 		localization_key = language_latin_name #Latin
@@ -70,45 +66,17 @@ GetFaithSacredLanguage = {
 
 	text = {
 		trigger = {
-			faith = faith:cathar
-		}
-		localization_key = language_occitano_romance_name #Occitan
-	}
-
-	text = {
-		trigger = { faith = faith:nestorian }
-		localization_key = language_aramaic_name #Armaic
-	}
-
-	text = {
-		trigger = { faith = faith:armenian_apostolic }
-		localization_key = language_armenian_name #Armenian
-	}
-
-	text = {
-		trigger = {
 			OR = {
 				faith = faith:orthodox
-				faith = faith:coptic
 				religion = religion:christianity_religion #fallback for all Christian Faiths
 			}
 		}
 		localization_key = language_greek_name #Greek
 	}
 	
-	text = { 
-		trigger = { religion = religion:judaism_religion }
-		localization_key = language_hebrew_name #Hebrew
-	}
-	
 	text = {
 		trigger = { religion = religion:islam_religion }
 		localization_key = language_arabic_name #Arabic
-	}
-	
-	text = {
-		trigger = { religion = religion:zoroastrianism_religion }
-		localization_key = language_avestan_name #Avestan
 	}
 
 	text = {
@@ -118,45 +86,10 @@ GetFaithSacredLanguage = {
 
 	text = {
 		trigger = {
-			OR = {
-				faith = faith:lamaism
-				religion = religion:bon_religion
-				AND = {
-					faith = faith:vajrayana
-					culture = {
-						has_cultural_pillar = heritage_tibetan
-					}
-				}
-			}
-		}
-		localization_key = language_classical_tibetan_name #Classical Tibetan
-	}
-
-	text = {
-		trigger = {
 			religion = religion:taoism_religion
 		}
 		localization_key = language_chinese_name
 	}
-
-	text = { #Could also be Vedic & Old Tamil
-		trigger = {
-			OR = {
-				religion = religion:hinduism_religion
-				religion = religion:buddhism_religion
-				religion = religion:jainism_religion
-			}
-		}
-		localization_key = language_sanskrit_name #Sanskrit
-	}
-
-	text = {
-		trigger = {
-			religion = religion:hellenism_religion
-		}
-		localization_key = language_greek_name #Greek
-	}
-
 	text = {
 		trigger = {
 			always = yes
@@ -174,10 +107,6 @@ GetFaithSacredLanguageCharacter = {
 		trigger = {
 			OR = {
 				faith = faith:catholic
-				faith = faith:conversos
-				faith = faith:lollard
-				faith = faith:insular_celtic
-				faith = faith:mozarabic_church
 			}
 		}
 		localization_key = language_latin_name #Latin
@@ -185,35 +114,12 @@ GetFaithSacredLanguageCharacter = {
 
 	text = {
 		trigger = {
-			faith = faith:cathar
-		}
-		localization_key = language_occitano_romance_name #Occitan
-	}
-
-	text = {
-		trigger = { faith = faith:nestorian }
-		localization_key = language_aramaic_name #Armaic
-	}
-
-	text = {
-		trigger = { faith = faith:armenian_apostolic }
-		localization_key = language_armenian_name #Armenian
-	}
-
-	text = {
-		trigger = {
 			OR = {
 				faith = faith:orthodox
-				faith = faith:coptic
 				religion = religion:christianity_religion #fallback for all Christian Faiths
 			}
 		}
 		localization_key = language_greek_name #Greek
-	}
-	
-	text = { 
-		trigger = { religion = religion:judaism_religion }
-		localization_key = language_hebrew_name #Hebrew
 	}
 	
 	text = {
@@ -221,31 +127,12 @@ GetFaithSacredLanguageCharacter = {
 		localization_key = language_arabic_name #Arabic
 	}
 	
-	text = {
-		trigger = { religion = religion:zoroastrianism_religion }
-		localization_key = language_avestan_name #Avestan
-	}
 
 	text = {
 		trigger = { faith = faith:theravada }
 		localization_key = language_pali_name #Pali
 	}
 
-	text = {
-		trigger = {
-			OR = {
-				faith = faith:lamaism
-				religion = religion:bon_religion
-				AND = {
-					faith = faith:vajrayana
-					culture = {
-						has_cultural_pillar = heritage_tibetan
-					}
-				}
-			}
-		}
-		localization_key = language_classical_tibetan_name #Classical Tibetan
-	}
 
 	text = {
 		trigger = {
@@ -254,23 +141,6 @@ GetFaithSacredLanguageCharacter = {
 		localization_key = language_chinese_name
 	}
 
-	text = { #Could also be Vedic & Old Tamil
-		trigger = {
-			OR = {
-				religion = religion:hinduism_religion
-				religion = religion:buddhism_religion
-				religion = religion:jainism_religion
-			}
-		}
-		localization_key = language_sanskrit_name #Sanskrit
-	}
-
-	text = {
-		trigger = {
-			religion = religion:hellenism_religion
-		}
-		localization_key = language_greek_name #Greek
-	}
 	text = {
 		trigger = {
 			always = yes
