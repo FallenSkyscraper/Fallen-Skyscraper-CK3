@@ -59,18 +59,18 @@
 					is_ai = no
 				}
 
-				#if = {
-				#	limit = {
-				#		root = { was_player_joined = scope:character }
-				#	}
-#
-#					if = {
-#						limit = {
-#							NOT = { has_character_flag =  fp2_struggle_intro_event_flag }
-#						}
-#						add_character_flag = fp2_struggle_intro_event_flag
-#					}
-#				}
+				if = {
+					limit = {
+						root = { was_player_joined = scope:character }
+					}
+
+					if = {
+						limit = {
+							NOT = { has_character_flag =  fp2_struggle_intro_event_flag }
+						}
+						add_character_flag = fp2_struggle_intro_event_flag
+					}
+				}
 
 				trigger_event = fp2_juche_struggle.0501
 			}
