@@ -197,7 +197,7 @@ glory_hound = {
 		if = {
 			limit = {
 				culture = {
-					has_innovation = innovation_baliffs
+					has_innovation = innovation_local_government
 				}
 			}
 			multiply = 1.2
@@ -205,7 +205,7 @@ glory_hound = {
 		if = {
 			limit = {
 				culture = {
-					has_innovation = innovation_knighthood
+					has_innovation = innovation_social_contract
 				}
 			}
 			multiply = 1.2
@@ -213,7 +213,7 @@ glory_hound = {
 		if = {
 			limit = {
 				culture = {
-					has_innovation = innovation_rightful_ownership
+					has_innovation = innovation_nationalism
 				}
 			}
 			multiply = 1.2
@@ -718,19 +718,8 @@ minority = {
 						NOT = {
 							culture = scope:liege.culture
 						}
-						OR = {
-							culture = {
-								cultural_acceptance = { target = scope:liege.culture value < 30 }
-							}
-							AND = {
-								any_character_struggle = {
-									involvement = involved
-									has_struggle_phase_parameter = struggle_different_culture_more_likely_to_use_minority_stance
-								}
-								culture = {
-									cultural_acceptance = { target = scope:liege.culture value < 70 }
-								}
-							}
+						culture = {
+							cultural_acceptance = { target = scope:liege.culture value < 30 }
 						}
 					}
 				}
@@ -851,19 +840,8 @@ minority = {
 				NOT = {
 					culture = scope:liege.culture
 				}
-				OR = {
-					culture = {
-						cultural_acceptance = { target = scope:liege.culture value < 30 }
-					}
-					AND = {
-						any_character_struggle = {
-							involvement = involved
-							has_struggle_phase_parameter = struggle_different_culture_more_likely_to_use_minority_stance
-						}
-						culture = {
-							cultural_acceptance = { target = scope:liege.culture value < 70 }
-						}
-					}
+				culture = {
+					cultural_acceptance = { target = scope:liege.culture value < 30 }
 				}
 			}
 		}

@@ -634,81 +634,44 @@ change_artifact_quality_effect = {
 	}
 	if = {
 		limit = {
-			scope:inspiration = { has_inspiration_type = research_inspiration }
+			$AMOUNT$ > 3
 		}
-		if = {
-			limit = {
-				$AMOUNT$ > 3
-			}
-			custom_tooltip = fp3_scholarship_research_success_gain_effect
-		}
-		else_if = {
-			limit = {
-				$AMOUNT$ < -3
-			}
-			custom_tooltip = fp3_scholarship_research_success_loss_effect
-		}
-		else_if = {
-			limit = {
-				$AMOUNT$ > 0
-			}
-			custom_tooltip = fp3_scholarship_research_success_slight_gain_effect
-		}
-		else_if = {
-			limit = {
-				$AMOUNT$ < 0
-			}
-			custom_tooltip = fp3_scholarship_research_success_slight_loss_effect
-		}
-		scope:inspiration_owner = {
-			change_variable = {
-				name = research_success_chance
-				add = $AMOUNT$
-			}	
-		}
+		custom_tooltip = change_artifact_quality_effect_gain
 	}
-	else = {
+	else_if = {
+		limit = {
+			$AMOUNT$ > 0
+		}
+		custom_tooltip = change_artifact_quality_effect_slight_gain
+	}
+	else_if = {
+		limit = {
+			$AMOUNT$ > -3
+		}
+		custom_tooltip = change_artifact_quality_effect_slight_loss
+	}
+	else_if = {
+		limit = {
+			$AMOUNT$ <= -3
+		}
+		custom_tooltip = change_artifact_quality_effect_loss
+	}
+	hidden_effect = {
 		if = {
 			limit = {
-				$AMOUNT$ > 3
-			}
-			custom_tooltip = change_artifact_quality_effect_gain
-		}
-		else_if = {
-			limit = {
-				$AMOUNT$ > 0
-			}
-			custom_tooltip = change_artifact_quality_effect_slight_gain
-		}
-		else_if = {
-			limit = {
-				$AMOUNT$ > -3
-			}
-			custom_tooltip = change_artifact_quality_effect_slight_loss
-		}
-		else_if = {
-			limit = {
-				$AMOUNT$ <= -3
-			}
-			custom_tooltip = change_artifact_quality_effect_loss
-		}
-		hidden_effect = {
-			if = {
-				limit = {
-					NOT = {
-						exists = var:artifact_quality
-					}
-				}
-				set_variable = {
-					name = artifact_quality
-					value = $AMOUNT$
+				NOT = {
+					exists = var:artifact_quality
 				}
 			}
-			else = {
-				change_variable = {
-					name = artifact_quality
-					add = $AMOUNT$
-				}
+			set_variable = {
+				name = artifact_quality
+				value = $AMOUNT$
+			}
+		}
+		else = {
+			change_variable = {
+				name = artifact_quality
+				add = $AMOUNT$
 			}
 		}
 	}
