@@ -5,7 +5,7 @@ namespace = fp2_grandduke_struggle
 
 fp2_grandduke_struggle.0003 = {
 	hidden = yes
-	scope = none
+	scope = empty
 	scope = struggle
 
 	trigger = { # Should not need this, but, redundancy check! -h
@@ -86,7 +86,7 @@ fp2_grandduke_struggle.0003 = {
 	}
 }
 
-fp2_juche_struggle.0501 = { # Fullscreen Intro Event
+fp2_grandduke_struggle.0501 = { # Fullscreen Intro Event
 	type = character_event
 	window = fullscreen_event
 	title = fp2_grandduke_struggle.0501.t
@@ -117,7 +117,7 @@ fp2_juche_struggle.0501 = { # Fullscreen Intro Event
 	trigger = { # we need to prevent this from firing for all players when a new player joins in MP
 		is_ai = no
 		NOT = { has_character_flag = fp2_struggle_intro_event_flag }
-		fp2_character_any_involvement_iberian_struggle_trigger = yes
+		fp2_character_any_involvement_grandduke_struggle_trigger = yes
  	}
 	override_background = { reference = fp2_fullscreen_intro }
 	override_sound = { reference = "event:/DLC/FP2/SFX/UI/fp2_struggle_ui_intro_animate" }
@@ -139,6 +139,6 @@ fp2_juche_struggle.0501 = { # Fullscreen Intro Event
 		}
 	}
 	option = {
-		name = fp2_juche_struggle.0501.a
+		name = fp2_grandduke_struggle\struggle.0501.a
 	}
 }
