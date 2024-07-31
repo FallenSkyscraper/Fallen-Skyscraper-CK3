@@ -116,7 +116,7 @@ fp2_grandduke_struggle.0501 = { # Fullscreen Intro Event
 	theme = realm
 	trigger = { # we need to prevent this from firing for all players when a new player joins in MP
 		is_ai = no
-		NOT = { has_character_flag = fp2_struggle_intro_event_flag }
+		NOT = { has_character_flag = grandduke_struggle_intro_event_flag }
 		fp2_character_any_involvement_grandduke_struggle_trigger = yes
  	}
 	override_background = { reference = fp2_fullscreen_intro }
@@ -127,12 +127,12 @@ fp2_grandduke_struggle.0501 = { # Fullscreen Intro Event
  			gui = "event_window_widget_struggle_info"
  			container = "dynamic_content_widget"
  			controller = struggle_info
- 			setup_scope = { struggle:juche_struggle = { save_scope_as = struggle } }
+ 			setup_scope = { struggle:grandduke_struggle = { save_scope_as = struggle } }
 		}
 	}
 	immediate = {
 		play_music_cue = "mx_Struggle_Opening"
-		add_character_flag = fp2_struggle_intro_event_flag
+		add_character_flag = grandduke_struggle_intro_event_flag
 		save_scope_value_as = {
 			name = start
 			value = yes
