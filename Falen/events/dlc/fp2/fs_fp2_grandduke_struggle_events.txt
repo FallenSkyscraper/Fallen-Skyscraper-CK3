@@ -9,8 +9,8 @@ fp2_grandduke_struggle.0003 = {
 	scope = struggle
 
 	trigger = { # Should not need this, but, redundancy check! -h
-		exists = struggle:grandduke_struggle
-		struggle:grandduke_struggle = { any_involved_ruler = { count > 0 } } # For when the conflict is ongoing but nobody is left to fight it
+		exists = struggle:juche_struggle
+		struggle:juche_struggle = { any_involved_ruler = { count > 0 } } # For when the conflict is ongoing but nobody is left to fight it
 	}
 
 	immediate = {
@@ -25,7 +25,7 @@ fp2_grandduke_struggle.0003 = {
 		}
 
 		# Go through the characters to distribute them between the potential transitions
-		struggle:grandduke_struggle = {
+		struggle:juche_struggle = {
 			every_involved_ruler = {
 				limit = { is_alive = yes }
 				#######################
@@ -97,7 +97,7 @@ fp2_grandduke_struggle.0501 = { # Fullscreen Intro Event
 				trigger = {
 					any_character_struggle = {
 						involvement = involved
-						is_struggle_type = grandduke_struggle
+						is_struggle_type = juche_struggle
 					}
 				}
 				desc = fp2_grandduke_struggle.0501.desc.involved
@@ -106,7 +106,7 @@ fp2_grandduke_struggle.0501 = { # Fullscreen Intro Event
 				trigger = {
 					any_character_struggle = {
 						involvement = interloper
-						is_struggle_type = grandduke_struggle
+						is_struggle_type = juche_struggle
 					}
 				}
 				desc = fp2_grandduke_struggle.0501.desc.interloper
@@ -127,7 +127,7 @@ fp2_grandduke_struggle.0501 = { # Fullscreen Intro Event
  			gui = "event_window_widget_struggle_info"
  			container = "dynamic_content_widget"
  			controller = struggle_info
- 			setup_scope = { struggle:grandduke_struggle = { save_scope_as = struggle } }
+ 			setup_scope = { struggle:juche_struggle = { save_scope_as = struggle } }
 		}
 	}
 	immediate = {
