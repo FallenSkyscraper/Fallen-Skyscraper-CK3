@@ -1,0 +1,69 @@
+technologies_map = {
+	effect = {
+		every_barony = {
+			if = {
+				limit = {
+					title_capital_county = { var:tech_metallurgy > 9.0 }
+				}
+				set_color_from_title = title:d_color_gradient_11
+			}
+			else_if = {
+				limit = {
+					title_capital_county = { var:tech_metallurgy > 8.0 }
+				}
+				set_color_from_title = title:d_color_gradient_10
+			}
+			else_if = {
+				limit = {
+					title_capital_county = { var:tech_metallurgy > 7.0 }
+				}
+				set_color_from_title = title:d_color_gradient_9
+			}
+			else_if = {
+				limit = {
+					title_capital_county = { var:tech_metallurgy > 6.0 }
+				}
+				set_color_from_title = title:d_color_gradient_8
+			}
+			else_if = {
+				limit = {
+					title_capital_county = { var:tech_metallurgy > 5.0 }
+				}
+				set_color_from_title = title:d_color_gradient_7
+			}
+			else_if = {
+				limit = {
+					title_capital_county = { var:tech_metallurgy > 4.0 }
+				}
+				set_color_from_title = title:d_color_gradient_5
+			}
+			else_if = {
+				limit = {
+					title_capital_county = { var:tech_metallurgy > 3.0 }
+				}
+				set_color_from_title = title:d_color_gradient_4
+			}
+			else_if = {
+				limit = {
+					title_capital_county = { var:tech_metallurgy > 2.0 }
+				}
+				set_color_from_title = title:d_color_gradient_3
+			}
+			else_if = {
+				limit = {
+					title_capital_county = { var:tech_metallurgy > 1.0 }
+				}
+				set_color_from_title = title:d_color_gradient_2
+			}
+			else_if = {
+				limit = {
+					title_capital_county = { var:tech_metallurgy > 0.0 }
+				}
+				set_color_from_title = title:d_color_gradient_1
+			}
+			else = {
+				set_color_from_title = title:d_color_gradient_0
+			}
+		}
+	}
+}
