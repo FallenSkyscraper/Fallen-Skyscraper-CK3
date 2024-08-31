@@ -37,6 +37,12 @@ fs_tech_init = {
 	tech_conscription_init = yes
 	tech_archery_init = yes
 	tech_military_organization_init = yes
+	tech_agriculture_init = yes
+	tech_commerce_init = yes
+	tech_navigation_init = yes
+	tech_construction_init = yes
+	tech_urbanization_init = yes
+	tech_mining_init = yes
 	fs_naturalism_tech_init = yes
 }
 tech_metallurgy_init = {
@@ -522,66 +528,495 @@ tech_military_organization_init = {
 ### REGIONAL BASE TECH ###
 	every_county_in_region = {
 		region = world_yeongnam
-		set_variable = { name = tech_archery value = 2.4 }
+		set_variable = { name = tech_military_organization value = 2.9 }
 	}
 	every_county_in_region = {
 		region = world_hoseo
-		set_variable = { name = tech_archery value = 2.3 }
+		set_variable = { name = tech_military_organization value = 2.7 }
 	}
 	every_county_in_region = {
 		region = world_steppe
-		set_variable = { name = tech_archery value = 2.0 }
+		set_variable = { name = tech_military_organization value = 2.6 }
 	}
 	every_county_in_region = {
 		region = world_gwanbuk
-		set_variable = { name = tech_archery value = 1.5 }
+		set_variable = { name = tech_military_organization value = 2.9 }
 	}
 	every_county_in_region = {
 		region = world_gwanseo
-		set_variable = { name = tech_archery value = 2.4 }
+		set_variable = { name = tech_military_organization value = 3.0 }
 	}
 	every_county_in_region = {
 		region = world_hwanghae
-		set_variable = { name = tech_archery value = 2.0 }
+		set_variable = { name = tech_military_organization value = 2.8 }
 	}
 	every_county_in_region = {
 		region = world_gyeonggi
-		set_variable = { name = tech_archery value = 3.0 }
+		set_variable = { name = tech_military_organization value = 3.6 }
 	}
 	every_county_in_region = {
 		region = world_honam
-		set_variable = { name = tech_archery value = 2.6 }
+		set_variable = { name = tech_military_organization value = 3.1 }
 	}
 	every_county_in_region = {
 		region = world_gangwon
-		set_variable = { name = tech_archery value = 1.8 }
+		set_variable = { name = tech_military_organization value = 2.2 }
 	}
 	every_county_in_region = {
 		region = world_steppe_primorye
-		set_variable = { name = tech_archery value = 2.0 }
+		set_variable = { name = tech_military_organization value = 2.3 }
 	}
 	every_county_in_region = {
 		region = world_primorye_sikhotealin
-		set_variable = { name = tech_archery value = 1.3 }
+		set_variable = { name = tech_military_organization value = 1.9 }
 	}
 	every_county_in_region = {
 		region = world_doseo
-		set_variable = { name = tech_archery value = 0.6 }
+		set_variable = { name = tech_military_organization value = 1.8 }
 	}
 	title:k_gaya = {
 		every_de_jure_county = {
-			set_variable = { name = tech_archery value = 1.6 }
+			set_variable = { name = tech_military_organization value = 2.1 }
 		}
 	}
 	title:k_jaseong = {
 		every_de_jure_county = {
-			set_variable = { name = tech_archery value = 1.4 }
+			set_variable = { name = tech_military_organization value = 2.7 }
 		}
 	}
 	title:d_daejeon = {
 		every_de_jure_county = {
-			set_variable = { name = tech_archery value = 5.0 }
+			set_variable = { name = tech_military_organization value = 4.8 }
 		}
+	}
+}
+##### ECONOMIC TECHS #####
+tech_agriculture_init = {
+### REGIONAL BASE TECH ###
+	every_county_in_region = {
+		region = world_yeongnam
+		set_variable = { name = tech_agriculture value = 3.2 }
+	}
+	every_county_in_region = {
+		region = world_hoseo
+		set_variable = { name = tech_agriculture value = 3.6 }
+	}
+	every_county_in_region = {
+		region = world_steppe
+		set_variable = { name = tech_agriculture value = 1.3 }
+	}
+	every_county_in_region = {
+		region = world_gwanbuk
+		set_variable = { name = tech_agriculture value = 2.5 }
+	}
+	every_county_in_region = {
+		region = world_gwanseo
+		set_variable = { name = tech_agriculture value = 3.8 }
+	}
+	every_county_in_region = {
+		region = world_hwanghae
+		set_variable = { name = tech_agriculture value = 3.95 }
+	}
+	every_county_in_region = {
+		region = world_gyeonggi
+		set_variable = { name = tech_agriculture value = 3.5 }
+	}
+	every_county_in_region = {
+		region = world_honam
+		set_variable = { name = tech_agriculture value = 4.3 }
+	}
+	every_county_in_region = {
+		region = world_gangwon
+		set_variable = { name = tech_agriculture value = 2.1 }
+	}
+	every_county_in_region = {
+		region = world_steppe_primorye
+		set_variable = { name = tech_agriculture value = 2.6 }
+	}
+	every_county_in_region = {
+		region = world_primorye_sikhotealin
+		set_variable = { name = tech_agriculture value = 1.8 }
+	}
+	every_county_in_region = {
+		region = world_doseo
+		set_variable = { name = tech_agriculture value = 1.1 }
+	}
+	title:k_gaya = {
+		every_de_jure_county = {
+			set_variable = { name = tech_agriculture value = 2.0 }
+		}
+	}
+	title:k_jaseong = {
+		every_de_jure_county = {
+			set_variable = { name = tech_agriculture value = 1.9 }
+		}
+	}
+	title:d_daejeon = {
+		every_de_jure_county = {
+			set_variable = { name = tech_agriculture value = 4.5 }
+		}
+	}
+}
+tech_commerce_init = {
+### REGIONAL BASE TECH ###
+	every_county_in_region = {
+		region = world_yeongnam
+		set_variable = { name = tech_commerce value = 2.4 }
+	}
+	every_county_in_region = {
+		region = world_hoseo
+		set_variable = { name = tech_commerce value = 3.0 }
+	}
+	every_county_in_region = {
+		region = world_steppe
+		set_variable = { name = tech_commerce value = 2.3 }
+	}
+	every_county_in_region = {
+		region = world_gwanbuk
+		set_variable = { name = tech_commerce value = 2.0 }
+	}
+	every_county_in_region = {
+		region = world_gwanseo
+		set_variable = { name = tech_commerce value = 3.2 }
+	}
+	every_county_in_region = {
+		region = world_hwanghae
+		set_variable = { name = tech_commerce value = 2.9 }
+	}
+	every_county_in_region = {
+		region = world_gyeonggi
+		set_variable = { name = tech_commerce value = 3.6 }
+	}
+	every_county_in_region = {
+		region = world_honam
+		set_variable = { name = tech_commerce value = 2.4 }
+	}
+	every_county_in_region = {
+		region = world_gangwon
+		set_variable = { name = tech_commerce value = 2.1 }
+	}
+	title:k_yeongdong = {
+		every_de_jure_county = {
+			set_variable = { name = tech_commerce value = 2.5 }
+		}
+	}
+	every_county_in_region = {
+		region = world_steppe_primorye
+		set_variable = { name = tech_commerce value = 2.3 }
+	}
+	every_county_in_region = {
+		region = world_primorye_sikhotealin
+		set_variable = { name = tech_commerce value = 1.5 }
+	}
+	every_county_in_region = {
+		region = world_doseo
+		set_variable = { name = tech_commerce value = 1.9 }
+	}
+	title:k_gaya = {
+		every_de_jure_county = {
+			set_variable = { name = tech_commerce value = 1.5 }
+		}
+	}
+	title:k_jaseong = {
+		every_de_jure_county = {
+			set_variable = { name = tech_commerce value = 2.3 }
+		}
+	}
+	title:d_daejeon = {
+		every_de_jure_county = {
+			set_variable = { name = tech_commerce value = 5.6 }
+		}
+	}
+	title:d_busan = {
+		every_de_jure_county = {
+			set_variable = { name = tech_commerce value = 5.5 }
+		}
+	}
+	title:d_incheon = {
+		every_de_jure_county = {
+			set_variable = { name = tech_commerce value = 5.5 }
+		}
+	}
+	title:d_pyongyang = {
+		every_de_jure_county = {
+			set_variable = { name = tech_commerce value = 5.0 }
+		}
+	}
+}
+tech_navigation_init = {
+### REGIONAL BASE TECH ###
+	every_county = {
+		limit = {
+			is_coastal_county = yes
+		}
+		set_variable = { name = tech_navigation value = 2.0 }
+	}
+	every_county = {
+		limit = {
+			is_riverside_county = yes
+		}
+		set_variable = { name = tech_navigation value = 1.0 }
+	}
+	title:k_sinan = {
+		every_de_jure_county = {
+			set_variable = { name = tech_navigation value = 7.0 }
+		}
+	}
+	title:k_incheon = {
+		every_de_jure_county = {
+			set_variable = { name = tech_navigation value = 5.0 }
+		}
+	}
+	title:d_vladivostok = {
+		every_de_jure_county = {
+			set_variable = { name = tech_navigation value = 4.0 }
+		}
+	}
+	title:k_busan = {
+		every_de_jure_county = {
+			set_variable = { name = tech_navigation value = 5.0 }
+		}
+	}
+	title:d_pohang = {
+		every_de_jure_county = {
+			set_variable = { name = tech_navigation value = 4.0 }
+		}
+	}
+	title:d_daejeon = {
+		every_de_jure_county = {
+			set_variable = { name = tech_navigation value = 3.5 }
+		}
+	}
+}
+tech_construction_init = {
+### REGIONAL BASE TECH ###
+	every_county_in_region = {
+		region = world_yeongnam
+		set_variable = { name = tech_construction value = 3.0 }
+	}
+	every_county_in_region = {
+		region = world_hoseo
+		set_variable = { name = tech_construction value = 3.2 }
+	}
+	every_county_in_region = {
+		region = world_steppe
+		set_variable = { name = tech_construction value = 1.0 }
+	}
+	every_county_in_region = {
+		region = world_gwanbuk
+		set_variable = { name = tech_construction value = 2.5 }
+	}
+	every_county_in_region = {
+		region = world_gwanseo
+		set_variable = { name = tech_construction value = 3.1 }
+	}
+	every_county_in_region = {
+		region = world_hwanghae
+		set_variable = { name = tech_construction value = 3.0 }
+	}
+	every_county_in_region = {
+		region = world_gyeonggi
+		set_variable = { name = tech_construction value = 3.5 }
+	}
+	every_county_in_region = {
+		region = world_honam
+		set_variable = { name = tech_construction value = 3.2 }
+	}
+	every_county_in_region = {
+		region = world_gangwon
+		set_variable = { name = tech_construction value = 2.4 }
+	}
+	every_county_in_region = {
+		region = world_steppe_primorye
+		set_variable = { name = tech_construction value = 2.4 }
+	}
+	every_county_in_region = {
+		region = world_primorye_sikhotealin
+		set_variable = { name = tech_construction value = 1.2 }
+	}
+	every_county_in_region = {
+		region = world_doseo
+		set_variable = { name = tech_construction value = 1.4 }
+	}
+	title:k_gaya = {
+		every_de_jure_county = {
+			set_variable = { name = tech_construction value = 2.3 }
+		}
+	}
+	title:k_jaseong = {
+		every_de_jure_county = {
+			set_variable = { name = tech_construction value = 1.9 }
+		}
+	}
+	title:d_daejeon = {
+		every_de_jure_county = {
+			set_variable = { name = tech_construction value = 4.5 }
+		}
+	}
+}
+tech_urbanization_init = {
+### REGIONAL BASE TECH ###
+	every_county_in_region = {
+		region = world_yeongnam
+		set_variable = { name = tech_urbanization value = 2.1 }
+	}
+	every_county_in_region = {
+		region = world_hoseo
+		set_variable = { name = tech_urbanization value = 2.2 }
+	}
+	every_county_in_region = {
+		region = world_steppe
+		set_variable = { name = tech_urbanization value = 1.0 }
+	}
+	every_county_in_region = {
+		region = world_gwanbuk
+		set_variable = { name = tech_urbanization value = 1.5 }
+	}
+	every_county_in_region = {
+		region = world_gwanseo
+		set_variable = { name = tech_urbanization value = 2.8 }
+	}
+	every_county_in_region = {
+		region = world_hwanghae
+		set_variable = { name = tech_urbanization value = 2.0 }
+	}
+	every_county_in_region = {
+		region = world_gyeonggi
+		set_variable = { name = tech_urbanization value = 3.0 }
+	}
+	every_county_in_region = {
+		region = world_honam
+		set_variable = { name = tech_urbanization value = 2.5 }
+	}
+	every_county_in_region = {
+		region = world_gangwon
+		set_variable = { name = tech_urbanization value = 1.8 }
+	}
+	every_county_in_region = {
+		region = world_steppe_primorye
+		set_variable = { name = tech_urbanization value = 1.4 }
+	}
+	every_county_in_region = {
+		region = world_primorye_sikhotealin
+		set_variable = { name = tech_urbanization value = 0.9 }
+	}
+	every_county_in_region = {
+		region = world_doseo
+		set_variable = { name = tech_urbanization value = 1.4 }
+	}
+	title:k_gaya = {
+		every_de_jure_county = {
+			set_variable = { name = tech_urbanization value = 1.3 }
+		}
+	}
+	title:k_jaseong = {
+		every_de_jure_county = {
+			set_variable = { name = tech_urbanization value = 1.3 }
+		}
+	}
+	every_county = {
+		limit = {
+			development_level > 15
+		}
+		set_variable = { name = tech_urbanization value = 4.0 }
+	}
+	every_county = {
+		limit = {
+			development_level > 25
+		}
+		set_variable = { name = tech_urbanization value = 5.0 }
+	}
+	title:d_daejeon = {
+		every_de_jure_county = {
+			set_variable = { name = tech_urbanization value = 4.5 }
+		}
+	}
+}
+tech_mining_init = {
+### REGIONAL BASE TECH ###
+	every_county_in_region = {
+		region = world_yeongnam
+		set_variable = { name = tech_mining value = 2.3 }
+	}
+	every_county_in_region = {
+		region = world_hoseo
+		set_variable = { name = tech_mining value = 2.2 }
+	}
+	every_county_in_region = {
+		region = world_steppe
+		set_variable = { name = tech_mining value = 1.0 }
+	}
+	every_county_in_region = {
+		region = world_gwanbuk
+		set_variable = { name = tech_mining value = 2.5 }
+	}
+	every_county_in_region = {
+		region = world_gwanseo
+		set_variable = { name = tech_mining value = 3.1 }
+	}
+	every_county_in_region = {
+		region = world_hwanghae
+		set_variable = { name = tech_mining value = 2.8 }
+	}
+	every_county_in_region = {
+		region = world_gyeonggi
+		set_variable = { name = tech_mining value = 2.5 }
+	}
+	every_county_in_region = {
+		region = world_honam
+		set_variable = { name = tech_mining value = 2.3 }
+	}
+	every_county_in_region = {
+		region = world_gangwon
+		set_variable = { name = tech_mining value = 4.1 }
+	}
+	title:k_yeongdong = {
+		every_de_jure_county = {
+			set_variable = { name = tech_mining value = 3.8 }
+		}
+	}
+	every_county_in_region = {
+		region = world_steppe_primorye
+		set_variable = { name = tech_mining value = 2.1 }
+	}
+	every_county_in_region = {
+		region = world_primorye_sikhotealin
+		set_variable = { name = tech_mining value = 1.7 }
+	}
+	every_county_in_region = {
+		region = world_doseo
+		set_variable = { name = tech_mining value = 1.5 }
+	}
+	title:k_gaya = {
+		every_de_jure_county = {
+			set_variable = { name = tech_mining value = 2.3 }
+		}
+	}
+	title:k_jaseong = {
+		every_de_jure_county = {
+			set_variable = { name = tech_mining value = 2.4 }
+		}
+	}
+	title:d_daejeon = {
+		every_de_jure_county = {
+			set_variable = { name = tech_mining value = 4.0 }
+		}
+	}
+}
+##### SPECIAL REGIONS #####
+
+fs_naturalism_tech_init = {
+	every_county = {
+		limit = {
+			faith = faith:naturalism_pagan
+		}
+		set_variable = { name = tech_metallurgy value = 0 }
+		set_variable = { name = tech_siege value = 0 }
+		set_variable = { name = tech_fortification value = 0 }
+		set_variable = { name = tech_military_organization value = 0 }
+		set_variable = { name = tech_commerce value = 0 }
+		set_variable = { name = tech_construction value = 0 }
+		set_variable = { name = tech_urbanization value = 0 }
 	}
 	title:c_suwon = {
 		set_variable = { name = tech_metallurgy value = 6.0 }
@@ -598,24 +1033,5 @@ tech_military_organization_init = {
 		set_variable = { name = tech_urbanization value = 5.0 }
 		set_variable = { name = tech_mining value = 4.5 }
 		set_variable = { name = tech_natural_science value = 1.0 }
-	}
-}
-##### ECONOMIC TECHS #####
-
-
-##### SPECIAL REGIONS #####
-
-fs_naturalism_tech_init = {
-	every_county = {
-		limit = {
-			faith = faith:naturalism_pagan
-		}
-		set_variable = { name = tech_metallurgy value = 0 }
-		set_variable = { name = tech_siege value = 0 }
-		set_variable = { name = tech_fortification value = 0 }
-		set_variable = { name = tech_military_organization value = 0 }
-		set_variable = { name = tech_commerce value = 0 }
-		set_variable = { name = tech_construction value = 0 }
-		set_variable = { name = tech_urbanization value = 0 }
 	}
 }

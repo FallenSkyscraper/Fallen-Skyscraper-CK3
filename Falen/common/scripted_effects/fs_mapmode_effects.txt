@@ -1,0 +1,219 @@
+tech_total_evaluate = {
+	set_local_variable = { name = techtotal value = 0.0 }
+	change_local_variable = { name = techtotal add = { value = var:tech_metallurgy } }
+	change_local_variable = { name = techtotal add = { value = var:tech_siege } }
+	change_local_variable = { name = techtotal add = { value = var:tech_horseback_riding } }
+	change_local_variable = { name = techtotal add = { value = var:tech_fortification } }
+	change_local_variable = { name = techtotal add = { value = var:tech_conscription } }
+	change_local_variable = { name = techtotal add = { value = var:tech_archery } }
+	change_local_variable = { name = techtotal add = { value = var:tech_military_organization } }
+	change_local_variable = { name = techtotal add = { value = var:tech_agriculture } }
+	change_local_variable = { name = techtotal add = { value = var:tech_commerce } }
+	change_local_variable = { name = techtotal add = { value = var:tech_navigation } }
+	change_local_variable = { name = techtotal add = { value = var:tech_construction } }
+	change_local_variable = { name = techtotal add = { value = var:tech_urbanization } }
+	change_local_variable = { name = techtotal add = { value = var:tech_mining } }
+}
+tech_value_processing = {
+	every_barony = {
+		if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 9.0 }
+			}
+			set_color_from_title = title:d_color_gradient_11
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 8.0 }
+			}
+			set_color_from_title = title:d_color_gradient_10
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 7.0 }
+			}
+			set_color_from_title = title:d_color_gradient_9
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 6.0 }
+			}
+			set_color_from_title = title:d_color_gradient_8
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 5.0 }
+			}
+			set_color_from_title = title:d_color_gradient_7
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 4.0 }
+			}
+			set_color_from_title = title:d_color_gradient_5
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 3.0 }
+			}
+			set_color_from_title = title:d_color_gradient_4
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 2.0 }
+			}
+			set_color_from_title = title:d_color_gradient_3
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 1.0 }
+			}
+			set_color_from_title = title:d_color_gradient_2
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 0.0 }
+			}
+			set_color_from_title = title:d_color_gradient_1
+		}
+		else = {
+			set_color_from_title = title:d_color_gradient_0
+		}
+	}
+}
+tech_value_processing_blue = {
+	every_barony = {
+		if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 9.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b11
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 8.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b10
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 7.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b9
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 6.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b8
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 5.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b7
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 4.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b5
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 3.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b4
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 2.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b3
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 1.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b2
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { var:tech_$TECH$ > 0.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b1
+		}
+		else = {
+			set_color_from_title = title:d_color_gradient_b0
+		}
+	}
+}
+tech_value_processing_total = {
+	every_barony = {
+		title_capital_county = { tech_total_evaluate = yes }
+		if = {
+			limit = {
+				title_capital_county = { local_var:techtotal > 90.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b11
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { local_var:techtotal > 80.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b10
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { local_var:techtotal > 70.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b9
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { local_var:techtotal > 60.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b8
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { local_var:techtotal > 50.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b7
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { local_var:techtotal > 40.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b5
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { local_var:techtotal > 30.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b4
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { local_var:techtotal > 20.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b3
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { local_var:techtotal > 10.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b2
+		}
+		else_if = {
+			limit = {
+				title_capital_county = { local_var:techtotal > 0.0 }
+			}
+			set_color_from_title = title:d_color_gradient_b1
+		}
+		else = {
+			set_color_from_title = title:d_color_gradient_b0
+		}
+		title_capital_county = { remove_local_variable = techtotal }
+	}
+}
