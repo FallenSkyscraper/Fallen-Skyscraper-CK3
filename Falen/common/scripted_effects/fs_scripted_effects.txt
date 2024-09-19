@@ -22,7 +22,7 @@ fs_initialize_technologies_effect = {
 	set_variable = { name = tech_military_organization value = 0 }
 	set_variable = { name = tech_agriculture value = 0 }
 	set_variable = { name = tech_commerce value = 0 }
-	set_variable = { name = tech_navigation value = 0 }
+	set_variable = { name = tech_navigation value = 1 }
 	set_variable = { name = tech_construction value = 0 }
 	set_variable = { name = tech_urbanization value = 0 }
 	set_variable = { name = tech_mining value = 0 }
@@ -745,17 +745,26 @@ tech_commerce_init = {
 }
 tech_navigation_init = {
 ### REGIONAL BASE TECH ###
-	every_county = {
-		limit = {
-			is_coastal_county = yes
+	every_county_in_region = {
+		region = world_gangwon
+		set_variable = { name = tech_navigation value = 0 }
+	}
+	title:k_baekdu = {
+		every_de_jure_county = {
+			set_variable = { name = tech_navigation value = 0 }
 		}
-		set_variable = { name = tech_navigation value = 2.0 }
 	}
 	every_county = {
 		limit = {
 			is_riverside_county = yes
 		}
-		set_variable = { name = tech_navigation value = 1.0 }
+		set_variable = { name = tech_navigation value = 2.0 }
+	}
+	every_county = {
+		limit = {
+			is_coastal_county = yes
+		}
+		set_variable = { name = tech_navigation value = 2.5 }
 	}
 	title:k_sinan = {
 		every_de_jure_county = {
@@ -1033,5 +1042,97 @@ fs_naturalism_tech_init = {
 		set_variable = { name = tech_urbanization value = 5.0 }
 		set_variable = { name = tech_mining value = 4.5 }
 		set_variable = { name = tech_natural_science value = 1.0 }
+	}
+}
+tech_base_effect = {
+	# remove previous modifiers
+	if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_10 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_10
+	}
+	else_if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_9 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_9
+	}
+	else_if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_8 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_8
+	}
+	else_if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_7 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_7
+	}
+	else_if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_6 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_6
+	}
+	else_if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_5 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_5
+	}
+	else_if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_4 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_4
+	}
+	else_if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_3 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_3
+	}
+	else_if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_2 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_2
+	}
+	else_if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_1 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_1
+	}
+	else_if = {
+		limit = { has_character_modifier = tech_$TECHNAME$_modifier_0 }
+		remove_character_modifier = tech_$TECHNAME$_modifier_0
+	}
+	# add new modifiers
+	if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 10 }
+		add_character_modifier = tech_$TECHNAME$_modifier_10
+	}
+	else_if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 9 }
+		add_character_modifier = tech_$TECHNAME$_modifier_9
+	}
+	else_if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 8 }
+		add_character_modifier = tech_$TECHNAME$_modifier_8
+	}
+	else_if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 7 }
+		add_character_modifier = tech_$TECHNAME$_modifier_7
+	}
+	else_if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 6 }
+		add_character_modifier = tech_$TECHNAME$_modifier_6
+	}
+	else_if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 5 }
+		add_character_modifier = tech_$TECHNAME$_modifier_5
+	}
+	else_if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 4 }
+		add_character_modifier = tech_$TECHNAME$_modifier_4
+	}
+	else_if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 3 }
+		add_character_modifier = tech_$TECHNAME$_modifier_3
+	}
+	else_if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 2 }
+		add_character_modifier = tech_$TECHNAME$_modifier_2
+	}
+	else_if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 1 }
+		add_character_modifier = tech_$TECHNAME$_modifier_1
+	}
+	else_if = {
+		limit = { capital_county.var:tech_$TECHNAME$ >= 0 }
+		add_character_modifier = tech_$TECHNAME$_modifier_0
 	}
 }

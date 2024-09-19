@@ -1,0 +1,432 @@
+﻿# metallurgy - Character Modifier
+tech_metallurgy_modifier_0 = {
+	icon = martial_negative
+	
+	advantage = -15
+	heavy_infantry_damage_add = -10
+	pikemen_damage_add = -10
+	light_cavalry_damage_add = -10
+	heavy_cavalry_damage_add = -10
+}
+tech_metallurgy_modifier_1 = {
+	icon = martial_negative
+}
+tech_metallurgy_modifier_2 = {
+	icon = martial_positive
+	
+	advantage = 2
+	heavy_infantry_damage_add = 1
+	pikemen_damage_add = 1
+	light_cavalry_damage_add = 1
+	heavy_cavalry_damage_add = 1
+}
+tech_metallurgy_modifier_3 = {
+	icon = martial_positive
+	
+	advantage = 4
+	heavy_infantry_damage_add = 2
+	pikemen_damage_add = 2
+	light_cavalry_damage_add = 2
+	heavy_cavalry_damage_add = 2
+}
+tech_metallurgy_modifier_4 = {
+	icon = martial_positive
+	
+	advantage = 6
+	heavy_infantry_damage_add = 3
+	pikemen_damage_add = 3
+	light_cavalry_damage_add = 3
+	heavy_cavalry_damage_add = 3
+}
+tech_metallurgy_modifier_5 = {
+	icon = martial_positive
+	
+	advantage = 8
+	heavy_infantry_damage_add = 4
+	pikemen_damage_add = 4
+	light_cavalry_damage_add = 4
+	heavy_cavalry_damage_add = 4
+	heavy_infantry_toughness_add = 1
+	pikemen_toughness_add = 1
+	light_cavalry_toughness_add = 1
+	heavy_cavalry_toughness_add = 1
+}
+tech_metallurgy_modifier_6 = {
+	icon = martial_positive
+	
+	advantage = 10
+	heavy_infantry_damage_add = 5
+	pikemen_damage_add = 5
+	light_cavalry_damage_add = 5
+	heavy_cavalry_damage_add = 5
+	heavy_infantry_toughness_add = 2
+	pikemen_toughness_add = 2
+	light_cavalry_toughness_add = 2
+	heavy_cavalry_toughness_add = 2
+}
+tech_metallurgy_modifier_7 = {
+	icon = martial_positive
+	
+	advantage = 12
+	heavy_infantry_damage_add = 6
+	pikemen_damage_add = 6
+	light_cavalry_damage_add = 6
+	heavy_cavalry_damage_add = 6
+	heavy_infantry_toughness_add = 4
+	pikemen_toughness_add = 4
+	light_cavalry_toughness_add = 4
+	heavy_cavalry_toughness_add = 4
+}
+tech_metallurgy_modifier_8 = {
+	icon = martial_positive
+	
+	# Unlocks Railroads
+	advantage = 12
+	heavy_infantry_damage_add = 6
+	pikemen_damage_add = 6
+	light_cavalry_damage_add = 6
+	heavy_cavalry_damage_add = 6
+	heavy_infantry_toughness_add = 4
+	pikemen_toughness_add = 4
+	light_cavalry_toughness_add = 4
+	heavy_cavalry_toughness_add = 4
+}
+tech_metallurgy_modifier_9 = {
+	icon = martial_positive
+	
+	# Unlocks Urban Mine
+	advantage = 12
+	heavy_infantry_damage_add = 6
+	pikemen_damage_add = 6
+	light_cavalry_damage_add = 6
+	heavy_cavalry_damage_add = 6
+	heavy_infantry_toughness_add = 4
+	pikemen_toughness_add = 4
+	light_cavalry_toughness_add = 4
+	heavy_cavalry_toughness_add = 4
+}
+tech_metallurgy_modifier_10 = {
+	icon = martial_positive
+	
+	advantage = 20
+	heavy_infantry_damage_add = 10
+	pikemen_damage_add = 10
+	light_cavalry_damage_add = 10
+	heavy_cavalry_damage_add = 10
+	heavy_infantry_toughness_add = 10
+	pikemen_toughness_add = 10
+	light_cavalry_toughness_add = 10
+	heavy_cavalry_toughness_add = 10
+}
+# siege - character
+tech_siege_modifier_0 = {
+	icon = county_modifier_development_negative
+}
+tech_siege_modifier_1 = {
+	icon = county_modifier_development_positive
+	
+	siege_weapon_siege_value_add = 0.1
+	siege_phase_time = -0.04
+}
+tech_siege_modifier_2 = {
+	icon = county_modifier_development_positive
+	
+	siege_weapon_siege_value_add = 0.2
+	siege_phase_time = -0.08
+}
+tech_siege_modifier_3 = {
+	icon = county_modifier_development_positive
+	
+	siege_weapon_siege_value_add = 0.3
+	siege_phase_time = -0.12
+}
+tech_siege_modifier_4 = {
+	icon = county_modifier_development_positive
+	
+	siege_weapon_siege_value_add = 0.4
+	siege_phase_time = -0.16
+}
+tech_siege_modifier_5 = {
+	icon = county_modifier_development_positive
+	
+	siege_weapon_siege_value_add = 0.5
+	siege_phase_time = -0.2
+}
+tech_siege_modifier_6 = {
+	icon = county_modifier_development_positive
+	
+	siege_weapon_siege_value_add = 0.6
+	siege_phase_time = -0.24
+}
+tech_siege_modifier_7 = {
+	icon = county_modifier_development_positive
+	
+	siege_weapon_siege_value_add = 0.7
+	siege_phase_time = -0.28
+}
+tech_siege_modifier_8 = {
+	icon = county_modifier_development_positive
+	
+	siege_weapon_siege_value_add = 0.8
+	siege_phase_time = -0.32
+}
+tech_siege_modifier_9 = {
+	icon = county_modifier_development_positive
+	
+	siege_weapon_siege_value_add = 0.9
+	siege_phase_time = -0.36
+}
+tech_siege_modifier_10 = {
+	icon = county_modifier_development_positive
+	
+	siege_weapon_siege_value_add = 1.0
+	siege_phase_time = -0.4
+}
+# horseback_riding - character
+tech_horseback_riding_modifier_0 = {
+	icon = horse_negative
+}
+tech_horseback_riding_modifier_1 = {
+	icon = horse_positive
+	
+	light_cavalry_damage_add = 2
+	heavy_cavalry_damage_add = 2
+	archer_cavalry_damage_add = 2
+	camel_cavalry_damage_add = 2
+	elephant_cavalry_damage_add = 2
+	light_cavalry_toughness_add = 2
+	heavy_cavalry_toughness_add = 2
+	archer_cavalry_toughness_add = 2
+	camel_cavalry_toughness_add = 2
+	elephant_cavalry_toughness_add = 2
+	light_cavalry_pursuit_add = 3
+	heavy_cavalry_pursuit_add = 3
+	archer_cavalry_pursuit_add = 3
+	camel_cavalry_pursuit_add = 3
+	elephant_cavalry_pursuit_add = 3
+}
+tech_horseback_riding_modifier_2 = {
+	icon = horse_positive
+	
+	light_cavalry_damage_add = 4
+	heavy_cavalry_damage_add = 4
+	archer_cavalry_damage_add = 4
+	camel_cavalry_damage_add = 4
+	elephant_cavalry_damage_add = 4
+	light_cavalry_toughness_add = 4
+	heavy_cavalry_toughness_add = 4
+	archer_cavalry_toughness_add = 4
+	camel_cavalry_toughness_add = 4
+	elephant_cavalry_toughness_add = 4
+	light_cavalry_pursuit_add = 6
+	heavy_cavalry_pursuit_add = 6
+	archer_cavalry_pursuit_add = 6
+	camel_cavalry_pursuit_add = 6
+	elephant_cavalry_pursuit_add = 6
+}
+tech_horseback_riding_modifier_3 = {
+	icon = horse_positive
+	
+	light_cavalry_damage_add = 6
+	heavy_cavalry_damage_add = 6
+	archer_cavalry_damage_add = 6
+	camel_cavalry_damage_add = 6
+	elephant_cavalry_damage_add = 6
+	light_cavalry_toughness_add = 6
+	heavy_cavalry_toughness_add = 6
+	archer_cavalry_toughness_add = 6
+	camel_cavalry_toughness_add = 6
+	elephant_cavalry_toughness_add = 6
+	light_cavalry_pursuit_add = 9
+	heavy_cavalry_pursuit_add = 9
+	archer_cavalry_pursuit_add = 9
+	camel_cavalry_pursuit_add = 9
+	elephant_cavalry_pursuit_add = 9
+}
+tech_horseback_riding_modifier_4 = {
+	icon = horse_positive
+	
+	light_cavalry_damage_add = 8
+	heavy_cavalry_damage_add = 8
+	archer_cavalry_damage_add = 8
+	camel_cavalry_damage_add = 8
+	elephant_cavalry_damage_add = 8
+	light_cavalry_toughness_add = 8
+	heavy_cavalry_toughness_add = 8
+	archer_cavalry_toughness_add = 8
+	camel_cavalry_toughness_add = 8
+	elephant_cavalry_toughness_add = 8
+	light_cavalry_pursuit_add = 12
+	heavy_cavalry_pursuit_add = 12
+	archer_cavalry_pursuit_add = 12
+	camel_cavalry_pursuit_add = 12
+	elephant_cavalry_pursuit_add = 12
+}
+tech_horseback_riding_modifier_5 = {
+	icon = horse_positive
+	
+	light_cavalry_damage_add = 10
+	heavy_cavalry_damage_add = 10
+	archer_cavalry_damage_add = 10
+	camel_cavalry_damage_add = 10
+	elephant_cavalry_damage_add = 10
+	light_cavalry_toughness_add = 10
+	heavy_cavalry_toughness_add = 10
+	archer_cavalry_toughness_add = 10
+	camel_cavalry_toughness_add = 10
+	elephant_cavalry_toughness_add = 10
+	light_cavalry_pursuit_add = 15
+	heavy_cavalry_pursuit_add = 15
+	archer_cavalry_pursuit_add = 15
+	camel_cavalry_pursuit_add = 15
+	elephant_cavalry_pursuit_add = 15
+}
+tech_horseback_riding_modifier_6 = {
+	icon = horse_positive
+	
+	light_cavalry_damage_add = 12
+	heavy_cavalry_damage_add = 12
+	archer_cavalry_damage_add = 12
+	camel_cavalry_damage_add = 12
+	elephant_cavalry_damage_add = 12
+	light_cavalry_toughness_add = 12
+	heavy_cavalry_toughness_add = 12
+	archer_cavalry_toughness_add = 12
+	camel_cavalry_toughness_add = 12
+	elephant_cavalry_toughness_add = 12
+	light_cavalry_pursuit_add = 18
+	heavy_cavalry_pursuit_add = 18
+	archer_cavalry_pursuit_add = 18
+	camel_cavalry_pursuit_add = 18
+	elephant_cavalry_pursuit_add = 18
+}
+tech_horseback_riding_modifier_7 = {
+	icon = horse_positive
+	
+	light_cavalry_damage_add = 14
+	heavy_cavalry_damage_add = 14
+	archer_cavalry_damage_add = 14
+	camel_cavalry_damage_add = 14
+	elephant_cavalry_damage_add = 14
+	light_cavalry_toughness_add = 14
+	heavy_cavalry_toughness_add = 14
+	archer_cavalry_toughness_add = 14
+	camel_cavalry_toughness_add = 14
+	elephant_cavalry_toughness_add = 14
+	light_cavalry_pursuit_add = 21
+	heavy_cavalry_pursuit_add = 21
+	archer_cavalry_pursuit_add = 21
+	camel_cavalry_pursuit_add = 21
+	elephant_cavalry_pursuit_add = 21
+}
+tech_horseback_riding_modifier_8 = {
+	icon = horse_positive
+	
+	light_cavalry_damage_add = 16
+	heavy_cavalry_damage_add = 16
+	archer_cavalry_damage_add = 16
+	camel_cavalry_damage_add = 16
+	elephant_cavalry_damage_add = 16
+	light_cavalry_toughness_add = 16
+	heavy_cavalry_toughness_add = 16
+	archer_cavalry_toughness_add = 16
+	camel_cavalry_toughness_add = 16
+	elephant_cavalry_toughness_add = 16
+	light_cavalry_pursuit_add = 24
+	heavy_cavalry_pursuit_add = 24
+	archer_cavalry_pursuit_add = 24
+	camel_cavalry_pursuit_add = 24
+	elephant_cavalry_pursuit_add = 24
+}
+tech_horseback_riding_modifier_9 = {
+	icon = horse_positive
+	
+	light_cavalry_damage_add = 18
+	heavy_cavalry_damage_add = 18
+	archer_cavalry_damage_add = 18
+	camel_cavalry_damage_add = 18
+	elephant_cavalry_damage_add = 18
+	light_cavalry_toughness_add = 18
+	heavy_cavalry_toughness_add = 18
+	archer_cavalry_toughness_add = 18
+	camel_cavalry_toughness_add = 18
+	elephant_cavalry_toughness_add = 18
+	light_cavalry_pursuit_add = 27
+	heavy_cavalry_pursuit_add = 27
+	archer_cavalry_pursuit_add = 27
+	camel_cavalry_pursuit_add = 27
+	elephant_cavalry_pursuit_add = 27
+}
+tech_horseback_riding_modifier_10 = {
+	icon = horse_positive
+	
+	light_cavalry_damage_add = 20
+	heavy_cavalry_damage_add = 20
+	archer_cavalry_damage_add = 20
+	camel_cavalry_damage_add = 20
+	elephant_cavalry_damage_add = 20
+	light_cavalry_toughness_add = 20
+	heavy_cavalry_toughness_add = 20
+	archer_cavalry_toughness_add = 20
+	camel_cavalry_toughness_add = 20
+	elephant_cavalry_toughness_add = 20
+	light_cavalry_pursuit_add = 30
+	heavy_cavalry_pursuit_add = 30
+	archer_cavalry_pursuit_add = 30
+	camel_cavalry_pursuit_add = 30
+	elephant_cavalry_pursuit_add = 30
+}
+# fortification - province modifier
+tech_fortification_modifier_0 = {
+	icon = county_modifier_development_negative
+}
+tech_fortification_modifier_1 = {
+	icon = county_modifier_development_positive
+
+	garrison_size = 0.05
+}
+tech_fortification_modifier_2 = {
+	icon = county_modifier_development_positive
+
+	garrison_size = 0.1
+}
+tech_fortification_modifier_3 = {
+	icon = county_modifier_development_positive
+
+	garrison_size = 0.15
+}
+tech_fortification_modifier_4 = {
+	icon = county_modifier_development_positive
+
+	garrison_size = 0.2
+}
+tech_fortification_modifier_5 = {
+	icon = county_modifier_development_positive
+
+	garrison_size = 0.25
+}
+tech_fortification_modifier_6 = {
+	icon = county_modifier_development_positive
+
+	garrison_size = 0.3
+}
+tech_fortification_modifier_7 = {
+	icon = county_modifier_development_positive
+
+	garrison_size = 0.35
+}
+tech_fortification_modifier_8 = {
+	icon = county_modifier_development_positive
+
+	garrison_size = 0.4
+}
+tech_fortification_modifier_9 = {
+	icon = county_modifier_development_positive
+
+	garrison_size = 0.45
+}
+tech_fortification_modifier_10 = {
+	icon = county_modifier_development_positive
+
+	garrison_size = 0.5
+}

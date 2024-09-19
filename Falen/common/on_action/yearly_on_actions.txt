@@ -514,9 +514,18 @@ quarterly_playable_pulse = {
 
 		# EP1 maintenance pulses
 		inspiration_maintenance_quarterly_pulse
+		
+		#Technology Check
+		technology_effect_pulse
 	}
 }
-
+technology_effect_pulse = {
+	effect = {
+		tech_base_effect = { TECHNAME = metallurgy }
+		tech_base_effect = { TECHNAME = siege }
+		tech_base_effect = { TECHNAME = horseback_riding }
+	}
+}
 # Called from code once a year for all "playable" characters, at a random point that year (individually for each character). Different time from the random_yearly_everyone_pulse (coincides by random 1 time out of 365)
 # Root is the character
 random_yearly_playable_pulse = {
