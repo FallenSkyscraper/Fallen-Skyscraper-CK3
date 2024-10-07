@@ -1432,3 +1432,61 @@ NHostage = {
 NTaxSlot = {
 	TAX_DECREE_COOLDOWN = 5		# number of years you have to wait before changing a jurisdictions tax decree again
 }
+
+NEpidemic = {
+	# How many steps from a province should we search for having an infection to apply the reduction muliplier
+	# Be careful raising this number too high, it will have performance impacts
+	OUTBREAK_NEIGBHOR_CHECK_STEPS = 12
+
+	# Multiplier on outbreak chance in a province which an existing epidemic could have spread into
+	OUTBREAK_NEIGBHOR_INFECTED_MULTIPLIER = 0.02
+
+	# If a county has less provinces than this when infected we multiply the infection as if the county had this number
+	# of provinces so that counties with low number of provinces don't get much reduced impact applied
+	# eg: 1 province in a county, will act as if it being infected is the same as 3 provinces in a 3 province county
+	# eg: 2 province county, each province infected will act as if it is 1.5 provinces in a 3 province county
+	# >= 3 will be clamped to just acting like 1 infected province
+	MIN_COUNTY_SIZE_TO_MULTIPLY_TO = 3
+
+	# Default message to run when a player province is infected, from minor to apocalyptic
+	DEFAULT_HOLDER_INFECTION_NOTIFICATION = { "" "" "" }
+	DEFAULT_LIEGE_INFECTION_NOTIFICATION = { "msg_epidemic_infection" "" "" }
+	DEFAULT_REALM_INFECTION_NOTIFICATION = { "msg_epidemic_infection" "msg_epidemic_infection" "msg_epidemic_infection" }
+
+	# Default event to run when a player province is infected, from minor to apocalyptic
+	DEFAULT_HOLDER_INFECTION_EVENT = { "epidemic_events.1100" "epidemic_events.1100" "epidemic_events.1101" }
+	DEFAULT_LIEGE_INFECTION_EVENT = { "" "epidemic_events.1100" "epidemic_events.1101" }
+	DEFAULT_REALM_INFECTION_EVENT = { "" "" "" }
+}
+
+NLegend = {
+	UNOWNED_DECLINE_MINIMUM = 2 # Minimum number of provinces to be removed from the legend spread if it is unowned
+	UNOWNED_DECLINE_PERCENTAGE = 0 # Percentage of total nr of provinces that should decline per month (0.0 - 1.0). Minimum is determined by UNOWNED_DECLINE_MINIMUM.
+
+	DAYS_UNTIL_CAN_COMPLETE = 1825 # Minimum number of days until you get the option to complete your legend
+
+	DURATION_UNTIL_DELETION = { 100 years } # How long until a legend is deleted after being completed
+	AI_TAKE_UNOWNED_GRACE_PERIOD = 180 # Minimum number of days before AI will take over an unowned legend
+}
+
+NDomicile = {
+	NEARBY_HIREABLE_RULERS = 500		# Allowed distance domicile owners can be hired from
+	TEMPERAMENT_THRESHOLD_LOW = -30		# Follower opinion of domicile owner is less than or equal to x, resulting in a negative domicile effect
+	TEMPERAMENT_THRESHOLD_HIGH = 60		# Follower opinion of domicile owner is greater than or equal to x, resulting in a positive domicile effect
+}
+
+NTaskContract = {
+	LOW_TASK_CONTRACT_TIER = 0
+	MEDIUM_TASK_CONTRACT_TIER = 3
+	HIGH_TASK_CONTRACT_TIER = 4
+	ADVENTURER_DISTANCE_RESTRICTION = 22500 # Squared radius distance from adventurer camp to contract location (rough illustrations can be found in 00_distance_values.txt)
+}
+
+NAdministrative = {
+	AI_MIN_INFLUENCE_FOR_APPOINTMENT = 100 # AI ruler needs to have at least this much influence to start using appointment interactions
+	AI_MAX_AGE_FOR_APPOINTMENT = 50 # AI won't support candidates above this age for new appointments
+	AI_MAX_TITLES_FOR_APPOINTMENT = 10 # This many titles are considered for new appointment support per attempt. Randomized each time
+
+	BASE_REASSIGN_COST = 100 				# Base value used in the scripted cost for reassigning title troops
+	DISCOUNTED_THRESHOLD_FACTOR = 0.9 		# If the final reassign cost <= BASE_REASSIGN_COST * DISCOUNTED_THRESHOLD_FACTOR, we consider the title "discounted"
+}

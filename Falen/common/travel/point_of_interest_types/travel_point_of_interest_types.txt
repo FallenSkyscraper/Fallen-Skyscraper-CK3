@@ -1,4 +1,8 @@
-﻿poi_capitals = {
+﻿
+# Update points_of_interest_tracker_effect when you change this!
+
+# Capitals
+poi_capitals = {
 	build_province_list = {
 		every_kingdom = {
 			limit = {
@@ -109,6 +113,107 @@
 				MIN = 3
 				MAX = 5
 			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = organized_muster_rolls_perk
+				}
+				add_gold = see_how_its_done_gold_reward_value
+			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = centralization_perk
+				}
+				custom_tooltip = {
+					text = adventurers_centralization_perk.effect
+				}
+				every_courtier = {
+					hidden_effect = {
+						scope:province.barony.holder = {
+							if = {
+								limit = {
+									has_court_type = court_diplomatic
+								}
+								prev = {
+									add_diplomacy_skill = 1
+									force_character_skill_recalculation = yes
+								}
+							}
+							else_if = {
+								limit = {
+									has_court_type = court_warlike
+								}
+								prev = {
+									add_martial_skill = 1
+									force_character_skill_recalculation = yes
+								}
+							}
+							else_if = {
+								limit = {
+									has_court_type = court_administrative
+								}
+								prev = {
+									add_stewardship_skill = 1
+									force_character_skill_recalculation = yes
+								}
+							}
+							else_if = {
+								limit = {
+									has_court_type = court_intrigue
+								}
+								prev = {
+									add_intrigue_skill = 1
+									force_character_skill_recalculation = yes
+								}
+							}
+							else_if = {
+								limit = {
+									has_court_type = court_scholarly
+								}
+								prev = {
+									add_learning_skill = 1
+									force_character_skill_recalculation = yes
+								}
+							}
+							else_if = {
+								limit = {
+									has_court_type = court_tribal
+								}
+								prev = {
+									add_prowess_skill = 1
+									force_character_skill_recalculation = yes
+								}
+							}
+							else = {
+								prev = {
+									random_list = {
+										1 = {
+											add_prowess_skill = 1
+										}
+										1 = {
+											add_learning_skill = 1
+										}
+										1 = {
+											add_intrigue_skill = 1
+										}
+										1 = {
+											add_stewardship_skill = 1
+										}
+										1 = {
+											add_martial_skill = 1
+										}
+										1 = {
+											add_diplomacy_skill = 1
+										}
+									}
+									force_character_skill_recalculation = yes
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -165,6 +270,17 @@ poi_special_buildings_martial = {
 					MAX = 5
 				}
 			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = organized_muster_rolls_perk
+				}
+				add_gold = see_how_its_done_gold_reward_value
+			}
+		}
+		#For Cilician Gates and other EP3 monuments
+		trigger_event = {
+			on_action = on_visited_ep3_monument
 		}
 	}
 }
@@ -223,6 +339,13 @@ poi_special_buildings_learning = {
 				MIN = 3
 				MAX = 5
 			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = organized_muster_rolls_perk
+				}
+				add_gold = see_how_its_done_gold_reward_value
+			}
 		}
 	}
 }
@@ -252,10 +375,33 @@ poi_special_buildings_religious = {
 				}
 				add_piety = medium_piety_gain
 			}
+			if = {
+				limit = {
+					has_trait = lifestyle_mystic
+				}
+				add_trait_xp = {
+					trait = lifestyle_mystic
+					value = lifestyle_mystic_xp_gain_minor_value
+				}
+			}
 
 			traveler_travel_xp_effect = {
 				MIN = 3
 				MAX = 5
+			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = organized_muster_rolls_perk
+				}
+				add_gold = see_how_its_done_gold_reward_value
+			}
+			if = {
+				limit = {
+					has_perk = church_and_state_perk
+					is_landless_adventurer = yes
+				}
+				add_piety = major_piety_gain
 			}
 		}
 	}
@@ -282,10 +428,18 @@ poi_special_buildings_diplomatic = {
 				MIN = 3
 				MAX = 5
 			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = organized_muster_rolls_perk
+				}
+				add_gold = see_how_its_done_gold_reward_value
+			}
 		}
 	}
 }
 
+# Grand Cities
 poi_grand_city = {
 	build_province_list = {
 		province:28 = { add_to_list = provinces } #Jongno
@@ -317,6 +471,13 @@ poi_grand_city = {
 					MIN = 1
 					MAX = 3
 				}
+				if = {
+					limit = {
+						is_landless_adventurer = yes
+						has_perk = organized_muster_rolls_perk
+					}
+					add_gold = minor_gold_laamps_value
+				}
 			}
 		}
 		else = {
@@ -327,6 +488,13 @@ poi_grand_city = {
 				traveler_travel_xp_effect = {
 					MIN = 3
 					MAX = 5
+				}
+				if = {
+					limit = {
+						is_landless_adventurer = yes
+						has_perk = organized_muster_rolls_perk
+					}
+					add_gold = minor_gold_laamps_value
 				}
 			}
 		}
@@ -351,9 +519,25 @@ poi_special_buildings_wonder = {
 
 			add_stewardship_lifestyle_xp = travel_medium_xp
 			add_prestige = medium_prestige_gain
+			if = {
+				limit = {
+					has_trait = lifestyle_mystic
+				}
+				add_trait_xp = {
+					trait = lifestyle_mystic
+					value = lifestyle_mystic_xp_gain_minor_value
+				}
+			}
 			traveler_travel_xp_effect = {
 				MIN = 3
 				MAX = 5
+			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = organized_muster_rolls_perk
+				}
+				add_gold = see_how_its_done_gold_reward_value
 			}
 		}
 	}
@@ -380,6 +564,13 @@ poi_special_buildings_economic = {
 				MIN = 3
 				MAX = 5
 			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = organized_muster_rolls_perk
+				}
+				add_gold = see_how_its_done_gold_reward_value
+			}
 		}
 	}
 }
@@ -396,17 +587,18 @@ poi_mausoleum_at_halicarnassus = {
 				MIN = 3
 				MAX = 5
 			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = organized_muster_rolls_perk
+				}
+				add_gold = see_how_its_done_gold_reward_value
+			}
 		}
 	}
 }
 
 poi_lighthouse_of_alexandria = {
-	#build_province_list = {
-	#	province:6053 = {
-	#		add_to_list = provinces
-	#	}
-	#}
-
 	on_visit = {
 		send_interface_toast = {
 			title = poi_lighthouse_of_alexandria.visit
@@ -418,7 +610,110 @@ poi_lighthouse_of_alexandria = {
 				MIN = 3
 				MAX = 5
 			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = organized_muster_rolls_perk
+				}
+				add_gold = see_how_its_done_gold_reward_value
+			}
 		}
 	}
 }
 
+# Natural features, e.g. Mount X, Lake X
+poi_natural_feature = {
+	build_province_list = {
+		every_special_building_province = {
+			limit = {
+				has_building_with_flag = { flag = travel_point_of_interest_natural_feature }
+			}
+			add_to_list = provinces
+		}
+	}
+
+	on_visit = {
+		send_interface_toast = {
+			title = poi_natural_feature.visit
+			left_icon = root
+			stress_impact = { base = minor_stress_impact_loss }
+			if = {
+				limit = {
+					NOT = {
+						has_trait = lifestyle_traveler
+					}
+				}
+				send_interface_toast = {
+					title = poi_grand_city.visit
+					left_icon = root
+					add_trait = lifestyle_traveler
+					traveler_travel_xp_effect = {
+						MIN = 1
+						MAX = 3
+					}
+					if = {
+						limit = {
+							is_landless_adventurer = yes
+							has_perk = organized_muster_rolls_perk
+						}
+						add_gold = minor_gold_laamps_value
+					}
+				}
+			}
+			else = {
+				send_interface_toast = {
+					title = poi_grand_city.visit
+					left_icon = root
+					traveler_travel_xp_effect = {
+						MIN = 3
+						MAX = 5
+					}
+					if = {
+						limit = {
+							is_landless_adventurer = yes
+							has_perk = organized_muster_rolls_perk
+						}
+						add_gold = minor_gold_laamps_value
+					}
+				}
+			}
+		}
+	}
+}
+
+# Legend stuff
+poi_legend_capitals = {
+	build_province_list = {
+		every_legend = {
+			limit = {
+				OR = {
+					legend_quality = illustrious
+					legend_quality = mythical
+				}
+			}
+			legend_owner.capital_province ?= {
+				add_to_list = provinces
+			}
+		}
+	}
+
+	on_visit = {
+		send_interface_toast = {
+			title = poi_legend_capitals.visit
+			left_icon = root
+
+			add_diplomacy_lifestyle_xp = travel_medium_xp
+			traveler_travel_xp_effect = {
+				MIN = 3
+				MAX = 5
+			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+					has_perk = organized_muster_rolls_perk
+				}
+				add_gold = see_how_its_done_gold_reward_value
+			}
+		}
+	}
+}

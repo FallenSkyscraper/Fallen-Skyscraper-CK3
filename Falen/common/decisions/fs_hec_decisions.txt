@@ -1,7 +1,8 @@
 hec_choose_stance_decision = {
 	picture = "gfx/interface/illustrations/decisions/fp3/antagonistic.dds"
 	selection_tooltip = hec_choose_stance_decision_tooltip 
-	major = yes 
+	
+	decision_group_type = major
 	sort_order = -20
 	ai_check_interval = 12
 	cooldown = { years = 20 }

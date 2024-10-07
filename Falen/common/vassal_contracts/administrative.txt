@@ -1,0 +1,377 @@
+﻿administrative_obligations = {
+	obligation_levels = {
+		default = {
+			levies = {
+				value = 0.1
+				#multiply = governor_efficiency
+			}
+
+			tax = {
+				value = 0.1
+				#multiply = governor_efficiency
+			}
+		}
+	}
+}
+
+### brief: administrative_themes
+# This is referenced in code. 
+#
+administrative_themes = {
+	display_mode = radiobutton
+	is_shown = {
+		scope:vassal.primary_title.tier >= tier_duchy
+	}
+	obligation_levels = {
+		admin_theme_balanced = {
+			default = yes
+			position = { 0 0 }
+			icon = "gfx/interface/icons/theme_administration_types/icon_balanced_administration.dds"
+			
+			ai_liege_desire = {
+				value = 0
+				if = {
+					limit = {
+						scope:vassal = {
+							is_ai = yes
+						}
+					}
+					add = 1
+				}
+			}
+			ai_vassal_desire = 0
+			
+			score = 0
+			color = { 0.7 0.7 0.7 1.0 }
+			
+			vassal_modifier = {
+				governor_xp_gain_mult = 0.2
+			}
+			
+			flag = admin_theme_balanced
+		}
+		admin_theme_civilian = {
+			position = { 2 0 }
+			icon = "gfx/interface/icons/theme_administration_types/icon_civilian_administration.dds"
+			
+			ai_liege_desire = {
+				value = 0
+				if = {
+					limit = {
+						scope:vassal = {
+							is_ai = yes
+							OR = {
+								has_trait = education_stewardship
+								stewardship >= very_high_skill_rating
+								AND = { # Large semi-coastal themes are good for an economic focus
+									any_sub_realm_county = { count >= 2 is_coastal_county = yes }
+									any_sub_realm_county = { count >= 2 is_coastal_county = no }
+								}
+							}
+						}
+					}
+					add = 2
+				}
+				if = {
+					limit = {
+						scope:liege = {
+							ai_has_economical_boom_personality = yes
+						}
+					}
+					add = 1
+				}
+			}
+			ai_vassal_desire = 0
+			
+			score = 0
+			color = { 0.2 0.2 0.7 1.0 }
+
+			tax_factor = 0.5
+			levies_factor = -0.75
+
+			vassal_modifier = {
+				development_growth_factor = 0.2
+				build_gold_cost = -0.1
+				build_speed = -0.1
+				men_at_arms_title_limit = -2
+				men_at_arms_title_cap = -2
+			}
+			
+			flag = admin_stewardship_obligation_bonus
+			flag = admin_influence_construction_bonus
+			flag = admin_ai_is_builder
+			flag = admin_theme_civilian
+			flag = obligation_high_taxes
+		}
+		admin_theme_military = {
+			position = { 1 0 }
+			icon = "gfx/interface/icons/theme_administration_types/icon_military_administration.dds"
+			
+			ai_liege_desire = {
+				value = 0
+				if = {
+					limit = {
+						scope:vassal = {
+							is_ai = yes
+							OR = {
+								has_trait = education_martial
+								martial >= very_high_skill_rating
+								primary_title = { any_owned_title_maa_regiment = { count > 4 } }
+								AND = { # Large inland themes are good for military
+									any_sub_realm_county = { count >= 5 }
+									any_sub_realm_county = { percent >= 0.95 is_coastal_county = no }
+								}
+							}
+						}
+					}
+					add = 2
+				}
+				if = {
+					limit = {
+						scope:liege = {
+							ai_has_warlike_personality = yes
+						}
+					}
+					add = 1
+				}
+			}
+			ai_vassal_desire = 0
+			
+			score = 0
+			color = { 0.7 0.2 0.2 1.0 }
+
+			tax_factor = -0.75
+			levies_factor = 0.75
+			
+			vassal_modifier = {
+				development_growth_factor = -0.25
+				monthly_county_control_growth_factor = 0.1
+				maa_damage_mult = 0.1
+				men_at_arms_title_cap = 2
+				men_at_arms_maintenance = -0.2
+			}
+			
+			flag = admin_martial_obligation_bonus
+			flag = admin_theme_military
+			flag = obligation_high_levies
+		}
+		admin_theme_frontier = {
+			position = { 0 1 }
+			icon = "gfx/interface/icons/theme_administration_types/icon_frontier_administration.dds"
+			
+			ai_liege_desire = {
+				value = 0
+				if = {
+					limit = {
+						scope:vassal = {
+							is_ai = yes
+						}
+					}
+					add = 5
+				}
+			}
+			ai_vassal_desire = 0
+			
+			score = 0
+			color = { 0.2 0.7 0.2 1.0 }
+			
+			is_valid = {
+				custom_tooltip = {
+					text = admin_theme_frontier_valid_desc
+					scope:vassal = {
+						any_sub_realm_county = {
+							any_neighboring_county = {
+								holder = {
+									NOT = { top_liege = scope:vassal.top_liege }
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			tax_factor = -0.4
+
+			vassal_modifier = {
+				fort_level = 2
+				defender_advantage = 8
+				hostile_county_attrition = -0.3
+				hostile_raid_time = 0.75
+				
+				# Values to tweak the AI slightly in order to make them more likely to declare war
+				ai_boldness = 20
+				ai_rationality = -15
+			}
+			
+			flag = admin_prowess_obligation_bonus
+			flag = admin_duchy_expansion_unlocked
+			flag = admin_ai_is_warlike
+			flag = admin_theme_frontier
+		}
+		admin_theme_imperial = {
+			position = { 1 1 }
+			icon = "gfx/interface/icons/theme_administration_types/icon_imperial_administration.dds"
+			
+			ai_liege_desire = {
+				value = 0
+				if = {
+					limit = {
+						scope:liege = {
+							NOT = {
+								any_vassal = { vassal_contract_has_flag = admin_theme_imperial }
+							}
+						}
+						scope:vassal = {
+							is_ai = yes
+							culture = scope:liege.culture
+							faith = top_liege.primary_title.state_faith
+						}
+					}
+					add = 5
+				}
+				if = {
+					limit = {
+						exists = scope:liege.house
+						exists = scope:vassal.house
+						scope:liege.house = scope:vassal.house
+					}
+					add = 1
+				}
+			}
+			ai_vassal_desire = 0
+			
+			score = 0
+			color = { 0.7 0.0 0.7 1.0 }
+			
+			is_valid = {
+				scope:liege = {
+					highest_held_title_tier = tier_empire
+				}
+				custom_tooltip = {
+					text = admin_theme_imperial_valid_desc
+					OR = {
+						scope:liege = {
+							NOT = {
+								any_vassal = { vassal_contract_has_flag = admin_theme_imperial }
+							}
+						}
+						AND = {
+							scope:vassal = { vassal_contract_has_flag = admin_theme_imperial }
+							scope:liege = {
+								any_vassal = {
+									count = 1
+									vassal_contract_has_flag = admin_theme_imperial
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			tax_factor = 0.1
+
+			liege_modifier = {
+				monthly_prestige_gain_per_legitimacy_level_add = 0.5
+				legitimacy_gain_mult = 0.2
+			}
+
+			vassal_modifier = {
+				monthly_prestige = 0.5
+				monthly_influence = 0.25
+			}
+			
+			flag = admin_theme_imperial
+			flag = admin_prestige_obligation_bonus
+			flag = admin_cannot_revoke_titles_without_cause
+			flag = obligation_high_taxes
+		}
+		admin_theme_naval = {
+			position = { 2 1 }
+			icon = "gfx/interface/icons/theme_administration_types/icon_naval_administration.dds"
+			
+			ai_liege_desire = {
+				value = 0
+				if = {
+					limit = {
+						scope:vassal = { is_ai = yes }
+					}
+					if = {
+						limit = { # Large coastal areas qualify as good naval themes
+							scope:vassal = {
+								any_sub_realm_county = {
+									count >= 3
+									is_coastal_county = yes
+								}
+							}
+							scope:liege = { # But don't go overboard with naval themes
+								any_vassal = {
+									percent < 0.15
+									vassal_contract_has_flag = admin_theme_naval
+								}
+							}
+						}
+						add = 3
+					}
+					
+					if = {
+						limit = { # Islands are good naval candidates
+							scope:vassal = {
+								any_sub_realm_county = {
+									percent >= 0.95
+									is_coastal_county = yes
+									OR = {
+										any_neighboring_county = {
+											percent >= 0.95
+											holder = {
+												OR = {
+													this = scope:vassal
+													any_liege_or_above = { this = scope:vassal }
+												}
+											}
+										}
+										any_neighboring_county = { count < 1 }
+									}
+								}
+							}
+						}
+						add = 8
+					}
+				}
+			}
+			ai_vassal_desire = 0
+			
+			score = 0
+			color = { 0.0 0.4 0.7 1.0 }
+			
+			is_valid = {
+				custom_tooltip = {
+					text = admin_theme_naval_valid_desc
+					scope:vassal = {
+						any_sub_realm_county = {
+							is_coastal_county = yes
+						}
+					}
+				}
+			}
+			
+			tax_factor = -0.2
+			
+			liege_modifier = {
+				embarkation_cost_mult = -0.1
+				naval_movement_speed_mult = 0.1
+			}
+
+			vassal_modifier = {
+				embarkation_cost_mult = -0.5
+				naval_movement_speed_mult = 0.25
+				no_disembark_penalty = yes
+				coastal_advantage = 15
+				development_growth_factor = 0.1
+			}
+			
+			flag = admin_naval_duchy_expansion_unlocked
+			flag = admin_tradeport_obligation_bonus
+			flag = admin_theme_naval
+		}
+	}
+}

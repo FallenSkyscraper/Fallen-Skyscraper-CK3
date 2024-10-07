@@ -3178,3 +3178,565 @@ empire = {
 	tier = empire
 	priority = 100
 }
+
+### ADMINISTRATIVE
+
+baron_administrative_male_byzantine_group = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 28
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+	
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+baron_administrative_female_byzantine_group = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 28
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+	
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+count_administrative_male_byzantine_group = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 28
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+	
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+count_administrative_female_byzantine_group = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 28
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+	
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+county_administrative_byzantine_group = {
+	type = title
+	tier = county
+	priority = 51
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+}
+count_administrative_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 27
+	governments = { administrative_government }
+	
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+count_administrative_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 27
+	governments = { administrative_government }
+	
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+
+county_administrative = {
+	type = title
+	tier = county
+	priority = 50
+	governments = { administrative_government }
+	flavourization_rules = {
+		top_liege = no
+	}
+}
+
+duke_administrative_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 28
+	governments = { administrative_government }
+
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+duke_administrative_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 28
+	governments = { administrative_government }
+
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+duke_administrative_male_byzantine_group = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+duke_administrative_female_byzantine_group = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+#king_administrative_male = {
+#	type = character
+#	gender = male
+#	special = holder
+#	tier = kingdom
+#	priority = 74
+#	governments = { administrative_government }
+#
+#	flavourization_rules = {
+#		top_liege = no
+#		spouse_takes_title = no
+#	}
+#}
+#king_administrative_female = {
+#	type = character
+#	gender = female
+#	special = holder
+#	tier = kingdom
+#	priority = 73
+#	governments = { administrative_government }
+#
+#	flavourization_rules = {
+#		top_liege = no
+#		spouse_takes_title = no
+#	}
+#}
+king_administrative_male_byzantine_group = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 75
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+king_administrative_female_byzantine_group = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 75
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+king_administrative_male_roman = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 76
+	governments = { administrative_government }
+	name_lists = { name_list_roman }
+
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+king_administrative_female_roman = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 76
+	governments = { administrative_government }
+	name_lists = { name_list_roman }
+
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+#king_administrative_independent_male = {
+#	type = character
+#	gender = male
+#	special = holder
+#	tier = kingdom
+#	priority = 106
+#	governments = { administrative_government }
+#
+#	flavourization_rules = {
+#		only_independent = yes
+#	}
+#}
+#king_administrative_independent_female = {
+#	type = character
+#	gender = female
+#	special = holder
+#	tier = kingdom
+#	priority = 106
+#	governments = { administrative_government }
+#
+#	flavourization_rules = {
+#		only_independent = yes
+#	}
+#}
+king_administrative_independent_male_byzantine_group = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 107
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+
+	flavourization_rules = {
+		only_independent = yes
+	}
+}
+king_administrative_independent_female_byzantine_group = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 107
+	governments = { administrative_government }
+	heritages = { heritage_byzantine }
+	
+	flavourization_rules = {
+		only_independent = yes
+	}
+}
+king_administrative_independent_male_roman = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 108
+	governments = { administrative_government }
+	name_lists = { name_list_roman }
+
+	flavourization_rules = {
+		only_independent = yes
+	}
+}
+king_administrative_independent_female_roman = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 108
+	governments = { administrative_government }
+	name_lists = { name_list_roman }
+	
+	flavourization_rules = {
+		only_independent = yes
+	}
+}
+
+emperor_administrative_male_greek = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 107
+	governments = { administrative_government }
+	name_lists = { name_list_greek }
+	titles = { e_byzantium }
+}
+emperor_administrative_female_greek = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 107
+	governments = { administrative_government }
+	name_lists = { name_list_greek }
+	titles = { e_byzantium }
+}
+emperor_administrative_male_roman = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 108
+	governments = { administrative_government }
+	name_lists = { name_list_roman }
+	titles = { e_roman_empire }
+}
+emperor_administrative_female_roman = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 108
+	governments = { administrative_government }
+	name_lists = { name_list_roman }
+	titles = { e_roman_empire }
+}
+
+### LANDLESS ADVENTURERS
+duke_landless_adventurer_male_camp = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 25
+	governments = { landless_adventurer_government }
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_female_camp = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 25
+	governments = { landless_adventurer_government }
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+spouse_landless_adventurer_male = {
+	type = character
+	gender = male
+	special = domicile
+    domicile_type = camp
+	priority = 25
+	governments = { landless_adventurer_government }
+}
+
+spouse_landless_adventurer_holder_female = {
+	type = character
+	gender = female
+	special = domicile
+    domicile_type = camp
+	priority = 25
+	governments = { landless_adventurer_government }
+}
+
+spouse_estate_holder_male = {
+	type = character
+	gender = male
+	special = domicile
+    domicile_type = estate
+	priority = 26
+	governments = { administrative_government }
+
+	flavourization_rules = {
+		top_liege = no
+	}
+}
+
+spouse_estate_holder_female = {
+	type = character
+	gender = female
+	special = domicile
+    domicile_type = estate
+	priority = 26
+	governments = { administrative_government }
+
+	flavourization_rules = {
+		top_liege = no
+	}
+}
+
+lady_in_shadows = {
+	type = character
+	gender = female
+	priority = 1000
+	flag = lady_in_shadows
+	domicile_type = camp
+
+	flavourization_rules = {
+		top_liege = no
+		only_holder = yes
+	}
+}
+
+co_ruler_female = {
+	type = character
+	gender = female
+	special = holder
+	priority = 107
+	flag = use_co_ruler_title
+
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no 
+		only_holder = yes 
+	}
+}
+
+co_ruler_male = {
+	type = character
+	gender = male
+	special = holder
+	priority = 107
+	flag = use_co_ruler_title
+
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no 
+		only_holder = yes 
+	}
+}
+
+duke_landless_adventurer_camp_mercenaries = {
+	type = character
+	special = holder
+	tier = duchy
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_mercenaries
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_camp_wanderers = {
+	type = character
+	special = holder
+	tier = duchy
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_wanderers
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_camp_scholars = {
+	type = character
+	special = holder
+	tier = duchy
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_scholars
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_camp_explorers = {
+	type = character
+	special = holder
+	tier = duchy
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_explorers
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_camp_brigands = {
+	type = character
+	special = holder
+	tier = duchy
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_brigands
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+duke_landless_adventurer_camp_legitimists = {
+	type = character
+	special = holder
+	tier = duchy
+	priority = 31
+	governments = { landless_adventurer_government }
+	flag = flavourise_camp_purpose_legitimists
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+custom_imperator_caesar_augustus = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 500
+	governments = { administrative_government }
+	religions = { hellenism_religion }
+	titles = { e_roman_empire }
+	flag = uses_custom_caesar_flavourization
+
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}

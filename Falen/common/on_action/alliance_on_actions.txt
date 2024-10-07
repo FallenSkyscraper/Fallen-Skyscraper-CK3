@@ -29,8 +29,8 @@ on_alliance_added = {
 		# Add a delay on calling new allies into old wars.
 		if = {
 			limit = {
-				scope:first = { is_landed = yes}
-				scope:second = { is_landed = yes}
+				scope:first = { is_playable_character = yes}
+				scope:second = { is_playable_character = yes}
 			}
 			if = {
 				limit = {
@@ -64,7 +64,6 @@ on_alliance_added = {
 				limit = {
 					any_character_struggle = {
 						involvement = involved
-						is_struggle_type = juche_struggle
 						has_struggle_phase_parameter = piety_from_new_alliance
 						is_secondary_character_involvement_involved_trigger = {
 							CHAR = scope:second
@@ -79,7 +78,6 @@ on_alliance_added = {
 				limit = {
 					any_character_struggle = {
 						involvement = involved
-						is_struggle_type = juche_struggle
 						has_struggle_phase_parameter = piety_from_new_alliance
 						is_secondary_character_involvement_involved_trigger = {
 							CHAR = scope:first
@@ -97,7 +95,6 @@ on_alliance_added = {
 					NOT = { faith = scope:second.faith }
 					any_character_struggle = {
 						involvement = involved
-						is_struggle_type = juche_struggle
 						has_struggle_phase_parameter = interfaith_marriages_available_between_involved_characters
 						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
 							CATALYST = catalyst_formed_interreligious_alliance_with_important_character
@@ -108,7 +105,6 @@ on_alliance_added = {
 				scope:second = {
 					any_character_struggle = {
 						involvement = involved
-						is_struggle_type = juche_struggle
 						has_struggle_phase_parameter = interfaith_marriages_available_between_involved_characters
 					}
 				}
@@ -156,6 +152,115 @@ on_alliance_added = {
 						catalyst = catalyst_forming_alliance_with_major_uninvolved_power
 						character = scope:first
 					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:second = { is_independent_ruler = yes }
+				scope:first = {
+					is_independent_ruler = yes
+					any_character_struggle = {
+						involvement = involved
+						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+							CATALYST = catalyst_forming_alliance_between_independent_involved_rulers
+							CHAR = scope:second
+						}
+					}
+				}
+			}
+			scope:first = {
+				every_character_struggle = {
+					involvement = involved
+					limit = {
+						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+							CATALYST = catalyst_forming_alliance_between_independent_involved_rulers
+							CHAR = scope:second
+						}
+					}
+					activate_struggle_catalyst = {
+						catalyst = catalyst_forming_alliance_between_independent_involved_rulers
+						character = scope:first
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				fp3_struggle_involves_one_supporter_and_one_detractor = {
+					FIRST = scope:first
+					SECOND = scope:second
+				}
+				scope:first = {
+					any_character_struggle = {
+						involvement = involved
+						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+							CATALYST = catalyst_forming_alliance_between_supporter_detractor_rulers
+							CHAR = scope:second
+						}
+					}
+				}
+			}
+			scope:first = {
+				every_character_struggle = {
+					involvement = involved
+					limit = {
+						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+							CATALYST = catalyst_forming_alliance_between_supporter_detractor_rulers
+							CHAR = scope:second
+						}
+					}
+					activate_struggle_catalyst = {
+						catalyst = catalyst_forming_alliance_between_supporter_detractor_rulers
+						character = scope:first
+					}
+					log_debug_variable_for_persian_struggle_effect = { VAR = concession_catalyst_forming_alliance_between_supporter_detractor_rulers }
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						scope:first = {
+							has_trait = fp3_struggle_detractor
+							any_character_struggle = {
+								involvement = involved
+								phase_has_catalyst = catalyst_forming_alliance_between_detractor_uninvolved_rulers
+							}
+						}
+						scope:second = { fp3_character_uninvolved_in_struggle_trigger = yes }
+					}
+					AND = {
+						scope:second = {
+							has_trait = fp3_struggle_detractor
+							any_character_struggle = {
+								involvement = involved
+								phase_has_catalyst = catalyst_forming_alliance_between_detractor_uninvolved_rulers
+							}
+						}
+						scope:first = { fp3_character_uninvolved_in_struggle_trigger = yes }
+					}
+				}
+			}
+			if = {
+				limit = { scope:second = { fp3_character_uninvolved_in_struggle_trigger = yes } }
+				scope:first = { save_scope_as = involved_character }
+			}
+			else = {
+				scope:second = { save_scope_as = involved_character }
+			}
+			scope:involved_character = {
+				every_character_struggle = {
+					involvement = involved
+					limit = {
+						phase_has_catalyst = catalyst_forming_alliance_between_detractor_uninvolved_rulers
+					}
+					activate_struggle_catalyst = {
+						catalyst = catalyst_forming_alliance_between_detractor_uninvolved_rulers
+						character = scope:involved_character
+					}
+					log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_forming_alliance_between_detractor_uninvolved_rulers }
 				}
 			}
 		}

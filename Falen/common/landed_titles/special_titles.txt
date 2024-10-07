@@ -237,7 +237,23 @@ d_holy_order = {
     capital = c_gunsan
 	
 }
+#### laamp titles
 
+d_laamp_rastakan = { # 왕라스타칸
+	color = { 100 100 100 }
+	capital = c_gapyeong # 가평
+
+	definite_form = yes
+	landless = yes
+	require_landless = yes
+	ruler_uses_title_name = no
+	no_automatic_claims = yes
+	destroy_if_invalid_heir = yes
+
+	ai_primary_priority = { add = @never_primary_score }
+}
+
+###########################
 d_color_red = {
 	color = red
 	can_create = { always = no }

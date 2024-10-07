@@ -194,6 +194,184 @@ yearly_playable_pulse = {
 				}
 			}
 		}
+		# ADMINISTRATIVE GOVERNMENT
+		# Governor contract generation
+		if = {
+			limit = {
+				is_governor = yes
+				trigger_if = {
+					limit = { is_ai = yes }
+					is_available = yes
+				}
+			}
+			random = {
+				chance = {
+					value = 70
+					if = {
+						limit = { has_character_flag = admin_governance_frequency_cooldown }
+						subtract = 50
+					}
+				}
+				spawn_governance_contract_effect = yes
+			}
+		}
+		# Failsafe to ensure we don't get independent admin rulers of too low a rank (i.e. below king)
+		if = {
+			limit = {
+				liege = root # I.e. root is independent
+				government_has_flag = government_is_administrative
+				highest_held_title_tier < tier_kingdom
+			}
+			if = { # If we are looking at an independent landless character, let's destroy their title
+				limit = {
+					is_landed = no
+				}
+				destroy_title = primary_title
+			}
+			else = { # Otherwise, they change government
+				admin_independence_government_change_effect = yes
+				if = {
+					limit = {
+						any_held_title = {
+							is_noble_family_title = yes
+						}
+					}
+					every_held_title = {
+						limit = {
+							is_noble_family_title = yes
+						}
+						save_temporary_scope_as = family_title
+						root = { destroy_title = scope:family_title }
+					}
+				}
+			}
+		}
+		# Failsafe to ensure we don't have a noble family holding land without other titles - Give any held land to liege
+		if = {
+			limit = {
+				government_has_flag = government_is_administrative
+				is_landed = yes
+				exists = liege
+				NOT = { liege = root }
+				any_held_title = { # They have a noble family title
+					is_noble_family_title = yes
+				}
+				NOT = { # And no other high tier titles
+					any_held_title = {
+						tier >= tier_duchy
+						is_noble_family_title = no
+					}
+				}
+			}
+			create_title_and_vassal_change = {
+				type = revoked
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			every_held_title = {
+				limit = {
+					tier = tier_county
+				}
+				add_to_list = revoked_titles
+			}
+			every_in_list = {
+				list = revoked_titles
+				change_title_holder_include_vassals = {
+					holder = root.liege
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = tournament_ai_override
+			}
+			ai_attempt_to_host_activity = activity_tournament
+		}
+		else_if = {
+			limit = {
+				has_character_flag = feast_ai_override
+			}
+			ai_attempt_to_host_activity = activity_feast
+		}
+		
+		if = {
+			limit = {
+				has_perk = learn_on_the_job_perk
+				is_landless_adventurer = yes
+			}
+			every_courtier = {
+				limit = {
+					is_physically_able_adult = yes
+					NOT = { exists = inspiration }
+				}
+				random = {
+					chance = {
+						value = 0
+						add = {
+							value = book_inspiration_average_skill_value
+							if = {
+								limit = {
+									has_trait = lazy
+								}
+								multiply = 0.5
+							}
+							if = {
+								limit = {
+									root = {
+										any_courtier = {
+											exists = inspiration
+										}
+									}
+								}
+								multiply = 0.5
+							}
+						}
+					}
+					create_inspiration = book_inspiration
+					save_scope_as = inspired_follower
+					root = {
+						send_interface_message = {
+							type = send_interface_message_good
+							title = adventurers_gather_inspiration_option.title
+							left_icon = scope:inspired_follower
+							scope:inspired_follower = {
+								custom_tooltip = {
+									text = adventurers_gather_inspiration_option.effect
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		# AI Adventurer contract logic setup
+		if = {
+			limit = {
+				ep3_adventurer_ai_logic_valid_trigger = yes
+				NOT = { owns_story_of_type = story_adventurer_ai }
+			}
+			create_story = { type = story_adventurer_ai }
+		}
+		if = { # If a player adventurer manages to glitch in place, save them by moving them to the domicile location
+			limit = {
+				is_ai = no
+				is_landless_adventurer = yes
+				NOT = {
+					location = domicile.domicile_location
+				}
+				is_imprisoned = no
+				is_travelling = no
+				NOT = {
+					exists = involved_activity
+				}
+				num_taken_task_contracts <= 0
+				is_commanding_army = no
+			}
+			set_location_to_default = yes
+		}
 		
 		if = {
 			limit = {
@@ -243,7 +421,6 @@ yearly_playable_pulse = {
 		}
 	}
 	events = {
-		adultery.0001 #Suspected spouse/soulmate of cheating (increased chance when there is a lover, but can also trigger otherwise)
 		hold_court.3050 #Warning the ruler that it's been some time since they Held Court
 		court_maintenance.0012 # Dynasty banner improves with renown
 		court_maintenance.0013 # Remove duplicate dynasty banners
@@ -290,6 +467,9 @@ slavery_events_on_action ={
 three_year_playable_pulse = {
 	on_actions = {
 		protestant_event_on_action
+	}
+	events = {
+		adultery.0001 #Suspected spouse/soulmate of cheating (increased chance when there is a lover, but can also trigger otherwise)
 	}
 	random_events = {
 		800 = 0
@@ -518,12 +698,17 @@ quarterly_playable_pulse = {
 		#Technology Check
 		technology_effect_pulse
 	}
+	random_on_action = {
+		chance_to_happen = 75
+		100 = ep3_yearly_events_laamps
+	}
 }
 technology_effect_pulse = {
 	effect = {
 		tech_base_effect = { TECHNAME = metallurgy }
 		tech_base_effect = { TECHNAME = siege }
 		tech_base_effect = { TECHNAME = horseback_riding }
+	#	tech_base_effect = { TECHNAME = fortification }
 	}
 }
 # Called from code once a year for all "playable" characters, at a random point that year (individually for each character). Different time from the random_yearly_everyone_pulse (coincides by random 1 time out of 365)
@@ -548,6 +733,8 @@ random_yearly_playable_pulse = {
 		4 = fp2_yearly_events
 		4 = fp3_yearly_events
 		2 = bp1_yearly_events
+		6 = ep3_yearly_events_byzantium
+		6 = ep3_yearly_events_admin
 	}
 	on_actions = {
 		delay = { days = { 45 75 } }
@@ -574,6 +761,8 @@ random_yearly_playable_pulse = {
 		court_scholar_ongoing
 		delay = { days = { 25 44 } }
 		clan_events_on_action
+		ep3_akolouthos_on_action
+		delay = { days = { 25 44 } }
 	}
 }
 
@@ -694,6 +883,7 @@ three_year_pool_pulse = {
 	}
 	events = {
 		courtier_guest_management.2001 #"Develops" the character and gives those without location a location
+		courtier_guest_management.4001 # Wanderer becomes an adventurer
 	}
 }
 
@@ -1429,5 +1619,64 @@ on_yearly_events = {
 		250 = fp3_yearly.2020 # Set the Scale, Vassal Version
 		250 = fp3_yearly.2021 # Set the Scale, Liege Version
 		500 = fp3_yearly.2040 # Commander of the Faithful
+		
+		# EP3 - Byzantine Events
+		500 = ep3_emperor_yearly.2010 # Courtiers grumble about you sending an imperial prince/princess to marry abroad among barbarians
+		250 = ep3_emperor_yearly.2140 # Plunder imperial graves if in debt
+		250 = ep3_emperor_yearly.2150 # Stylite saint: is he for real or just faking it?
+		250 = ep3_emperor_yearly.2160 # Pressure from bordering nomads
+		250 = ep3_emperor_yearly.2170 # Use or disband the tunnels from a low-control county?
+		200 = ep3_emperor_yearly.2190 # Landowner (estate owner) has been hoarding grain
+		250 = ep3_emperor_yearly.2200 # Governor can embezzle taxes
+		250 = ep3_emperor_yearly.2210 # Landless vassal present a prophecy to increase succession score
+		200 = ep3_emperor_yearly.2220 # Monks complain about roaming shepherds
+		250 = ep3_emperor_yearly.2230 # Riots against foreign merchants
+		250 = ep3_emperor_yearly.2240 # Annoying "scholar" keeps quoting the Classics out of place
+		250 = ep3_emperor_yearly.2320 # HoF helps you change state faith
+		250 = ep3_emperor_yearly.8000 # Shortage of people in imperial capital
+		250 = ep3_emperor_yearly.8010 # Fake imperial letter of introduction
+		250 = ep3_emperor_yearly.8020 # Selling purple rights
+		25 = ep3_emperor_yearly.8030 # Porphyrios strikes back - rare
+		150 = ep3_emperor_yearly.8040 # Embrace Iconoclasm
+		250 = ep3_emperor_yearly.8050 # Northern raider ransom
+		250 = ep3_emperor_yearly.8060 # Border governor defects
+
+		# EP3 - Governor Events
+		250 = ep3_governor_yearly.8010 # Governor wants to swap a favor with you
+		250 = ep3_governor_yearly.8020 # Extort an estate in your province
+		250 = ep3_governor_yearly.8030 # Estate brings unexpected local benefits
+		250 = ep3_governor_yearly.8040 # Estate is taking too much of your time
+		500 = ep3_governor_yearly.8050 # Offer liege help in war targeting your province
+		250 = ep3_governor_yearly.8060 # Embezzle from provincial treasury
+		50 = ep3_governor_yearly.8070 # Overwhelmed by provincial bureaucracy
+		250 = ep3_governor_yearly.8080 # Local magistrate accused of corruption
+		250 = ep3_governor_yearly.8090 # Family that governed your province is jealous
+		250 = ep3_governor_yearly.8100 # Neighboring governor wants your province
+		250 = ep3_governor_yearly.8110 # Two neighboring governors falling out
+		250 = ep3_governor_yearly.8120 # Support disaster victims in your governorship
+		250 = ep3_governor_yearly.8130 # Raise arbitrary taxes on your province
+		250 = ep3_governor_yearly.8140 # Stand up to an estate in your province
+		250 = ep3_governor_yearly.8150 # Response to rebels in your province 
+		250 = ep3_governor_yearly.8160 # Minority access to governor bureaucracy
+		250 = ep3_governor_yearly.8170 # Prepare defense against nearby raiders
+
+		# EP3 - Laamp Events
+		250 = ep3_laamps.0050 # Close family members wants to become an adventurer
+
+		# EP3 - Powerfam events
+		250 = ep3_powerful_families.8000
+		250 = ep3_powerful_families.8010
+		250 = ep3_powerful_families.8030
+		250 = ep3_powerful_families.8040
+		250 = ep3_powerful_families.8060
+		250 = ep3_powerful_families.8070
+		
+		# EP3 - Landless Admin Events
+		250 = ep3_landless_admin.1000 # This guy could be a cool councillor
+		250 = ep3_landless_admin.1010 # You have upgraded your estate a bunch, locals are impressed
+		250 = ep3_landless_admin.1020 # Upgrade a building in your estate
+		250 = ep3_landless_admin.1030 # You get offered a hook on your liege
+		250 = ep3_landless_admin.1040 # Lie about a rival candidate
+		250 = ep3_landless_admin.1050 # There's something in your basement
 	}
 }
