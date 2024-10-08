@@ -98,8 +98,8 @@
 		if = { # Make stacking a bit less common
 			limit = {
 				OR = {
-					cultural_tradition:tradition_seafaring = { is_in_list = traits }
-					cultural_tradition:tradition_fishermen = { is_in_list = traits }
+					culture_tradition:tradition_seafaring = { is_in_list = traits }
+					culture_tradition:tradition_fishermen = { is_in_list = traits }
 				}
 			}
 			multiply = 0.75
@@ -322,7 +322,7 @@ tradition_sinocentrism = {
 		}
 		if = {
 			limit = {
-				any_in_list = { list = traits this = flag:ethos_egalitarian }
+				any_in_list = { list = traits this = culture_pillar:ethos_egalitarian }
 			}
 			multiply = 0
 		}
@@ -512,7 +512,7 @@ tradition_legacy_of_north_joseon = {
 		}
 		if = {
 			limit = {
-				any_in_list = { list = traits this = flag:ethos_egalitarian }
+				any_in_list = { list = traits this = culture_pillar:ethos_egalitarian }
 			}
 			multiply = 0.25
 		}
@@ -1445,8 +1445,8 @@ tradition_laicite = {
 		if = {
 			limit = {
 				OR = {
-					any_in_list = { list = traits this = flag:tradition_zealous_people }
-					any_in_list = { list = traits this = flag:tradition_by_the_sword }
+					any_in_list = { list = traits this = culture_tradition:tradition_zealous_people }
+					any_in_list = { list = traits this = culture_tradition:tradition_by_the_sword }
 				}
 			}
 			multiply = 0
@@ -1533,7 +1533,7 @@ tradition_cheongdam = {
 		value = 100
 		if = {
 			limit = { # AI should avoid stacking traditions for courtly court positions
-				any_in_list = { list = traits this = flag:tradition_music_theory }
+				any_in_list = { list = traits this = culture_tradition:tradition_music_theory }
 			}
 			multiply = 0.25
 		}
@@ -1723,7 +1723,7 @@ tradition_taekwondo = {
 		if = {
 			limit = {
 				NOT = {
-					any_in_list = { list = traits this = flag:ethos_bellicose }
+					any_in_list = { list = traits this = culture_pillar:ethos_bellicose }
 				}
 			}
 			multiply = 0
@@ -1817,12 +1817,12 @@ tradition_inquisitor = {
 		if = {
 			limit = {
 				OR = {
-					any_in_list = { list = traits this = flag:tradition_welcoming }
-					any_in_list = { list = traits this = flag:tradition_eye_for_an_eye }
-					any_in_list = { list = traits this = flag:tradition_forbearing }
-					any_in_list = { list = traits this = flag:tradition_equitable }
-					any_in_list = { list = traits this = flag:tradition_charitable }
-					any_in_list = { list = traits this = flag:tradition_modest }
+					any_in_list = { list = traits this = culture_tradition:tradition_welcoming }
+					any_in_list = { list = traits this = culture_tradition:tradition_eye_for_an_eye }
+					any_in_list = { list = traits this = culture_tradition:tradition_forbearing }
+					any_in_list = { list = traits this = culture_tradition:tradition_equitable }
+					any_in_list = { list = traits this = culture_tradition:tradition_charitable }
+					any_in_list = { list = traits this = culture_tradition:tradition_modest }
 				}
 			}
 			multiply = 0.1

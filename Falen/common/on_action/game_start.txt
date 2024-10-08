@@ -365,6 +365,14 @@ on_game_start_after_lobby = {
 		### We handle players after the lobby.
 		# Historic chars.
 		apply_historic_administrative_game_rule_effect = yes
+		if = {
+			limit = { has_dlc_feature = roads_to_power }
+			if = {
+				limit = { has_game_rule = donghae_administrative }
+				culture:sikhotealin = { save_scope_as = ignore_culture }
+				title:e_donghae.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+		}
 		# Players.
 		if = {
 			limit = { has_dlc_feature = roads_to_power }
