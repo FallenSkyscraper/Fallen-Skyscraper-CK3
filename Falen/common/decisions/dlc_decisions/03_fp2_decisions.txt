@@ -21,9 +21,11 @@
 ###################################
 secure_mediterranean_decision = {
 	title = fp2_secure_mediterranean.t
-	picture = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
+	}
 	desc = fp2_secure_mediterranean.desc
-	major = yes
+	decision_group_type = major
 
 	selection_tooltip = fp2_secure_mediterranean.tip
 	sort_order = 50
@@ -160,7 +162,9 @@ secure_mediterranean_decision = {
 # by Daniel "yes I know what exciting content is stop bullying me" Moore
 ###########################################################################
 eat_cheese_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}
 	desc = eat_cheese_decision_desc
 
 	is_shown = {
@@ -193,7 +197,9 @@ eat_cheese_decision = {
 # By Hugo Cortell
 ###################################
 golden_age_jewish_science_in_iberia_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_golden_age.dds"
+	}
 	desc = golden_age_jewish_science_in_iberia_decision_desc
 
 	is_shown = {
@@ -360,106 +366,6 @@ golden_age_jewish_science_in_iberia_decision = {
 # Convene Council of Toledo					#
 # by Joe Parkin and Ola Jentzsch			#
 #############################################
-council_of_toledo_decision = {
-	title = council_of_toledo_decision_title
-	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = { exists = global_var:council_of_toledo_counter }
-				desc = council_of_toledo_decision_desc_count
-			}
-			desc = council_of_toledo_decision_desc
-		}
-	}
-	selection_tooltip = council_of_toledo_decision_tooltip
-	cooldown = { years = council_of_toledo_decision_decision_cooldown_value }
-	major = yes
-	
-	sort_order = 80
-
-	is_shown = {
-		# DLC check
-		has_fp2_dlc_trigger = yes
-		# Is Mozarabic (or reformed Mozarabic)
-		faith = { fp2_struggle_faith_is_mozarabic_trigger = yes }
-		any_vassal = { count > 0 }
-	}
-
-	is_valid = {
-		# Owns Toledo
-		custom_tooltip = {
-			text = council_of_toledo_decision_toledo_holder_trigger
-			is_toledo_ownership_valid_trigger = yes
-		}
-		any_vassal = {
-			count >= 3
-			is_powerful_vassal = yes
-			custom_tooltip = {
-				text = council_of_toledo_decision_toledo_faith_trigger
-				faith = root.faith	
-			}
-		}
-		
-		realm_size >= council_of_toledo_realm_size_value
-		# update fp2_struggle_council_toledo_decision_trigger if changing this
-	}
-
-	is_valid_showing_failures_only = {
-		# Not at war
-		is_at_war = no
-	}
-
-	effect = {
-		custom_tooltip = council_of_toledo_decision_tt
-		faith:mozarabic_church = {
-			change_fervor = {
-				value = 10
-				desc = fervor_gain_ascetic_example
-			}
-		}
-		# Council counter
-		if = {
-			limit = { exists = global_var:council_of_toledo_counter }
-			change_global_variable = {
-				name = council_of_toledo_counter
-				add = 1
-			}
-		}
-		else = {
-			set_global_variable = {
-				name = council_of_toledo_counter
-				value = 19
-			}
-		}
-		if = {
-			limit = {
-				any_character_struggle = { is_struggle_type = iberian_struggle }
-			}
-			custom_tooltip = council_of_toledo_decision_catalyst_tt
-		}
-		trigger_event = {
-			on_action = fp2_struggle_council_toledo_organize
-			days = 1
-		}
-	}
-
-	cost = {
-		gold = council_of_toledo_gold_cost_value
-		piety = council_of_toledo_piety_cost_value
-	}
-
-	ai_check_interval = 60
-	
-	ai_potential = {
-		is_ruler = yes
-		short_term_gold >= council_of_toledo_gold_cost_value
-	}
-
-	ai_will_do = {
-		base = 100
-	}
-}
 
 #############################################
 # Secure Iberian Foothold
@@ -471,7 +377,9 @@ council_of_toledo_decision = {
 # By Hugo Cortell
 ###################################
 build_holy_pilgrim_roads_decision = {
-	picture = "gfx/interface/illustrations/decisions/fp2_decision_struggle_opening.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp2_decision_struggle_opening.dds"
+	}
 	sort_order = 300 # Note: in [ROOT.Char.GetFaith.GetAdherentNameNoTooltip|L] and [ROOT.Char.GetFaith.GetAdherentNamePluralNoTooltip|L] both [NoTooltip] and [L] are ignored
 
 	is_shown = {
@@ -623,11 +531,12 @@ build_holy_pilgrim_roads_decision = {
 #############################################
 improve_city_province_decision = {
 	title = improve_city_province_decision_name
-	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
 	desc = improve_city_province_decision_desc
 	selection_tooltip = improve_city_province_decision_tooltip
 	cooldown = { years = 50 }
-	major = no
 	sort_order = 90
 
 	is_shown = {

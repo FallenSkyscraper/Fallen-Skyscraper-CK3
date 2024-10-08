@@ -1,5 +1,7 @@
 change_gov_feudal_republic = {
-	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
 	ai_check_interval = 60
 
 
@@ -31,7 +33,9 @@ change_gov_feudal_republic = {
 	}
 }
 change_gov_republic_feudal = {
-	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
 	ai_check_interval = 60
 
 
@@ -63,7 +67,9 @@ change_gov_republic_feudal = {
 	}
 }
 change_gov_feudal_military = {
-	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
 	ai_check_interval = 60
 
 
@@ -100,7 +106,9 @@ change_gov_feudal_military = {
 	}
 }
 change_gov_military_feudal = {
-	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
 	ai_check_interval = 60
 
 
@@ -135,7 +143,9 @@ change_gov_military_feudal = {
 	}
 }
 change_gov_nomadic_tribal = {
-	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
 	ai_check_interval = 60
 
 
@@ -184,7 +194,9 @@ change_gov_nomadic_tribal = {
 	}
 }
 change_gov_feudal_communism = {
-	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	}
 	ai_check_interval = 60
 
 
@@ -203,9 +215,7 @@ change_gov_feudal_communism = {
 			government_has_flag = government_is_tribal
 			government_has_flag = government_is_nomadic
 		}
-		faith = {
-			religion_tag = communism_religion
-		}
+		religion = religion:communism_religion
 	}
 	is_valid = {
 		NOT = {
@@ -213,9 +223,7 @@ change_gov_feudal_communism = {
 			government_has_flag = government_is_tribal
 			government_has_flag = government_is_nomadic
 		}
-		faith = {
-			religion_tag = communism_religion
-		}
+		religion = religion:communism_religion
 	}
 	effect = {
 		change_government = proletarian_government

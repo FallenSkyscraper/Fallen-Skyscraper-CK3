@@ -1,5 +1,7 @@
 bulbada_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_activity.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_activity.dds"
+	}
 	ai_check_interval = 60
 
 
@@ -13,9 +15,7 @@ bulbada_decision = {
 		is_landed = yes
 		is_imprisoned = no
 		is_independent_ruler = yes
-		faith = {
-			religion_tag = naturalism_religion
-			}
+		religion = religion:naturalism_religion
 		NOT = {
 			is_target_in_global_variable_list = {
 				name = unavailable_unique_decisions
@@ -24,9 +24,7 @@ bulbada_decision = {
 		}
 	}
 	is_valid = {
-		faith = {
-			religion_tag = naturalism_religion
-		}
+		religion = religion:naturalism_religion
 		completely_controls = title:c_gaeseong
 	}
 	effect = {

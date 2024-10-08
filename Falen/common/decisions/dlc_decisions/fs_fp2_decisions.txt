@@ -1,7 +1,9 @@
 ﻿struggle_juche_ending_hostility_decision = {
-	major = yes
+	decision_group_type = major
 	title = struggle_juche_ending_hostility_decision
-	picture = "gfx/interface/illustrations/decisions/fp2_decision_struggle_hostility.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp2_decision_struggle_hostility.dds"
+	}
 	extra_picture = "gfx/interface/illustrations/struggle_decisions_buttons/fp2_decision_hostility.dds"
 	desc = struggle_juche_ending_hostility_decision_desc
 	selection_tooltip = struggle_juche_ending_hostility_decision_tooltip
@@ -120,9 +122,11 @@
 #############################################
 
 struggle_juche_ending_compromise_decision = {
-	major = yes
+	decision_group_type = major
 	title = struggle_juche_ending_compromise_decision
-	picture = "gfx/interface/illustrations/decisions/fp2_decision_struggle_compromise.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp2_decision_struggle_compromise.dds"
+	}
 	extra_picture = "gfx/interface/illustrations/struggle_decisions_buttons/fp2_decision_compromise.dds"
 	desc = struggle_juche_ending_compromise_decision_desc
 	selection_tooltip = struggle_juche_ending_compromise_decision_tooltip
@@ -301,9 +305,11 @@ struggle_juche_ending_compromise_decision = {
 #############################################
 
 struggle_juche_ending_conciliation_decision = {
-	major = yes
+	decision_group_type = major
 	title = struggle_juche_ending_conciliation_decision
-	picture = "gfx/interface/illustrations/decisions/fp2_decision_struggle_conciliation.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp2_decision_struggle_conciliation.dds"
+	}
 	extra_picture = "gfx/interface/illustrations/struggle_decisions_buttons/fp2_decision_conciliation.dds"
 	desc = struggle_juche_ending_conciliation_decision_desc
 	selection_tooltip = struggle_juche_ending_conciliation_decision_tooltip

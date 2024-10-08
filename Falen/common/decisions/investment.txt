@@ -1,5 +1,7 @@
 ﻿investment = {
-	picture = "gfx/interface/illustrations/decisions/investment.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/investment.dds"
+	}
 	desc = investment_desc
 	selection_tooltip = investment_tooltip
 	confirm_text = investment_confirm
@@ -46,7 +48,9 @@
 		
 
 investment_collection = {
-	picture = "gfx/interface/illustrations/decisions/investment_collection.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/investment_collection.dds"
+	}
 	desc = investment_collection_desc
 	selection_tooltip = investment_collection_tooltip
 	confirm_text = investment_collection_confirm
