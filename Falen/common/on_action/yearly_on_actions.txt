@@ -29,6 +29,8 @@ yearly_global_pulse = {
 				}
 				add_county_modifier = old_world_culture_penalty
 			}
+			tech_county_effect = { TECHNAME = fortification }
+			tech_county_effect = { TECHNAME = conscription }
 		}
 		change_global_variable = { name = election_term subtract = 1 }
 		if = {
@@ -704,11 +706,22 @@ quarterly_playable_pulse = {
 	}
 }
 technology_effect_pulse = {
+	trigger = {
+		NOT = { religion_tag = naturalism_religion }
+	}
 	effect = {
 		tech_base_effect = { TECHNAME = metallurgy }
 		tech_base_effect = { TECHNAME = siege }
 		tech_base_effect = { TECHNAME = horseback_riding }
-	#	tech_base_effect = { TECHNAME = fortification }
+	#	tech_county_effect = { TECHNAME = fortification }
+	#	tech_county_effect = { TECHNAME = conscription }
+		tech_base_effect = { TECHNAME = archery }
+		tech_base_effect = { TECHNAME = military_organization }
+	#	tech_county_effect = { TECHNAME = agriculture }
+	#	tech_county_effect = { TECHNAME = commerce }
+	#	tech_base_effect = { TECHNAME = navigation }
+	#	tech_county_effect = { TECHNAME = construction }
+	#	tech_base_effect = { TECHNAME = mining }
 	}
 }
 # Called from code once a year for all "playable" characters, at a random point that year (individually for each character). Different time from the random_yearly_everyone_pulse (coincides by random 1 time out of 365)

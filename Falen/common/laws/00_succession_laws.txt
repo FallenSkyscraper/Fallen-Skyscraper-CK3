@@ -30,7 +30,6 @@
 					OR = {
 						government_has_flag = government_is_feudal
 							#fs_모드의 것들
-						government_has_flag = government_is_bureaucratic
 						government_has_flag = government_is_maritime
 						government_has_flag = government_is_theocratic_feudal
 						government_has_flag = government_is_secular_republic
@@ -88,7 +87,6 @@
 			OR = {
 				government_has_flag = government_is_feudal
 				#fs_모드의
-				government_has_flag = government_is_bureaucratic
 				government_has_flag = government_is_maritime 
 				government_has_flag = government_is_theocratic_feudal
 				government_has_flag = government_is_secular_republic
@@ -529,7 +527,7 @@
 		}
 		should_start_with = {
 			has_ep3_dlc_trigger = yes
-			has_title = title:e_byzantium
+		#	has_title = title:e_byzantium
 			government_allows = administrative
 		}
 		succession = {

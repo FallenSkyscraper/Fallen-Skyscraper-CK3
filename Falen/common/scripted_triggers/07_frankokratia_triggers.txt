@@ -1,0 +1,141 @@
+﻿##################################################
+### FRANKOKRATIA TRIGGERS
+##################################################
+ep3_frankokratia_ghw_trigger = {
+	always = no
+}
+
+ep3_frankokratia_transiting_relative_trigger = {
+	always = no
+}
+
+ep3_frankokratia_story_owner_trigger = {
+	always = no
+}
+
+ep3_frankokratia_claimant_trigger = {
+	always = no
+}
+
+ep3_frankokratia_will_start_trigger = {
+	NOR = {
+		has_trait = just
+		has_trait = humble
+		has_trait = content
+		has_trait = lazy
+		has_trait = craven
+		has_trait = loyal
+	}
+	OR = {
+		has_trait = greedy
+		has_trait = eccentric
+		has_trait = ambitious
+		has_trait = fickle
+		has_trait = arbitrary
+		AND = {
+			ai_rationality <= 0
+			ai_boldness >= 0
+			ai_honor <= 0
+			ai_energy >= 0
+		}
+	}
+	
+}
+
+ep3_frankokratia_financier_trigger = {
+	always = no
+}
+
+ep3_frankokratia_financier_sub_trigger = {
+	highest_held_title_tier >= tier_county
+	government_has_flag = government_is_republic
+	ep3_frankokratia_financier_trigger = yes
+}
+
+ep3_frankokratia_financier_exists_trigger = {
+	always	
+}
+
+ep3_frankokratia_valid_joiner_trigger = {
+	always = no
+}
+
+ep3_frankokratia_latin_kingdom_available_trigger = {
+	always = no
+}
+
+ep3_frankokratia_discard_old_lands_trigger = {
+	always = no
+}
+
+ep3_frankokratia_beneficiary_trigger = {
+	always = no
+}
+
+ep3_frankokratia_beneficiary_gender_trigger = {
+	trigger_if = {
+		limit = {
+			scope:frankokratia_crusader = {
+				OR = {
+					has_realm_law = male_preference_law
+					has_realm_law = male_only_law
+				}
+			}
+		}
+		is_male = yes
+	}
+	trigger_else_if = {
+		limit = {
+			scope:frankokratia_crusader = {
+				OR = {
+					has_realm_law = female_preference_law
+					has_realm_law = female_only_law
+				}
+			}
+		}
+		is_female = yes
+	}
+	trigger_else = {
+		scope:frankokratia_crusader = {
+			has_realm_law = equal_law
+		}
+	}
+}
+
+ep3_frankokratia_beneficiary_gender_soft_trigger = {
+	trigger_if = {
+		limit = {
+			scope:frankokratia_crusader = {
+				has_realm_law = male_only_law
+			}
+		}
+		is_male = yes
+	}
+	trigger_else_if = {
+		limit = {
+			scope:frankokratia_crusader = {
+				has_realm_law = female_only_law
+			}
+		}
+		is_female = yes
+	}
+	trigger_else = {
+		scope:frankokratia_crusader = {
+			OR = {
+				has_realm_law = male_preference_law
+				has_realm_law = female_preference_law
+				has_realm_law = equal_law
+			}
+		}
+	}
+}
+
+ep3_frankokratia_notification_recipient_trigger = {
+	always = no
+}
+
+ep3_orthodox_faith_trigger = {
+	OR = {
+		religion = religion:orthodox_religion
+	}
+}

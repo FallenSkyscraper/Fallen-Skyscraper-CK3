@@ -227,6 +227,19 @@ on_game_start = {
 				add_legitimacy = major_legitimacy_gain
 			}
 		}
+		every_independent_ruler = {
+			limit = { government_has_flag = government_is_military }
+			every_vassal_or_below = {
+				limit = {
+					primary_title.tier >= tier_county
+					OR = {
+						government_has_flag = government_is_clan
+						government_has_flag = government_is_feudal
+					}
+				}
+				change_government = military_government
+			}
+		}
 		
 		# Admin - Let's give existing governors the Governor trait on game start
 		every_independent_ruler = {
@@ -364,6 +377,51 @@ on_game_start_after_lobby = {
 		## We'll be doing some excessive triggers below in a bid to lightly future-proof + error-spam mods less, don't worry about it.
 		### We handle players after the lobby.
 		# Historic chars.
+		# Nomadic Empire
+		#every_independent_ruler = {
+		#	limit = {
+		#		government_has_flag = government_is_nomadic
+		#	}
+		#	create_noble_family_effect = yes
+		#	domicile ?= {
+		#		set_up_domicile_estate_effect = yes
+		#	}
+		#	every_vassal_or_below = {
+		#		limit = {
+		#			government_has_flag = government_is_nomadic
+		#			primary_title.tier >= tier_duchy
+		#			house.house_head = {
+		#				NOT = {
+		#					any_held_title = { is_noble_family_title = yes }
+		#				}
+		#			}
+		#		}
+		#		create_noble_family_effect = yes
+		#		domicile ?= {
+		#			set_up_domicile_estate_effect = yes
+		#		}
+		#	}
+		#}
+		
+		# PRK - Administrative Republic
+		#title:k_prk.holder = {
+		#	create_noble_family_effect = yes
+		#	domicile ?= { set_up_domicile_estate_effect = yes }
+		#	every_vassal = {
+		#		limit = {
+		#			government_has_flag = government_is_secular_republic
+		#			house.house_head = {
+		#				NOT = {
+		#					any_held_title = { is_noble_family_title = yes }
+		#				}
+		#			}
+		#		}
+		#		create_noble_family_effect = yes
+		#		domicile ?= {
+		#			set_up_domicile_estate_effect = yes
+		#		}
+		#	}
+		#}
 		apply_historic_administrative_game_rule_effect = yes
 		if = {
 			limit = { has_dlc_feature = roads_to_power }
@@ -373,6 +431,7 @@ on_game_start_after_lobby = {
 				title:e_donghae.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
 			}
 		}
+		
 		title:k_andong.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
 		# Players.
 		if = {

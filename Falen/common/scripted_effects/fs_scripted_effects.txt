@@ -1136,3 +1136,95 @@ tech_base_effect = {
 		add_character_modifier = tech_$TECHNAME$_modifier_0
 	}
 }
+tech_county_effect = {
+	# remove previous modifiers
+	if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_10 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_10
+	}
+	else_if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_9 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_9
+	}
+	else_if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_8 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_8
+	}
+	else_if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_7 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_7
+	}
+	else_if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_6 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_6
+	}
+	else_if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_5 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_5
+	}
+	else_if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_4 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_4
+	}
+	else_if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_3 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_3
+	}
+	else_if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_2 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_2
+	}
+	else_if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_1 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_1
+	}
+	else_if = {
+		limit = { has_county_modifier = tech_$TECHNAME$_modifier_0 }
+		remove_county_modifier = tech_$TECHNAME$_modifier_0
+	}
+	# add new modifiers
+	if = {
+		limit = { var:tech_$TECHNAME$ >= 10 }
+		add_county_modifier = tech_$TECHNAME$_modifier_10
+	}
+	else_if = {
+		limit = { var:tech_$TECHNAME$ >= 9 }
+		add_county_modifier = tech_$TECHNAME$_modifier_9
+	}
+	else_if = {
+		limit = { var:tech_$TECHNAME$ >= 8 }
+		add_county_modifier = tech_$TECHNAME$_modifier_8
+	}
+	else_if = {
+		limit = { var:tech_$TECHNAME$ >= 7 }
+		add_county_modifier = tech_$TECHNAME$_modifier_7
+	}
+	else_if = {
+		limit = { var:tech_$TECHNAME$ >= 6 }
+		add_county_modifier = tech_$TECHNAME$_modifier_6
+	}
+	else_if = {
+		limit = { var:tech_$TECHNAME$ >= 5 }
+		add_county_modifier = tech_$TECHNAME$_modifier_5
+	}
+	else_if = {
+		limit = { var:tech_$TECHNAME$ >= 4 }
+		add_county_modifier = tech_$TECHNAME$_modifier_4
+	}
+	else_if = {
+		limit = { var:tech_$TECHNAME$ >= 3 }
+		add_county_modifier = tech_$TECHNAME$_modifier_3
+	}
+	else_if = {
+		limit = { var:tech_$TECHNAME$ >= 2 }
+		add_county_modifier = tech_$TECHNAME$_modifier_2
+	}
+	else_if = {
+		limit = { var:tech_$TECHNAME$ >= 1 }
+		add_county_modifier = tech_$TECHNAME$_modifier_1
+	}
+	else_if = {
+		limit = { var:tech_$TECHNAME$ >= 0 }
+		add_county_modifier = tech_$TECHNAME$_modifier_0
+	}
+}

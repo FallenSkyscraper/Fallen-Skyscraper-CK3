@@ -26,35 +26,6 @@ military_government = {
 	flag = government_is_military
 	color = hsv{ 130 45 55 }
 }
-## 관료제
-bureaucratic_government = {
-	government_rules = {
-		create_cadet_branches = yes
-		rulers_should_have_dynasty = yes
-		royal_court = yes
-		legitimacy = yes
-	}
-	primary_holding = castle_holding
-	valid_holdings = { metropolis_holding }
-	required_county_holdings = { castle_holding city_holding church_holding }
-	preferred_religions = { confucianism_religion }
-	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
-		special_contract
-		religious_rights
-		fortification_rights
-		coinage_rights
-		succession_rights
-		war_declaration_rights
-		council_rights
-		title_revocation_rights
-		jizya_special_rights
-	}
-	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_bureaucratic
-	color = { 118 255 163 }
-}
 ## 해양 제국
 maritime_government = {
 	government_rules = {
@@ -210,7 +181,15 @@ chinese_bureaucracy_government = {
 secular_republic_government = {
 	government_rules = {
 		royal_court = yes
+	#	administrative = yes
+	#	landless_playable = yes
+	#	use_as_base_on_landed = yes
+	#	use_as_base_on_rank_up = no
+		inherit_from_dynastic_government = no
+	#	state_faith = no
 	}
+	
+	#domicile_type = estate
 
 	primary_holding = city_holding
 	valid_holdings = { castle_holding metropolis_holding }
@@ -301,8 +280,17 @@ nomadic_government = {
 		regiments_prestige_as_gold = yes
 		always_use_patronym = yes	
 		royal_court = yes
+	#	administrative = yes
+	#	landless_playable = yes
 		legitimacy = yes
+		use_as_base_on_landed = no
+		use_as_base_on_rank_up = no
+		inherit_from_dynastic_government = yes
+		state_faith = no
 	}
+	
+	#domicile_type = estate
+	
 	affected_by_development = no
 	supply_limit_mult_for_others = -0.5
 	primary_holding = tribal_holding

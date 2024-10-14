@@ -61,9 +61,13 @@ jeonju = {
 	martial_custom = martial_custom_male_only
 	traditions = {
 		tradition_romanticism
-		tradition_ruling_caste
 		tradition_hereditary_hierarchy
 		tradition_religious_patronage
+	}
+	dlc_tradition = {
+		trait = tradition_ep3_cultivated_sophistication
+		requires_dlc_flag = roads_to_power
+		fallback = ruling_caste
 	}
 	name_list = name_list_korean
 	coa_gfx = { german_group_coa_gfx western_coa_gfx } 

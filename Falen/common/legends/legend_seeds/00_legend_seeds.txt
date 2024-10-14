@@ -1,0 +1,119 @@
+﻿# All start dates
+
+holy_warrior = { # Generico Crusader legend
+	type = heroic
+	quality = famed
+	is_shown = {
+		has_dlc_feature = legends
+		faith = {
+			OR = {
+				has_doctrine_parameter = great_holy_wars_active
+				has_doctrine_parameter = great_holy_wars_active_if_reformed
+			}
+		}
+		has_trait = crusader_king
+	}
+	is_valid = {
+		has_trait = crusader_king
+	}
+
+	chronicle = holy_warrior
+	chronicle_properties = {
+		ancestor = root
+		religion = root.religion
+	}
+}
+
+holy_site = { # Holy Site
+	type = holy
+	quality = famed
+	is_shown = {
+		has_dlc_feature = legends
+		is_landed = yes
+		faith = {
+			any_holy_site = {
+				OR = {
+					county.holder = root
+					county.holder.top_liege = root
+				}
+			}
+		}
+	}
+	is_valid = {
+		piety_level >= very_high_piety_level
+	}
+
+	chronicle = saintly_location
+	chronicle_properties = {
+		location = root.location
+		religion = root.religion
+		faith = root.faith
+	}
+}
+
+# 867 start date
+
+
+# 1066 start date
+
+roman_heritage = { # Erm, my family are *actually* Roman nobles erm
+	type = legitimizing
+	quality = famed
+	is_shown = {
+		has_dlc_feature = legends
+		NOT = {
+			has_global_variable = roman_heritage_legend
+		}
+		OR = {
+			has_title = title:e_hre
+			has_title = title:e_byzantium
+			has_title = title:e_roman_empire
+			has_title = title:k_rum
+		}
+	}
+	is_valid = {
+		is_playable_character = yes
+		highest_held_title_tier >= tier_kingdom
+		prestige_level >= high_prestige_level
+	}
+
+	chronicle = ancient_people
+	chronicle_properties = {
+		culture = culture:roman
+		title = title:e_roman_empire
+		original_region = geographical_region:custom_roman_full_borders
+	}
+}
+
+#Dynasty perk
+ce1_heroic_legacy_1 = {
+	type = legitimizing
+	quality = famed
+	is_shown = {
+		dynasty = {
+			has_dynasty_perk = ce1_heroic_legacy_1
+			NOT = {
+				exists = var:dynasty_legend_used
+			}
+		}
+	}
+	is_valid = {
+		is_landed = yes
+		OR = {
+			is_ai = no
+			# Prevent the AI from sniping the seed from the player
+			AND = {
+				is_ai = yes
+				NOT = {
+					dynasty = { any_dynasty_member = { is_ai = no } }
+				}
+			}
+		}
+	}
+	chronicle = great_deed_dynasty
+	chronicle_properties = {
+		founder = house.house_founder
+		dynasty = dynasty
+		title = primary_title
+	}
+}
