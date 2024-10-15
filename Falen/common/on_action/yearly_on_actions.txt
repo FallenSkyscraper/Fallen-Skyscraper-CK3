@@ -707,7 +707,7 @@ quarterly_playable_pulse = {
 }
 technology_effect_pulse = {
 	trigger = {
-		NOT = { religion_tag = naturalism_religion }
+		NOT = { faith = { religion_tag = naturalism_religion } }
 	}
 	effect = {
 		tech_base_effect = { TECHNAME = metallurgy }

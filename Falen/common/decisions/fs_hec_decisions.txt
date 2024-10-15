@@ -90,12 +90,13 @@ hec_choose_stance_decision = {
 					}
 					add = 5
 				}
-				opinion = {
+				save_opinion_value_as = {
+					name = emperor_opinion
 					target = title:e_hec.holder
-					add = {
-						value = this
-						multiply = 0.1
-					}
+				}
+				add = {
+					value = scope:emperor_opinion
+					multiply = 0.1
 				}
 				if = {
 					limit = {
@@ -124,12 +125,13 @@ hec_choose_stance_decision = {
 					}
 					add = 5
 				}
-				opinion = {
+				save_opinion_value_as = {
+					name = church_opinion
 					target = title:k_imperial_church.holder
-					add = {
-						value = this
-						multiply = 0.1
-					}
+				}
+				add = {
+					value = scope:church_opinion
+					multiply = 0.1
 				}
 				add = {
 					value = ai_zeal
