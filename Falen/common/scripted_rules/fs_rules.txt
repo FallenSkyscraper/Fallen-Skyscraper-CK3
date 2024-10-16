@@ -22,3 +22,22 @@ faith_creation = {
 		NOT = { exists = var:has_created_a_faith }
 	}
 }
+can_traverse_river = {
+	OR = {
+		culture = {
+			OR = {
+				has_innovation = innovation_longboats
+				has_innovation = innovation_african_canoes
+				has_cultural_parameter = can_travel_along_rivers
+			}
+		}
+		AND = {
+			exists = dynasty
+			dynasty = { has_dynasty_modifier = fp1_legacy_of_piracy_modifier }
+		}
+		has_character_modifier = tech_navigation_modifier_7
+		has_character_modifier = tech_navigation_modifier_8
+		has_character_modifier = tech_navigation_modifier_9
+		has_character_modifier = tech_navigation_modifier_10
+	}
+}

@@ -31,6 +31,10 @@ yearly_global_pulse = {
 			}
 			tech_county_effect = { TECHNAME = fortification }
 			tech_county_effect = { TECHNAME = conscription }
+			
+			tech_county_effect = { TECHNAME = agriculture }
+			tech_county_effect = { TECHNAME = commerce }
+			tech_county_effect = { TECHNAME = construction }
 		}
 		change_global_variable = { name = election_term subtract = 1 }
 		if = {
@@ -719,7 +723,7 @@ technology_effect_pulse = {
 		tech_base_effect = { TECHNAME = military_organization }
 	#	tech_county_effect = { TECHNAME = agriculture }
 	#	tech_county_effect = { TECHNAME = commerce }
-	#	tech_base_effect = { TECHNAME = navigation }
+		tech_base_effect = { TECHNAME = navigation }
 	#	tech_county_effect = { TECHNAME = construction }
 	#	tech_base_effect = { TECHNAME = mining }
 	}

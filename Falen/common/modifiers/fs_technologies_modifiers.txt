@@ -607,3 +607,280 @@ tech_military_organization_modifier_10 = {
 	men_at_arms_maintenance = 0.8
 }
 # agriculture - province modifier
+tech_agriculture_modifier_0 = {
+	icon = food_mixed
+}
+tech_agriculture_modifier_1 = {
+	icon = food_mixed
+
+	tax_mult = 0.05
+	farmlands_tax_mult = 0.05
+	levy_size = 0.03
+	development_growth_factor = 0.02
+}
+tech_agriculture_modifier_2 = {
+	icon = food_mixed
+
+	tax_mult = 0.1
+	farmlands_tax_mult = 0.1
+	levy_size = 0.06
+	development_growth_factor = 0.04
+}
+tech_agriculture_modifier_3 = {
+	icon = food_mixed
+
+	tax_mult = 0.15
+	farmlands_tax_mult = 0.15
+	levy_size = 0.09
+	development_growth_factor = 0.06
+}
+tech_agriculture_modifier_4 = {
+	icon = food_mixed
+
+	tax_mult = 0.2
+	farmlands_tax_mult = 0.2
+	levy_size = 0.12
+	development_growth_factor = 0.08
+}
+tech_agriculture_modifier_5 = {
+	icon = food_mixed
+
+	tax_mult = 0.25
+	farmlands_tax_mult = 0.25
+	levy_size = 0.15
+	development_growth_factor = 0.1
+}
+tech_agriculture_modifier_6 = {
+	icon = food_mixed
+
+	tax_mult = 0.3
+	farmlands_tax_mult = 0.3
+	levy_size = 0.18
+	development_growth_factor = 0.12
+}
+tech_agriculture_modifier_7 = {
+	icon = food_mixed
+
+	tax_mult = 0.35
+	farmlands_tax_mult = 0.35
+	levy_size = 0.21
+	development_growth_factor = 0.14
+}
+tech_agriculture_modifier_8 = {
+	icon = food_mixed
+
+	tax_mult = 0.4
+	farmlands_tax_mult = 0.4
+	levy_size = 0.24
+	development_growth_factor = 0.16
+}
+tech_agriculture_modifier_9 = {
+	icon = food_mixed
+
+	tax_mult = 0.45
+	farmlands_tax_mult = 0.45
+	levy_size = 0.27
+	development_growth_factor = 0.18
+}
+tech_agriculture_modifier_10 = {
+	icon = food_mixed
+
+	tax_mult = 0.5
+	farmlands_tax_mult = 0.5
+	levy_size = 0.3
+	development_growth_factor = 0.2
+}
+# commerce - province modifier
+tech_commerce_modifier_0 = {
+	icon = economy_mixed
+}
+tech_commerce_modifier_1 = {
+	icon = economy_mixed
+	
+	development_growth_factor = 0.05
+	republic_government_tax_contribution_mult = 0.1
+}
+tech_commerce_modifier_2 = {
+	icon = economy_mixed
+	
+	development_growth_factor = 0.1
+	republic_government_tax_contribution_mult = 0.2
+}
+tech_commerce_modifier_3 = {
+	icon = economy_mixed
+	
+	development_growth_factor = 0.15
+	republic_government_tax_contribution_mult = 0.3
+}
+tech_commerce_modifier_4 = {
+	icon = economy_mixed
+	
+	development_growth_factor = 0.2
+	republic_government_tax_contribution_mult = 0.4
+}
+tech_commerce_modifier_5 = {
+	icon = economy_mixed
+	
+	development_growth_factor = 0.25
+	republic_government_tax_contribution_mult = 0.5
+}
+tech_commerce_modifier_6 = {
+	icon = economy_mixed
+	
+	development_growth_factor = 0.3
+	republic_government_tax_contribution_mult = 0.6
+}
+tech_commerce_modifier_7 = {
+	icon = economy_mixed
+	
+	development_growth_factor = 0.35
+	republic_government_tax_contribution_mult = 0.7
+}
+tech_commerce_modifier_8 = {
+	icon = economy_mixed
+	
+	development_growth_factor = 0.4
+	republic_government_tax_contribution_mult = 0.8
+}
+tech_commerce_modifier_9 = {
+	icon = economy_mixed
+	
+	development_growth_factor = 0.45
+	republic_government_tax_contribution_mult = 0.9
+}
+tech_commerce_modifier_10 = {
+	icon = economy_mixed
+	
+	development_growth_factor = 0.5
+	republic_government_tax_contribution_mult = 1.0
+}
+# navigation - character modifier
+tech_navigation_modifier_0 = {
+	icon = compass_mixed
+	
+	embarkation_cost_mult = 100
+	naval_movement_speed_mult = -0.95
+}
+tech_navigation_modifier_1 = {
+	icon = compass_mixed
+	
+	embarkation_cost_mult = 1
+	naval_movement_speed_mult = -0.5
+}
+tech_navigation_modifier_2 = {
+	icon = compass_mixed
+}
+tech_navigation_modifier_3 = {
+	icon = compass_mixed
+	
+	embarkation_cost_mult = -0.1
+	naval_movement_speed_mult = 0.05
+}
+tech_navigation_modifier_4 = {
+	icon = compass_mixed
+	
+	embarkation_cost_mult = -0.2
+	naval_movement_speed_mult = 0.1
+}
+tech_navigation_modifier_5 = {
+	icon = compass_mixed
+	
+	embarkation_cost_mult = -0.3
+	naval_movement_speed_mult = 0.15
+}
+tech_navigation_modifier_6 = {
+	icon = compass_mixed
+	
+	embarkation_cost_mult = -0.4
+	naval_movement_speed_mult = 0.2
+}
+tech_navigation_modifier_7 = {
+	icon = compass_mixed
+	
+	embarkation_cost_mult = -0.5
+	naval_movement_speed_mult = 0.25
+	# allows river sailing
+}
+tech_navigation_modifier_8 = {
+	icon = compass_mixed
+	
+	embarkation_cost_mult = -0.5
+	naval_movement_speed_mult = 0.5
+}
+tech_navigation_modifier_9 = { # allows ocean travel decision
+	icon = compass_mixed
+	
+	embarkation_cost_mult = -0.5
+	naval_movement_speed_mult = 0.75 
+}
+tech_navigation_modifier_10 = {
+	icon = compass_mixed
+	
+	embarkation_cost_mult = -0.75
+	naval_movement_speed_mult = 1.5
+}
+# construction - province modifier
+tech_construction_modifier_0 = {
+	icon = estate_mixed
+}
+tech_construction_modifier_1 = {
+	icon = estate_mixed
+	
+	build_speed = -0.05
+	build_gold_cost = -0.05
+}
+tech_construction_modifier_2 = {
+	icon = estate_mixed
+	
+	build_speed = -0.1
+	build_gold_cost = -0.1
+}
+tech_construction_modifier_3 = {
+	icon = estate_mixed
+	
+	build_speed = -0.15
+	build_gold_cost = -0.15
+}
+tech_construction_modifier_4 = {
+	icon = estate_mixed
+	
+	build_speed = -0.2
+	build_gold_cost = -0.25
+}
+tech_construction_modifier_5 = {
+	icon = estate_mixed
+	
+	build_speed = -0.25
+	build_gold_cost = -0.25
+}
+tech_construction_modifier_6 = {
+	icon = estate_mixed
+	
+	build_speed = -0.3
+	build_gold_cost = -0.3
+}
+tech_construction_modifier_7 = {
+	icon = estate_mixed
+	
+	build_speed = -0.35
+	build_gold_cost = -0.35
+}
+tech_construction_modifier_8 = {
+	icon = estate_mixed
+	
+	build_speed = -0.4
+	build_gold_cost = -0.4
+}
+tech_construction_modifier_9 = {
+	icon = estate_mixed
+	
+	build_speed = -0.45
+	build_gold_cost = -0.45
+}
+tech_construction_modifier_10 = {
+	icon = estate_mixed
+	
+	build_speed = -0.5
+	build_gold_cost = -0.5
+}
+	
