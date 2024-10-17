@@ -28,18 +28,13 @@ law_group_name = {
 		should_show_for_title = { # Should the law be shown in the UI for titles?
 		}
 
-		pass_cost = { gold/piety/prestige = ... }	# Cost of enacting this law
+		pass_cost = { gold/piety/presitge = ... }	# Cost of enacting this law
 
-		revoke_cost = { gold/piety/prestige = ... }  # Cost of revoking or clearing this law
+		revoke_cost = { gold/piety/presitge = ... }  # Cost of revoking or clearing this law
 
 		modifier = { 	# Modifier applied to the ruler when this law is active
 		}
 		flag = some_arbitrary_flag	# See below for flags treated specially. Also can be checked in script with has_realm_law_flag = some_arbitrary_flag
-
-		triggered_flag = { # Checks and adds flag only if the trigger's condition is met. Both trigger and flag *must* be specified within this block
-			trigger = { <trigger> } # Some trigger (has character scope)
-			flag = some_arbitrary_flag # See below for flags treated specially. Also can be checked in script with has_realm_law_flag = some_arbitrary_flag
-		}
 
 		on_pass = {		# Effect run on ruler when the law is added. Does *NOT* get run when default laws are initialized, nor when inheriting a law from someone else. If this is done on a title, the title is accessible as scope:title
 		}
@@ -47,7 +42,6 @@ law_group_name = {
 		}
 
 		# Succession rules. Any new law with a rule set will override the previous law's rule.
-		# Overriding is in law definition order
 		succession = {
 			order_of_succession = inheritance/election/theocratic/company
 

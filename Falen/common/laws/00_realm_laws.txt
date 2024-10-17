@@ -9,34 +9,23 @@ crown_authority = {
 	flag = realm_law
 	crown_authority_0 = {
 		modifier = {
-			barons_and_minor_landholders_opinion = 20
-			glory_hound_opinion = 10
-			parochial_opinion = 10
-			courtly_opinion = 5
+			direct_vassal_opinion = 10
+			#feudal_government_tax_contribution_mult = -0.1
+			#vassal_levy_contribution_mult = -0.1
 		}
-		flag = uses_crown_authority
 
 		can_keep = { realm_law_use_crown_authority = yes }
-
-		on_pass = {
-			# Remove modifiers.
-			remove_law_related_modifiers_effect = yes
-		}
 	}
 	
 	crown_authority_1 = {
 		modifier = {
-			barons_and_minor_landholders_opinion = -30
-			glory_hound_opinion = -15
-			parochial_opinion = -15
-			courtly_opinion = -5
-			minority_opinion = -10
+			direct_vassal_opinion = -10
+			#feudal_government_tax_contribution_mult = 0.1
+			#vassal_levy_contribution_mult = 0.1
 		}
-		flag = uses_crown_authority
 		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
 		flag = can_change_partition_succession_laws
-		flag = diarchs_want_to_subsidise_without_this_flag
 
 		can_keep = { realm_law_use_crown_authority = yes }
 
@@ -49,7 +38,7 @@ crown_authority = {
 					NOT = { has_variable = crown_authority_cooldown }
 				}
 			}
-			can_pass_law_ca1_trigger = yes
+			root.culture = { has_innovation = innovation_social_prestige }
 		}
 		
 		pass_cost = {
@@ -67,15 +56,15 @@ crown_authority = {
 		}
 		
 		on_pass = {
-			# Increment cooldown breaker tally, if appropriate.
-			calculate_authority_cooldown_break_effect = yes
-			# Set regular cooldown.
+			if = {
+				limit = {
+					NOT = { has_realm_law = crown_authority_2 }
+				}
+			}
 			set_variable = {
 				name = crown_authority_cooldown
 				years = @crown_authority_cooldown_years
 			}
-			# Remove modifiers.
-			remove_law_related_modifiers_effect = yes
 		}
 
 		ai_will_do = {
@@ -88,16 +77,10 @@ crown_authority = {
 	
 	crown_authority_2 = {
 		modifier = {
-			barons_and_minor_landholders_opinion = -10
-			glory_hound_opinion = -10
-			parochial_opinion = -10
-			courtly_opinion = -5
-			zealot_opinion = -10
-			minority_opinion = -10
-			vassal_tax_contribution_mult = 0.1
+			direct_vassal_opinion = -10
+			feudal_government_tax_contribution_mult = 0.1
 			vassal_levy_contribution_mult = 0.1
 		}
-		flag = uses_crown_authority
 		flag = vassal_internal_wars_banned
 		flag = vassal_refusal_is_treason
 		flag = can_change_succession_laws
@@ -114,15 +97,10 @@ crown_authority = {
 				custom_description = {
 					subject = root
 					text = "has_crown_authority_cooldown"
-					NAND = {
-						has_variable = crown_authority_cooldown
-						NOT = {
-							culture = { has_innovation = innovation_all_things }
-						}
-					}
+					NOT = { has_variable = crown_authority_cooldown }
 				}
 			}
-			can_pass_law_ca2_trigger = yes
+			root.culture = { has_innovation = innovation_royal_privilege }
 		}
 
 		pass_cost = {
@@ -137,15 +115,15 @@ crown_authority = {
 		}
 		
 		on_pass = {
-			# Increment cooldown breaker tally, if appropriate.
-			calculate_authority_cooldown_break_effect = yes
-			# Set regular cooldown.
+			if = {
+				limit = {
+					NOT = { has_realm_law = crown_authority_3 }
+				}
+			}
 			set_variable = {
 				name = crown_authority_cooldown
 				years = @crown_authority_cooldown_years
 			}
-			# Remove modifiers.
-			remove_law_related_modifiers_effect = yes
 		}
 
 		ai_will_do = {
@@ -158,19 +136,12 @@ crown_authority = {
 	
 	crown_authority_3 = {
 		modifier = {
-			barons_and_minor_landholders_opinion = -20
-			glory_hound_opinion = -25
-			parochial_opinion = -25
-			courtly_opinion = -10
-			zealot_opinion = -20
-			minority_opinion = -30
-			vassal_tax_contribution_mult = 0.25
+			direct_vassal_opinion = -20
+			feudal_government_tax_contribution_mult = 0.25
 			vassal_levy_contribution_mult = 0.25
 		}
-		flag = uses_crown_authority
 		flag = vassal_all_wars_banned
 		flag = can_designate_heirs
-		flag = max_authority_level
 		
 		can_keep = { realm_law_use_crown_authority = yes }
 
@@ -180,9 +151,8 @@ crown_authority = {
 				subject = root
 				text = "has_crown_authority_cooldown"
 				NOT = { has_variable = crown_authority_cooldown }
-				}
 			}
-			can_pass_law_ca3_trigger = yes
+			root.culture = { has_innovation = innovation_social_contract }
 		}
 		
 		pass_cost = {
@@ -197,15 +167,10 @@ crown_authority = {
 		}
 		
 		on_pass = {
-			# Increment cooldown breaker tally, if appropriate.
-			calculate_authority_cooldown_break_effect = yes
-			# Set regular cooldown.
 			set_variable = {
 				name = crown_authority_cooldown
 				years = @crown_authority_cooldown_years
 			}
-			# Remove modifiers.
-			remove_law_related_modifiers_effect = yes
 		}
 	}
 }
@@ -216,33 +181,14 @@ tribal_authority = {
 	flag = realm_law
 	
 	tribal_authority_0 = {
-		modifier = {
-			glory_hound_opinion = 10
-			parochial_opinion = 10
-			courtly_opinion = 5
-		}
-		flag = uses_tribal_authority
-		flag = imprisonment_toggle_enable
+		modifier = { direct_vassal_opinion = 10 }
 
 		can_keep = { realm_law_use_tribal_authority = yes }
 		#Imprisonment is disabled if you have this law. Script is in the interaction, currently in 00_prison_interactions.
-
-		on_pass = {
-			# Remove modifiers.
-			remove_law_related_modifiers_effect = yes
-		}
 	}
 	
 	tribal_authority_1 = {
-		modifier = {
-			glory_hound_opinion = -15
-			parochial_opinion = -15
-			courtly_opinion = -5
-			minority_opinion = -10
-		}
-		flag = uses_tribal_authority
-		flag = can_change_succession_laws
-		flag = imprisonment_toggle_on
+		modifier = { direct_vassal_opinion = -10 }
 		
 		can_keep = { realm_law_use_tribal_authority = yes }
 
@@ -272,15 +218,18 @@ tribal_authority = {
 		}
 		
 		on_pass = {
-			# Increment cooldown breaker tally, if appropriate.
-			calculate_authority_cooldown_break_effect = yes
-			# Set regular cooldown.
+			if = {
+				limit = {
+					NOR = {
+						has_realm_law = tribal_authority_2
+						has_realm_law = tribal_authority_3
+					}
+				}
+			}
 			set_variable = {
 				name = tribal_authority_cooldown
 				years = @tribal_authority_cooldown_years
 			}
-			# Remove modifiers.
-			remove_law_related_modifiers_effect = yes
 		}
 
 		ai_will_do = {
@@ -292,17 +241,9 @@ tribal_authority = {
 	}
 	
 	tribal_authority_2 = {
-		modifier = {
-			glory_hound_opinion = -10
-			parochial_opinion = -10
-			courtly_opinion = -5
-			zealot_opinion = -10
-			minority_opinion = -10
-		}
-		flag = uses_tribal_authority
+		modifier = { direct_vassal_opinion = -10 }
 		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
-		flag = diarchs_want_to_subsidise_without_this_flag
 		
 		can_keep = { realm_law_use_tribal_authority = yes }
 		
@@ -332,15 +273,15 @@ tribal_authority = {
 		}
 		
 		on_pass = {
-			# Increment cooldown breaker tally, if appropriate.
-			calculate_authority_cooldown_break_effect = yes
-			# Set regular cooldown.
+			if = {
+				limit = {
+					NOT = { has_realm_law = tribal_authority_3 }
+				}
+			}
 			set_variable = {
 				name = tribal_authority_cooldown
 				years = @tribal_authority_cooldown_years
 			}
-			# Remove modifiers.
-			remove_law_related_modifiers_effect = yes
 		}
 
 		ai_will_do = {
@@ -352,15 +293,7 @@ tribal_authority = {
 	}
 	
 	tribal_authority_3 = {
-		modifier = {
-			glory_hound_opinion = -25
-			parochial_opinion = -25
-			courtly_opinion = -10
-			zealot_opinion = -20
-			minority_opinion = -30
-		}
-		flag = uses_tribal_authority
-		flag = max_authority_level
+		modifier = { direct_vassal_opinion = -20 }
 		#Settling is disabled unless you have this law. Script is in the decisions, currently in 80_major_decisions.
 		#Reforming pagan religions (but not creating other faiths) is disabled unless you have this law. Script is in the reformation prereqs, currently in 00_rules.
 		
@@ -371,27 +304,17 @@ tribal_authority = {
 			custom_description = {
 				subject = root
 				text = "has_tribal_authority_cooldown"
-				NAND = {
-						has_variable = tribal_authority_cooldown
-						NOT = {
-							culture = { has_innovation = innovation_all_things }
-						}
-					}
+				NOT = { has_variable = tribal_authority_cooldown }
 			}
 		}
 		
 		pass_cost = { prestige = increase_tribal_authority_prestige_cost }
 		
 		on_pass = {
-			# Increment cooldown breaker tally, if appropriate.
-			calculate_authority_cooldown_break_effect = yes
-			# Set regular cooldown.
 			set_variable = {
 				name = tribal_authority_cooldown
 				years = @tribal_authority_cooldown_years
 			}
-			# Remove modifiers.
-			remove_law_related_modifiers_effect = yes
 		}
 
 		ai_will_do = {
