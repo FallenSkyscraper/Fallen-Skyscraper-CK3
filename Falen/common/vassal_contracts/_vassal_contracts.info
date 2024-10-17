@@ -5,24 +5,17 @@ vassal_contract = {
 	uses_opinion_of_liege = yes/no	# if set to yes, scope:opinion_of_liege can be used in the levies and tax script math (it's a value that's updated daily for player contracts, for AI it uses NVassalContract::OPINION_OF_LIEGE_UPDATE_INTERVAL. No by default for performance reasons.
 
 
-	display_mode = tree/list/radiobutton # How are the obligations displayed in the negotiate contract UI, defualt is radiobutton
+	display_mode = tree/list # How are the obligations displayed in the negotiate contract UI, defualt is list
 
 	# Or: Modifiable contract with multiple levels:
 	obligation_levels = {
-		# Scopes available:
-		# scope:liege the liege in the contract
-		# scope:vassal the vassal in the contract
-		# scope:opinion_of_liege set if uses_opinion_of_liege = yes
-		# scope:tax_slot the slot they are in/are being considered to be placed in
-		# scope:tax_collector the collector for the above/the potential new collector
-
 		vassal_obligation_low = { # choose a key for the level, it will be used for localization
-			levies = 0.5		# % of levies (0..1), default 0; can also use script math
-			tax = 0.2			# % of gold income (0..1), default 0; can also use script math
+			levies = 0.5		# % of levies (0..1), default 0; can also use script math (scope:liege and scope:vassal are defined, scope:opinion_of_liege is defined if uses_opinion_of_liege = yes)
+			tax = 0.2			# % of gold income (0..1), default 0; can also use script math (scope:liege and scope:vassal are defined, scope:opinion_of_liege is defined if uses_opinion_of_liege = yes)
 			min_levies = 0.1	# optional min cap on tax, can alsu use script math as levies and tax
 			min_tax = 0.0		# optional min cap on levies, can alsu use script math as levies and tax
 
-			contribution_desc = { ... }	# optional dynamic description used for the breakdown of the tax & levies contribution
+			contribution_desc = { ... }	# optional dynamic description used for the breakdown of the tax & levies contribution (scope:liege and scope:vassal are defined)
 			
 			tax_contribution_postfix = "..."	# Optional postfix added to the tax contribution breakdown
 			levies_contribution_postfix = "..."	# Optional postfix added to the levies contribution breakdown
@@ -30,14 +23,10 @@ vassal_contract = {
 			unclamped_contribution_label = "..."	# Breakdown label for the unclamped tax/levies contribution
 			min_contribution_label = "..."			# Breakdown label for the minimum tax/levies contribution the value is clamped to
 			
-			vassal_opinion = 0	# value for opinion of liege that's added to vassal's opinion of the liege if they have this contract
+			opinion_of_liege =		# value/script math for opinion of liege that's added to vassal's opinion of the liege if they have this contract
+			opinion_of_liege_desc	# scripted description of the opinion reason giving opinion_of_liege =
 
 			flag = token # Arbitrary flag, can be checked in script to see if any obligation level in the current vassal contract has a flag
-
-			score = int # Positive means it is better for the vassal to have, 0 means neutral, negative is better for liege
-						# When changing obligations the current score and new score are compared to see if it is in favour of the vassal or liege
-						# and by how much.
-						# Defaults to order the contracts are defined
 
 			ai_liege_desire = <script value int> # How much does the liege in the contract want this option
 			ai_vassal_desire = <script value int> # How much does the vassal in the contract want this option
@@ -45,7 +34,7 @@ vassal_contract = {
 			liege_modifier = { <character modifiers> } # Modifiers applied to the liege in the contract
 			vassal_modifier = { <character modifiers> } # Modifiers applied to the vassal in the contract
 
-			is_valid = { <trigger> } # Is this obligation level valid for a vassal
+			is_valid = { <trigger> } # Is this obligation level valid for a vassal, scope:liege and scope:vassal are present, validity is checked every month for AI only contracts, daily for those involving the player
 
 			# Multiplier against the total tax/levies in a contract, be careful you do not get weird stacking beavhour if multiple are on at once
 			tax_factor = <script value fixed point>

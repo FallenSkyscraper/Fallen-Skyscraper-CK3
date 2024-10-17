@@ -21,10 +21,12 @@ fund_inspiration_effect = {
 					}
 				}
 			}
+			else = {
 				scope:actor = {
 					add_courtier = scope:recipient
 				}
 			}
+		}
 		add_opinion = {
 			target = scope:actor
 			modifier = grateful_opinion
@@ -182,6 +184,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_jianzhou }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_jianzhou
 								}
@@ -196,6 +201,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_haixi }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_haixi
 								}
@@ -210,6 +218,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_steppe_mongolia }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_steppe_mongolia
 								}
@@ -257,6 +268,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_primorye_khanka }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_primorye_khanka
 								}
@@ -271,6 +285,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_primorye_sikhotealin }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_primorye_sikhotealin
 								}
@@ -285,6 +302,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_steppe_yanbian }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_steppe_yanbian
 								}
@@ -299,6 +319,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_liaodong }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_liaodong
 								}
@@ -330,6 +353,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_liaoxi }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_liaoxi
 								}
@@ -344,6 +370,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_liao }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_liao
 								}
@@ -358,6 +387,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_steppe }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_steppe
 								}
@@ -405,6 +437,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_korea }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_korea
 								}
@@ -419,6 +454,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_gyeonggi }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_gyeonggi
 								}
@@ -433,6 +471,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_gangwon }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_gangwon
 								}
@@ -464,6 +505,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_yeongnam }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_yeongnam
 								}
@@ -478,6 +522,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_honam }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_honam
 								}
@@ -492,6 +539,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_doseo }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_doseo
 								}
@@ -506,6 +556,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_hwanghae }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_hwanghae
 								}
@@ -520,6 +573,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_gwanseo }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_gwanseo
 								}
@@ -534,6 +590,9 @@ set_adventure_location_effect = {
 						trigger = {
 							trigger_if = {
 								limit = { exists = location }
+								location = {
+									NOT = { geographical_region = world_gwanbuk }
+								}
 								adventurer_potential_destination_distance_check = {
 									REGION = world_gwanbuk
 								}
