@@ -1,7 +1,10 @@
 hec_choose_stance_decision = {
-	picture = "gfx/interface/illustrations/decisions/fp3/antagonistic.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp3/antagonistic.dds"
+	}
 	selection_tooltip = hec_choose_stance_decision_tooltip 
-	major = yes 
+	
+	decision_group_type = major
 	sort_order = -20
 	ai_check_interval = 12
 	cooldown = { years = 20 }
@@ -87,12 +90,13 @@ hec_choose_stance_decision = {
 					}
 					add = 5
 				}
-				opinion = {
+				save_opinion_value_as = {
+					name = emperor_opinion
 					target = title:e_hec.holder
-					add = {
-						value = this
-						multiply = 0.1
-					}
+				}
+				add = {
+					value = scope:emperor_opinion
+					multiply = 0.1
 				}
 				if = {
 					limit = {
@@ -121,12 +125,13 @@ hec_choose_stance_decision = {
 					}
 					add = 5
 				}
-				opinion = {
+				save_opinion_value_as = {
+					name = church_opinion
 					target = title:k_imperial_church.holder
-					add = {
-						value = this
-						multiply = 0.1
-					}
+				}
+				add = {
+					value = scope:church_opinion
+					multiply = 0.1
 				}
 				add = {
 					value = ai_zeal

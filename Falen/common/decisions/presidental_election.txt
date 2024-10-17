@@ -1,5 +1,7 @@
 ﻿run_for_presidency_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}
 	ai_check_interval = 10
 
 
@@ -78,7 +80,9 @@
 	}
 }
 delay_election_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}
 	ai_check_interval = 10
 
 	desc = delay_election_decision_desc

@@ -948,11 +948,30 @@
 	religion = naturalism_pagan
 	culture = gapyeong
 	father = 996
+	diplomacy = 5
+	martial = 8
+	stewardship = 7
+	intrigue = 6
+	learning = 10
+	trait = education_martial_3
+	trait = education_martial_prowess_4
+	trait = eccentric
+	trait = ambitious
+	trait = arbitrary
+	trait = lunatic_1
+	trait = shrewd
 	2413.2.20 = {
 		birth = yes
 	}
 	2430.1.2 = {
 		add_spouse = 954
+	}
+	2444.1.1 = {
+		effect = {
+			set_landless_government_effect = yes
+			add_character_flag = special_laamp_char
+			add_character_flag = do_not_generate_starting_family
+		}
 	}
 	2500.1.1 = {
 		death = yes
@@ -965,6 +984,16 @@
 	religion = naturalism_pagan
 	culture = gapyeong
 	father = 997
+	diplomacy = 3
+	martial = 2
+	stewardship = 5
+	intrigue = 6
+	learning = 11
+	trait = education_learning_3
+	trait = trusting
+	trait = diligent
+	trait = patient
+	trait = eccentric
 	2413.2.20 = {
 		birth = yes
 	}
@@ -973,12 +1002,14 @@
 	}
 }
 955 = {
-	name = "크루쉬"
+	name = "의 DNA"
 	dynasty = 801
 	religion = naturalism_pagan
 	culture = gapyeong
 	father = 953
 	mother = 954
+	trait = ambitious
+	trait = shrewd
 	2432.9.9 = {
 		birth = yes
 	}

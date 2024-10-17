@@ -4,7 +4,7 @@
 
 window = {
 	name = "holding_view"
-	widgetid = "holding_view_id"
+	widgetid = "holding_view"
 	parentanchor = bottom|left
 	allow_outside = yes
 	movable = no
@@ -44,17 +44,8 @@ window = {
 		name = _hide
 		on_start = "[GetVariableSystem.Clear( 'county_view_open' )]"
 		on_start = "[GetVariableSystem.Clear( 'hide_bottom_left_HUD' )]"
-
-		using = Animation_FadeOut_Standard
-		using = Sound_WindowHide_Standard
-		using = Animation_FadeOut_BottomLeft
-	}
-	
-	state = {
-		name = _hide
-		on_start = "[GetVariableSystem.Clear( 'county_view_open' )]"
-		on_start = "[GetVariableSystem.Clear( 'hide_bottom_left_HUD' )]"
 		on_start = "[GetScriptedGui('tech_gui_close').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
 		using = Animation_FadeOut_Standard
 		using = Sound_WindowHide_Standard
 		using = Animation_FadeOut_BottomLeft
@@ -65,7 +56,7 @@ window = {
 		name = "window_content"
 		margin_right = 40
 		margin_top = 35
-		
+
 		datacontext = "[HoldingView.GetHolding]"
 		datacontext = "[HoldingView.GetProvince]"
 		datacontext = "[HoldingView.GetHolder]"
@@ -203,8 +194,8 @@ window = {
 
 		hbox = {
 			layoutpolicy_horizontal = expanding
-			margin = { 10 2 }
-			spacing = 6
+			margin = { 10 0 }
+			spacing = 5
 
 			hbox = {
 				datamodel = "[HoldingView.GetDeJureLieges]"
@@ -224,44 +215,77 @@ window = {
 
 			expand = {}
 
-			hbox = {
-				name = "county_modifiers_grid"
-				datamodel = "[HoldingView.GetCountyModifiers]"
+			widget = {
+				size = { 300 50 }
+				scissor = yes
 
-				item = {
-					modifier_item_icon = {
-						size = { 30 30 }
+				hbox = {
+					name = "county_modifiers_grid"
+					datamodel = "[HoldingView.GetCountyModifiers]"
 
-						blockoverride "icon_data" {
-							using = tooltip_ne
+					button_round = {
+						name = "move_domcicle_button"
+						datacontext = "[GetPlayer.GetDomicile]"
+						datacontext = "[HoldingView.GetProvince]"
+						visible = "[IsLandlessAdventurer( GetPlayer )]"
+						widgetid = "move_domcicle_button"
+						size = { 50 50 }
+
+						enabled = "[Domicile.CanMoveTo( Province.Self )]"
+						onclick = "[OpenGameViewData( 'move_domicile_planner', Province.Self )]"
+
+						tooltip = "[Domicile.GetType.GetMoveTooltip( Character.Self )]"
+						tooltip_when_disabled = "[Domicile.GetMoveToTooltip( Province.Self )]"
+						using = tooltip_ne
+
+						button_icon = {
+							alwaystransparent = yes
+							parentanchor = center
+							size = { 30 30 }
+							texture = "gfx/interface/icons/flat_icons/move_camp.dds"
 						}
 					}
-				}
-			}
 
-			hbox = {
-				layoutpolicy_vertical = expanding
-				visible = [County.IsFullyOccupied]
-				datacontext = [County.GetCountyOccupant]
+					expand = {}
 
-				widget = {
-					size = { 52 52 }
-
-					icon = {
-						size = { 70 70 }
-						name = "war_icon"
-						texture = "gfx/interface/icons/war_status/war_icon.dds"
-						parentanchor = center
+					spacer = {
+						visible = "[Or( IsLandlessAdventurer( GetPlayer ), County.IsFullyOccupied )]"
+						size = { 8 0 }
 					}
 
-					coa_realm_small = {
-						position = { 1 0 }
-						blockoverride "coa_button" {
-							tooltip = "COUNTY_OCCUPIER_TOOLTIP"
-							onclick = "[DefaultOnRealmFlagClick(Character.GetID)]"
-							onrightclick = "[DefaultOnCharacterRightClick(Character.GetID)]"
-							button_ignore = none
-							tooltip_enabled = "[Not(IsInteractionMenuOpenForCharacter(Character.GetID))]"
+					item = {
+						modifier_item_icon = {
+							size = { 30 30 }
+
+							blockoverride "icon_data" {
+								using = tooltip_ne
+							}
+						}
+					}
+
+					widget = {
+						datacontext = [County.GetCountyOccupant]
+						visible = [County.IsFullyOccupied]
+						size = { 50 50 }
+
+						icon = {
+							size = { 50 50 }
+							name = "war_icon"
+							texture = "gfx/interface/icons/war_status/war_icon.dds"
+							parentanchor = center
+						}
+
+						coa_realm_tiny = {
+							parentanchor = center
+
+							blockoverride "coa_button" {
+								onclick = "[DefaultOnRealmFlagClick(Character.GetID)]"
+								onrightclick = "[DefaultOnCharacterRightClick(Character.GetID)]"
+								button_ignore = none
+								
+								tooltip_visible = "[Not(IsInteractionMenuOpenForCharacter(Character.GetID))]"
+								tooltip = "COUNTY_OCCUPIER_TOOLTIP"
+							}
 						}
 					}
 				}
@@ -281,7 +305,7 @@ window = {
 			hbox = {
 				name = "holder_info"
 				datacontext = "[HoldingView.GetCountyTitle.GetHolder]"
-				visible = "[HoldingView.GetProvince.HasCountyCapitalProvince]"
+				visible = "[Province.IsValid]"
 				layoutpolicy_horizontal = expanding
 				margin = { 5 5 }
 				margin_right = 15
@@ -386,7 +410,7 @@ window = {
 								datacontext = "[HoldingView.GetCountyTitle.GetHolder]"
 								visible = "[And(Character.HasRelationTo( GetPlayer ), Not(Character.IsPlayer))]"
 								layoutpolicy_horizontal = expanding
-								max_width = 187
+								max_width = 160
 								text = "[Character.GetRelationToString( GetPlayer )]"
 								tooltip = "EXTENDED_RELATIONS_TOOLTIP"
 								autoresize = yes
@@ -396,7 +420,7 @@ window = {
 						text_multi = {
 							datacontext = "[HoldingView.GetCountyTitle.GetHolder]"
 							layoutpolicy_horizontal = expanding
-							max_width = 188
+							max_width = 160
 							text = "[Character.GetShortUINameNoTooltip|U]"
 							default_format = "#high"
 							autoresize = yes
@@ -453,7 +477,7 @@ window = {
 						tooltipwidget = {
 							widget_value_breakdown_tooltip = {}
 						}
-                    }
+					}
 				}
 
 				hbox = {
@@ -468,16 +492,16 @@ window = {
 
 					text_single = {
 						visible = "[GovernmentType.IsAffectedByDevelopment]"
-                        text = "[County.GetDevelopmentLevel]"
+						text = "[County.GetDevelopmentLevel]"
 
-                        default_format = "#high"
+						default_format = "#high"
 
 						margin = { 5 0 }
 
-                        tooltipwidget = {
-                            county_development_tooltip_container = {}
-                        }
-  					}
+						tooltipwidget = {
+							county_development_tooltip_container = {}
+						}
+					}
 
 					text_single = {
 						visible = "[Not( GovernmentType.IsAffectedByDevelopment )]"
@@ -508,7 +532,7 @@ window = {
 								}
 							}
 						}
-                    }
+					}
 				}
 
 				hbox = {
@@ -537,6 +561,7 @@ window = {
 
 						tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
+						max_width = 160
 						margin = { 5 0 }
 
 						tooltipwidget = {
@@ -558,12 +583,12 @@ window = {
 					}
 
 					text_single = {
-                        visible = "[NotEqualTo_uint32(Culture.GetID, GetPlayer.GetCulture.GetID)]"
-                        text = "COUNTY_CULTURE_ACCEPTANCE_DIFF_CULTURE"
-                        margin_right = 5
-
-                        tooltip = "CULTURE_ACCEPTANCE_TOOLTIP"
-                    }
+						visible = "[NotEqualTo_uint32(Culture.GetID, GetPlayer.GetCulture.GetID)]"
+						text = "COUNTY_CULTURE_ACCEPTANCE_DIFF_CULTURE"
+						margin_right = 5
+						max_width = 160
+						tooltip = "CULTURE_ACCEPTANCE_TOOLTIP"
+					}
 
 					button_group = {
 						# shortcut = "innovations_window"
@@ -573,6 +598,7 @@ window = {
 							text = "CULTURE_COUNTY_WINDOW"
 							default_format = "#high"
 							margin = { 5 0 }
+							max_width = 120
 
 							background = {
 								visible = "[And( NotEqualTo_uint32(Culture.GetID, GetPlayer.GetCulture.GetID), EqualTo_CFixedPoint( Culture.GetAcceptance( GetPlayer.GetCulture ), '(CFixedPoint)100') )]"
@@ -593,24 +619,24 @@ window = {
 							}
 						}
 
-                        tooltipwidget = {
-                            culture_tooltip = {
-                                blockoverride "extra_info"
-                                {
-                                    text_single = {
-                                        fonttintcolor = "[TooltipInfo.GetTintColor]"
-                                        using = DefaultTooltipText
-                                        visible = "[Not( ObjectsEqual( Culture.Self, GetPlayer.GetCulture ) )]"
-                                        text = "COUNTY_NOT_YOUR_CULTURE"
-                                    }
-                                }
-                            }
-                        }
+						tooltipwidget = {
+							culture_tooltip = {
+								blockoverride "extra_info"
+								{
+									text_single = {
+										fonttintcolor = "[TooltipInfo.GetTintColor]"
+										using = DefaultTooltipText
+										visible = "[Not( ObjectsEqual( Culture.Self, GetPlayer.GetCulture ) )]"
+										text = "COUNTY_NOT_YOUR_CULTURE"
+									}
+								}
+							}
+						}
 					}
 				}
 
 				hbox = {
-					datacontext = "[Province.GetCounty.GetFaith]"
+					datacontext = "[County.GetFaith]"
 					layoutpolicy_horizontal = expanding
 					spacing = 2
 					using = tooltip_ne
@@ -653,11 +679,21 @@ window = {
 						onclick = "[OpenGameViewData( 'faith', Faith.GetID )]"
 
 						text_single = {
+							visible = "[EqualTo_uint32(Faith.GetID, GetPlayer.GetFaith.GetID)]"
+							margin_right = 5
 							text = "[Faith.GetNameNoTooltip]"
 							default_format = "#high"
+							max_width = 160
+						}
+
+						text_single = {
+							visible = "[NotEqualTo_uint32(Faith.GetID, GetPlayer.GetFaith.GetID)]"
+							text = "[Faith.GetNameNoTooltip]"
+							default_format = "#high"
+							margin = { 5 0 }
+							max_width = 160
 
 							background = {
-								visible = "[NotEqualTo_uint32(Faith.GetID, GetPlayer.GetFaith.GetID)]"
 								margin = { 5 0 }
 								using = Status_Bad
 							}
@@ -1080,7 +1116,7 @@ window = {
 
 						button_standard = {
 							name = "toggle_find_vassal"
-							visible = "[And( ObjectsEqual( HoldingView.GetTitle.GetHolder, GetPlayer ), Not(HoldingView.GetTitle.IsLeasedOut) )]"
+							visible = "[And(And( ObjectsEqual( HoldingView.GetTitle.GetHolder, GetPlayer ), Not(HoldingView.GetTitle.IsLeasedOut) ), Not(HoldingView.GetProvince.IsRealmCapital))]"
 							enabled = "[HoldingView.CanGrantTitle]"
 							text = "FIND_VASSAL_HEADER"
 							onclick = "[HoldingView.ToggleFindVassalListWindow]"
@@ -1111,7 +1147,7 @@ window = {
 
 							hbox = {
 								layoutpolicy_horizontal = expanding
-								
+
 								hbox = {
 									datacontext = "[HoldingView.GetTitle]"
 									visible = "[Title.IsUnderTheocraticLease]"
@@ -1126,7 +1162,7 @@ window = {
 
 									expand = {}
 								}
-								
+
 								container = {
 									name = "revoke_lease_button"
 									datacontext = "[HoldingView.GetTitle]"
@@ -1134,7 +1170,7 @@ window = {
 
 									button_round  = {
 										datacontext = "[Title.GetLessee]"
-										visible = "[And( Title.GetHolder.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('revoke_leased_title_interaction', Title.Self) )]"
+										visible = "[And( Or(Title.GetHolder.IsLocalPlayer, Title.GetHolder.IsOtherLiegeOrAbove( GetPlayer )), Character.IsPlayerInteractionShownAndCanPickTitle('revoke_leased_title_interaction', Title.Self) )]"
 										enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('revoke_leased_title_interaction', Title.Self)]"
 										tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('revoke_leased_title_interaction', Title.Self)]"
 										oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
@@ -1242,11 +1278,13 @@ window = {
 							container = {
 								icon = {
 									name = "terrain"
+									datacontext = "[HoldingView.GetProvince]"
+									tooltip = "HOLDING_TERRAIN_TOTAL_TOOLTIP"
+
 									visible = "[HoldingStatus.IsTerrainType]"
 									datacontext = "[HoldingStatus.GetTerrainType]"
 									texture = "[Terrain.GetIcon]"
 									size = { 35 35 }
-									tooltip = "HOLDING_TERRAIN_TOOLTIP"
 								}
 
 								button_round = {
@@ -1258,7 +1296,7 @@ window = {
 									visible = "[HoldingStatus.IsMAAOriginHere]"
 
 									tooltip = "VIEW_MAA_ORIGIN_TT"
-									
+
 									onclick = "[OpenGameView( 'military' )]"
 									onclick = "[OpenGameViewData( 'men_at_arms', Regiment.GetID )]"
 
@@ -1269,7 +1307,7 @@ window = {
 										size = { 35 35 }
 									}
 								}
-								
+
 								icon = {
 									visible = "[HoldingStatus.IsMAATypeOriginHere]"
 									datacontext = "[HoldingStatus.GetMAATypeOriginHere]"
@@ -1310,14 +1348,14 @@ window = {
 								container = {
 									visible = "[HoldingStatus.IsEpidemic]"
 									datacontext = "[HoldingStatus.GetEpidemic]"
-									
+
 									button_epidemic = {
 										blockoverride "extra_data"
 										{
 											datacontext = "[Epidemic.GetInfectionLevelIn( HoldingView.GetProvince )]"
 
 											spacer = { size = { 0 16 } }
-											
+
 											cooltip_paragraph = {
 												visible = "[EpidemicInfectionLevel.HasRealmModifier]"
 												text = "[EpidemicInfectionLevel.GetRealmModifierDesc]"
@@ -1499,6 +1537,7 @@ window = {
 							layoutpolicy_horizontal = expanding
 							text = "SUPPLY_LIMIT"
 							default_format = "#high"
+							max_width = 140
 						}
 
 						text_single = {
@@ -1507,7 +1546,7 @@ window = {
 						}
 					}
 
-					
+
 					### Plague Resistance
 					hbox = {
 						datacontext = "[Holding.GetProvince]"
@@ -1531,8 +1570,8 @@ window = {
 
 						tooltip_visible = "[ValueBreakdown.HasTooltip]"
 						tooltipwidget = {
-                            widget_value_breakdown_tooltip = {}
-                        }
+							widget_value_breakdown_tooltip = {}
+						}
 					}
 
 					expand = {}
@@ -1594,7 +1633,7 @@ window = {
 
 									progressbar_standard_transparent = {
 										layoutpolicy_horizontal = expanding
-										
+
 										size = { 0 10 }
 										value = "[HoldingView.GetGarrisonRatio]"
 										direction = horizontal
@@ -1844,7 +1883,7 @@ window = {
 									name = "tracks_grid"
 									datamodel = "[HoldingView.GetPotentialBuildings]"
 									datacontext = "[HoldingView.GetProvince]"
-									datacontext = "[HoldingView.GetProvince.GetCounty.GetCulture]"
+
 									visible = "[HoldingView.IsSelectingNewBuilding]"
 									spacing = 10
 									set_parent_size_to_minimum = yes
@@ -1886,7 +1925,7 @@ window = {
 													vbox = {
 														spacing = 5
 														layoutpolicy_horizontal = expanding
-														
+
 														text_single = {
 															layoutpolicy_horizontal = expanding
 															text = "[GUIPotentialBuildingItem.GetBuilding.GetTypeName]"
@@ -1929,7 +1968,7 @@ window = {
 																visible = "[GUIPotentialBuildingItem.HasGoldCost]"
 																layoutpolicy_horizontal = expanding
 																text = "[ValueBreakdown.GetValue]"
-																tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+																tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 																tooltipwidget = {
 																	widget_value_breakdown_tooltip = {}
@@ -1946,7 +1985,7 @@ window = {
 																visible = "[GUIPotentialBuildingItem.HasPrestigeCost]"
 																layoutpolicy_horizontal = expanding
 																text = "[ValueBreakdown.GetValue]"
-																tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+																tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 																tooltipwidget = {
 																	widget_value_breakdown_tooltip = {}
@@ -1963,7 +2002,7 @@ window = {
 																datacontext = "[GUIPotentialBuildingItem.GetPietyCost]"
 																visible = "[GUIPotentialBuildingItem.HasPietyCost]"
 																text = "[ValueBreakdown.GetValue]"
-																tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+																tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 																tooltipwidget = {
 																	widget_value_breakdown_tooltip = {}
@@ -1979,7 +2018,7 @@ window = {
 																layoutpolicy_horizontal = expanding
 																datacontext = "[GUIPotentialBuildingItem.GetConstructionTime]"
 																text = "[ValueBreakdown.GetValue]"
-																tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+																tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 																tooltipwidget = {
 																	widget_value_breakdown_tooltip = {}
@@ -2040,7 +2079,7 @@ window = {
 														autoresize = yes
 														max_width = 355
 														min_width = 355
-														text = "[GUIPotentialBuildingItem.GetBuilding.GetEffectDescriptionAtProvince( Character.Self, Province.Self, Culture.Self )]"
+														text = "[GUIPotentialBuildingItem.GetBuilding.GetEffectDescriptionAtProvince( Character.Self, Province.Self )]"
 														margin = { 15 10 }
 
 														background = {
@@ -2431,7 +2470,7 @@ window = {
 												}
 
 												hbox = {
-													visible = "[And(And(GUITrackItem.CanReplaceOrCancel, GUITrackItem.IsCurrentBuildingSelected), Not(GUITrackItem.IsConstructing))]"
+													visible = "[And( And( Or( GUITrackItem.CanReplace, GUITrackItem.CanCancel ), GUITrackItem.IsCurrentBuildingSelected), Not( GUITrackItem.IsConstructing ) )]"
 													spacing = 10
 													margin_bottom = 5
 
@@ -2467,7 +2506,7 @@ window = {
 																visible = "[GUITrackItem.HasSelectedGoldCost]"
 																text = "[ValueBreakdown.GetValue]"
 																align = nobaseline
-																tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+																tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 																tooltipwidget = {
 																	widget_value_breakdown_tooltip = {}
@@ -2484,7 +2523,7 @@ window = {
 																visible = "[GUITrackItem.HasSelectedPrestigeCost]"
 																text = "[ValueBreakdown.GetValue]"
 																align = nobaseline
-																tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+																tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 																tooltipwidget = {
 																	widget_value_breakdown_tooltip = {}
@@ -2496,7 +2535,7 @@ window = {
 																visible = "[GUITrackItem.HasSelectedPietyCost]"
 																text = "[ValueBreakdown.GetValue]"
 																align = nobaseline
-																tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+																tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 																tooltipwidget = {
 																	widget_value_breakdown_tooltip = {}
@@ -2507,7 +2546,7 @@ window = {
 																datacontext = "[GUITrackItem.GetSelectedConstructionTime]"
 																text = "[ValueBreakdown.GetValue]"
 																align = nobaseline
-																tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+																tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 																tooltipwidget = {
 																	widget_value_breakdown_tooltip = {}
@@ -2533,13 +2572,12 @@ window = {
 											}
 
 											text_multi = {
-												datacontext = "[HoldingView.GetProvince.GetCounty.GetCulture]"
 												layoutpolicy_horizontal = expanding
 												layoutpolicy_vertical = expanding
 												autoresize = yes
 												max_width = 355
 												min_width = 355
-												text = "[GUITrackItem.GetSelectedBuilding.GetEffectDescriptionAtProvince( Character.Self, HoldingView.GetProvince, Culture.Self)]"
+												text = "[GUITrackItem.GetSelectedBuilding.GetEffectDescriptionAtProvince( Character.Self, HoldingView.GetProvince )]"
 												margin = { 15 10 }
 											}
 										}
@@ -2566,10 +2604,10 @@ window = {
 													button_round  = {
 														name = "abort_button"
 														parentanchor = center
-														visible = "[GUITrackItem.CanShowReplaceOrCancel]"
-														enabled = "[GUITrackItem.CanReplaceOrCancel]"
-														onclick = "[GUITrackItem.ReplaceOrCancel]"
-														tooltip = "[GUITrackItem.GetReplaceOrCancelTooltip]"
+														visible = "[GUITrackItem.CanShowCancel]"
+														enabled = "[GUITrackItem.CanCancel]"
+														onclick = "[GUITrackItem.Cancel]"
+														tooltip = "[GUITrackItem.GetCancelTooltip]"
 
 														button_cancel = {
 															parentanchor = center
@@ -2621,9 +2659,9 @@ window = {
 
 											button_round = {
 												name = "replace_button"
-												onclick = "[GUITrackItem.ReplaceOrCancel]"
-												tooltip = "[GUITrackItem.GetReplaceOrCancelTooltip]"
-												visible = "[And(GUITrackItem.IsCurrentBuildingSelected, GUITrackItem.CanReplaceOrCancel)]"
+												onclick = "[GUITrackItem.Replace]"
+												tooltip = "[GUITrackItem.GetReplaceTooltip]"
+												visible = "[And(GUITrackItem.IsCurrentBuildingSelected, GUITrackItem.CanReplace)]"
 
 												button_change = {
 													alwaystransparent = yes
@@ -2653,7 +2691,7 @@ window = {
 														datacontext = "[GUITrackItem.GetNextGoldCost]"
 														visible = "[GUITrackItem.HasNextGoldCost]"
 														text = "[ValueBreakdown.GetValue]"
-														tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+														tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 														tooltipwidget = {
 															widget_value_breakdown_tooltip = {}
@@ -2669,7 +2707,7 @@ window = {
 														datacontext = "[GUITrackItem.GetNextPrestigeCost]"
 														visible = "[GUITrackItem.HasNextPrestigeCost]"
 														text = "[ValueBreakdown.GetValue]"
-														tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+														tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 														tooltipwidget = {
 															widget_value_breakdown_tooltip = {}
@@ -2689,7 +2727,7 @@ window = {
 
 														text_single = {
 															text = "[ValueBreakdown.GetValue]"
-															tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+															tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 															tooltipwidget = {
 																widget_value_breakdown_tooltip = {}
@@ -2708,7 +2746,7 @@ window = {
 														layoutpolicy_horizontal = expanding
 														datacontext = "[GUITrackItem.GetNextConstructionTime]"
 														text = "[ValueBreakdown.GetValue]"
-														tooltip_enabled = "[ValueBreakdown.HasTooltip]"
+														tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
 														tooltipwidget = {
 															widget_value_breakdown_tooltip = {}
@@ -2758,9 +2796,9 @@ window = {
 	parentanchor = bottom|hcenter
 	position = { 40 -50 }
 	using = Animation_ShowHide_Quick
-	
+
 	using = Window_Background_Subwindow
-	
+
 	vbox = {
 		set_parent_size_to_minimum = yes
 		margin = { 4 4 }
@@ -2879,7 +2917,7 @@ types CountyViewTypes
 				name = "building_icon"
 				visible = "[Not( GUIBuildingItem.CanUpgrade )]"
 				parentanchor = center
-				size = { 40 40 }
+				size = { 45 40 }
 				texture = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetTypeIcon]"
 			}
 
@@ -2887,7 +2925,7 @@ types CountyViewTypes
 				name = "building_icon_can_upgrade"
 				visible = "[GUIBuildingItem.CanUpgrade]"
 				parentanchor = center
-				size = { 40 40 }
+				size = { 45 40 }
 				texture = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetTypeIcon]"
 			}
 
@@ -2957,6 +2995,115 @@ types CountyViewTypes
 			text = "HOLDING_VIEW_BUILDING_IN_VASSAL"
 		}
 	}
+
+	# Requires County and CountyDataBreakdowns data context
+	type county_control_tooltip_container = container
+	{
+		using = GeneralTooltipSetup
+		alwaystransparent = no
+
+		object_tooltip_pop_out = {
+			blockoverride "title_text"
+			{
+				margin = { 0 8 }
+				text = "COUNTY_CONTROL_TOOLTIP_HEADER"
+				default_format = "#T"
+			}
+
+			blockoverride "concept_link"
+			{
+				visible = no
+			}
+
+			blockoverride "main_description"
+			{
+				vbox = {
+					layoutpolicy_horizontal = expanding
+
+					cooltip_paragraph = {
+						text = "[County.GetCountyControlEffectsDesc]"
+					}
+
+					spacer = {
+						size = { 0 15 }
+					}
+
+					cooltip_paragraph = {
+						datacontext = "[CountyDataBreakdowns.AccessControl( County.Self )]"
+
+						text = "VALUE_BRREAKDOWN_TEXT_LINK"
+
+						tooltip_visible = "[ValueBreakdown.HasTooltip]"
+
+						tooltipwidget = {
+							widget_value_breakdown_tooltip = {}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Requires County and CountyDataBreakdowns data context
+	type county_development_tooltip_container = container
+	{
+		using = GeneralTooltipSetup
+		alwaystransparent = no
+
+		object_tooltip_pop_out = {
+			blockoverride "title_text"
+			{
+				margin = { 0 8 }
+				text = "COUNTY_DEVELOPMENT_TOOLTIP_HEADER"
+				default_format = "#T"
+			}
+
+			blockoverride "concept_link"
+			{
+				visible = no
+			}
+
+			blockoverride "main_description"
+			{
+				vbox = {
+					layoutpolicy_horizontal = expanding
+
+					datacontext = "[County.GetCount]"
+					datacontext = "[Character.GetGovernment]"
+
+					cooltip_paragraph = {
+						visible = "[Not( GovernmentType.IsAffectedByDevelopment )]"
+						text = "COUNTY_DEVELOPMENT_IGNORED_DESC"
+					}
+
+					cooltip_paragraph = {
+						text = "[County.GetCountyDevelopmentEffectsDesc]"
+					}
+
+					spacer = {
+						size = { 0 15 }
+					}
+
+					cooltip_paragraph = {
+						text = "[County.GetDevelopmentProgressOutOfMax]"
+					}
+
+					cooltip_paragraph = {
+						datacontext = "[CountyDataBreakdowns.AccessDevelopmentChange( County.Self )]"
+
+						text = "VALUE_BRREAKDOWN_TEXT_LINK"
+
+						tooltip_visible = "[ValueBreakdown.HasTooltip]"
+
+						tooltipwidget = {
+							widget_value_breakdown_tooltip = {}
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	type tech_window = widget {
 		name = "tech_window"
 		size = { 380 610 }
@@ -3030,36 +3177,43 @@ types CountyViewTypes
 				blockoverride "tech_name" { text = "[tech_metallurgy|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_metallurgy').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_metallurgy').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_metallurgy_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_siege|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_siege').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_siege').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_siege_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_horseback_riding|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_horseback_riding').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_horseback_riding').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_horseback_riding_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_fortification|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_fortification').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_fortification').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_fortification_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_conscription|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_conscription').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_conscription').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_conscription_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_archery|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_archery').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_archery').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_archery_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_military_organization|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_military_organization').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_military_organization').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_military_organization_map').Execute(GuiScope.End)]" }
 			}
 			text_single_big = {
 				text = "[tech_economy|E]"
@@ -3068,31 +3222,37 @@ types CountyViewTypes
 				blockoverride "tech_name" { text = "[tech_agriculture|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_agriculture').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_agriculture').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_agriculture_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_commerce|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_commerce').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_commerce').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_commerce_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_navigation|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_navigation').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_navigation').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_navigation_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_construction|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_construction').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_construction').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_construction_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_urbanization|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_urbanization').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_urbanization').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_urbanization_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_mining|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_mining').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_mining').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_mining_map').Execute(GuiScope.End)]" }
 			}
 			text_single_big = {
 				text = "[tech_special|E]"
@@ -3101,11 +3261,13 @@ types CountyViewTypes
 				blockoverride "tech_name" { text = "[tech_electronics|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_electronics').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_electronics').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_electronics_map').Execute(GuiScope.End)]" }
 			}
 			technology = {
 				blockoverride "tech_name" { text = "[tech_natural_science|E]"} 
 				blockoverride "tech_val" { value = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_natural_science').GetValue]" } 
 				blockoverride "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_natural_science').GetValue|1]" } 
+				blockoverride "mapmode" { onclick = "[GetScriptedGui('tech_natural_science_map').Execute(GuiScope.End)]" }
 			}
 		}		
 	}
@@ -3130,7 +3292,14 @@ types CountyViewTypes
 				block "tech_real" { text = "[HoldingView.GetCountyTitle.MakeScope.Var('tech_metallurgy').GetValue|1]" }
 			}
 		}
+		button_standard = {
+			name = "tech_map_button"
+			size = { 20 20 }
+			text_single = { text = "map" }
 			
+			onclick = "[SetMapMode('technologies_mapmode')]"
+			block "mapmode" { onclick = "[GetScriptedGui('technologies_map').Execute(GuiScope.End)]" }
+		}
 	}
 }
 

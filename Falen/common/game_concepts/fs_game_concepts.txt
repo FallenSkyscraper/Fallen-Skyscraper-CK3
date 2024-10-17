@@ -3,6 +3,27 @@
 the_event={
 }
 
+military = {
+	texture = "gfx/interface/icons/theme_administration/icon_game_concept_military_administration.dds"
+	parent = government
+	alias = { military_government military_i }
+}
+oligarchic_republic = {
+	texture = "gfx/interface/icons/theme_administration/icon_game_concept_civilian_administration.dds"
+	parent = government
+	alias = { oligarchic_republic_government oligarchic_republic_i }
+}
+slavery = {
+	texture = "gfx/interface/icons/message_feed/prison.dds"
+	parent = government
+	alias = { slavery_government slavery_i }
+}
+maritime = {
+	texture = "gfx/interface/icons/theme_administration/icon_game_concept_naval_administration.dds"
+	parent = government
+	alias = { maritime_government maritime_i }
+}
+
 tech = {
 	parent = county_development
 	texture = "gfx/interface/icons/message_feed/technology.dds"
@@ -81,11 +102,13 @@ tech_natural_science = {
 }
 
 nomadic = {
+	texture = "gfx/interface/icons/government_types/tribal_government.dds"
     parent = government
     alias = { nomadic_government }
 }
 
 manchu_tribal = {
+	texture = "gfx/interface/icons/government_types/tribal_government.dds"
     parent = government
     alias = { manchu_tribal_government }
 }

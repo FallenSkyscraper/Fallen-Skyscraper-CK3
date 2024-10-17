@@ -314,20 +314,44 @@ current_development_penalty = {
 				value = 9.13 # Due to the way the development penalty is calculated, this means you reach maximum penalty at Development Level 10.
 				# If you want really mathy-stuff, the formula is: Monthly Increase - (Monthly Increase(Development Level/100)*Above Number)
 				if = {
-					limit = { culture = { has_innovation = innovation_development_04 } }
-					multiply = 0.1111 # With Rennisance Thought, this is increased to Development Level 90.
+					limit = { scope:county.var:tech_urbanization >= 10 }
+					multiply = 0.0500 # Development Level 200.
 				}
 				else_if = {
-					limit = { culture = { has_innovation = innovation_development_03 } }
+					limit = { scope:county.var:tech_urbanization >= 9 }
+					multiply = 0.0833 # Development Level 120.
+				}
+				else_if = {
+					limit = { scope:county.var:tech_urbanization >= 8 }
+					multiply = 0.1111 # Development Level 90.
+				}
+				else_if = {
+					limit = { scope:county.var:tech_urbanization >= 7 }
+					multiply = 0.1333 # Development Level 75.
+				}
+				else_if = {
+					limit = { scope:county.var:tech_urbanization >= 6 }
+					multiply = 0.1537 # Development Level 65.
+				}
+				else_if = {
+					limit = { scope:county.var:tech_urbanization >= 5 }
 					multiply = 0.1818 # With Urbanization, Development Level 55.
 				}
 				else_if = {
-					limit = { culture = { has_innovation = innovation_development_02 } }
-					multiply = 0.2856 # With Communal Government, Development Level 35.
+					limit = { scope:county.var:tech_urbanization >= 4 }
+					multiply = 0.2222 # Development Level 45.
 				}
 				else_if = {
-					limit = { culture = { has_innovation = innovation_development_01 } }
-					multiply = 0.5000 # With the Public Works innovation, Development Level 20.
+					limit = { scope:county.var:tech_urbanization >= 3 }
+					multiply = 0.2856 # Development Level 35.
+				}
+				else_if = {
+					limit = { scope:county.var:tech_urbanization >= 2 }
+					multiply = 0.2500 # Development Level 25.
+				}
+				else_if = {
+					limit = { scope:county.var:tech_urbanization >= 1 }
+					multiply = 0.5000 # Development Level 20.
 				}
 			}
 			divide = 100

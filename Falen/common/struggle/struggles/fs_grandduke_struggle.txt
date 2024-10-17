@@ -23,7 +23,7 @@ grandduke_struggle = {
 	}
 
 	# A culture or faith becomes involved if 80% of the total number of counties belonging to it are inside the struggle region.
-	involvement_prerequisite_percentage = 0.8
+	involvement_prerequisite_percentage = 0.4
 
 	on_start = {
 		# Starting Events
@@ -32,11 +32,8 @@ grandduke_struggle = {
 	}
 
 	on_change_phase = {
-
-		# Set up AI Intent
-		trigger_event = fp2_grandduke_struggle.0003
 	}
-	
+
 	# Root = the current struggle
 	# scope:character = the character which has joined the struggle
  	on_join = {
@@ -46,18 +43,18 @@ grandduke_struggle = {
 					is_ai = no
 				}
 
-				#if = {
-				#	limit = {
-				#		root = { was_player_joined = scope:character }
-				#	}
-#
-#					if = {
-#						limit = {
-#							NOT = { has_character_flag =  fp2_struggle_intro_event_flag }
-#						}
-#						add_character_flag = fp2_struggle_intro_event_flag
-#					}
-#				}
+				if = {
+					limit = {
+						root = { was_player_joined = scope:character }
+					}
+
+					if = {
+						limit = {
+							NOT = { has_character_flag =  grandduke_struggle_intro_event_flag }
+						}
+						add_character_flag = grandduke_struggle_intro_event_flag
+					}
+				}
 
 				trigger_event = fp2_grandduke_struggle.0501
 			}
@@ -104,3 +101,6 @@ grandduke_struggle = {
 				#struggle_juche_ending_conciliation_decision
 			}
 		}
+	}
+}
+	

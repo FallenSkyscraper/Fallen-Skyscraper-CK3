@@ -1,6 +1,7 @@
 ﻿k_jinju = {
     2375.01.01 = {
         holder = 3414
+		government = feudal_government
     }
     2384.10.8 = {
         holder = 3415
@@ -8,7 +9,8 @@
     2437.9.15 = {
         holder = 3416
     }
-	effect = {
+	2444.1.1 = {
+		effect = {
 			if = {
 				limit = {
 					exists = holder
@@ -19,6 +21,7 @@
 				}
 			}
 		}
+	}
 }
 
 d_jinju = {

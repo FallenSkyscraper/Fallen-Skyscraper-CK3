@@ -7,6 +7,12 @@ on_game_start = {
 	}
 
 	effect = {
+		#Epidemics 3 months grace
+		set_global_variable = {
+			name = start_epidemic_grace
+			value = yes
+			months = 3
+		}
 		### INITIALIZE CULTURAL GROUPS ###
 		every_culture_global = {
 			fs_initialize_culture_effect = yes
@@ -145,6 +151,9 @@ on_game_start = {
 
 		# Mark some faiths to block conversion till specific decisions are taken.
 		
+		### GAME RULE: EXTRA ADMINS
+		apply_historic_administrative_game_rule_effect = yes
+		
 		### UNIVERSITIES ###
 		#title:b_fes.title_province = { add_special_building_slot = generic_university }
 		title:b_65.title_province = { add_special_building_slot = generic_university } # 인하대
@@ -218,6 +227,38 @@ on_game_start = {
 				add_legitimacy = major_legitimacy_gain
 			}
 		}
+		every_independent_ruler = {
+			limit = { government_has_flag = government_is_military }
+			every_vassal_or_below = {
+				limit = {
+					primary_title.tier >= tier_county
+					OR = {
+						government_has_flag = government_is_clan
+						government_has_flag = government_is_feudal
+					}
+				}
+				change_government = military_government
+			}
+		}
+		
+		# Admin - Let's give existing governors the Governor trait on game start
+		every_independent_ruler = {
+			limit = { government_allows = administrative }
+			every_vassal = {
+				limit = {
+					is_governor = yes
+					NOT = { has_trait = governor }
+				}
+				add_trait = governor
+				add_trait_xp = {
+					trait = governor
+					value = {
+						add = primary_title.title_held_years
+						multiply = 2
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -281,6 +322,12 @@ on_game_start_after_lobby = {
 					}
 				}
 			}
+			if = {
+				limit = {
+					is_landless_adventurer = yes
+				}
+				if = { limit = { has_realm_law = crown_authority_0 } remove_realm_law = crown_authority_0 }
+			}
 		}
 	
 		### GAME RULE: VIEW ON SAME-SEX RELATIONS
@@ -325,7 +372,104 @@ on_game_start_after_lobby = {
 		else = { # So that children 10+ starts with a sexuality
 			child_sexuality_distribution_effect = yes
 		}
-
+		
+		### GAME RULE: EXTRA ADMINS
+		## We'll be doing some excessive triggers below in a bid to lightly future-proof + error-spam mods less, don't worry about it.
+		### We handle players after the lobby.
+		# Historic chars.
+		# Nomadic Empire
+		#every_independent_ruler = {
+		#	limit = {
+		#		government_has_flag = government_is_nomadic
+		#	}
+		#	create_noble_family_effect = yes
+		#	domicile ?= {
+		#		set_up_domicile_estate_effect = yes
+		#	}
+		#	every_vassal_or_below = {
+		#		limit = {
+		#			government_has_flag = government_is_nomadic
+		#			primary_title.tier >= tier_duchy
+		#			house.house_head = {
+		#				NOT = {
+		#					any_held_title = { is_noble_family_title = yes }
+		#				}
+		#			}
+		#		}
+		#		create_noble_family_effect = yes
+		#		domicile ?= {
+		#			set_up_domicile_estate_effect = yes
+		#		}
+		#	}
+		#}
+		
+		# PRK - Administrative Republic
+		#title:k_prk.holder = {
+		#	create_noble_family_effect = yes
+		#	domicile ?= { set_up_domicile_estate_effect = yes }
+		#	every_vassal = {
+		#		limit = {
+		#			government_has_flag = government_is_secular_republic
+		#			house.house_head = {
+		#				NOT = {
+		#					any_held_title = { is_noble_family_title = yes }
+		#				}
+		#			}
+		#		}
+		#		create_noble_family_effect = yes
+		#		domicile ?= {
+		#			set_up_domicile_estate_effect = yes
+		#		}
+		#	}
+		#}
+		apply_historic_administrative_game_rule_effect = yes
+		if = {
+			limit = { has_dlc_feature = roads_to_power }
+			if = {
+				limit = { has_game_rule = donghae_administrative }
+				culture:sikhotealin = { save_scope_as = ignore_culture }
+				title:e_donghae.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+			}
+		}
+		
+		title:k_andong.holder ?= { convert_to_administrative_from_feudalism_game_start_effect = yes }
+		# Players.
+		if = {
+			limit = { has_dlc_feature = roads_to_power }
+			if = {
+				limit = {
+					NOT = { has_game_rule = historicity_extra_admin_player_wherever_gameplay_not_administrative }
+				}
+				if = {
+					limit = { has_game_rule = historicity_extra_admin_player_wherever_alt_historic_always }
+					every_player = {
+						limit = {
+							highest_held_title_tier >= tier_kingdom
+							NOR = {
+								government_has_flag = government_is_administrative
+								government_has_flag = government_is_landless_adventurer
+							}
+						}
+						convert_to_administrative_from_feudalism_game_start_effect = yes
+					}
+				}
+				else_if = {
+					limit = { has_game_rule = historicity_extra_admin_player_wherever_alt_historic_with_august_trait }
+					every_player = {
+						limit = {
+							highest_held_title_tier >= tier_kingdom
+							NOR = {
+								government_has_flag = government_is_administrative
+								government_has_flag = government_is_landless_adventurer
+							}
+							has_trait = august
+						}
+						convert_to_administrative_from_feudalism_game_start_effect = yes
+					}
+				}
+			}
+		}
+		
 		# Give Ruler Designer characters regencies.
 		every_in_global_list = {
 			variable = rd_chars_needing_regencies
@@ -412,6 +556,157 @@ on_game_start_after_lobby = {
 		}
 		character:801 = {
 			add_legitimacy = -300
+		}
+		### EP3 SETUP ###
+		if = {
+			limit = { has_ep3_dlc_trigger = yes }
+			### EP3 LAAMP SETUP ###
+			# Resources.
+			every_independent_ruler = {
+				limit = { is_landless_adventurer = yes }
+				# Cash.
+				add_gold = {
+					value = {
+						value = 0
+						add = prestige
+						add = piety
+						divide = 10
+					}
+				}
+				save_temporary_scope_as = adventurer_scope
+				# Set CoA
+				primary_title = { set_coa = scope:adventurer_scope.house }
+				# Cleanup characters
+				every_councillor = {
+					if = {
+						limit = {
+							NOR = {
+								has_council_position = councillor_court_chaplain
+								has_council_position = councillor_spouse
+							}
+						}
+						scope:adventurer_scope = {
+							fire_councillor = prev
+						}
+						remove_opinion = {
+							modifier = fired_from_council_opinion
+							target = scope:adventurer_scope
+						}
+					}
+					else_if = {
+						limit = {
+							NOR = {
+								is_close_or_extended_family_of = prev
+								has_relation_lover = prev
+								has_relation_friend = prev
+								is_consort_of = prev
+								has_council_position = councillor_spouse
+							}
+						}
+						death = {
+							death_reason = death_vanished
+						}
+					}
+				}
+				# Evict everyone who isn't your family from your camp.
+				every_courtier = {
+					limit = {
+						prev = { save_temporary_scope_as = char_temp }
+						NOR = {
+							dynasty ?= scope:char_temp.dynasty
+							is_imprisoned_by = scope:char_temp
+							# Plus any relations, who are presumably meant to be here.
+							has_important_relationship_with_character_trigger = { CHARACTER = scope:char_temp }
+							# Catch bastards and such that may be left over.
+							is_close_or_extended_family_of = scope:char_temp
+						}
+					}
+					move_to_pool = yes
+				}
+				# Courtiers.
+				trigger_event = ep3_laamps.1001
+			}
+			# Starting camp purposes.
+			every_independent_ruler = {
+				limit = { is_landless_adventurer = yes }
+				# C... food.
+				domicile = { change_provisions = starting_provisions_value }
+				# Contracts
+				if = {
+					limit = { is_ai = no }
+					# Set up additional firing contracts.
+					player_adventurer_contract_generation_on_wait_in_place_effect = yes
+					#generate contracts if you are far away from your previous location
+					player_adventurer_contract_generation_on_domicile_moved_effect = yes
+				}
+				else = {
+					create_story = { type = story_adventurer_ai }
+					trigger_event = {
+						on_action = on_adventurer_ai_new_employer_arrival
+						days = { 10 30 }
+					}
+				}
+				# Sort our starting flavourisation.
+				if = {
+					limit = { has_realm_law = camp_purpose_mercenaries }
+					set_variable = flavourise_camp_purpose_mercenaries
+				}
+				else_if = {
+					limit = { has_realm_law = camp_purpose_wanderers }
+					set_variable = flavourise_camp_purpose_wanderers
+				}
+				else_if = {
+					limit = { has_realm_law = camp_purpose_scholars }
+					set_variable = flavourise_camp_purpose_scholars
+				}
+				else_if = {
+					limit = { has_realm_law = camp_purpose_explorers }
+					set_variable = flavourise_camp_purpose_explorers
+				}
+				else_if = {
+					limit = { has_realm_law = camp_purpose_brigands }
+					set_variable = flavourise_camp_purpose_brigands
+				}
+				else_if = {
+					limit = { has_realm_law = camp_purpose_legitimists }
+					set_variable = flavourise_camp_purpose_legitimists
+				}
+				# And tally our numbers for performance purposes.
+				add_to_global_variable_list = {
+					name = laamps_tally
+					target = this.primary_title
+				}
+			}
+			### EP3 ADMIN SETUP ###
+			every_independent_ruler = {
+				limit = { government_allows = administrative }
+				save_scope_as = top_liege
+				### EP3 NOBLE FAMILIES & DOMICILE SETUP ###
+				random_held_title = { # May be removed once every_noble_family includes liege (TIT-51212)
+					limit = { is_noble_family_title = yes }
+					set_coa = scope:top_liege.house
+				}
+				every_noble_family = {
+					# Ensure Noble Family CoA match House
+					set_coa = holder.house
+					# Ensure holders of historical noble family titles are the default house heads
+					holder ?= {
+						save_scope_as = nf_holder
+						if = {
+							limit = { is_landed = yes }
+							capital_province = { save_scope_as = domicile_location }
+						}
+						# TODO_CD_EP3: remove once TIT-51212 is resolved and confirmed
+						house ?= {
+							if = {
+								limit = { house_head != scope:nf_holder }
+								set_house_head = scope:nf_holder
+							}
+						}
+					}
+					set_color_from_title = scope:nf_holder.capital_county
+				}
+			}
 		}
 	}
 

@@ -27,6 +27,8 @@
 	parameters = {
 	    wanderers_gain_extra_economic_skills = yes
 		more_likely_to_leave_court = yes
+		unlock_voluntary_laampdom = yes
+		more_likely_to_be_laamps = yes
 		trade_ports_give_levies = yes
 		can_travel_along_rivers = yes
 		next_level_trade_ports = yes
@@ -48,7 +50,7 @@
 			if = {
 				limit = {
 					NOR = {
-						cultural_pillar:ethos_egalitarian = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
 						culture_pillar:ethos_stoic = { is_in_list = traits }
 						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
 					}
@@ -98,8 +100,8 @@
 		if = { # Make stacking a bit less common
 			limit = {
 				OR = {
-					cultural_tradition:tradition_seafaring = { is_in_list = traits }
-					cultural_tradition:tradition_fishermen = { is_in_list = traits }
+					culture_tradition:tradition_seafaring = { is_in_list = traits }
+					culture_tradition:tradition_fishermen = { is_in_list = traits }
 				}
 			}
 			multiply = 0.75
@@ -275,9 +277,9 @@ tradition_sinocentrism = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_communal }
-						any_in_list = { list = traits this = flag:ethos_egalitarian }
-						any_in_list = { list = traits this = flag:ethos_stoic }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -322,7 +324,7 @@ tradition_sinocentrism = {
 		}
 		if = {
 			limit = {
-				any_in_list = { list = traits this = flag:ethos_egalitarian }
+				culture_pillar:ethos_egalitarian = { is_in_list = traits }
 			}
 			multiply = 0
 		}
@@ -372,8 +374,8 @@ tradition_korean_succession = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_courtly }
-						any_in_list = { list = traits this = flag:ethos_spiritual }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -430,6 +432,7 @@ tradition_legacy_of_north_joseon = {
 		peasant_and_populist_factions_less_common = yes
 		expensive_convert_to_local_culture = yes
 		harder_to_hybridize = yes
+		less_likely_to_culture_convert = yes
 		unlock_maa_peoples_army = yes
 	}
 	culture_modifier = {
@@ -458,8 +461,8 @@ tradition_legacy_of_north_joseon = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_spiritual }
-						any_in_list = { list = traits this = flag:ethos_courtly }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -512,7 +515,7 @@ tradition_legacy_of_north_joseon = {
 		}
 		if = {
 			limit = {
-				any_in_list = { list = traits this = flag:ethos_egalitarian }
+				culture_pillar:ethos_egalitarian = { is_in_list = traits }
 			}
 			multiply = 0.25
 		}
@@ -537,7 +540,7 @@ tradition_federation = {
 	}
 	
 	is_shown = {
-		has_cultural_pillar = heritage_suwon
+		has_culture_pillar = heritage_suwon
 	}
 		
 	
@@ -572,7 +575,7 @@ tradition_federation = {
 		if = {
 			limit = {
 				NOR = {
-					has_cultural_pillar = heritage_gyeonggi
+					has_culture_pillar = heritage_gyeonggi
 				}
 			}
 			multiply = 0.5
@@ -590,7 +593,7 @@ tradition_jakun_gusa = {
 	}
 	
 	is_shown = {
-		has_cultural_pillar = heritage_manchu
+		has_culture_pillar = heritage_manchu
 	}
 	
 	parameters = {
@@ -608,10 +611,7 @@ tradition_jakun_gusa = {
 			# Ethos requirement.
 			if = {
 				limit = {
-					any_in_list = {
-						list = traits
-						this = flag:ethos_bellicose
-					}
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
 				}
 				add = {
 					value = tradition_incompatible_ethos_penalty
@@ -730,7 +730,7 @@ tradition_seoul = {
 	   unlock_maa_seoul_bike = yes
 		courtiers_less_likely_to_leave_same_culture_court = yes
 		harder_to_hybridize = yes
-	   
+		less_likely_to_culture_convert = yes	   
 	}
 	culture_modifier = {
 		cultural_acceptance_gain_mult = -0.9
@@ -801,8 +801,8 @@ tradition_talchum = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_communal }
-						any_in_list = { list = traits this = flag:ethos_egalitarian }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -824,7 +824,7 @@ tradition_paengbaesu = {
 	category = combat
 
 	is_shown = {
-		has_cultural_pillar = heritage_yeongnam
+		has_culture_pillar = heritage_yeongnam
 	}
 
 	layers = {
@@ -885,7 +885,7 @@ tradition_maritime_imperialist = {
 	}
 	
 	is_shown = {
-		has_cultural_pillar = heritage_honam
+		has_culture_pillar = heritage_honam
 	}
 	
 	can_pick = {
@@ -904,6 +904,8 @@ tradition_maritime_imperialist = {
 		culture_can_raid_at_sea_even_if_feudal = yes
 		can_travel_along_rivers = yes
 		unlock_maa_privateer = yes
+		unlock_voluntary_laampdom = yes
+		much_more_likely_to_be_laamps = yes
 	}
 	
 	character_modifier = {
@@ -922,7 +924,7 @@ tradition_maritime_imperialist = {
 			if = {
 				limit = {
 					NOT = {
-						any_in_list = { list = traits this = flag:ethos_bellicose }
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -1012,7 +1014,7 @@ tradition_rightous_army = {
 		4 = battle.dds
 	}
 	is_shown = {
-		has_cultural_pillar = heritage_haeseo
+		has_culture_pillar = heritage_haeseo
 	}
 	parameters = {
 		unlock_maa_rightous_army = yes
@@ -1101,7 +1103,7 @@ tradition_foreign_legion = {
 	}
 	
 	is_shown = {
-		has_cultural_pillar = heritage_gwandong
+		has_culture_pillar = heritage_gwandong
 		NOT = {
 			has_cultural_tradition = tradition_sword_for_hire
 		}
@@ -1112,6 +1114,8 @@ tradition_foreign_legion = {
 		mercenary_courtiers_gain_extra_skills = yes
 		more_likely_to_leave_court = yes
 		unlock_maa_foreign_legion = yes
+		unlock_voluntary_laampdom = yes
+		much_more_likely_to_be_laamps = yes
 	}
 	culture_modifier = {
 		mercenary_count_mult = 1
@@ -1130,9 +1134,9 @@ tradition_foreign_legion = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_bellicose }
-						any_in_list = { list = traits this = flag:ethos_courtly }
-						any_in_list = { list = traits this = flag:ethos_communal }
+						any_in_list = { list = traits this = culture_pillar:ethos_bellicose }
+						any_in_list = { list = traits this = culture_pillar:ethos_courtly }
+						any_in_list = { list = traits this = culture_pillar:ethos_communal }
 					}
 				}
 				add = {
@@ -1188,8 +1192,8 @@ tradition_gwanbuk_mountain_skirmishing = {
 	#In the Horn of Africa this replaces the Mountaineers tradition
 	is_shown = {
 		OR ={
-			has_cultural_pillar = heritage_gwanbuk
-			has_cultural_pillar = heritage_gwandong
+			has_culture_pillar = heritage_gwanbuk
+			has_culture_pillar = heritage_gwandong
 		}
 		NOR = {
 			has_cultural_tradition = tradition_mountaineers
@@ -1223,6 +1227,8 @@ tradition_gwanbuk_mountain_skirmishing = {
 		desert_mountains_supply_limit_mult = 0.25
 	}
 	character_modifier = {
+		mountains_travel_danger = mountains_high_danger_reduction
+		hills_travel_danger = hills_high_danger_reduction
 	}
 	
 	cost = {
@@ -1235,8 +1241,8 @@ tradition_gwanbuk_mountain_skirmishing = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_spiritual }
-						any_in_list = { list = traits this = flag:ethos_communal }
+						any_in_list = { list = traits this = culture_pillar:ethos_spiritual }
+						any_in_list = { list = traits this = culture_pillar:ethos_communal }
 					}
 				}
 				add = {
@@ -1402,8 +1408,8 @@ tradition_laicite = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_egalitarian }
-						any_in_list = { list = traits this = flag:ethos_communal }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -1445,8 +1451,8 @@ tradition_laicite = {
 		if = {
 			limit = {
 				OR = {
-					any_in_list = { list = traits this = flag:tradition_zealous_people }
-					any_in_list = { list = traits this = flag:tradition_by_the_sword }
+					any_in_list = { list = traits this = culture_tradition:tradition_zealous_people }
+					any_in_list = { list = traits this = culture_tradition:tradition_by_the_sword }
 				}
 			}
 			multiply = 0
@@ -1488,9 +1494,9 @@ tradition_cheongdam = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_stoic }
-						any_in_list = { list = traits this = flag:ethos_bureaucratic }
-						any_in_list = { list = traits this = flag:ethos_spiritual }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -1533,7 +1539,7 @@ tradition_cheongdam = {
 		value = 100
 		if = {
 			limit = { # AI should avoid stacking traditions for courtly court positions
-				any_in_list = { list = traits this = flag:tradition_music_theory }
+				culture_tradition:tradition_music_theory = { is_in_list = traits }
 			}
 			multiply = 0.25
 		}
@@ -1590,9 +1596,9 @@ tradition_romanticism = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_bellicose }
-						any_in_list = { list = traits this = flag:ethos_stoic }
-						any_in_list = { list = traits this = flag:ethos_courtly }
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -1675,9 +1681,9 @@ tradition_taekwondo = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_bellicose }
-						any_in_list = { list = traits this = flag:ethos_courtly }
-						any_in_list = { list = traits this = flag:ethos_communal }
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -1723,7 +1729,7 @@ tradition_taekwondo = {
 		if = {
 			limit = {
 				NOT = {
-					any_in_list = { list = traits this = flag:ethos_bellicose }
+					culture_pillar:ethos_bellicose = { is_in_list = traits }
 				}
 			}
 			multiply = 0
@@ -1753,11 +1759,12 @@ tradition_inquisitor = {
 	}
 	
 	parameters = {
-		unlock_maa_inquisitor = yes
+		#unlock_maa_inquisitor = yes
 		zealous_trait_more_common = yes
 		humble_trait_more_common = yes
 		harder_to_convert_character_faith = yes
 		harder_to_convert_county_faith = yes
+		#unlock_voluntary_laampdom = yes
 	}
 	character_modifier = {
 		opinion_of_different_faith = -15
@@ -1773,8 +1780,8 @@ tradition_inquisitor = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_spiritual }
-						any_in_list = { list = traits this = flag:ethos_communal }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -1817,12 +1824,12 @@ tradition_inquisitor = {
 		if = {
 			limit = {
 				OR = {
-					any_in_list = { list = traits this = flag:tradition_welcoming }
-					any_in_list = { list = traits this = flag:tradition_eye_for_an_eye }
-					any_in_list = { list = traits this = flag:tradition_forbearing }
-					any_in_list = { list = traits this = flag:tradition_equitable }
-					any_in_list = { list = traits this = flag:tradition_charitable }
-					any_in_list = { list = traits this = flag:tradition_modest }
+					culture_tradition:tradition_welcoming = { is_in_list = traits }
+					culture_tradition:tradition_eye_for_an_eye = { is_in_list = traits }
+					culture_tradition:tradition_forbearing = { is_in_list = traits }
+					culture_tradition:tradition_equitable = { is_in_list = traits }
+					culture_tradition:tradition_charitable = { is_in_list = traits }
+					culture_tradition:tradition_modest = { is_in_list = traits }
 				}
 			}
 			multiply = 0.1
@@ -1850,11 +1857,21 @@ tradition_mudflat = {
 		}
 	}
 	can_pick = {
-		custom_description = {
-			text = culture_on_coast_desc
-			any_culture_county = {
-				any_county_province = {
-					is_coastal = yes
+		OR = {
+			custom_description = {
+				text = culture_on_coast_desc
+				any_culture_county = {
+					any_county_province = {
+						is_coastal = yes
+					}
+				}
+			}
+			custom_tooltip = {
+				text = culture_in_wetlands_desc
+				any_culture_county = {
+					any_county_province = {
+						terrain = wetlands
+					}
 				}
 			}
 		}
@@ -1864,10 +1881,26 @@ tradition_mudflat = {
 		unlock_maa_mudflater = yes
 		coastal_agriculture_building_bonuses = yes
 		coastal_holding_bonuses = yes
+		peat_quarries_building_bonuses = yes
+		wetlands_hunt_success_chance = yes
 	}
 	character_modifier = {
 		skirmishers_damage_mult = 0.05
 		skirmishers_screen_mult = 0.1
+		
+		wetlands_advantage = 5
+		wetlands_travel_danger = wetlands_high_danger_reduction
+		floodplains_travel_danger = floodplains_high_danger_reduction
+		coastal_sea_travel_danger = low_sea_danger_reduction
+	}
+	county_modifier = {
+		wetlands_development_growth_factor = 0.15
+	}
+	province_modifier = {
+		wetlands_construction_gold_cost = -0.10
+		wetlands_holding_construction_gold_cost = -0.10
+		wetlands_levy_size = 0.1
+		wetlands_supply_limit_mult = 0.20
 	}
 
 	cost = {
@@ -1880,9 +1913,9 @@ tradition_mudflat = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_communal }
-						any_in_list = { list = traits this = flag:ethos_bureaucratic }
-						any_in_list = { list = traits this = flag:ethos_stoic }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -1973,6 +2006,8 @@ tradition_nubian_warrior_queens = {
 		female_only_inheritance = yes
 		female_preference_inheritance = yes
 		prowess_from_martial_education = yes
+		unlock_voluntary_laampdom = yes
+		much_more_likely_to_be_laamps = yes
 	}
 	
 	cost = {
@@ -1985,7 +2020,7 @@ tradition_nubian_warrior_queens = {
 			if = {
 				limit = {
 					NOT = {
-						any_in_list = { list = traits this = flag:ethos_egalitarian }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -2080,9 +2115,9 @@ tradition_marine_corps = {
 			if = {
 				limit = {
 					NOR = {
-						any_in_list = { list = traits this = flag:ethos_bellicose }
-						any_in_list = { list = traits this = flag:ethos_courtly }
-						any_in_list = { list = traits this = flag:ethos_communal }
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
 					}
 				}
 				add = {
@@ -2144,6 +2179,7 @@ tradition_heritage_of_usa = {
 		unlock_maa_usfk = yes
 		courtiers_less_likely_to_leave_same_culture_court = yes
 		harder_to_hybridize = yes
+		less_likely_to_culture_convert = yes
 		expensive_convert_to_local_culture = yes
 	}
 	character_modifier = {

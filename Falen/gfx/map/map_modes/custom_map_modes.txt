@@ -1,0 +1,125 @@
+﻿#hec_imperial_mapmode = {
+#
+#}
+technologies_mapmode = {
+	color_mode = baronies
+	small_map_names = counties
+	large_map_names = counties
+	selection = holding
+	fill_in_impassable = no
+
+	barony_description = {
+		desc = {
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:technologies_map
+				}
+				desc = county_tech_total
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_metallurgy_map
+				}
+				desc = county_tech_metallurgy
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_siege_map
+				}
+				desc = county_tech_siege
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_horseback_riding_map
+				}
+				desc = county_tech_horseback_riding
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_fortification_map
+				}
+				desc = county_tech_fortification
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_conscription_map
+				}
+				desc = county_tech_conscription
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_archery_map
+				}
+				desc = county_tech_archery
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_military_organization_map
+				}
+				desc = county_tech_military_organization
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_agriculture_map
+				}
+				desc = county_tech_agriculture
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_commerce_map
+				}
+				desc = county_tech_commerce
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_navigation_map
+				}
+				desc = county_tech_navigation
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_construction_map
+				}
+				desc = county_tech_construction
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_urbanization_map
+				}
+				desc = county_tech_urbanization
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_mining_map
+				}
+				desc = county_tech_mining
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_electronics_map
+				}
+				desc = county_tech_electronics
+			}
+			triggered_desc = {
+				trigger = {
+					global_var:custom_mapmode = flag:tech_natural_science_map
+				}
+				desc = county_tech_natural_science
+			}
+		}
+	}
+
+	gradient_parameters = {
+		zoom_step =					2
+		gradient_alpha_inside = 	1
+		gradient_alpha_outside = 	1
+		gradient_width = 			0.4
+		gradient_color_mult =		1
+		edge_width = 				0
+		edge_sharpness = 			0
+		edge_alpha = 				0
+		edge_color_mult = 			0
+		before_lighting_blend =		1
+		after_lighting_blend =		0.5
+	}
+}

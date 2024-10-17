@@ -1,0 +1,147 @@
+technologies_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:technologies_map
+		}
+		tech_value_processing_total = yes
+	}
+	is_shown = {
+		global_var:custom_mapmode = flag:techtotal
+	}
+}
+tech_metallurgy_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_metallurgy_map
+		}
+		tech_value_processing = { TECH = metallurgy }
+	}
+}
+tech_siege_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_siege_map
+		}
+		tech_value_processing = { TECH = siege }
+	}
+}
+tech_horseback_riding_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_horseback_riding_map
+		}
+		tech_value_processing = { TECH = horseback_riding }
+	}
+}
+tech_fortification_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_fortification_map
+		}
+		tech_value_processing = { TECH = fortification }
+	}
+}
+tech_conscription_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_conscription_map
+		}
+		tech_value_processing = { TECH = conscription }
+	}
+}
+tech_archery_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_archery_map
+		}
+		tech_value_processing = { TECH = archery }
+	}
+}
+tech_military_organization_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_military_organization_map
+		}
+		tech_value_processing = { TECH = military_organization }
+	}
+}
+tech_agriculture_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_agriculture_map
+		}
+		tech_value_processing_blue = { TECH = agriculture }
+	}
+}
+tech_commerce_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_commerce_map
+		}
+		tech_value_processing_blue = { TECH = commerce }
+	}
+}
+tech_navigation_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_navigation_map
+		}
+		tech_value_processing_blue = { TECH = navigation }
+	}
+}
+tech_construction_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_construction_map
+		}
+		tech_value_processing_blue = { TECH = construction }
+	}
+}
+tech_urbanization_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_urbanization_map
+		}
+		tech_value_processing_blue = { TECH = urbanization }
+	}
+}
+tech_mining_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_mining_map
+		}
+		tech_value_processing_blue = { TECH = mining }
+	}
+}
+tech_electronics_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_electronics_map
+		}
+		tech_value_processing = { TECH = electronics }
+	}
+}
+tech_natural_science_map = {
+	effect = {
+		set_global_variable = {
+			name = custom_mapmode
+			value = flag:tech_natural_science_map
+		}
+		tech_value_processing = { TECH = natural_science }
+	}
+}

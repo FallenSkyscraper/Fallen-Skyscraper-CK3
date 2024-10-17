@@ -79,6 +79,137 @@ multiplayer_murder_schemes = {
 	}
 }
 
+conquerors_frequency = {
+	
+	categories = {
+		difficulty ai
+	}
+	
+	default = default_conquerors_frequency
+
+	default_conquerors_frequency = {
+
+	}
+	
+	no_conquerors_frequency = {
+	
+	}
+	
+	few_conquerors_frequency = {
+	
+	}
+	
+	very_few_conquerors_frequency = {
+	
+	}
+	
+	many_conquerors_frequency = {
+	
+	}
+
+	strong_default_conquerors_frequency = {
+
+	}
+	
+	strong_few_conquerors_frequency = {
+	
+	}
+	
+	strong_very_few_conquerors_frequency = {
+	
+	}
+	
+	strong_many_conquerors_frequency = {
+	
+	}
+}
+
+conquerors_bonuses = {
+	
+	categories = {
+		difficulty ai
+	}
+	
+	default = default_conquerors_bonuses
+
+	default_conquerors_bonuses = {
+
+	}
+	
+	no_conquerors_bonuses = {
+	
+	}
+	
+	extreme_conquerors_bonuses = {
+	
+	}
+	
+	random_conquerors_bonuses = {
+	
+	}
+}
+
+conquerors_inheritance = {
+	
+	categories = {
+		difficulty ai
+	}
+	
+	default = primary_conquerors_inheritance
+
+	default_conquerors_inheritance = {
+
+	}
+	
+	primary_conquerors_inheritance = {
+	
+	}
+	
+	no_conquerors_inheritance = {
+	
+	}
+}
+
+black_death_occurrence = {
+	
+	categories = {
+		difficulty health historicity
+	}
+	
+	default = bd_occurrence_historical
+	bd_occurrence_historical = {}
+	bd_occurrence_organic = {}
+	bd_occurrence_random = {}
+}
+
+black_death_frequency = {
+	
+	categories = {
+		difficulty health historicity
+	}
+	
+	default = bd_frequency_once
+	bd_frequency_once = {}
+	bd_frequency_unlimited = {}
+	bd_frequency_never = { flag = blocks_achievements }
+}
+
+other_epidemic_frequency = {
+	
+	categories = {
+		difficulty health
+	}
+	
+	default = epidemic_frequency_normal
+	epidemic_frequency_normal = {}
+	epidemic_frequency_often = {}
+	epidemic_frequency_very_often = {}
+	epidemic_frequency_doomsday = {}
+	epidemic_frequency_rare = {}
+	epidemic_frequency_very_rare = {}
+	epidemic_frequency_disabled = {}
+}
+
 minor_disease_frequency = {
 	
 	categories = {
@@ -94,6 +225,45 @@ minor_disease_frequency = {
 	fewer_minor_disease_frequency = {
 		flag = blocks_achievements
 	}
+}
+
+legend_spread_chance = {
+	
+	categories = {
+		tweaks
+	}
+	
+	default = legend_spread_chance_normal
+	legend_spread_chance_normal = {}
+	legend_spread_chance_high = {}
+	legend_spread_chance_very_high = {}
+	legend_spread_chance_low = {}
+	legend_spread_chance_very_low = {}
+}
+
+legend_cost = {
+	
+	categories = {
+		tweaks
+	}
+	
+	default = legend_cost_normal
+	legend_cost_normal = {}
+	legend_cost_high = {}
+	legend_cost_very_high = {}
+	legend_cost_low = {}
+	legend_cost_very_low = {}
+}
+
+historical_legends = {
+	
+	categories = {
+		historicity
+	}
+	
+	default = historical_legends_dynamic
+	historical_legends_dynamic = {}
+	historical_legends_only = {}
 }
 
 matrilineal_marriages = {
@@ -142,6 +312,64 @@ gender_equality = {
 	}
 
 	inversed_gender_equality = {
+
+	}
+}
+
+historical_characters = {
+	
+	categories = {
+		historicity
+	}
+	
+	default = default_historical_characters
+
+	default_historical_characters = {
+	
+	}
+	
+	all_historical_characters = {
+		
+	}
+
+	no_historical_characters = {
+
+	}
+}
+
+name_of_byzantium = {
+	
+	categories = {
+		historicity
+	}
+	
+	default = default_name_of_byzantium
+
+	default_name_of_byzantium = {
+	
+	}
+	
+	eastern_rome_name_of_byzantium = {
+		
+	}
+
+	roman_empire_name_of_byzantium = {
+
+	}
+
+	romania_name_of_byzantium = {
+
+	}
+
+	empire_of_the_greeks_name_of_byzantium = {
+
+	}
+
+	rhomaion_name_of_byzantium = {
+
+	}
+
+	unholy_roman_empire_name_of_byzantium = {
 
 	}
 }
@@ -335,7 +563,7 @@ random_harm_target = {
 		difficulty health
 	}
 		
-	default = harm_target_all
+	default = harm_target_ai_only
 	
 	harm_target_all = {}
 		
@@ -467,9 +695,9 @@ end_date = {
 		game_modes
 	}
 	
-	default = 3000_end_date
+	default = 1453_end_date
 
-	3000_end_date = {
+	1453_end_date = {
 	
 	}
 	
@@ -627,7 +855,6 @@ sexuality_distribution = {
 	sexuality_distribution_most_common_bisexuality = { }
 
 	sexuality_distribution_most_common_asexuality = { }
-
 }
 
 faith_acceptance = {
@@ -739,19 +966,6 @@ domain_limit_tweaks = {
 	}
 }
 
-hungarian_migration = {
-	
-	categories = {
-		historicity flavor
-	}
-	
-	default = launch_immediate
-	launch_historical = {}
-	launch_immediate = {}
-	launch_random = {}
-	launch_off = { flag = blocks_achievements }
-}
-
 dlc_fp1_scandinavian_adventurers = {
 	
 	categories = {
@@ -767,14 +981,59 @@ dlc_fp1_scandinavian_adventurers = {
 	fp1_scandi_adventurers_off = { flag = blocks_achievements }
 }
 
-dissolution_umayyad = {
+historicity_admin_donghae = {
 	
-	categories = {
-		historicity flavor
-	}
+	categories = { historicity }
 	
-	default = dissolution_unconstrained
-	dissolution_unconstrained = {}
-	dissolution_after_caliph_death = {}
-	dissolution_historical_date = {}
+	default = donghae_not_administrative
+
+	donghae_not_administrative = {}
+
+	donghae_administrative = {}
+}
+
+
+historicity_extra_admin_player_wherever = {
+	
+	categories = { historicity game_modes }
+	
+	default = historicity_extra_admin_player_wherever_gameplay_not_administrative
+
+	historicity_extra_admin_player_wherever_gameplay_not_administrative = {}
+
+	historicity_extra_admin_player_wherever_alt_historic_always = {}
+
+	historicity_extra_admin_player_wherever_alt_historic_with_august_trait = {}
+}
+
+title_creation_imperial_power_projection = {
+	
+	categories = { titles tweaks }
+	
+	default = title_creation_imperial_power_projection_none
+
+	title_creation_imperial_power_projection_none = {}
+
+	title_creation_imperial_power_projection_any_power_advantage = {}
+
+	title_creation_imperial_power_projection_hard_power_only = {}
+
+	title_creation_imperial_power_projection_soft_power_only = {}
+
+	title_creation_imperial_power_projection_hard_power_only_strict = {}
+
+	title_creation_imperial_power_projection_any_power_strict = {}
+}
+
+title_creation_imperial_power_projection_targeting = {
+
+	categories = { titles tweaks }
+	
+	default = title_creation_imperial_power_projection_targeting_ai_only
+
+	title_creation_imperial_power_projection_targeting_ai_only = {}
+
+	title_creation_imperial_power_projection_targeting_both = {}
+
+	title_creation_imperial_power_projection_targeting_player_only = {}
 }

@@ -1,60 +1,60 @@
 ﻿# 이거 전쟁 transfer 될때 버그 발생할텐데 해결법을 모르겠다
 
 on_war_started = {
-	effect = {
-		scope:attacker = {
-			if = {
-				limit = {
-					this.faith = { has_doctrine_parameter = old_world_war_bonus }
-					NOT = { this.faith = scope:defender.faith }
-				}
-				add_character_modifier = old_world_war_faith_bonus_modifier
-			}
-		}
-		scope:defender = {
-			if = {
-				limit = {
-					this.faith = { has_doctrine_parameter = old_world_war_bonus }
-					NOT = { this.faith = scope:attacker.faith }
-				}
-				add_character_modifier = old_world_war_faith_bonus_modifier
-			}
-		}
-	}
+#	effect = {
+#		scope:attacker = {
+#			if = {
+#				limit = {
+#					this.faith = { has_doctrine_parameter = old_world_war_bonus }
+#					NOT = { this.faith = scope:defender.faith }
+#				}
+#				add_character_modifier = old_world_war_faith_bonus_modifier
+#			}
+#		}
+#		scope:defender = {
+#			if = {
+#				limit = {
+#					this.faith = { has_doctrine_parameter = old_world_war_bonus }
+#					NOT = { this.faith = scope:attacker.faith }
+#				}
+#				add_character_modifier = old_world_war_faith_bonus_modifier
+#			}
+#		}
+#	}
 }
 
 on_war_won_attacker = {
-	effect = {
-		remove_old_world_war_bonus_effect = {
-			ATTACKER = scope:attacker
-			DEFENDER = scope:defender
-		}
-	}
+#	effect = {
+#		remove_old_world_war_bonus_effect = {
+#			ATTACKER = scope:attacker
+#			DEFENDER = scope:defender
+#		}
+#	}
 }
 
 on_war_won_defender = {
-	effect = {
-		remove_old_world_war_bonus_effect = {
-			ATTACKER = scope:attacker
-			DEFENDER = scope:defender
-		}
-	}
+#	effect = {
+#		remove_old_world_war_bonus_effect = {
+#			ATTACKER = scope:attacker
+#			DEFENDER = scope:defender
+#		}
+#	}
 }
 
 on_war_white_peace = {
-	effect = {
-		remove_old_world_war_bonus_effect = {
-			ATTACKER = scope:attacker
-			DEFENDER = scope:defender
-		}
-	}
+#	effect = {
+#		remove_old_world_war_bonus_effect = {
+#			ATTACKER = scope:attacker
+#			DEFENDER = scope:defender
+#		}
+#	}
 }
 
 on_war_invalidated = {
-	effect = {
-		remove_old_world_war_bonus_effect = {
-			ATTACKER = scope:attacker
-			DEFENDER = scope:defender
-		}
-	}
+#	effect = {
+#		remove_old_world_war_bonus_effect = {
+#			ATTACKER = scope:attacker
+#			DEFENDER = scope:defender
+#		}
+#	}
 }

@@ -29,9 +29,7 @@
 				AND = {
 					OR = {
 						government_has_flag = government_is_feudal
-						government_has_flag = government_is_clan
 							#fs_모드의 것들
-						government_has_flag = government_is_bureaucratic
 						government_has_flag = government_is_maritime
 						government_has_flag = government_is_theocratic_feudal
 						government_has_flag = government_is_secular_republic
@@ -64,6 +62,10 @@
 		pass_cost = {
 			prestige = change_succession_law_prestige_cost
 		}
+		potential = {
+			NOT = { government_has_flag = government_is_clan }
+			NOT = { government_has_flag = government_is_administrative }
+		}
 	}
 	
 	partition_succession_law = {
@@ -84,9 +86,7 @@
 			}
 			OR = {
 				government_has_flag = government_is_feudal
-				government_has_flag = government_is_clan
 				#fs_모드의
-				government_has_flag = government_is_bureaucratic
 				government_has_flag = government_is_maritime 
 				government_has_flag = government_is_theocratic_feudal
 				government_has_flag = government_is_secular_republic
@@ -121,6 +121,10 @@
 				limit = { has_realm_law = confederate_partition_succession_law }
 				value = 1
 			}
+		}
+		potential = {
+			NOT = { government_has_flag = government_is_clan }
+			NOT = { government_has_flag = government_is_administrative }
 		}
 	}
 
@@ -178,6 +182,10 @@
 				value = 2
 			}
 		}
+		potential = {
+			NOT = { government_has_flag = government_is_clan }
+			NOT = { government_has_flag = government_is_administrative }
+		}
 	}
 
 	youngest_confederate_partition_succession_law = {
@@ -222,6 +230,10 @@
 		}
 		pass_cost = {
 			prestige = change_succession_law_prestige_cost
+		}
+		potential = {
+			NOT = { government_has_flag = government_is_clan }
+			NOT = { government_has_flag = government_is_administrative }
 		}
 	}
 
@@ -270,6 +282,10 @@
 				limit = {has_realm_law = youngest_confederate_partition_succession_law}
 				value = 1
 			}
+		}
+		potential = {
+			NOT = { government_has_flag = government_is_clan }
+			NOT = { government_has_flag = government_is_administrative }
 		}
 	}
 
@@ -330,6 +346,10 @@
 				value = 2
 			}
 		}
+		potential = {
+			NOT = { government_has_flag = government_is_clan }
+			NOT = { government_has_flag = government_is_administrative }
+		}
 	}
 	
 	single_heir_succession_law = {
@@ -388,6 +408,9 @@
 				value = 3
 			}
 		}
+		potential = {
+			NOT = { government_has_flag = government_is_administrative }
+		}
 	}
 	
 	single_heir_succession_law_youngest = {
@@ -425,6 +448,10 @@
 		}
 		revoke_cost = {
 			prestige = change_succession_law_prestige_cost
+		}
+		
+		potential = {
+			NOT = { government_has_flag = government_is_administrative }
 		}
 	}
 	
@@ -481,6 +508,143 @@
 				}
 				value = 2
 			}
+		}
+		
+		potential = {
+			NOT = { government_has_flag = government_is_administrative }
+		}
+	}
+	
+	acclamation_succession_law = {
+		can_keep = {
+			can_keep_acclamation_succession_law_trigger = yes
+		}
+		can_pass = {
+			can_change_acclamation_succession_law_trigger = yes
+		}
+		can_have = {
+			can_have_acclamation_succession_law_trigger = yes
+		}
+		should_start_with = {
+			has_ep3_dlc_trigger = yes
+		#	has_title = title:e_byzantium
+			government_allows = administrative
+		}
+		succession = {
+			order_of_succession = appointment
+			appointment_type = admin_emperor
+		}
+		flag = advanced_succession_law
+		flag = can_designate_heirs
+		pass_cost = {
+			prestige = change_succession_law_prestige_cost
+		}
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = confederate_partition_succession_law }
+				value = 1
+			}
+		}
+		potential = {
+			government_allows = administrative
+		}
+	}
+
+	appointment_succession_law = {
+		can_keep = {
+			government_allows = administrative
+			is_independent_ruler = no
+
+			# Vassal Contract allows it
+			custom_description = {
+				text = succession_laws_must_not_be_forced_partition
+				NAND = {
+					is_independent_ruler = no
+					vassal_contract_has_flag = locked_to_partition
+				}
+			}
+		}
+		can_have = {
+			#can_have_single_heir_succession_law_trigger = yes
+			government_allows = administrative
+			is_independent_ruler = no
+		}
+		can_pass = {
+			can_change_succession_law_trigger = yes
+			government_allows = administrative
+			is_independent_ruler = no
+		}
+		should_start_with = {
+			government_allows = administrative
+			is_independent_ruler = no
+		}
+		succession = {
+			order_of_succession = appointment
+			appointment_type = admin_governor
+		}
+		flag = advanced_succession_law
+		modifier = {
+			glory_hound_opinion = -10
+			parochial_opinion = -5
+			player_heir_opinion = 20
+			eligible_child_except_player_heir_opinion = -5
+		}
+		pass_cost = {
+			prestige = change_succession_law_prestige_cost
+		}
+		revoke_cost = {
+			prestige = change_succession_law_prestige_cost
+		}
+
+		ai_will_do = {
+			if = {
+				limit = {
+					OR = {
+						has_realm_law = confederate_partition_succession_law
+						has_realm_law = partition_succession_law
+						has_realm_law = high_partition_succession_law
+					}
+				}
+				value = 3
+			}
+		}
+
+		potential = {
+			government_allows = administrative
+		}
+	}
+
+	landless_adventurer_succession_law = {
+		can_keep = {
+			government_has_flag = government_is_landless_adventurer
+		}
+		can_have = {
+			government_has_flag = government_is_landless_adventurer
+		}
+		can_pass = {
+			government_has_flag = government_is_landless_adventurer
+		}
+		should_start_with = {
+			government_has_flag = government_is_landless_adventurer
+		}
+		should_show_for_title = { # Never show this in the UI, just apply it through script
+			always = no
+		}
+		can_remove_from_title = {
+			always = no
+		}
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			rank = oldest
+			title_division = single_heir
+			exclude_rulers = yes
+			limit_to_courtiers = yes
+		}
+		flag = can_designate_heirs
+
+		potential = {
+			government_has_flag = government_is_landless_adventurer
 		}
 	}
 
@@ -548,6 +712,283 @@
 			order_of_succession = generate
 			pool_character_config = pool_city_succession
 		}
+	}
+	
+	clan_antagonistic_partition_succession_law = {
+		can_keep = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = antagonistic
+			}
+		}
+		can_pass = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = antagonistic
+			}
+		}
+		can_have = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = antagonistic
+			}
+		}
+
+		should_start_with = {
+			government_has_flag = government_is_clan
+			house ?= { has_house_unity_stage = antagonistic }
+		}
+
+		potential = {
+			government_has_flag = government_is_clan
+		}
+
+		requires_approve = {
+			NOT = {
+				government_has_flag = government_is_clan
+			}
+		}
+
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			rank = oldest
+			title_division = partition
+		}
+
+		flag = same_house_vassals_gain_claim_on_primary_title
+		flag = house_unity_stage_antagonistic
+
+		modifier = {
+			dynasty_house_opinion = -10
+			glory_hound_opinion = 15
+			zealot_opinion = 10
+			player_heir_opinion = 10
+			eligible_child_except_player_heir_opinion = 5
+		}
+
+		widget_name = "widget_clan_law"
+	}
+
+	clan_competitive_partition_succession_law = {
+		can_keep = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = competitive
+			}
+		}
+		can_pass = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = competitive
+			}
+		}
+		can_have = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = competitive
+			}
+		}
+		should_start_with = {
+			government_has_flag = government_is_clan
+			house ?= { has_house_unity_stage = competitive }
+		}
+
+		potential = {
+			government_has_flag = government_is_clan
+		}
+
+		requires_approve = {
+			NOT = {
+				government_has_flag = government_is_clan
+			}
+		}
+
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			rank = oldest
+			title_division = partition
+		}
+
+		flag = same_house_vassals_gain_claim_on_primary_title
+		flag = house_unity_stage_competitive
+
+		modifier = {
+			glory_hound_opinion = 10
+			zealot_opinion = 5
+			player_heir_opinion = 10
+			eligible_child_except_player_heir_opinion = 5
+		}
+
+		widget_name = "widget_clan_law"
+	}
+
+	clan_impassive_partition_succession_law = {
+		can_keep = {
+			government_has_flag = government_is_clan
+			house ?= {
+				OR = {
+					has_house_unity_stage = impassive
+					# In case the house is fully unlanded
+					has_house_unity = no
+				}
+			}
+		}
+		can_pass = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = impassive
+			}
+		}
+		can_have = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = impassive
+			}
+		}
+		should_start_with = {
+			government_has_flag = government_is_clan
+			house ?= {
+				OR = {
+					has_house_unity_stage = impassive
+					# In case the house is fully unlanded
+					has_house_unity = no
+				}
+			}
+		}
+
+		potential = {
+			government_has_flag = government_is_clan
+		}
+
+		requires_approve = {
+			NOT = {
+				government_has_flag = government_is_clan
+			}
+		}
+
+		flag = house_unity_stage_impassive
+
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			rank = oldest
+			title_division = partition
+			primary_heir_minimum_share = 0.25
+		}
+		modifier = {
+			glory_hound_opinion = 5
+			parochial_opinion = 5
+			player_heir_opinion = 15
+		}
+
+		widget_name = "widget_clan_law"
+	}
+
+	clan_friendly_partition_succession_law = {
+		can_keep = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = friendly
+			}
+		}
+		can_pass = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = friendly
+			}
+		}
+		can_have = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = friendly
+			}
+		}
+		should_start_with = {
+			government_has_flag = government_is_clan
+			house ?= { has_house_unity_stage = friendly }
+		}
+
+		potential = {
+			government_has_flag = government_is_clan
+		}
+
+		requires_approve = {
+			NOT = {
+				government_has_flag = government_is_clan
+			}
+		}
+
+		flag = house_unity_stage_friendly
+
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			rank = oldest
+			title_division = partition
+			primary_heir_minimum_share = 0.33
+		}
+		modifier = {
+			parochial_opinion = 10
+			courtly_opinion = 5
+			player_heir_opinion = 25
+		}
+
+		widget_name = "widget_clan_law"
+	}
+
+	clan_harmonious_partition_succession_law = {
+		can_keep = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = harmonious
+			}
+		}
+		can_pass = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = harmonious
+			}
+		}
+		can_have = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = harmonious
+			}
+		}
+		should_start_with = {
+			government_has_flag = government_is_clan
+			house ?= {
+				has_house_unity_stage = harmonious
+			}
+		}
+		potential = {
+			government_has_flag = government_is_clan
+		}
+
+		requires_approve = {
+			NOT = {
+				government_has_flag = government_is_clan
+			}
+		}
+
+		flag = house_unity_stage_harmonious
+
+		succession = {
+			order_of_succession = inheritance
+			traversal_order = children
+			rank = oldest
+			title_division = partition
+			primary_heir_minimum_share = 0.66
+		}
+		modifier = {
+			parochial_opinion = 15
+			courtly_opinion = 10
+			player_heir_opinion = 40
+		}
+
+		widget_name = "widget_clan_law"
 	}
 	
 	#republic election

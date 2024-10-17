@@ -251,11 +251,11 @@ window = {
 											visible = "[GetScriptedGui('conservative').IsShown(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End)]"
 										}
 									}
-									flowcontainer = {
-										margin_left = 10
+									container = {
 										icon = {
 											visible = "[GetScriptedGui('reform_approve').IsValid(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End)]"
 											size = { 25 25 }
+											position = { 10 0 }
 											#parentanchor = bottom|right
 											texture = "gfx/interface/icons/symbols/icon_check.dds"
 											tooltip = "hec_reform_supporting_tooltip"
@@ -264,6 +264,7 @@ window = {
 										icon = {
 											visible = "[Not(GetScriptedGui('reform_approve').IsValid(GuiScope.SetRoot(Scope.Title.GetHolder.MakeScope).End))]"
 											size = { 25 25 }
+											position = { 10 0 }
 											#parentanchor = bottom|right
 											texture = "gfx/interface/icons/symbols/icon_cross.dds"
 											tooltip = "hec_reform_opposing_tooltip"
