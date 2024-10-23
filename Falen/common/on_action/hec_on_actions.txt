@@ -17,12 +17,6 @@ on_title_gain = {
 	}
 }
 
-on_faith_monthly = {
-	on_actions = {
-		hec_authority_monthly_change
-	}
-}
-
 hec_authority_war_on_action = {
 	trigger = {
 		OR = {
@@ -82,10 +76,9 @@ hec_authority_inheritance_on_action = {
 		change_global_variable = { name = imperial_authority add = 10 }
 	}
 }
-
-hec_authority_monthly_change = {
+hec_authority_monthly_on_action = {
 	trigger = {
-		faith = faith:imperial_church
+		title:e_hec = { exists = yes }
 	}
 	effect = {
 		if = {
@@ -96,6 +89,5 @@ hec_authority_monthly_change = {
 			}
 			change_global_variable = { name = imperial_authority add = 0.1 }
 		}
-		
 	}
 }

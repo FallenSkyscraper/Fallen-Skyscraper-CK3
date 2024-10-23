@@ -1,0 +1,122 @@
+﻿### First of All : "Develop" A Technology
+## "Develop" A Tech Means 0.1 up, "Be Spreaded" A Tech Means 0.01 up.
+
+tech_develop_base_effect = {
+	change_variable = { name = tech_$TECHNAME$ add = 0.1 }
+}
+tech_spread_base_effect = {
+	change_variable = { name = tech_$TECHNAME$ add = 0.01 }
+}
+tech_spread_calc_effect = {
+	if = {
+		limit = {
+			scope:fromcounty.var:tech_$TECHNAME$ > scope:rootcounty.var:tech_$TECHNAME$
+		}
+		set_local_variable = {
+			name = base_spread
+			value = {
+				value = {
+					value = scope:fromcounty.var:tech_$TECHNAME$
+					subtract = scope:rootcounty.var:tech_$TECHNAME$
+				}
+				multiply = 10
+			}
+		}
+		set_local_variable = { name = modifiers_list value = 1 }
+		# religious difference
+		if = {
+			limit = {
+				scope:fromcounty.faith.faith_hostility_level = { target = scope:rootcounty.faith compare_value = 1 }
+			}
+			change_local_variable = { name = modifiers_list subtract = 0.2 }
+		}
+		else_if = {
+			limit = {
+				scope:fromcounty.faith.faith_hostility_level = { target = scope:rootcounty.faith compare_value = 2 }
+			}
+			change_local_variable = { name = modifiers_list subtract = 0.5 }
+		}
+		else_if = {
+			limit = {
+				scope:fromcounty.faith.faith_hostility_level = { target = scope:rootcounty.faith compare_value = 3 }
+			}
+			change_local_variable = { name = modifiers_list subtract = 0.8 }
+		}
+		# cultural difference
+		change_local_variable = {
+			name = modifiers_list
+			subtract = {
+				value = 0.01
+				multiply = {
+					value = 100
+					subtract = {
+						value = "scope:rootcounty.culture.cultural_acceptance(scope:fromcounty.culture)"
+					}
+				}
+			}
+		}
+		# traditions
+		if = {
+			limit = {
+				scope:rootcounty.culture = {
+					has_cultural_tradition = tradition_isolationist
+				}
+			}
+			change_local_variable = { name = modifiers_list subtract = 0.35 }
+		}
+		if = {
+			limit = {
+				scope:fromcounty.culture = {
+					has_cultural_tradition = tradition_isolationist
+				}
+			}
+			change_local_variable = { name = modifiers_list subtract = 0.35 }
+		}
+		change_local_variable = {
+			name = base_spread
+			multiply = local_var:modifiers_list
+		}
+		duel = {
+			value = local_var:base_spread
+			0 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1
+					min = 0
+				}
+				scope:rootcounty = {
+					tech_spread_base_effect = { TECHNAME = $TECHNAME$ }
+				}
+			}
+			100 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+					min = -100
+				}
+			}
+		}
+	}
+}
+		
+tech_spread_scripted_effect = {
+	save_scope_as = rootcounty
+	every_connected_county = {
+		save_scope_as = fromcounty
+		tech_spread_calc_effect = { TECHNAME = metallurgy }
+		tech_spread_calc_effect = { TECHNAME = siege }
+		tech_spread_calc_effect = { TECHNAME = horseback_riding }
+		tech_spread_calc_effect = { TECHNAME = fortification }
+		tech_spread_calc_effect = { TECHNAME = conscription }
+		tech_spread_calc_effect = { TECHNAME = archery }
+		tech_spread_calc_effect = { TECHNAME = military_organization }
+		tech_spread_calc_effect = { TECHNAME = agriculture }
+		tech_spread_calc_effect = { TECHNAME = commerce }
+		tech_spread_calc_effect = { TECHNAME = navigation }
+		tech_spread_calc_effect = { TECHNAME = construction }
+		tech_spread_calc_effect = { TECHNAME = urbanization }
+		tech_spread_calc_effect = { TECHNAME = mining }
+		clear_saved_scope = fromcounty
+	}
+	clear_saved_scope = rootcounty
+}

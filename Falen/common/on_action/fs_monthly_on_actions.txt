@@ -1,0 +1,11 @@
+﻿on_game_start_after_lobby = {
+	on_actions = {
+		delay = { days = 31 }
+		global_monthly_pulse
+	}
+}
+global_monthly_pulse = {
+	events = {
+		global_monthly.1
+	}
+}

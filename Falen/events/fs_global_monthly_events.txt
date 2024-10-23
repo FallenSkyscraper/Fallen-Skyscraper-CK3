@@ -1,0 +1,31 @@
+﻿namespace = global_monthly
+
+global_monthly.1 = {
+	scope = none
+	type = empty
+	hidden = yes
+	immediate = {
+		#every_county = {
+		#	limit = { has_county_flag = tech_on_research }
+		#	tech_research_scripted_effect = yes
+		#}
+		every_county = {
+			trigger_event = { id = global_monthly.2 }
+		}
+		### HEC Monthly Changes
+		trigger_event = { on_action = hec_authority_monthly_on_action }
+		trigger_event = {
+			id = global_monthly.1
+			months = 1
+		}
+		
+	}
+}
+global_monthly.2 = {
+	scope = none
+	type = empty
+	hidden = yes
+	immediate = {
+		tech_spread_scripted_effect = yes
+	}
+}
