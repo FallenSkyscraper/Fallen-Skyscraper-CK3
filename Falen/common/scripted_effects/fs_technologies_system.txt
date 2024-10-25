@@ -49,9 +49,7 @@ tech_spread_calc_effect = {
 				value = 0.01
 				multiply = {
 					value = 100
-					subtract = {
-						value = "scope:rootcounty.culture.cultural_acceptance(scope:fromcounty.culture)"
-					}
+					subtract = "scope:rootcounty.culture.cultural_acceptance(scope:fromcounty.culture)"
 				}
 			}
 		}
@@ -71,6 +69,13 @@ tech_spread_calc_effect = {
 				}
 			}
 			change_local_variable = { name = modifiers_list subtract = 0.35 }
+		}
+		## same realm
+		if = {
+			limit = {
+				scope:rootcounty.holder.top_liege = scope:fromcounty.holder.top_liege
+			}
+			change_local_variable = { name = modifiers_list add = 0.4 }
 		}
 		change_local_variable = {
 			name = base_spread
@@ -101,7 +106,7 @@ tech_spread_calc_effect = {
 		
 tech_spread_scripted_effect = {
 	save_scope_as = rootcounty
-	every_connected_county = {
+	every_neighboring_county = {
 		save_scope_as = fromcounty
 		tech_spread_calc_effect = { TECHNAME = metallurgy }
 		tech_spread_calc_effect = { TECHNAME = siege }
