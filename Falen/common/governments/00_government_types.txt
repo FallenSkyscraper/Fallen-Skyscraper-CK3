@@ -269,7 +269,7 @@ holy_order_government = {
 
 	valid_holdings = { castle_holding city_holding }
 
-	flag = can_not_be_vassal_or_liege
+	flag = cannot_be_vassal_or_liege
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_holy_order
 	color = hsv{ 0.00 0.00 0.66 }
@@ -353,7 +353,7 @@ landless_adventurer_government = {
 
 	character_modifier = {
 		active_accolades = -100
-		knight_limit = 10
+		knight_limit = 2
 		men_at_arms_cap = -3
 		men_at_arms_limit = -2
 		character_travel_speed = 20
