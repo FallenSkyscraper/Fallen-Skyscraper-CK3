@@ -88,30 +88,158 @@ conservative = {
 reform_approve = {
 	scope = character
 	is_valid = {
-		OR = {
-			has_trait = hec_reformist
-			AND = {
-				has_trait = hec_religious
-				title:e_hec.holder.opinion = {
-					target = title:k_imperial_church.holder
-					value >= 50
-				}
-			}
-		}
+		hec_reform_approval_trigger = yes
 	}
 }
 reform_against = {
 	scope = character
 	is_valid = {
-		OR = {
-			has_trait = hec_conservative
-			AND = {
-				has_trait = hec_religious
-				title:e_hec.holder.opinion = {
-					target = title:k_imperial_church.holder
-					value < 50
-				}
-			}
+		hec_reform_opposition_trigger = yes
+	}
+}
+hec_reform_1_pass = {
+	scope = character
+	is_valid = {
+		hec_reform_authority_trigger = yes
+		NOT = { has_global_variable = hec_reform_1 }
+	}
+	effect = {
+		set_global_variable = hec_reform_1
+		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+	}
+}
+hec_reform_2_pass = {
+	scope = character
+	is_valid = {
+		hec_reform_authority_trigger = yes
+		custom_tooltip = {
+			text = "hec_reform_prev_need"
+			has_global_variable = hec_reform_1
 		}
+		NOT = { has_global_variable = hec_reform_2 }
+	}
+	effect = {
+		set_global_variable = hec_reform_2
+		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+	}
+}
+hec_reform_3_pass = {
+	scope = character
+	is_valid = {
+		hec_reform_authority_trigger = yes
+		custom_tooltip = {
+			text = "hec_reform_prev_need"
+			has_global_variable = hec_reform_2
+		}
+		NOT = { has_global_variable = hec_reform_3 }
+	}
+	effect = {
+		set_global_variable = hec_reform_3
+		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+	}
+}
+hec_reform_4_pass = {
+	scope = character
+	is_valid = {
+		hec_reform_authority_trigger = yes
+		custom_tooltip = {
+			text = "hec_reform_prev_need"
+			has_global_variable = hec_reform_3
+		}
+		NOT = { has_global_variable = hec_reform_4 }
+	}
+	effect = {
+		set_global_variable = hec_reform_4
+		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+	}
+}
+hec_reform_5_pass = {
+	scope = character
+	is_valid = {
+		hec_reform_authority_trigger = yes
+		custom_tooltip = {
+			text = "hec_reform_prev_need"
+			has_global_variable = hec_reform_4
+		}
+		NOT = { has_global_variable = hec_reform_5 }
+	}
+	effect = {
+		set_global_variable = hec_reform_5
+		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+	}
+}
+hec_reform_6_pass = {
+	scope = character
+	is_valid = {
+		hec_reform_authority_trigger = yes
+		custom_tooltip = {
+			text = "hec_reform_prev_need"
+			has_global_variable = hec_reform_5
+		}
+		NOT = { has_global_variable = hec_reform_6 }
+	}
+	effect = {
+		set_global_variable = hec_reform_6
+		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+	}
+}
+hec_reform_7_pass = {
+	scope = character
+	is_valid = {
+		hec_reform_authority_trigger = yes
+		custom_tooltip = {
+			text = "hec_reform_prev_need"
+			has_global_variable = hec_reform_6
+		}
+		NOT = { has_global_variable = hec_reform_7 }
+	}
+	effect = {
+		set_global_variable = hec_reform_7
+		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+	}
+}
+hec_reform_8_pass = {
+	scope = character
+	is_valid = {
+		hec_reform_authority_trigger = yes
+		custom_tooltip = {
+			text = "hec_reform_prev_need"
+			has_global_variable = hec_reform_7
+		}
+		NOT = { has_global_variable = hec_reform_8 }
+	}
+	effect = {
+		set_global_variable = hec_reform_8
+		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+	}
+}
+hec_reform_9_pass = {
+	scope = character
+	is_valid = {
+		hec_reform_authority_trigger = yes
+		custom_tooltip = {
+			text = "hec_reform_prev_need"
+			has_global_variable = hec_reform_8
+		}
+		NOT = { has_global_variable = hec_reform_9 }
+	}
+	effect = {
+		set_global_variable = hec_reform_9
+		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+	}
+}
+hec_reform_10_pass = {
+	scope = character
+	is_valid = {
+		hec_reform_authority_trigger = yes
+		custom_tooltip = {
+			text = "hec_reform_prev_need"
+			has_global_variable = hec_reform_9
+		}
+		NOT = { has_global_variable = hec_reform_10 }
+	}
+	effect = {
+		set_global_variable = hec_reform_10
+		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 	}
 }

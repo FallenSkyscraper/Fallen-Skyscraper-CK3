@@ -1,0 +1,65 @@
+types HECViews {
+	type hec_authority_change_tooltip = widget {
+		size = { 250 250 }
+		alwaystransparent = no
+		layoutpolicy_vertical = expanding
+		using = DefaultTooltipBackground
+		vbox = {
+			margin_top = 15
+			
+			text_single = {
+				visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('imperial_authority_peace_bonus'),'(CFixedPoint)0')]"
+				text = "imperial_authority_peace"
+				margin_bottom = 2
+			}
+			text_single = {
+				visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('imperial_authority_prestige_bonus'),'(CFixedPoint)0')]"
+				text = "imperial_authority_prestige_level"
+				margin_bottom = 2
+			}
+			text_single = {
+				visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('imperial_authority_piety_bonus'),'(CFixedPoint)0')]"
+				text = "imperial_authority_piety_level"
+				margin_bottom = 2
+			}
+			text_single = {
+				visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('imperial_authority_holy_site_bonus'),'(CFixedPoint)0')]"
+				text = "imperial_authority_holy_site"
+				margin_bottom = 2
+			}
+			text_single = {
+				visible = "[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('imperial_authority_realm_size_bonus'),'(CFixedPoint)0')]"
+				text = "imperial_authority_realm_size"
+				margin_bottom = 2
+			}
+			text_single = {
+				visible = "[GreaterThan_CFixedPoint('(CFixedPoint)0',EmptyScope.ScriptValue('imperial_authority_heresy_county_malus'))]"
+				text = "imperial_authority_heresy_county"
+				margin_bottom = 2
+			}
+			text_single = {
+				visible = "[GreaterThan_CFixedPoint('(CFixedPoint)0',EmptyScope.ScriptValue('imperial_authority_heresy_vassal_malus'))]"
+				text = "imperial_authority_heresy_vassal"
+				margin_bottom = 2
+			}
+			text_single = {
+				visible = "[GreaterThan_CFixedPoint('(CFixedPoint)0',EmptyScope.ScriptValue('imperial_authority_heresy_elector_malus'))]"
+				text = "imperial_authority_heresy_elector"
+				margin_bottom = 10
+			}
+			text_single = {
+				visible = "HasGlobalVariable('hec_reform_1')"
+				text = "imperial_authority_reform_1"
+				margin_bottom = 5
+			}
+			expand = {}
+		}
+	}
+	type hec_reform_tooltip = widget {
+		size = { 250 200 }
+		alwaystransparent = no
+		layoutpolicy_vertical = expanding
+		using = DefaultTooltipBackground
+		vbox = { }
+	}
+}

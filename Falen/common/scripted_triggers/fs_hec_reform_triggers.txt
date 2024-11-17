@@ -1,0 +1,30 @@
+﻿hec_reform_authority_trigger = {
+	custom_tooltip = {
+		text = "Imperial_Authority_BiggerThan"
+		global_var:imperial_authority >= imperial_authority_reform_pass_value
+	}
+}
+hec_reform_approval_trigger = {
+	OR = {
+		has_trait = hec_reformist
+		AND = {
+			has_trait = hec_religious
+			title:e_hec.holder.opinion = {
+				target = title:k_imperial_church.holder
+				value >= 50
+			}
+		}
+	}
+}
+hec_reform_opposition_trigger = {
+	OR = {
+		has_trait = hec_conservative
+		AND = {
+			has_trait = hec_religious
+			title:e_hec.holder.opinion = {
+				target = title:k_imperial_church.holder
+				value < 50
+			}
+		}
+	}
+}

@@ -1,0 +1,123 @@
+﻿imperial_authority_change_value = {
+	value = 0
+	add = imperial_authority_peace_bonus
+	add = imperial_authority_prestige_bonus
+	add = imperial_authority_piety_bonus
+	add = imperial_authority_holy_site_bonus
+	add = imperial_authority_realm_size_bonus
+	add = imperial_authority_heresy_county_malus
+	add = imperial_authority_heresy_vassal_malus
+	add = imperial_authority_heresy_elector_malus
+	multiply = imperial_authority_reform_1_bonus
+}
+imperial_authority_reform_1_bonus = {
+	value = 1
+	if = {
+		limit = { has_global_variable = hec_reform_1 }
+		add = 0.2
+	}
+}
+imperial_authority_peace_bonus = {
+	value = 0
+	if = {
+		limit = {
+			title:e_hec.holder = {
+				is_at_war = no
+			}
+		}
+		add = 0.1
+	}
+}
+imperial_authority_prestige_bonus = {
+	value = 0
+	if = {
+		limit = { title:e_hec.holder.prestige_level = 1 }
+		add = 0.1
+	}
+	else_if = {
+		limit = { title:e_hec.holder.prestige_level = 2 }
+		add = 0.2
+	}
+	else_if = {
+		limit = { title:e_hec.holder.prestige_level = 3 }
+		add = 0.5
+	}
+	else_if = {
+		limit = { title:e_hec.holder.prestige_level = 4 }
+		add = 0.75
+	}
+	else_if = {
+		limit = { title:e_hec.holder.prestige_level = 5 }
+		add = 1.5
+	}
+}
+imperial_authority_piety_bonus = {
+	value = 0
+	if = {
+		limit = { title:e_hec.holder.piety_level = 1 }
+		add = 0.1
+	}
+	else_if = {
+		limit = { title:e_hec.holder.piety_level = 2 }
+		add = 0.2
+	}
+	else_if = {
+		limit = { title:e_hec.holder.piety_level = 3 }
+		add = 0.5
+	}
+	else_if = {
+		limit = { title:e_hec.holder.piety_level = 4 }
+		add = 1
+	}
+	else_if = {
+		limit = { title:e_hec.holder.piety_level = 5 }
+		add = 2
+	}
+}
+imperial_authority_holy_site_bonus = {
+	value = 0
+	add = faith:imperial_church.holy_sites_controlled
+	divide = 10
+}
+imperial_authority_realm_size_bonus = {
+	value = 0
+	add = title:e_hec.holder.realm_size
+	divide = 100
+}
+imperial_authority_heresy_county_malus = {
+	value = 0
+	title:e_hec.holder = {
+		every_realm_county = {
+			limit = { NOT = { faith = faith:imperial_church } }
+			subtract = 0.05
+		}
+	}
+}
+imperial_authority_heresy_vassal_malus = {
+	value = 0
+	title:e_hec.holder = {
+		every_vassal_or_below = {
+			limit = {
+				primary_title.tier >= tier_county
+				NOT = { faith = faith:imperial_church }
+			}
+			subtract = 0.1
+		}
+	}
+}
+imperial_authority_heresy_elector_malus = {
+	value = 0
+	every_in_global_list = { 
+		variable = hre_elector_list
+		limit = { NOT = { holder.faith = faith:imperial_church } }
+		subtract = 0.5
+	}
+}
+imperial_authority_reform_pass_value = {
+	value = 100
+	every_in_global_list = {
+		variable = hre_elector_list
+		limit = { holder = { hec_reform_approval_trigger = yes } }
+		subtract = 10
+	}
+}

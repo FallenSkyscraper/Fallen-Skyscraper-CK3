@@ -81,13 +81,6 @@ hec_authority_monthly_on_action = {
 		title:e_hec = { exists = yes }
 	}
 	effect = {
-		if = {
-			limit = {
-				title:e_hec.holder = {
-					is_at_war = no
-				}
-			}
-			change_global_variable = { name = imperial_authority add = 0.1 }
-		}
+		change_global_variable = { name = imperial_authority add = imperial_authority_change_value }
 	}
 }
