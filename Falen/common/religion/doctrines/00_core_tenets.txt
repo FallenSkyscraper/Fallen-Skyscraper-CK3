@@ -1288,6 +1288,10 @@ doctrine_core_tenets = {
 				round = yes
 			}
 		}
+		
+		is_shown = {
+			NOT = { has_doctrine = tenet_diamat }
+		}
 
 		traits = {
 			virtues = {
@@ -3659,6 +3663,53 @@ doctrine_core_tenets = {
 			clergy_can_fight = yes
 			
 			unlock_voluntary_laampdom_faith = yes
+		}
+	}
+	tenet_diamat = { # 변증법적 유물론
+		icon = core_tenet_literalism
+		piety_cost = {
+		
+			if = {
+				limit = {
+					religion_tag = communism_religion
+				}
+				value = faith_tenet_cost_low
+			}
+			else= {
+				value = faith_tenet_cost_high
+			}
+
+			# Multiplier for keeping same tenet
+			if = {
+				limit = { has_doctrine = tenet_world_revolution }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+
+		is_shown = {
+			religion_tag = communism_religion
+			NOT = { has_doctrine = tenet_literalism }
+		}
+
+		parameters = {
+			maintains_head_of_faith_on_creation = yes
+			same_hof_hostility_override = 1
+			literalist_debate_enabled = yes
+		}
+		traits = {
+			virtues = {
+				education_learning_3
+				education_learning_4
+				education_learning_5
+				scholar
+			}
+		}
+		
+		character_modifier = {
+			monthly_learning_lifestyle_xp_gain_mult = 0.1
+			learning = 1
+			stewardship = 1
+			monthly_piety_gain = -0.1
 		}
 	}
 	tenet_mystical_birthright = {
