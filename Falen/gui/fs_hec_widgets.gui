@@ -48,7 +48,7 @@ types HECViews {
 				margin_bottom = 10
 			}
 			text_single = {
-				visible = "HasGlobalVariable('hec_reform_1')"
+				"[GreaterThan_CFixedPoint(EmptyScope.ScriptValue('imperial_authority_reform_1_bonus'),'(CFixedPoint)1')]"
 				text = "imperial_authority_reform_1"
 				margin_bottom = 5
 			}

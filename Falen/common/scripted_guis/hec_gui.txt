@@ -105,6 +105,7 @@ hec_reform_1_pass = {
 	}
 	effect = {
 		set_global_variable = hec_reform_1
+		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 	}
 }
@@ -120,6 +121,7 @@ hec_reform_2_pass = {
 	}
 	effect = {
 		set_global_variable = hec_reform_2
+		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 	}
 }
@@ -135,7 +137,25 @@ hec_reform_3_pass = {
 	}
 	effect = {
 		set_global_variable = hec_reform_3
+		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+		#Laws
+		if = {
+			limit = { has_realm_law = crown_authority_0 }
+			add_realm_law_skip_effects = crown_authority_1
+		}
+		else_if = {
+			limit = {
+				has_realm_law = crown_authority_1
+			}
+			add_realm_law_skip_effects = crown_authority_2
+		}
+		else_if = {
+			limit = {
+				has_realm_law = crown_authority_2
+			}
+			add_realm_law_skip_effects = crown_authority_3
+		}
 	}
 }
 hec_reform_4_pass = {
@@ -150,6 +170,7 @@ hec_reform_4_pass = {
 	}
 	effect = {
 		set_global_variable = hec_reform_4
+		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 	}
 }
@@ -165,6 +186,7 @@ hec_reform_5_pass = {
 	}
 	effect = {
 		set_global_variable = hec_reform_5
+		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 	}
 }
@@ -180,6 +202,7 @@ hec_reform_6_pass = {
 	}
 	effect = {
 		set_global_variable = hec_reform_6
+		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 	}
 }
@@ -195,6 +218,7 @@ hec_reform_7_pass = {
 	}
 	effect = {
 		set_global_variable = hec_reform_7
+		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 	}
 }
@@ -210,6 +234,7 @@ hec_reform_8_pass = {
 	}
 	effect = {
 		set_global_variable = hec_reform_8
+		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 	}
 }
@@ -225,6 +250,7 @@ hec_reform_9_pass = {
 	}
 	effect = {
 		set_global_variable = hec_reform_9
+		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 	}
 }
@@ -240,6 +266,7 @@ hec_reform_10_pass = {
 	}
 	effect = {
 		set_global_variable = hec_reform_10
+		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 	}
 }

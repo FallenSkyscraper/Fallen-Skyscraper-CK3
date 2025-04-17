@@ -78,7 +78,19 @@ types LabelTypes
         alwaystransparent = no
         fontsize_min = 12
     }
+	type text_multi_big = textbox {
 
+        using = Font_Type_Standard
+        using = Font_Size_Big
+        multiline = yes
+        elide = right
+        align = top|left
+        size = { 45 45 }
+        text = "DEFAULT_TEXT"
+        default_format = "#medium"
+        alwaystransparent = no
+        fontsize_min = 12
+    }
     # Normal text with dark, centered on background label.
     type text_label_center = text_single {
         text = "DEFAULT_TEXT"

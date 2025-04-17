@@ -1,5 +1,10 @@
 ﻿imperial_authority_change_value = {
 	value = 0
+	add = imperial_authority_total_gain
+	multiply = imperial_authority_reform_1_bonus
+}
+imperial_authority_total_gain = {
+	value = 0
 	add = imperial_authority_peace_bonus
 	add = imperial_authority_prestige_bonus
 	add = imperial_authority_piety_bonus
@@ -8,12 +13,14 @@
 	add = imperial_authority_heresy_county_malus
 	add = imperial_authority_heresy_vassal_malus
 	add = imperial_authority_heresy_elector_malus
-	multiply = imperial_authority_reform_1_bonus
 }
 imperial_authority_reform_1_bonus = {
 	value = 1
 	if = {
-		limit = { has_global_variable = hec_reform_1 }
+		limit = { 
+			has_global_variable = hec_reform_1
+			imperial_authority_total_gain > 0
+		}
 		add = 0.2
 	}
 }
