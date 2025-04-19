@@ -1228,3 +1228,79 @@ tech_county_effect = {
 		add_county_modifier = tech_$TECHNAME$_modifier_0
 	}
 }
+
+fs_missionary_great_effect = {
+	$LOCATION$ = {
+		set_county_faith = $PREACHER$.faith
+		add_county_modifier = {
+			modifier = recently_preached
+			years = 5
+		}
+		save_scope_as = location
+		$PREACHER$ = { save_scope_as = missionary }
+		create_character = {
+			template = generic_peasant_character
+			location = this.location
+			faith = location.faith
+			culture = location.culture
+			random_traits = yes
+			trait = peasant_leader
+			save_scope_as = peasant
+		}
+		$LOCATION$.holder = {
+			trigger_event = fs_missionaries.2
+		}
+	}
+}
+fs_missionary_effect = {
+	$LOCATION$ = {
+		set_county_faith = $PREACHER$.faith
+		add_county_modifier = {
+			modifier = recently_preached
+			years = 5
+		}
+	}
+}
+fs_missionary_small_effect = {
+	$LOCATION$ = {
+		add_county_modifier = {
+			modifier = recently_preached
+			years = 5
+		}
+		if = {
+			limit = {
+				NOT = { has_county_modifier = local_minor_faith }
+			}
+			add_county_modifier = {
+				modifier = local_minor_faith
+				years = 30
+			}
+			set_variable = {
+				name = local_faith
+				value = $PREACHER$.faith
+				years = 30
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { var:local_faith ?= $PREACHER$.faith }
+			}
+			remove_county_modifier = local_minor_faith
+			remove_variable = local_faith
+			add_county_modifier = {
+				modifier = local_minor_faith
+				years = 30
+			}
+			set_variable = {
+				name = local_faith
+				value = $PREACHER$.faith
+				years = 30
+			}
+		}
+		else = {
+			remove_county_modifier = local_minor_faith
+			remove_variable = local_faith
+			set_county_faith = $PREACHER$.faith
+		}
+	}
+}

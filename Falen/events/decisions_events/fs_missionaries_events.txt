@@ -1,0 +1,218 @@
+﻿namespace = fs_missionaries
+
+fs_missionaries.1 = {
+	type = character_event
+	title = fs_missionaries.1.t
+	desc = fs_missionaries.1.desc
+	theme = learning
+	override_background = {
+		trigger = {
+			location = {
+				county.development_level >= 10
+				has_holding = yes
+			}
+		}
+		reference = market
+	}
+	override_background = {
+		trigger = {
+			location = {
+				OR = {
+					county.development_level < 10
+					has_holding = no
+				}
+			}
+		}
+		reference = terrain_travel
+	}
+	left_portrait = {
+		character = root
+		animation = debating
+	}
+
+	# Preach the faith, diplomatically
+	option = {
+		name = fs_missionaries.1.a
+		duel = {
+			skills = { diplomacy learning }
+			value = high_skill_rating
+			5 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 4.5
+					min = -49
+				}
+				modifier = {
+					add = {
+						subtract = scope:location.county.county_opinion
+					}
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { scope:location.county.religion = root.religion }
+				}
+				min = 0
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = fs_missionaries.1.a.win
+					left_icon = root
+					custom_tooltip = {
+						text = missionary_great_success_tt
+						fs_missionary_great_effect = {
+							PREACHER = root
+							LOCATION = scope:location
+						}
+					}
+				}
+			}
+			15 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				modifier = {
+					add = {
+						subtract = scope:location.county.county_opinion
+						divide = 2
+					}
+				}
+				modifier = {
+					factor = 0.75
+					NOT = { scope:location.county.religion = root.religion }
+				}
+				min = 0
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = fs_missionaries.1.a.win
+					left_icon = root
+					custom_tooltip = {
+						text = missionary_success_tt
+						fs_missionary_effect = {
+							PREACHER = root
+							LOCATION = scope:location
+						}
+					}
+				}
+			}
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 1.5
+					min = -49
+				}
+				min = 10
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = fs_missionaries.1.a.win
+					left_icon = root
+					custom_tooltip = {
+						text = missionary_small_success_tt
+						fs_missionary_small_effect = {
+							PREACHER = root
+							LOCATION = scope:location
+						}
+					}
+				}
+			}
+			40 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				modifier = {
+					add = scope:location.county.county_opinion
+				}
+				modifier = {
+					factor = 1.25
+					NOT = { scope:location.county.religion = root.religion }
+				}
+				min = 10
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = fs_missionaries.1.a.lose
+					left_icon = root
+					scope:location.county = {
+						add_county_modifier = {
+							modifier = tougher_to_convert
+							years = 10
+						}
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+fs_missionaries.2 = {
+	type = character_event
+	title = fs_missionaries.2.t
+	desc = fs_missionaries.2.desc
+	theme = learning
+	override_background = { reference = courtyard }
+	left_portrait = {
+		character = scope:missionary
+		animation = debating
+	}
+	right_portrait = {
+		character = scope:peasant
+		animation = personality_zealous
+	}
+	center_portrait = {
+		character = root
+		animation = disapproval
+	}
+	option = { # To Convert.
+		name = fs_missionaries.2.a
+		custom_tooltip = fs_missionaries.2.a.tt
+		set_character_faith_with_conversion = scope:missionary.faith
+		add_prestige = -250
+		add_piety = -250
+		stress_impact = {
+			zealous = major_stress_impact_gain
+			patient = medium_stress_impact_gain
+			wrathful = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 40
+			ai_value_modifier = {
+				ai_zeal = -1
+			}
+		}
+	}
+	option = { # Wait...wait...
+		name = fs_missionaries.2.b
+		custom_tooltip = fs_missionaries.2.b.tt
+		add_prestige = -250
+		ai_chance = { base = 100 }
+		stress_impact = {
+			wrathful = major_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+			shy = medium_stress_impact_gain
+			arbitrary = medium_stress_impact_gain
+		}
+	}
+	option = { # PURGE the heresy!
+		name = fs_missionaries.2.c
+		custom_tooltip = fs_missionaries.2.c.tt
+		rightfully_imprison_character_effect = {
+			TARGET = scope:preacher
+			IMPRISONER = root
+		}
+		stress_impact = {
+			cynical = medium_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+			gregarious = medium_stress_impact_gain
+			just = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_zeal = 1
+			}
+		}
+	}
+}

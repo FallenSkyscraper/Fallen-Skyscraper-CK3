@@ -1,0 +1,36 @@
+﻿fs_evangelize_province_trigger = {
+	save_temporary_scope_as = county
+	scope:county.faith = {
+		NOR = {
+			# Faith is different from me
+			custom_tooltip = {
+				text = zealous_missionary_start_decision_other_faith_location
+				this = root.faith
+			}
+			# County is not held by it's Faith's Religious Head
+			custom_tooltip = {
+				text = is_held_by_hof_tt
+				religious_head ?= scope:county.holder
+			}
+		}
+	}
+	#development_level <= 25
+	custom_tooltip = {
+		text = has_tougher_to_convert_tt
+		NOT = { has_county_modifier = tougher_to_convert }
+	}
+	custom_tooltip = {
+		text = has_recently_preached_tt
+		NOT = { has_county_modifier = recently_preached }
+	}
+	#custom_tooltip = {
+	#	text = 0_or_below_county_opinion_tt
+	#	county_opinion <= 0
+	#}
+	custom_tooltip = {
+		text = NOT_IS_HOLY_SITE_TRIGGER
+		NOT = {
+			any_direct_de_jure_vassal_title = { is_holy_site_of = scope:county.faith }
+		}
+	}
+}

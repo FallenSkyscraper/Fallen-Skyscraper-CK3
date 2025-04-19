@@ -1,0 +1,67 @@
+﻿fs_evangelize_the_faith = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_secret_faith.dds"
+	}
+	sort_order = 500
+	ai_check_interval = 120
+
+	desc = hasan_evangelize_the_faith_desc
+	selection_tooltip = hasan_evangelize_the_faith_tooltip
+	decision_group_type = story_cycle_hasan
+
+	cooldown = { months = 1 }
+
+	is_shown = {
+		is_landed = no
+		is_landless_adventurer = yes
+		has_realm_law = camp_purpose_missionaries
+	}
+
+	is_valid = {
+		domicile.domicile_location.county ?= {
+			OR = {
+				fs_evangelize_province_trigger = yes
+				custom_tooltip = {
+					text = or_a_neigbouring_county_tt
+					save_temporary_scope_as = county_check
+					any_neighboring_county = {
+						fs_evangelize_province_trigger = yes
+						holder.top_liege = scope:county_check.holder.top_liege
+					}
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_alive = yes
+		is_available_adult = yes
+		has_contagious_deadly_disease_trigger = no
+	}
+
+	cost = { piety = 200 }
+
+	effect = {
+		domicile.domicile_location.county ?= {
+			if = {
+				limit = { fs_evangelize_province_trigger = yes }
+				save_scope_as = location
+			}
+			else = {
+				save_temporary_scope_as = county_check
+				random_neighboring_county = {
+					limit = {
+						fs_evangelize_province_trigger = yes
+						holder.top_liege = scope:county_check.holder.top_liege
+					}
+					save_scope_as = location
+				}
+			}
+		}
+		trigger_event = fs_missionaries.1
+	}
+
+	ai_will_do = {
+		base = 200
+	}
+}
