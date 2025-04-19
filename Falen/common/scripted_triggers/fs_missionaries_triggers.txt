@@ -1,4 +1,23 @@
-﻿fs_evangelize_province_trigger = {
+﻿fs_can_have_missionaries_camp_purpose_trigger = {
+	faith = {
+		OR = {
+			has_doctrine = tenet_world_revolution
+			has_doctrine = tenet_mendicant_preachers
+			has_doctrine = tenet_aniconism
+			has_doctrine = tenet_protestantism
+		}
+	}
+}
+fs_missionaries_additional_trigger = {
+	faith = {
+		OR = {
+			has_doctrine = tenet_world_revolution
+			has_doctrine = tenet_communism_syncretism
+			has_doctrine = tenet_populism
+		}
+	}
+}
+fs_evangelize_province_trigger = {
 	save_temporary_scope_as = county
 	scope:county.faith = {
 		NOR = {

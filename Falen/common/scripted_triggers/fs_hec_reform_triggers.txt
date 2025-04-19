@@ -1,14 +1,4 @@
-﻿fs_can_have_missionaries_camp_purpose_trigger = {
-	faith = {
-		OR = {
-			has_doctrine = tenet_world_revolution
-			has_doctrine = tenet_mendicant_preachers
-			has_doctrine = tenet_aniconism
-		}
-	}
-}
-
-hec_reform_authority_trigger = {
+﻿hec_reform_authority_trigger = {
 	custom_tooltip = {
 		text = "Imperial_Authority_BiggerThan"
 		global_var:imperial_authority >= imperial_authority_reform_pass_value
