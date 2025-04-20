@@ -1,0 +1,148 @@
+﻿###########################################################
+# 혁명 전쟁은 내전/모험가/혁명수출 3종류로 나뉨.                        #
+# 내전형은 주로 농민봉기 파벌의 변칙적인 형태로 이루어짐                    #
+# 모험가는 조건을 만족할 경우 결단을 통해 자신이 위치한 봉역을 뒤집으려 할 수 있음 #
+# 혁명 수출은 성전과 유사하면서도, 현지 봉기를 자신에게 호응하게 할 수 있음      #
+###########################################################
+
+#revolutionary_civil_war = {
+
+revolutionary_adventurer_war = {
+	icon = peasant_war
+	group = invasion
+	
+	allow_hostages = no
+	allowed_for_character = {
+		scope:attacker = {
+			fs_missionaries_additional_trigger = yes
+			government_has_flag = government_is_landless_adventurer
+		}
+	}
+	allowed_against_character = {
+		scope:defender = {
+			this.faith != scope:attacker.faith
+			NOT = { government_has_flag = government_is_landless_adventurer }
+		}
+	}
+			
+	should_invalidate = {
+		scope:defender = {
+			faith = scope:attacker.faith
+			government_has_flag = government_is_proletarian
+		}
+	}
+	valid_to_start = {}
+	
+	on_declaration = {
+		hidden_effect = {
+			scope:defender = {
+				every_realm_county = {
+					limit = {
+						faith = scope:attacker.faith
+					}
+					scope:attacker = {
+						spawn_army = {
+							name = communards
+							levies = {
+								value = {
+									value = 100
+									multiply = location.development_level
+								}
+							}
+							location = prev.title_province
+							inheritable = yes
+						}
+					}
+				}
+				every_realm_county = {
+					limit = {
+						has_county_modifier = local_minor_faith
+						has_variable = local_faith
+						var:local_faith = scope:attacker.faith
+					}
+					scope:attacker = {
+						spawn_army = {
+							name = communards
+							levies = {
+								value = 50
+								multiply = location.development_level
+							}
+							location = prev.title_province
+							inheritable = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	cost = {
+		piety = 250
+		prestige = 250
+	}
+	on_victory = {
+		scope:attacker = {
+			scope:defender = {
+				every_realm_county = {
+					limit = {
+						has_county_modifier = local_minor_faith
+						has_variable = local_faith
+						var:local_faith = scope:attacker.faith
+					}
+					remove_county_modifier = local_minor_faith
+					remove_variable = local_faith
+					set_county_faith = scope:attacker.faith
+				}
+				create_title_and_vassal_change = {
+					type = conquest
+					save_scope_as = change
+					add_claim_on_loss = yes
+				}
+				every_held_title = {
+					limit = {
+						is_landless_type_title = no
+						tier >= tier_county
+					}
+					change_title_holder_include_vassals = {
+						holder = scope:attacker
+						change = scope:change
+					}
+					resolve_title_and_vassal_change = scope:change
+				}
+			}
+			rightfully_imprison_character_effect = {
+				TARGET = scope:defender
+				IMPRISONER = scope:attacker
+			}
+			#stop being a landless adventurer
+			destroy_laamp_effect = { ADVENTURER = scope:attacker }
+			#set new capital
+			#set_realm_capital
+			change_government = proletarian_government
+		}
+	}
+	on_defeat = {
+		scope:defender = {
+			rightfully_imprison_character_effect = {
+				TARGET = scope:attacker
+				IMPRISONER = scope:defender
+			}
+		}
+	}
+	transfer_behavior = transfer
+
+	on_primary_attacker_death = inherit
+	on_primary_defender_death = inherit
+
+	attacker_allies_inherit = no
+	defender_allies_inherit = yes
+
+	war_name = "REVOLUTION_WAR_NAME"
+	war_name_base = "REVOLUTION_WAR_NAME_BASE"
+	cb_name = "REVOLUTION_CB_NAME"
+
+	interface_priority = 200
+
+	use_de_jure_wargoal_only = no
+
+	attacker_wargoal_percentage = 0.95
+}

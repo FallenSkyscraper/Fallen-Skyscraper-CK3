@@ -5,8 +5,8 @@
 	sort_order = 500
 	ai_check_interval = 120
 
-	desc = hasan_evangelize_the_faith_desc
-	selection_tooltip = hasan_evangelize_the_faith_tooltip
+	desc = fs_evangelize_the_faith_desc
+	selection_tooltip = fs_evangelize_the_faith_tooltip
 	decision_group_type = story_cycle_hasan
 
 	cooldown = { months = 1 }
@@ -63,5 +63,62 @@
 
 	ai_will_do = {
 		base = 200
+	}
+}
+fs_war_on_reactionaries = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_strength.dds"
+	}
+	sort_order = 500
+	ai_check_interval = 120
+
+	desc = fs_war_on_reactionaries_desc
+	selection_tooltip = fs_war_on_reactionaries_tooltip
+	decision_group_type = story_cycle_hasan
+
+	cooldown = { months = 1 }
+
+	is_shown = {
+		is_landed = no
+		is_landless_adventurer = yes
+		has_realm_law = camp_purpose_missionaries
+		fs_missionaries_additional_trigger = yes
+	}
+
+	is_valid = {
+		is_at_war = no
+		custom_tooltip = {
+			text = at_least_5_counties_are_nizari
+			domicile.domicile_location.county.holder.top_liege = {
+				any_sub_realm_county = {
+					count >= 1
+					faith = root.faith
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_alive = yes
+		is_available_adult = yes
+		has_contagious_deadly_disease_trigger = no
+	}
+
+	cost = {
+		prestige = 250
+	}
+
+	effect = {
+		start_war = {
+			cb = revolutionary_adventurer_war
+			target = root.location.county.holder.top_liege
+			target_title = root.location.county.holder.top_liege.primary_title
+		}
+	}
+
+	#ai_potential = { this = character:41702 }
+
+	ai_will_do = {
+		base = 0
 	}
 }
