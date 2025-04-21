@@ -122,3 +122,58 @@ fs_war_on_reactionaries = {
 		base = 0
 	}
 }
+fs_organize_the_counterrevolutionaries = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_strength.dds"
+	}
+	sort_order = 500
+	ai_check_interval = 120
+
+	desc = fs_organize_the_counterrevolutionaries_desc
+	selection_tooltip = fs_organize_the_counterrevolutionaries_tooltip
+	decision_group_type = story_cycle_hasan
+
+	cooldown = { months = 1 }
+
+	is_shown = {
+		is_at_war = yes
+		has_character_flag = revolution_target
+		NOT = { has_character_flag = organized_counterrevolutionaries }
+	}
+	is_valid = {
+		OR = {
+			prestige_level >= 2
+			piety_level >= 3
+		}
+		any_sub_realm_county = {
+			count >= 1
+			county_opinion >= 25
+		}
+	}
+	cost = {
+		prestige = 500
+	}
+	effect = {
+		every_sub_realm_county = {
+			limit = {
+				county_opinion >= 25
+			}
+			root = {
+				spawn_army = {
+					name = counterrevolutionaries
+					levies = {
+						value = {
+							value = 200
+							multiply = prev.development_level
+						}
+					}
+					location = prev.title_province
+					inheritable = yes
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		base = 100
+	}
+}

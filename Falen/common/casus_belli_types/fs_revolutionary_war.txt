@@ -36,6 +36,7 @@ revolutionary_adventurer_war = {
 	on_declaration = {
 		hidden_effect = {
 			scope:defender = {
+				add_character_flag = revolution_target
 				every_realm_county = {
 					limit = {
 						faith = scope:attacker.faith
@@ -82,6 +83,7 @@ revolutionary_adventurer_war = {
 	on_victory = {
 		scope:attacker = {
 			scope:defender = {
+				remove_character_flag = revolution_target
 				every_vassal = {
 					limit = {
 						primary_title.tier >= county
@@ -129,8 +131,14 @@ revolutionary_adventurer_war = {
 			change_government = proletarian_government
 		}
 	}
+	on_white_peace = {
+		scope:defender = {
+			remove_character_flag = revolution_target
+		}
+	}
 	on_defeat = {
 		scope:defender = {
+			remove_character_flag = revolution_target
 			rightfully_imprison_character_effect = {
 				TARGET = scope:attacker
 				IMPRISONER = scope:defender
