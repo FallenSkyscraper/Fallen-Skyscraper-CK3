@@ -46,7 +46,7 @@ revolutionary_adventurer_war = {
 							levies = {
 								value = {
 									value = 100
-									multiply = location.development_level
+									multiply = prev.development_level
 								}
 							}
 							location = prev.title_province
@@ -65,7 +65,7 @@ revolutionary_adventurer_war = {
 							name = communards
 							levies = {
 								value = 50
-								multiply = location.development_level
+								multiply = prev.development_level
 							}
 							location = prev.title_province
 							inheritable = yes
@@ -82,6 +82,15 @@ revolutionary_adventurer_war = {
 	on_victory = {
 		scope:attacker = {
 			scope:defender = {
+				every_vassal = {
+					limit = {
+						primary_title.tier >= county
+					}
+					trigger_event = {
+						id = fs_missionaries.3
+						days = 3
+					}
+				}
 				every_realm_county = {
 					limit = {
 						has_county_modifier = local_minor_faith
@@ -105,9 +114,9 @@ revolutionary_adventurer_war = {
 					change_title_holder_include_vassals = {
 						holder = scope:attacker
 						change = scope:change
-					}
-					resolve_title_and_vassal_change = scope:change
+					}	
 				}
+				resolve_title_and_vassal_change = scope:change
 			}
 			rightfully_imprison_character_effect = {
 				TARGET = scope:defender

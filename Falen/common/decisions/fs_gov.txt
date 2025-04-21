@@ -209,7 +209,12 @@ change_gov_feudal_communism = {
 		is_ruler = yes
 		is_landed = yes
 		is_imprisoned = no
-		is_independent_ruler = yes
+		OR = {
+			is_independent_ruler = yes
+			top_liege = {
+				government_has_flag = government_is_proletarian
+			}
+		}
 		NOT = {
 			government_has_flag = government_is_proletarian
 			government_has_flag = government_is_tribal
