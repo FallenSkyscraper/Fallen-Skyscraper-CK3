@@ -12,7 +12,9 @@ bulbada.decisions.0001 = {
 	override_background = {
 		reference = burning_building
 	}
-
+	trigger = {
+		always = no
+	}
 	immediate = {
 		title:c_gaeseong = { save_scope_as = gaeseong }
 		scope:gaeseong = {
