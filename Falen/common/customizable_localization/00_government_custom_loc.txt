@@ -421,7 +421,19 @@ GetRealmOrDomicile = {
 
 GetRealmOrDomicileTooltip = {
 	type = character
-
+	
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				is_nomad = yes
+			}
+			trigger_else = {
+				liege ?= { is_nomad = yes }
+			}
+		}
+		localization_key = NOMAD
+	}
 	text = {
 		trigger = {
 			trigger_if = {
@@ -565,6 +577,20 @@ GetRealmOrDomicileConcept = {
 	text = {
 		trigger = { always = no }
 		localization_key = activity_filter_realm
+		fallback = yes
+	}
+}
+
+GetCourtPosition = {
+	type = character
+
+	text = {
+		trigger = { is_landed = no }
+		localization_key = game_concept_officer
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = game_concept_court_position
 		fallback = yes
 	}
 }
@@ -779,6 +805,12 @@ GetGameKeepers = {
 		localization_key = flushers_adventurer
 	}
 	text = {
+		trigger = {
+			government_has_flag = government_is_nomadic
+		}
+		localization_key = gamekeepers_nomadic
+	}
+	text = {
 		trigger = { always = no }
 		localization_key = gamekeepers_regular
 		fallback = yes
@@ -862,11 +894,51 @@ GetGovernmentIcon = {
 				limit = {
 					is_alive = no
 				}
-				OR = {
-					has_government = tribal_government
-					has_government = manchu_tribal_government
-					has_government = nomadic_government
+				has_government = nomad_government
+			}
+			trigger_else = {
+				trigger_if = {
+					limit = {
+						is_ruler = yes
+					}
+					government_has_flag = government_is_nomadic
 				}
+				trigger_else = {
+					liege ?= { government_has_flag = government_is_nomadic }
+				}
+			}
+		}
+		localization_key = nomadic_icon_concept
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = {
+					is_alive = no
+				}
+				has_government = herder_government
+			}
+			trigger_else = {
+				trigger_if = {
+					limit = {
+						is_ruler = yes
+					}
+					has_government = herder_government
+				}
+				trigger_else = {
+					liege ?= { has_government = herder_government }
+				}
+			}
+		}
+		localization_key = herder_icon_concept
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = {
+					is_alive = no
+				}
+				has_government = tribal_government
 			}
 			trigger_else = {
 				trigger_if = {
@@ -874,7 +946,6 @@ GetGovernmentIcon = {
 					OR = {
 						government_has_flag = government_is_tribal
 						government_has_flag = government_is_manchu_tribal
-						government_has_flag = government_is_nomadic
 					}
 				}
 				trigger_else = {
@@ -882,7 +953,6 @@ GetGovernmentIcon = {
 						OR = {
 							government_has_flag = government_is_tribal
 							government_has_flag = government_is_manchu_tribal
-							government_has_flag = government_is_nomadic
 						}
 					}
 				}
@@ -1016,26 +1086,15 @@ GetGovernmentIcon = {
 				limit = {
 					is_alive = no
 				}
-				OR = {
-					has_government = republic_government
-					has_government = merchant_republic_government
-				}
+				has_government = republic_government
 			}
 			trigger_else = {
 				trigger_if = {
 					limit = { is_ruler = yes }
-					OR = {
-						government_has_flag = government_is_republic
-						government_has_flag = government_is_merchant_republic
-					}
+					government_has_flag = government_is_republic
 				}
 				trigger_else = {
-					liege ?= {
-						OR = {
-							government_has_flag = government_is_republic
-							government_has_flag = government_is_merchant_republic
-						}
-					}
+					liege ?= { government_has_flag = government_is_republic }
 				}
 			}
 		}
@@ -1047,26 +1106,15 @@ GetGovernmentIcon = {
 				limit = {
 					is_alive = no
 				}
-				OR = {
-					has_government = theocracy_government
-					has_government = theocratic_feudal_government
-				}
+				has_government = theocracy_government
 			}
 			trigger_else = {
 				trigger_if = {
 					limit = { is_ruler = yes }
-					OR = {
-						government_has_flag = government_is_theocracy
-						government_has_flag = government_is_theocratic_feudal
-					}
+					government_has_flag = government_is_theocracy
 				}
 				trigger_else = {
-					liege ?= { 
-						OR = {
-							government_has_flag = government_is_theocracy
-							government_has_flag = government_is_theocratic_feudal
-						}
-					}
+					liege ?= { government_has_flag = government_is_theocracy }
 				}
 			}
 		}
@@ -1076,5 +1124,18 @@ GetGovernmentIcon = {
 		trigger = { always = no }
 		localization_key = feudal_icon_concept
 		fallback = yes
+	}
+}
+
+GetTribalFeudal = {
+	type = character
+
+	text = {
+		trigger = { government_has_flag = government_is_tribal }
+		localization_key = tribal_government
+	}
+
+	text = {
+		localization_key = feudal_government
 	}
 }
