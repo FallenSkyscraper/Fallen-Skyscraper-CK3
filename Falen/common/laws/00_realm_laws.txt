@@ -1,5 +1,6 @@
 ﻿@crown_authority_cooldown_years = 20
 @tribal_authority_cooldown_years = 10
+@nomadic_authority_cooldown_years = 5
 @imperial_bureaucracy_cooldown_years_1 = 10
 @imperial_bureaucracy_cooldown_years_2 = 20
 @imperial_bureaucracy_cooldown_years_3 = 30
@@ -1515,44 +1516,86 @@ imperial_bureaucracy = {
 #유목정
 
 nomadic_authority = {
-	default = nomadic_authority_0
+	default = nomadic_authority_1
 	cumulative = yes
 	flag = realm_law
 	
-	nomadic_authority_0 = {
+	nomadic_authority_1 = {
+		pass_phrase = nomadic_authority_1_pass_phrase
+		confirmation_title = nomadic_authority_1_pass_phrase
+		confirmation_button_text = nomadic_authority_confirmation_button_text
+
 		modifier = {
-			direct_vassal_opinion = 10
-			vassal_tax_mult = -0.3
-			vassal_levy_contribution_mult = -0.3
+			belligerent_opinion = -25
+			glory_hound_opinion = -20
+			domain_limit_min = 1
+			domain_limit_max = 2
+			vassal_limit_min = 1
+			vassal_limit_max = 1
+		}
+		flag = can_have_tributaries
+		flag = title_revocation_allowed
+		flag = uses_nomadic_authority
+		flag = imprisonment_toggle_enable
+		flag = access_to_nomadic_county_conquest
+		
+		can_pass = {
+			has_realm_law = nomadic_authority_2
 		}
 
 		can_keep = { realm_law_use_nomadic_authority = yes }
 		#Imprisonment is disabled if you have this law. Script is in the interaction, currently in 00_prison_interactions.
+
+		on_pass = {
+			# Remove modifiers.
+			remove_law_related_modifiers_effect = yes
+		}
 	}
 	
-	nomadic_authority_1 = {
+	nomadic_authority_2 = {
+		pass_phrase = nomadic_authority_2_pass_phrase
+		confirmation_title = nomadic_authority_2_pass_phrase
+		confirmation_button_text = nomadic_authority_confirmation_button_text
+
 		modifier = {
-			vassal_tax_mult = 0.1
-			direct_vassal_opinion = -10
-			vassal_levy_contribution_mult = 0.1
-			domain_limit = -5
-			feudal_government_vassal_opinion = 5
-			clan_government_vassal_opinion = 5
-			republic_government_vassal_opinion = 5
-			domain_tax_mult = 0.1
+			belligerent_opinion = 10
+			glory_hound_opinion = 10
+			max_migration_distance_mult = 0.25
+			domain_limit_min = 1
+			domain_limit_max = 1
+			vassal_limit_min = 1
+			vassal_limit_max = 2 # 3
 		}
-		
-		can_keep = { realm_law_use_nomadic_authority = yes }
+		flag = can_change_succession_laws
+		flag = imprisonment_toggle_on
+		flag = title_revocation_allowed
+		flag = migration_to_duchies
+		flag = access_to_nomadic_county_conquest
+		flag = unlock_maa_nomad_lancers
+
+		can_keep = {
+			realm_law_use_nomadic_authority = yes
+		}
 
 		can_pass = {
-			trigger_if = {
-				limit = { has_realm_law = nomadic_authority_0 }
-				custom_description = {
-					subject = root
-					text = "has_tribal_authority_cooldown"
-					NOT = { has_variable = nomadic_authority_cooldown }
+			custom_tooltip = {
+				text = "nomadic_authority_2_level_requirement"
+				OR = {
+					has_realm_law = nomadic_authority_1
+					has_realm_law = nomadic_authority_3
 				}
 			}
+			custom_description = {
+				subject = root
+				text = "has_nomadic_authority_cooldown"
+				NAND = {
+					has_variable = nomadic_authority_cooldown
+					NOT = {
+						culture = { has_innovation = innovation_all_things }
+					}
+				}
+			}
+			domicile.herd >= nomadic_authority_level_2_requirement
 		}
 		
 		pass_cost = {
@@ -1570,78 +1613,15 @@ nomadic_authority = {
 		}
 		
 		on_pass = {
-			if = {
-				limit = {
-					NOR = {
-						has_realm_law = nomadic_authority_2
-						has_realm_law = nomadic_authority_3
-					}
-				}
-			}
+			# Increment cooldown breaker tally, if appropriate.
+			calculate_authority_cooldown_break_effect = yes
+			# Set regular cooldown.
 			set_variable = {
 				name = nomadic_authority_cooldown
 				years = @nomadic_authority_cooldown_years
 			}
-		}
-
-		ai_will_do = {
-			if = {
-				limit = { has_realm_law = nomadic_authority_0 }
-				value = 1
-			}
-		}
-	}
-	
-	nomadic_authority_2 = {
-		modifier = {
-			direct_vassal_opinion = -10
-			vassal_tax_mult = 0.1
-			vassal_levy_contribution_mult = 0.1
-			domain_limit = -5
-			feudal_government_vassal_opinion = 5
-			republic_government_vassal_opinion = 5
-			domain_tax_mult = 0.1
-		}
-		flag = title_revocation_allowed
-		flag = vassal_retraction_allowed
-		
-		can_keep = { realm_law_use_nomadic_authority = yes }
-		
-		can_pass = {
-			trigger_if = {
-				limit = {
-					NOT = { has_realm_law = nomadic_authority_3 }
-				}
-				has_realm_law = nomadic_authority_1
-				custom_description = {
-					subject = root
-					text = "has_tribal_authority_cooldown"
-					NOT = { has_variable = nomadic_authority_cooldown }
-				}
-			}
-		}
-
-		pass_cost = {
-			prestige = {
-				if = {
-					limit = {
-						NOT = { has_realm_law = nomadic_authority_3 }
-					}
-					add = increase_tribal_authority_prestige_cost
-				}
-			}
-		}
-		
-		on_pass = {
-			if = {
-				limit = {
-					NOT = { has_realm_law = nomadic_authority_3 }
-				}
-			}
-			set_variable = {
-				name = nomadic_authority_cooldown
-				years = @nomadic_authority_cooldown_years
-			}
+			# Remove modifiers.
+			remove_law_related_modifiers_effect = yes
 		}
 
 		ai_will_do = {
@@ -1653,39 +1633,76 @@ nomadic_authority = {
 	}
 	
 	nomadic_authority_3 = {
+		pass_phrase = nomadic_authority_3_pass_phrase
+		confirmation_title = nomadic_authority_3_pass_phrase
+		confirmation_button_text = nomadic_authority_confirmation_button_text
+
 		modifier = {
-			direct_vassal_opinion = -10
-			domain_limit = -5
-			vassal_tax_mult = 0.1
-			vassal_levy_contribution_mult = 0.1
-			feudal_government_vassal_opinion = 5
-			clan_government_vassal_opinion = 5
-			republic_government_vassal_opinion = 5
-			domain_tax_mult = 0.2
+			belligerent_opinion = 10
+			glory_hound_opinion = 10
+			max_migration_distance_mult = 0.5
+			domain_limit_min = 2
+			domain_limit_max = 3
+			vassal_limit_min = 8
+			vassal_limit_max = 12 # 15
 		}
-		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
-		#Settling is disabled unless you have this law. Script is in the decisions, currently in 80_major_decisions.
-		#Reforming pagan religions (but not creating other faiths) is disabled unless you have this law. Script is in the reformation prereqs, currently in 00_rules.
+		flag = diarchs_want_to_subsidise_without_this_flag
+		flag = migration_to_kingdoms
+		flag = access_to_nomadic_duchy_conquest
 		
-		can_keep = { realm_law_use_nomadic_authority = yes }
-		
-		can_pass = {
-			has_realm_law = nomadic_authority_2
-			custom_description = {
-				subject = root
-				text = "has_tribal_authority_cooldown"
-				NOT = { has_variable = nomadic_authority_cooldown }
+		can_keep = {
+			realm_law_use_nomadic_authority = yes
+			NOT = {
+				is_confederation_member = yes
 			}
 		}
 		
-		pass_cost = { prestige = increase_tribal_authority_prestige_cost }
+		can_pass = {
+			custom_tooltip = {
+				text = "nomadic_authority_3_level_requirement"
+				OR = {
+					has_realm_law = nomadic_authority_2
+					has_realm_law = nomadic_authority_4
+				}
+			}
+			custom_description = {
+				subject = root
+				text = "has_nomadic_authority_cooldown"
+				NAND = {
+					has_variable = nomadic_authority_cooldown
+					NOT = {
+						culture = { has_innovation = innovation_all_things }
+					}
+				}
+			}
+			domicile.herd >= nomadic_authority_level_3_requirement
+		}
+
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOR = {
+							has_realm_law = nomadic_authority_3
+							has_realm_law = nomadic_authority_4
+						}
+					}
+					add = increase_nomadic_authority_prestige_cost
+				}
+			}
+		}
 		
 		on_pass = {
+			# Increment cooldown breaker tally, if appropriate.
+			calculate_authority_cooldown_break_effect = yes
+			# Set regular cooldown.
 			set_variable = {
 				name = nomadic_authority_cooldown
 				years = @nomadic_authority_cooldown_years
 			}
+			# Remove modifiers.
+			remove_law_related_modifiers_effect = yes
 		}
 
 		ai_will_do = {
@@ -1695,7 +1712,182 @@ nomadic_authority = {
 			}
 		}
 	}
+	
+	nomadic_authority_4 = {
+		pass_phrase = nomadic_authority_4_pass_phrase
+		confirmation_title = nomadic_authority_4_pass_phrase
+		confirmation_button_text = nomadic_authority_confirmation_button_text
+
+		modifier = {
+			belligerent_opinion = 20
+			glory_hound_opinion = 10
+			max_migration_distance_mult = 1
+			domain_limit_min = 2
+			vassal_limit_min = 5
+			vassal_limit_max = 15
+		}
+		flag = migration_to_empires
+		#Settling is disabled unless you have this law. Script is in the decisions, currently in 80_major_decisions.
+		#Reforming pagan religions (but not creating other faiths) is disabled unless you have this law. Script is in the reformation prereqs, currently in 00_rules.
+		
+		can_keep = {
+			realm_law_use_nomadic_authority = yes
+			NOT = {
+				is_confederation_member = yes
+			}
+		}
+		
+		can_pass = {
+			custom_tooltip = {
+				text = "nomadic_authority_4_level_requirement"
+				OR = {
+					has_realm_law = nomadic_authority_3
+					has_realm_law = nomadic_authority_5
+				}
+			}
+			custom_description = {
+				subject = root
+				text = "has_nomadic_authority_cooldown"
+				NAND = {
+					has_variable = nomadic_authority_cooldown
+					NOT = {
+						culture = { has_innovation = innovation_all_things }
+					}
+				}
+			}
+			domicile.herd >= nomadic_authority_level_4_requirement
+		}
+		
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOR = {
+							has_realm_law = nomadic_authority_4
+							has_realm_law = nomadic_authority_5
+						}
+					}
+					add = increase_nomadic_authority_prestige_cost
+				}
+			}
+		}
+		
+		on_pass = {
+			# Increment cooldown breaker tally, if appropriate.
+			calculate_authority_cooldown_break_effect = yes
+			# Set regular cooldown.
+			set_variable = {
+				name = nomadic_authority_cooldown
+				years = @nomadic_authority_cooldown_years
+			}
+			# Remove modifiers.
+			remove_law_related_modifiers_effect = yes
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = nomadic_authority_3 }
+				value = 1
+			}
+		}
+		
+	}
+	
+	nomadic_authority_5 = {
+		pass_phrase = nomadic_authority_5_pass_phrase
+		confirmation_title = nomadic_authority_5_pass_phrase
+		confirmation_button_text = nomadic_authority_confirmation_button_text
+
+		modifier = {
+			belligerent_opinion = 25
+			glory_hound_opinion = 15
+			max_migration_distance_mult = 10
+			max_migration_distance_mult = 2
+			vassal_limit_min = 985
+			vassal_limit_max = 970
+		}
+		flag = max_authority_level
+		#Settling is disabled unless you have this law. Script is in the decisions, currently in 80_major_decisions.
+		#Reforming pagan religions (but not creating other faiths) is disabled unless you have this law. Script is in the reformation prereqs, currently in 00_rules.
+		
+		can_keep = {
+			realm_law_use_nomadic_authority = yes
+			NOT = {
+				is_confederation_member = yes
+			}
+		}
+		
+		can_pass = {
+			has_realm_law = nomadic_authority_4
+			trigger_if = {
+				limit = {
+					any_character_situation = {
+						any_participant_group = {
+							participant_group_type = nomad_rulers_capital
+							participant_group_has_character = root
+						}
+					}
+				}
+				custom_description = {
+					text = nomadic_authority_5_gurkhan
+					any_character_situation = {
+						any_participant_group = {
+							participant_group_type = nomad_rulers_capital
+							participant_group_has_character = root
+						}
+						situation_top_herd ?= root
+					}
+				}
+			}
+			custom_description = { 
+				subject = root
+				text = "has_nomadic_authority_cooldown"
+				NAND = {
+					has_variable = nomadic_authority_cooldown
+					NOT = {
+						culture = { has_innovation = innovation_all_things }
+					}
+				}
+			}
+			domicile.herd >= nomadic_authority_level_5_requirement
+		}
+		
+		pass_cost = {
+			prestige = {
+				if = {
+					limit = {
+						NOT = {
+							has_realm_law = nomadic_authority_5
+						}
+					}
+					add = increase_nomadic_authority_prestige_cost
+					multiply = 2
+				}
+			}
+		}
+		
+		on_pass = {
+			# Increment cooldown breaker tally, if appropriate.
+			calculate_authority_cooldown_break_effect = yes
+			# Set regular cooldown.
+			set_variable = {
+				name = nomadic_authority_cooldown
+				years = @nomadic_authority_cooldown_years
+			}
+			# Remove modifiers.
+			remove_law_related_modifiers_effect = yes
+			play_sound_effect = "event:/DLC/CE2/UI/Notifications/ce2_ui_notifications_nomadicAuthority_wolf"
+		}
+
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = nomadic_authority_4 }
+				value = 1
+			}
+		}
+	}
 }
+
 
 #군정
 

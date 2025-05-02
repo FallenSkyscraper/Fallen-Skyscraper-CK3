@@ -31,14 +31,18 @@ yalu = {
 	heritage = heritage_chaoxian
 	language = language_chaoxian
 	martial_custom = martial_custom_male_only
+	head_determination = head_determination_herd
 	traditions = {
-		tradition_horse_lords
-		tradition_steppe_tolerance
+	#	tradition_horse_lords
+	#	tradition_steppe_tolerance
 		tradition_pastoralists
 		tradition_loyal_soldiers
 		tradition_tribe_unity
 	}
-	
+	dlc_tradition = {
+		trait = tradition_devoted_horsemanship
+		requires_dlc_flag = khans_of_the_steppe
+	}
 	name_list = name_list_korean
 	coa_gfx = { chinese_group_coa_gfx }
 	building_gfx = { western_building_gfx }

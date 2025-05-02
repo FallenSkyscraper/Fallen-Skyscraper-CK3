@@ -43,21 +43,7 @@ maritime_government = {
 	fallback = 3
 	
 	# 다음부터 징세 징병관련 할 때 vassal_contracts 폴더에 military 혹은 페더, 혹은 리퍼블릭 형식으로 암튼 같은 방식으로 제작할것
-	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
-		special_contract
-		religious_rights
-		fortification_rights
-		coinage_rights
-		succession_rights
-		war_declaration_rights
-		council_rights
-		title_revocation_rights
-		jizya_special_rights
-	}
-	
-	
+	vassal_contract = feudal_vassal_group
 	
 	character_modifier = {
 		army_maintenance_mult = -0.33
@@ -71,33 +57,6 @@ maritime_government = {
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_maritime
 	color = { 20 35 160 }#만약 파란색이 안나오면 	233°	88°	62°
-}
-## 봉건 신정제
-theocratic_feudal_government = {
-	government_rules = {
-		create_cadet_branches = yes
-		rulers_should_have_dynasty = yes
-	}
-	primary_holding = castle_holding
-	valid_holdings = { church_holding metropolis_holding }
-	required_county_holdings = { castle_holding city_holding church_holding }
-
-	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
-		special_contract
-		religious_rights
-		fortification_rights
-		coinage_rights
-		succession_rights
-		war_declaration_rights
-		council_rights
-		title_revocation_rights
-		jizya_special_rights
-	}
-	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_theocratic_feudal
-	color = { 207 145 90 }
 }
 ## 프롤레타리아 독재제
 proletarian_government = {
@@ -196,19 +155,8 @@ secular_republic_government = {
 	required_county_holdings = { castle_holding city_holding }
 	preferred_religions = { cheondoism_religion }
 	
-	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
-		special_contract
-		religious_rights
-		fortification_rights
-		coinage_rights
-		succession_rights
-		war_declaration_rights
-		council_rights
-		title_revocation_rights
-		jizya_special_rights
-	}
+	vassal_contract_group = feudal_vassal_group
+	
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_secular_republic
 	color = { 193 121 121 }
@@ -228,15 +176,8 @@ merchant_republic_government = {
 	valid_holdings = { castle_holding metropolis_holding }	
 	required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
 
-	vassal_contract = {	 
-		feudal_government_taxes
-		feudal_government_levies
-		religious_rights
-		fortification_rights
-		war_declaration_rights
-		council_rights
-		##title_revocation_rights
-	}
+	vassal_contract_group = feudal_vassal_group
+	
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_merchant_republic
 	color = { 243 61 71 }
@@ -257,74 +198,14 @@ oligarchic_republic_government = {
 	valid_holdings = { castle_holding metropolis_holding }	
 	required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
 
-	vassal_contract = {	 
-		feudal_government_taxes
-		feudal_government_levies
-		special_contract
-		religious_rights
-		fortification_rights
-		coinage_rights
-		war_declaration_rights
-		council_rights
-		##title_revocation_rights
-	}
+	vassal_contract_group = feudal_vassal_group
+	
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_oligarchic_republic
 	color = { 193 121 121 }
 }
 ### 부족제 계통 ###
-## 유목제
-nomadic_government = {
-	government_rules = {
-		rulers_should_have_dynasty = yes
-		regiments_prestige_as_gold = yes
-		always_use_patronym = yes	
-		royal_court = yes
-	#	administrative = yes
-	#	landless_playable = yes
-		legitimacy = yes
-		use_as_base_on_landed = no
-		use_as_base_on_rank_up = no
-		inherit_from_dynastic_government = yes
-		state_faith = no
-	}
-	
-	#domicile_type = estate
-	
-	affected_by_development = no
-	supply_limit_mult_for_others = -0.5
-	primary_holding = tribal_holding
-	required_county_holdings = { tribal_holding }
-	primary_heritages = { heritage_mongolic }
-	fallback = 2
-	prestige_opinion_override = { -10 0 3 5 10 20 }
 
-	vassal_contract = { tribal_government_obligations }
-	
-	character_modifier = {
-		development_growth_factor = -0.5
-		title_creation_cost_mult = -0.5
-		army_maintenance_mult = -0.7
-		men_at_arms_maintenance = -0.7
-		men_at_arms_limit = 5
-		men_at_arms_cap = 5
-		levy_size = -10
-		additional_fort_level = -10
-		domain_tax_mult = -0.7
-
-		feudal_government_vassal_opinion = -15
-		clan_government_vassal_opinion = -10
-		republic_government_vassal_opinion = -20
-	
-		ai_war_chance = 1.5
-		domain_limit = 20
-	}
-	
-	flag = government_can_raid_rule
-	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_nomadic
-	color = { 201 179 36 }
-}
 ## 만주 부족제
 manchu_tribal_government = {
 	government_rules = {
@@ -336,7 +217,7 @@ manchu_tribal_government = {
 	primary_holding = tribal_holding
 	required_county_holdings = { tribal_holding }
 
-	valid_holdings = { tribal_holding castle_holding city_holding church_holding }
+	valid_holdings = { tribal_holding nomad_holding castle_holding city_holding church_holding }
 
 	primary_heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 
@@ -424,18 +305,8 @@ slavery_government = {
 	primary_cultures = { american }
 	royal_court = yes
 	
-	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
-		special_contract
-		religious_rights
-		fortification_rights
-		coinage_rights
-		succession_rights
-		war_declaration_rights
-		council_rights
-		title_revocation_rights
-	}
+	vassal_contract_group = feudal_vassal_group
+	
 	character_modifier = {
 		levy_size = -0.25
 	}	

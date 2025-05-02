@@ -291,6 +291,184 @@ window = {
 				}
 			}
 		}
+		
+		hbox = { # County Fertility
+				visible = "[County.UsesCountyFertility]"
+
+				layoutpolicy_horizontal = expanding
+
+				background = {
+					using = Background_Area
+				}
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin = { 0 5 }
+					margin_left = 10
+					margin_right = 15
+					spacing = 5
+
+					background = {
+						visible = "[County.IsInSituation( 'the_great_steppe' )]"
+						texture = "[County.GetCurrentPhaseTypeInSituation('the_great_steppe').GetIllustration]"
+						fittype = centercrop
+						alpha = 0.6
+
+						using = Mask_Rough_Edges
+
+						modify_texture = {
+							texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+							blend_mode = alphamultiply
+						}
+					}
+
+					background = {
+						visible = "[Not( County.IsInSituation( 'the_great_steppe' ) )]"
+						texture = "gfx/interface/illustrations/terrain_types/steppe.dds"
+						fittype = centercrop
+						alpha = 0.6
+
+						using = Mask_Rough_Edges
+					}
+
+					vbox = { # County Fertility & Steppe Season
+						datacontext = "[HoldingView.GetProvince.GetCounty]"
+						datacontext = "[HoldingView.AccessCountyBreakdowns]"
+
+						margin = { 5 5 }
+
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 5
+
+							text_single = {
+								text = "HOLDING_VIEW_COUNTY_FERTILITY_LABEL"
+								align = left|nobaseline
+								default_format = "#glow_color:{0.1,0.1,0.1,1.0}"
+							}
+
+							text_single = {
+								text = "HOLDING_VIEW_COUNTY_FERTILITY_VALUE"
+								default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+								align = left|nobaseline
+
+							}
+
+							tooltipwidget = {
+								county_fertility_tooltip_container = {}
+							}
+
+							expand = {}
+						}
+
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 5
+
+							text_single = {
+								text = "HOLDING_VIEW_HERD_FROM_COUNTY_LABEL"
+								align = left|nobaseline
+								default_format = "#glow_color:{0.1,0.1,0.1,1.0}"
+							}
+
+							text_single = {
+								text = "HOLDING_VIEW_HERD_FROM_COUNTY_VALUE"
+								align = left|nobaseline
+								default_format = "#glow_color:{0.1,0.1,0.1,1.0}"
+
+								tooltip = "[County.GetHerdFromCountyTooltip]"
+							}
+
+							tooltipwidget = {
+								county_fertility_tooltip_container = {}
+							}
+
+							expand = {}
+						}
+
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							visible = "[County.IsInSituation('the_great_steppe')]"
+							spacing = 5
+
+							text_single = {
+								text = "HOLDING_VIEW_STEPPE_SEASON_LABEL"
+								align = left|nobaseline
+								default_format = "#glow_color:{0.1,0.1,0.1,1.0}"
+							}
+
+							text_single = {
+								text = "[County.GetCurrentPhaseTypeInSituation('the_great_steppe').GetName]"
+								default_format = "#high;glow_color:{0.1,0.1,0.1,1.0}"
+								align = left|nobaseline
+							}
+
+							expand = {}
+						}
+					}
+
+					expand = {}
+
+					button_round = {
+						name = "abandon_lands_button"
+						datacontext = "[HoldingView.GetCountyTitle]"
+						visible = "[And(And( ObjectsEqual( HoldingView.GetTitle.GetHolder, GetPlayer ), Not(HoldingView.GetTitle.IsLeasedOut) ), Not(HoldingView.GetProvince.IsRealmCapital))]"
+
+						onclick = "[CreateCommandPopup( Title.CreateHerderForTitle( GetPlayer ) )]"
+						enabled = "[IsValidCommand( Title.CreateHerderForTitle( GetPlayer ) )]"
+						tooltip = "[GetCommandDesc( Title.CreateHerderForTitle( GetPlayer ) )]"
+
+						button_icon = {
+							parentanchor = center
+							size = { 27 27 }
+							texture = "gfx/interface/icons/domicile_building/domicile_sheep_yurt.dds"
+							alwaystransparent = yes
+						}
+					}
+
+					widget = {
+						size = { 150 60 }
+
+						fertility_bar = {
+							datacontext = "[HoldingView.GetProvince.GetCounty.GetTitle]"
+							datacontext = "[HoldingView.AccessCountyFertilityBar]"
+							datacontext = "[HoldingView.AccessCountyBreakdowns]"
+							parentanchor = center
+							position = { 18 0 }
+
+							blockoverride "bar_tooltip" {
+								tooltipwidget = {
+									county_fertility_tooltip_container = {}
+								}
+								using = tooltip_ne
+							}
+
+							blockoverride "button_tooltip" {
+								tooltipwidget = {
+									county_fertility_tooltip_container = {}
+								}
+								using = tooltip_ne
+							}
+
+							blockoverride "grey_fertility_icon_visibility" {
+								visible = no
+							}
+
+							blockoverride "green_fertility_icon_visibility" {
+								visible = "[Title.IsAverageFertilityBetween( '(CFixedPoint)0.6', '(CFixedPoint)1.1' )]"
+							}
+
+							blockoverride "yellow_fertility_icon_visibility" {
+								visible = "[Title.IsAverageFertilityBetween( '(CFixedPoint)0.3', '(CFixedPoint)0.6' )]"
+							}
+
+							blockoverride "red_fertility_icon_visiblity" {
+								visible = "[Title.IsAverageFertilityBetween( '(CFixedPoint)0.0', '(CFixedPoint)0.3' )]"
+							}
+						}
+					}
+				}
+			}
 
 		hbox = {
 			name = "county_info"

@@ -1,34 +1,22 @@
 ﻿title_succession_laws = {
-	#Default Feudal Elective
+	# Default Feudal Elective
 	feudal_elective_succession_law = {
 		can_have = {
-			OR = {
-				government_has_flag = government_is_feudal
-				#fs_모드의
-				government_has_flag = government_is_proletarian 
-				government_has_flag = government_is_military 
-				government_has_flag = government_is_maritime 
-				government_has_flag = government_is_secular_republic 
-				government_has_flag = government_is_oligarchic_republic
-				government_has_flag = government_is_slavery
-			}
-			highest_held_title_tier >= tier_duchy #이걸로 어디부터 해당 상속제를 실시할수 있는지 결정하는듯
+			government_has_flag = government_is_feudal
+			highest_held_title_tier >= tier_duchy
 		}
 		can_pass = {
 			can_change_title_law_trigger = yes
 		}
 		can_title_have = {
-			tier >= tier_duchy
+			can_title_have_law_general_trigger = yes
 		}
 		succession = {
 			order_of_succession = election
-			election_type = feudal_elective  
-		 
+			election_type = feudal_elective
 		}
 		flag = elective_succession_law
-		modifier = {
-			direct_vassal_opinion = 10
-		}
+		title_allegiance_opinion = 10
 		revoke_cost = {
 			prestige = change_title_succession_law_prestige_cost
 		}
@@ -37,27 +25,31 @@
 		}
 	}
 
-	#HRE Succession
+	# HRE Succession
 	princely_elective_succession_law = {
 		can_have = {
-			government_has_flag = government_is_feudal
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
+			}
 			highest_held_title_tier = tier_empire
 		}
 		can_pass = {
 			can_change_title_law_trigger = yes
 		}
 		can_title_have = {
-			tier >= tier_duchy
 			this = title:e_hec
+			can_title_have_law_general_trigger = yes
 		}
 		succession = {
 			order_of_succession = election
 			election_type = princely_elective
 		}
 		flag = elective_succession_law
+		title_allegiance_opinion = 10
 		modifier = {
-			direct_vassal_opinion = 10
 			vassal_limit = 20
+			minority_opinion = -15
 		}
 		revoke_cost = {
 			prestige = change_hre_title_succession_law_prestige_cost
@@ -67,29 +59,77 @@
 		}
 	}
 
-	federal_elective_succession_law = {
-		can_have = {
-			OR = {
-				government_has_flag = government_is_feudal
-				government_has_flag = government_is_tribal
-			}
-			highest_held_title_tier >= tier_duchy
-		}
-		can_pass = {
-			can_change_title_law_trigger = yes
-			scope:character.culture = {has_cultural_tradition = tradition_federation}
-		}
+	# Player Heir
+	temporal_head_of_faith_succession_law = {
 		can_title_have = {
-			tier >= tier_duchy
+			is_temporal_head_of_faith_trigger = yes
+		}
+		should_show_for_title = { # Never show this in the UI, just apply it through script
+			always = no
+		}
+		can_remove_from_title = {
+			custom_description = {
+				text = succession_laws_must_not_be_temporal
+				is_temporal_head_of_faith_trigger = no
+			}
 		}
 		succession = {
+			order_of_succession = player_heir
+		}
+	}
+
+	# Noble Family Succession
+	noble_family_succession_law = {
+		can_title_have = {
+			is_noble_family_title = yes
+		}
+		should_show_for_title = { # Never show this in the UI, just apply it through script
+			always = no
+		}
+		can_remove_from_title = {
+			always = no
+		}
+		succession = {
+			order_of_succession = noble_family
+		}
+		flag = can_designate_heirs
+	}
+
+	# Law of the Land Title Succession
+	# Applied in on_title_gain when a county title's capital province has required heir government types defined and the new holder does not meet the requirement. 
+	law_of_the_land_succession_law = {
+		can_title_have = {
+			tier = tier_county
+			title_province = {
+				holding_type = {
+					has_required_heir_governments = yes
+					NOT = {
+						any_required_heir_government_type = {
+							this = root.holder.government_type
+						}
+					}
+				}
+			}
+		}
+		# Never show this in the UI, just apply it through script
+		should_show_for_title = { always = no }
+		can_remove_from_title = { always = no }
+		succession = {
+			order_of_succession = generate_from_template
+		}
+	}
+	#Confederation elective
+	confederation_elective_succession_law = {
+		can_title_have = {
+			tier >= tier_kingdom
+		}
+		should_show_for_title = { always = no }
+		succession = {
 			order_of_succession = election
-			election_type = federal_elective
+			election_type = confederation_elective
 		}
 		flag = elective_succession_law
-		modifier = {
-			direct_vassal_opinion = 5
-		}
+		title_allegiance_opinion = 10
 		revoke_cost = {
 			prestige = change_title_succession_law_prestige_cost
 		}
@@ -98,3 +138,5 @@
 		}
 	}
 }
+
+
