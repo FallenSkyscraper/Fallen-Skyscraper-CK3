@@ -1,0 +1,40 @@
+﻿# Culture on actions.
+
+# Happens when a culture is created through hybridization or divergence
+# Root = The new culture
+# scope:founder = The founder of the new culture
+on_culture_created = {
+	on_actions = {
+		fs_culture_on_action
+	}
+}
+fs_culture_on_action = {
+	effect = {
+		# Set up the parent culture(s) as scope(s).
+		random_parent_culture = { save_scope_as = parent_culture_1 }
+		if = {
+			limit = {
+				any_parent_culture = { count >= 2 }
+			}
+			random_parent_culture = {
+				limit = {
+					NOT = { this = scope:parent_culture_1 }
+				}
+				save_scope_as = parent_culture_2
+			}
+		}
+		every_parent_culture = {
+			limit = { has_same_culture_language = prev }
+			prev = { 
+				set_variable = { name = language_group value = prev.var:language_group }
+
+			}
+		}
+		every_parent_culture = {
+			limit = { has_same_culture_heritage = prev }
+			prev = { 
+				set_variable = { name = heritage_group value = prev.var:heritage_group }
+			}
+		}
+	}
+}
