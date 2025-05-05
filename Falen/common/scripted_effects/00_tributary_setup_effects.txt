@@ -1,0 +1,108 @@
+﻿# This file contains the setup effects for the tributaries in the game.
+# The setup_tributaries_effect is invoked by on_game_start and should make calls to subsequent scripted effects.
+# Sections are organized by top-suzerain title.
+# Note that existing vassals (as established in title history) must be released and recreated into tributaries before
+# they can have their own tributaries.
+
+setup_tributaries_effect = {
+	if = {
+		limit = { has_mpo_dlc_trigger = yes	}
+		if = {
+    		limit = { current_date < 1066.9.15 } # so, 867
+        	mpo_867_tributary_setup_effect = yes
+    	}
+    	else_if = {
+    		limit = { current_date = 1066.9.15 }
+        	mpo_1066_tributary_setup_effect = yes
+    	}
+    	else_if = {
+    		limit = { current_date > 1066.9.15 } # so, 1178
+        	mpo_1178_tributary_setup_effect = yes
+    	}
+    }
+	if = {
+		if = {
+    		limit = { current_date < 1066.9.15 } # so, 867
+    		base_867_tributary_setup_effect = yes
+    	}
+    	else_if = {
+    		limit = { current_date = 1066.9.15 }
+        	base_1066_tributary_setup_effect = yes
+    	}
+    	else_if = {
+    		limit = { current_date > 1066.9.15 } # so, 1178
+        	base_1178_tributary_setup_effect = yes
+    	}
+    }
+}
+
+# $TRIBUTARY$ = the new tributary
+# $SUZERAIN$ = their suzerain
+# $WAR$ = determines if this was caused by war or agreement, yes or no
+break_subject_contract_and_establish_tributary_effect = {
+	if = {
+		limit = { liege != this }
+		create_title_and_vassal_change = {
+			type = independency
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		becomes_independent = {
+			change = scope:change
+		}
+		resolve_title_and_vassal_change = scope:change
+	}
+	start_tributary_interaction_effect = {
+		SUZERAIN = $SUZERAIN$
+		TRIBUTARY = $TRIBUTARY$
+	}
+}
+
+mpo_867_tributary_setup_effect = {
+
+}
+
+mpo_1066_tributary_setup_effect = {
+
+}
+
+mpo_1178_tributary_setup_effect = {
+
+	#### e_yalu
+	character:9008 = {
+		save_scope_as = suzerain
+		character:9501 = {
+			break_subject_contract_and_establish_tributary_effect = { SUZERAIN = scope:suzerain TRIBUTARY = this }
+		}
+		character:9511 = {
+			break_subject_contract_and_establish_tributary_effect = { SUZERAIN = scope:suzerain TRIBUTARY = this }
+		}
+		character:9521 = {
+			break_subject_contract_and_establish_tributary_effect = { SUZERAIN = scope:suzerain TRIBUTARY = this }
+		}
+		character:9532 = {
+			break_subject_contract_and_establish_tributary_effect = { SUZERAIN = scope:suzerain TRIBUTARY = this }
+		}
+		character:9536 = {
+			break_subject_contract_and_establish_tributary_effect = { SUZERAIN = scope:suzerain TRIBUTARY = this }
+		}
+		character:9546 = {
+			break_subject_contract_and_establish_tributary_effect = { SUZERAIN = scope:suzerain TRIBUTARY = this }
+		}
+		character:9551 = {
+			break_subject_contract_and_establish_tributary_effect = { SUZERAIN = scope:suzerain TRIBUTARY = this }
+		}
+	}
+}
+
+base_867_tributary_setup_effect = {
+
+}
+
+base_1066_tributary_setup_effect = {
+	
+}
+
+base_1178_tributary_setup_effect = {
+	
+}

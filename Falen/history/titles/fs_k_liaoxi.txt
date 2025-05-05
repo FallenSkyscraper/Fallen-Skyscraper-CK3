@@ -4,7 +4,14 @@
 		change_development_level = 6
 	}
 }
-d_yi = { 2444.1.1 = { change_development_level = 3 } }
+d_yi = {
+	2444.1.1 = {
+		holder = 9701
+		liege = e_yalu
+		government = nomad_government
+		change_development_level = 3
+	}
+}
 d_beizhen = {
 	2430.1.1 = {
 		holder = 9133
@@ -77,6 +84,8 @@ c_gaolifang = {
 	2443.4.15 = { liege = k_liaoyang change_development_level = 6 } # 년도는 임의설정
 }
 
+
+
 d_liaoxi_rev = {
 	2442.03.10 = {
 		holder = 9301
@@ -103,5 +112,33 @@ c_bangita = {
 		holder = 9311
 		liege = d_liaoxi_rev
 		change_development_level = 5
+	}
+}
+
+c_yanjia = {
+	2443.1.1 = {
+		holder = 9312
+		liege = e_yalu
+	}
+}
+
+c_yuji = {
+	2443.1.1 = {
+		holder = 9312
+		liege = e_yalu
+	}
+}
+
+c_xisan = {
+	2443.1.1 = {
+		holder = 9312
+		liege = e_yalu
+	}
+}
+
+c_linghai = {
+	2443.1.1 = {
+		holder = 9312
+		liege = e_yalu
 	}
 }
