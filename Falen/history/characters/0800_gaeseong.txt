@@ -953,12 +953,13 @@
 	stewardship = 7
 	intrigue = 6
 	learning = 10
+	prowess = 6
 	trait = education_martial_3
 	trait = education_martial_prowess_4
 	trait = eccentric
 	trait = ambitious
 	trait = arbitrary
-	trait = lunatic_1
+	# trait = lunatic_1
 	trait = shrewd
 	2413.2.20 = {
 		birth = yes
@@ -989,6 +990,7 @@
 	stewardship = 5
 	intrigue = 6
 	learning = 11
+	prowess = 3
 	trait = education_learning_3
 	trait = trusting
 	trait = diligent
@@ -1010,6 +1012,7 @@
 	mother = 954
 	trait = ambitious
 	trait = shrewd
+	trait = intellect_good_1
 	2432.9.9 = {
 		birth = yes
 	}
@@ -1497,22 +1500,43 @@
 995 = {
 	name = "급"
 	dynasty = 801
-	religion = naturalism_pagan
+	religion = populism
 	culture = gaeseong
 	father = 7007
+	diplomacy = 7
+	martial = 3
+	stewardship = 9
+	intrigue = 6
+	learning = 11
+	prowess = 8
+	trait = shy
+	trait = eccentric
+	trait = diligent
+	trait = content
+	trait = shrewd
+	trait = intellect_good_2
+	trait = beauty_good_1
+	trait = education_learning_5
+	trait = lunatic_1
+	trait = reclusive
 	2348.1.1 = {
 		birth = yes
+	}
+	2380.1.1 = {
+		religion = naturalism_pagan
 	}
 	2417.1.1 = {
 		death = yes
 	}
 }
 996 = {
-	name = "익"
+	name = "잠자리"
 	dynasty = 801
 	religion = naturalism_pagan
 	culture = gaeseong
 	father = 995
+	trait = eccentric
+	trait = education_martial_4
 	2381.2.1 = {
 		birth = yes
 	}
@@ -1521,26 +1545,33 @@
 	}
 }
 997 = {
-	name = "홀"
+	name = "바구미"
 	dynasty = 801
 	religion = naturalism_pagan
 	culture = gaeseong
 	father = 995
-	2381.2.1 = {
+	trait = education_stewardship_4
+	2387.2.1 = {
 		birth = yes
 	}
-	2438.1.1 = {
-		death = yes
+	2412.1.1 = {
+		add_trait = depressed_1
+	}
+	2418.1.1 = {
+		death = {
+			death_reason = death_depressed
+		}
 	}
 }
 998 = {
-	name = "열"
+	name = "사슴벌레"
 	dynasty = 801
 	religion = naturalism_pagan
 	culture = gaeseong
 	father = 995
 	female = yes
-	2398.2.1 = {
+	trait = beauty_good_1
+	2395.2.1 = {
 		birth = yes
 	}
 	2411.10.22 = {
@@ -1551,15 +1582,29 @@
 	}
 }
 999 = {
-	name = "궁"
+	name = "귀뚜라미"
 	dynasty = 801
 	religion = naturalism_pagan
 	culture = gaeseong
 	father = 997
-	2423.2.1 = {
+	mother = 998
+	2411.2.1 = {
 		birth = yes
 	}
 	2438.1.1 = {
+		death = yes
+	}
+}
+1000 = {
+	name = "꿈틀이"
+	dynasty = 801
+	religion = naturalism_pagan
+	culture = gaeseong
+	father = 999
+	2437.9.14 = {
+		birth = yes
+	}
+	2500.1.1 = {
 		death = yes
 	}
 }
