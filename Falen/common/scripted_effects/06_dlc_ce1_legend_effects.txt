@@ -1,0 +1,1979 @@
+﻿#grab_appropriate_chronicler_effect
+#grab_appropriate_bard_feast_effect - this one doesn't check if they're available, so it can be used in activities
+#grab_appropriate_bard_effect - this one checks if they're available
+#grab_mythical_founder_effect
+#disburse_hunt_legend_seeds
+#change_legend_quality_effect - This adjusts the quality of a legend using an invisible progress bar that goes from 0-100. When it hits 100, the legend increases one step in quality, if it dips below 0, the legend loses one step in quality
+#legend_completion_quality_flag_effect
+#legend_ending_rewards_heroic_effect
+#legend_ending_rewards_holy_effect
+#legend_ending_rewards_legitimizing_effect
+#legend_completion_type_flag_effect
+#get_appropriate_ancient_people - this looks for regionally appropriate ancient people for you to lay claim to
+# get_appropriate_exotic_location - Atlantis, Vinland, places of dubious historicity
+# generate_godly_descent_seed_support_effect - create a godly descent seed based on loc keys
+# generate_religion_descent_effect - generate a godly descent seed based on scopes
+# balancing_legend_global_var_effect
+# send_interface_message_legend_notification_effect
+# send_interface_toast_legend_notification_effect
+# create_swan_knight_legend_seed_effect
+
+grab_appropriate_chronicler_effect = {
+	if = { #If the culture would have relied on poets for this we grab them first
+		limit = {
+			OR = {
+				culture = { has_cultural_tradition = tradition_fp1_northern_stories }
+				culture = { has_cultural_tradition = tradition_poetry }
+				culture = { has_cultural_tradition = tradition_storytellers }
+				culture = { has_cultural_tradition = tradition_chanson_de_geste }
+				faith = {
+					trait_is_virtue = poet
+				}
+			}
+			any_court_position_holder = {
+				type = court_poet_court_position
+				is_available_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = court_poet_court_position
+			limit = {
+				is_available_ai_adult = yes
+			}
+			save_scope_as = chronicler
+		}
+	}		
+	else_if = { #Otherwise we go for the Chronicler first
+		limit = {
+			any_court_position_holder = {
+				type = chronicler_court_position
+				is_available_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = chronicler_court_position
+			limit = {
+				is_available_ai_adult = yes
+			}
+			save_scope_as = chronicler
+		}
+	}
+	else_if = {
+		limit = {
+			any_court_position_holder = {
+				type = court_poet_court_position
+				is_available_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = court_poet_court_position
+			limit = {
+				is_available_ai_adult = yes
+			}
+			save_scope_as = chronicler
+		}
+	}
+	else_if = {
+		limit = {
+			any_court_position_holder = {
+				type = court_musician_court_position
+				is_available_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = court_musician_court_position
+			limit = {
+				is_available_ai_adult = yes
+			}
+			save_scope_as = chronicler
+		}
+	}
+	else = {
+		ordered_courtier = {
+			limit = {
+				NOT = { this = root }
+				is_available_ai_adult = yes
+			}
+			order_by = {
+				value = diplomacy
+				if = {
+					limit = {
+						OR = {
+							has_trait = poet
+							has_trait = journaller
+						}
+					}
+					add = 10
+				}
+				if = {
+					limit = { is_spouse_of = root  }
+					add = -2
+				}
+			}
+			save_scope_as = chronicler
+		}
+	}
+}
+
+grab_appropriate_bard_feast_effect = {
+	if = {
+		limit = {
+			employs_court_position = court_musician_court_position
+			scope:activity = {
+				any_attending_character = {
+					employer = root
+					has_court_position = court_musician_court_position
+					is_physically_able_ai_adult = yes
+				}
+			}
+		}
+		scope:activity = {
+			random_attending_character = {
+				limit = {
+					employer = root
+					has_court_position = court_musician_court_position
+					is_physically_able_ai_adult = yes
+				}
+				save_scope_as = bard
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			employs_court_position = court_poet_court_position
+			scope:activity = {
+				any_attending_character = {
+					employer = root
+					has_court_position = court_poet_court_position
+					is_physically_able_ai_adult = yes
+				}
+			}
+		}
+		scope:activity = {
+			random_attending_character = {
+				limit = {
+					employer = root
+					has_court_position = court_poet_court_position
+					is_physically_able_ai_adult = yes
+				}
+				save_scope_as = bard
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			scope:activity = {
+				any_attending_character = {
+					OR = {
+						is_vassal_of = root
+						is_courtier_of = root
+					}
+					NOT = { this = root }
+					NOT = { is_spouse_of = root }
+					NOT = { is_child_of = root }
+					NOT = { is_councillor_of = root }
+					is_physically_able_ai_adult = yes
+				}				
+			}
+		}
+		scope:activity = {
+			ordered_attending_character = {
+				limit = {
+					OR = {
+						is_vassal_of = root
+						is_courtier_of = root
+					}
+					NOT = { this = root }
+					NOT = { is_spouse_of = root }
+					NOT = { is_child_of = root }
+					is_physically_able_ai_adult = yes
+				}
+				order_by = {
+					value = diplomacy
+					if = {
+						limit = {
+							has_trait = poet
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							has_trait = journaller
+						}
+						add = 5
+					}
+				}
+			}
+			save_scope_as = bard
+		}
+	}
+	else = {
+		create_character = {
+			template = bard_template
+			dynasty = none
+			location = root.location
+			gender_female_chance = root_faith_dominant_gender_female_chance
+			save_scope_as = bard
+		}
+	}
+}
+
+grab_appropriate_bard_effect = {
+	if = {
+		limit = {
+			employs_court_position = court_musician_court_position
+			any_court_position_holder = {
+				type = court_musician_court_position
+				is_available_healthy_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = court_musician_court_position
+			limit = { is_available_healthy_ai_adult = yes }
+			save_scope_as = bard
+		}
+	}
+	else_if = {
+		limit = {
+			employs_court_position = court_poet_court_position
+			any_court_position_holder = {
+				type = court_poet_court_position
+				is_available_healthy_ai_adult = yes
+			}
+		}
+		random_court_position_holder = {
+			type = court_poet_court_position
+			limit = { is_available_healthy_ai_adult = yes }
+			save_scope_as = bard
+		}
+	}
+	else_if = {
+		limit = {
+			any_courtier = {
+				NOT = { this = root }
+				NOT = { is_spouse_of = root }
+				NOT = { is_child_of = root }
+				NOT = { is_councillor_of = root }
+				is_available_healthy_ai_adult = yes
+			}
+		}
+		ordered_courtier = {
+			limit = {
+				NOT = { this = root }
+				NOT = { is_spouse_of = root }
+				NOT = { is_child_of = root }
+				NOT = { is_councillor_of = root }
+				is_available_healthy_ai_adult = yes
+			}
+			order_by = {
+				value = diplomacy
+				if = {
+					limit = {
+						has_trait = poet
+					}
+					add = 10
+				}
+				if = {
+					limit = {
+						has_trait = journaller
+					}
+					add = 5
+				}
+			}
+			save_scope_as = bard
+		}
+	}
+	else = {
+		create_character = {
+			template = bard_template
+			dynasty = none
+			location = root.location
+			gender_female_chance = root_faith_dominant_gender_female_chance
+			save_scope_as = bard
+		}
+	}
+}
+
+grab_mythical_founder_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = { exists = var:mythical_ancestor_var }
+			}
+			random_list = {
+				10 = { # Genghis Khan
+					trigger = {
+						root.culture = { has_cultural_pillar = heritage_mongolic }
+						current_date > 1228.1.1
+					}
+					set_variable = { name = mythical_ancestor_var value = flag:genghis }
+				}
+				1 = { # Fallback, only triggered when necessary
+					set_variable = { name = mythical_ancestor_var value = flag:fallback }
+				}
+			}
+		}
+	}
+}
+
+disburse_hunt_legend_seeds = {
+	if = {
+		limit = {
+			is_ruler = yes
+			has_dlc_feature = legends
+			NOT = { has_game_rule = historical_legends_only }
+		}
+		if = {
+			limit = {
+				scope:activity.var:animal_type = flag:dragon
+			}
+			create_legend_seed = {
+				type = heroic
+				quality = famed
+				chronicle = beast_slayer
+				properties = {
+					beast = flag:dragon
+					location = root.location
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:activity.var:animal_type = flag:unicorn
+			}
+			create_legend_seed = {
+				type = heroic
+				quality = famed
+				chronicle = beast_slayer
+				properties = {
+					beast = flag:unicorn
+					location = root.location
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:activity.var:animal_type = flag:bear
+			}
+			random = {
+				chance = 50
+				create_legend_seed = {
+					type = heroic
+					quality = famed
+					chronicle = beast_slayer
+					properties = {
+						beast = flag:bear
+						location = root.location
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					scope:activity.var:animal_type = flag:tiger
+					scope:activity.var:animal_type = flag:lion
+					scope:activity.var:animal_type = flag:leopard
+				}
+			}
+			random = {
+				chance = 30
+				create_legend_seed = {
+					type = heroic
+					quality = famed
+					chronicle = beast_slayer
+					properties = {
+						beast = flag:ferocious_beast
+						location = root.location
+					}
+				}
+			}
+		}
+	}
+}
+
+# Has to be run on the legend itself
+change_legend_quality_effect = {
+	# Firstly, do I exist and if not, set me
+	if = {
+		limit = {
+			NOT = { exists = var:legend_quality_progress }
+		}
+		if = {
+			limit = {
+				$VALUE$ <= major_legend_quality_decrease
+			}
+			custom_tooltip = major_legend_quality_decrease_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ <= medium_legend_quality_decrease
+			}
+			custom_tooltip = medium_legend_quality_decrease_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ < 0
+			}
+			custom_tooltip = minor_legend_quality_decrease_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ >= major_legend_quality_increase
+			}
+			custom_tooltip = major_legend_quality_increase_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ >= medium_legend_quality_increase
+			}
+			custom_tooltip = medium_legend_quality_increase_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ > 0
+			}
+			custom_tooltip = minor_legend_quality_increase_tt
+			set_variable = {
+				name = legend_quality_progress
+				value = $VALUE$
+			}
+		}
+		else = {
+			set_variable = {
+				name = legend_quality_progress
+				value = 0
+			}
+		}
+	}
+	# Otherwise, check if the progress is going to go over 100 and if so, cap at 100
+	else_if = {
+		limit = {
+			exists = var:legend_quality_progress
+			100 <= {
+				value = var:legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		set_variable = {
+			name = legend_quality_progress
+			value = 100
+		}
+	}
+	# Otherwise, check if the progress is going to go below 0 and if so, cap at 0
+	else_if = {
+		limit = {
+			exists = var:legend_quality_progress
+			0 >= {
+				value = var:legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		set_variable = {
+			name = legend_quality_progress
+			value = 0
+		}
+	}
+	# Otherwise, just apply the mathematics
+	else = {
+		if = {
+			limit = {
+				$VALUE$ <= major_legend_quality_decrease
+			}
+			custom_tooltip = major_legend_quality_decrease_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ <= medium_legend_quality_decrease
+			}
+			custom_tooltip = medium_legend_quality_decrease_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ < 0
+			}
+			custom_tooltip = minor_legend_quality_decrease_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ >= major_legend_quality_increase
+			}
+			custom_tooltip = major_legend_quality_increase_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ >= medium_legend_quality_increase
+			}
+			custom_tooltip = medium_legend_quality_increase_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+		else_if = {
+			limit = {
+				$VALUE$ > 0
+			}
+			custom_tooltip = minor_legend_quality_increase_tt
+			change_variable = {
+				name = legend_quality_progress
+				add = $VALUE$
+			}
+		}
+	}
+}
+
+#Rewards for Famed Legends
+legend_ending_rewards_famed_heroic_effect = {
+	add_legitimacy = medium_legitimacy_gain
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_famed_legend_var
+		set_variable = finished_heroic_legend_var
+	}
+}
+
+legend_ending_rewards_famed_holy_effect = {
+	add_legitimacy = medium_legitimacy_gain
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_famed_legend_var
+		set_variable = finished_holy_legend_var
+	}
+}
+
+legend_ending_rewards_famed_legitimizing_effect = {
+	add_legitimacy = {
+		value = medium_legitimacy_gain
+		multiply = 2
+	}
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_famed_legend_var
+		set_variable = finished_legitimizing_legend_var
+	}
+}
+
+#Rewards for Illustrious Legends
+legend_ending_rewards_illustrious_heroic_effect = {
+	add_legitimacy = major_legitimacy_gain
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_illustrious_legend_var
+		set_variable = finished_heroic_legend_var
+	}
+}
+
+legend_ending_rewards_illustrious_holy_effect = {
+	add_legitimacy = major_legitimacy_gain
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_illustrious_legend_var
+		set_variable = finished_holy_legend_var
+	}
+}
+
+legend_ending_rewards_illustrious_legitimizing_effect = {
+	add_legitimacy = {
+		value = major_legitimacy_gain
+		multiply = 2
+	}
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_illustrious_legend_var
+		set_variable = finished_legitimizing_legend_var
+	}
+}
+
+#Rewards for Mythical Legends
+legend_ending_rewards_mythical_heroic_effect = {
+	add_legitimacy = massive_legitimacy_gain
+	# Chance to become a Living Legend
+	if = {
+		limit = {
+			dynasty ?= {
+				ce1_heroic_track_perks >= 4
+			}
+		}
+		add_trait = legend
+	}
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_mythical_legend_var
+		set_variable = finished_heroic_legend_var
+	}
+}
+
+legend_ending_rewards_mythical_holy_effect = {
+	add_legitimacy = massive_legitimacy_gain
+	# Chance to become a Saint
+	if = {
+		limit = {
+			dynasty ?= {
+				ce1_heroic_track_perks >= 3
+			}
+		}
+		add_trait = saint
+		if = {
+			limit = { NOT = { has_global_variable = num_of_saints_var } }
+			set_global_variable = {
+				name = num_of_saints_var
+				value = 1
+			}
+		}
+		else = {
+			change_global_variable = {
+				name = num_of_saints_var
+				add = 1
+			}
+		}
+		if = {
+			limit = { is_ai = no }
+			add_achievement_global_variable_effect = {
+				VARIABLE = ce1_canonized_achievement_unlocked
+				VALUE = yes
+			}
+		}
+	}
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_mythical_legend_var
+		set_variable = finished_holy_legend_var
+	}
+}
+
+legend_ending_rewards_mythical_legitimizing_effect = {
+	add_legitimacy = {
+		value = massive_legitimacy_gain
+		multiply = 2
+	}
+	if = {
+		limit = { exists = promoted_legend }
+		set_variable = finished_mythical_legend_var
+		set_variable = finished_legitimizing_legend_var
+	}
+}
+
+#We clean out the notification variables
+remove_legend_notification_variables_effect = {
+	every_player = {
+		limit = {
+			exists = var:legend_alerted_var
+			var:legend_alerted_var = promoted_legend
+		}
+		remove_variable = legend_alerted_var
+	}
+}
+
+#Rewards for all Heroic Legends
+legend_ending_rewards_heroic_effect = {
+	# Legitimacy gain based on Legend Protagonist
+	disburse_legend_protagonist_legitimacy_effect = yes
+	# Available decision
+	custom_tooltip = legend_ending_decision_tt
+	hidden_effect = {
+		create_character_memory = {
+			type = ce1_completed_my_heroic_legend
+			participants = {
+				owner = root
+				protagonist = scope:legend_protagonist
+			}
+		}
+	}
+}
+
+#Rewards for all Legitimizing Legends
+legend_ending_rewards_legitimizing_effect = {
+	# Legitimacy gain based on Legend Protagonist
+	disburse_legend_protagonist_legitimacy_effect = yes
+	# We let you diverge if it's an Ancient People legend
+	if = {
+		limit = {
+			exists = scope:legendary_culture
+			has_dlc_feature = diverge_culture # Don't mislead players who don't have access to divergence
+		}
+		custom_tooltip = { 
+			text = can_select_legendary_culture_pillars_tt
+			set_variable = {
+				name = legendary_culture
+				value = scope:legendary_culture
+			}
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:title_claim.holder
+			NOT = {
+				scope:title_claim.holder = root
+			}
+		}
+		add_pressed_claim = scope:title_claim
+		add_to_variable_list = {
+			name = legendary_claims
+			target = scope:title_claim
+		}
+	}
+	else_if = {
+		limit = {
+			scope:title_claim.tier > tier_county
+		}
+		custom_tooltip = {
+			text = legend_title_does_not_exist_sub_realm_claims_given_tt
+		}
+		hidden_effect = {
+			scope:title_claim = {
+				legend_distribute_claims_in_de_jure = yes
+			}
+		}
+	}
+	# Available decision
+	custom_tooltip = legend_ending_decision_tt
+	promoted_legend ?= { set_variable = finished_legend_var }
+	hidden_effect = {
+		create_character_memory = {
+			type = ce1_completed_my_legitimizing_legend
+			participants = {
+				owner = root
+				protagonist = scope:legend_protagonist
+			}
+		}
+	}
+}
+
+legend_distribute_claims_in_de_jure = {
+	every_direct_de_jure_vassal_title = {
+		if = {
+			limit = {
+				exists = holder
+			}
+			root = {
+				add_pressed_claim = prev
+				add_to_variable_list = {
+					name = legendary_claims
+					target = prev
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				this.tier > tier_county
+			}
+			every_direct_de_jure_vassal_title = {
+				if = {
+					limit = {
+						exists = holder
+					}
+					root = {
+						add_unpressed_claim = prev
+						add_to_variable_list = {
+							name = legendary_claims
+							target = prev
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						this.tier > tier_county
+					}
+					every_direct_de_jure_vassal_title = {
+						if = {
+							limit = {
+								exists = holder
+							}
+							root = {
+								add_unpressed_claim = prev
+								add_to_variable_list = {
+									name = legendary_claims
+									target = prev
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}	
+}
+
+#Rewards for all Holy Legends
+legend_ending_rewards_holy_effect = {
+	# Legitimacy gain based on Legend Protagonist
+	disburse_legend_protagonist_legitimacy_effect = yes
+	# Available decision
+	custom_tooltip = legend_ending_decision_tt
+	promoted_legend ?= { set_variable = finished_legend_var }
+	hidden_effect = {
+		create_character_memory = {
+			type = ce1_completed_my_holy_legend
+			participants = {
+				owner = root
+				protagonist = scope:legend_protagonist
+			}
+		}
+	}
+}
+
+# Achievements for legends
+legend_ending_achievements_effect = {
+	if = {
+		limit = {
+			exists = promoted_legend
+		}
+		if = {
+			limit = { is_ai = no }
+			add_achievement_global_variable_effect = {
+				VARIABLE = ce1_legendary_achievement_unlocked
+				VALUE = yes
+			}
+		}
+		if = { # If you finish your ancestor's legend
+			limit = {
+				is_ai = no
+				has_variable = ce1_neverending_story_achievement_possible
+				promoted_legend = { has_variable = ce1_neverending_story_achievement_possible_legend }
+			}
+			add_achievement_global_variable_effect = {
+				VARIABLE = ce1_neverending_story_achievement_unlocked
+				VALUE = yes
+			}
+		}
+		if = { # If you finish a mythical legend as a count
+			limit = {
+				is_ai = no
+				highest_held_title_tier = tier_county
+				promoted_legend = { legend_quality = mythical }
+			}
+			add_achievement_global_variable_effect = {
+				VARIABLE = ce1_local_legend_achievement_unlocked
+				VALUE = yes
+			}
+		}
+	}
+}
+
+get_appropriate_ancient_people = {
+	random_list = {
+		999 = {
+			trigger = {
+				religion = { is_in_family = rf_abrahamic }
+				NOT = { culture = culture:hebrew }
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:israel_region
+				years = 1
+			}
+			culture:hebrew = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				OR = {
+					root.culture = {
+						OR = {
+							culture_overlaps_geographical_region = world_europe
+							culture_overlaps_geographical_region = world_africa
+							culture_overlaps_geographical_region = world_asia_minor
+						}
+					}
+					culture = culture:egyptian
+					culture = culture:scottish
+				}
+				NOT = { culture = culture:ancient_egyptian }
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:ghw_region_egypt_et_al
+				years = 1
+			}
+			culture:ancient_egyptian = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				OR = {
+					root.culture = {
+						OR = {
+							culture_overlaps_geographical_region = world_steppe
+							culture_overlaps_geographical_region = custom_carpathia
+						}
+					}
+					culture = { has_cultural_pillar = heritage_turkic }
+					culture = { has_cultural_pillar = heritage_mongolic }
+					culture = { has_cultural_pillar = heritage_magyar }
+				}
+				NOT = { culture = culture:hunnic }
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:world_steppe_west
+				years = 1
+			}
+			culture:hunnic = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				OR = {
+					root.culture = {
+						culture_overlaps_geographical_region = world_europe
+					}
+					culture = { has_cultural_pillar = heritage_iberian }
+					culture = { has_cultural_pillar = heritage_north_germanic }
+				}
+				NOT = { culture = culture:gothic }
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:world_steppe_west
+				years = 1
+			}
+			culture:gothic = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				OR = {
+					root.culture = {
+						OR = {
+							culture_overlaps_geographical_region = world_asia_minor
+							culture_overlaps_geographical_region = world_middle_east
+						}
+					}
+				}
+				NOT = { culture = culture:persian }
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:world_middle_east_persia
+				years = 1
+			}
+			culture:persian = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				OR = {
+					root.culture = {
+						OR = {
+							culture_overlaps_geographical_region = world_europe
+							culture_overlaps_geographical_region = world_asia_minor
+							culture_overlaps_geographical_region = world_middle_east
+							culture_overlaps_geographical_region = world_africa_north
+						}
+					}
+				}
+				NOT = { culture = culture:trojan }
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:troy_region
+				years = 1
+			}
+			culture:trojan = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				OR = {
+					root.culture = {
+						OR = {
+							culture_overlaps_geographical_region = world_europe
+							culture_overlaps_geographical_region = world_asia_minor
+							culture_overlaps_geographical_region = world_middle_east
+							culture_overlaps_geographical_region = world_africa_north
+							culture_overlaps_geographical_region = world_india
+							culture_overlaps_geographical_region = world_steppe_tarim
+						}
+					}
+				}
+				NOT = { culture = culture:macedonian }
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:world_europe_south_east
+				years = 1
+			}
+			culture:macedonian = { save_scope_as = ancient_culture }
+		}
+		999 = {
+			trigger = {
+				OR = {
+					root.culture = {
+						culture_overlaps_geographical_region = custom_roman_full_borders
+					}
+					religion = {
+						AND = {
+							is_in_family = rf_abrahamic
+							NOT = { this = religion:judaism_religion }
+						}
+					}
+				}
+				NOT = { culture = culture:roman }
+			}
+			set_variable = {
+				name = original_region
+				value = geographical_region:custom_roman_full_borders
+				years = 1
+			}
+			culture:roman = { save_scope_as = ancient_culture }
+		}
+		1 = { # Roman (fallback, placeholder)
+			set_variable = {
+				name = original_region
+				value = geographical_region:custom_roman_full_borders
+				years = 1
+			}
+			culture:roman = { save_scope_as = ancient_culture }
+		}
+	}
+}
+
+get_appropriate_exotic_location = {
+	random_list = {
+		999 = { # Atlantis, must care about Greek stuff
+			trigger = {
+				OR = {
+					religion = { is_in_family = rf_abrahamic }
+					culture = { has_cultural_pillar = heritage_byzantine }
+					culture = { has_cultural_pillar = heritage_ancient_greek }
+					culture = { has_cultural_pillar = heritage_latin }
+				}
+			}
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:atlantis
+			}
+		}
+		1 = { # China (fallback)
+			save_scope_value_as = {
+				name = exotic_location
+				value = flag:america
+			}
+		}
+	}
+}
+
+# Generates a legend seed that just points to a loc key by combining FAITH with GOD (example, FAITH = germanic + GOD = high_god will result in germanic_high_god_name and localise to "Odin")
+generate_godly_descent_seed_support_effect = {
+	create_legend_seed = {
+		type = holy
+		quality = famed
+		chronicle = godly_descent
+		properties = {
+			god = flag:$FAITH$_$GOD$_name
+			title = root.primary_title
+		}
+	}
+}
+
+# Runs the above effect based on an actual RELIGION that you feed into it, for example feeding Root.Religion into RELIGION will cause it to generate your religion's god loc keys
+generate_religion_descent_effect = {
+	if = {
+		limit = {
+			$RELIGION$ = religion:akom_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = akom
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:baltic_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = baltic
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:basque_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = basque
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:bon_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = bon
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:buddhism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = buddhism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:tani_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = tani
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:dualism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = dualism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:finno_ugric_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = finno_ugric
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:germanic_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = germanic
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:hellenism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = hellenism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:hinduism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = hinduism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:jainism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = jainism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:kushitism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = kushitism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:magyar_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = magyar
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:mundhum_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = mundhumism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:north_african_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = acham
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:qiangic_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = qiangic
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:siberian_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = siberian
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:slavic_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = slavic
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:taoism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = taoism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:tengrism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = tengrism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:waaqism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = waaqism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:west_african_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = west_african
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:west_african_bori_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = west_african_bori
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:west_african_orisha_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = west_african_orisha
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:west_african_roog_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = west_african_roog
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:yazidi_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = yazidi
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:zoroastrianism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = zoroastrianism
+			GOD = $GOD$
+		}
+	}
+	else_if = {
+		limit = {
+			$RELIGION$ = religion:zunism_religion
+		}
+		generate_godly_descent_seed_support_effect = {
+			FAITH = zunism
+			GOD = $GOD$
+		}
+	}
+	else = { # Generic Pagan, fallback
+		generate_godly_descent_seed_support_effect = {
+			FAITH = paganism
+			GOD = $GOD$
+		}
+	}
+}
+
+# Mythical Legends guaranteed access to Legendary Buildings
+
+give_legendary_building_mythical_holy_tooltip_effect = {
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		give_legendary_building_location_holy_effect = yes
+	}
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+}
+
+give_legendary_building_mythical_heroic_tooltip_effect = {
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		give_legendary_building_location_heroic_effect = yes
+	}
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+}
+
+give_legendary_building_mythical_legitimizing_tooltip_effect = {
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		give_legendary_building_location_legitimizing_effect = yes
+	}
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+}
+
+# Famed/Illustrious have a 50% chance
+
+give_legendary_building_holy_tooltip_effect = { #50% chance
+	# Chance to get legendary building
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		random = {
+			chance = {
+				value = 50
+			}
+			give_legendary_building_location_holy_effect = yes
+		}
+	}
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+}
+
+give_legendary_building_heroic_tooltip_effect = { #50% chance
+	# Chance to get legendary building
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		random = {
+			chance = {
+				value = 50
+			}
+			give_legendary_building_location_heroic_effect = yes
+			set_variable = {
+				name = legendary_reward_location
+				value = scope:legendary_locale
+			}
+			set_variable = {
+				name = legendary_figure
+				value = scope:protagonist
+			}
+		}
+	}
+}
+
+give_legendary_building_legitimizing_tooltip_effect = { #50% chance
+	# Chance to get legendary building
+	if = {
+		limit = {
+			OR = {
+				root = {
+					locale_valid_for_legendary_buildings = yes
+				}
+				capital_province = { has_special_building_slot = no }
+				any_sub_realm_barony = {
+					title_province = { has_special_building_slot = no }
+				}
+			}
+		}
+		random = {
+			chance = {
+				value = 50
+			}
+			give_legendary_building_location_legitimizing_effect = yes
+		}
+	}
+	set_variable = {
+		name = legendary_reward_location
+		value = scope:legendary_locale
+	}
+	set_variable = {
+		name = legendary_figure
+		value = scope:protagonist
+	}
+}
+
+give_legendary_building_location_standard_effect = {
+	if = { # Prioritize the location of the legend if possible
+		limit = {
+			root = {
+				locale_valid_for_legendary_buildings = yes
+			}
+		}
+		scope:location = { save_scope_as = legendary_locale }
+	}
+	else_if = { # Otherwise, get the capital
+		limit = {
+			capital_province = { has_special_building_slot = no }
+		}
+		capital_province = { save_scope_as = legendary_locale }
+	}
+	else_if = { # Otherwise, prioritize a title you hold directly
+		limit = {
+			any_held_title = {
+				tier = tier_county
+				title_province = { has_special_building_slot = no }
+			}
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				title_province = { has_special_building_slot = no }
+			}
+			title_province = { save_scope_as = legendary_locale }
+		}
+	}
+	else_if = { #Otherwise, prioritize a barony that you hold directly
+		limit = {
+			any_held_title = {
+				tier = tier_barony
+				title_province = {
+					has_special_building_slot = no
+				}
+			}
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_barony
+				title_province = {
+					has_special_building_slot = no
+				}
+			}
+			title_province = {
+				save_scope_as = legendary_locale
+			}
+		}
+
+	}
+	else_if = { # Otherwise, prioritize a barony within a title you hold
+		limit = {
+			any_held_title = {
+				tier = tier_county
+				any_county_province = { has_special_building_slot = no }
+			}
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				any_county_province = { has_special_building_slot = no }
+			}
+			random_county_province = {
+				limit = {
+					has_special_building_slot = no
+				}
+				save_scope_as = legendary_locale
+			}
+		}
+	}
+	else_if = { # Find a feudal barony...
+		limit = {
+			any_sub_realm_barony = {
+				title_province = {
+					has_special_building_slot = no
+					has_holding_type = castle_holding
+				}
+			}
+		}
+		random_sub_realm_barony = {
+			limit = {
+				title_province = {
+					has_special_building_slot = no
+					has_holding_type = castle_holding
+				}
+			}
+			title_province = { save_scope_as = legendary_locale }
+		}
+	}
+	else_if = { # Find a province with a holding
+		limit = {
+			any_sub_realm_barony = {
+				title_province = {
+					has_special_building_slot = no
+					has_holding = yes
+				}
+			}
+		}
+		random_sub_realm_barony = {
+			limit = {
+				title_province = {
+					has_special_building_slot = no
+					has_holding = yes
+				}
+			}
+			title_province = { save_scope_as = legendary_locale }
+		}
+	}
+	else = { # Final fallback, just any barony in your realm
+		random_sub_realm_barony = {
+			title_province = { save_scope_as = legendary_locale }
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				exists = scope:beast
+				has_trait_xp = {
+					trait = lifestyle_hunter
+					track = hunter
+					value >= 62
+				}
+				has_trait_xp = {
+					trait = lifestyle_hunter
+					track = falconer
+					value >= 62
+				}
+				culture ?= {
+					has_cultural_parameter = always_unlock_legendary_hunting_lodge
+				}
+			}
+		}
+		custom_tooltip = {
+			text = can_build_legendary_hunting_lodge_tt
+			add_character_flag = legendary_hunting_lodge_flag
+		}
+	}
+	if = {
+		limit = {
+			dynasty ?= { ce1_heroic_track_perks >= 5 }
+		}
+		custom_tooltip = {
+			text = can_build_legendary_watchtower_tt
+			add_character_flag = legendary_watchtower_flag
+		}
+	}
+}
+
+give_legendary_building_location_holy_effect = {
+	give_legendary_building_location_standard_effect = yes
+	custom_tooltip = {
+		text = can_build_legendary_shrine_tt
+		add_character_flag = legendary_shrine_flag
+	}
+}
+
+give_legendary_building_location_heroic_effect = {
+	give_legendary_building_location_standard_effect = yes
+	custom_tooltip = {
+		text = can_build_legendary_statue_tt
+		add_character_flag = legendary_statue_flag
+	}
+}
+
+give_legendary_building_location_legitimizing_effect = {
+	give_legendary_building_location_standard_effect = yes
+	custom_tooltip = {
+		text = can_build_legendary_palace_tt
+		add_character_flag = legendary_palace_flag
+	}
+}
+
+legend_seed_new_title_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = new_title
+			properties = {
+				title = root.primary_title
+				founder = root
+			}
+		}
+	}
+}
+
+legend_seed_great_deed_dynasty_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = legitimizing
+			quality = famed
+			chronicle = great_deed_dynasty
+			properties = {
+				dynasty = root.dynasty
+				founder = root
+				title = root.primary_title.empire
+			}
+		}
+	}
+}
+
+legend_seed_great_deed_region_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = great_deed_region
+			properties = {
+				legend_region = $REGION$
+				founder = root
+			}
+		}
+	}
+}
+
+legend_seed_great_deed_title_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = great_deed_title
+			properties = {
+				title = $TITLE$
+				founder = root
+			}
+		}
+	}
+}
+
+legend_seed_great_deed_faith_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = holy
+			quality = famed
+			chronicle = great_deed_faith
+			properties = {
+				founder = root
+				antagonist = $ANTAGONIST$
+				old_faith = $OLD_FAITH$
+				new_faith = root.faith
+			}
+		}
+	}
+}
+
+legend_seed_struggle_ended_effect = {
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = struggle_ended
+			properties = {
+				founder = root
+				culture = root.culture
+				struggle = $STRUGGLE$
+				struggle_ending = $STRUGGLE_ENDING$
+			}
+		}
+	}
+}
+
+mark_historical_legend_as_done = {
+	if = { # Dynastic legacy
+		limit = {
+			legend_property:founder ?= legend_owner.house.house_founder
+			legend_property:dynasty ?= legend_owner.dynasty
+			legend_property:title ?= legend_owner.primary_title
+		}
+		legend_owner.dynasty = {
+			set_variable = {
+				name = dynasty_legend_used
+				value = yes
+			}
+		}
+	}
+}
+
+legend_seed_struggle_ending_effect = {
+	create_legend_seed = {
+		type = heroic
+		quality = famed
+		chronicle = struggle_conclusion
+		properties = {
+			struggle_ender = $ENDER$
+			struggle = flag:$STRUGGLE$
+		}
+	}
+}
+
+balancing_legend_global_var_effect = {
+	if = {
+		limit = {
+			NOT = { has_global_variable = legend_count_var }
+		}
+		set_global_variable = {
+			name = legend_count_var
+			value = 1
+		}
+	}
+	else = {
+		change_global_variable = {
+			name = legend_count_var
+			add = 1
+		}
+	}
+}
+
+gain_heroic_legend_seed_tooltip_effect = {
+	if = {
+		limit = {
+			has_dlc_feature = legends
+		}
+		custom_tooltip = gain_heroic_legend_seed.tt
+	} 
+}
+
+gain_holy_legend_seed_tooltip_effect = {
+	if = {
+		limit = {
+			has_dlc_feature = legends
+		}
+		custom_tooltip = gain_holy_legend_seed.tt
+	} 
+}
+
+gain_legitimizing_legend_seed_tooltip_effect = {
+	if = {
+		limit = {
+			has_dlc_feature = legends
+		}
+		custom_tooltip = gain_legitimizing_legend_seed.tt
+	} 
+}
+
+send_interface_message_legend_notification_effect = {
+	county = { save_scope_as = spread_county }
+	scope:legend = { save_scope_as = spread_legend }
+	county.holder = {
+		set_variable = {
+			name = legend_alerted_var
+			value = scope:legend
+		}
+		send_interface_message = {
+			type = event_generic_good_text
+			title = legend_spread_notification_title
+			desc = legend_spread_notification_desc
+
+			right_icon = scope:spread_county
+		}
+	}
+}
+
+send_interface_toast_legend_notification_effect = {
+	county = { save_scope_as = spread_county }
+	scope:legend = { save_scope_as = spread_legend }
+	county.holder = {
+		set_variable = {
+			name = legend_alerted_var
+			value = scope:legend
+		}
+		send_interface_toast = {
+			title = legend_spread_notification_title
+			custom_tooltip = legend_spread_notification_desc
+			left_icon = scope:spread_county
+		}
+	}
+}
+
+create_swan_knight_legend_seed_effect = {
+	if = {
+		limit = {
+			location = {
+				geographical_region = world_europe
+			}
+		}
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = swan_knight
+			properties = {
+				friendly_animal = flag:swan
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			location = {
+				OR = {
+					geographical_region = world_india
+					geographical_region = world_burma
+					geographical_region = ghw_region_caucasus
+				}
+			}
+		}
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = swan_knight
+			properties = {
+				friendly_animal = flag:tiger
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			location = {
+				geographical_region = world_africa
+			}
+		}
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = swan_knight
+			properties = {
+				friendly_animal = flag:lion
+			}
+		}
+	}
+	else = {
+		create_legend_seed = {
+			type = heroic
+			quality = famed
+			chronicle = swan_knight
+			properties = {
+				friendly_animal = flag:hart
+			}
+		}
+	}
+}
