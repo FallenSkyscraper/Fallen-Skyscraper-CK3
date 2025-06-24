@@ -1,0 +1,95 @@
+﻿# 씨족제 와지르 + 행정제 공동황제
+
+vice_presidency = {
+	start = { always = yes }
+	end = {
+		liege = { NOT = { government_has_flag = government_is_secular_republic } }
+	}
+	# Mandates
+	## Just the standard suite
+	mandate = fill_coffers
+	mandate = swell_armies
+	mandate = promote_authority
+	## Aptitudes.
+	aptitude_score = {
+		add = mandate_type_qualification:fill_coffers
+		add = mandate_type_qualification:swell_armies
+		add = mandate_type_qualification:promote_authority
+	}
+	
+	# Scales of Power
+	## 000
+	power_level = {
+		swing = 0
+		parameter = unlock_syphon_treasury_interaction
+		parameter = diarch_can_subsidise_liege_authority
+	}
+	## 020
+	power_level = {
+		swing = 20
+		parameter = unlock_shift_privileges_interaction
+		parameter = diarch_gets_a_free_change_on_vassal_contract
+		parameter = liege_pays_currency_surcharge_for_mundane_interactions_mild
+	}
+	## 040
+	power_level = {
+		swing = 40
+		parameter = unlock_diarch_revoke_title_interaction
+		parameter = unlock_legal_meddling_interaction
+	}
+	## 60
+	power_level = {
+		swing = 60
+		parameter = unlock_diarch_retract_vassal_interaction
+		parameter = unlock_diarch_imprison_interaction
+		parameter = liege_pays_currency_surcharge_for_mundane_interactions_medium
+	}
+	## 080
+	power_level = {
+		swing = 80
+		parameter = liege_pays_currency_surcharge_for_mundane_interactions_major
+	}
+	## 95
+	power_level = {
+		swing = 95
+		parameter = liege_pays_currency_surcharge_for_mundane_interactions_massive
+		parameter = regents_can_try_to_overthrow_present_lieges
+		parameter = regents_can_try_to_overthrow_present_lieges_help
+	}
+
+	# Trend towards an even balance of power — most of the time.
+	swing_balance = { add = adult_co_ruler_power_balance_scaling_value }
+
+	# No succession here.
+	succession = no
+
+	# Container for hidden parameters.
+	power_level = {
+		swing = 0
+		hidden_parameter = diarchy_is_co_rulership
+		hidden_parameter = vizier_sits_in_the_council_instead_of_spouse
+		hidden_parameter = diarchy_type_is_vice_presidency
+		hidden_parameter = mandate_tempo_slow
+	}
+
+	loyalty_score = { add = diarch_loyalty_score_type_co_emperorship_value }
+
+	end_interaction = execute_prisoner_interaction
+
+	liege_modifier = {
+		name = from_co_monarch_diplomacy_vassal_opinion
+
+		vassal_opinion = 1
+		scale = {
+			add = diplomacy
+			max = 40
+		}
+	}
+
+	diarch_modifier = {
+		name = to_co_monarch_monthly_prestige_add_bonus
+
+		monthly_prestige = 0.5
+		scale = { add = liege.highest_held_title_tier }
+	}
+}

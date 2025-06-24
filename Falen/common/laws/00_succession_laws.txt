@@ -123,7 +123,10 @@
 				#fs_모드의
 				government_has_flag = government_is_maritime 
 				government_has_flag = government_is_theocratic_feudal
-				government_has_flag = government_is_secular_republic
+				AND = {
+					government_has_flag = government_is_secular_republic
+					is_independent_ruler = no
+				}
 				government_has_flag = government_is_manchu_tribal
 				historical_succession_access_partition_succession_law_trigger = yes
 			}
@@ -1042,6 +1045,49 @@
 
 		potential = {
 			can_have_herder_succession_law_trigger = yes
+		}
+	}
+	
+	gym_succession_law = {
+		can_keep = {
+			government_has_flag = government_is_secular_republic
+		}
+		can_pass = {
+			government_has_flag = government_is_secular_republic
+		}
+		can_have = {
+			NOT = { government_has_flag = government_is_nomadic }
+			government_has_flag = government_is_secular_republic
+		}
+		should_start_with = {
+			has_title = title:k_prk
+			government_has_flag = government_is_secular_republic
+		}
+		succession = {
+			order_of_succession = appointment
+			appointment_type = sec_rep_president
+		}
+		flag = advanced_succession_law
+	#	flag = can_designate_heirs
+		flag = appointment_type_succession
+		modifier = {
+			glory_hound_opinion = 5
+			parochial_opinion = 5
+		}
+		pass_cost = {
+			prestige = {
+				value = change_succession_law_prestige_cost
+			}
+		}
+		ai_will_do = {
+			if = {
+				limit = { has_realm_law = confederate_partition_succession_law }
+				value = 1
+			}
+		}
+		potential = {
+			government_has_flag = government_is_secular_republic
+			is_independent_ruler = yes
 		}
 	}
 }

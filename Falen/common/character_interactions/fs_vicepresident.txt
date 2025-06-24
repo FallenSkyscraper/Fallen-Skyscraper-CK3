@@ -1,0 +1,224 @@
+﻿# Liege (actor) selects one of their children to be their heir & diarch.
+appoint_vice_president_interaction = {
+	category = interaction_category_diarch
+	icon = icon_declare_me_regent
+	redirect = {
+		scope:recipient = { save_scope_as = secondary_recipient }
+		if = {
+			limit = { scope:secondary_recipient ?= scope:actor }
+			clear_saved_scope = secondary_recipient
+		}
+		if = {
+			limit = {
+				NOT = {
+					scope:secondary_recipient ?= {
+						OR = {
+							is_courtier_of = scope:actor
+							liege = scope:actor
+						}
+					}
+				}
+			}
+			clear_saved_scope = secondary_recipient
+		}
+	}
+
+	desc = appoint_vice_president_interaction_desc
+	interface_priority = 280
+
+	is_shown = {
+		# Must be able to retain a co-emperor.
+		scope:actor = { 
+			government_has_flag = government_is_secular_republic
+			highest_held_title_tier >= tier_kingdom
+		}
+		# We perform this upon ourselves or our (probable) candidates.
+		OR = {
+			scope:recipient ?= scope:actor
+			scope:secondary_recipient ?= {
+				OR = {
+					is_courtier_of = scope:actor
+					liege = scope:actor
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		# You can't already be in a diarchy of any kind.
+		scope:actor = {
+			has_active_diarchy = no
+		}
+		# Make sure we're targeting the right people, since redirects make this a lil slippery.
+		trigger_if = {
+			limit = { exists = scope:secondary_recipient }
+			scope:secondary_recipient ?= {
+				OR = {
+					is_courtier_of = scope:actor
+					liege = scope:actor
+				}
+			}
+		}
+		# Plus the usuals.
+		scope:actor = { is_available_at_peace = yes }
+	}
+
+	populate_recipient_list = { sort_vice_president_candidates_to_list_effect = yes }
+
+	cost = {
+		prestige = {
+			value = designate_heir_cost
+			# Discount it because this _is_ worse than the standard path.
+			multiply = 0.25
+		}
+	}
+
+	auto_accept = yes
+
+	pre_auto_accept = {
+		# If we're an AI, set the secondary_recipient up for us.
+		scope:actor = {
+			if = {
+				limit = { is_ai = yes }
+				# First, we need to calc who _is_ most qualified; we don't have access to the character list any more, so reassemble it.
+				sort_vice_president_candidates_to_list_effect = yes
+				# Now, parse through the list to find the best character.
+				## And by that I mean play literal favourites.
+				ordered_in_list = {
+					list = characters
+					limit = {
+						trigger_if = {
+							limit = {
+								any_child = {
+									condition = { is_adult = yes }
+									count >= 1
+								}
+							}
+							is_child_of = scope:actor
+						}
+					}
+					order_by = "reverse_opinion(scope:actor)"
+					save_scope_as = ai_recipient
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			# We enter into a co-emperorship with scope:secondary_recipient.
+			## The player uses scope:secondary_recipient.
+			if = {
+				limit = {
+					# We use a NOT here  rather than is_ai = no because the AI was occasionally managing to bork its selection process, and the title does _not_ like setting an empty diarch, so we fallback AI who can't behave to a sub-optimal choice.
+					NOT = { exists = scope:ai_recipient }
+				}
+				custom_tooltip = {
+					text = appoint_co_monarch_interaction.tt.enter_co_monarchy_with_secondary_recipient
+					try_start_diarchy = vice_presidency
+					set_diarch = scope:secondary_recipient
+				}
+				# We set them to be our designated heir.
+				## & if we already have an heir, warn that this overwrites it.
+				designated_heir ?= {
+					if = {
+						limit = { this != scope:secondary_recipient }
+						custom_tooltip = appoint_co_monarch_interaction.tt.overwrite_designated_heir
+						# Nab them for use further on.
+						save_scope_as = old_heir
+					}
+				}
+				## Designate and inform.
+				set_designated_heir = scope:secondary_recipient
+			}
+			## Whereas the AI grabs their pre-selected candidate.
+			else = {
+				try_start_diarchy = co_emperorship
+				set_diarch = scope:ai_recipient
+				# We set them to be our designated heir.
+				## First grabbing the old one for opinions.
+				designated_heir ?= {
+					if = {
+						limit = { this != scope:secondary_recipient }
+						# Nab them for use further on.
+						save_scope_as = old_heir
+					}
+				}
+				## Then overwriting.
+				set_designated_heir = scope:ai_recipient
+			}
+		}
+		# And remember who appointed them on scope:recipient.
+		grateful_for_appointment_as_co_emperor_effect = yes
+		# Your designated heir is _very_ pissed.
+		diarch_overwrites_old_designated_heir_apply_opinions_effect = {
+			LIEGE = scope:actor
+			CO_RULER = scope:secondary_recipient
+		}
+		# Your designated regent is also unhappy (probably).
+		designated_diarch_overwridden_by_co_ruler_effect = {
+			LIEGE = scope:actor
+			CO_RULER = scope:secondary_recipient
+		}
+		# Make sure we have our co-ruler directly with us.
+		## Courtiers are given to us immediately.
+		if = {
+			limit = {
+				scope:secondary_recipient = { is_ruler = no }
+			}
+			scope:actor = { add_courtier = scope:secondary_recipient }
+		}
+		## Vassals are retracted.
+		if = {
+			limit = { scope:secondary_recipient.liege != scope:actor }
+			scope:secondary_recipient.liege = {
+				add_opinion = {
+					target = scope:actor
+					modifier = retracted_vassal
+				}
+			}
+			create_title_and_vassal_change = {
+				type = revoked
+				save_scope_as = change
+			}
+			scope:secondary_recipient = {
+				change_liege = {
+					liege = scope:actor
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+
+		#TODO_CD_EP3_POLISH; notification event for the relevant parties if they're players.
+		#TODO_CD_EP3_POLISH; memories for those involved, plus probably a rivalry reason with at least designated heirs.
+		
+		# Object explorer logging.
+		scope:actor = {
+			diarch_interaction_set_or_update_global_variable_effect = { VARIABLE = di_track_appcomon_accept }
+			diarch_interaction_add_to_global_list_effect = { VARIABLE_LIST = di_track_appcomon_accept_actor_list }
+		}
+		scope:recipient = {
+			diarch_interaction_add_to_global_list_effect = { VARIABLE_LIST = di_track_appcomon_accept_recipient_list }
+		}
+	}
+
+	# AI
+	ai_targets = { ai_recipients = children }
+	ai_targets = { ai_recipients = vassals }
+	ai_frequency = 120
+	
+	ai_potential = {
+		# Filter us down nice'n'tight.
+		government_has_flag = government_is_secular_republic
+		highest_held_title_tier >= tier_kingdom
+		# Plus rule out any diarchies already on the go.
+		has_active_diarchy = no
+		# Aaaand finally, the AI won't do this unless they're considering their age and they've got adult kids.
+		any_child = { is_adult = yes }
+	}
+	
+	ai_will_do = {
+		base = 50
+	}
+}

@@ -1,0 +1,15 @@
+﻿sort_vice_president_candidates_to_list_effect = {
+	scope:actor = {
+		every_courtier = {
+			limit = { is_valid_basic_candidate_for_vizier_trigger = yes }
+			add_to_list = characters
+		}
+		every_vassal = {
+			limit = {
+				is_valid_basic_candidate_for_vizier_trigger = yes
+				#highest_held_title_tier <= tier_barony
+			}
+			add_to_list = characters
+		}
+	}
+}
