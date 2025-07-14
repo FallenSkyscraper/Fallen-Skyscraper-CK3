@@ -269,7 +269,7 @@ court_researcher_court_position = { # FP3
 	salary = {
 		round = no
 		gold = {
-			value = high_court_position_salary # Update X_salary_tooltip if script_value is changed
+			value = major_court_position_salary # Update X_salary_tooltip if script_value is changed
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = { court_position_inner_circle_salary_trigger = { POS = court_researcher } }
@@ -328,7 +328,7 @@ court_researcher_court_position = { # FP3
 			}
 		}
 		prestige = {
-			value = medium_court_position_prestige_salary # Update X_salary_tooltip if script_value is changed
+			value = major_court_position_prestige_salary # Update X_salary_tooltip if script_value is changed
 			# Set to 0 with Dynasty Perk Inner Circle
 			if = {
 				limit = { court_position_inner_circle_salary_trigger = { POS = court_researcher } }
