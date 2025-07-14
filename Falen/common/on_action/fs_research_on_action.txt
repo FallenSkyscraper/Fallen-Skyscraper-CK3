@@ -1,0 +1,18 @@
+﻿court_researcher_on_action = {
+	trigger = {
+		is_available_adult = yes
+		is_landed = yes
+		employs_court_position = court_researcher_court_position
+		any_court_position_holder = {
+			type = court_researcher_court_position
+			is_physically_able_ai_adult = yes
+		}
+	}
+	effect = {
+		any_court_position_holder = {
+			type = court_researcher_court_position
+			save_scope_as = researcher
+		}
+		court_researcher_research_effect = yes
+	}
+}

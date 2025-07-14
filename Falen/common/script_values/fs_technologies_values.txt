@@ -1,0 +1,85 @@
+﻿# 기술 개발 확률
+
+research_chance_value_base = {
+	value = 0
+	if = {
+		limit = {
+			any_court_position_holder ?= {
+				type = court_researcher
+				aptitude = {
+					court_position = court_researcher
+					value = 0
+				}
+			}
+		}
+		add = 2
+	}
+	else_if = {
+		limit = {
+			any_court_position_holder ?= {
+				type = court_researcher
+				aptitude = {
+					court_position = court_researcher
+					value = 1
+				}
+			}
+		}
+		add = 5
+	}
+	else_if = {
+		limit = {
+			any_court_position_holder ?= {
+				type = court_researcher
+				aptitude = {
+					court_position = court_researcher
+					value = 2
+				}
+			}
+		}
+		add = 10
+	}
+	else_if = {
+		limit = {
+			any_court_position_holder ?= {
+				type = court_researcher
+				aptitude = {
+					court_position = court_researcher
+					value = 3
+				}
+			}
+		}
+		add = 25
+	}
+	else_if = {
+		limit = {
+			any_court_position_holder ?= {
+				type = court_researcher
+				aptitude = {
+					court_position = court_researcher
+					value = 4
+				}
+			}
+		}
+		add = 50
+	}
+	if = {
+		limit = {
+			faith = {
+				has_doctrine = inquiry_into_knowledge_tenet
+			}
+		}
+		add = 15
+	}
+}
+research_chance_value_economy = {
+	value = research_chance_value_base
+	add = learning
+	add = stewardship
+	max = 100
+}
+research_chance_value_military = {
+	value = research_chance_value_base
+	add = learning
+	add = martial
+	max = 100
+}
