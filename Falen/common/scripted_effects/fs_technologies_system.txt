@@ -144,29 +144,29 @@ court_researcher_research_effect = {
 }
 tech_research_military_effect = {
 	random_list = {
-		10 = tech_research_metallurgy_effect
-		10 = tech_research_siege_effect
-		10 = tech_research_horseback_riding_effect
-		10 = tech_research_fortification_effect
-		10 = tech_research_conscription_effect
-		10 = tech_research_archery_effect
-		10 = tech_research_military_organization_effect
+		10 = { tech_research_metallurgy_effect = yes }
+		10 = { tech_research_siege_effect = yes }
+		10 = { tech_research_horseback_riding_effect = yes }
+		10 = { tech_research_fortification_effect = yes }
+		10 = { tech_research_conscription_effect = yes }
+		10 = { tech_research_archery_effect = yes }
+		10 = { tech_research_military_organization_effect = yes }
 	}
 }
 tech_research_military_effect = {
 	random_list = {
-		10 = tech_research_agriculture_effect
-		10 = tech_research_commerce_effect
-		10 = tech_research_navigation_effect
-		10 = tech_research_construction_effect
-		10 = tech_research_urbanization_effect
-		10 = tech_research_mining_effect
+		10 = { tech_research_agriculture_effect = yes }
+		10 = { tech_research_commerce_effect = yes }
+		10 = { tech_research_navigation_effect = yes }
+		10 = { tech_research_construction_effect = yes }
+		10 = { tech_research_urbanization_effect = yes }
+		10 = { tech_research_mining_effect = yes }
 	}
 }
 tech_research_metallurgy_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_metallurgy
+			value = root.capital_county.var:tech_metallurgy
 			floor = yes
 		}
 		0 = {
@@ -193,7 +193,7 @@ tech_research_metallurgy_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_metallurgy
 					add = 0.1
 				}
@@ -204,7 +204,7 @@ tech_research_metallurgy_effect = {
 tech_research_siege_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_siege
+			value = root.capital_county.var:tech_siege
 			floor = yes
 		}
 		0 = {
@@ -231,7 +231,7 @@ tech_research_siege_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_siege
 					add = 0.1
 				}
@@ -242,7 +242,7 @@ tech_research_siege_effect = {
 tech_research_horseback_riding_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_horseback_riding
+			value = root.capital_county.var:tech_horseback_riding
 			floor = yes
 		}
 		0 = {
@@ -269,7 +269,7 @@ tech_research_horseback_riding_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_horseback_riding
 					add = 0.1
 				}
@@ -280,7 +280,7 @@ tech_research_horseback_riding_effect = {
 tech_research_fortification_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_fortification
+			value = root.capital_county.var:tech_fortification
 			floor = yes
 		}
 		0 = {
@@ -307,7 +307,7 @@ tech_research_fortification_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_fortification
 					add = 0.1
 				}
@@ -318,7 +318,7 @@ tech_research_fortification_effect = {
 tech_research_conscription_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_conscription
+			value = root.capital_county.var:tech_conscription
 			floor = yes
 		}
 		0 = {
@@ -345,7 +345,7 @@ tech_research_conscription_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_conscription
 					add = 0.1
 				}
@@ -356,7 +356,7 @@ tech_research_conscription_effect = {
 tech_research_archery_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_archery
+			value = root.capital_county.var:tech_archery
 			floor = yes
 		}
 		0 = {
@@ -383,7 +383,7 @@ tech_research_archery_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_archery
 					add = 0.1
 				}
@@ -394,7 +394,7 @@ tech_research_archery_effect = {
 tech_research_military_organization_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_military_organization
+			value = root.capital_county.var:tech_military_organization
 			floor = yes
 		}
 		0 = {
@@ -421,7 +421,7 @@ tech_research_military_organization_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_military_organization
 					add = 0.1
 				}
@@ -432,7 +432,7 @@ tech_research_military_organization_effect = {
 tech_research_agriculture_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_agriculture
+			value = root.capital_county.var:tech_agriculture
 			floor = yes
 		}
 		0 = {
@@ -459,7 +459,7 @@ tech_research_agriculture_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_agriculture
 					add = 0.1
 				}
@@ -470,7 +470,7 @@ tech_research_agriculture_effect = {
 tech_research_commerce_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_commerce
+			value = root.capital_county.var:tech_commerce
 			floor = yes
 		}
 		0 = {
@@ -497,7 +497,7 @@ tech_research_commerce_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_commerce
 					add = 0.1
 				}
@@ -508,7 +508,7 @@ tech_research_commerce_effect = {
 tech_research_navigation_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_navigation
+			value = root.capital_county.var:tech_navigation
 			floor = yes
 		}
 		0 = {
@@ -535,7 +535,7 @@ tech_research_navigation_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_navigation
 					add = 0.1
 				}
@@ -546,7 +546,7 @@ tech_research_navigation_effect = {
 tech_research_construction_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_construction
+			value = root.capital_county.var:tech_construction
 			floor = yes
 		}
 		0 = {
@@ -573,7 +573,7 @@ tech_research_construction_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_construction
 					add = 0.1
 				}
@@ -584,7 +584,7 @@ tech_research_construction_effect = {
 tech_research_urbanization_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_urbanization
+			value = root.capital_county.var:tech_urbanization
 			floor = yes
 		}
 		0 = {
@@ -611,7 +611,7 @@ tech_research_urbanization_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_urbanization
 					add = 0.1
 				}
@@ -622,7 +622,7 @@ tech_research_urbanization_effect = {
 tech_research_mining_effect = {
 	duel = {
 		value = {
-			value = root.capital_county.local_var:tech_mining
+			value = root.capital_county.var:tech_mining
 			floor = yes
 		}
 		0 = {
@@ -649,7 +649,7 @@ tech_research_mining_effect = {
 				}
 			}
 			root.capital_county = {
-				change_local_variable = {
+				change_variable = {
 					name = tech_mining
 					add = 0.1
 				}
