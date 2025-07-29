@@ -577,7 +577,7 @@ types MapModes
 					blockoverride "mm_button"
 					{
 						onclick = "[GetScriptedGui('technologies_map').Execute(GuiScope.End)]"
-						#onclick = "[SetMapMode('technologies_mapmode')]"
+						onclick = "[SetMapMode('technologies_mapmode')]"
 						down = "[IsMapMode('technologies_mapmode')]"
 						tooltip = "TECH_MAP_TOOLTIP"
 					}

@@ -1,4 +1,26 @@
-﻿
+﻿heritage_arabic = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_arabic
+		}
+	}
+	audio_parameter = mena
+}
+
+heritage_byzantine = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_byzantine
+		}
+	}
+	parameters = {
+		heritage_group_aryan = yes
+	}
+	audio_parameter = european
+}
+
 
 heritage_central_germanic = {
 	type = heritage
@@ -26,7 +48,18 @@ heritage_chinese = {
 	audio_parameter = european
 }
 
-
+heritage_east_slavic = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_east_slavic
+		}
+	}
+	parameters = {
+		heritage_group_aryan = yes
+	}
+	audio_parameter = european
+}
 
 heritage_mongolic = {
 	type = heritage
@@ -51,7 +84,25 @@ heritage_north_germanic = {
 	audio_parameter = european
 }
 
+heritage_tibetan = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_tibetan
+		}
+	}
+	audio_parameter = european
+}
 
+heritage_turkic = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_turkic
+		}
+	}
+	audio_parameter = european
+}
 
 heritage_west_germanic = {
 	type = heritage

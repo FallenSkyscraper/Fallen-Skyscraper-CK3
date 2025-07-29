@@ -268,3 +268,71 @@ hec_choose_stance_decision = {
 		
 	}
 }
+hec_strengthen_the_empire_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	selection_tooltip = hec_strengthen_the_empire_decision_tooltip 
+	
+	decision_group_type = major
+	sort_order = -20
+	ai_check_interval = 12
+	cooldown = { years = 2 }
+	is_shown = {
+		has_title = title:e_hec
+		is_landed = yes
+	}
+	effect = {
+		custom_tooltip = {
+			text = hec_strengthen_the_empire_decision_effect_tooltip
+			change_global_variable = { name = imperial_authority add = 5 }
+		}
+	}
+	cost = {
+		gold = 250
+		prestige = 250
+	}
+	ai_will_do = {
+		base = 20
+	}
+}
+hec_spend_court_grandeur_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	selection_tooltip = hec_spend_court_grandeur_decision_tooltip
+	decision_group_type = major
+	sort_order = -20
+	ai_check_interval = 12
+	cooldown = { years = 5 }
+	is_shown = {
+		has_title = title:e_hec
+		is_landed = yes
+		has_royal_court = yes
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = hec_court_grandeur_above_tooltip
+			court_grandeur_current >= 40
+		}
+	}
+	effect = {
+		change_current_court_grandeur = -10
+		custom_tooltip = {
+			text = hec_strengthen_the_empire_decision_effect_tooltip
+			change_global_variable = { name = imperial_authority add = 5 }
+		}
+	}
+	cost = {
+		prestige = 50
+	}
+	ai_will_do = {
+		base = 20
+		if = {
+			limit = {
+				court_grandeur_current > 60
+			}
+			add = 100
+		}
+	}
+}
