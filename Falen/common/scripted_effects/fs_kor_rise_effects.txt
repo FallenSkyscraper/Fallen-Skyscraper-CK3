@@ -73,22 +73,22 @@ form_six_republic_effect = {
 	}
 	
 	if = {
-	    limit = { has_realm_law = feudal_authority_0 }
-		remove_realm_law = feudal_authority_0
+	    limit = { has_realm_law = crown_authority_0 }
+		remove_realm_law = crown_authority_0
 	}
 	if = {
-	    limit = { has_realm_law = feudal_authority_1 }
-		remove_realm_law = feudal_authority_1
+	    limit = { has_realm_law = crown_authority_1 }
+		remove_realm_law = crown_authority_1
 	}
 	if = {
-	    limit = { has_realm_law = feudal_authority_2 }
-		remove_realm_law = feudal_authority_2
+	    limit = { has_realm_law = crown_authority_2 }
+		remove_realm_law = crown_authority_2
 	}
 	if = {
-	    limit = { has_realm_law = feudal_authority_3 }
-		remove_realm_law = feudal_authority_3
+	    limit = { has_realm_law = crown_authority_3 }
+		remove_realm_law = crown_authority_3
 	}
-	add_realm_law_skip_effects = feudal_authority_2
+	add_realm_law_skip_effects = crown_authority_2
 	
 	add_realm_law_skip_effects = single_heir_succession_law 
 	

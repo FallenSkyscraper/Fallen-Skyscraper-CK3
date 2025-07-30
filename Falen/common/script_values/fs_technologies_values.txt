@@ -5,9 +5,9 @@ research_chance_value_base = {
 	if = {
 		limit = {
 			any_court_position_holder ?= {
-				type = court_researcher
+				type = court_researcher_court_position
 				aptitude = {
-					court_position = court_researcher
+					court_position = court_researcher_court_position
 					value = 0
 				}
 			}
@@ -17,9 +17,9 @@ research_chance_value_base = {
 	else_if = {
 		limit = {
 			any_court_position_holder ?= {
-				type = court_researcher
+				type = court_researcher_court_position
 				aptitude = {
-					court_position = court_researcher
+					court_position = court_researcher_court_position
 					value = 1
 				}
 			}
@@ -29,9 +29,9 @@ research_chance_value_base = {
 	else_if = {
 		limit = {
 			any_court_position_holder ?= {
-				type = court_researcher
+				type = court_researcher_court_position
 				aptitude = {
-					court_position = court_researcher
+					court_position = court_researcher_court_position
 					value = 2
 				}
 			}
@@ -41,9 +41,9 @@ research_chance_value_base = {
 	else_if = {
 		limit = {
 			any_court_position_holder ?= {
-				type = court_researcher
+				type = court_researcher_court_position
 				aptitude = {
-					court_position = court_researcher
+					court_position = court_researcher_court_position
 					value = 3
 				}
 			}
@@ -53,9 +53,9 @@ research_chance_value_base = {
 	else_if = {
 		limit = {
 			any_court_position_holder ?= {
-				type = court_researcher
+				type = court_researcher_court_position
 				aptitude = {
-					court_position = court_researcher
+					court_position = court_researcher_court_position
 					value = 4
 				}
 			}
