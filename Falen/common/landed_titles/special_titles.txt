@@ -291,6 +291,20 @@ d_laamp_rastakan = { # 왕라스타칸
 	ai_primary_priority = { add = @never_primary_score }
 }
 
+d_laamp_chae = { #기호지방 비지주
+	color = { 44 168 198 }
+	capital = c_gongju # 공주
+
+	definite_form = yes
+	landless = yes
+	require_landless = yes
+	ruler_uses_title_name = no
+	no_automatic_claims = yes
+	destroy_if_invalid_heir = yes
+
+	ai_primary_priority = { add = @never_primary_score }
+}
+
 ###########################
 d_color_red = {
 	color = red
