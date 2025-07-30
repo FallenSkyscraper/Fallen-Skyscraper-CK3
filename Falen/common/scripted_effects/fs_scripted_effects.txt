@@ -1091,6 +1091,7 @@ tech_base_effect = {
 		remove_character_modifier = tech_$TECHNAME$_modifier_0
 	}
 	# add new modifiers
+	if = { limit = { has_variable = tech_$TECHNAME$ }
 	if = {
 		limit = { capital_county.var:tech_$TECHNAME$ >= 10 }
 		add_character_modifier = tech_$TECHNAME$_modifier_10
@@ -1134,6 +1135,7 @@ tech_base_effect = {
 	else_if = {
 		limit = { capital_county.var:tech_$TECHNAME$ >= 0 }
 		add_character_modifier = tech_$TECHNAME$_modifier_0
+	}
 	}
 }
 tech_county_effect = {
@@ -1184,6 +1186,10 @@ tech_county_effect = {
 	}
 	# add new modifiers
 	if = {
+		limit = {
+			has_variable = tech_$TECHNAME$
+		}
+	if = {
 		limit = { var:tech_$TECHNAME$ >= 10 }
 		add_county_modifier = tech_$TECHNAME$_modifier_10
 	}
@@ -1226,6 +1232,7 @@ tech_county_effect = {
 	else_if = {
 		limit = { var:tech_$TECHNAME$ >= 0 }
 		add_county_modifier = tech_$TECHNAME$_modifier_0
+	}
 	}
 }
 
