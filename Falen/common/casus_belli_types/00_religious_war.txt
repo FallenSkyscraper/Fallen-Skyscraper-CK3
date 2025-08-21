@@ -62,7 +62,7 @@
 					piety_level >= 0
 				}
 				trigger_else = {
-					piety_level >= 0
+					piety_level >= 1
 				}
 			}
 			trigger_else = {
@@ -84,10 +84,10 @@
 							}
 						}
 					}
-					piety_level >= 0
+					piety_level >= 1
 				}
 				trigger_else = {
-					piety_level >= 1
+					piety_level >= 2
 				}
 			}
 		}
@@ -605,10 +605,10 @@ religious_war = {
 							}
 						}
 					}
-					piety_level >= 0
+					piety_level >= 1
 				}
 				trigger_else = {
-					piety_level >= 1
+					piety_level >= 2
 				}
 			}
 			trigger_else = {
@@ -630,10 +630,10 @@ religious_war = {
 							}
 						}
 					}
-					piety_level >= 1
+					piety_level >= 2
 				}
 				trigger_else = {
-					piety_level >= 2
+					piety_level >= 3
 				}
 			}
 		}
@@ -1206,10 +1206,10 @@ major_religious_war = {
 						}
 					}
 				}
-				piety_level >= 1
+				piety_level >= 2
 			}
 			trigger_else = {
-				piety_level >= 2
+				piety_level >= 3
 			}
 		}
 		trigger_else = {
@@ -1231,10 +1231,10 @@ major_religious_war = {
 						} 
 					}
 				}
-				piety_level >= 2
+				piety_level >= 3
 			}
 			trigger_else = {
-				piety_level >= 3
+				piety_level >= 4
 			}
 		}
 		trigger_if = {
