@@ -328,10 +328,8 @@ hec_spend_court_grandeur_decision = {
 	}
 	ai_will_do = {
 		base = 20
-		if = {
-			limit = {
-				court_grandeur_current > 60
-			}
+		modifier = {
+			court_grandeur_current > 60
 			add = 100
 		}
 	}
