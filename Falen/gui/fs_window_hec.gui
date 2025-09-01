@@ -56,6 +56,39 @@ window = {
 			hbox = {
 				datacontext = "[GetTitleByKey('e_hec').GetHolder]"
 				margin_left = 100
+				
+				vbox = {
+					hbox = {
+						visible = "[GetScriptedGui('hec_dismantled_central_army_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						text_single = {
+							text = "[GetModifier('hec_dismantled_central_army').GetNameWithTooltip]"
+						}
+						icon = {
+							size = { 30 30 }
+							texture = "gfx/interface/icons/modifiers/prowess_negative.dds"
+						}
+					}
+					hbox = {
+						visible = "[GetScriptedGui('hec_taxation_chaos_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						text_single = {
+							text = "[GetModifier('hec_taxation_chaos').GetNameWithTooltip]"
+						}
+						icon = {
+							size = { 30 30 }
+							texture = "gfx/interface/icons/modifiers/economy_negative.dds"
+						}
+					}
+					hbox = {
+						visible = "[GetScriptedGui('hec_imperial_court_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						text_single = {
+							text = "[GetModifier('hec_imperial_court').GetNameWithTooltip]"
+						}
+						icon = {
+							size = { 30 30 }
+							texture = "gfx/interface/icons/modifiers/letter_positive.dds"
+						}
+					}
+				}
 				coa_realm_huge_crown = {
 					datacontext = "[Character]"
 					scale = 1.0
