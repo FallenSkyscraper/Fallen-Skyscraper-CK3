@@ -123,6 +123,21 @@ hec_reform_2_pass = {
 		set_global_variable = hec_reform_2
 		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+		spawn_army = {
+			name = imperial_royal_guards
+			men_at_arms = {
+				type = imperial_guard
+				men = 1000
+			}
+			location = root.capital_province
+			inheritable = yes
+		}
+		if = {
+			limit = {
+				has_character_modifier = hec_dismantled_central_army
+			}
+			remove_character_modifier = hec_dismantled_central_army
+		}
 	}
 }
 hec_reform_3_pass = {
@@ -172,6 +187,13 @@ hec_reform_4_pass = {
 		set_global_variable = hec_reform_4
 		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+		give_nickname = nick_the_lawgiver
+		if = {
+			limit = {
+				NOT = { has_character_modifier = hec_imperial_court }
+			}
+			add_character_modifier = hec_imperial_court
+		}
 	}
 }
 hec_reform_5_pass = {
@@ -188,6 +210,16 @@ hec_reform_5_pass = {
 		set_global_variable = hec_reform_5
 		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+		every_vassal = {
+			limit = { government = feudal_government }
+			vassal_contract_increase_obligation_level = feudal_government_taxes
+		}
+		if = {
+			limit = {
+				has_character_modifier = hec_taxation_chaos
+			}
+			remove_character_modifier = hec_taxation_chaos
+		}
 	}
 }
 hec_reform_6_pass = {
@@ -204,6 +236,13 @@ hec_reform_6_pass = {
 		set_global_variable = hec_reform_6
 		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+		faith:imperial_church = {
+			remove_doctrine = doctrine_spiritual_head
+			remove_doctrine = doctrine_theocracy_temporal
+			add_doctrine = doctrine_temporal_head
+			add_doctrine = doctrine_theocracy_lay_clergy
+			set_religious_head_title = title:e_hec
+		}
 	}
 }
 hec_reform_7_pass = {
@@ -268,5 +307,26 @@ hec_reform_10_pass = {
 		set_global_variable = hec_reform_10
 		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
+		
+		change_government = administrative_government
+		root.dynasty = { add_dynasty_prestige = 10000 }
+	}
+}
+hec_dismantled_central_army_gui = {
+	scope = character
+	is_shown = {
+		NOT = { has_global_variable = hec_reform_2 }
+	}
+}
+hec_taxation_chaos_gui = {
+	scope = character
+	is_shown = {
+		NOT = { has_global_variable = hec_reform_5 }
+	}
+}
+hec_imperial_court_gui = {
+	scope = character
+	is_shown = {
+		has_global_variable = hec_reform_4
 	}
 }
