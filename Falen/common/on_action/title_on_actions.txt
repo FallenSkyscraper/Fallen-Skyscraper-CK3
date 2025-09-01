@@ -1024,6 +1024,31 @@ on_title_gain_usurpation = {
 
 		# Additional Flavor Titles
 		additional_flavor_check_effect = yes
+		
+		if = {
+			limit = { 
+				scope:title = title:e_hec
+			}
+			if = {
+				limit = {
+					NOT = { has_global_variable = hec_reform_2 }
+				}
+				add_character_modifier = hec_dismantled_central_army
+			}
+			if = {
+				limit = {
+					NOT = { has_global_variable = hec_reform_5 }
+				}
+				add_character_modifier = hec_taxation_chaos
+			}
+			if = {
+				limit = {
+					has_global_variable = hec_reform_4
+				}
+				add_character_modifier = hec_imperial_court
+			}
+		}
+			
 	}
 }
 
@@ -1490,6 +1515,30 @@ on_title_lost = {
 				scope:title.tier >= tier_duchy
 			}
 			give_nickname = nick_lackland_old
+		}
+		
+		if = {
+			limit = { 
+				scope:title = title:e_hec
+			}
+			if = {
+				limit = {
+					has_character_modifier = hec_dismantled_central_army
+				}
+				remove_character_modifier = hec_dismantled_central_army
+			}
+			if = {
+				limit = {
+					has_character_modifier = hec_taxation_chaos
+				}
+				remove_character_modifier = hec_taxation_chaos
+			}
+			if = {
+				limit = {
+					has_character_modifier = hec_imperial_court
+				}
+				remove_character_modifier = hec_imperial_court
+			}
 		}
 	}
 }
