@@ -17,64 +17,71 @@ gw_mgga.1 = {
 	immediate = {
 		set_global_variable = gw_rising
 		save_scope_as = gw_emperor
+		root = {
+            set_variable = {
+                name = gw_emperor
+                value = scope:gw_emperor
+			}
+		}
 	}
 	option = {
 		name = gw_mgga.1.a
-		spawn_army = {
-			uses_supply = no
-			inheritable = yes
-			name = gw_levies1
-			levies = {
-  				value = 0
-				every_held_title = {
-					limit = {
- 						tier = tier_county
-					}
-					add = 1000
-				}
-			}
-			location = root.capital_province
-		}
-		spawn_army = {
-			uses_supply = no
-			inheritable = yes
-			name = gw_levies2
-			levies = {
-  				value = 0
-				every_held_title = {
-					limit = {
- 						tier = tier_county
-					}
-					add = 1500
-				}
-			}
-			location = root.capital_province
-		}
-		trigger_event = {
-			id = gw_mgga.2
-		}
-		title:d_pyeongchang.holder = {
-			save_scope_as = pyeongchang
-			trigger_event = {
-				id = gw_mgga.3
-				delayed = yes
-			}
-		}
+#		spawn_army = {
+#			uses_supply = no
+#			inheritable = yes
+#			name = gw_levies1
+#			levies = {
+# 				value = 0
+#				every_held_title = {
+#					limit = {
+#						tier = tier_county
+#					}
+#					add = 1000
+#				}
+#			}
+#			location = root.capital_province
+#		}
+#		spawn_army = {
+#			uses_supply = no
+#			inheritable = yes
+#			name = gw_levies2
+#			levies = {
+# 				value = 0
+#				every_held_title = {
+#					limit = {
+#						tier = tier_county
+#					}
+#					add = 1500
+#				}
+#			}
+#			location = root.capital_province
+#		}
+#		trigger_event = {
+#			id = gw_mgga.2
+#		}
+#		title:d_pyeongchang.holder = {
+#			save_scope_as = pyeongchang
+#			trigger_event = {
+#				id = gw_mgga.3
+#				delayed = yes
+#			}
+#		}
+#		create_title_and_vassal_change = {
+#            type = created
+#            save_scope_as = change
+#            add_claim_on_loss = no
+#        }
+#        title:e_gangwon = {
+#            change_title_holder = {
+#                holder = root
+#                change = scope:change
+#            }
+#        }
+#        resolve_title_and_vassal_change = scope:change
+		
 		add_trait = ambitious
-		create_title_and_vassal_change = {
-            type = created
-            save_scope_as = change
-            add_claim_on_loss = no
-        }
-        title:e_gangwon = {
-            change_title_holder = {
-                holder = root
-                change = scope:change
-            }
-        }
-        resolve_title_and_vassal_change = scope:change
-		
-		
+		add_claim = title:d_chuncheon
+		add_claim = title:d_wonju
 		add_prestige = major_prestige_gain
 	}
 	option = {
@@ -110,7 +117,15 @@ gw_mgga.3 = {
 	opening = {
 		desc = gw.mgga.3.t
 	}
-	sender = scope:gw_emperor
+	immediate = {
+		title:k_yeongseo.holder = {
+				save_scope_as = gw_emperor
+		}
+	}
+	sender = {
+		character = scope:gw_emperor
+		animation = personality_bold
+	}
 	desc = gw_mgga.3.desc
 	option = {
 		create_title_and_vassal_change = {
@@ -123,14 +138,15 @@ gw_mgga.3 = {
 				liege = scope:gw_emperor
 				change = scope:change
 			}
-			resolve_title_and_vassal_change = scope:change
 		}
+		resolve_title_and_vassal_change = scope:change
+		name = gw.mgga.3.a
 	}
 	option = {
 		trigger = {
 			is_ai = no
 		}
-		name = gw.mgga.b
+		name = gw.mgga.3.b
 	}
 }
 gw_mgga.4 = {
