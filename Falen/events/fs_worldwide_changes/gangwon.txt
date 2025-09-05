@@ -15,7 +15,10 @@ gw_mgga.1 = {
 		NOT = { has_global_variable = gw_rising }
 	}
 	immediate = {
-		set_global_variable = gw_rising
+		set_global_variable = {
+			name = gw_rising
+			value = 0
+		}
 		save_scope_as = gw_emperor
 		root = {
             set_variable = {
@@ -449,5 +452,51 @@ gw_mgga.6 = {
 	add_character_modifier = fp2_champion_of_the_old_ways_modifier
 			}
 		}
+	}
+}
+gw_mgga.11 = {
+	type = character_event
+	title = gw_mgga.11.t
+	desc = gw_mgga.11.desc
+	override_background = {
+		reference = sitting_room
+	}
+	left_portrait = root
+	option = {
+		name = gw_mgga.11.a
+		add_claim = title:d_donghae
+		add_claim = title:d_gangneung
+		add_prestige = major_prestige_gain
+	}
+}
+gw_mgga.12 = {
+	type = character_event
+	title = gw_mgga.12.t
+	desc = gw_mgga.12.desc
+	override_background = {
+		reference = sitting_room
+	}
+	left_portrait = root
+	option = {
+		name = gw_mgga.11.a
+		add_claim = title:d_cheolwon
+		add_claim = title:d_gimhwa
+		add_claim = title:d_hoeyang
+		add_prestige = major_prestige_gain
+	}
+}
+gw_mgga.13 = {
+	type = character_event
+	title = gw_mgga.13.t
+	desc = gw_mgga.13.desc
+	theme = realm
+	override_background = {
+		reference = sitting_room
+	}
+	left_portrait = root
+	option = {
+		name = gw_mgga.11.a
+		add_trait: conqueror
+		add_prestige = 3000
 	}
 }
