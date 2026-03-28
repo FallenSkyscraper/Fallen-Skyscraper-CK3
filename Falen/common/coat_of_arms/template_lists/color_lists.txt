@@ -1,4 +1,4 @@
-﻿color_lists = {
+color_lists = {
 	all_color_list = { # PM : basically the average of medieval frequencies in roll of arms (strong bias towards 13th c), with values cut in half
 		30 = "red"
 		12 = "blue"
@@ -17,7 +17,7 @@
 		0 = "purple"
 		special_selection = {
 			trigger = {
-				always = yes
+				coa_breton_trigger = yes
 			}
 			25 = "red"
 			13 = "blue"
@@ -26,17 +26,16 @@
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				coa_byzantine_trigger = yes
 			}
 			20 = "red"
 			8 = "blue"
 			7 = "black"			
 			9 = "green"
-			3 = "purple"
 		} 		
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = latin_group_coa_gfx }
 			}
 			20 = "red"
 			8 = "blue"
@@ -45,7 +44,12 @@
 		} 				
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = {
+					OR = {
+						has_coa_gfx = anglo_saxon_coa_gfx
+						has_coa_gfx = welsh_coa_gfx
+					}
+				}
 			}
 			20 = "red"
 			8 = "blue"
@@ -54,7 +58,7 @@
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				coa_french_trigger = yes
 			}
 			30 = "red"
 			9 = "blue"
@@ -63,7 +67,7 @@
 		}		
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = occitan_coa_gfx }
 			}
 			12 = "red"
 			28 = "blue"
@@ -71,8 +75,11 @@
 			3 = "green"
 		}	
 		special_selection = {
-			trigger = {
-				always = no
+			trigger = {  # PM : This can be split into South & North as there are stats for both
+				scope:culture = {
+					has_coa_gfx = german_group_coa_gfx
+					NOT = { has_coa_gfx = frisian_coa_gfx }
+				}
 			}
 			27 = "red"
 			10 = "blue"
@@ -81,7 +88,14 @@
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = {
+					OR = {
+						has_coa_gfx = norse_coa_gfx
+						has_coa_gfx = norwegian_coa_gfx
+						has_coa_gfx = swedish_coa_gfx
+						has_coa_gfx = danish_coa_gfx
+					}
+				}
 			}
 			13 = "red"
 			22 = "blue"
@@ -90,7 +104,12 @@
 		}		
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = {
+					OR = {
+						has_coa_gfx = english_coa_gfx
+						has_coa_gfx = scottish_coa_gfx
+					}
+				}
 			}
 			26 = "red"
 			18 = "blue"
@@ -99,7 +118,7 @@
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = frisian_coa_gfx }
 			}
 			31 = "red"
 			4 = "blue"
@@ -108,7 +127,7 @@
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = norman_coa_gfx }
 			}
 			34 = "red"
 			11 = "blue"
@@ -117,7 +136,7 @@
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = iberian_group_coa_gfx }
 			}
 			38 = "red"
 			3 = "blue"
@@ -125,7 +144,12 @@
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = {
+					OR = {
+						has_coa_gfx = magyar_group_coa_gfx
+						has_coa_gfx = west_slavic_group_coa_gfx
+					}
+				}
 			}
 			34 = "red"
 			8 = "blue"
@@ -133,14 +157,14 @@
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				coa_african_culture_trigger = yes
 			}
 			30 = "green"
 			30 = "black"
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				coa_mena_trigger = yes
 			}
 			18 = "blue"
 			6 = "black"	
@@ -148,25 +172,25 @@
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				coa_irish_trigger = yes
 			}
 			10 = "green"
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				coa_leonese_trigger = yes
 			}
 			10 = "purple"
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				coa_polish_trigger = yes
 			}
 			20 = "red"
 		}		
 		special_selection = {
 			trigger = {
-				always = no
+				coa_indian_trigger = yes
 			}
 			1000 = "red"
 			1000 = "orange"
@@ -176,108 +200,128 @@
 			1000 = "green"
 		}
 	}
+
 	metal_colors = {
 		24 = "yellow"
 		26 = "white"
 		special_selection = {
 			trigger = {
-				always = no
+				coa_indian_trigger = yes
 			}
 			10 = "white"
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				coa_polish_trigger = yes
 			}
 			5 = "white"
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				coa_breton_trigger = yes
 			}
 			26 = "yellow"
 			24 = "white"
 		}		
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = welsh_coa_gfx }
 			}
 			16 = "yellow"
 			34 = "white"
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				coa_french_trigger = yes
 			}
 			26 = "yellow"
 			24 = "white"	
 		}			
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = occitan_coa_gfx }
 			}
 			31 = "yellow"
 			19 = "white"
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = {
+					has_coa_gfx = german_group_coa_gfx
+					NOT = { has_coa_gfx = frisian_coa_gfx }
+				}
 			}
 			14 = "yellow"
 			29 = "white"
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = {
+					OR = {
+						has_coa_gfx = danish_coa_gfx
+						has_coa_gfx = norwegian_coa_gfx
+						has_coa_gfx = swedish_coa_gfx
+					}
+				}
 			}
 			8 = "yellow"
 			40 = "white"
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = {
+					OR = {
+						has_coa_gfx = english_coa_gfx
+						has_coa_gfx = scottish_coa_gfx
+					}
+				}
 			}
 			15 = "yellow"
 			26 = "white"
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = frisian_coa_gfx }
 			}
 			20 = "yellow"
 			26 = "white"
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = norman_coa_gfx }
 			}
 			20 = "yellow"
 			16 = "white"
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = iberian_group_coa_gfx }
 			}
 			37 = "yellow"
 			8 = "white"	
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = {
+					OR = {
+						has_coa_gfx = magyar_group_coa_gfx
+						has_coa_gfx = west_slavic_group_coa_gfx
+					}
+				}
 			}
 			15 = "yellow"
 			28 = "white"
 		}
 		special_selection = {
 			trigger = {
-				always = no
+				coa_mena_trigger = yes
 			}
 			9 = "yellow"
 			40 = "white"
 		}	
 		special_selection = {
 			trigger = {
-				always = no
+				coa_african_culture_trigger = yes
 			}
 			15 = "yellow"
 		}		

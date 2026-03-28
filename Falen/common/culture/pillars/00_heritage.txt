@@ -18,6 +18,16 @@ heritage_arabic = {
 	audio_parameter = mena
 }
 
+heritage_austronesian = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_austronesian
+		}
+	}
+	audio_parameter = european
+}
+
 heritage_baltic = {
 	type = heritage
 	is_shown = {
@@ -71,7 +81,7 @@ heritage_burman = {
 			HERITAGE = heritage_burman
 		}
 	}
-	audio_parameter = european
+	audio_parameter = sea
 }
 
 heritage_byzantine = {
@@ -84,7 +94,7 @@ heritage_byzantine = {
 	parameters = {
 		heritage_group_aryan = yes
 	}
-	audio_parameter = european
+	audio_parameter = byzantine
 }
 
 heritage_central_african = {
@@ -120,7 +130,53 @@ heritage_chinese = {
 	parameters = {
 		heritage_group_chinese = yes
 	}
-	audio_parameter = european
+	audio_parameter = sea
+}
+
+heritage_korean = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_korean
+		}
+	}
+	parameters = {
+		heritage_group_korean = yes
+	}
+	audio_parameter = sea
+}
+
+heritage_buyeo = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_buyeo
+		}
+	}
+	parameters = {
+		heritage_group_korean = yes
+	}
+	audio_parameter = sea
+}
+
+heritage_tai = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_tai
+		}
+	}
+	audio_parameter = sea
+}
+
+heritage_hmongic = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_hmongic
+		}
+	}
+	audio_parameter = sea
 }
 
 heritage_dravidian = {
@@ -130,7 +186,7 @@ heritage_dravidian = {
 			HERITAGE = heritage_dravidian
 		}
 	}
-	audio_parameter = european
+	audio_parameter = indian
 }
 
 heritage_east_african = {
@@ -205,7 +261,7 @@ heritage_indo_aryan = {
 	parameters = {
 		heritage_group_aryan = yes
 	}
-	audio_parameter = european
+	audio_parameter = indian
 }
 
 heritage_iranian = {
@@ -218,17 +274,23 @@ heritage_iranian = {
 	parameters = {
 		heritage_group_aryan = yes
 	}
-	audio_parameter = european
+	audio_parameter = indian
 }
 
 heritage_israelite = {
 	type = heritage
 	is_shown = {
-		heritage_is_shown_trigger = {
-			HERITAGE = heritage_israelite
+		OR = {
+			heritage_is_shown_trigger = {
+				HERITAGE = heritage_israelite
+			}
+			AND = { # Let Beta Israelis be Beta Israeli
+				scope:character.culture = { has_cultural_pillar = heritage_east_african }
+				scope:character.religion = religion:judaism_religion
+			}
 		}
 	}
-	audio_parameter = european
+	audio_parameter = byzantine
 }
 
 heritage_latin = {
@@ -261,7 +323,7 @@ heritage_mongolic = {
 			HERITAGE = heritage_mongolic
 		}
 	}
-	audio_parameter = european
+	audio_parameter = sea
 }
 
 heritage_north_germanic = {
@@ -284,7 +346,7 @@ heritage_qiangic = {
 			HERITAGE = heritage_qiangic
 		}
 	}
-	audio_parameter = european
+	audio_parameter = sea
 }
 
 heritage_sahelian = {
@@ -294,7 +356,7 @@ heritage_sahelian = {
 			HERITAGE = heritage_sahelian
 		}
 	}
-	audio_parameter = european
+	audio_parameter = mena
 }
 
 heritage_senegambian = {
@@ -304,7 +366,7 @@ heritage_senegambian = {
 			HERITAGE = heritage_senegambian
 		}
 	}
-	audio_parameter = european
+	audio_parameter = mena
 }
 
 heritage_somalian = {
@@ -347,7 +409,7 @@ heritage_tibetan = {
 			HERITAGE = heritage_tibetan
 		}
 	}
-	audio_parameter = european
+	audio_parameter = sea
 }
 
 heritage_turkic = {
@@ -357,7 +419,7 @@ heritage_turkic = {
 			HERITAGE = heritage_turkic
 		}
 	}
-	audio_parameter = european
+	audio_parameter = byzantine
 }
 
 heritage_ugro_permian = {
@@ -436,7 +498,7 @@ heritage_tocharian = {
 	parameters = {
 		heritage_group_aryan = yes
 	}
-	audio_parameter = european
+	audio_parameter = indian
 }
 
 heritage_vlach = {
@@ -469,7 +531,17 @@ heritage_syriac = {
 			HERITAGE = heritage_syriac
 		}
 	}
-	audio_parameter = mena #TODO_CD_EP3 did we get a new set of byzantine audio to add to related heritages?
+	audio_parameter = byzantine
+}
+
+heritage_phoenician = {
+	type = heritage 
+	is_shown = { 
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_phoenician
+		}		
+	}
+	audio_parameter = byzantine
 }
 
 heritage_gothic = {
@@ -512,9 +584,6 @@ heritage_ancient_greek = {
 			HERITAGE = heritage_ancient_greek
 		}
 	}
-	parameters = {
-		heritage_group_aryan = yes
-	}
 	audio_parameter = european
 }
 
@@ -529,4 +598,67 @@ heritage_albanian = {
 		heritage_group_aryan = yes
 	}
 	audio_parameter = european
+}
+
+heritage_tungusic = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_tungusic
+		}
+	}
+	audio_parameter = sea
+}
+
+heritage_nivkh = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_nivkh
+		}
+	}
+	audio_parameter = sea
+}
+
+heritage_japonic = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_japonic
+		}
+	}
+	parameters = {
+		heritage_group_japanese = yes
+	}
+	audio_parameter = sea
+}
+
+heritage_ainuic = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_ainuic
+		}
+	}
+	audio_parameter = sea
+}
+
+heritage_mon_khmer = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_mon_khmer
+		}
+	}
+	audio_parameter = indian
+}
+
+heritage_viet = {
+	type = heritage
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_viet
+		}
+	}
+	audio_parameter = sea
 }

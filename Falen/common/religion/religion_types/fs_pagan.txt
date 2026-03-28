@@ -1,0 +1,237 @@
+﻿pagan_religion = {
+	family = rf_pagan
+
+	doctrine = pagan_hostility_doctrine
+
+	pagan_roots = yes
+
+	#Main Group
+	doctrine = doctrine_polytheist
+	doctrine = doctrine_no_head
+	doctrine = doctrine_gender_male_dominated
+	doctrine = doctrine_pluralism_pluralistic
+	doctrine = doctrine_theocracy_temporal
+
+	#Marriage
+	doctrine = doctrine_concubines
+	doctrine = doctrine_divorce_allowed
+	doctrine = doctrine_bastardry_legitimization
+	doctrine = doctrine_consanguinity_cousins
+
+	#Crimes
+	doctrine = doctrine_homosexuality_shunned
+	doctrine = doctrine_adultery_men_crime
+	doctrine = doctrine_adultery_women_crime
+	doctrine = doctrine_kinslaying_close_kin_crime
+	doctrine = doctrine_deviancy_crime
+	doctrine = doctrine_witchcraft_accepted
+
+	#Clerical Functions
+	doctrine = doctrine_clerical_function_recruitment
+	doctrine = doctrine_clerical_gender_either
+	doctrine = doctrine_clerical_marriage_allowed
+	doctrine = doctrine_clerical_succession_temporal_appointment
+	
+	#Allow pilgrimages
+	doctrine = doctrine_pilgrimage_encouraged
+
+	#Funeral tradition
+	doctrine = doctrine_funeral_sky_burial
+
+	doctrine = doctrine_no_anointment
+
+	traits = {
+		virtues = { brave just honest }
+		sins = { craven arbitrary deceitful }
+	}
+
+	custom_faith_icons = {
+		custom_faith_1 custom_faith_2 custom_faith_3 custom_faith_4 custom_faith_5 custom_faith_6 custom_faith_7 custom_faith_8 custom_faith_9 custom_faith_10 dualism_custom_1 zoroastrian_custom_1 zoroastrian_custom_2 buddhism_custom_1 buddhism_custom_2 buddhism_custom_3 buddhism_custom_4 taoism_custom_1 yazidi_custom_1 sunni_custom_2 sunni_custom_3 sunni_custom_4 muhakkima_1 muhakkima_2 muhakkima_4 muhakkima_5 muhakkima_6 judaism_custom_1 custom_faith_fp1_fenrir custom_faith_fp1_irminsul custom_faith_fp1_jormungandr custom_faith_fp1_odins_ravens custom_faith_fp1_runestone_moon custom_faith_fp1_thors_hammer custom_faith_fp1_valknut custom_faith_fp1_yggdrasil custom_faith_boromian_circles custom_faith_lotus custom_faith_aum_tibetan custom_faith_pentagram custom_faith_pentagram_inverted custom_faith_burning_bush custom_faith_allah custom_faith_gankyil custom_faith_eye_of_providence custom_faith_dove custom_faith_ichthys custom_faith_lamb custom_faith_black_sheep custom_faith_ankh custom_faith_chi_rho custom_faith_hamsa custom_faith_cool_s
+	}
+
+	holy_order_names = {
+		{ name = holy_order_guardians_of_divinerealm }
+		{ name = holy_order_faithful_of_highgod }
+		{ name = holy_order_warriors_of_the_symbol }
+	}
+
+	holy_order_maa = { horse_archers }
+	
+	localization = {
+		#HighGod
+		HighGodName = pagan_high_god_name	# 신 이름
+		HighGodNamePossessive = pagan_high_god_name_possessive	# 신 이름 소유격
+		HighGodNameSheHe = CHARACTER_SHEHE_HE	# 지칭 시 성별
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = pagan_high_god_name_alternate	# 최고신은 이명 사용 가능
+		HighGodNameAlternatePossessive = pagan_high_god_name_alternate_possessive
+
+		#CreatorName
+		CreatorName = pagan_creator_god_name
+		CreatorNamePossessive = pagan_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+
+		#HealthGod
+		HealthGodName = pagan_health_god_name
+		HealthGodNamePossessive = pagan_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		
+		#FertilityGod
+		FertilityGodName = pagan_fertility_god_name
+		FertilityGodNamePossessive = pagan_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WealthGod
+		WealthGodName = pagan_wealth_god_name
+		WealthGodNamePossessive = pagan_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		#HouseholdGod
+		HouseholdGodName = pagan_household_god_name
+		HouseholdGodNamePossessive = pagan_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_HE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+		#FateGod
+		FateGodName = pagan_fate_god_name
+		FateGodNamePossessive = pagan_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+
+		#Knowledge
+		KnowledgeGodName = pagan_knowledge_god_name
+		KnowledgeGodNamePossessive = pagan_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WarGod
+		WarGodName = pagan_war_god_name
+		WarGodNamePossessive = pagan_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		#TricksterGod
+		TricksterGodName = pagan_trickster_god_name
+		TricksterGodNamePossessive = pagan_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+
+		#NightGod
+		NightGodName = pagan_night_god_name
+		NightGodNamePossessive = pagan_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WaterGod
+		WaterGodName = pagan_water_god_name
+		WaterGodNamePossessive = pagan_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+
+		PantheonTerm = pagan_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {	# 선신 이름들
+			buddhism_high_god_name
+		}
+		
+		DevilName = pagan_devil_name
+		DevilNamePossessive = pagan_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {	# 악신 이름들
+			buddhism_devil_name
+		}
+		
+		HouseOfWorship = pagan_house_of_worship
+		HouseOfWorshipPlural = pagan_house_of_worship_plural
+		ReligiousSymbol = pagan_religious_symbol
+		ReligiousText = pagan_religious_text
+		ReligiousHeadName = pagan_religious_head_title
+		ReligiousHeadTitleName = pagan_religious_head_title_name
+		
+		DevoteeMale = pagan_devotee_male
+		DevoteeMalePlural = pagan_devotee_male_plural
+		DevoteeFemale = pagan_devotee_female
+		DevoteeFemalePlural = pagan_devotee_female_plural
+		DevoteeNeuter = pagan_devotee_neuter
+		DevoteeNeuterPlural = pagan_devotee_neuter_plural
+		
+		PriestMale = pagan_priest_male
+		PriestMalePlural = pagan_priest_male_plural
+		PriestFemale = pagan_priest_male
+		PriestFemalePlural = pagan_priest_male_plural
+		PriestNeuter = pagan_priest_male
+		PriestNeuterPlural = pagan_priest_male_plural
+		AltPriestTermPlural = pagan_priest_alternate_plural
+		
+		BishopMale = pagan_bishop
+		BishopMalePlural = pagan_bishop_plural
+		BishopFemale = pagan_bishop
+		BishopFemalePlural = pagan_bishop_plural
+		BishopNeuter = pagan_bishop
+		BishopNeuterPlural = pagan_bishop_plural
+		
+		DivineRealm = pagan_positive_afterlife
+		PositiveAfterLife = pagan_positive_afterlife
+		NegativeAfterLife = pagan_negative_afterlife
+		DeathDeityName = pagan_death_deity_name
+		DeathDeityNamePossessive = pagan_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		
+		WitchGodName = pagan_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+
+		GHWName = ghw_crusade	# 대성전 이름
+		GHWNamePlural = ghw_crusades
+	}
+	
+	faiths = {
+		mu_pagan = {	# 하위 종교
+			color = { 118 160 122 }	# 지도 상에서 표시될 색깔
+			icon = cat_taegeuk	# 종교 아이콘
+			reformed_icon = cat_taegeuk
+		
+			holy_site = gyeryong_default_gyeryongsan
+			holy_site = taebaek_default_taebaeksan
+			holy_site = hyesan_default_baekdusan
+			holy_site = hwado_daejong_chamseongdan
+			holy_site = unbong_default_jirisan
+			holy_site = sadong_default_kumgangsan
+
+			# 성직자 교리
+			doctrine = doctrine_clerical_function_alms_and_pacification
+			doctrine = doctrine_clerical_gender_either
+			doctrine = doctrine_clerical_marriage_allowed
+			doctrine = doctrine_clerical_succession_spiritual_appointment
+			
+			doctrine = unreformed_faith_doctrine	# 파간 설정
+			
+			doctrine = tenet_adorcism	# 원리 설정
+			doctrine = tenet_ancestor_worship
+			doctrine = tenet_adaptive
+		}
+	}
+}

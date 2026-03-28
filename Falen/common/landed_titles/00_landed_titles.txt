@@ -2,7 +2,77 @@
 @better_than_the_alternatives_score = 50
 @always_primary_score = 1000
 
+# If adding another hegemon title, you need to also update e.g. NeighboringHegemonTitle/DefinitiveName custom loc, save_tribute_mission_target_scope_effect, small/adequate/excessive_gold_tribute_value, etc to support Hegemonic Tributaries
 
+h_roman_empire = {
+	color = { 167 10 0 }
+
+	capital = c_andong # Rome
+	definite_form = yes
+	can_be_named_after_dynasty = no
+
+	can_create = {
+		rule_title_creation_imperial_power_projection_title_creation_trigger = yes
+	}
+}
+
+h_eastern_roman_empire = {
+	color = { 150 35 165 }
+
+	capital = c_andong # Constantinople
+	definite_form = yes
+	can_be_named_after_dynasty = no
+
+	can_create = {
+		rule_title_creation_imperial_power_projection_title_creation_trigger = yes
+	}
+}
+
+h_dar_al_islam = {
+	color = { 20 160 30 }
+	definite_form = yes
+	#ruler_uses_title_name = no
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_be_named_after_dynasty = no
+	can_use_nomadic_naming = no
+	
+	capital = c_andong
+
+	can_create = {
+		has_global_variable = created_dar_al_islam
+	}
+	can_destroy = {
+	}
+}
+
+h_china = {
+	color = { 230 180 10 }
+
+	capital = c_andong # 
+
+	disable_regnal_numbers = yes
+
+	can_create = {
+		custom_tooltip = {
+			text = dynastic_cycle.tt.forbid_title_creation
+			NOT = { exists = situation:dynastic_cycle }
+		}
+	}
+	can_create_on_partition = {
+		custom_tooltip = {
+			text = dynastic_cycle.tt.forbid_title_creation
+			NOT = { exists = situation:dynastic_cycle }
+		}
+	}
+	can_destroy = {
+		custom_tooltip = {
+			text = dynastic_cycle.tt.forbid_title_destruction
+			NOT = { exists = situation:dynastic_cycle }
+		}
+	}
+}
 
 e_korea = {
 	color =  { 20 20 255 } #hsv{ 0.73 0.8 0.4 }  #hsv{ 0.77 0.8 0.6 } #{ 143 12 125 }

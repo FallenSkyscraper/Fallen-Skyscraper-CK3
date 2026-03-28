@@ -1,0 +1,54 @@
+﻿protestant_event_on_action ={
+	trigger = {
+		faith = {
+			religion_tag = protestant_religion
+		}
+	}
+	random_events = {
+		900 = 0
+		50 = protestant_event.0101
+		20 = protestant_event.0201
+		400 = protestant_event.0301
+		50 = protestant_event.0401
+		50 = protestant_event.0501
+		50 = protestant_event.0601
+		50 = protestant_event.0701
+	}
+}
+slavery_events_on_action ={
+	trigger = {
+		government_has_flag = government_is_slavery
+		current_date < 2600.1.1
+	}
+	random_events = {
+		100 = slavery_event.0001 #자유민의 불만
+		100 = slavery_event.0002 #탈주노예
+		100 = slavery_event.0003 #불법노예거래
+		100 = slavery_event.0004 #농장의 비효율화
+		100 = slavery_event.0005 #종교계의 반발
+		100 = slavery_event.0006 #노예해방단체
+		70 = slavery_event.0007 #노예의 반발
+		70 = slavery_event.0008 #해방노예 문제
+		100 = slavery_event.0009 #노예권리문제
+		800 = slavery_event.1001 #존브라운
+	}
+}
+technology_effect_pulse = {
+	trigger = {
+		NOT = { faith = { religion_tag = naturalism_religion } }
+	}
+	effect = {
+		tech_base_effect = { TECHNAME = metallurgy }
+		tech_base_effect = { TECHNAME = siege }
+		tech_base_effect = { TECHNAME = horseback_riding }
+	#	tech_county_effect = { TECHNAME = fortification }
+	#	tech_county_effect = { TECHNAME = conscription }
+		tech_base_effect = { TECHNAME = archery }
+		tech_base_effect = { TECHNAME = military_organization }
+	#	tech_county_effect = { TECHNAME = agriculture }
+	#	tech_county_effect = { TECHNAME = commerce }
+		tech_base_effect = { TECHNAME = navigation }
+	#	tech_county_effect = { TECHNAME = construction }
+	#	tech_base_effect = { TECHNAME = mining }
+	}
+}

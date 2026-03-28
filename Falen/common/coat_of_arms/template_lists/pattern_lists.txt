@@ -1,4 +1,4 @@
-﻿pattern_texture_lists = {
+pattern_texture_lists = {
 	most_emblems_list = {
 		25  = "pattern_checkers_01.dds"
 		15 	= "pattern_checkers_diagonal_01.dds"
@@ -25,7 +25,7 @@
 		20  = "pattern_horizontal_split_01.dds"
 		special_selection = {
 			trigger = {
-				always = no
+				scope:faith.religion = religion:christianity_religion # Toned down for religions other than christianity
 			}
 			5 	= "pattern_checkers_diagonal_01.dds"
 			10  = "pattern_checkers_01.dds"	
@@ -61,7 +61,7 @@
 		20  = "pattern_horizontal_split_01.dds"
 		special_selection = {
 			trigger = {
-				always = no
+				scope:culture = { has_coa_gfx = norse_coa_gfx }
 			}
 			40  = "pattern_diagonal_split_01.dds"
 		}		

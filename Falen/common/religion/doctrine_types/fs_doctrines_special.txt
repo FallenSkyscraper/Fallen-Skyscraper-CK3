@@ -1,0 +1,271 @@
+﻿special_doctrine_terror_governing = {
+	parameters = {
+		other_culture_conversion_penalty_active = yes
+		hostility_same_family = 2
+		hostility_override_special_doctrine_yingzhao_worship = 1
+	}
+	character_modifier = {
+		monthly_income_mult = 0.05
+		levy_size = 0.05
+		dread_baseline_add = 20
+		monthly_county_control_change_factor = 0.05
+	}
+}
+special_doctrine_path_of_saint = {
+	parameters = {
+		hostility_others = 3
+		hostility_same_family = 3
+		hostility_same_religion = 3
+		hostility_override_special_doctrine_hundred_days_of_reform = 1
+	}
+	character_modifier = {
+		faith_creation_piety_cost_mult = 1
+		same_faith_opinion = 15
+	}
+}
+special_doctrine_hundred_days_of_reform = {
+	parameters = {
+		same_faith_promote_culture_bonus_active = yes
+	}
+}
+special_doctrine_is_communism_faith = {
+	parameters = {
+		hostility_override_tenet_communism_syncretism = 1
+		communism_syncretic_recipient_opinion_active = yes
+		opinion_of_communism_syncretic_actor_opinion_active = 30
+	}
+}
+special_doctrine_is_manchurian_faith = {
+	parameters = {
+		hostility_override_tenet_plain_faith_syncretism = 2
+		plain_faith_syncretic_recipient_opinion_active = yes
+		opinion_of_plain_faith_syncretic_actor_opinion_active = 30
+	}
+}
+special_doctrine_is_tengri_faith = {
+	parameters = {
+		hostility_override_tenet_plain_faith_syncretism = 2
+		plain_faith_syncretic_recipient_opinion_active = yes
+		opinion_of_plain_faith_syncretic_actor_opinion_active = 30
+	}
+}
+special_doctrine_is_confucian_faith = {
+	parameters = {
+		hostility_same_family = 2
+		hostility_override_special_doctrine_munsunjae_worship = 1
+	}
+}
+
+special_doctrine_aisingioro_worship = { #아이신기오로 숭배
+	can_pick = {
+		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+	}
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = special_doctrine_aisingioro_worship }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	character_modifier= {
+		knight_limit = 2
+		knight_effectiveness_mult = 0.1
+		dynasty_house_opinion = -10
+		faith_creation_piety_cost_mult = -0.25
+		monthly_piety_gain_mult = -0.15
+	}
+}
+special_doctrine_wanyan_worship = { # 완안 숭배
+	can_pick = {
+		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+	}
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = special_doctrine_wanyan_worship }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	character_modifier = {
+		faith_creation_piety_cost_mult = -0.25
+		monthly_piety_gain_mult = -0.15
+		men_at_arms_limit = 1
+		men_at_arms_cap = 1
+		levy_size = -0.1
+	}
+}
+special_doctrine_khan_worship = { # 징기스칸 숭배
+	can_pick = {
+		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+	}
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = special_doctrine_khan_worship }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	character_modifier = {
+		army_maintenance_mult = -0.25
+		fertility = 0.1
+		levy_size = 0.15
+		faith_creation_piety_cost_mult = -0.25
+		independent_ruler_opinion = -25
+		monthly_piety_gain_mult = -0.15
+	}
+}
+special_doctrine_cheewoo_worship = { # 치우 숭배
+	can_pick = {
+		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+	}
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = special_doctrine_cheewoo_worship }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	character_modifier = {
+		martial_per_piety_level = 1
+		prowess_per_piety_level = 2
+		monthly_income_mult = -0.2
+		faith_creation_piety_cost_mult = -0.25
+		monthly_piety_gain_mult = -0.15
+	}
+}
+special_doctrine_munsunjae_worship = { # 공자 숭배
+	can_pick = {
+		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+	}
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = special_doctrine_munsunjae_worship }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	parameters = {
+		hostility_override_special_doctrine_is_confucian_faith = 1
+	}
+	character_modifier = {
+		learning_per_piety_level = 1
+		county_opinion_add = 15
+		tyranny_gain_mult = 0.3
+		faith_creation_piety_cost_mult = -0.25
+		monthly_piety_gain_mult = -0.15
+	}
+}
+special_doctrine_yingzhao_worship = { # 진시황 숭배
+	can_pick = {
+		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+	}
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = special_doctrine_yingzhao_worship }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	parameters = {
+		hostility_override_special_doctrine_terror_governing = 1
+	}
+	character_modifier = {
+		dread_baseline_add = 5
+		dread_gain_mult = 0.1
+		vassal_opinion = -10
+		faith_creation_piety_cost_mult = -0.25
+		monthly_piety_gain_mult = -0.15
+	}
+}
+special_doctrine_sinnong_worship = { # 신농 숭배
+	can_pick = {
+		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+	}
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { has_doctrine = special_doctrine_sinnong_worship }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+	character_modifier = {
+		development_growth_factor = 0.2
+		health = 0.1
+		life_expectancy = 2
+		martial = -2
+		prowess = -2
+		faith_creation_piety_cost_mult = -0.25
+		monthly_piety_gain_mult = -0.15
+	}
+}
+
+special_doctrine_no_decision = {
+	can_pick = {
+		always = no
+	}
+}
+special_doctrine_status_quo = {
+	can_pick = {
+		has_doctrine = special_doctrine_no_decision
+		#has_innovation = innovation_northern_reformation_movement
+	}
+}
+special_doctrine_adopt_monothesism ={
+	can_pick = {
+		has_doctrine = special_doctrine_no_decision
+		#has_innovation = innovation_northern_reformation_movement
+	}
+}
+special_doctrine_restore_pantheon = {
+	can_pick = {
+		has_doctrine = special_doctrine_no_decision
+		#has_innovation = innovation_northern_reformation_movement
+	}
+}
+special_doctrine_end_of_pantheon = {
+	can_pick = {
+		has_doctrine = special_doctrine_no_decision
+		#has_innovation = innovation_northern_reformation_movement
+	}
+}
+special_doctrine_path_of_peoples = {
+	can_pick = {
+		doctrine:special_doctrine_path_of_peoples = { is_in_list = selected_doctrines }
+	}
+	parameters = {
+		hostility_override_special_doctrine_path_of_seoul = 3
+		hostility_override_special_doctrine_path_of_authority = 1
+	}
+}
+special_doctrine_path_of_seoul = {
+	can_pick = {
+		doctrine:special_doctrine_path_of_seoul = { is_in_list = selected_doctrines }
+	}
+	parameters = {
+		hostility_override_special_doctrine_path_of_peoples = 3
+		hostility_override_special_doctrine_path_of_unity = 1
+	}
+}
+special_doctrine_path_of_authority = {
+	can_pick = {
+		doctrine:special_doctrine_path_of_authority = { is_in_list = selected_doctrines }
+	}
+	parameters = {
+		hostility_override_special_doctrine_path_of_peoples = 1
+	}
+}
+special_doctrine_path_of_unity = {
+	can_pick = {
+		doctrine:special_doctrine_path_of_unity = { is_in_list = selected_doctrines }
+	}
+	parameters = {
+		hostiltiy_override_special_doctrine_path_of_seoul = 1
+	}
+}

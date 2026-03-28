@@ -1,0 +1,137 @@
+﻿terror_governing = {
+	category = "special"
+	is_available_on_create = {
+		has_doctrine = special_doctrine_terror_governing
+	}
+	doctrine_types = {
+		special_doctrine_terror_governing
+	}
+}
+path_of_saint = {
+	category = "special"
+	is_available_on_create = {
+		always = no
+	}
+	doctrine_types = {
+		special_doctrine_path_of_saint
+	}
+}
+hundred_days_of_reform = {
+	category = "special"
+	is_available_on_create = {
+		has_doctrine = special_doctrine_hundred_days_of_reform
+	}
+	doctrine_types = {
+		special_doctrine_hundred_days_of_reform
+	}
+}
+is_communism_faith = {
+	category = "special"
+
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_communism_faith
+	}
+	doctrine_types = {
+		special_doctrine_is_communism_faith
+	}
+}
+is_manchurian_faith = {
+	category = "special"
+
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_manchurian_faith
+	}
+	doctrine_types = {
+		special_doctrine_is_manchurian_faith
+	}
+}
+is_tengri_faith = {
+	category = "special"
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_tengri_faith
+	}
+	doctrine_types = {
+		special_doctrine_is_tengri_faith
+	}
+}
+is_confucian_faith = {
+	category = "special"
+	is_available_on_create = {
+		has_doctrine = special_doctrine_is_confucian_faith
+	}
+	doctrine_types = {
+		special_doctrine_is_confucian_faith
+	}
+}
+the_pantheon = {
+	category = "main_group"
+	is_available_on_create = {
+		OR = {
+			has_doctrine = special_doctrine_aisingioro_worship
+			has_doctrine = special_doctrine_wanyan_worship
+			has_doctrine = special_doctrine_khan_worship
+			has_doctrine = special_doctrine_cheewoo_worship
+			has_doctrine = special_doctrine_munsunjae_worship
+			has_doctrine = special_doctrine_yingzhao_worship
+			has_doctrine = special_doctrine_sinnong_worship
+		}
+		has_doctrine = special_doctrine_no_decision
+	}
+	doctrine_types = {
+		special_doctrine_aisingioro_worship
+		special_doctrine_wanyan_worship
+		special_doctrine_khan_worship
+		special_doctrine_cheewoo_worship
+		special_doctrine_munsunjae_worship
+		special_doctrine_yingzhao_worship
+		special_doctrine_sinnong_worship
+	}
+}
+pantheon_reformed = {
+	category = "main_group"
+	is_available_on_create = {
+			has_religion = religion:manchurian_religion
+	}
+	doctrine_types = {
+		special_doctrine_no_decision
+		special_doctrine_status_quo
+		special_doctrine_adopt_monothesism
+		special_doctrine_restore_pantheon
+		special_doctrine_end_of_pantheon
+	}
+}
+path_divided = {
+	category = "main_group"
+	is_available_on_create = {
+			OR = {
+				has_doctrine = special_doctrine_path_of_peoples
+				has_doctrine = special_doctrine_path_of_seoul
+				has_doctrine = special_doctrine_path_of_authority
+				has_doctrine = special_doctrine_path_of_unity
+			}
+	}
+	doctrine_types = {
+		special_doctrine_path_of_peoples
+		special_doctrine_path_of_seoul
+		special_doctrine_path_of_authority
+		special_doctrine_path_of_unity
+	}
+}
+doctrine_religion_policy = {
+	group = "main_group"
+	is_available_on_create = {
+		#is_in_family = rf_ideologic
+		OR = {
+			religion_tag = koreanism_religion
+			religion_tag = communism_religion
+			religion_tag = juche_religion
+		}
+	}
+	doctrine_types = {
+		religion_policy_ultranationalism
+		religion_policy_state_atheism
+		religion_policy_laicite
+		religion_policy_freedom_of_religion
+		religion_policy_pluralism
+	}
+}
