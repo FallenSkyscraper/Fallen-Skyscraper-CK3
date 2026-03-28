@@ -559,7 +559,7 @@ graphical_western = {
 	graphical = yes
 	color = { 255 0 0 }
 	regions = { 
-		world_korea world_steppe_yanbian world_steppe_primorye
+		world_steppe_primorye
 	}
 }
 
@@ -592,6 +592,15 @@ graphical_steppe = {
 	}
 }
 
+graphical_east_asia = {
+	graphical = yes
+	color = { 155 255 155 }
+	regions = {
+		world_korea world_steppe_yanbian
+	} 
+}
+
+
 ##############################
 # Misc
 ###############################
@@ -605,11 +614,37 @@ world_innovation_camels = {
 	generate_modifiers = yes
 }
 
+world_horse_buildings_in_hills_and_mountains = {}
 
 #####################
 # Special Regions
 #####################
 
+special_mongol_empire_start_region = {}
+special_mongol_empire_conquest_region_prio_1_alpha = {}
+special_mongol_empire_conquest_region_prio_1 = {}
+special_mongol_empire_conquest_region_prio_2 = {}
+special_mongol_empire_conquest_region_prio_3 = {}
+special_mongol_empire_conquest_region_prio_4 = {}
+special_mongol_empire_conquest_region_prio_5 = {}
+special_mongol_empire_conquest_region_bonus = {}
+special_mongol_empire_conquest_all_regions = {
+	regions = {
+		special_mongol_empire_start_region
+		special_mongol_empire_conquest_region_prio_1_alpha
+		special_mongol_empire_conquest_region_prio_1
+		special_mongol_empire_conquest_region_prio_2
+		special_mongol_empire_conquest_region_prio_3
+		special_mongol_empire_conquest_region_prio_4
+		special_mongol_empire_conquest_region_prio_5
+		special_mongol_empire_conquest_region_bonus
+	}
+}
+special_mongol_empire_ilkhanate_region = {}
+special_mongol_empire_chagatai_region = {}
+special_mongol_empire_golden_horde_region = {}
+special_sicilian_culture_region = {}
+special_cagot_region = {}
 
 #####################
 # GHW Targeting Regions
@@ -618,10 +653,22 @@ world_innovation_camels = {
 #Neutral GHW Target Regions
 ### END GHW Regions
 
+islamic_heartlands = {}
+
 #####################
 # The Northern Lords Regions
 #####################
 
+dlc_fp1_region_core_north_sea = {}
+dlc_fp1_region_mysterious_stranger_locations = {}
+dlc_fp1_region_western_adventure_targets_iceland_isles = {}
+dlc_fp1_region_western_adventure_targets_scotland_isles = {}
+dlc_fp1_region_western_adventure_targets_ireland  = {}
+dlc_fp1_region_western_adventure_targets_northern_england = {}
+dlc_fp1_region_western_adventure_targets_northern_france_brittany = {}
+dlc_fp1_region_western_adventure_targets_pomerania_prussia = {}
+dlc_fp1_achievement_far_from_home = {}
+dlc_fp1_achievement_king_of_all_the_isles = {}
 
 ### END TNL Regions
 
@@ -629,6 +676,15 @@ world_innovation_camels = {
 # Achievements - 1.4
 #####################
 ### END 1.4 Achievements Regions
+dlc_fp2_old_vasconia = {}
+dlc_fp2_old_vasconia_pushed = {}
+dlc_fp2_mediterranean_shoreline = {}
+dlc_fp2_caucasian_iberia = {}
+dlc_fp2_form_aragon_region = {}
+dlc_fp2_lyonese_monk_region = {}
+dlc_fp3_greater_persian_frontier_regions = {}
+dlc_fp3_seljuk_birth_region = {}
+dlc_ep1_achievement_rise_of_the_ghurids = {}
 
 ################
 # RoCo Regions #
@@ -652,6 +708,7 @@ dlc_ep1_east_africa_trade_region = {}
 dlc_ep1_west_africa_trade_region = {}
 dlc_ep1_indian_trade_region = {}
 dlc_ep1_southwest_silk_road_trade_region = {}
+dlc_ep1_arthurian_heartlands_region = {}
 ### END RC Regions
 
 divergence_island_regions = {
@@ -659,8 +716,30 @@ divergence_island_regions = {
 		d_ulleung
 	}
 }
-
+kirghiz_homelands = {}
+dlc_mpo_steppe_east_buryatia_addon = {}
+dlc_mpo_steppe_east_andong_addon = {}
+dlc_mpo_steppe_east_china_addon = {}
+dlc_mpo_steppe_central_siberia_addon = {}
+dlc_mpo_steppe_caucasus_expansion = {}
+dlc_mpo_steppe_persia_expansion = {}
+dlc_mpo_steppe_siberia_further_expansion = {}
+dlc_mpo_steppe_e_amur_expansion = {}
+dlc_mpo_steppe_hexi_tarim_expansion = {}
+dlc_mpo_steppe_north_china_expansion = {}
+dlc_mpo_steppe_central_china_expansion = {}
+heritage_area_pontic_steppe = {}
+heritage_area_volga_bulgaria = {}
+heritage_area_perm = {}
+heritage_area_turkestan = {}
+heritage_area_cumania = {}
 ### END RC Regions
+dlc_tgp_silk_road_route_region = {}
+tgp_silk_road_region = {}
+dlc_tgp_great_wall_shanhai = {}
+dlc_tgp_great_wall_liaodong = {}
+dlc_tgp_grand_canal_region = {}
+
 ### SEAZONES ###
 
 sea_atlantic_ocean = {}
@@ -730,3 +809,19 @@ hunt_animal_elk_region = {}
 
 # Chiefly the Celtic Rim.
 board_game_fidchell_region = {}
+
+world_central_asia = {}
+world_atlantic = {}
+troy_region = {}
+israel_region = {}
+mediteranean_coast = {}
+greek_backwater_modifier_region = {}
+custom_ep3_restore_rome_eastern_empire = {}
+black_sea_coast_region = {}
+mpo_region_permafrost = {}
+tgp_china_tributary_region = {}
+paddy_fields_region = {
+	regions = {
+		graphical_east_asia
+	}
+}

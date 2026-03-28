@@ -1,0 +1,25 @@
+﻿# Geographical regions for Natural Disasters
+
+global_flood_region = {}
+
+# Seismic Regions
+# 89 in total, Himalaya + Tibet Plateau
+# actually 2 strips as a bigger group, our map density is not enough to distinguish them. high chance + high severity
+himalaya_earthquake_region = {}
+# Eastern Himalaya, Sichuan-Yunnan-Myanmar, crossing China Myanmar India
+# 13 in e_bengal, 34 in k_pagan, 2 in k_dvaravati, 12 in e_tibet, 23 in e_liangyi, 82 in total. give it same level as himalaya.
+sichuan_myanmar_earthquake_region = {}
+# about 100 counties
+north_china_earthquake_region = {}
+# Fujian and Guangdong, pretty small so make a much lower chance and basic severity (different from islands min=2)
+south_china_coastaline_earthquake_region = {}
+# ~40, medium level overlap with Steppe & Siberia
+mongolia_baikal_earthquake_region = {}
+# Tarim, Tianshan, Hindu Kush
+central_asian_earthquake_region = {}
+north_pacific_earthquake_region = {}
+
+world_asia_southeast_islands_weak_earthquake_region = {}
+world_asia_north_east_and_korea_weak_earthquake_region = {}
+# Make them in same group for earthquake check anyway, unlike eastern EU here have some.
+world_asia_north_east_and_korea = {}
