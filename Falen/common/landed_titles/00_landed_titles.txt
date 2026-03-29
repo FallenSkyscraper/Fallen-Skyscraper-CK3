@@ -47,6 +47,18 @@ h_dar_al_islam = {
 	}
 }
 
+h_india = {		# Titular, created by special decision only if entire India is united
+	color = { 255 110 0 }
+
+	can_create = {
+		rule_title_creation_imperial_power_projection_title_creation_trigger = yes
+	}
+
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+}
+
 h_china = {
 	color = { 230 180 10 }
 
@@ -131,3 +143,36 @@ k_joseon_king = {
 e_hre = { landless = yes }
 e_byzantium = { landless = yes }
 e_roman_empire = { landless = yes }
+
+d_sunni = {
+	color = { 40 160 40 }
+	definite_form = yes
+	ruler_uses_title_name = no
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_be_named_after_dynasty = no
+	can_use_nomadic_naming = no
+	
+	capital = c_yongsan
+
+	can_destroy = {
+		custom_tooltip = {
+			text = persian_struggle.tt.forbid_title_destruction
+			NOT = { exists = struggle:persian_struggle }
+		}
+	}
+}
+
+d_shiite = {
+	color = { 60 190 60 }
+	definite_form = yes
+	ruler_uses_title_name = no
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	can_be_named_after_dynasty = no
+	can_use_nomadic_naming = no
+	
+	capital = c_yongsan 
+}

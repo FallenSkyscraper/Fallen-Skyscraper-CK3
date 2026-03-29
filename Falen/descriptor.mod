@@ -5,6 +5,7 @@ tags={
 name="Fallen Skyscraper"
 replace_path="common/bookmark_portraits"
 replace_path="common/bookmarks"
+replace_path="common/landed_titles"
 replace_path="common/religion/religion_types"
 replace_path="common/struggle/struggles"
 replace_path="common/situation/situations"

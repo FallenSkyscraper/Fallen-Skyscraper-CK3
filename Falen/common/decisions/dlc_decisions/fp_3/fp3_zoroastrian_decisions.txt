@@ -1,0 +1,234 @@
+﻿### Establish [ROOT.Char.GetFaith.GetAdherentNameNoTooltip] Stronghold ###
+restore_badd_fortress_decision = { #This allows a ruler with a Zandik or Chthonic Redoubts faith to restore the Badd fortress (it's in the barony Ahar, which you'll need to capture) and make it his capital.
+	title = restore_badd_fortress_decision
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_sunder.dds"
+	}
+	desc = restore_badd_fortress_decision_desc
+	selection_tooltip = restore_badd_fortress_decision_tooltip
+	decision_group_type = major
+	sort_order = 20
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 120
+		duchy = 120
+		kingdom = 120
+		empire = 0
+		hegemony = 0
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	is_valid = {
+		always = no
+	}
+
+	effect = {
+	}
+
+	cost = {
+		gold = {
+			value = 0
+			if = {
+				limit = {
+					has_treasury = no
+				}
+				add = 600
+			}
+		}
+		treasury = {
+			value = 0
+			if = {
+				limit = {
+					has_treasury = yes
+				}
+				add = 600
+			}
+		}
+		prestige = 500
+	}
+
+	ai_potential = {
+		top_liege = this #this is to make it unlikely that the AI takes the decision before the player has a chance to 
+	}
+
+	ai_will_do = {
+		base = 50
+	}
+}
+
+### Reform the [ROOT.Char.GetFaith.random_AltPriestTermPlural] ###
+destroy_the_magi_decision = { #This allows a ruler with sufficient piety and control of holy sites to reform the Zoroastrian priesthood's hierarchy. 
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_strength.dds"
+	}
+	title = destroy_the_magi_decision
+	desc = destroy_the_magi_decision_desc
+	
+	selection_tooltip = destroy_the_magi_decision_tooltip
+	decision_group_type = major
+	sort_order = 70
+	ai_check_interval = 0
+
+	is_shown = { #this is a decision for religious underdogs that have risen to prominence
+		faith = { 
+			AND = {
+				has_doctrine = doctrine_heretic_branch_zandik 
+				has_doctrine = doctrine_theocracy_temporal #you need to still have this doctrine for it to work 
+				has_doctrine = doctrine_spiritual_head #you need to still have this doctrine for it to work 
+			}
+		}
+
+		NOT = { exists = root.faith.religious_head } #if you have restored the Zoroastrian priesthood, you wouldn't wanna destroy it 
+
+		is_ai = no #we don't want the AI to complicate things here 
+		is_playable_character = yes 
+		exists = dynasty #just for sanity 
+
+		#Not repeatable.
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:destroyed_the_magi #so it can't happen twice
+			}
+		}
+	}
+
+	is_valid = {
+		
+		piety_level >= high_piety_level
+		
+		faith = { has_doctrine = doctrine_heretic_branch_zandik }
+		
+		custom_description = {
+			text = "restore_high_priesthood_holy_sites"
+			faith = {
+				any_holy_site = {
+					OR = {
+						county.holder = root
+						county.holder.top_liege = { this = root }
+					}
+					count >= 3
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_landed = yes
+		is_capable_adult = yes
+		is_imprisoned = no
+		top_liege = this
+		is_at_war = no
+	}
+
+	effect = {
+		show_as_tooltip = { destroy_the_magi_scripted_effect = yes }
+		trigger_event = fp3_decision.0004
+	
+
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:destroyed_the_magi 
+			}
+		}
+	}
+
+	cost = {
+		piety = 1000
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+### Kindle Royal Fire ###
+kindle_royal_fire_decision = {
+	title = kindle_royal_fire_decision
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp3/fp3_decision_foundation.dds"
+	}
+	desc = kindle_royal_fire_decision_desc
+	selection_tooltip = kindle_royal_fire_decision_tooltip
+	sort_order = 90
+
+	is_shown = {
+		always = no
+	}
+
+	is_valid = {
+		always = no
+	}
+	effect = {
+	}
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 120
+		empire = 120
+		hegemony = 120
+	}
+
+	ai_potential = {
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+###################################
+# Embrace Zoroastrianism
+# Adopt a Zoroastrian faith in secret, provided one of your counties follows the chosen faith
+###################################
+### Embrace Zoroastrianism ###
+fp3_embrace_zoroastrianism_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/fp3_temple.dds"
+	}
+	desc = fp3_embrace_zoroastrianism_decision_desc
+	selection_tooltip = fp3_embrace_zoroastrianism_decision_tooltip
+	sort_order = 120
+	
+	is_shown = {
+		always = no
+	}
+
+	is_valid = {
+		always = no
+	}
+	effect = {
+	}
+
+	cost = { piety = major_piety_value }
+	
+	ai_check_interval_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 60
+		kingdom = 60
+		empire = 60
+		hegemony = 60
+	}
+	ai_potential = {
+		ai_zeal <= -25
+		ai_rationality <= -50
+		OR = {
+			has_trait = cynical
+			has_trait = fickle
+			has_trait = eccentric
+			has_trait = lunatic
+			has_trait = arbitrary
+		}
+	}
+	ai_will_do = {
+		base = 20
+	}
+}
