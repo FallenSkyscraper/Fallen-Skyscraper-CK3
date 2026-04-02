@@ -16,11 +16,13 @@
 	
 	name_list = name_list_korean
 	coa_gfx = { chinese_group_coa_gfx }
-	building_gfx = { western_building_gfx }
-	clothing_gfx = { iberian_christian_clothing_gfx western_clothing_gfx }
-	unit_gfx = { mongol_unit_gfx }
+	building_gfx = { chinese_building_gfx }
+	clothing_gfx = { korean_clothing_gfx chinese_clothing_gfx }
+	unit_gfx = { chinese_unit_gfx }
+	house_coa_frame = house_frame_09
+
 	ethnicities = {
-		10 = asian
+		100 = asian_manchu_korean
 	}
 }
 	
@@ -46,12 +48,13 @@ yalu = {
 		trait = tradition_devoted_horsemanship
 		requires_dlc_flag = khans_of_the_steppe
 	}
-	name_list = name_list_korean
 	coa_gfx = { chinese_group_coa_gfx }
-	building_gfx = { western_building_gfx }
-	clothing_gfx = { iberian_muslim_clothing_gfx mena_clothing_gfx }
+	building_gfx = { steppe_building_gfx }
+	clothing_gfx = { korean_clothing_gfx chinese_clothing_gfx mongol_clothing_gfx }
 	unit_gfx = { mongol_unit_gfx }
+	house_coa_frame = house_frame_09
+
 	ethnicities = {
-		10 = asian
+		100 = asian_manchu_korean
 	}
 }
