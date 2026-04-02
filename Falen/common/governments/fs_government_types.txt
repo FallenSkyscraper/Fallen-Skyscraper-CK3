@@ -2,13 +2,14 @@
 ## 군정제
 military_government = {
 	government_rules = {
-		rulers_should_have_dynasty = yes
-		dynasty_named_realms = yes#가문이 해당 백작령 이름으로 정해진다.		
+		rulers_should_have_dynasty = yes		
 		regiments_prestige_as_gold = yes#상비군 구매시 명성 사용여부
-		royal_court = yes
 	}
-	court_generate_commanders = yes#궁정에 지휘관 생성?
+	#court_generate_commanders = yes#궁정에 지휘관 생성?
 	supply_limit_mult_for_others = -0.3#다른 정부체제의 남작령에 진입시 보급한계제한
+
+	royal_court = any
+
 	primary_holding = castle_holding#수도 백작령으로 둬야하는 남작령 종류
 	required_county_holdings = { castle_holding city_holding church_holding tribal_holding }#남작령 생성시 요구사항
 	
@@ -21,9 +22,14 @@ military_government = {
 		development_growth = -5
 	
 		ai_war_chance = 1.5
-	}	
+	}
+	mechanic_type = feudal	
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_military
+	flags = {
+		government_is_military
+		government_is_settled
+		government_uses_domain_limit
+	}
 	color = hsv{ 130 45 55 }
 }
 ## 해양 제국
@@ -31,9 +37,11 @@ maritime_government = {
 	government_rules = {
 		rulers_should_have_dynasty = yes#지배자는 가문을 가져야함
 		dynasty_named_realms = no#가문이 해당 백작령 이름으로 정해진다.
-		royal_court = yes
 		legitimacy = yes
 	}
+
+	royal_court = any
+
 	primary_holding = castle_holding#수도 백작령으로 둬야하는 남작령 종류
 	valid_holdings = { metropolis_holding }
 	required_county_holdings = { castle_holding city_holding church_holding }#남작령 생성시 요구사항
@@ -53,9 +61,16 @@ maritime_government = {
 		county_opinion_add = -10
 		dread_baseline_add = 10
 		ai_war_chance = 1.5
-	}	
+	}
+	mechanic_type = feudal	
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_maritime
+	flags = {
+		government_is_maritime
+		government_is_settled
+		government_can_raid_rule
+		government_uses_crown_authority
+		government_uses_domain_limit
+	}
 	color = { 20 35 160 }#만약 파란색이 안나오면 	233°	88°	62°
 }
 ## 프롤레타리아 독재제
@@ -75,8 +90,13 @@ proletarian_government = {
 		council_rights
 		title_revocation_rights
 	}
+	mechanic_type = feudal
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_proletarian
+	flags = {
+		government_is_proletarian
+		government_is_settled
+		government_uses_domain_limit
+	}
 	color = hsv{ 1.00 0.90 0.67 }
 }
 
@@ -84,7 +104,6 @@ proletarian_government = {
 ## 세속 공화제
 secular_republic_government = {
 	government_rules = {
-		royal_court = yes
 	#	administrative = yes
 	#	landless_playable = yes
 	#	use_as_base_on_landed = yes
@@ -93,6 +112,8 @@ secular_republic_government = {
 	#	state_faith = no
 	}
 	
+	royal_court = any
+
 	#domicile_type = estate
 
 	primary_holding = city_holding
@@ -102,8 +123,13 @@ secular_republic_government = {
 	
 	vassal_contract_group = feudal_vassal_group
 	
+	mechanic_type = feudal
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_secular_republic
+	flags = {
+		government_is_secular_republic
+		government_is_settled
+		government_uses_domain_limit
+	}
 	color = { 193 121 121 }
 	
 	character_modifier = {
@@ -123,8 +149,13 @@ merchant_republic_government = {
 
 	vassal_contract_group = feudal_vassal_group
 	
+	mechanic_type = feudal
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_merchant_republic
+	flags = {
+		government_is_merchant_republic
+		government_is_settled
+		government_uses_domain_limit
+	}
 	color = { 243 61 71 }
 	
 	character_modifier = {
@@ -145,8 +176,13 @@ oligarchic_republic_government = {
 
 	vassal_contract_group = feudal_vassal_group
 	
+	mechanic_type = feudal
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_oligarchic_republic
+	flags = {
+		government_is_oligarchic_republic
+		government_is_settled
+		government_uses_domain_limit
+	}
 	color = { 193 121 121 }
 }
 ### 부족제 계통 ###
@@ -161,15 +197,21 @@ slavery_government = {
 	valid_holdings = { metropolis_holding }
 	required_county_holdings = { castle_holding city_holding church_holding }
 	primary_cultures = { american }
-	royal_court = yes
+	royal_court = any
 	
 	vassal_contract_group = feudal_vassal_group
 	
 	character_modifier = {
 		levy_size = -0.25
-	}	
+	}
+	mechanic_type = feudal
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_slavery
+	flags = {
+		government_is_slavery
+		government_is_settled
+		government_can_raid_rule
+		government_uses_domain_limit
+	}
 	color = { 4 30 66 }
 }
 
@@ -187,6 +229,8 @@ alliance_government = {
 		feudal_government_levies
 	}
 	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_alliance
+	flags = {
+		government_is_alliance
+	}
 	color = { 80 188 223 }
 }
