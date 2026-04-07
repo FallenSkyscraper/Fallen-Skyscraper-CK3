@@ -32,6 +32,11 @@ ramparts_01 = {
 		stationed_skirmishers_toughness_mult = normal_maa_toughness_tier_1
 		travel_danger = -1
 	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
+	}
 	
 	next_building = ramparts_02
 
@@ -65,6 +70,9 @@ ramparts_02 = {
 	can_construct_potential = {
 		building_ramparts_requirement_terrain = yes
 		building_requirement_castle_city_church = { LEVEL = 01 }
+	}
+
+	can_construct_showing_failures_only = {
 		trigger_if = {
 			limit = {
 				NOT = {
@@ -73,16 +81,18 @@ ramparts_02 = {
 					}
 				}
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortificiation >= 3
+			}
 		}
 		trigger_else = {
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
 		}
-	}
-
-	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
 	}
 	
@@ -97,6 +107,11 @@ ramparts_02 = {
 		stationed_skirmishers_damage_mult = low_maa_damage_tier_2
 		stationed_skirmishers_toughness_mult = normal_maa_toughness_tier_2
 		travel_danger = -2
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = ramparts_03
@@ -137,14 +152,24 @@ ramparts_03 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 	}
 
@@ -164,6 +189,11 @@ ramparts_03 = {
 		stationed_skirmishers_damage_mult = low_maa_damage_tier_3
 		stationed_skirmishers_toughness_mult = normal_maa_toughness_tier_3
 		travel_danger = -3
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = ramparts_04
@@ -200,14 +230,24 @@ ramparts_04 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 	}
 
@@ -230,6 +270,11 @@ ramparts_04 = {
 	}
 	county_modifier = {
 		hostile_raid_time = 0.1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = ramparts_05
@@ -266,14 +311,24 @@ ramparts_05 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 	}
 
@@ -296,6 +351,11 @@ ramparts_05 = {
 	}
 	county_modifier = {
 		hostile_raid_time = 0.1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = ramparts_06
@@ -332,14 +392,24 @@ ramparts_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 	}
 
@@ -362,6 +432,11 @@ ramparts_06 = {
 	}
 	county_modifier = {
 		hostile_raid_time = 0.1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = ramparts_07
@@ -398,14 +473,24 @@ ramparts_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			county.var:tech_fortification >= 7
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 7
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 	}
 
@@ -428,6 +513,11 @@ ramparts_07 = {
 	}
 	county_modifier = {
 		hostile_raid_time = 0.1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = ramparts_08
@@ -464,14 +554,24 @@ ramparts_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			county.var:tech_fortification >= 7
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 7
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 	}
 
@@ -494,6 +594,11 @@ ramparts_08 = {
 	}
 	county_modifier = {
 		hostile_raid_time = 0.1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	ai_value = {
@@ -534,6 +639,11 @@ curtain_walls_01 = {
 		stationed_heavy_cavalry_damage_mult = low_maa_damage_tier_1
 		stationed_heavy_cavalry_toughness_mult = low_maa_toughness_tier_1
 		travel_danger = -1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = curtain_walls_02
@@ -576,6 +686,9 @@ curtain_walls_02 = {
 	can_construct_potential = {
 		building_curtain_walls_requirement_terrain = yes
 		building_requirement_castle_city_church = { LEVEL = 01 }
+	}
+
+	can_construct_showing_failures_only = {
 		trigger_if = {
 			limit = {
 				NOT = {
@@ -584,16 +697,18 @@ curtain_walls_02 = {
 					}
 				}
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 		trigger_else = {
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
 		}
-	}
-
-	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
 	}
 	
@@ -610,6 +725,11 @@ curtain_walls_02 = {
 	
 	county_modifier = {
 		supply_limit = 300
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = curtain_walls_03
@@ -651,14 +771,24 @@ curtain_walls_03 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 	}
 
@@ -679,6 +809,11 @@ curtain_walls_03 = {
 	
 	county_modifier = {
 		supply_limit = 300
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = curtain_walls_04
@@ -716,14 +851,24 @@ curtain_walls_04 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 	}
 
@@ -744,6 +889,11 @@ curtain_walls_04 = {
 	
 	county_modifier = {
 		supply_limit = 300
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = curtain_walls_05
@@ -781,14 +931,24 @@ curtain_walls_05 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 	}
 
@@ -810,6 +970,11 @@ curtain_walls_05 = {
 	
 	county_modifier = {
 		supply_limit = 300
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = curtain_walls_06
@@ -847,14 +1012,24 @@ curtain_walls_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 	}
 
@@ -877,6 +1052,11 @@ curtain_walls_06 = {
 	county_modifier = {
 		supply_limit = 300
 		supply_limit_mult = 0.02
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = curtain_walls_07
@@ -914,14 +1094,24 @@ curtain_walls_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			county.var:tech_fortification >= 7
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 7
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 	}
 
@@ -944,6 +1134,11 @@ curtain_walls_07 = {
 	county_modifier = {
 		supply_limit = 300
 		supply_limit_mult = 0.02
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = curtain_walls_08
@@ -981,14 +1176,24 @@ curtain_walls_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			county.var:tech_fortification >= 7
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 7
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 	}
 
@@ -1011,6 +1216,11 @@ curtain_walls_08 = {
 	county_modifier = {
 		supply_limit = 300
 		supply_limit_mult = 0.02
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	ai_value = {
@@ -1056,6 +1266,11 @@ watchtowers_01 = {
 		stationed_light_cavalry_toughness_mult = low_maa_toughness_tier_1
 		travel_danger = -1
 	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
+	}
 	
 	next_building = watchtowers_02
 
@@ -1097,6 +1312,9 @@ watchtowers_02 = {
 	can_construct_potential = {
 		building_watchtowers_requirement_terrain = yes
 		building_requirement_castle_city_church = { LEVEL = 01 }
+	}
+
+	can_construct_showing_failures_only = {
 		trigger_if = {
 			limit = {
 				NOT = {
@@ -1105,16 +1323,18 @@ watchtowers_02 = {
 					}
 				}
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 		trigger_else = {
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
 		}
-	}
-
-	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
 	}
 	
@@ -1133,6 +1353,11 @@ watchtowers_02 = {
 	
 	county_modifier = {
 		hostile_raid_time = 0.1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = watchtowers_03
@@ -1174,14 +1399,24 @@ watchtowers_03 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 	}
 	
@@ -1204,6 +1439,11 @@ watchtowers_03 = {
 	
 	county_modifier = {
 		hostile_raid_time = 0.1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = watchtowers_04
@@ -1241,14 +1481,24 @@ watchtowers_04 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 	}
 	
@@ -1272,6 +1522,11 @@ watchtowers_04 = {
 	
 	county_modifier = {
 		hostile_raid_time = 0.1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = watchtowers_05
@@ -1309,14 +1564,24 @@ watchtowers_05 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 	}
 	
@@ -1341,6 +1606,11 @@ watchtowers_05 = {
 	
 	county_modifier = {
 		hostile_raid_time = 0.15	
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = watchtowers_06
@@ -1378,14 +1648,24 @@ watchtowers_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 	}
 	
@@ -1411,6 +1691,11 @@ watchtowers_06 = {
 	county_modifier = {
 		hostile_raid_time = 0.15
 		supply_limit_mult = 0.05		
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = watchtowers_07
@@ -1448,14 +1733,24 @@ watchtowers_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			county.var:tech_fortification >= 7
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 7
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 	}
 	
@@ -1481,6 +1776,11 @@ watchtowers_07 = {
 	county_modifier = {
 		hostile_raid_time = 0.15
 		supply_limit_mult = 0.05		
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = watchtowers_08
@@ -1518,14 +1818,24 @@ watchtowers_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			county.var:tech_fortification >= 7
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 7
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 	}
 	
@@ -1551,6 +1861,11 @@ watchtowers_08 = {
 	county_modifier = {
 		hostile_raid_time = 0.2
 		supply_limit_mult = 0.05	
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	ai_value = {
@@ -1594,6 +1909,11 @@ hill_forts_01 = {
 		stationed_pikemen_toughness_mult = low_maa_toughness_tier_1
 		travel_danger = -1
 	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
+	}
 	
 	next_building = hill_forts_02
 
@@ -1626,6 +1946,9 @@ hill_forts_02 = {
 	can_construct_potential = {
 		building_hill_forts_requirement_terrain = yes
 		building_requirement_castle_city_church = { LEVEL = 01 }
+	}
+
+	can_construct_showing_failures_only = {
 		trigger_if = {
 			limit = {
 				NOT = {
@@ -1634,16 +1957,18 @@ hill_forts_02 = {
 					}
 				}
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 		trigger_else = {
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
 		}
-	}
-
-	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
 	}
 	
@@ -1662,6 +1987,11 @@ hill_forts_02 = {
 	county_modifier = {
 		monthly_county_control_growth_factor = 0.1
 		monthly_county_control_decline_factor = -0.1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = hill_forts_03
@@ -1694,14 +2024,24 @@ hill_forts_03 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 	}
 
@@ -1724,6 +2064,11 @@ hill_forts_03 = {
 	county_modifier = {
 		monthly_county_control_growth_factor = 0.1
 		monthly_county_control_decline_factor = -0.1
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = hill_forts_04
@@ -1752,14 +2097,24 @@ hill_forts_04 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 1
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 1
+			}
 		}
 	}
 	
@@ -1783,6 +2138,11 @@ hill_forts_04 = {
 		monthly_county_control_growth_factor = 0.1
 		monthly_county_control_decline_factor = -0.1
 		levy_size = 0.02
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = hill_forts_05
@@ -1811,14 +2171,24 @@ hill_forts_05 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 	}
 	
@@ -1842,6 +2212,11 @@ hill_forts_05 = {
 		monthly_county_control_growth_factor = 0.15
 		monthly_county_control_decline_factor = -0.15
 		levy_size = 0.02
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = hill_forts_06
@@ -1870,14 +2245,24 @@ hill_forts_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 3
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 3
+			}
 		}
 	}
 	
@@ -1901,6 +2286,11 @@ hill_forts_06 = {
 		monthly_county_control_growth_factor = 0.15
 		monthly_county_control_decline_factor = -0.15
 		levy_size = 0.02
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = hill_forts_07
@@ -1929,14 +2319,24 @@ hill_forts_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			county.var:tech_fortification >= 7
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 7
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 	}
 	
@@ -1960,6 +2360,11 @@ hill_forts_07 = {
 		monthly_county_control_growth_factor = 0.15
 		monthly_county_control_decline_factor = -0.15
 		levy_size = 0.02
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	next_building = hill_forts_08
@@ -1988,14 +2393,24 @@ hill_forts_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			county.var:tech_fortification >= 7
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 7
+			}
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			county.var:tech_fortification >= 5
+			trigger_if = {
+				limit = {
+					county.has_variable = tech_fortification
+				}
+				county.var:tech_fortification >= 5
+			}
 		}
 	}
 	
@@ -2019,6 +2434,11 @@ hill_forts_08 = {
 		monthly_county_control_growth_factor = 0.2
 		monthly_county_control_decline_factor = -0.2
 		levy_size = 0.02
+	}
+
+	on_complete = {
+		#Mandala Creator Aspect
+		creator_mandala_built_regular_building_piety_effect = yes
 	}
 	
 	ai_value = {
