@@ -4,6 +4,7 @@ military_government = {
 	government_rules = {
 		rulers_should_have_dynasty = yes		
 		regiments_prestige_as_gold = yes#상비군 구매시 명성 사용여부
+		allow_accolades = yes
 	}
 	#court_generate_commanders = yes#궁정에 지휘관 생성?
 	supply_limit_mult_for_others = -0.3#다른 정부체제의 남작령에 진입시 보급한계제한
@@ -38,6 +39,7 @@ maritime_government = {
 		rulers_should_have_dynasty = yes#지배자는 가문을 가져야함
 		dynasty_named_realms = no#가문이 해당 백작령 이름으로 정해진다.
 		legitimacy = yes
+		allow_accolades = yes
 	}
 
 	royal_court = any
@@ -77,6 +79,7 @@ maritime_government = {
 proletarian_government = {
 	government_rules = {
 		create_cadet_branches = yes
+		allow_accolades = yes
 	}
 	preferred_religions = { communism_religion }
 	primary_holding = castle_holding
@@ -110,6 +113,7 @@ secular_republic_government = {
 	#	use_as_base_on_rank_up = no
 		inherit_from_dynastic_government = no
 	#	state_faith = no
+		allow_accolades = yes
 	}
 	
 	royal_court = any
@@ -142,6 +146,7 @@ secular_republic_government = {
 merchant_republic_government = {
 	government_rules = {
 		rulers_should_have_dynasty = yes
+		allow_accolades = yes
 	}
 	primary_holding = city_holding
 	valid_holdings = { castle_holding metropolis_holding }	
@@ -169,6 +174,7 @@ merchant_republic_government = {
 oligarchic_republic_government = {
 	government_rules = {
 		rulers_should_have_dynasty = yes
+		allow_accolades = yes
 	}
 	primary_holding = city_holding
 	valid_holdings = { castle_holding metropolis_holding }	
@@ -192,6 +198,7 @@ slavery_government = {
 	government_rules = {
 		rulers_should_have_dynasty = yes
 		dynasty_named_realms = no
+		allow_accolades = yes
 	}
 	primary_holding = castle_holding
 	valid_holdings = { metropolis_holding }
@@ -213,24 +220,4 @@ slavery_government = {
 		government_uses_domain_limit
 	}
 	color = { 4 30 66 }
-}
-
-#연합국
-alliance_government = {
-	government_rules = {
-		create_cadet_branches = yes
-	}
-	primary_holding = castle_holding
-	valid_holdings = { city_holding metropolis_holding tribal_holding church_holding }
-	required_county_holdings = { castle_holding city_holding church_holding }
-
-	vassal_contract = {
-		feudal_government_taxes
-		feudal_government_levies
-	}
-	# Use flags instead of government_has_flag for moddability if possible (i.e., wherever not visible to the player).
-	flags = {
-		government_is_alliance
-	}
-	color = { 80 188 223 }
 }

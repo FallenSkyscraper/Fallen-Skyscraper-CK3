@@ -1,0 +1,53 @@
+﻿NGame = {
+	END_DATE = "3000.1.1"
+	BENCHMARK_OBSERVE_CHARACTER = k_jeju			# Which character should be observed?
+}
+
+NJominiMap = {
+	WORLD_EXTENTS_X = 8191
+	WORLD_EXTENTS_Y = 51
+	WORLD_EXTENTS_Z = 4095
+	WATERLEVEL = 3.8 ### 0.06 in 0-1, 19 in 0-255, use 11% HSB in Photoshop
+}
+
+NGovernment = {
+	GOVERNMENT_TYPES = {
+		"feudal_government"
+		"republic_government"
+		"theocracy_government"
+		"clan_government"
+		"tribal_government"
+		"mercenary_government"
+		"holy_order_government"
+		"administrative_government"
+		"landless_adventurer_government"
+		"nomad_government"
+		"herder_government"
+		"celestial_government"
+		"japan_administrative_government"
+		"japan_feudal_government"
+		"mandala_government"
+		"wanua_government"
+		"meritocratic_government"
+		"steppe_admin_government"
+		"military_government"
+		"maritime_government"
+		"proletarian_government"
+		"secular_republic_government"
+		"merchant_republic_government"
+		"oligarchic_republic_government"
+		"slavery_government"
+	}
+}
+
+NProvince = {
+	BASE_SUPPLY_LIMIT = 2000					# The unmodified base supply limit of a province
+	BARONY_BUILDING_SLOTS = 2
+	COUNTY_BUILDING_SLOTS = 3
+	SUPPLY_PER_DEVELOPMENT = 150				# Each development adds this much sto the supply limit
+	MAX_BUILDINGS = 7 							# Maximum number of building slots that a province can have
+}
+
+NCulture = {
+	FIRST_ERA_START_YEAR = 2100	
+}
