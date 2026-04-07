@@ -4,6 +4,9 @@
 		can_have = {
 			government_has_flag = government_is_feudal
 			highest_held_title_tier >= tier_duchy
+			NOT = { #Cultures have their special flavor.
+				culture = { has_cultural_parameter = tribal_elective_enabled } #FP3 addition
+			}
 		}
 		can_pass = {
 			can_change_title_law_trigger = yes
@@ -59,6 +62,37 @@
 		}
 	}
 
+	# Jirga elective
+	tribal_elective_succession_law = { #FOR FP3
+		can_have = {
+			OR = {
+				government_has_flag = government_is_feudal
+				government_has_flag = government_is_clan
+				government_has_flag = government_is_tribal
+			}
+			highest_held_title_tier >= tier_kingdom
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes
+			culture = { has_cultural_parameter = tribal_elective_enabled }
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = tribal_elective
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 5
+		revoke_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+		pass_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+	}
+
 	# Player Heir
 	temporal_head_of_faith_succession_law = {
 		can_title_have = {
@@ -91,6 +125,7 @@
 		}
 		succession = {
 			order_of_succession = noble_family
+			title_division = single_heir
 		}
 		flag = can_designate_heirs
 	}
@@ -123,7 +158,9 @@
 		can_title_have = {
 			tier >= tier_kingdom
 		}
-		should_show_for_title = { always = no }
+		should_show_for_title = {
+			has_variable = confederation_culture
+		}
 		succession = {
 			order_of_succession = election
 			election_type = confederation_elective
@@ -131,11 +168,83 @@
 		flag = elective_succession_law
 		title_allegiance_opinion = 10
 		revoke_cost = {
-			prestige = change_title_succession_law_prestige_cost
+			prestige = {
+				value = change_title_succession_law_prestige_cost
+				multiply = 8
+				if = {
+					limit = {
+						NOR = {
+							government_has_flag = government_is_tribal
+							government_has_flag = government_is_nomadic
+						}
+					}
+					multiply = 0.1
+				}
+			}
 		}
 		pass_cost = {
 			prestige = change_title_succession_law_prestige_cost
 		}
+	}
+	
+	# Celestial Ministry Succession
+	celestial_ministry_appointment_succession_law = {
+		can_have = {
+			government_has_flag = government_is_celestial
+		}
+		can_pass = {
+		}
+		can_title_have = {
+			tgp_is_civilian_minister_title = yes
+		}
+		can_realm_have = {
+			always = no
+		}
+		can_remove_from_title = {
+			custom_tooltip = {
+				text = celestial_ministry_appointment_cannot_remove_desc
+				always = no
+			}
+		}
+		succession = {
+			order_of_succession = appointment
+			appointment_type = celestial_minister
+		}
+		modifier = {
+			celestial_government_opinion = 5
+		}
+		flag = appointment_type_succession
+		flag = appointment_with_level_requirement
+	}
+	
+	# Celestial Grand Marshal Succession
+	celestial_grand_marshal_appointment_succession_law = {
+		can_have = {
+			government_has_flag = government_is_celestial
+		}
+		can_pass = {
+		}
+		can_title_have = {
+			this = title:e_minister_grand_marshal
+		}
+		can_realm_have = {
+			always = no
+		}
+		can_remove_from_title = {
+			custom_tooltip = {
+				text = celestial_ministry_appointment_cannot_remove_desc
+				always = no
+			}
+		}
+		succession = {
+			order_of_succession = appointment
+			appointment_type = celestial_military_governor
+		}
+		modifier = {
+			celestial_government_opinion = 5
+		}
+		flag = appointment_type_succession
+		flag = appointment_with_level_requirement
 	}
 }
 
