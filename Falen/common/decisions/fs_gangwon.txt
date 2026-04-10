@@ -1,4 +1,4 @@
-rebuild_gangwon_decision_1 = {
+﻿rebuild_gangwon_decision_1 = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	}
@@ -233,9 +233,7 @@ rebuild_gangwon_decision_4 = {
 			id = gw_mgga.5
 		}
 		hidden_effect = {
-			remove_global_variable = {
-				name = gw_rising
-			}
+			remove_global_variable = gw_rising
 		}
 		if = {
 			limit = {

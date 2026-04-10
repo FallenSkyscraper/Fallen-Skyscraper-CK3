@@ -26,19 +26,19 @@ tech_spread_calc_effect = {
 		# religious difference
 		if = {
 			limit = {
-				scope:fromcounty.faith.faith_hostility_level = { target = scope:rootcounty.faith compare_value = 1 }
+				scope:fromcounty.faith.faith_hostility_level = { target = scope:rootcounty.faith value = 1 }
 			}
 			change_local_variable = { name = modifiers_list subtract = 0.2 }
 		}
 		else_if = {
 			limit = {
-				scope:fromcounty.faith.faith_hostility_level = { target = scope:rootcounty.faith compare_value = 2 }
+				scope:fromcounty.faith.faith_hostility_level = { target = scope:rootcounty.faith value = 2 }
 			}
 			change_local_variable = { name = modifiers_list subtract = 0.5 }
 		}
 		else_if = {
 			limit = {
-				scope:fromcounty.faith.faith_hostility_level = { target = scope:rootcounty.faith compare_value = 3 }
+				scope:fromcounty.faith.faith_hostility_level = { target = scope:rootcounty.faith value = 3 }
 			}
 			change_local_variable = { name = modifiers_list subtract = 0.8 }
 		}
@@ -153,7 +153,7 @@ tech_research_military_effect = {
 		10 = { tech_research_military_organization_effect = yes }
 	}
 }
-tech_research_military_effect = {
+tech_research_economy_effect = {
 	random_list = {
 		10 = { tech_research_agriculture_effect = yes }
 		10 = { tech_research_commerce_effect = yes }

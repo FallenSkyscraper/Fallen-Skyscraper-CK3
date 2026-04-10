@@ -540,7 +540,7 @@ tradition_federation = {
 	}
 	
 	is_shown = {
-		has_culture_pillar = heritage_suwon
+		has_cultural_pillar = heritage_suwon
 	}
 		
 	
@@ -575,7 +575,7 @@ tradition_federation = {
 		if = {
 			limit = {
 				NOR = {
-					has_culture_pillar = heritage_gyeonggi
+					has_cultural_pillar = heritage_gyeonggi
 				}
 			}
 			multiply = 0.5
@@ -593,7 +593,7 @@ tradition_jakun_gusa = {
 	}
 	
 	is_shown = {
-		has_culture_pillar = heritage_manchu
+		has_cultural_pillar = heritage_manchu
 	}
 	
 	parameters = {
@@ -825,7 +825,7 @@ tradition_paengbaesu = {
 	category = combat
 
 	is_shown = {
-		has_culture_pillar = heritage_yeongnam
+		has_cultural_pillar = heritage_yeongnam
 	}
 
 	layers = {
@@ -886,7 +886,7 @@ tradition_maritime_imperialist = {
 	}
 	
 	is_shown = {
-		has_culture_pillar = heritage_honam
+		has_cultural_pillar = heritage_honam
 	}
 	
 	can_pick = {
@@ -1015,7 +1015,7 @@ tradition_rightous_army = {
 		4 = battle.dds
 	}
 	is_shown = {
-		has_culture_pillar = heritage_haeseo
+		has_cultural_pillar = heritage_haeseo
 	}
 	parameters = {
 		unlock_maa_rightous_army = yes
@@ -1104,7 +1104,7 @@ tradition_foreign_legion = {
 	}
 	
 	is_shown = {
-		has_culture_pillar = heritage_gwandong
+		has_cultural_pillar = heritage_gwandong
 		NOT = {
 			has_cultural_tradition = tradition_sword_for_hire
 		}
@@ -1193,8 +1193,8 @@ tradition_gwanbuk_mountain_skirmishing = {
 	#In the Horn of Africa this replaces the Mountaineers tradition
 	is_shown = {
 		OR ={
-			has_culture_pillar = heritage_gwanbuk
-			has_culture_pillar = heritage_gwandong
+			has_cultural_pillar = heritage_gwanbuk
+			has_cultural_pillar = heritage_gwandong
 		}
 		NOR = {
 			has_cultural_tradition = tradition_mountaineers

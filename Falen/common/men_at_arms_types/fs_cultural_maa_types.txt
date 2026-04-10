@@ -1,7 +1,23 @@
-﻿@maa_buy_cost = 150
+# standard costs
+@maa_buy_cost = 150
 @maa_low_maintenance_cost = 1.0
 @maa_high_maintenance_cost = 5.0
-@cultural_maa_extra_ai_score = 60
+
+# Must be synced between files with the values located at "# Provisions Costs #".
+@provisions_cost_infantry_cheap = 3
+@provisions_cost_infantry_moderate = 7
+@provisions_cost_infantry_expensive = 12
+@provisions_cost_infantry_bankrupting = 15
+
+@provisions_cost_cavalry_cheap = 7
+@provisions_cost_cavalry_moderate = 15
+@provisions_cost_cavalry_expensive = 21
+@provisions_cost_cavalry_bankrupting = 30
+
+@provisions_cost_special_cheap = 6
+@provisions_cost_special_moderate = 12
+@provisions_cost_special_expensive = 18
+@provisions_cost_special_bankrupting = 24
 
 
 jakun_gusa = { #팔기군
@@ -31,12 +47,13 @@ jakun_gusa = { #팔기군
 	}
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_jakun_gusa }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_jakun_gusa }
 	}
 
 	buy_cost = { gold = cataphract_recruitment_cost }
 	low_maintenance_cost = { gold = cataphract_low_maint_cost }
 	high_maintenance_cost = { gold = cataphract_high_maint_cost }
+	provision_cost = @provisions_cost_cavalry_moderate
 	
 	stack = 50
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -61,12 +78,13 @@ national_guard = { #국민방위대
 	}
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_national_guard }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_national_guard }
 	}
 
 	buy_cost = { gold = guinea_warrior_recruitment_cost }
 	low_maintenance_cost = { gold = guinea_warrior_low_maint_cost }
 	high_maintenance_cost = { gold = guinea_warrior_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -82,7 +100,7 @@ ROK_army = {
 	screen = 22
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_ROK_army }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_ROK_army }
 	}
 	
 	terrain_bonus = {
@@ -104,6 +122,7 @@ ROK_army = {
 	buy_cost = { gold = vigmen_recruitment_cost }
 	low_maintenance_cost = { gold = vigmen_low_maint_cost }
 	high_maintenance_cost = { gold = vigmen_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_moderate
 	
 	stack = 100
 	ai_quality = { value = culture_ai_weight_vigmen }
@@ -119,7 +138,7 @@ peoples_army = {
 	screen = 22
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_peoples_army }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_peoples_army }
 	}
 	
 	terrain_bonus = {
@@ -141,6 +160,7 @@ peoples_army = {
 	buy_cost = { gold = vigmen_recruitment_cost }
 	low_maintenance_cost = { gold = vigmen_low_maint_cost }
 	high_maintenance_cost = { gold = vigmen_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = culture_ai_weight_vigmen }
@@ -156,7 +176,7 @@ seoul_bike = {
 	screen = 30
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_seoul_bike }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_seoul_bike }
 	}
 	
 	terrain_bonus = {
@@ -175,7 +195,8 @@ seoul_bike = {
 
 	buy_cost = { gold = light_cavalry_recruitment_cost }
 	low_maintenance_cost = { gold = light_cavalry_low_maint_cost }
-	high_maintenance_cost = { gold = light_cavalry_high_maint_cost }	
+	high_maintenance_cost = { gold = light_cavalry_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_moderate
 	
 	stack = 100
 	ai_quality = { value = culture_ai_weight_light_cavalry }
@@ -195,12 +216,13 @@ hahoe_warrior = {
 	}
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_hahoe_warrior }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_hahoe_warrior }
 	}
 	
 	buy_cost = { gold = mubarizun_recruitment_cost }
 	low_maintenance_cost = { gold = mubarizun_low_maint_cost }
 	high_maintenance_cost = { gold = mubarizun_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @[cultural_maa_extra_ai_score - 20] }
@@ -224,12 +246,13 @@ paengbaesu = {
 	}
 
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_paengbaesu }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_paengbaesu }
 	}
 	
 	buy_cost = { gold = ayyar_recruitment_cost }
 	low_maintenance_cost = { gold = ayyar_low_maint_cost }
 	high_maintenance_cost = { gold = ayyar_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -258,12 +281,13 @@ sinuigun = {
 	}
 
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_sinuigun }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_sinuigun }
 	}
 
 	buy_cost = { gold = hussar_recruitment_cost }
 	low_maintenance_cost = { gold = hussar_low_maint_cost }
 	high_maintenance_cost = { gold = hussar_high_maint_cost }
+	provision_cost = @provisions_cost_cavalry_cheap
 	
 	stack = 100
 	ai_quality = { value = @[cultural_maa_extra_ai_score + 10] }
@@ -289,7 +313,7 @@ privateer = {
 	}
 
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_privateer }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_privateer }
 	}
 
 	winter_bonus = {
@@ -300,6 +324,7 @@ privateer = {
 	buy_cost = { gold = huscarls_recruitment_cost }
 	low_maintenance_cost = { gold = huscarls_low_maint_cost }
 	high_maintenance_cost = { gold = huscarls_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -319,12 +344,13 @@ rightous_army = {
 	}
 
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_rightous_army }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_rightous_army }
 	}
 
 	buy_cost = { gold = shomer_recruitment_cost }
 	low_maintenance_cost = { gold = shomer_low_maint_cost }
 	high_maintenance_cost = { gold = shomer_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 150
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -350,12 +376,13 @@ bush_hunter = {
 	}
 
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_bush_hunter }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_bush_hunter }
 	}
 
 	buy_cost = { gold = bush_hunter_recruitment_cost }
 	low_maintenance_cost = { gold = bush_hunter_low_maint_cost }
 	high_maintenance_cost = { gold = bush_hunter_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -376,9 +403,10 @@ freikorps = {
 	buy_cost = { gold = heavy_infantry_recruitment_cost }
 	low_maintenance_cost = { gold = heavy_infantry_low_maint_cost }
 	high_maintenance_cost = { gold = heavy_infantry_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_freikorps }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_freikorps }
 	}
 	
 #	mercenary_fallback = yes
@@ -409,12 +437,13 @@ citizen_skirmishers = {
 	}
 
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_citizen_skirmishers }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_citizen_skirmishers }
 	}
 
 	buy_cost = { gold = horn_warrior_recruitment_cost }
 	low_maintenance_cost = { gold = horn_warrior_low_maint_cost }
 	high_maintenance_cost = { gold = horn_warrior_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -442,12 +471,13 @@ foreign_legion = {
 	}
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_foreign_legion }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_foreign_legion }
 	}
 
 	buy_cost = { gold = landsknecht_recruitment_cost }
 	low_maintenance_cost = { gold = landsknecht_low_maint_cost }
 	high_maintenance_cost = { gold = landsknecht_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -472,12 +502,13 @@ hwarang = { #Nile Archers
 	}
 
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_hwarang }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_hwarang }
 	}
 
 	buy_cost = { gold = archers_of_the_nile_recruitment_cost }
 	low_maintenance_cost = { gold = archers_of_the_nile_low_maint_cost }
 	high_maintenance_cost = { gold = archers_of_the_nile_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -499,12 +530,13 @@ vanguard = {
 	}
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_vanguard }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_vanguard }
 	}
 	
 	buy_cost = { gold = mubarizun_recruitment_cost }
 	low_maintenance_cost = { gold = mubarizun_low_maint_cost }
 	high_maintenance_cost = { gold = mubarizun_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -540,12 +572,13 @@ imperial_guard = {
 	}
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_mma_imperial_guard }
+		valid_for_maa_trigger = { PARAMETER = unlock_mma_imperial_guard }
 	}
 
 	buy_cost = { gold = gendarme_recruitment_cost }
 	low_maintenance_cost = { gold = gendarme_low_maint_cost }
 	high_maintenance_cost = { gold = gendarme_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 50
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -572,9 +605,10 @@ taekwondo = {
 	buy_cost = { gold = goedendag_recruitment_cost }
 	low_maintenance_cost = { gold = goedendag_low_maint_cost }
 	high_maintenance_cost = { gold = goedendag_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_taekwondo }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_taekwondo }
 	}
 	
 	stack = 100
@@ -595,12 +629,13 @@ inquisitor = {
 	}
 
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_inquisitor }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_inquisitor }
 	}
 	
 	buy_cost = { gold = abudrar_recruitment_cost }
 	low_maintenance_cost = { gold = abudrar_low_maint_cost }
 	high_maintenance_cost = { gold = abudrar_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -626,12 +661,13 @@ mudflater = {
 	}
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_mudflater }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_mudflater }
 	}
 
 	buy_cost = { gold = goedendag_recruitment_cost }
 	low_maintenance_cost = { gold = goedendag_low_maint_cost }
 	high_maintenance_cost = { gold = goedendag_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -651,12 +687,13 @@ marine_corps = {
 	}
 	
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_marine_corps }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_marine_corps }
 	}
 
 	buy_cost = { gold = goedendag_recruitment_cost }
 	low_maintenance_cost = { gold = goedendag_low_maint_cost }
 	high_maintenance_cost = { gold = goedendag_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -674,12 +711,13 @@ usfk = {
 		pikemen = 1
 	}
 	can_recruit = {
-		culture = { has_cultural_parameter = unlock_maa_usfk }
+		valid_for_maa_trigger = { PARAMETER = unlock_maa_usfk }
 	}
 	
 	buy_cost = { gold = praetorian_recruitment_cost }
 	low_maintenance_cost = { gold = praetorian_low_maint_cost }
 	high_maintenance_cost = { gold = praetorian_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
