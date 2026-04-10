@@ -213,20 +213,20 @@ on_game_start = {
 				}
 			}
 		}
-		religion:shintoism_religion = {
-			every_faith = {
-				every_holy_site = {
-					limit = {
-						title_province = {
-							has_special_building_slot = no
-						}
-					}
-					title_province = {
-						add_special_building_slot = holy_site_japanese_temple_01
-					}
-				}
-			}
-		}
+		#religion:shintoism_religion ?= {
+		#	every_faith = {
+		#		every_holy_site = {
+		#			limit = {
+		#				title_province = {
+		#					has_special_building_slot = no
+		#				}
+		#			}
+		#			title_province = {
+		#				add_special_building_slot = holy_site_japanese_temple_01
+		#			}
+		#		}
+		#	}
+		#}
 		religion:taoism_religion = {
 			every_faith = {
 				every_holy_site = {
@@ -259,9 +259,6 @@ on_game_start = {
 			limit = {
 				OR = {
 					this = religion:hinduism_religion
-					this = religion:jainism_religion
-					this = religion:tani_religion
-					this = religion:bon_religion
 				}
 			}
 			every_faith = {

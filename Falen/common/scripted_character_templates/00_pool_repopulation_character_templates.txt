@@ -93,13 +93,6 @@ pool_repopulate_prowess = {
 				add = 10
 				culture = { has_cultural_parameter = poet_trait_more_common }
 			}
-			modifier = {
-				add = 5
-				OR = {
-					culture = { has_cultural_pillar = heritage_north_germanic }
-					religion = religion:germanic_religion
-				}
-			}
 		}
 		
 		# Cultural Traditions
@@ -264,13 +257,6 @@ pool_repopulate_diplomacy = {
 				add = 15
 				culture = { has_cultural_parameter = poet_trait_more_common }
 			}
-			modifier = {
-				add = 10
-				OR = {
-					culture = { has_cultural_pillar = heritage_north_germanic }
-					religion = religion:germanic_religion
-				}
-			}
 		}
 		set_interesting_traits_and_modifiers_effect = yes
 		if = {
@@ -347,20 +333,14 @@ pool_repopulate_martial = {
 		if = {
 			limit = {
 				OR = {
-					culture = { has_cultural_pillar = heritage_north_germanic }
-					religion = religion:germanic_religion
+					culture = culture:pohang
+					religion = religion:steelers_religion
 				}
 			}
 			random_list = {
-				65 = {}
+				85 = {}
 				15 = {
-					add_trait = varangian
-				}
-				15 = {
-					add_trait = berserker
-				}
-				5 = {
-					add_trait = lifestyle_poet
+					add_trait = marine
 				}
 			}
 		}
@@ -526,13 +506,6 @@ pool_repopulate_stewardship = {
 				add = 10
 				culture = { has_cultural_parameter = poet_trait_more_common }
 			}
-			modifier = {
-				add = 5
-				OR = {
-					culture = { has_cultural_pillar = heritage_north_germanic }
-					religion = religion:germanic_religion
-				}
-			}
 		}
 		set_interesting_traits_and_modifiers_effect = yes
 	}
@@ -601,13 +574,6 @@ pool_repopulate_intrigue = {
 			modifier = {
 				add = 10
 				culture = { has_cultural_parameter = poet_trait_more_common }
-			}
-			modifier = {
-				add = 5
-				OR = {
-					culture = { has_cultural_pillar = heritage_north_germanic }
-					religion = religion:germanic_religion
-				}
 			}
 		}
 		set_interesting_traits_and_modifiers_effect = yes
@@ -692,13 +658,6 @@ pool_repopulate_learning = {
 			modifier = {
 				add = 10
 				culture = { has_cultural_parameter = poet_trait_more_common }
-			}
-			modifier = {
-				add = 5
-				OR = {
-					culture = { has_cultural_pillar = heritage_north_germanic }
-					religion = religion:germanic_religion
-				}
 			}
 		}
 		set_interesting_traits_and_modifiers_effect = yes
@@ -847,13 +806,6 @@ pool_repopulate_spouse = {
 				add = 10
 				culture = { has_cultural_parameter = poet_trait_more_common }
 			}
-			modifier = {
-				add = 5
-				OR = {
-					culture = { has_cultural_pillar = heritage_north_germanic }
-					religion = religion:germanic_religion
-				}
-			}
 		}
 		set_interesting_traits_and_modifiers_effect = yes
 	}
@@ -866,273 +818,21 @@ pool_repopulate_local_flavor = {
 	faith = root.faith
 	
 	random_culture = {
-		culture:ashkenazi = {
-			trigger = {
-				NOT = {
-					root.faith = { religion = { is_in_family = rf_pagan } }
-				}
-				root.capital_province = {
-					OR = {
-						geographical_region = world_europe
-						geographical_region = world_asia_minor
-					}
-					NOT = {
-						geographical_region = world_europe_west_iberia
-					}
-				}
-			}
-		}
 		root.culture = {
 			trigger = {
-				root.faith = { religion = { is_in_family = rf_pagan } }
+				#root.faith = { religion = { is_in_family = rf_pagan } }
+				always = yes
 			}
 		}
-		culture:sephardi = {
+		culture:american = {
 			trigger = {
-				root.capital_province = {
-					geographical_region = world_europe_west_iberia
-				}
-			}
-		}
-		culture:radhanite = {
-			trigger = {
-				root.capital_province = {
-					OR = {
-						geographical_region = world_steppe
-						geographical_region = world_india
-					}
-				}
-			}
-		}
-		culture:kochinim = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_india
-				}
-			}
-		}
-		culture:bavlim = {
-			trigger = {
-				root.capital_province = {
-					OR = {
-						geographical_region = world_middle_east
-						geographical_region = world_middle_east_persia
-						geographical_region = world_africa_north
-					}
-				}
-			}
-		}
-		culture:kurdish = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_middle_east_persia
-				}
-			}
-		}
-		culture:rajput = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_india
-				}
-			}
-		}
-		culture:hindustani = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_india_rajastan
-				}
-			}
-		}
-		culture:gujarati = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_india_rajastan
-				}
-			}
-		}
-		culture:marathi = {
-			trigger = {
-				root.capital_province = {
-					OR = {
-						geographical_region = world_india_rajastan
-						geographical_region = world_india_deccan
-					}
-				}
-			}
-		}
-		culture:tamil = {
-			trigger = {
-				root.capital_province = {
-					OR = {
-						geographical_region = world_india_deccan
-						geographical_region = world_asia_southeast_islands
-					}
-				}
-			}
-		}
-		culture:telugu = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_india_deccan
-				}
-			}
-		}
-		culture:kannada = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_india_deccan
-				}
-			}
-		}
-		culture:bengali = {
-			trigger = {
-				root.capital_province = {
-					OR = {
-						geographical_region = world_india_bengal
-						geographical_region = world_burma
-					}
-				}
-			}
-		}
-		culture:burmese = {
-			trigger = {
-				root.capital_province = {
-					OR = {
-						geographical_region = world_india_bengal
-						geographical_region = world_burma
-					}
-				}
-			}
-		}
-		culture:butr = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_africa
-				}
-			}
-		}
-		culture:zaghawa = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_africa
-				}
-			}
-		}
-		culture:bolghar = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_steppe_west
-				}
-			}
-		}
-		culture:assyrian = {
-			trigger = {
-				root.capital_province = {
-					OR = {
-						geographical_region = world_steppe_east
-						geographical_region = world_steppe_tarim
-					}
-				}
-			}
-		}
-		culture:khitan = {
-			trigger = {
-				root.capital_province = {
-					OR = {
-						geographical_region = world_steppe_east
-						geographical_region = world_steppe_tarim
-						geographical_region = world_tibet
-						geographical_region = world_asia_north_east
-					}
-				}
-			}
-		}
-		culture:han = {
-			trigger = {
-				root.capital_province = {
-					OR = {
-						geographical_region = world_steppe_east
-						geographical_region = world_steppe_tarim
-						geographical_region = world_tibet
-						geographical_region = world_burma
-						geographical_region = world_asia_north_east
-						geographical_region = world_asia_china
-						geographical_region = world_asia_korea
-						geographical_region = world_asia_southeast_mainland
-					}
-				}
-			}
-		}
-		culture:cuman = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_steppe_west
-				}
-			}
-		}
-		culture:bodpa = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_tibet
-				}
-			}
-		}
-		culture:somali = {
-			trigger = {
-				root.capital_province = {
-					OR = {
-						geographical_region = world_middle_east
-						geographical_region = world_middle_east_persia
-						geographical_region = world_africa_north_east
-						AND = {
-							geographical_region = world_india
-							county.holder.faith = {
-								religion_tag = islam_religion
-							}
-						}
-					}
-				}
-			}
-		}
-		culture:swahili = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = dlc_tgp_swahili_coast_region
-				}
-			}
-		}
-		culture:yemeni = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = dlc_tgp_swahili_coast_region
-					county.holder = {
-						NOT = { government_has_flag = government_is_tribal }
-						faith = { religion_tag = islam_religion }
-					}
-				}
-			}
-		}
-		culture:persian = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = dlc_tgp_swahili_coast_region
-					county.holder = {
-						NOT = { government_has_flag = government_is_tribal }
-						faith = { religion_tag = islam_religion }
-					}
+				root.capital_province = { geographical_region = world_korea_south }
 				}
 			}
 		}
 		culture:japanese = {
 			trigger = {
 				root.capital_province = { geographical_region = world_asia_japan }
-			}
-		}
-		culture:khanty = {
-			trigger = {
-				root.capital_province = {
-					geographical_region = world_siberia
-				}
 			}
 		}
 	}
@@ -1194,27 +894,14 @@ pool_repopulate_local_flavor = {
 				change_current_weight = 200
 			}
 		}
+		
 		if = {
 			limit = {
-				culture = culture:khitan
-			}
-			random_list = {
-				15 = {
-					set_character_faith = faith:vajrayana
-				}
-				10 = {
-					set_character_faith = faith:tengri_pagan
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				culture = culture:han
+				culture = { has_cultural_pillar = heritage_chinese }
 			}
 			random_list = {
 				50 = {
-					#set_character_faith = faith:shangqing
-					set_character_faith = faith:nightglow
+					set_character_faith = faith:xiism
 					random_list = {
 						50 = {}
 						50 = {
@@ -1223,10 +910,10 @@ pool_repopulate_local_flavor = {
 					}
 				}
 				15 = {
-					set_character_faith = faith:mahayana
+					set_character_faith = faith:zhengyi
 				}
 				5 = {
-					set_character_faith = faith:zhengyi
+					set_character_faith = faith:maoism
 				}
 			}
 			random = {
@@ -1265,6 +952,22 @@ pool_repopulate_local_flavor = {
 					}
 					change_merit = { fixed_range = { min = 1000 max = 5000 } }
 					assign_completed_exams_based_on_merit_effect = yes
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				culture = culture:american
+			}
+			random_list = {
+				10 = {
+					set_character_faith = faith:lutheran
+				}
+				10 = {
+					set_character_faith = faith:catholic
+				}
+				10 = {
+					set_character_faith = faith:presbyterianism
 				}
 			}
 		}
@@ -1326,85 +1029,30 @@ pool_repopulate_local_flavor = {
 					}
 					add_trait = witch
 				}
-				150 = {
-					trigger = {
-						faith = {
-							has_doctrine = tenet_warmonger
-						}
-						OR = {
-							culture = { has_cultural_pillar = heritage_north_germanic }
-							religion = religion:germanic_religion
-						}
-						NOR = {
-							has_trait = craven
-							has_trait = berserker
-							has_trait = calm
-						}
-					}
-					add_trait = berserker
-				}
 			}
 		}
-		else_if = {
+		
+		# Learn flavorful & appropriate languages
+		if = {
 			limit = {
-				religion = { is_in_family = rf_pagan }
+				OR = {
+					culture = culture:kuriyn
+				}
 			}
-			random_list = {
-				50 = {}
-				50 = {
-					remove_trait = education_learning_3
-					remove_trait = education_learning_4
-					remove_trait = education_stewardship_3
-					remove_trait = education_stewardship_4
-					remove_trait = education_diplomacy_3
-					remove_trait = education_diplomacy_4
-					remove_trait = lifestyle_physician
-					remove_trait = lifestyle_mystic
-					remove_trait = theologian
-					remove_trait = lifestyle_herbalist
-					remove_trait = diplomat
-					remove_trait = administrator
-					remove_trait = architect
-					remove_trait = scholar
-					add_martial_skill = 4
-					add_prowess_skill = 6
-					random_list = {
-						50 = {
-							add_trait = education_martial_3
-						}
-						50 = {
-							add_trait = education_martial_4
-						}
+			
+			if = {
+				limit = {
+					NOT = {
+						knows_language = language_arabic
 					}
-					random_list = {
-						10 = {
-							add_trait = strategist
-						}
-						30 = {
-							add_trait = lifestyle_blademaster
-							add_random_tiered_trait_xp_effect = {
-								TRAIT = lifestyle_blademaster
-								LEVEL_1 = yes
-								LEVEL_3 = yes
-							}
-						}
-						10 = {
-							add_trait = tourney_participant
-							add_random_tiered_trait_track_xp_effect = {
-								TRAIT = tourney_participant
-								TRACK = bow
-								LEVEL_1 = yes
-								LEVEL_3 = yes
-							}
-						}
-						10 = {
-							add_trait = overseer
-						}
-					}
-					give_random_commander_trait_effect = yes
+				}
+				random = {
+					chance = 70
+					learn_language = language_arabic
 				}
 			}
 		}
+		
 		set_interesting_traits_and_modifiers_effect = yes
 		add_random_tiered_trait_xp_effect = {
 			TRAIT = lifestyle_physician

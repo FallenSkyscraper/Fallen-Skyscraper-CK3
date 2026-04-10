@@ -1,0 +1,1431 @@
+﻿chonggwan = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	titles = { k_southeast_prot }
+	governments = { }
+	priority = 102
+	flavourization_rules = { top_liege = no }
+}
+chonggwan_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	titles = { k_southeast_prot }
+	governments = { }
+	priority = 101
+	flavourization_rules = { top_liege = no }
+}
+chonggwan_son = {
+	type = character
+	gender = male
+	special = ruler_child
+	tier = kingdom
+	titles = { k_southeast_prot }
+	governments = { }
+	priority = 100
+	flavourization_rules = { top_liege = no }
+}
+chonggwan_daughter = {
+	type = character
+	gender = female
+	special = ruler_child
+	tier = kingdom
+	titles = { k_southeast_prot }
+	governments = { }
+	priority = 100
+	flavourization_rules = { top_liege = no }
+}
+joseon_king = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	titles = { e_joseon }
+	governments = { }
+	priority = 10200
+	flavourization_rules = { top_liege = no }
+}
+
+paekdu_son = {
+	type = character
+	gender = male
+	special = ruler_child
+	tier = empire
+	titles = { e_north_korea }
+	governments = { }
+	priority = 100
+	flavourization_rules = { top_liege = no }
+}
+paekdu_daughter = {
+	type = character
+	gender = female
+	special = ruler_child
+	tier = empire
+	titles = { e_north_korea }
+	governments = { }
+	priority = 100
+	flavourization_rules = { top_liege = no }
+}
+
+joseon_hwanghoo = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	titles = { e_joseon }
+	governments = { }
+	priority = 101
+	flavourization_rules = { top_liege = no }
+}
+joseon_old_king = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	titles = { k_joseon_king }
+	governments = { }
+	priority = 102
+	flavourization_rules = { top_liege = no }
+}
+joseon_sun = {
+	type = character
+	gender = male
+	special = ruler_child
+	tier = kingdom
+	titles = { e_joseon k_joseon_king }
+	governments = { }
+	priority = 100
+	flavourization_rules = { top_liege = no }
+}
+joseon_daughter = {
+	type = character
+	gender = female
+	special = ruler_child
+	tier = kingdom
+	titles = { e_joseon k_joseon_king }
+	governments = { }
+	priority = 100
+	flavourization_rules = { top_liege = no }
+}
+
+goryeo_king = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	titles = { e_goryeo }
+	governments = { }
+	priority = 102
+	flavourization_rules = { top_liege = no }
+}
+goryeo_hwanghoo = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	titles = { e_goryeo }
+	governments = { }
+	priority = 102
+	flavourization_rules = { top_liege = no }
+}
+goryeo_sun = {
+	type = character
+	gender = male
+	tier = empire
+	special = ruler_child
+	titles = { e_goryeo }
+	governments = { }
+	priority = 103
+	flavourization_rules = { top_liege = no }
+}
+shinbokryun_king = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	titles = { e_hec }
+	governments = { }
+	priority = 1939
+	flavourization_rules = { top_liege = no }
+}
+shinbokryun_hwanghoo = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	titles = { e_hec }
+	governments = { }
+	priority = 1936
+	flavourization_rules = { top_liege = no }
+}
+shinbokryun_sun = {
+	type = character
+	gender = male
+	tier = empire
+	special = ruler_child
+	titles = { e_hec }
+	governments = { }
+	priority = 1936
+	flavourization_rules = { top_liege = no }
+}
+shinbokryun_daughter = {
+	type = character
+	gender = female
+	tier = empire
+	special = ruler_child
+	titles = { e_hec }
+	governments = { }
+	priority = 1936
+	flavourization_rules = { top_liege = no }
+}
+chairman_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 301
+	titles = { e_soviet }
+	flavourization_rules = { top_liege = no }
+}
+chairman_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 301
+	titles = { e_soviet }
+	flavourization_rules = { top_liege = no }
+}
+president = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	titles = { k_prk }
+	priority = 102
+	governments = { secular_republic_government oligarchic_republic_government }
+	flavourization_rules = { top_liege = no }
+}
+president_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	titles = { k_prk }
+	governments = { secular_republic_government oligarchic_republic_government }
+	priority = 102
+	flavourization_rules = { top_liege = no }
+}
+
+
+### Mongol ###
+# Feudal
+baron_nomadic_male_mongol = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+baron_nomadic_female_mongol = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+barony_nomadic_mongol = {
+	type = title
+	tier = barony
+	priority = 8
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+count_nomadic_male_mongol = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 19
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+count_nomadic_female_mongol = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 19
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+county_nomadic_mongol = {
+	type = title
+	tier = county
+	priority = 19
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+duke_nomadic_male_mongol = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+duke_nomadic_female_mongol = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+duchy_nomadic_mongol = {
+	type = title
+	tier = duchy
+	priority = 29
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+king_nomadic_male_mongol = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 49
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+king_nomadic_female_mongol = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 49
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+kingdom_nomadic_mongol = {
+	type = title
+	tier = kingdom
+	priority = 49
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+emperor_nomadic_male_mongol = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+emperor_nomadic_female_mongol = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+empire_nomadic_mongol = {
+	type = title
+	tier = empire
+	priority = 150
+	governments = { nomad_government }
+	heritages = { heritage_mongolic }
+}
+
+#
+
+baron_tribal_male_gyeonggi = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { tribal_government }
+	heritages = { heritage_suwon }
+}
+baron_tribal_female_gyeonggi = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { tribal_government }
+	heritages = { heritage_suwon }
+}
+barony_tribal_gyeonggi = {
+	type = title
+	tier = barony
+	priority = 8
+	governments = { tribal_government }
+	heritages = { heritage_suwon }
+}
+baron_feudal_male_gyeonggi = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+baron_feudal_female_gyeonggi = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+barony_feudal_gyeonggi = {
+	type = title
+	tier = barony
+	priority = 8
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+count_feudal_male_gyeonggi = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 19
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+count_feudal_female_gyeonggi = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 19
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+county_feudal_gyeonggi = {
+	type = title
+	tier = county
+	priority = 19
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+duke_feudal_male_gyeonggi = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+duke_feudal_female_gyeonggi = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+duchy_feudal_gyeonggi = {
+	type = title
+	tier = duchy
+	priority = 29
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+king_feudal_male_gyeonggi = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+	priority = 49	
+}
+king_feudal_female_gyeonggi = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+	priority = 49
+}
+kingdom_feudal_gyeonggi = {
+	type = title
+	tier = kingdom
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+	priority = 49
+}
+emperor_feudal_male_gyeonggi = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+emperor_feudal_female_gyeonggi = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+empire_feudal_gyeonggi = {
+	type = title
+	tier = empire
+	priority = 150
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_suwon }
+}
+duke_tribal_male_gangwon = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { tribal_government }
+	heritages = { heritage_gwandong heritage_gwanbuk }
+}
+duke_tribal_female_gangwon = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { tribal_government }
+	heritages = { heritage_gwandong heritage_gwanbuk }
+}
+duchy_tribal_gangwon = {
+	type = title
+	tier = duchy
+	priority = 29
+	governments = { tribal_government }
+	heritages = { heritage_gwandong heritage_gwanbuk }
+}
+
+#
+
+baron_feudal_male_gwanbuk = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+baron_feudal_female_gwanbuk = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+barony_gwanbuk = {
+	type = title
+	tier = barony
+	priority = 8
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+count_feudal_male_gwanbuk = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 19
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+count_feudal_female_gwanbuk = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 19
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+county_feudal_gwanbuk = {
+	type = title
+	tier = county
+	priority = 19
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+duke_feudal_male_gwanbuk = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+duke_feudal_female_gwanbuk = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+duchy_feudal_gwanbuk = {
+	type = title
+	tier = duchy
+	priority = 29
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+king_feudal_male_gwanbuk = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 49
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+king_feudal_female_gwanbuk = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 49
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+kingdom_feudal_gwanbuk = {
+	type = title
+	tier = kingdom
+	priority = 49
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+emperor_feudal_male_gwanbuk = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+emperor_feudal_female_gwanbuk = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+empire_feudal_gwanbuk = {
+	type = title
+	tier = empire
+	priority = 150
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_gwanbuk }
+}
+
+#
+
+
+baron_manchu_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { top_liege = no }
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+baron_feudal_tribal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { top_liege = no }
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+barony_feudal_tribal = {
+	type = title
+	tier = barony
+	flavourization_rules = { top_liege = no }
+	priority = 6
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+count_manchu_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { top_liege = no }
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+count_manchu_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { top_liege = no }
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+county_manchu_feudal = {
+	type = title
+	tier = county
+	flavourization_rules = { top_liege = no }
+	priority = 16
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+duke_manchu_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { top_liege = no }
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+duke_manchu_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { top_liege = no }
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+duchy_manchu_feudal = {
+	type = title
+	tier = duchy
+	flavourization_rules = { top_liege = no }
+	priority = 26
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+king_manchu_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+king_manchu_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { top_liege = no }
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+kingdom_manchu_feudal = {
+	type = title
+	tier = kingdom
+	priority = 46
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+emperor_manchu_feudal_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { top_liege = no }
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+emperor_manchu_feudal_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { top_liege = no }
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+empire_manchu_feudal = {
+	type = title
+	tier = empire
+	flavourization_rules = { top_liege = no }
+	priority = 101
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_manchu }
+}
+baron_feudal_male_seoul = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 9
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+baron_feudal_female_seoul = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 9
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+barony_feudal_seoul = {
+	type = title
+	tier = barony
+	priority = 9
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+count_feudal_male_seoul = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 20
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+count_feudal_female_seoul = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 20
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+county_feudal_seoul = {
+	type = title
+	tier = county
+	priority = 20
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+duke_feudal_male_seoul = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 30
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+duke_feudal_female_seoul = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 30
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+duchy_feudal_seoul = {
+	type = title
+	tier = duchy
+	priority = 30
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+king_feudal_male_seoul = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 50
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+king_feudal_female_seoul = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 50
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+kingdom_feudal_seoul = {
+	type = title
+	tier = kingdom
+	priority = 50
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+emperor_feudal_male_seoul = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 151
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+emperor_feudal_female_seoul = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 151
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+empire_feudal_seoul = {
+	type = title
+	tier = empire
+	priority = 151
+	governments = { feudal_government maritime_government }
+	heritages = { heritage_seoul }
+}
+
+baron_clan_male_andong = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 9
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+baron_clan_female_andong = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 9
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+barony_clan_andong = {
+	type = title
+	tier = barony
+	priority = 9
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+count_clan_male_andong = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 20
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+count_clan_female_andong = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 20
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+county_clan_andong = {
+	type = title
+	tier = county
+	priority = 20
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+duke_clan_male_andong = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 40
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+duke_clan_female_andong = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 40
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+duchy_clan_andong = {
+	type = title
+	tier = duchy
+	priority = 40
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+king_clan_male_andong = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 100
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+king_clan_female_andong = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 100
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+kingdom_clan_andong = {
+	type = title
+	tier = kingdom
+	priority = 100
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+emperor_clan_male_andong = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+emperor_clan_female_andong = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+empire_clan_andong = {
+	type = title
+	tier = empire
+	priority = 150
+	governments = { clan_government }
+	heritages = { heritage_yeongnam }
+}
+
+
+#### Fallen Skyscraper Titles ####
+#Default Miliary Gov. tiers
+baron_military_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { top_liege = no }
+	governments = { military_government }
+}
+baron_military_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { top_liege = no }
+	governments = { military_government }
+}
+barony_military = {
+	type = title
+	tier = barony
+	flavourization_rules = { top_liege = no }
+	priority = 6
+	governments = { military_government }
+}
+count_military_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { top_liege = no }
+	governments = { military_government }
+}
+count_military_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { top_liege = no }
+	governments = { military_government }
+}
+county_military = {
+	type = title
+	tier = county
+	flavourization_rules = { top_liege = no }
+	priority = 16
+	governments = { military_government }
+}
+duke_military_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { top_liege = no }
+	governments = { military_government }
+}
+duke_military_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { top_liege = no }
+	governments = { military_government }
+}
+duchy_military = {
+	type = title
+	tier = duchy
+	flavourization_rules = { top_liege = no }
+	priority = 26
+	governments = { military_government }
+}
+king_military_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { top_liege = no }
+	governments = { military_government }
+}
+king_military_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { top_liege = no }
+	governments = { military_government }
+}
+kingdom_military = {
+	type = title
+	tier = kingdom
+	flavourization_rules = { top_liege = no }
+	priority = 46
+	governments = { military_government }
+}
+emperor_military_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { top_liege = no }
+	governments = { military_government }
+}
+emperor_military_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { top_liege = no }
+	governments = { military_government }
+}
+empire_military = {
+	type = title
+	tier = empire
+	flavourization_rules = { top_liege = no }
+	priority = 101
+	governments = { military_government }
+}
+#Default PT Dictactorship tiers
+baron_proletarian_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { top_liege = no }
+	governments = { proletarian_government }
+}
+baron_proletarian_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { top_liege = no }
+	governments = { proletarian_government }
+}
+barony_proletarian = {
+	type = title
+	tier = barony
+	flavourization_rules = { top_liege = no }
+	priority = 6
+	governments = { proletarian_government }
+}
+count_proletarian_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { top_liege = no }
+	governments = { proletarian_government }
+}
+count_proletarian_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { top_liege = no }
+	governments = { proletarian_government }
+}
+county_proletarian = {
+	type = title
+	tier = county
+	flavourization_rules = { top_liege = no }
+	priority = 16
+	governments = { proletarian_government }
+}
+duke_proletarian_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { top_liege = no }
+	governments = { proletarian_government }
+}
+duke_proletarian_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { top_liege = no }
+	governments = { proletarian_government }
+}
+duchy_proletarian = {
+	type = title
+	tier = duchy
+	flavourization_rules = { top_liege = no }
+	priority = 26
+	governments = { proletarian_government }
+}
+king_proletarian_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { top_liege = no }
+	governments = { proletarian_government }
+}
+king_proletarian_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { top_liege = no }
+	governments = { proletarian_government }
+}
+kingdom_proletarian = {
+	type = title
+	tier = kingdom
+	flavourization_rules = { top_liege = no }
+	priority = 46
+	governments = { proletarian_government }
+}
+emperor_proletarian_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { top_liege = no }
+	governments = { proletarian_government }
+}
+emperor_proletarian_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { top_liege = no }
+	governments = { proletarian_government }
+}
+empire_proletarian = {
+	type = title
+	tier = empire
+	flavourization_rules = { top_liege = no }
+	priority = 101
+	governments = { proletarian_government }
+}
+
+#Default Secular Republic tiers
+baron_secular_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { top_liege = no }
+	governments = { secular_republic_government }
+}
+baron_secular_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 6
+	flavourization_rules = { top_liege = no }
+	governments = { secular_republic_government }
+}
+barony_secular_republic = {
+	type = title
+	tier = barony
+	flavourization_rules = { top_liege = no }
+	priority = 6
+	governments = { secular_republic_government }
+}
+count_secular_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { top_liege = no }
+	governments = { secular_republic_government }
+}
+count_secular_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 16
+	flavourization_rules = { top_liege = no }
+	governments = { secular_republic_government }
+}
+county_secular_republic = {
+	type = title
+	tier = county
+	flavourization_rules = { top_liege = no }
+	priority = 16
+	governments = { secular_republic_government }
+}
+duke_secular_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { top_liege = no }
+	governments = { secular_republic_government }
+}
+duke_secular_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 26
+	flavourization_rules = { top_liege = no }
+	governments = { secular_republic_government }
+}
+duchy_secular_republic = {
+	type = title
+	tier = duchy
+	flavourization_rules = { top_liege = no }
+	priority = 26
+	governments = { secular_republic_government }
+}
+king_secular_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { top_liege = no }
+	governments = { secular_republic_government }
+}
+king_secular_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 46
+	flavourization_rules = { top_liege = no }
+	governments = { secular_republic_government }
+}
+kingdom_secular_republic = {
+	type = title
+	tier = kingdom
+	flavourization_rules = { top_liege = no }
+	priority = 46
+	governments = { secular_republic_government }
+}
+emperor_secular_republic_male = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { top_liege = no }
+	governments = { secular_republic_government }
+}
+emperor_secular_republic_female = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 101
+	flavourization_rules = { top_liege = no }
+	governments = { secular_republic_government }
+}
+empire_secular_republic = {
+	type = title
+	tier = empire
+	flavourization_rules = { top_liege = no }
+	priority = 101
+	governments = { secular_republic_government }
+}
