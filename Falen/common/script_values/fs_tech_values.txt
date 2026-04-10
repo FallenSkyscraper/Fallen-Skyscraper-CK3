@@ -1,0 +1,91 @@
+﻿county_tech_metallurgy_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_metallurgy } }
+		add = county.var:tech_metallurgy
+	}
+}
+county_tech_siege_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_siege } }
+		add = county.var:tech_siege
+	}
+}
+county_tech_horseback_riding_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_horseback_riding } }
+		add = county.var:tech_horseback_riding
+	}
+}
+county_tech_fortification_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_fortification } }
+		add = county.var:tech_fortification
+	}
+}
+county_tech_conscription_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_conscription } }
+		add = county.var:tech_conscription
+	}
+}
+county_tech_archery_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_archery } }
+		add = county.var:tech_archery
+	}
+}
+county_tech_military_organization_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_military_organization } }
+		add = county.var:tech_military_organization
+	}
+}
+county_tech_agriculture_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_agriculture } }
+		add = county.var:tech_agriculture
+	}
+}
+county_tech_commerce_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_commerce } }
+		add = county.var:tech_commerce
+	}
+}
+county_tech_navigation_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_navigation } }
+		add = county.var:tech_navigation
+	}
+}
+county_tech_construction_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_construction } }
+		add = county.var:tech_construction
+	}
+}
+county_tech_urbanization_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_urbanization } }
+		add = county.var:tech_urbanization
+	}
+}
+county_tech_mining_value = {
+	value = 0
+	if = {
+		limit = { county = { has_variable = tech_mining } }
+		add = county.var:tech_mining
+	}
+}

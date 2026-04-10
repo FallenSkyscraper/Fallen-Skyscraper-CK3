@@ -550,8 +550,6 @@ temple_01 = {
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia } #+4
 		}
 
-
-
 		### Sinitic ###
 		#Unique:
 		asset = {
@@ -720,8 +718,6 @@ temple_01 = {
 			graphical_regions = { "graphical_mena" }
 		}
 	}
-
-
 
 	can_construct_potential = {
 		barony_cannot_construct_holding = no
@@ -1435,7 +1431,6 @@ temple_02 = {
 
 		### Tengri ###
 
-
 		asset = { 
 			type = entity
 			name = "mpo_mongol_temple_01_entity"
@@ -1558,8 +1553,6 @@ temple_02 = {
 			} #+2
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia } #+4
 		}
-
-
 
 		### Sinitic ###
 		#Unique:
@@ -1745,12 +1738,8 @@ temple_02 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 3
-			}
+		county_tech_construction_value >= 3
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
@@ -2413,8 +2402,6 @@ temple_03 = {
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia } #+4
 		}
 
-
-
 		### Sinitic ###
 		#Unique:
 		asset = {
@@ -2608,12 +2595,8 @@ temple_03 = {
 			scope:holder.culture = {
 				has_cultural_parameter = temple_next_level
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 3
-			}
+		county_tech_construction_value >= 3
+			
 		}
 	}
 	can_construct_showing_failures_only = { NOT = { scope:holder = { has_character_modifier = tgp_rebuilder_modifier } } }
@@ -2987,7 +2970,6 @@ temple_04 = {
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia } #+4
 		}
 
-
 		### Islamic ###
 		#Unique:
 		### FP2 Islamic variant for Iberia
@@ -3227,7 +3209,6 @@ temple_04 = {
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia graphical_siberia } #+4
 		}
 
-
 		### Non-European pagan
 		asset = {
 			type = pdxmesh
@@ -3267,7 +3248,6 @@ temple_04 = {
 			graphical_regions = { graphical_western graphical_mena graphical_india graphical_mediterranean graphical_steppe graphical_east_asia
 			} #+4
 		}
-
 
 		### Sinitic ###
 		#Unique:
@@ -3453,12 +3433,8 @@ temple_04 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 7
-			}
+		county_tech_construction_value >= 7
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
@@ -3745,12 +3721,8 @@ scriptorium_03 = {
 
 	can_construct = {
 		has_building_or_higher = temple_02
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 3
-		}
+		county_tech_construction_value >= 3
+		
 		has_dlc_feature = legends
 	}
 
@@ -3805,12 +3777,8 @@ scriptorium_04 = {
 
 	can_construct = {
 		has_building_or_higher = temple_02
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 3
-		}
+		county_tech_construction_value >= 3
+		
 		has_dlc_feature = legends
 	}
 
@@ -3865,12 +3833,8 @@ scriptorium_05 = {
 
 	can_construct = {
 		has_building_or_higher = temple_03
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 5
-		}
+		county_tech_construction_value >= 5
+		
 		has_dlc_feature = legends
 	}
 
@@ -3925,12 +3889,8 @@ scriptorium_06 = {
 
 	can_construct = {
 		has_building_or_higher = temple_03
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 5
-		}
+		county_tech_construction_value >= 5
+		
 		has_dlc_feature = legends
 	}
 
@@ -3984,12 +3944,8 @@ scriptorium_07 = {
 
 	can_construct = {
 		has_building_or_higher = temple_04
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 7
-		}
+		county_tech_construction_value >= 7
+		
 		has_dlc_feature = legends
 	}
 
@@ -4044,12 +4000,8 @@ scriptorium_08 = {
 
 	can_construct = {
 		has_building_or_higher = temple_03
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 7
-		}
+		county_tech_construction_value >= 7
+		
 		has_dlc_feature = legends
 	}
 
@@ -4269,12 +4221,8 @@ monastic_schools_03 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 3
-			}
+		county_tech_construction_value >= 3
+			
 			building_requirement_castle_city_church_temple_citadel_tribe = { LEVEL = 02 }
 		}
 		trigger_else = {
@@ -4355,12 +4303,8 @@ monastic_schools_04 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 3
-			}
+		county_tech_construction_value >= 3
+			
 			building_requirement_castle_city_church_temple_citadel_tribe = { LEVEL = 02 }
 		}
 		trigger_else = {
@@ -4441,12 +4385,8 @@ monastic_schools_05 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 5
-			}
+		county_tech_construction_value >= 5
+			
 			building_requirement_castle_city_church_temple_citadel_tribe = { LEVEL = 03 }
 		}
 		trigger_else = {
@@ -4527,21 +4467,13 @@ monastic_schools_06 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 5
-			}
+		county_tech_construction_value >= 5
+			
 			building_requirement_castle_city_church_temple_citadel_tribe = { LEVEL = 03 }
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 3
-			}
+		county_tech_construction_value >= 3
+			
 			culture = {
 				has_cultural_parameter = next_level_monasteries
 			}
@@ -4618,21 +4550,13 @@ monastic_schools_07 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 7
-			}
+		county_tech_construction_value >= 7
+			
 			building_requirement_castle_city_church_temple_citadel_tribe = { LEVEL = 04 }
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 			culture = {
 				has_cultural_parameter = next_level_monasteries
 			}
@@ -4709,21 +4633,13 @@ monastic_schools_08 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 7
-			}
+		county_tech_construction_value >= 7
+			
 			building_requirement_castle_city_church_temple_citadel_tribe = { LEVEL = 04 }
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 			culture = {
 				has_cultural_parameter = next_level_monasteries
 			}
@@ -5328,12 +5244,8 @@ breweries_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 2
-		}
+		county_tech_construction_value >= 2
+		
 		building_requirement_tribal = no
 	}
 
@@ -5372,12 +5284,8 @@ breweries_04 = {
 	}
 
 	can_construct_showing_failures_only = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 3
-		}
+		county_tech_construction_value >= 3
+		
 		building_requirement_tribal = no
 	}
 
@@ -5416,12 +5324,8 @@ breweries_05 = {
 	}
 
 	can_construct_showing_failures_only = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 4
-		}
+		county_tech_construction_value >= 4
+		
 		building_requirement_tribal = no
 	}
 
@@ -5460,12 +5364,8 @@ breweries_06 = {
 	}
 
 	can_construct_showing_failures_only = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 5
-		}
+		county_tech_construction_value >= 5
+		
 		building_requirement_tribal = no
 	}
 
@@ -5504,12 +5404,8 @@ breweries_07 = {
 	}
 
 	can_construct_showing_failures_only = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 6
-		}
+		county_tech_construction_value >= 6
+		
 		building_requirement_tribal = no
 	}
 
@@ -5548,12 +5444,8 @@ breweries_08 = {
 	}
 
 	can_construct_showing_failures_only = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 7
-		}
+		county_tech_construction_value >= 7
+		
 		building_requirement_tribal = no
 	}
 

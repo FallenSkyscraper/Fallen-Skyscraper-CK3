@@ -357,12 +357,8 @@ longhouses_02 = {
 	can_construct_showing_failures_only = {
 		OR = {
 			mpo_permafrost_building_trigger = yes
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_conscription
-				}
-				county.var:tech_conscription >= 1
-			}
+		county_tech_conscription_value >= 1
+			
 		}		
 	}
 	
@@ -453,12 +449,8 @@ war_camps_02 = {
 	can_construct_showing_failures_only = {
 		OR = {
 			mpo_permafrost_building_trigger = yes
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 	}	
 	
@@ -553,12 +545,8 @@ palisades_02 = {
 	can_construct_showing_failures_only = {
 		OR = {
 			mpo_permafrost_building_trigger = yes
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 	}	
 	
@@ -636,12 +624,8 @@ market_villages_02 = {
 	can_construct_showing_failures_only = {
 		OR = {
 			mpo_permafrost_building_trigger = yes
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 1
-			}
+		county_tech_commerce_value >= 1
+			
 		}
 	}	
 	province_terrain_modifier = {

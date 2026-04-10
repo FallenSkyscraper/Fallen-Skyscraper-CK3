@@ -34,12 +34,8 @@ caravanserai_01 = {
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
 
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_commerce >= 4
-		}
+		county_tech_commerce_value >= 4
+		
 
 		trigger_if = {
 			limit = {
@@ -200,12 +196,8 @@ caravanserai_02 = {
 	}
 
 	can_construct = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_commerce >= 5
-		}
+		county_tech_commerce_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -256,12 +248,8 @@ caravanserai_03 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_commerce >= 5
-		}
+		county_tech_commerce_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -310,12 +298,8 @@ caravanserai_04 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_commerce >= 5
-		}
+		county_tech_commerce_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -364,12 +348,8 @@ caravanserai_05 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_commerce >= 5
-		}
+		county_tech_commerce_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -418,12 +398,8 @@ caravanserai_06 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_commerce >= 7
-		}
+		county_tech_commerce_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -473,12 +449,8 @@ caravanserai_07 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_commerce >= 8
-		}
+		county_tech_commerce_value >= 8
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -528,12 +500,8 @@ caravanserai_08 = {
 	}
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_commerce >= 8
-		}
+		county_tech_commerce_value >= 8
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -639,22 +607,14 @@ watermills_01 = {
 			is_county_capital = yes
 		}
 		OR = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 			AND = {
 				culture = { # Unlock from culture trad early but still need the previous Civic economic building inovation (Early medieval)
 					has_cultural_parameter = next_level_w_mills
 				}
-				trigger_if = {
-					limit = {
-						county.has_variable = tech_construction
-					}
-					county.var:tech_construction >= 2
-				}
+		county_tech_construction_value >= 2
+				
 			}
 			AND = { # Unlock from Cultural Tradition
 				has_building_or_higher = logging_camps_04
@@ -726,9 +686,6 @@ watermills_02 = {
 
 	can_construct = {
 
-
-
-
 		trigger_if = {
 			limit = {
 				NOT = {
@@ -740,31 +697,19 @@ watermills_02 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 		}
 		trigger_else = {
 			OR = {
-				trigger_if = {
-					limit = {
-						county.has_variable = tech_construction
-					}
-					county.var:tech_construction >= 4
-				}
+		county_tech_construction_value >= 4
+				
 				AND = {
 					culture = { # Unlock from culture trad early but still need the previous Civic economic building inovation (Early medieval)
 						has_cultural_parameter = next_level_w_mills
 					}
-					trigger_if = {
-						limit = {
-							county.has_variable = tech_construction
-						}
-						county.var:tech_construction >= 2
-					}
+		county_tech_construction_value >= 2
+					
 				}
 				AND = { # Unlock from Cultural Tradition
 					has_building_or_higher = logging_camps_04
@@ -837,32 +782,20 @@ watermills_03 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 			building_requirement_castle_city_church = { LEVEL = 02 }
 		}
 		trigger_else = {
 			OR = {
-				trigger_if = {
-					limit = {
-						county.has_variable = tech_construction
-					}
-					county.var:tech_construction >= 4
-				}
+		county_tech_construction_value >= 4
+				
 				AND = {
 					culture = { # Unlock from culture trad early but still need the previous Civic economic building inovation (Early medieval)
 						has_cultural_parameter = next_level_w_mills
 					}
-					trigger_if = {
-						limit = {
-							county.has_variable = tech_construction
-						}
-						county.var:tech_construction >= 2
-					}
+		county_tech_construction_value >= 2
+					
 				}
 				AND = { # Unlock from Cultural Tradition
 					has_building_or_higher = logging_camps_04
@@ -934,32 +867,20 @@ watermills_04 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 			building_requirement_castle_city_church = { LEVEL = 02 }
 		}
 		trigger_else = {
 			OR = {
-				trigger_if = {
-					limit = {
-						county.has_variable = tech_construction
-					}
-					county.var:tech_construction >= 4
-				}
+		county_tech_construction_value >= 4
+				
 				AND = {
 					culture = { # Unlock from culture trad early but still need the previous Civic economic building inovation (Early medieval)
 						has_cultural_parameter = next_level_w_mills
 					}
-					trigger_if = {
-						limit = {
-							county.has_variable = tech_construction
-						}
-						county.var:tech_construction >= 2
-					}
+		county_tech_construction_value >= 2
+					
 				}
 				AND = { # Unlock from Cultural Tradition
 					has_building_or_higher = logging_camps_04
@@ -1012,12 +933,8 @@ watermills_05 = {
 		building_watermills_requirement_terrain = yes
 	}
 	can_construct = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 7
-		}
+		county_tech_construction_value >= 7
+		
 		trigger_if = {
 			limit = {
 				NOT = {
@@ -1085,24 +1002,16 @@ watermills_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 7
-			}
+		county_tech_construction_value >= 7
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = next_level_w_mills
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 		}
 	}
 
@@ -1155,24 +1064,16 @@ watermills_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 8
-			}
+		county_tech_construction_value >= 8
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = next_level_w_mills
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 5
-			}
+		county_tech_construction_value >= 5
+			
 		}
 	}
 
@@ -1225,24 +1126,16 @@ watermills_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 8
-			}
+		county_tech_construction_value >= 8
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = next_level_w_mills
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 5
-			}
+		county_tech_construction_value >= 5
+			
 		}
 	}
 
@@ -1349,22 +1242,14 @@ windmills_01 = {
 			is_county_capital = yes
 		}
 		OR = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 			AND = {
 				culture = { # Unlock from culture trad early but still need the previous Civic economic building inovation (Early medieval)
 					has_cultural_parameter = next_level_w_mills
 				}
-				trigger_if = {
-					limit = {
-						county.has_variable = tech_construction
-					}
-					county.var:tech_construction >= 2
-				}
+		county_tech_construction_value >= 2
+				
 			}
 			AND = { # Unlock from Culture trad
 				has_building_or_higher = hill_farms_04
@@ -1450,31 +1335,19 @@ windmills_02 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 		}
 		trigger_else = {
 			OR = {
-				trigger_if = {
-					limit = {
-						county.has_variable = tech_construction
-					}
-					county.var:tech_construction >= 4
-				}
+		county_tech_construction_value >= 4
+				
 				AND = {
 					culture = { # Unlock from culture trad early but still need the previous Civic economic building inovation (Early medieval)
 						has_cultural_parameter = next_level_w_mills
 					}
-					trigger_if = {
-						limit = {
-							county.has_variable = tech_construction
-						}
-						county.var:tech_construction >= 2
-					}
+		county_tech_construction_value >= 2
+					
 				}
 				AND = { # Unlock from Culture trad
 					has_building_or_higher = hill_farms_04
@@ -1547,31 +1420,19 @@ windmills_03 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 		}
 		trigger_else = {
 			OR = {
-				trigger_if = {
-					limit = {
-						county.has_variable = tech_construction
-					}
-					county.var:tech_construction >= 4
-				}
+		county_tech_construction_value >= 4
+				
 				AND = {
 					culture = { # Unlock from culture trad early but still need the previous Civic economic building inovation (Early medieval)
 						has_cultural_parameter = next_level_w_mills
 					}
-					trigger_if = {
-						limit = {
-							county.has_variable = tech_construction
-						}
-						county.var:tech_construction >= 2
-					}
+		county_tech_construction_value >= 2
+					
 				}
 				AND = { # Unlock from Culture trad
 					has_building_or_higher = hill_farms_04
@@ -1644,22 +1505,14 @@ windmills_04 = {
 		}
 		trigger_else = {
 			OR = {
-				trigger_if = {
-					limit = {
-						county.has_variable = tech_construction
-					}
-					county.var:tech_construction >= 4
-				}
+		county_tech_construction_value >= 4
+				
 				AND = {
 					culture = { # Unlock from culture trad early but still need the previous Civic economic building inovation (Early medieval)
 						has_cultural_parameter = next_level_w_mills
 					}
-					trigger_if = {
-						limit = {
-							county.has_variable = tech_construction
-						}
-						county.var:tech_construction >= 2
-					}
+		county_tech_construction_value >= 2
+					
 				}
 				AND = { # Unlock from Culture trad
 					has_building_or_higher = hill_farms_04
@@ -1709,12 +1562,8 @@ windmills_05 = {
 		building_windmills_requirement_terrain = yes
 	}
 	can_construct = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_construction
-			}
-			county.var:tech_construction >= 5
-		}
+		county_tech_construction_value >= 5
+		
 		trigger_if = {
 			limit = {
 				NOT = {
@@ -1780,24 +1629,16 @@ windmills_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 6
-			}
+		county_tech_construction_value >= 6
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = next_level_w_mills
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 4
-			}
+		county_tech_construction_value >= 4
+			
 		}
 	}
 
@@ -1848,24 +1689,16 @@ windmills_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 7
-			}
+		county_tech_construction_value >= 7
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = next_level_w_mills
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 5
-			}
+		county_tech_construction_value >= 5
+			
 		}
 	}
 
@@ -1916,24 +1749,16 @@ windmills_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 8
-			}
+		county_tech_construction_value >= 8
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = next_level_w_mills
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_construction
-				}
-				county.var:tech_construction >= 5
-			}
+		county_tech_construction_value >= 5
+			
 		}
 	}
 
@@ -1966,9 +1791,6 @@ windmills_08 = {
 		ai_economical_building_preference_modifier = yes
 	}
 }
-
-
-
 
 # Qanats
 
@@ -2374,7 +2196,6 @@ qanats_08 = {
 	}
 
 	effect_desc =  unlocks_cereal_fields_and_orchards
-
 
 	type_icon = "icon_building_qanats.dds"
 
@@ -3003,12 +2824,8 @@ paddy_fields_03 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 2
-			}
+		county_tech_agriculture_value >= 2
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
@@ -3101,12 +2918,8 @@ paddy_fields_04 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 3
-			}
+		county_tech_agriculture_value >= 3
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
@@ -3200,23 +3013,15 @@ paddy_fields_05 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 5
-			}
+		county_tech_agriculture_value >= 5
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = rice_cultivators_next_level_paddy_fields
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 3
-			}
+		county_tech_agriculture_value >= 3
+			
 			building_requirement_castle_city_church = { LEVEL = 02 }
 		}
 	}
@@ -3306,23 +3111,15 @@ paddy_fields_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 6
-			}
+		county_tech_agriculture_value >= 6
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = rice_cultivators_next_level_paddy_fields
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 4
-			}
+		county_tech_agriculture_value >= 4
+			
 			building_requirement_castle_city_church = { LEVEL = 02 }
 		}
 	}
@@ -3413,23 +3210,15 @@ paddy_fields_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 7
-			}
+		county_tech_agriculture_value >= 7
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = rice_cultivators_next_level_paddy_fields
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 5
-			}
+		county_tech_agriculture_value >= 5
+			
 			building_requirement_castle_city_church = { LEVEL = 03 }
 		}
 	}
@@ -3521,23 +3310,15 @@ paddy_fields_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 8
-			}
+		county_tech_agriculture_value >= 8
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = rice_cultivators_next_level_paddy_fields
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 6
-			}
+		county_tech_agriculture_value >= 6
+			
 			building_requirement_castle_city_church = { LEVEL = 03 }
 		}
 	}
@@ -4646,7 +4427,6 @@ common_tradeport_02 = {
 	can_construct_potential = {
 		building_common_tradeport_requirement_terrain = yes
 
-
 		trigger_if = {
 			limit = {
 				NOT = {
@@ -4673,12 +4453,8 @@ common_tradeport_02 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 1
-			}
+		county_tech_commerce_value >= 1
+			
 		}
 		trigger_else = {
 			culture = {
@@ -4747,21 +4523,13 @@ common_tradeport_03 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 3
-			}
+		county_tech_commerce_value >= 3
+			
 			building_requirement_castle_city_church = { LEVEL = 02 }
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 1
-			}
+		county_tech_commerce_value >= 1
+			
 			culture = {
 				has_cultural_parameter = next_level_trade_ports
 			}
@@ -4828,21 +4596,13 @@ common_tradeport_04 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 4
-			}
+		county_tech_commerce_value >= 4
+			
 			building_requirement_castle_city_church = { LEVEL = 02 }
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 1
-			}
+		county_tech_commerce_value >= 1
+			
 			culture = {
 				has_cultural_parameter = next_level_trade_ports
 			}
@@ -4905,21 +4665,13 @@ common_tradeport_05 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 5
-			}
+		county_tech_commerce_value >= 5
+			
 			building_requirement_castle_city_church = { LEVEL = 03 }
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 3
-			}
+		county_tech_commerce_value >= 3
+			
 			culture = {
 				has_cultural_parameter = next_level_trade_ports
 			}
@@ -4982,21 +4734,13 @@ common_tradeport_06 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 6
-			}
+		county_tech_commerce_value >= 6
+			
 			building_requirement_castle_city_church = { LEVEL = 03 }
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 4
-			}
+		county_tech_commerce_value >= 4
+			
 			culture = {
 				has_cultural_parameter = next_level_trade_ports
 			}
@@ -5059,21 +4803,13 @@ common_tradeport_07 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 7
-			}
+		county_tech_commerce_value >= 7
+			
 			building_requirement_castle_city_church = { LEVEL = 04 }
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 5
-			}
+		county_tech_commerce_value >= 5
+			
 			culture = {
 				has_cultural_parameter = next_level_trade_ports
 			}
@@ -5136,21 +4872,13 @@ common_tradeport_08 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 8
-			}
+		county_tech_commerce_value >= 8
+			
 			building_requirement_castle_city_church = { LEVEL = 04 }
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 6
-			}
+		county_tech_commerce_value >= 6
+			
 			culture = {
 				has_cultural_parameter = next_level_trade_ports
 			}
@@ -5286,12 +5014,8 @@ pastures_02 = {
 
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 1
-		}
+		county_tech_agriculture_value >= 1
+		
 	}
 
 	cost_gold = normal_building_tier_2_cost
@@ -5346,12 +5070,8 @@ pastures_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 3
-		}
+		county_tech_agriculture_value >= 3
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -5407,12 +5127,8 @@ pastures_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 4
-		}
+		county_tech_agriculture_value >= 4
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -5471,12 +5187,8 @@ pastures_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 5
-		}
+		county_tech_agriculture_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -5536,12 +5248,8 @@ pastures_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 6
-		}
+		county_tech_agriculture_value >= 6
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -5602,12 +5310,8 @@ pastures_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 7
-		}
+		county_tech_agriculture_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -5668,12 +5372,8 @@ pastures_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 7
-		}
+		county_tech_agriculture_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -5830,12 +5530,8 @@ hunting_grounds_02 = {
 
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_archery
-			}
-			county.var:tech_archery >= 1
-		}
+		county_tech_archery_value >= 1
+		
 	}
 
 	is_enabled = {
@@ -5903,14 +5599,9 @@ hunting_grounds_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_archery
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_archery >= 1
-			county.var:tech_commerce >= 1
-		}
+		county_tech_archery_value >= 1
+		county_tech_commerce_value >= 1
+		
 		scope:holder.culture = {
 			NOT = {
 				has_cultural_parameter = vegetarian_building_ban
@@ -5983,14 +5674,9 @@ hunting_grounds_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_archery
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_archery >= 2
-			county.var:tech_commerce >= 2
-		}
+		county_tech_archery_value >= 2
+		county_tech_commerce_value >= 2
+		
 		scope:holder.culture = {
 			NOT = {
 				has_cultural_parameter = vegetarian_building_ban
@@ -6063,16 +5749,10 @@ hunting_grounds_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_archery
-				county.has_variable = tech_agriculture
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_archery >= 3
-			county.var:tech_agriculture >= 3
-			county.var:tech_commerce >= 3
-		}
+		county_tech_archery_value >= 3
+		county_tech_agriculture_value >= 3
+		county_tech_commerce_value >= 3
+		
 		scope:holder.culture = {
 			NOT = {
 				has_cultural_parameter = vegetarian_building_ban
@@ -6149,16 +5829,10 @@ hunting_grounds_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_archery
-				county.has_variable = tech_agriculture
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_archery >= 4
-			county.var:tech_agriculture >= 5
-			county.var:tech_commerce >= 3
-		}
+		county_tech_archery_value >= 4
+		county_tech_agriculture_value >= 5
+		county_tech_commerce_value >= 3
+		
 		scope:holder.culture = {
 			NOT = {
 				has_cultural_parameter = vegetarian_building_ban
@@ -6235,16 +5909,10 @@ hunting_grounds_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_archery
-				county.has_variable = tech_agriculture
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_archery >= 6
-			county.var:tech_agriculture >= 6
-			county.var:tech_commerce >= 5
-		}
+		county_tech_archery_value >= 6
+		county_tech_agriculture_value >= 6
+		county_tech_commerce_value >= 5
+		
 		scope:holder.culture = {
 			NOT = {
 				has_cultural_parameter = vegetarian_building_ban
@@ -6325,16 +5993,10 @@ hunting_grounds_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_archery
-				county.has_variable = tech_agriculture
-				county.has_variable = tech_commerce
-			}
-			county.var:tech_archery >= 7
-			county.var:tech_agriculture >= 6
-			county.var:tech_commerce >= 6
-		}
+		county_tech_archery_value >= 7
+		county_tech_agriculture_value >= 6
+		county_tech_commerce_value >= 6
+		
 		scope:holder.culture = {
 			NOT = {
 				has_cultural_parameter = vegetarian_building_ban
@@ -6476,12 +6138,8 @@ orchards_02 = {
 
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 1
-		}
+		county_tech_agriculture_value >= 1
+		
 	}
 
 	cost_gold = normal_building_tier_2_cost
@@ -6529,12 +6187,8 @@ orchards_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 3
-		}
+		county_tech_agriculture_value >= 3
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -6584,12 +6238,8 @@ orchards_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 4
-		}
+		county_tech_agriculture_value >= 4
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -6639,12 +6289,8 @@ orchards_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 5
-		}
+		county_tech_agriculture_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -6695,12 +6341,8 @@ orchards_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 6
-		}
+		county_tech_agriculture_value >= 6
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -6752,12 +6394,8 @@ orchards_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 7
-		}
+		county_tech_agriculture_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -6812,12 +6450,8 @@ orchards_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 8
-		}
+		county_tech_agriculture_value >= 8
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -6963,12 +6597,8 @@ farm_estates_02 = {
 		OR = {
 			AND = {
 				building_requirement_castle_city_church = { LEVEL = 01 }
-				trigger_if = {
-					limit = {
-						county.has_variable = tech_agriculture
-					}
-					county.var:tech_agriculture >= 1
-				}
+		county_tech_agriculture_value >= 1
+				
 				building_farm_estates_requirement_terrain = yes
 			}
 			AND = {
@@ -7158,12 +6788,8 @@ farm_estates_05 = {
 				}
 			}
 		}
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 5
-		}
+		county_tech_agriculture_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -7230,12 +6856,8 @@ farm_estates_06 = {
 				}
 			}
 		}
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 6
-		}
+		county_tech_agriculture_value >= 6
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -7303,12 +6925,8 @@ farm_estates_07 = {
 				}
 			}
 		}
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 7
-		}
+		county_tech_agriculture_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -7377,12 +6995,8 @@ farm_estates_08 = {
 				}
 			}
 		}
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 8
-		}
+		county_tech_agriculture_value >= 8
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -7530,12 +7144,8 @@ cereal_fields_02 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 1
-			}
+		county_tech_agriculture_value >= 1
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
@@ -7607,23 +7217,15 @@ cereal_fields_03 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 3
-			}
+		county_tech_agriculture_value >= 3
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = vegetarian_next_level_cereal_fields
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 1
-			}
+		county_tech_agriculture_value >= 1
+			
 			building_requirement_castle_city_church = { LEVEL = 01 }
 		}
 	}
@@ -7692,23 +7294,15 @@ cereal_fields_04 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 4
-			}
+		county_tech_agriculture_value >= 4
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = vegetarian_next_level_cereal_fields
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 2
-			}
+		county_tech_agriculture_value >= 2
+			
 			building_requirement_castle_city_church = { LEVEL = 01 }
 		}
 	}
@@ -7779,23 +7373,15 @@ cereal_fields_05 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 5
-			}
+		county_tech_agriculture_value >= 5
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = vegetarian_next_level_cereal_fields
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 3
-			}
+		county_tech_agriculture_value >= 3
+			
 			building_requirement_castle_city_church = { LEVEL = 02 }
 		}
 	}
@@ -7866,23 +7452,15 @@ cereal_fields_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 6
-			}
+		county_tech_agriculture_value >= 6
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = vegetarian_next_level_cereal_fields
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 4
-			}
+		county_tech_agriculture_value >= 4
+			
 			building_requirement_castle_city_church = { LEVEL = 02 }
 		}
 	}
@@ -7954,23 +7532,15 @@ cereal_fields_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 7
-			}
+		county_tech_agriculture_value >= 7
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = vegetarian_next_level_cereal_fields
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 5
-			}
+		county_tech_agriculture_value >= 5
+			
 			building_requirement_castle_city_church = { LEVEL = 03 }
 		}
 	}
@@ -8043,23 +7613,15 @@ cereal_fields_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 8
-			}
+		county_tech_agriculture_value >= 8
+			
 		}
 		trigger_else = {
 			scope:holder.culture = {
 				has_cultural_parameter = vegetarian_next_level_cereal_fields
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_agriculture
-				}
-				county.var:tech_agriculture >= 6
-			}
+		county_tech_agriculture_value >= 6
+			
 			building_requirement_castle_city_church = { LEVEL = 03 }
 		}
 	}
@@ -8189,12 +7751,8 @@ logging_camps_02 = {
 
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 1
-		}
+		county_tech_agriculture_value >= 1
+		
 	}
 
 	cost_gold = cheap_building_tier_2_cost
@@ -8252,12 +7810,8 @@ logging_camps_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 3
-		}
+		county_tech_agriculture_value >= 3
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -8314,12 +7868,8 @@ logging_camps_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 4
-		}
+		county_tech_agriculture_value >= 4
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -8377,12 +7927,8 @@ logging_camps_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 5
-		}
+		county_tech_agriculture_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -8441,12 +7987,8 @@ logging_camps_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 6
-		}
+		county_tech_agriculture_value >= 6
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -8505,12 +8047,8 @@ logging_camps_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 7
-		}
+		county_tech_agriculture_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -8569,12 +8107,8 @@ logging_camps_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 8
-		}
+		county_tech_agriculture_value >= 8
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -8682,12 +8216,8 @@ peat_quarries_02 = {
 
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 1
-		}
+		county_tech_mining_value >= 1
+		
 	}
 
 	cost_gold = cheap_building_tier_2_cost
@@ -8739,12 +8269,8 @@ peat_quarries_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 3
-		}
+		county_tech_mining_value >= 3
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -8797,12 +8323,8 @@ peat_quarries_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 4
-		}
+		county_tech_mining_value >= 4
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -8856,12 +8378,8 @@ peat_quarries_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 5
-		}
+		county_tech_mining_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -8916,12 +8434,8 @@ peat_quarries_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 6
-		}
+		county_tech_mining_value >= 6
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -8977,12 +8491,8 @@ peat_quarries_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 7
-		}
+		county_tech_mining_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9038,12 +8548,8 @@ peat_quarries_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 8
-		}
+		county_tech_mining_value >= 8
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9164,12 +8670,8 @@ hill_farms_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 1
-		}
+		county_tech_agriculture_value >= 1
+		
 		building_requirement_tribal = no
 	}
 
@@ -9222,12 +8724,8 @@ hill_farms_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 3
-		}
+		county_tech_agriculture_value >= 3
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9283,12 +8781,8 @@ hill_farms_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 4
-		}
+		county_tech_agriculture_value >= 4
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9344,12 +8838,8 @@ hill_farms_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 5
-		}
+		county_tech_agriculture_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9406,12 +8896,8 @@ hill_farms_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 6
-		}
+		county_tech_agriculture_value >= 6
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9469,12 +8955,8 @@ hill_farms_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 7
-		}
+		county_tech_agriculture_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9532,12 +9014,8 @@ hill_farms_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 8
-		}
+		county_tech_agriculture_value >= 8
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9645,12 +9123,8 @@ elephant_pens_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 1
-		}
+		county_tech_agriculture_value >= 1
+		
 		building_requirement_tribal = no
 	}
 
@@ -9702,12 +9176,8 @@ elephant_pens_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 2
-		}
+		county_tech_agriculture_value >= 2
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9761,12 +9231,8 @@ elephant_pens_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 3
-		}
+		county_tech_agriculture_value >= 3
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9820,12 +9286,8 @@ elephant_pens_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 4
-		}
+		county_tech_agriculture_value >= 4
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9879,12 +9341,8 @@ elephant_pens_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 5
-		}
+		county_tech_agriculture_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9938,12 +9396,8 @@ elephant_pens_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 7
-		}
+		county_tech_agriculture_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -9998,12 +9452,8 @@ elephant_pens_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 7
-		}
+		county_tech_agriculture_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10060,12 +9510,8 @@ plantations_01 = {
 
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 1
-		}
+		county_tech_agriculture_value >= 1
+		
 	}
 
 	cost_gold = cheap_building_tier_1_cost
@@ -10143,12 +9589,8 @@ plantations_02 = {
 
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 2
-		}
+		county_tech_agriculture_value >= 2
+		
 	}
 
 	cost_gold = cheap_building_tier_2_cost
@@ -10198,12 +9640,8 @@ plantations_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 3
-		}
+		county_tech_agriculture_value >= 3
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10254,12 +9692,8 @@ plantations_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 4
-		}
+		county_tech_agriculture_value >= 4
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10310,12 +9744,8 @@ plantations_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 5
-		}
+		county_tech_agriculture_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10370,12 +9800,8 @@ plantations_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 6
-		}
+		county_tech_agriculture_value >= 6
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10430,12 +9856,8 @@ plantations_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 7
-		}
+		county_tech_agriculture_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10490,12 +9912,8 @@ plantations_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_agriculture
-			}
-			county.var:tech_agriculture >= 8
-		}
+		county_tech_agriculture_value >= 8
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10612,12 +10030,8 @@ quarries_02 = {
 
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 1
-		}
+		county_tech_mining_value >= 1
+		
 	}
 
 	cost_gold = cheap_building_tier_2_cost
@@ -10673,12 +10087,8 @@ quarries_03 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 2
-		}
+		county_tech_mining_value >= 2
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10737,12 +10147,8 @@ quarries_04 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 02 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 3
-		}
+		county_tech_mining_value >= 3
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10802,12 +10208,8 @@ quarries_05 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 4
-		}
+		county_tech_mining_value >= 4
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10867,12 +10269,8 @@ quarries_06 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 03 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 5
-		}
+		county_tech_mining_value >= 5
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -10933,12 +10331,8 @@ quarries_07 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 6
-		}
+		county_tech_mining_value >= 6
+		
 	}
 
 	can_construct_showing_failures_only = {
@@ -11001,12 +10395,8 @@ quarries_08 = {
 
 	can_construct = {
 		building_requirement_castle_city_church = { LEVEL = 04 }
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_mining
-			}
-			county.var:tech_mining >= 7
-		}
+		county_tech_mining_value >= 7
+		
 	}
 
 	can_construct_showing_failures_only = {

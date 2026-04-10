@@ -81,12 +81,8 @@ ramparts_02 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortificiation >= 3
-			}
+		county_tech_fortificiation_value >= 3
+			
 		}
 		trigger_else = {
 			culture = {
@@ -152,24 +148,16 @@ ramparts_03 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 	}
 
@@ -230,24 +218,16 @@ ramparts_04 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 	}
 
@@ -311,24 +291,16 @@ ramparts_05 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 	}
 
@@ -392,24 +364,16 @@ ramparts_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 	}
 
@@ -473,24 +437,16 @@ ramparts_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 7
-			}
+		county_tech_fortification_value >= 7
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 	}
 
@@ -554,24 +510,16 @@ ramparts_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 7
-			}
+		county_tech_fortification_value >= 7
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 	}
 
@@ -697,12 +645,8 @@ curtain_walls_02 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 		trigger_else = {
 			culture = {
@@ -771,24 +715,16 @@ curtain_walls_03 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 	}
 
@@ -851,24 +787,16 @@ curtain_walls_04 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 	}
 
@@ -931,24 +859,16 @@ curtain_walls_05 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 	}
 
@@ -1012,24 +932,16 @@ curtain_walls_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 	}
 
@@ -1094,24 +1006,16 @@ curtain_walls_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 7
-			}
+		county_tech_fortification_value >= 7
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 	}
 
@@ -1176,24 +1080,16 @@ curtain_walls_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 7
-			}
+		county_tech_fortification_value >= 7
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 	}
 
@@ -1323,12 +1219,8 @@ watchtowers_02 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 		trigger_else = {
 			culture = {
@@ -1399,24 +1291,16 @@ watchtowers_03 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 	}
 	
@@ -1481,24 +1365,16 @@ watchtowers_04 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 	}
 	
@@ -1564,24 +1440,16 @@ watchtowers_05 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 	}
 	
@@ -1648,24 +1516,16 @@ watchtowers_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 	}
 	
@@ -1733,24 +1593,16 @@ watchtowers_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 7
-			}
+		county_tech_fortification_value >= 7
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 	}
 	
@@ -1818,24 +1670,16 @@ watchtowers_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 7
-			}
+		county_tech_fortification_value >= 7
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 	}
 	
@@ -1957,12 +1801,8 @@ hill_forts_02 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 		trigger_else = {
 			culture = {
@@ -2024,24 +1864,16 @@ hill_forts_03 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 	}
 
@@ -2097,24 +1929,16 @@ hill_forts_04 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 02 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 01 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 1
-			}
+		county_tech_fortification_value >= 1
+			
 		}
 	}
 	
@@ -2171,24 +1995,16 @@ hill_forts_05 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 	}
 	
@@ -2245,24 +2061,16 @@ hill_forts_06 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 03 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 02 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 3
-			}
+		county_tech_fortification_value >= 3
+			
 		}
 	}
 	
@@ -2319,24 +2127,16 @@ hill_forts_07 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 7
-			}
+		county_tech_fortification_value >= 7
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 	}
 	
@@ -2393,24 +2193,16 @@ hill_forts_08 = {
 				}
 			}
 			building_requirement_castle_city_church = { LEVEL = 04 }
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 7
-			}
+		county_tech_fortification_value >= 7
+			
 		}
 		trigger_else = {
 			building_requirement_castle_city_church = { LEVEL = 03 }
 			culture = {
 				has_cultural_parameter = next_level_fortification
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_fortification
-				}
-				county.var:tech_fortification >= 5
-			}
+		county_tech_fortification_value >= 5
+			
 		}
 	}
 	

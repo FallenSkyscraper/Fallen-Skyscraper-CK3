@@ -390,12 +390,8 @@ castle_01 = {
 	}
 
 	can_construct = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_fortification
-			}
-			county.var:tech_fortification >= 1
-		}
+		county_tech_fortification_value >= 1
+		
 		japan_castle_construction_trigger = yes
 	}
 
@@ -908,12 +904,8 @@ castle_02 = {
 		building_requirement_tribal = no
 	}
 	can_construct = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_fortification
-			}
-			county.var:tech_fortification >= 3
-		}
+		county_tech_fortification_value >= 3
+		
 		japan_castle_construction_trigger = yes
 	}
 
@@ -1393,12 +1385,8 @@ castle_03 = {
 		building_requirement_tribal = no
 	}
 	can_construct = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_fortification
-			}
-			county.var:tech_fortification >= 5
-		}
+		county_tech_fortification_value >= 5
+		
 		japan_castle_construction_trigger = yes
 	}
 
@@ -1870,12 +1858,8 @@ castle_04 = {
 		building_requirement_tribal = no
 	}
 	can_construct = {
-		trigger_if = {
-			limit = {
-				county.has_variable = tech_fortification
-			}
-			county.var:tech_fortification >= 7
-		}
+		county_tech_fortification_value >= 7
+		
 		japan_castle_construction_trigger = yes
 	}
 

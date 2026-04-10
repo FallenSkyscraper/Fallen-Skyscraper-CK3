@@ -1028,12 +1028,8 @@ city_02 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 3
-			}
+		county_tech_commerce_value >= 3
+			
 		}
 		trigger_else = {
 			culture = {
@@ -1574,23 +1570,15 @@ city_03 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 4
-			}
+		county_tech_commerce_value >= 4
+			
 		}
 		trigger_else = {
 			culture = {
 				has_cultural_parameter = next_level_cities
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 3
-			}
+		county_tech_commerce_value >= 3
+			
 		}
 	}
 	cost_gold = main_building_tier_3_cost
@@ -1614,7 +1602,6 @@ city_03 = {
 		parameter = city_buildings_more_county_opinion
 		county_opinion_add = 15
 	}
-
 
 	province_terrain_modifier = {
 		parameter = maritime_mercantilism_coastal_holdings
@@ -2119,23 +2106,15 @@ city_04 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 7
-			}
+		county_tech_commerce_value >= 7
+			
 		}
 		trigger_else = {
 			culture = {
 				has_cultural_parameter = next_level_cities
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 4
-			}
+		county_tech_commerce_value >= 4
+			
 		}
 	}
 	cost_gold = main_building_tier_4_cost
@@ -2231,7 +2210,6 @@ city_04 = {
 	}
 }
 
-
 ####
 #
 # City Buildings
@@ -2290,12 +2268,8 @@ guild_halls_02 = {
 			limit = {
 				culture = { NOT = { has_cultural_parameter = next_level_guild_halls } }
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 1
-			}
+		county_tech_commerce_value >= 1
+			
 		}
 	}
 
@@ -2338,21 +2312,13 @@ guild_halls_03 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 3
-			}
+		county_tech_commerce_value >= 3
+			
 			has_building_or_higher = city_02
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 1
-			}
+		county_tech_commerce_value >= 1
+			
 			culture = {
 				has_cultural_parameter = next_level_guild_halls
 			}
@@ -2403,22 +2369,14 @@ guild_halls_04 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 3
-			}
+		county_tech_commerce_value >= 3
+			
 			has_building_or_higher = city_02
 
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 1
-			}
+		county_tech_commerce_value >= 1
+			
 			culture = {
 				has_cultural_parameter = next_level_guild_halls
 			}
@@ -2475,12 +2433,8 @@ guild_halls_05 = {
 			has_building_or_higher = city_03
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 3
-			}
+		county_tech_commerce_value >= 3
+			
 			culture = {
 				has_cultural_parameter = next_level_guild_halls
 			}
@@ -2537,12 +2491,8 @@ guild_halls_06 = {
 			has_building_or_higher = city_03
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 3
-			}
+		county_tech_commerce_value >= 3
+			
 			culture = {
 				has_cultural_parameter = next_level_guild_halls
 			}
@@ -2593,21 +2543,13 @@ guild_halls_07 = {
 					}
 				}
 			}
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 7
-			}
+		county_tech_commerce_value >= 7
+			
 			has_building_or_higher = city_04
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 5
-			}
+		county_tech_commerce_value >= 5
+			
 			culture = {
 				has_cultural_parameter = next_level_guild_halls
 			}
@@ -2658,21 +2600,13 @@ guild_halls_08 = {
 					}
 				}
 			}
-		trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 7
-			}
+		county_tech_commerce_value >= 7
+			
 			has_building_or_higher = city_04
 		}
 		trigger_else = {
-			trigger_if = {
-				limit = {
-					county.has_variable = tech_commerce
-				}
-				county.var:tech_commerce >= 5
-			}
+		county_tech_commerce_value >= 5
+			
 			culture = {
 				has_cultural_parameter = next_level_guild_halls
 			}
