@@ -202,7 +202,7 @@ window = {
 					blockoverride "button_close"
 					{
 						onclick = "[HoldingView.Close]"
-						onclick = "[GetScriptedGui('tech_gui_close').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End]"
+						onclick = "[GetScriptedGui('tech_gui_close').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 					}
 				}
 			}
