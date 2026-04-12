@@ -1,0 +1,129 @@
+﻿sovyet_historical_1 = {
+	name = "Vladimir"
+	dynasty = sovyet_Lenin
+	religion = marxism
+	culture = russian
+	trait = education_learning_4
+	trait = diligent
+	trait = just
+	diplomacy = 10
+	martial = 6
+	stewardship = 8
+	intrigue = 8
+	learning = 16
+	1870.4.22 = {
+		birth = yes
+	}
+	1924.1.21 = {
+		death = yes
+	}
+}
+sovyet_historical_2 = {
+	name = "Lev"
+	dynasty = sovyet_Trotsky
+	religion = marxism
+	culture = ashkenazi
+	trait = education_martial_4
+	trait = wrathful
+	trait = cynical
+	1879.11.7 = {
+		birth = yes
+	}
+	1940.8.21 = {
+		death = {
+			death_reason = death_murder
+			killer = sovyet_historical_10
+		}
+	}
+}
+sovyet_historical_3 = {
+	name = "Iosif"
+	dynasty = sovyet_Stalin
+	religion = marxism
+	culture = georgian
+	trait = education_learning_4
+	trait = theologian
+	trait = ambitious
+	trait = vengeful
+	trait = paranoid
+	diplomacy = 7
+	martial = 9
+	stewardship = 11
+	intrigue = 14
+	learning = 13
+	1878.12.18 = { birth = yes }
+	1953.3.5 = { death = yes }
+}
+sovyet_historical_4 = {
+	name = "Georgii"
+	dynasty = sovyet_Malenkov
+	religion = marxism
+	culture = russian # macedonian
+	trait = humble
+	trait = temperate
+	1902.1.8 = { birth = yes }
+	1970.1.1 = { religion = orthodox }
+	1988.1.14 = { death = yes }
+}
+sovyet_historical_5 = {
+	name = "Nikita"
+	dynasty = sovyet_Khrushchev
+	religion = marxism
+	culture = russian # ukrainan
+	trait = education_intrigue_2
+	trait = arbitrary
+	trait = cynical
+	1894.4.15 = { birth = yes }
+	1971.9.11 = { death = yes }
+}
+sovyet_historical_6 = {
+	name = "Leonid"
+	dynasty = sovyet_Brezhnev
+	religion = marxism
+	culture = russian # ukrainan
+	trait = arrogant
+	trait = stubborn
+	1906.12.19 = { birth = yes }
+	1982.11.10 = { death = yes }
+}
+sovyet_historical_7 = {
+	name = "Yuri"
+	dynasty = sovyet_Andropov
+	religion = marxism
+	culture = russian
+	trait = education_stewardship_3
+	1914.6.15 = { birth = yes }
+	1984.2.9 = { death = yes }
+}
+sovyet_historical_8 = {
+	name = "Konstantin"
+	dynasty = sovyet_Chernenko
+	religion = marxism
+	culture = russian
+	1911.9.24 = { birth = yes }
+	1985.3.10 = { death = yes }
+}
+sovyet_historical_9 = {
+	name = "Mikhail"
+	dynasty = sovyet_Gorbachev
+	religion = orthodox
+	culture = russian
+	trait = education_stewardship_1
+	trait = compassionate
+	diplomacy = 3
+	martial = 0
+	stewardship = 0
+	intrigue = 0
+	learning = 0
+	1931.3.2 = { birth = yes }
+	2022.8.30 = { death = yes }
+}
+sovyet_historical_10 = {
+	name = "RamO_n"
+	dynasty = sovyet_Mercader
+	religion = marxism
+	culture = catalan
+	trait = education_intrigue_4
+	1913.2.7 = { birth = yes }
+	1978.10.18 = { death = yes }
+}
