@@ -1585,7 +1585,9 @@ doctrine_imperial_anointment = {
 
 doctrine_monotheist = {
 	icon = "doctrine_monotheist"
-
+	can_pick = {
+		NOT = { has_doctrine = ideology_hostility_doctrine }
+	}
 	piety_cost = {
 		value = faith_doctrine_cost_high
 		if = {
@@ -1606,7 +1608,9 @@ doctrine_monotheist = {
 
 doctrine_polytheist = {
 	icon = "doctrine_polytheist"
-
+	can_pick = {
+		NOT = { has_doctrine = ideology_hostility_doctrine }
+	}
 	piety_cost = {
 		value = faith_doctrine_cost_high
 		if = {
@@ -1624,7 +1628,7 @@ doctrine_polytheist = {
 	}
 }
 doctrine_atheist = {
-	icon = "religious_policy_laicite"
+	icon = "doctrine_atheist"
 	can_pick = {
 		has_doctrine = ideology_hostility_doctrine
 	}
