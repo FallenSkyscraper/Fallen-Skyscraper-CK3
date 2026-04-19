@@ -11,8 +11,20 @@
 	name_order_convention = dynasty_always_first
 	traditions = {
 		tradition_family_entrepreneurship
-		tradition_mystical_ancestors
-		tradition_philosopher_culture
+	}
+	dlc_tradition = {
+		trait = tradition_scholar_officials
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_philosopher_culture
+	}
+	dlc_tradition = {
+		trait = tradition_tgp_art_of_war
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_formation_fighting
+	}
+	dlc_tradition = {
+		trait = tradition_cultural_primacy
+		requires_dlc_flag = all_under_heaven
 	}
 	
 	name_list = name_list_han
@@ -41,9 +53,21 @@ liaoshen = {
 	traditions = {
 		tradition_mystical_ancestors
 		tradition_court_eunuchs
-		tradition_philosopher_culture
 	}
-	
+	dlc_tradition = {
+		trait = tradition_scholar_officials
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_philosopher_culture
+	}
+	dlc_tradition = {
+		trait = tradition_tgp_art_of_war
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_formation_fighting
+	}
+	dlc_tradition = {
+		trait = tradition_cultural_primacy
+		requires_dlc_flag = all_under_heaven
+	}
 	name_list = name_list_han
 	
 	coa_gfx = { chinese_group_coa_gfx }
@@ -68,9 +92,25 @@ jiaoliao = {
 	head_determination = head_determination_domain
 	name_order_convention = dynasty_always_first
 	traditions = {
-		tradition_family_entrepreneurship
-		tradition_mystical_ancestors
 		tradition_court_eunuchs
+	}
+	dlc_tradition = {
+		trait = tradition_scholar_officials
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_philosopher_culture
+	}
+	dlc_tradition = {
+		trait = tradition_tgp_art_of_war
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_formation_fighting
+	}
+	dlc_tradition = {
+		trait = tradition_cultural_primacy
+		requires_dlc_flag = all_under_heaven
+	}
+	dlc_tradition = {
+		trait = tradition_cultivation
+		requires_dlc_flag = all_under_heaven
 	}
 	
 	name_list = name_list_han
@@ -106,7 +146,6 @@ huabei_manchu = {
 		trait = tradition_malleable_invaders
 		requires_dlc_flag = hybridize_culture
 	}
-	
 	name_list = name_list_jurchen
 	
 	coa_gfx = { chinese_group_coa_gfx }

@@ -33,12 +33,12 @@ federal_elective = { #Thing
 							}
 							divide = 2
 						}
-						if = {
-							limit = {
-								NOT = { this.culture_group = root.culture_group }
-							}
-							divide = 2
-						}
+						#if = {
+						#	limit = {
+						#		NOT = { this.culture_group = root.culture_group }
+						#	}
+						#	divide = 2
+						#}
 						min = 1
 					}
 				}

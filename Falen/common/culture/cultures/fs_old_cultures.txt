@@ -13,9 +13,13 @@
 		tradition_family_entrepreneurship
 		tradition_artisans
 		tradition_metal_craftsmanship
-		tradition_mountaineers
 		tradition_warrior_monks
 		tradition_xenophilic
+	}
+	dlc_tradition = {
+		trait = tradition_fortress_mastery
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_mountaineers
 	}
 	name_list = name_list_korean
 	coa_gfx = { chinese_group_coa_gfx }

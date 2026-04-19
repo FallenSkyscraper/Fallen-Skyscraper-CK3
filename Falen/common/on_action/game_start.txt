@@ -70,7 +70,7 @@ on_game_start = {
 				target = title:d_nonsan
 			}
 			hre_elector_list_save_effect = yes
-			hre_margraves_effect = yes
+		#	hre_margraves_effect = yes
 		}
 
 		### CORONATION LOCATION SETUP ###
@@ -1438,107 +1438,6 @@ on_game_start_after_lobby = {
 
 			if = {
 				limit = {
-					title:h_china.holder ?= top_liege
-					this != top_liege
-				}
-				### TGP MERIT AND TREASURY HANDOUT ON GAME START ###
-				if = {
-					limit = {
-						culture = {
-							has_cultural_pillar = heritage_chinese
-						}
-						NOR = {
-							AND = {
-								has_council_position = councillor_court_chaplain
-								NOT = { has_title = title:e_minister_of_rites }
-							}
-							has_trait = devoted
-						}
-						government_has_flag = government_is_celestial
-						is_faith_dominant_gender = yes
-					}
-					save_temporary_scope_as = exam_contender
-					hidden_effect = {
-						assign_completed_exams_based_on_merit_effect = yes
-					}
-					if = {
-						limit = {
-							any_parent = {
-								OR = {
-									has_trait = ambitious
-									has_trait = scholar
-									has_trait = diligent
-									has_trait = confucian_education
-								}
-							}
-							NOR = {
-								has_trait = lazy
-								has_trait = dull
-								has_trait = intellect_bad
-								location.county ?= {
-									development_level <= bad_development_level
-								}
-							}
-						}
-						add_character_flag = passed_child_exam
-					}
-					if = { # We adjust Merit depending on the dynastic cycle phase
-						limit = {
-							situation:dynastic_cycle ?= {
-								situation_current_phase = situation_dynastic_cycle_phase_stability_advancement
-							}
-						}
-						change_merit = {
-							value = merit
-							multiply = 0.1
-						}
-					}
-					if = {
-						limit = {
-							is_ai = no
-							is_governor_or_admin_count = yes
-						}
-						spawn_celestial_governance_contract_effect = yes
-					}
-				}
-				### Examination pass status and initial wave of governor candidates done after game start, in order to include generated families ###
-				every_courtier = {
-					limit = {
-						is_lowborn = no
-						culture = { has_cultural_pillar = heritage_chinese }
-						NOR = {
-							has_council_position = councillor_court_chaplain
-							has_trait = devoted
-						}
-						government_has_flag = government_is_celestial # courtiers have governments, too!
-						is_faith_dominant_gender = yes
-						age >= 30
-						static_group_filter = {
-							group = ai_filter
-							match = 0.5
-						}
-					}
-					hidden_effect = {
-						add_character_flag = passed_provincial_exam
-						add_character_modifier = {
-							modifier = tgp_passed_provincial_exam_modifier
-						}
-						add_character_flag = passed_metropolitan_exam
-						add_character_modifier = {
-							modifier = tgp_passed_metropolitan_exam_modifier
-						}
-						change_merit = {
-							value = county_starting_merit_value
-							add = age
-							add = learning
-						}
-					}
-				}
-				save_scope_as = governor
-			}
-
-			if = {
-				limit = {
 					government_has_flag = government_has_merit
 					title:h_china.holder != top_liege
 				}
@@ -1546,10 +1445,7 @@ on_game_start_after_lobby = {
 				if = {
 					limit = {
 						NOR = {
-							AND = {
-								has_council_position = councillor_court_chaplain
-								NOT = { has_title = title:e_minister_of_rites }
-							}
+							has_council_position = councillor_court_chaplain
 							has_trait = devoted
 						}
 						government_has_flag = government_has_merit
@@ -1672,7 +1568,7 @@ on_game_start_after_lobby = {
 				limit = {
 					OR = {
 						has_cultural_pillar = heritage_mongolic
-						has_cultural_pillar = heritage_ugro_permian
+					#	has_cultural_pillar = heritage_ugro_permian
 					}
 				}
 				add_to_global_variable_list = {
@@ -1680,30 +1576,30 @@ on_game_start_after_lobby = {
 					target = this
 				}
 			}
-			add_to_global_variable_list = {
-				name = fully_landlocked_nomad_cultures
-				target = culture:kipchak
-			}
-			add_to_global_variable_list = {
-				name = fully_landlocked_nomad_cultures
-				target = culture:uyghur
-			}
-			add_to_global_variable_list = {
-				name = fully_landlocked_nomad_cultures
-				target = culture:kirghiz
-			}
-			add_to_global_variable_list = {
-				name = fully_landlocked_nomad_cultures
-				target = culture:tangut
-			}
-			add_to_global_variable_list = {
-				name = fully_landlocked_nomad_cultures
-				target = culture:bashkir
-			}
-			add_to_global_variable_list = {
-				name = fully_landlocked_nomad_cultures
-				target = culture:laktan
-			}
+		#	add_to_global_variable_list = {
+		#		name = fully_landlocked_nomad_cultures
+		#		target = culture:kipchak
+		#	}
+		#	add_to_global_variable_list = {
+		#		name = fully_landlocked_nomad_cultures
+		#		target = culture:uyghur
+		#	}
+		#	add_to_global_variable_list = {
+		#		name = fully_landlocked_nomad_cultures
+		#		target = culture:kirghiz
+		#	}
+		#	add_to_global_variable_list = {
+		#		name = fully_landlocked_nomad_cultures
+		#		target = culture:tangut
+		#	}
+		#	add_to_global_variable_list = {
+		#		name = fully_landlocked_nomad_cultures
+		#		target = culture:bashkir
+		#	}
+		#	add_to_global_variable_list = {
+		#		name = fully_landlocked_nomad_cultures
+		#		target = culture:laktan
+		#	}
 			recalculate_cultural_heads_of_type = herd
 		}
 
@@ -1766,7 +1662,7 @@ on_game_start_after_lobby = {
 	
 		### 867 - MISC ###
 		# Basileios has just murdered Michael III.
-		character:1700 ?= { trigger_event = bookmark.0211 }
+		#character:1700 ?= { trigger_event = bookmark.0211 }
 
 		### GAME RULE: EXTRA ADMINS
 		## We'll be doing some excessive triggers below in a bid to lightly future-proof + error-spam mods less, don't worry about it.
@@ -1850,25 +1746,6 @@ on_game_start_after_lobby = {
 					}
 					add_achievement_global_variable_effect = {
 						VARIABLE = started_ep4_15_humble_beginnings_achievement
-						VALUE = yes
-					}
-				}
-				if = {
-					limit = {
-						has_title = title:k_chrysanthemum_throne
-					}
-					add_achievement_global_variable_effect = {
-						VARIABLE = started_ep4_03_sword_of_japan_achievement
-						VALUE = yes
-					}
-				}
-				if = {
-					limit = {
-						is_landed = no
-						tgp_is_any_minister = no
-					}
-					add_achievement_global_variable_effect = {
-						VARIABLE = started_ep4_05_grand_governor_achievement
 						VALUE = yes
 					}
 				}
@@ -1989,13 +1866,13 @@ on_game_start_after_lobby = {
 		every_player = {
 			trigger_event = startup.1
 		}
-		title:e_donghae.holder = {
+		title:e_donghae.holder ?= {
 			trigger_event = donghae.1
 		}
-		title:e_north_korea.holder = {
+		title:e_north_korea.holder ?= {
 			trigger_event = sun_from_north.1
 		}
-		title:c_hoengseong.holder = {
+		title:c_hoengseong.holder ?= {
 			trigger_event = gw_mgga.1
 		}
 		every_player = {
@@ -2004,7 +1881,7 @@ on_game_start_after_lobby = {
 			}
 			trigger_event = yalu_civil_war.1
 		}
-		title:e_yalu.holder = {
+		title:e_yalu.holder ?= {
 			trigger_event = {
 				id = yalu_civil_war.2
 				days = 7
@@ -2021,7 +1898,7 @@ on_game_start_after_lobby = {
 		### PRESTIGE/PIETY/RENOWN ON START
 		character:1 = { add_prestige = 1500 }
 		character:2 = { add_prestige = 1000 }
-		title:k_gorlos.holder = { add_prestige = 2000 }
+		title:k_gorlos.holder ?= { add_prestige = 2000 }
 
 
 		#Set starting cultural acceptance

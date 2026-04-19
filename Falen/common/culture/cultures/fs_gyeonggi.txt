@@ -125,7 +125,6 @@ seoul = {
 	head_determination = head_determination_domain
 	name_order_convention = dynasty_always_first
 	traditions = {
-		tradition_isolationist
 		tradition_staunch_traditionalists
 		tradition_korean_succession
 		tradition_seoul
@@ -133,6 +132,15 @@ seoul = {
 	dlc_tradition = {
 		trait = tradition_artisans
 		requires_dlc_flag = royal_court
+	}
+	dlc_tradition = {
+		trait = tradition_cultural_primacy
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_isolationist
+	}
+	dlc_tradition = {
+		trait = tradition_fortress_mastery
+		requires_dlc_flag = all_under_heaven
 	}
 	name_list = name_list_korean
 	coa_gfx = { chinese_group_coa_gfx }

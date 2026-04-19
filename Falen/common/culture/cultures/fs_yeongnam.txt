@@ -10,10 +10,23 @@
 	head_determination = head_determination_domain
 	name_order_convention = dynasty_always_first
 	traditions = {
-		tradition_staunch_traditionalists
 		tradition_talchum
 		tradition_mystical_ancestors
 		tradition_strong_kinship
+	}
+	dlc_tradition = {
+		trait = tradition_cultural_primacy
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_isolationist
+	}
+	dlc_tradition = {
+		trait = tradition_scholar_officials
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_philosopher_culture
+	}
+	dlc_tradition = {
+		trait = tradition_sinophilic
+		requires_dlc_flag = all_under_heaven
 	}
 	
 	name_list = name_list_korean
@@ -128,8 +141,9 @@ gyeongju = {
 	traditions = {
 		tradition_legalistic
 		tradition_hwarangdo
-		tradition_zealous_people
+		tradition_religious_patronage
 		tradition_faith_bound
+		tradition_mystical_ancestors
 	}
 	
 	name_list = name_list_korean
@@ -183,11 +197,14 @@ jinju = {
 	head_determination = head_determination_domain
 	name_order_convention = dynasty_always_first
 	traditions = {
-		tradition_ruling_caste
 		tradition_longbow_competitions
 		tradition_fishermen
 	}
-	
+	dlc_tradition = {
+		trait = tradition_stratified_society
+		requires_dlc_flag = all_under_heaven
+		fallback = tradition_ruling_caste
+	}
 	name_list = name_list_korean
 	coa_gfx = { chinese_group_coa_gfx }
 	building_gfx = { chinese_building_gfx }
@@ -243,6 +260,7 @@ pohang = {
 		tradition_metal_craftsmanship
 		tradition_only_the_strong
 		tradition_marine_corps
+		tradition_martial_admiration
 	}
 	
 	dlc_tradition = {
