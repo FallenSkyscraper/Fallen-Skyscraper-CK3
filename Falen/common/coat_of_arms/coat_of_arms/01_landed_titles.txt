@@ -1143,6 +1143,261 @@ c_cheongdo = {
 	}
 }
 
+e_hre = {
+	pattern = "pattern_solid.dds"
+	color1 = "yellow"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_circle.dds"
+		color1 = "black"
+		instance = { position = { 0.42 0.155 } scale = { 0.256 0.256 }  }
+		instance = { position = { 0.58 0.155 } scale = { 0.256 0.256 }  }
+	}
+	colored_emblem = {
+		texture = "ce_circle.dds"
+		color1 = "yellow"
+		instance = { position = { 0.42 0.155 } scale = { 0.24 0.24 }  }
+		instance = { position = { 0.58 0.155 } scale = { 0.24 0.24 }  }
+	}
+	colored_emblem = {
+		texture = "ce_eagle_double.dds"
+		color1 = "black"
+		color2 = "red"
+		color3 = "white"
+		instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
+	}
+}
+
+e_byzantium = {
+	pattern = "pattern_solid.dds"
+	color1 = "red"
+	color2 = "yellow"
+	colored_emblem = {
+		texture = "ce_ordinary_cross_thin.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+	}
+	colored_emblem = {
+		texture = "ce_beta.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.735 0.22 } scale = { 0.55 0.55 }  }
+		instance = { position = { 0.265 0.22 } scale = { -0.55 0.55 }  }
+		instance = { position = { 0.265 0.715 } scale = { -0.45 0.45 }  }
+		instance = { position = { 0.735 0.715 } scale = { 0.45 0.45 }  }
+	}
+}
+h_roman_empire = {
+	pattern = "pattern_solid.dds"
+	color1 = "red"
+	color2 = "yellow"
+
+	colored_emblem = {
+		texture = "ce_crown_small.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.431 0.100 } rotation = 12 scale = { 0.1 0.1 }  }
+		instance = { position = { 0.569 0.100 } rotation = 348 scale = { 0.1 0.1 }  }
+	}
+	colored_emblem = {
+		texture = "ce_eagle_double.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		color3 = "black"
+		instance = { position = { 0.5 0.5 } scale = { 0.9 1.0 }  }
+	}
+	colored_emblem = {
+		texture = "ce_shield_01.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.5 0.432 } scale = { 0.35 0.35 }  }
+	}
+	colored_emblem = {
+		texture = "ce_shield_01.dds"
+		color1 = "red"
+		color2 = "red"
+		instance = { position = { 0.5 0.432 } scale = { 0.33 0.33 }  }
+	}
+	colored_emblem = {
+		texture = "ce_letter_s.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.45 0.34 } scale = { 0.18 0.18 }  }
+	}
+	colored_emblem = {
+		texture = "ce_letter_p.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.55 0.34 } scale = { 0.18 0.18 }  }
+	}
+	colored_emblem = {
+		texture = "ce_letter_q.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.45 0.45 } scale = { 0.18 0.18 }  }
+	}
+	colored_emblem = {
+		texture = "ce_letter_r.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.55 0.45 } scale = { 0.18 0.18 }  }
+	}
+}
+h_eastern_roman_empire = {
+	pattern="pattern_solid.dds"
+	color1=purple
+	color2=yellow
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		texture="ce_letter_p.dds"
+		instance={
+			position={ 0.550000 0.340000 }
+			scale={ 0.180000 0.180000 }
+			depth=2.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		texture="ce_letter_r.dds"
+		instance={
+			position={ 0.550000 0.450000 }
+			scale={ 0.180000 0.180000 }
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		texture="ce_letter_q.dds"
+		instance={
+			position={ 0.450000 0.450000 }
+			scale={ 0.180000 0.180000 }
+			depth=1.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		color3=black
+		texture="ce_eagle_double.dds"
+		instance={
+			scale={ 0.900000 1.000000 }
+			depth=6.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		texture="ce_shield_01.dds"
+		instance={
+			position={ 0.500000 0.432000 }
+			scale={ 0.350000 0.350000 }
+			depth=5.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		texture="ce_crown_small.dds"
+		instance={
+			position={ 0.569000 0.100000 }
+			scale={ 0.100000 0.100000 }
+			depth=7.010000
+			rotation=348
+		}
+
+		instance={
+			position={ 0.431000 0.100000 }
+			scale={ 0.100000 0.100000 }
+			depth=8.010000
+			rotation=12
+		}
+
+	}
+
+	colored_emblem={
+		color1=yellow
+		color2=yellow
+		texture="ce_letter_s.dds"
+		instance={
+			position={ 0.450000 0.340000 }
+			scale={ 0.180000 0.180000 }
+			depth=3.010000
+		}
+
+	}
+
+	colored_emblem={
+		color1=purple
+		color2=red
+		texture="ce_shield_01.dds"
+		instance={
+			position={ 0.500000 0.432000 }
+			scale={ 0.330000 0.330000 }
+			depth=4.010000
+		}
+
+	}
+}
+h_india = {
+	pattern = "pattern_solid.dds"
+	color1 = "green"
+	color2 = "yellow"
+	colored_emblem = {
+		texture = "ce_lion_pillar_india.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		color3 = "black"
+		instance = { position = { 0.5 0.45 } scale = { 0.90 0.80 }  }
+	}
+}
+h_dar_al_islam = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_star_ibadi.dds"
+		color1 = "red"
+		color2 = "red"
+		instance = { scale = { 1.25 1.25 } }
+	}
+	colored_emblem = {
+		texture = "ce_star_ibadi.dds"
+		color1 = "green"
+		color2 = "green"
+		instance = { scale = { 1.1 1.1 } }
+	}
+	colored_emblem = {
+		texture = "ce_star_ibadi.dds"
+		color1 = "black"
+		color2 = "black"
+		instance = { scale = { 0.95 0.95 } }
+	}
+	colored_emblem = {
+		texture = "ce_circle_mask.dds"
+		color1 = "black"
+		color2 = "black"
+		instance = { scale = { 0.3 0.3 } }
+	}
+	colored_emblem = {
+		texture = "ce_arabic_allah.dds"
+		color1 = "white"
+		color2 = "white"
+		instance = { position = { 0.5 0.53 } scale = { 0.6 0.6 } }
+	}
+}
+
 d_color_red = {
 	pattern = "pattern_solid.dds"
 	color1 = "white"
