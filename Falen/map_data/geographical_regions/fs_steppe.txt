@@ -1,4 +1,10 @@
-﻿world_steppe_west = {
+﻿world_steppe = {
+	generate_modifiers = yes
+	regions = {
+		world_steppe_west world_steppe_central world_steppe_east
+	}
+}
+world_steppe_west = {
 	regions = { world_steppe_mongolia }
 }
 world_steppe_central = {

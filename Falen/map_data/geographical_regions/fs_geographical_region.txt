@@ -1,0 +1,388 @@
+﻿
+# world_korea
+# > world_korea_south
+# >> world_gyeonggi_south
+# >> world_gwandong
+# >>> world_gangwon
+# >> world_hoseo
+# >>> world_chungcheong
+# >> world_yeongnam
+# >>> world_gyeongsang_north
+# >>> world_gyeongsang_south
+# >> world_honam
+# >>> world_jeolla_north
+# >>> world_jeolla_south
+# >> world_doseo
+# > world_korea_north
+# >> world_gwanbuk
+# >>> world_hamgyeong_north
+# >>> world_hamgyeong_south
+# >> world_gwanseo
+# >>> world_pyeongan_north
+# >>> world_pyeongan_south
+# >> world_hwanghae
+# >> world_gyeonggi_north
+# world_china
+# world_japan
+# world_steppe
+# > world_steppe_manchuria
+# >>
+# > world_steppe_mongolia
+# > world_steppe_primorye
+# >> world_primorye_pyotr
+# >> world_primorye_khanka
+# >> world_primorye_sikhotealin
+world_steppe_manchuria = {
+	regions = {
+		world_jianzhou world_haixi
+	}
+}
+world_jianzhou = {
+	duchies = {
+		d_tunghua d_jian d_xinbin d_huanren d_baishan d_linzhang d_pussung d_liaoyuan
+	}
+}
+world_haixi = {
+	duchies = {
+		d_zhangchun d_nungan d_jutai d_dehui d_wisu d_jirin d_harbin d_puwi
+	}
+}
+world_steppe_mongolia = {
+	duchies = {
+		# Gorlos
+		d_kangping
+		d_fuxin
+		d_shuangliao
+		d_lisu
+		d_gungjuling
+		d_changling
+		d_omnod_gorlos
+		d_qenan
+		d_tungwi
+		d_taonan
+	}
+}
+world_steppe_primorye = {
+	regions = {
+		world_primorye_pyotr world_primorye_khanka world_primorye_sikhotealin
+	}
+}
+world_primorye_pyotr = {
+	duchies = {
+		d_vladivostokski d_khasanskiy d_partizanski d_lazovsky
+	}
+}
+world_primorye_khanka = {
+	duchies = {
+		d_usuriski d_mikhailrovski d_hololski d_khankayski
+	}
+}
+world_primorye_sikhotealin = {
+	duchies = {
+		d_dalnegorski d_arsenyevskiy d_spasskiy
+	}
+}
+world_liaodong = {
+	duchies = {
+		d_pulandian d_wafangdian d_dalian d_zhuanghe d_faanchian d_xiuyan d_dandung d_fengcheng d_kuandian d_changhai
+	}
+}
+world_liaoyang = {
+	duchies = {
+		d_ingkou d_anshan d_liaoyang d_benxi d_xiaoshi d_suncheong d_shenyang d_liaozhong d_sinmin d_tieling
+	}
+}
+world_liaoxi = {
+	duchies = {
+		d_dawa d_panjin d_taian d_heishan d_beizhen d_yi d_jinjeu
+	}
+}
+world_steppe_yanbian = {
+	duchies = {
+		d_hunchun d_yanji d_antu d_dunhwa
+	}
+}
+world_liao = {
+	regions = {
+		world_liaodong world_liaoyang world_liaoxi
+	}
+}
+
+world_fareast = {
+	regions = {
+		world_steppe_primorye world_steppe_yanbian
+	}
+}
+world_korea_south = {
+	regions = {
+		world_gyeonggi_south world_gangwon_south world_hoseo world_honam world_yeongnam world_doseo
+	}
+}
+
+world_korea_north = {
+	regions = {
+		world_hwanghae world_gwanseo world_gwanbuk world_gyeonggi_north world_gangwon_north
+	}
+}
+
+world_korea = {
+	regions = {
+		world_korea_north world_korea_south
+	}
+}
+
+world_namhae = {
+	duchies = {
+		d_geoje d_tongyeong d_jindo d_wando d_goheung
+	}
+}
+
+world_jeju = {
+	duchies = {
+		d_jeju d_seogwipo d_chuja
+	}
+}
+
+world_jeolla_south = {
+	duchies = {
+		#신안 왕국
+		d_sinan d_mokpo d_jindo
+		#여수 왕국
+		d_yeosu d_suncheon d_gwangyang d_gokseong d_hwasun d_geomun
+		#무안 왕국
+		d_muan d_yeonggwang d_yeongam d_haenam d_naju
+		#고흥 왕국
+		d_goheung d_wando d_boseong d_gangjin d_jangheung
+		#광주 왕국
+		d_gwangju d_damyang
+	}
+}
+
+world_yellow_sea = {
+	duchies = {
+		#개성
+		d_gaeseong 
+		#인천
+		d_incheon d_bupyeong d_ganghwado d_yeongjongdo d_gimpo
+		#해주
+		d_haeju d_ongjin d_taetan d_yeonan d_bongcheon d_west_isles
+	}
+}
+
+world_jeolla_north = {
+	duchies = {
+		#전주 왕국
+		d_jeonju d_jinan d_namwon d_imsil d_sunchang
+		#익산 왕국
+		d_iksan d_gunsan d_gimje d_gochang d_buan d_jeongeup
+	}
+}
+
+world_chungcheong = {
+	duchies = {
+		#충청 왕국
+		d_cheongju d_chungju d_jecheon d_chungseo d_cheongbuk d_boeun
+		#공홍 왕국
+		d_cheonan d_onyang d_seosan d_hongju d_gongju d_boryeong d_seocheon d_buyeo d_nonsan
+		#대전 왕국
+		d_daejeon d_jinsan d_okcheon
+
+	}
+}
+
+world_gyeongsang_south = {
+	duchies = {
+		#포항 왕국
+		d_ulsan
+		#경주 왕국
+		d_miryang d_yangsan
+		#부산 왕국
+		d_busan d_gimhae
+		#창원 왕국
+		d_changwon d_geoje d_tongyeong
+		#가야 왕국
+		d_haman d_hapcheon d_geochang d_sancheong 
+		#진주 왕국
+		d_jinju d_sacheon
+	}
+}
+
+world_gyeongsang_north = {
+	duchies = {
+		#상주 왕국
+		d_sangju d_mungyeong d_gimcheon
+		#대구 왕국
+		d_daegu d_seongju d_chilgok
+		#경주 왕국
+		d_gyeongju d_yeongcheon d_gyeongsan
+		#포항 왕국
+		d_pohang d_uljin
+		#안동 왕국
+		d_andong d_cheongsong d_yeongju d_bonghwa d_uiseong d_gunwi
+	}
+}
+
+world_gangwon = {
+	regions = {
+		world_gangwon_north world_gangwon_south
+	}
+}
+
+world_gangwon_north = {
+	duchies = {
+		#영동 왕국
+		d_tongcheon
+		#철원 왕국
+		d_icheon d_hoeyang d_cheolwon
+	}
+}
+
+world_gangwon_south = {
+	duchies = {
+		#영서 왕국
+		d_yeongwol d_pyeongchang d_chuncheon d_wonju
+		#영동 왕국
+		d_gangneung d_donghae d_sokcho
+		#철원 왕국
+		d_gimhwa d_inje
+	}
+}
+
+world_gyeonggi = {
+	regions = {
+		world_gyeonggi_north world_gyeonggi_south
+	}
+}
+
+world_gyeonggi_north = {
+	duchies = {
+		d_gaeseong d_jangdan
+	}
+}
+
+world_gyeonggi_south = {
+	duchies = {
+		#서울 왕국
+		d_seoul d_mapo d_northeast d_fareast d_gangnam d_yongdungpo
+		#인천 왕국
+		d_incheon d_bupyeong d_ganghwado d_yeongjongdo d_gimpo
+		#개성 왕국
+		d_uijeongbu d_goyang d_pocheon d_yeoncheon d_gapyeong
+		#경기 왕국
+		d_suwon d_seongnam d_ansan d_pyeongtaek d_yongin d_anseong d_yeoju
+	}
+}
+
+world_hwanghae = {
+	duchies = {
+		#해주 왕국
+		d_haeju d_ongjin d_taetan d_yeonan d_bongcheon d_west_isles
+		#황주 왕국
+		d_hwangju d_sariwon d_Insan d_singye d_kumchon d_suan d_holdong
+		#안악 왕국
+		d_songhwa d_jangyeon d_jaeryeong d_anak d_euncheon
+	}
+}
+
+world_pyeongan_south = {
+	duchies = {
+		#묘향 왕국
+		d_maengsan d_songchon
+		#평양 왕국
+		d_pyongyang d_kangdong d_junghwa d_nampho d_kangso d_anju d_sunchon
+	}
+}
+
+world_pyeongan_north = {
+	duchies = {
+		#자성 왕국
+		d_jaseong d_ganggye d_wiwon
+		#의주 왕국
+		d_sinuiju d_cheolsan d_jeongju d_uiju d_guseong d_bakcheon
+		#영변 왕국
+		d_yeongbyeon d_sakju d_huicheon d_byeokdong
+	}
+}
+
+world_hamgyeong_south = {
+	duchies = {
+		#원산 왕국
+		d_wonsan d_jeongpyeong d_yeongheung
+		#함흥 왕국
+		d_hamheung d_bukcheong d_dancheon
+	}
+}
+
+world_hamgyeong_north = {
+	duchies = {
+		#청진 왕국
+		d_cheongjin d_najin d_seongjin
+		#백두 왕국
+		d_sinheung d_gapsan d_samsu d_musan
+	}
+}
+
+world_ulleung = {
+	duchies = {
+		d_ulleung
+	}
+}
+
+world_gwanbuk = {
+	regions = {
+		world_hamgyeong_north world_hamgyeong_south
+	}
+}
+
+world_gwanseo = {
+	regions = {
+		world_pyeongan_north world_pyeongan_south
+	}
+}
+
+world_gwandong = {
+	regions = {
+		world_gangwon
+	}
+}
+
+world_hoseo = {
+	regions = {
+		world_chungcheong
+	}
+}
+
+world_honam = {
+	regions = {
+		world_jeolla_north world_jeolla_south
+	}
+}
+
+world_yeongnam = {
+	regions = {
+		world_gyeongsang_north world_gyeongsang_south
+	}
+}
+
+world_doseo = {
+	regions = {
+		world_jeju world_ulleung
+	}
+}
+
+custom_giho = {
+	duchies = {
+		#공홍 왕국
+		d_cheonan d_onyang d_seosan d_hongju d_gongju d_boryeong d_seocheon d_buyeo d_nonsan
+		#대전 왕국
+		d_daejeon d_jinsan d_okcheon
+		#경기 왕국
+		d_suwon d_seongnam d_ansan d_pyeongtaek d_yongin d_anseong d_yeoju
+	}
+}
+
+custom_grandduke = {
+    duchies = { # 북부 대공령 영토
+        d_seosan d_hongju d_gongju d_boryeong
+    }
+}
