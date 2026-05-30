@@ -1,0 +1,99 @@
+﻿on_game_start_after_lobby = {
+	on_actions = {
+		fs_debugging_on_action
+	}
+}
+fs_debugging_on_action = {
+	trigger = {
+		has_global_variable = is_game_start_date
+	}
+	effect = {
+		## ANDONG
+		title:k_andong = {
+			every_de_jure_county = {
+				set_county_culture = culture:andong
+				set_county_faith = faith:neocon
+			}
+		}
+		## BUSAN
+		title:k_busan = {
+			every_de_jure_county = {
+				set_county_culture = culture:busan
+				set_county_faith = faith:unitizm
+			}
+		}
+		## DAEGU
+		title:k_daegu = {
+			every_de_jure_county = {
+				set_county_culture = culture:daegu
+				set_county_faith = faith:catholic
+			}
+		}
+		## JEJU
+		title:k_jeju = {
+			every_de_jure_county = {
+				set_county_culture = culture:jeju
+				set_county_faith = faith:jeju_pagan
+			}
+		}
+		title:c_chuja = {
+			every_de_jure_county = {
+				set_county_culture = culture:sinan
+				set_county_faith = faith:presbyterianism
+			}
+		}
+		## SINAN
+		title:k_sinan = {
+			every_de_jure_county = {
+				set_county_culture = culture:sinan
+				set_county_faith = faith:presbyterianism
+			}
+		}
+		## PRIMORYE
+		title:k_primorye = {
+			every_de_jure_county = {
+				limit = {
+					holder.culture = culture:pyotr
+				}
+				set_county_culture = culture:pyotr
+				set_county_faith = faith:orthodox
+			}
+			every_de_jure_county = {
+				limit = {
+					holder.culture = culture:khanka
+				}
+				set_county_culture = culture:khanka
+				set_county_faith = faith:marxism
+			}
+			every_de_jure_county = {
+				limit = {
+					holder.culture = culture:sikhotealin
+				}
+				set_county_culture = culture:sikhotealin
+				set_county_faith = faith:rusortho
+			}
+		}
+		## PRK
+		title:k_prk = {
+			every_de_jure_county = {
+				set_county_culture = culture:pyongyang
+				set_county_faith = faith:cheondo
+			}
+		}
+		title:d_anju = {
+			every_de_jure_county = {
+				set_county_culture = culture:anju
+			}
+		}
+		title:d_sunchon = {
+			every_de_jure_county = {
+				set_county_culture = culture:anju
+			}
+		}
+		## ULLEUNG
+		title:c_ulleung = {
+			set_county_culture = culture:ulleung
+			set_county_faith = faith:koreanism
+		}
+	}
+}
