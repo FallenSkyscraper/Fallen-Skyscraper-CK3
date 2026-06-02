@@ -1,47 +1,5 @@
-﻿
-100051 = {
-	name = "일성"
-	dynasty = dynn_Kim_Paektu
-	religion = juche
-	culture = old_korean
-	trait = paektu
-	1912.4.15 = {
-		birth = yes
-	}
-	1994.7.8= {
-		death = yes
-	}
-}
-100052 = {
-	name = "정일"
-	dynasty = dynn_Kim_Paektu
-	religion = juche
-	culture = old_korean
-	father = 100051
-	trait = paektu
-	1942.2.16 = {
-		birth = yes
-	}
-	2011.12.17 = {
-		death = yes
-	}
-}
-100053 = {
-	name = "정은"
-	dynasty = dynn_Kim_Paektu
-	religion = juche
-	culture = old_korean
-	father = 100052
-	trait = paektu
-	1984.1.8 = {
-		birth = yes
-	}
-	2020.1.1 = {
-		death = yes
-	}
-}
-###조선왕조###
-dynn_Yi_Jeonju = {
+﻿###조선왕조###
+100101 = {
 	name = "성계" #태조 이성계
 	dynasty = dynn_Yi_Jeonju
 	religion = confucian
@@ -60,7 +18,7 @@ dynn_Yi_Jeonju = {
 	dynasty = dynn_Yi_Jeonju
 	religion = confucian
 	culture = old_korean
-	father = dynn_Yi_Jeonju
+	father = 100101
 	1357.7.18 = {
 		birth = yes
 	give_nickname = nick_jeongjong
@@ -74,7 +32,7 @@ dynn_Yi_Jeonju = {
 	dynasty = dynn_Yi_Jeonju
 	religion = confucian
 	culture = old_korean
-	father = dynn_Yi_Jeonju
+	father = 100101
 	1367.6.13 = {
 		birth = yes
 	give_nickname = nick_taejong

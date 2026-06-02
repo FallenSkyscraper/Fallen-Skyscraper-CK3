@@ -1,0 +1,444 @@
+﻿kim_jeonju_1 = {
+	name = "송령"
+	dynasty = dynn_Kim_Jeonju
+	religion = confucian
+	culture = old_korean
+	1810.7.29 = {
+		birth = yes
+	}
+	1899.12.14 = {
+		death = yes
+	}
+}
+kim_jeonju_2 = {
+	name = "응우"
+	father = kim_jeonju_1
+	dynasty = dynn_Kim_Jeonju
+	religion = confucian
+	culture = old_korean
+	1848.6.17 = {
+		birth = yes
+	}
+	1878.10.4 = {
+		death = yes
+	}
+}
+kim_jeonju_3 = {
+	name = "보현"
+	father = kim_jeonju_2
+	dynasty = dynn_Kim_Jeonju
+	religion = confucian
+	culture = old_korean
+	1871.10.3 = {
+		birth = yes
+	}
+	1890.1.1 = {
+		add_spouse = kim_jeonju_e
+	}
+	1955.9.2 = {
+		death = yes
+	}
+}
+kim_jeonju_4 = {
+	name = "형직"
+	father = kim_jeonju_3
+	mother = kim_jeonju_e
+	dynasty = dynn_Kim_Jeonju
+	religion = presbyterianism
+	culture = old_korean
+	1894.7.10 = {
+		birth = yes
+	}
+	1911.1.1 = {
+		add_spouse = gang_sincheon_nk_3
+	}
+	1926.6.5 = {
+		death = yes
+	}
+}
+kim_jeonju_5 = {
+	name = "형록"
+	father = kim_jeonju_3
+	mother = kim_jeonju_e
+	dynasty = dynn_Kim_Jeonju
+	religion = juche
+	culture = old_korean
+	1899.1.1 = {
+		birth = yes
+	}
+	1975.1.1 = {
+		death = yes
+	}
+}
+kim_jeonju_6 = {
+	name = "형권"
+	father = kim_jeonju_3
+	mother = kim_jeonju_e
+	dynasty = dynn_Kim_Jeonju
+	religion = presbyterianism
+	culture = old_korean
+	1905.11.4 = {
+		birth = yes
+	}
+	1936.5.5 = {
+		death = yes
+	}
+}
+kim_jeonju_7 = {
+	name = "철주"
+	father = kim_jeonju_4
+	mother = gang_sincheon_nk_3
+	dynasty = dynn_Kim_Jeonju
+	religion = presbyterianism
+	culture = old_korean
+	1916.6.12 = {
+		birth = yes
+	}
+	1935.6.14 = {
+		death = yes
+	}
+}
+kim_jeonju_8 = {
+	name = "영주"
+	father = kim_jeonju_4
+	mother = gang_sincheon_nk_3
+	dynasty = dynn_Kim_Jeonju
+	religion = juche
+	culture = old_korean
+	1920.9.21 = {
+		birth = yes
+	}
+	2021.12.13 = {
+		death = yes
+	}
+}
+kim_jeonju_e = {
+	name = "보익"
+	female = yes
+	dynasty = dynn_Ri_dprk1
+	religion = confucian
+	culture = old_korean
+	1876.5.31 = {
+		birth = yes
+	}
+	1959.10.18 = {
+		death = yes
+	}
+}
+gang_sincheon_nk_1 = {
+	name = "돈욱"
+	dynasty = dynn_Gang_Sincheon
+	religion = presbyterianism
+	culture = old_korean
+	1871.2.3 = {
+		birth = yes
+	}
+	1943.11.14 = {
+		death = yes
+	}
+}
+gang_sincheon_nk_2 = {
+	name = "진석"
+	father = gang_sincheon_nk_1
+	dynasty = dynn_Gang_Sincheon
+	religion = presbyterianism
+	culture = old_korean
+	1890.12.29 = {
+		birth = yes
+	}
+	1942.6.1 = {
+		death = yes
+	}
+}
+gang_sincheon_nk_3 = {
+	name = "반석"
+	female = yes
+	father = gang_sincheon_nk_1
+	dynasty = dynn_Gang_Sincheon
+	religion = presbyterianism
+	culture = old_korean
+	1892.5.7 = {
+		birth = yes
+	}
+	1932.7.31 = {
+		death = yes
+	}
+}
+dprk_1 = {
+	name = "일성"
+	father = kim_jeonju_4
+	mother = gang_sincheon_nk_3
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	1912.4.15 = {
+		birth = yes
+	}
+	1940.1.1 = {
+		add_spouse = dprk_s1
+	}
+	1950.1.1 = {
+		add_spouse = dprk_s2
+	}
+	1994.7.8 = {
+		death = yes
+	}
+}
+dprk_2 = {
+	name = "정일"
+	father = dprk_1
+	mother = dprk_s1
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	1942.2.16 = {
+		birth = yes
+	}
+	2011.12.17 = {
+		death = yes
+	}
+}
+dprk_3 = {
+	name = "만일"
+	father = dprk_1
+	mother = dprk_s1
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	1944.1.1 = {
+		birth = yes
+	}
+	1947.1.1 = {
+		death = yes
+	}
+}
+dprk_4 = {
+	name = "경희"
+	female = yes
+	father = dprk_1
+	mother = dprk_s1
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	1946.5.30 = {
+		birth = yes
+	}
+	2030.1.1 = {
+		death = yes
+	}
+}
+dprk_5 = {
+	name = "평일"
+	father = dprk_1
+	mother = dprk_s2
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	1954.8.10 = {
+		birth = yes
+	}
+	2030.1.1 = {
+		death = yes
+	}
+}
+dprk_6 = {
+	name = "영일"
+	father = dprk_1
+	mother = dprk_s2
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	1955.9.30 = {
+		birth = yes
+	}
+	2000.5.10 = {
+		death = yes
+	}
+}
+dprk_7 = {
+	name = "현"
+	father = dprk_1
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	trait = bastard
+	1971.1.1 = {
+		birth = yes
+	}
+	2030.1.1 = {
+		death = yes
+	}
+}
+dprk_8 = {
+	name = "백연"
+	female = yes
+	father = dprk_1
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	trait = bastard
+	1987.1.1 = {
+		birth = yes
+	}
+	2030.1.1 = {
+		death = yes
+	}
+}
+dprk_9 = {
+	name = "정남"
+	father = dprk_2
+	mother = dprk_s3
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	1971.5.10 = {
+		birth = yes
+	}
+	2017.2.13 = {
+		death = {
+			death_reason = death_murder_known
+			killer = dprk_11
+		}
+	}
+}
+dprk_10 = {
+	name = "정철"
+	father = dprk_2
+	mother = dprk_s5
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	1981.9.25 = {
+		birth = yes
+	}
+	2030.1.1 = {
+		death = yes
+	}
+}
+dprk_11 = {
+	name = "정은"
+	father = dprk_2
+	mother = dprk_s5
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	1984.1.8 = {
+		birth = yes
+	}
+	2010.1.1 = {
+		add_spouse = dprk_s6
+	}
+	2030.1.1 = {
+		death = yes
+	}
+}
+dprk_12 = {
+	name = "여정"
+	female = yes
+	father = dprk_2
+	mother = dprk_s5
+	dynasty = dynn_Kim_Paektu
+	religion = juche
+	culture = old_korean
+	trait = paektu
+	1988.9.26 = {
+		birth = yes
+	}
+	2030.1.1 = {
+		death = yes
+	}
+}
+dprk_s1 = {
+	name = "정숙"
+	female = yes
+	dynasty = dynn_Kim_dprk1
+	religion = juche
+	culture = old_korean
+	1917.12.24 = {
+		birth = yes
+	}
+	1949.9.22 = {
+		death = yes
+	}
+}
+dprk_s2 = {
+	name = "성애"
+	female = yes
+	dynasty = dynn_Kim_dprk2
+	religion = juche
+	culture = old_korean
+	1924.12.29 = {
+		birth = yes
+	}
+	2014.9.5 = {
+		death = yes
+	}
+}
+dprk_s3 = {
+	name = "혜림"
+	female = yes
+	dynasty = dynn_Seong_dprk
+	religion = juche
+	culture = old_korean
+	1937.1.24 = {
+		birth = yes
+	}
+	2002.5.8 = {
+		death = yes
+	}
+}
+dprk_s4 = {
+	name = "성택"
+	dynasty = dynn_Jang_Cheongsong
+	religion = juche
+	culture = old_korean
+	1946.1.22 = {
+		birth = yes
+	}
+	1972.1.1 = {
+		add_spouse = dprk_4
+	}
+	2013.12.12 = {
+		death = {
+			death_reason = death_execution
+			killer = dprk_11
+		}
+	}
+}
+dprk_s5 = {
+	name = "용희"
+	female = yes
+	dynasty = dynn_Go_dprk
+	religion = juche
+	culture = old_korean
+	1952.6.26 = {
+		birth = yes
+	}
+	2004.5.24 = {
+		death = yes
+	}
+}
+dprk_s6 = {
+	name = "설주"
+	female = yes
+	dynasty = dynn_Ri_dprk2
+	religion = juche
+	culture = old_korean
+	1989.9.28 = {
+		birth = yes
+	}
+	2030.1.1 = {
+		death = yes
+	}
+}
