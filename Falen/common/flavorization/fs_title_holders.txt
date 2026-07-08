@@ -149,7 +149,6 @@ shinbokryun_king = {
 	titles = { e_hec }
 	governments = { }
 	priority = 1939
-	flavourization_rules = { top_liege = no }
 }
 shinbokryun_hwanghoo = {
 	type = character
@@ -159,7 +158,6 @@ shinbokryun_hwanghoo = {
 	titles = { e_hec }
 	governments = { }
 	priority = 1936
-	flavourization_rules = { top_liege = no }
 }
 shinbokryun_sun = {
 	type = character
@@ -188,7 +186,9 @@ chairman_male = {
 	tier = empire
 	priority = 301
 	titles = { e_soviet }
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
 }
 chairman_female = {
 	type = character
@@ -197,7 +197,9 @@ chairman_female = {
 	tier = empire
 	priority = 301
 	titles = { e_soviet }
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
 }
 president = {
 	type = character
@@ -207,7 +209,9 @@ president = {
 	titles = { k_prk }
 	priority = 102
 	governments = { secular_republic_government oligarchic_republic_government }
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
 }
 president_female = {
 	type = character
@@ -217,7 +221,9 @@ president_female = {
 	titles = { k_prk }
 	governments = { secular_republic_government oligarchic_republic_government }
 	priority = 102
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
 }
 
 
@@ -347,6 +353,132 @@ empire_nomadic_mongol = {
 	priority = 150
 	governments = { nomad_government }
 	heritages = { heritage_mongolic }
+}
+
+baron_nomadic_male_han = {
+	type = character
+	gender = male
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+baron_nomadic_female_han = {
+	type = character
+	gender = female
+	special = holder
+	tier = barony
+	priority = 8
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+barony_nomadic_han = {
+	type = title
+	tier = barony
+	priority = 8
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+count_nomadic_male_han = {
+	type = character
+	gender = male
+	special = holder
+	tier = county
+	priority = 19
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+count_nomadic_female_han = {
+	type = character
+	gender = female
+	special = holder
+	tier = county
+	priority = 19
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+county_nomadic_han = {
+	type = title
+	tier = county
+	priority = 19
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+duke_nomadic_male_han = {
+	type = character
+	gender = male
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+duke_nomadic_female_han = {
+	type = character
+	gender = female
+	special = holder
+	tier = duchy
+	priority = 29
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+duchy_nomadic_han = {
+	type = title
+	tier = duchy
+	priority = 29
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+king_nomadic_male_han = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	priority = 49
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+king_nomadic_female_han = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	priority = 49
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+kingdom_nomadic_han = {
+	type = title
+	tier = kingdom
+	priority = 49
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+emperor_nomadic_male_han = {
+	type = character
+	gender = male
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+emperor_nomadic_female_han = {
+	type = character
+	gender = female
+	special = holder
+	tier = empire
+	priority = 150
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
+}
+empire_nomadic_han = {
+	type = title
+	tier = empire
+	priority = 150
+	governments = { nomad_government }
+	heritages = { heritage_chinese }
 }
 
 #
@@ -658,143 +790,154 @@ empire_feudal_gwanbuk = {
 #
 
 
-baron_manchu_feudal_male = {
+baron_manchu_male = {
 	type = character
 	gender = male
 	special = holder
 	tier = barony
-	priority = 6
-	flavourization_rules = { top_liege = no }
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	priority = 7
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-baron_feudal_tribal_female = {
+baron_manchu_female = {
 	type = character
 	gender = female
 	special = holder
 	tier = barony
-	priority = 6
-	flavourization_rules = { top_liege = no }
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	priority = 7
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-barony_feudal_tribal = {
+barony_manchu_tribal = {
 	type = title
 	tier = barony
-	flavourization_rules = { top_liege = no }
-	priority = 6
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	priority = 7
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-count_manchu_feudal_male = {
+count_manchu_male = {
 	type = character
 	gender = male
 	special = holder
 	tier = county
-	priority = 16
-	flavourization_rules = { top_liege = no }
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	priority = 17
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-count_manchu_feudal_female = {
+count_manchu_female = {
 	type = character
 	gender = female
 	special = holder
 	tier = county
-	priority = 16
-	flavourization_rules = { top_liege = no }
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	priority = 17
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-county_manchu_feudal = {
+county_manchu = {
 	type = title
 	tier = county
-	flavourization_rules = { top_liege = no }
-	priority = 16
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	priority = 17
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-duke_manchu_feudal_male = {
+duke_manchu_male = {
 	type = character
 	gender = male
 	special = holder
 	tier = duchy
-	priority = 26
-	flavourization_rules = { top_liege = no }
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	priority = 27
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-duke_manchu_feudal_female = {
+duke_manchu_female = {
 	type = character
 	gender = female
 	special = holder
 	tier = duchy
-	priority = 26
-	flavourization_rules = { top_liege = no }
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	priority = 27
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-duchy_manchu_feudal = {
+duchy_manchu = {
 	type = title
 	tier = duchy
-	flavourization_rules = { top_liege = no }
-	priority = 26
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	priority = 27
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-king_manchu_feudal_male = {
+king_manchu_male = {
 	type = character
 	gender = male
 	special = holder
 	tier = kingdom
-	priority = 46
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	priority = 47
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-king_manchu_feudal_female = {
+king_manchu_female = {
 	type = character
 	gender = female
 	special = holder
 	tier = kingdom
-	priority = 46
-	flavourization_rules = { top_liege = no }
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	priority = 47
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-kingdom_manchu_feudal = {
+kingdom_manchu = {
 	type = title
 	tier = kingdom
-	priority = 46
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	priority = 47
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-emperor_manchu_feudal_male = {
+emperor_manchu_male = {
 	type = character
 	gender = male
 	special = holder
 	tier = empire
 	priority = 101
-	flavourization_rules = { top_liege = no }
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-emperor_manchu_feudal_female = {
+emperor_manchu_female = {
 	type = character
 	gender = female
 	special = holder
 	tier = empire
 	priority = 101
-	flavourization_rules = { top_liege = no }
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
-empire_manchu_feudal = {
+empire_manchu = {
 	type = title
 	tier = empire
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
 	priority = 101
-	governments = { feudal_government maritime_government }
-	heritages = { heritage_manchu }
+	heritages = { heritage_manchu heritage_jianzhou heritage_haixi }
 }
 baron_feudal_male_seoul = {
 	type = character
@@ -1056,8 +1199,11 @@ baron_military_male = {
 	gender = male
 	special = holder
 	tier = barony
-	priority = 6
-	flavourization_rules = { top_liege = no }
+	priority = 7
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { military_government }
 }
 baron_military_female = {
@@ -1065,15 +1211,21 @@ baron_military_female = {
 	gender = female
 	special = holder
 	tier = barony
-	priority = 6
-	flavourization_rules = { top_liege = no }
+	priority = 7
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { military_government }
 }
 barony_military = {
 	type = title
 	tier = barony
-	flavourization_rules = { top_liege = no }
-	priority = 6
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 7
 	governments = { military_government }
 }
 count_military_male = {
@@ -1081,8 +1233,11 @@ count_military_male = {
 	gender = male
 	special = holder
 	tier = county
-	priority = 16
-	flavourization_rules = { top_liege = no }
+	priority = 17
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { military_government }
 }
 count_military_female = {
@@ -1090,15 +1245,21 @@ count_military_female = {
 	gender = female
 	special = holder
 	tier = county
-	priority = 16
-	flavourization_rules = { top_liege = no }
+	priority = 17
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { military_government }
 }
 county_military = {
 	type = title
 	tier = county
-	flavourization_rules = { top_liege = no }
-	priority = 16
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 17
 	governments = { military_government }
 }
 duke_military_male = {
@@ -1106,8 +1267,11 @@ duke_military_male = {
 	gender = male
 	special = holder
 	tier = duchy
-	priority = 26
-	flavourization_rules = { top_liege = no }
+	priority = 27
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { military_government }
 }
 duke_military_female = {
@@ -1115,15 +1279,21 @@ duke_military_female = {
 	gender = female
 	special = holder
 	tier = duchy
-	priority = 26
-	flavourization_rules = { top_liege = no }
+	priority = 27
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { military_government }
 }
 duchy_military = {
 	type = title
 	tier = duchy
-	flavourization_rules = { top_liege = no }
-	priority = 26
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 27
 	governments = { military_government }
 }
 king_military_male = {
@@ -1131,8 +1301,11 @@ king_military_male = {
 	gender = male
 	special = holder
 	tier = kingdom
-	priority = 46
-	flavourization_rules = { top_liege = no }
+	priority = 47
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { military_government }
 }
 king_military_female = {
@@ -1140,15 +1313,21 @@ king_military_female = {
 	gender = female
 	special = holder
 	tier = kingdom
-	priority = 46
-	flavourization_rules = { top_liege = no }
+	priority = 47
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { military_government }
 }
 kingdom_military = {
 	type = title
 	tier = kingdom
-	flavourization_rules = { top_liege = no }
-	priority = 46
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 47
 	governments = { military_government }
 }
 emperor_military_male = {
@@ -1157,7 +1336,10 @@ emperor_military_male = {
 	special = holder
 	tier = empire
 	priority = 101
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { military_government }
 }
 emperor_military_female = {
@@ -1166,13 +1348,19 @@ emperor_military_female = {
 	special = holder
 	tier = empire
 	priority = 101
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { military_government }
 }
 empire_military = {
 	type = title
 	tier = empire
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	priority = 101
 	governments = { military_government }
 }
@@ -1182,8 +1370,11 @@ baron_proletarian_male = {
 	gender = male
 	special = holder
 	tier = barony
-	priority = 6
-	flavourization_rules = { top_liege = no }
+	priority = 8
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { proletarian_government }
 }
 baron_proletarian_female = {
@@ -1191,15 +1382,21 @@ baron_proletarian_female = {
 	gender = female
 	special = holder
 	tier = barony
-	priority = 6
-	flavourization_rules = { top_liege = no }
+	priority = 8
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { proletarian_government }
 }
 barony_proletarian = {
 	type = title
 	tier = barony
-	flavourization_rules = { top_liege = no }
-	priority = 6
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 8
 	governments = { proletarian_government }
 }
 count_proletarian_male = {
@@ -1207,8 +1404,11 @@ count_proletarian_male = {
 	gender = male
 	special = holder
 	tier = county
-	priority = 16
-	flavourization_rules = { top_liege = no }
+	priority = 18
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { proletarian_government }
 }
 count_proletarian_female = {
@@ -1216,15 +1416,21 @@ count_proletarian_female = {
 	gender = female
 	special = holder
 	tier = county
-	priority = 16
-	flavourization_rules = { top_liege = no }
+	priority = 18
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { proletarian_government }
 }
 county_proletarian = {
 	type = title
 	tier = county
-	flavourization_rules = { top_liege = no }
-	priority = 16
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 18
 	governments = { proletarian_government }
 }
 duke_proletarian_male = {
@@ -1232,8 +1438,11 @@ duke_proletarian_male = {
 	gender = male
 	special = holder
 	tier = duchy
-	priority = 26
-	flavourization_rules = { top_liege = no }
+	priority = 28
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { proletarian_government }
 }
 duke_proletarian_female = {
@@ -1241,15 +1450,21 @@ duke_proletarian_female = {
 	gender = female
 	special = holder
 	tier = duchy
-	priority = 26
-	flavourization_rules = { top_liege = no }
+	priority = 28
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { proletarian_government }
 }
 duchy_proletarian = {
 	type = title
 	tier = duchy
-	flavourization_rules = { top_liege = no }
-	priority = 26
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 28
 	governments = { proletarian_government }
 }
 king_proletarian_male = {
@@ -1257,8 +1472,11 @@ king_proletarian_male = {
 	gender = male
 	special = holder
 	tier = kingdom
-	priority = 46
-	flavourization_rules = { top_liege = no }
+	priority = 48
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { proletarian_government }
 }
 king_proletarian_female = {
@@ -1266,15 +1484,21 @@ king_proletarian_female = {
 	gender = female
 	special = holder
 	tier = kingdom
-	priority = 46
-	flavourization_rules = { top_liege = no }
+	priority = 48
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { proletarian_government }
 }
 kingdom_proletarian = {
 	type = title
 	tier = kingdom
-	flavourization_rules = { top_liege = no }
-	priority = 46
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 48
 	governments = { proletarian_government }
 }
 emperor_proletarian_male = {
@@ -1283,7 +1507,10 @@ emperor_proletarian_male = {
 	special = holder
 	tier = empire
 	priority = 101
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { proletarian_government }
 }
 emperor_proletarian_female = {
@@ -1292,13 +1519,19 @@ emperor_proletarian_female = {
 	special = holder
 	tier = empire
 	priority = 101
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { proletarian_government }
 }
 empire_proletarian = {
 	type = title
 	tier = empire
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	priority = 101
 	governments = { proletarian_government }
 }
@@ -1309,8 +1542,11 @@ baron_secular_republic_male = {
 	gender = male
 	special = holder
 	tier = barony
-	priority = 6
-	flavourization_rules = { top_liege = no }
+	priority = 7
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { secular_republic_government }
 }
 baron_secular_republic_female = {
@@ -1318,15 +1554,21 @@ baron_secular_republic_female = {
 	gender = female
 	special = holder
 	tier = barony
-	priority = 6
-	flavourization_rules = { top_liege = no }
+	priority = 7
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { secular_republic_government }
 }
 barony_secular_republic = {
 	type = title
 	tier = barony
-	flavourization_rules = { top_liege = no }
-	priority = 6
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 7
 	governments = { secular_republic_government }
 }
 count_secular_republic_male = {
@@ -1334,8 +1576,11 @@ count_secular_republic_male = {
 	gender = male
 	special = holder
 	tier = county
-	priority = 16
-	flavourization_rules = { top_liege = no }
+	priority = 17
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { secular_republic_government }
 }
 count_secular_republic_female = {
@@ -1343,15 +1588,21 @@ count_secular_republic_female = {
 	gender = female
 	special = holder
 	tier = county
-	priority = 16
-	flavourization_rules = { top_liege = no }
+	priority = 17
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { secular_republic_government }
 }
 county_secular_republic = {
 	type = title
 	tier = county
-	flavourization_rules = { top_liege = no }
-	priority = 16
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 17
 	governments = { secular_republic_government }
 }
 duke_secular_republic_male = {
@@ -1359,8 +1610,11 @@ duke_secular_republic_male = {
 	gender = male
 	special = holder
 	tier = duchy
-	priority = 26
-	flavourization_rules = { top_liege = no }
+	priority = 27
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { secular_republic_government }
 }
 duke_secular_republic_female = {
@@ -1368,15 +1622,21 @@ duke_secular_republic_female = {
 	gender = female
 	special = holder
 	tier = duchy
-	priority = 26
-	flavourization_rules = { top_liege = no }
+	priority = 27
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { secular_republic_government }
 }
 duchy_secular_republic = {
 	type = title
 	tier = duchy
-	flavourization_rules = { top_liege = no }
-	priority = 26
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 27
 	governments = { secular_republic_government }
 }
 king_secular_republic_male = {
@@ -1384,8 +1644,11 @@ king_secular_republic_male = {
 	gender = male
 	special = holder
 	tier = kingdom
-	priority = 46
-	flavourization_rules = { top_liege = no }
+	priority = 47
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { secular_republic_government }
 }
 king_secular_republic_female = {
@@ -1393,15 +1656,21 @@ king_secular_republic_female = {
 	gender = female
 	special = holder
 	tier = kingdom
-	priority = 46
-	flavourization_rules = { top_liege = no }
+	priority = 47
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	governments = { secular_republic_government }
 }
 kingdom_secular_republic = {
 	type = title
 	tier = kingdom
-	flavourization_rules = { top_liege = no }
-	priority = 46
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
+	priority = 47
 	governments = { secular_republic_government }
 }
 emperor_secular_republic_male = {
@@ -1410,7 +1679,11 @@ emperor_secular_republic_male = {
 	special = holder
 	tier = empire
 	priority = 101
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+		only_independent = yes
+	}
 	governments = { secular_republic_government }
 }
 emperor_secular_republic_female = {
@@ -1419,13 +1692,20 @@ emperor_secular_republic_female = {
 	special = holder
 	tier = empire
 	priority = 101
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+		only_independent = yes
+	}
 	governments = { secular_republic_government }
 }
 empire_secular_republic = {
 	type = title
 	tier = empire
-	flavourization_rules = { top_liege = no }
+	flavourization_rules = {
+		spouse_takes_title = no
+		top_liege = no
+	}
 	priority = 101
 	governments = { secular_republic_government }
 }
