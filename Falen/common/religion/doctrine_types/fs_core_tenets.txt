@@ -259,7 +259,7 @@ tenet_new_world = { #신천
 	
 	can_pick = {
 		custom_description = {
-			NOT = { doctrine:doctrine_tenet_adaptive = { is_in_list = selected_doctrines } }
+			NOT = { doctrine:tenet_adaptive = { is_in_list = selected_doctrines } }
 		}
 	}
 
@@ -386,15 +386,14 @@ tenet_populism = { #민중주의
 				doctrine:doctrine_spiritual_head = { is_in_list = selected_doctrines }
 				doctrine:doctrine_temporal_head = { is_in_list = selected_doctrines }
 				doctrine:doctrine_theocracy_temporal = { is_in_list = selected_doctrines }
-				doctrine:doctrine_tenet_pentarchy = { is_in_list = selected_doctrines }
-				doctrine:doctrine_tenet_pentarchy_alternative = { is_in_list = selected_doctrines }
-				doctrine:doctrine_tenet_authoritism = { is_in_list = selected_doctrines }
+				doctrine:tenet_pentarchy = { is_in_list = selected_doctrines }
+				doctrine:tenet_authoritarianism = { is_in_list = selected_doctrines }
 			}
 		}
 	}
 	parameters = {
 		hostility_override_tenet_populism = 1
-		hostility_override_tenet_authoritism = 3
+		hostility_override_tenet_authoritarianism = 3
 		
 		unlock_voluntary_laampdom_faith = yes
 	}
@@ -414,7 +413,7 @@ tenet_authoritarianism = {
 	piety_cost = {
 		value = faith_tenet_cost_low
 		if = {
-			limit = { has_doctrine = tenet_authoritism }
+			limit = { has_doctrine = tenet_authoritarianism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -422,7 +421,7 @@ tenet_authoritarianism = {
 		custom_description = {
 			text = "can not select this tenet when there is already populistic doctrine selected"
 			NOR = {
-				doctrine:doctrine_tenet_populism = { is_in_list = selected_doctrines }
+				doctrine:tenet_populism = { is_in_list = selected_doctrines }
 			}
 		}
 	}
