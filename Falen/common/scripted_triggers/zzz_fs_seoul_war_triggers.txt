@@ -1,0 +1,55 @@
+# Limits only AI attackers inside the Seoul realm. Human vassals remain unrestricted.
+fs_ai_seoul_realm_attacker_trigger = {
+	is_ai = yes
+	top_liege = {
+		is_ai = yes
+		has_title = title:k_seoul
+		culture = culture:seoul
+	}
+}
+
+# The cooldown is stored on k_seoul so succession cannot bypass it.
+fs_seoul_ai_offensive_war_allowed_trigger = {
+	trigger_if = {
+		limit = {
+			scope:attacker ?= {
+				fs_ai_seoul_realm_attacker_trigger = yes
+			}
+		}
+		title:k_seoul = {
+			NOT = { has_variable = fs_seoul_expansion_cooldown }
+		}
+	}
+}
+
+# Seoul may still use county-scale holy wars, but not duchy- or kingdom-scale ones.
+fs_seoul_ai_large_holy_war_allowed_trigger = {
+	trigger_if = {
+		limit = {
+			scope:attacker ?= {
+				fs_ai_seoul_realm_attacker_trigger = yes
+			}
+		}
+		always = no
+	}
+}
+
+# Vanilla 1.19 trigger retained, with the Seoul restriction appended. All territorial
+# CB groups already call this trigger, avoiding invasive overrides of every CB group.
+tgp_dynastic_cycle_offensive_wars_ban_trigger = {
+	trigger_if = {
+		limit = {
+			scope:attacker ?= { has_title = title:h_china }
+			exists = situation:dynastic_cycle
+		}
+		custom_tooltip = {
+			text = dynastic_cycle_offensive_wars_ban_tt
+			scope:attacker = {
+				top_participant_group:dynastic_cycle ?= {
+					NOT = { has_participant_group_parameter = dynastic_cycle_offensive_wars_ban }
+				}
+			}
+		}
+	}
+	fs_seoul_ai_offensive_war_allowed_trigger = yes
+}

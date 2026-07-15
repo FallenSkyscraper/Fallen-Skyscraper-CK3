@@ -1,6 +1,24 @@
 ﻿# 이거 전쟁 transfer 될때 버그 발생할텐데 해결법을 모르겠다
 
 on_war_started = {
+	effect = {
+		if = {
+			limit = {
+				scope:attacker ?= {
+					fs_ai_seoul_realm_attacker_trigger = yes
+				}
+				scope:defender.top_liege != scope:attacker.top_liege
+				scope:war = { using_civil_war_cb_trigger = no }
+			}
+			title:k_seoul = {
+				set_variable = {
+					name = fs_seoul_expansion_cooldown
+					value = yes
+					years = 10
+				}
+			}
+		}
+	}
 #	effect = {
 #		scope:attacker = {
 #			if = {
