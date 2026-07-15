@@ -1,31 +1,22 @@
 ﻿#k_daegu 
 ##d_daegu  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_daegu
-
-174={#Daegu
-	culture = american
-	religion = catholic
-	holding = castle_holding
-}
-
-931 = {#Ihyeon
-	holding = city_holding
-}
-928 = { #Dalseo
-	holding = church_holding
-}
-778 = { # 월배
-	holding = none
-}
-### c_suseong
-930={#Suseong
+174 = { # Daegu
 	culture = daegu
 	religion = catholic
 	holding = castle_holding
 }
-929 = {#Daemyeong
-	holding = castle_holding
-	
+931 = { # Dalseo
+	holding = city_holding
+}
+928 = { # Seongseo
+	holding = church_holding
+}
+96 = { # Mutae
+	holding = city_holding
+}
+929 = { # Chilseong(Buk-gu)
+	holding = church_holding
 	2400.1.1 = {
 		special_building_slot = kyungpook_national_university
 	}
@@ -33,43 +24,48 @@
 		special_building = kyungpook_national_university
 	}
 }
-932 = {#Chilgok (Bukgu)
+### c_haean
+933 = { # Dongdaegu
 	culture = daegu
 	religion = catholic
+	holding = castle_holding
+}
+2496 = { # Gongsan
+	holding = church_holding
+}
+94 = { # Ansim(Banyawol)
 	holding = city_holding
 }
-933 = { #Chilseong (Donggu)
-	holding = city_holding
+### c_suseong
+930={#Suseong
+	culture = daegu
+	religion = catholic
+	holding = castle_holding
 }
-2496 = { #팔공산
+175 = {# Gachang
 	holding = church_holding
 }
 ### c_dasa
-927={#Dasa
+927={ # Dasa
 	culture = daegu
 	religion = catholic
 	holding = castle_holding
 }
-
-926 = {#Habin
+926 = { # Habin
 	holding = city_holding
 }
- 
-### c_okpo
-2612={#Okpo
+### c_hwawon
+2613 = { # Hwawon
 	culture = daegu
 	religion = catholic
 	holding = castle_holding
 }
-
-175 = {#Gachang
-	holding = none
-} 
-2613 = {#Hwawon
+2612 = { # Okpo
+	holding = church_holding
+}
+778 = { # Wolbae
 	holding = city_holding
-} 
-  
-  
+}
 ### c_hyeonpung
 2609={# Hyeonpung
 	culture = daegu
@@ -165,3 +161,80 @@
 	holding = none
 } 
   
+##d_chilgok  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
+### c_chilgok
+932 = {#Chilgok (Bukgu)
+	culture = daegu
+	religion = catholic
+	holding = castle_holding
+}
+1142 = {	#Dongmyeong
+	holding = none
+}
+1141 = {	#Gasan
+	holding = none
+}
+
+### c_waegwan
+1138={#Waegwan
+	culture = daegu
+	religion = catholic
+	holding = castle_holding
+}
+
+1140 = {	#Jicheon
+	holding = none
+}
+
+1139 = {	#Seokjeok
+	holding = none
+}
+###c_indong
+
+1136={#Yakmok
+	culture = daegu
+	religion = catholic
+	holding = castle_holding
+}
+
+1135 = {	#Buksam
+	holding = none
+}
+1137 = {	#Gisan
+	holding = none
+}
+## d_gunwi
+###c_gunwi
+1152={#Gunwi
+	culture = andong
+	religion = jogye
+	holding = castle_holding
+}
+
+1151 = {	#Sobo
+	holding = none
+}
+1153 = {	#Hyoryeong
+	holding = none
+}
+
+###c_uiheung
+
+1157={#Uiheung
+	culture = andong
+	religion = jogye
+	holding = castle_holding
+}
+
+1155 = {	#Ubo
+	holding = none
+}
+1156 = {	#Sanseong
+	holding = none
+}
+1154 = {	#Bugye
+	holding = none
+}
+166 = {	#Goro
+	holding = none
+}
