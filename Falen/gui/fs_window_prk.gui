@@ -19,6 +19,8 @@ window = {
 		using = Window_Position_MainTab
 
 		on_start = "[GetVariableSystem.Set( 'right_window_open', 'true' )]"
+		on_start = "[GetScriptedGui('prk_get_president').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		on_start = "[GetScriptedGui('prk_candidate').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 	}
 
 	state = {
@@ -51,17 +53,9 @@ window = {
 			layoutpolicy_horizontal = expanding
 			margin_top = 5
 			margin_bottom = 5
-			state = {
-				name = get_list
-				trigger_on_create = yes
-				duration = 2
-				on_start = "[GetScriptedGui('prk_get_president').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				next = get_list
-			}
-
 			vbox = {
 
-				text_single_big = { text = "현직:" }
+				text_single_big = { text = "PRK_CURRENT_PRESIDENT" }
 				datacontext = "[GetPlayer.MakeScope.Var('prk_president').GetCharacter]"
 				portrait_head = {}
 				text_single = { text = "[Character.GetFirstNameNicknamedNoTooltip]" }
@@ -71,24 +65,17 @@ window = {
 				size = { 58% 100% }
 			}
 			vbox = {
-				text_single_big = { text="다음 선거:"}
-				text_single = { text="[GetGlobalVariable('election_date').GetValue|0].1.1"}
-				text_single = { text = "선거까지" }
-				text_single = { text="[GetGlobalVariable('election_term').GetValue|0]년" }
+				text_single_big = { text = "PRK_NEXT_ELECTION" }
+				text_single = { text = "PRK_ELECTION_DATE" }
+				text_single = { text = "PRK_ELECTION_UNTIL" }
+				text_single = { text = "PRK_ELECTION_COUNTDOWN" }
 			}
 
 		}
-		text_single_large = { text = "후보들" }
+		text_single_large = { text = "PRK_CANDIDATES" }
 		hbox = {
 			using = Window_Margins
-				datamodel = "[GetPlayer.MakeScope.GetList('prk_candidates')]"
-				state = {
-							name = get_list
-							trigger_on_create = yes
-							duration = 2
-							on_start = "[GetScriptedGui('prk_candidate').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-							next = get_list
-						}
+				datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_candidates')]"
 				item = {
 					vbox = {
 						portrait_head_small = {
@@ -114,7 +101,7 @@ window = {
 
 					text_single = {
 						layoutpolicy_horizontal = growing
-						text = "출마"
+						text = "PRK_RUN_CANDIDATE"
 						align = nobaseline
 					}
 				}
@@ -131,7 +118,7 @@ window = {
 
 					text_single = {
 						layoutpolicy_horizontal = growing
-						text = "사퇴"
+						text = "PRK_RESIGN_CANDIDATE"
 						align = nobaseline
 					}
 				}

@@ -9,7 +9,7 @@ window = {
 	using = Window_Background
 	using = Window_Decoration
 	movable = yes
-	visible = "[GetScriptedGui('election_gui_toggle').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+	visible = "[GetScriptedGui('fs_prk_election_gui_toggle').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 	
 	state = {
 		name = _show
@@ -17,7 +17,7 @@ window = {
 		using = Sound_WindowShow_Standard
 		using = Window_Position_MainTab
 		
-		on_start = "[GetScriptedGui('voting1').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		on_start = "[GetScriptedGui('fs_prk_election_candidate_list').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 	}
 	
 	state = {
@@ -25,7 +25,7 @@ window = {
 		using = Animation_FadeOut_Quick
 		using = Sound_WindowHide_Standard
 		using = Window_Position_MainTab_Hide
-	
+		on_start = "[GetScriptedGui('fs_prk_clear_election_candidate_list').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 	}
 	widget = {
 		size = { 100% 100% }
@@ -60,26 +60,18 @@ window = {
 			}
 			text_single_big = {
 				using = Background_Area_Dark
-				text = "나의 표: #P [GetPlayer.MakeScope.Var('voting_power').GetValue|0]#!"
+				text = "PRK_MY_VOTES"
 				
 			}
 			text_single_large = {
 				using = Background_Area_Dark
-				text = "후보들"
+				text = "PRK_CANDIDATES"
 				
 				margin_bottom = -60
 			}
 			hbox = {
 				using = Window_Margins
-				datamodel = "[GetPlayer.MakeScope.GetList('prk_candidates')]"
-				
-				state = {
-					name = get_list
-					trigger_on_create = yes
-					duration = 2
-					on_start = "[GetScriptedGui('prk_candidate').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					next = get_list
-				}
+				datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_election_candidates')]"
 				item = {
 					vbox = {
 						using = Background_Area_Dark
@@ -89,10 +81,10 @@ window = {
 							text = "[Scope.GetCharacter.GetFullNameNicknamedNoTooltip]"
 						}
 						button_standard = {
-							text_single_medium = { text = "#P 투표#!" }
+							text_single_medium = { text = "PRK_VOTE" }
 							size = { 35 25 }
 							using = Background_Area_Light
-							enabled = "[GetScriptedGui('voting').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+							enabled = "[GetScriptedGui('voting').IsValid(GuiScope.SetRoot(Scope.GetCharacter.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
 							onclick = "[GetScriptedGui('voting').Execute(GuiScope.SetRoot(Scope.GetCharacter.MakeScope).AddScope('player',GetPlayer.MakeScope ).End)]"
 						}
 					}
@@ -102,6 +94,7 @@ window = {
 				name = "resign_candidate"
 				size = { 100 25 }
 				datacontext = "[GetScriptedGui('voting_absent')]"
+				enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				hbox = {
 					margin = { 20 0 }
@@ -109,7 +102,7 @@ window = {
 
 					text_single = {
 						layoutpolicy_horizontal = growing
-						text = "기권"
+						text = "PRK_ABSTAIN"
 						align = nobaseline
 					}
 				}

@@ -11,6 +11,7 @@
 	is_shown = {
 		is_ai = yes
 		is_imprisoned = no
+		fs_prk_election_is_idle_trigger = yes
 		OR = {
 			AND = {
 				is_ruler = yes
@@ -23,20 +24,23 @@
 			is_primary_heir_of = title:k_prk
 			has_title = title:k_prk
 		}
-		NOT = { has_variable = candidate }
+		NOT = { has_variable = fs_prk_candidate }
 	}
 	is_valid = {
+		fs_prk_election_is_idle_trigger = yes
 		prestige_level >= 1
 		NOT = {
 			any_living_character = {
-				has_variable = candidate
+				has_variable = fs_prk_candidate
+				fs_prk_valid_election_candidate_trigger = yes
 				count > 8
 			}
 		}
 	}
 	cost = { gold = 60 prestige = 100 }
 	effect = {
-		set_variable = candidate
+		set_variable = fs_prk_candidate
+		fs_prk_refresh_republic_players_candidate_ui_effect = yes
 	}
 	ai_potential = {
 		always = yes
@@ -94,6 +98,7 @@ delay_election_decision = {
 		has_title = title:k_prk
 	}
 	is_valid = {
+		fs_prk_election_is_idle_trigger = yes
 		prestige_level >= 1
 	}
 	cost = { prestige = 400 }

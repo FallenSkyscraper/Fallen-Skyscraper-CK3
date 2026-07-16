@@ -1,0 +1,25 @@
+﻿fs_prk_election_is_idle_trigger = {
+	NOT = { has_global_variable = fs_prk_election_phase }
+}
+
+fs_prk_election_is_voting_trigger = {
+	has_global_variable = fs_prk_election_phase
+	global_var:fs_prk_election_phase = 1
+}
+
+fs_prk_election_is_finalizing_trigger = {
+	has_global_variable = fs_prk_election_phase
+	global_var:fs_prk_election_phase = 2
+}
+
+fs_prk_valid_election_candidate_trigger = {
+	is_alive = yes
+	OR = {
+		has_title = title:k_prk
+		AND = {
+			is_adult = yes
+			is_imprisoned = no
+			top_liege = { has_title = title:k_prk }
+		}
+	}
+}

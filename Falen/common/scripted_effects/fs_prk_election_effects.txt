@@ -1,0 +1,118 @@
+﻿fs_prk_refresh_registered_candidates_ui_effect = {
+	save_temporary_scope_as = fs_prk_ui_owner
+	clear_variable_list = fs_prk_ui_candidates
+	every_living_character = {
+		limit = {
+			has_variable = fs_prk_candidate
+			fs_prk_valid_election_candidate_trigger = yes
+		}
+		scope:fs_prk_ui_owner = {
+			add_to_variable_list = {
+				name = fs_prk_ui_candidates
+				target = prev
+			}
+		}
+	}
+}
+
+fs_prk_refresh_election_candidates_ui_effect = {
+	save_temporary_scope_as = fs_prk_ui_owner
+	clear_variable_list = fs_prk_ui_election_candidates
+	every_in_global_list = {
+		variable = fs_prk_election_candidates
+		limit = { fs_prk_valid_election_candidate_trigger = yes }
+		scope:fs_prk_ui_owner = {
+			add_to_variable_list = {
+				name = fs_prk_ui_election_candidates
+				target = prev
+			}
+		}
+	}
+}
+
+fs_prk_refresh_republic_players_candidate_ui_effect = {
+	every_player = {
+		limit = {
+			OR = {
+				has_title = title:k_prk
+				top_liege = { has_title = title:k_prk }
+			}
+		}
+		fs_prk_refresh_registered_candidates_ui_effect = yes
+	}
+}
+
+fs_prk_try_schedule_election_finalization_effect = {
+	if = {
+		limit = {
+			fs_prk_election_is_voting_trigger = yes
+			global_var:fs_prk_election_pending_player_count <= 0
+		}
+		set_global_variable = { name = fs_prk_election_phase value = 2 }
+		trigger_event = {
+			id = joson_election.3
+			days = 1
+		}
+	}
+}
+
+fs_prk_complete_player_vote_effect = {
+	if = {
+		limit = {
+			fs_prk_election_is_voting_trigger = yes
+			has_variable = fs_prk_election_vote_pending
+		}
+		remove_variable = fs_prk_election_vote_pending
+		remove_variable = fs_prk_election_gui_toggle
+		remove_variable = fs_prk_election_voting_power
+		remove_list_global_variable = {
+			name = fs_prk_election_pending_players
+			target = this
+		}
+		if = {
+			limit = { global_var:fs_prk_election_pending_player_count > 0 }
+			change_global_variable = {
+				name = fs_prk_election_pending_player_count
+				subtract = 1
+			}
+		}
+		else = {
+			set_global_variable = { name = fs_prk_election_pending_player_count value = 0 }
+		}
+		fs_prk_try_schedule_election_finalization_effect = yes
+	}
+}
+
+fs_prk_clear_election_runtime_effect = {
+	every_in_global_list = {
+		variable = fs_prk_election_candidates
+		remove_variable = fs_prk_election_votes
+		remove_variable = fs_prk_election_ai_score
+		remove_variable = fs_prk_election_result_score
+	}
+	every_in_global_list = {
+		variable = fs_prk_election_electors
+		remove_variable = fs_prk_election_voting_power
+		remove_variable = fs_prk_election_vote_pending
+		remove_variable = fs_prk_election_gui_toggle
+		clear_variable_list = fs_prk_ui_election_candidates
+	}
+	every_in_global_list = {
+		variable = fs_prk_election_pending_players
+		remove_variable = fs_prk_election_vote_pending
+		remove_variable = fs_prk_election_gui_toggle
+		remove_variable = fs_prk_election_voting_power
+		clear_variable_list = fs_prk_ui_election_candidates
+	}
+	clear_global_variable_list = fs_prk_election_candidates
+	clear_global_variable_list = fs_prk_election_electors
+	clear_global_variable_list = fs_prk_election_pending_players
+	remove_global_variable = fs_prk_election_pending_player_count
+	remove_global_variable = fs_prk_election_phase
+}
+
+fs_prk_clear_player_election_result_effect = {
+	remove_variable = fs_prk_last_election_winner
+	remove_variable = fs_prk_last_election_winner_votes
+	remove_variable = fs_prk_last_election_year
+}

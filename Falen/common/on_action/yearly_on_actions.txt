@@ -49,6 +49,8 @@ yearly_global_pulse = {
 		if = {
 			limit = {
 				global_var:election_term < 0
+				fs_prk_election_is_idle_trigger = yes
+				exists = title:k_prk.holder
 			}
 			trigger_event = joson_election.1
 		}

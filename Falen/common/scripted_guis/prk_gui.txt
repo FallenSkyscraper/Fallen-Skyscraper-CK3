@@ -1,34 +1,21 @@
 ﻿prk_gui_toggle = {
 	scope = character
-	
-	is_shown = {
-		has_variable = prk_gui_toggle
-	}
-
+	is_shown = { has_variable = prk_gui_toggle }
 	effect = {
 		if = {
-			limit = {
-				has_variable = prk_gui_toggle
-			}
+			limit = { has_variable = prk_gui_toggle }
 			remove_variable = prk_gui_toggle
 		}
-		else = {
-			set_variable = prk_gui_toggle
-		}
+		else = { set_variable = prk_gui_toggle }
 	}
 }
 
 prk_gui_close = {
 	scope = character
-	
-	is_shown = {
-		always = yes
-	}
-
-	effect = {
-		remove_variable = prk_gui_toggle
-	}
+	is_shown = { always = yes }
+	effect = { remove_variable = prk_gui_toggle }
 }
+
 prk_gui_abc = {
 	scope = character
 	is_shown = {
@@ -38,63 +25,50 @@ prk_gui_abc = {
 				top_liege = { has_title = title:k_prk }
 			}
 		}
-		#always = no
 	}
 }
+
 prk_get_president = {
 	scope = character
 	effect = {
 		title:k_prk = {
 			holder = {
 				root = {
-					set_variable = {
-						name = prk_president
-						 value = prev
-					}
+					set_variable = { name = prk_president value = prev }
 				}
 			}
 		}
 	}
 }
+
 prk_candidate = {
 	scope = character
-	effect = {
-		every_living_character = {
-			limit = { has_variable = candidate }
-			root = {
-				add_to_variable_list = {
-					name = prk_candidates
-					target = prev
-				}
-			}
-		}
-	}
+	effect = { fs_prk_refresh_registered_candidates_ui_effect = yes }
 }
+
 prk_clear_list = {
 	scope = character
-	effect = {
-		clear_variable_list = prk_candidates
-	}
+	effect = { clear_variable_list = fs_prk_ui_candidates }
 }
+
 prk_run_candidate = {
 	scope = character
 	is_valid = {
 		root = {
-			NOT = { has_variable = candidate }
+			fs_prk_election_is_idle_trigger = yes
+			fs_prk_valid_election_candidate_trigger = yes
+			NOT = { has_variable = fs_prk_candidate }
 			gold >= 80
 			prestige >= 100
 			prestige_level >= 1
-			OR = {
-				has_title = title:k_prk
-				top_liege = { has_title = title:k_prk }
-			}
 		}
 	}
 	effect = {
 		root = {
-			set_variable = candidate
+			set_variable = fs_prk_candidate
 			remove_short_term_gold = 100
 			add_prestige = -100
+			fs_prk_refresh_republic_players_candidate_ui_effect = yes
 		}
 	}
 }
@@ -102,67 +76,66 @@ prk_run_candidate = {
 prk_resign_candidate = {
 	scope = character
 	is_valid = {
-		root = { has_variable = candidate }
+		root = {
+			fs_prk_election_is_idle_trigger = yes
+			has_variable = fs_prk_candidate
+		}
 	}
 	effect = {
 		root = {
-			remove_variable = candidate
+			remove_variable = fs_prk_candidate
+			fs_prk_refresh_republic_players_candidate_ui_effect = yes
 		}
 	}
 }
-election_gui_toggle = {
+
+fs_prk_election_gui_toggle = {
 	scope = character
-	
 	is_shown = {
-		has_variable = election_gui_toggle
+		fs_prk_election_is_voting_trigger = yes
+		has_variable = fs_prk_election_gui_toggle
+		has_variable = fs_prk_election_vote_pending
 	}
 }
-voting1 = {
+
+fs_prk_election_candidate_list = {
 	scope = character
-	effect = {
-		root = {
-			set_variable = { name = voting_power value = 0 }
-			every_held_title = {
-				limit = {
-					tier = tier_county
-					development_level > 0
-				}
-				prev = {
-					change_variable = { name = voting_power add = prev.development_level }
-				}
-			}
-		}
-	}
+	effect = { fs_prk_refresh_election_candidates_ui_effect = yes }
 }
+
+fs_prk_clear_election_candidate_list = {
+	scope = character
+	effect = { clear_variable_list = fs_prk_ui_election_candidates }
+}
+
 voting = {
 	scope = character
-	is_valid = { always = yes }
-	effect = {
+	is_valid = {
+		fs_prk_election_is_voting_trigger = yes
+		fs_prk_valid_election_candidate_trigger = yes
+		is_target_in_global_variable_list = {
+			name = fs_prk_election_candidates
+			target = root
+		}
 		scope:player = {
-			root = {
-				change_variable = { name = votes add = prev.var:voting_power }
-			}
-			remove_variable = voting_power
-			remove_variable = election_gui_toggle
+			has_variable = fs_prk_election_vote_pending
+			has_variable = fs_prk_election_voting_power
 		}
-		title:k_prk.holder = {
-			trigger_event = {
-				id = joson_election.3
-				days = 1
-			}
+	}
+	effect = {
+		change_variable = {
+			name = fs_prk_election_votes
+			add = scope:player.var:fs_prk_election_voting_power
 		}
+		scope:player = { fs_prk_complete_player_vote_effect = yes }
 	}
 }
+
 voting_absent = {
 	scope = character
-	effect = {
-		remove_variable = election_gui_toggle
-		remove_variable = voting_power
-		title:k_prk.holder = {
-			trigger_event = {
-				id = joson_election.3
-				days = 1
-			}
-		}
+	is_valid = {
+		fs_prk_election_is_voting_trigger = yes
+		has_variable = fs_prk_election_vote_pending
 	}
-} 
+	effect = { fs_prk_complete_player_vote_effect = yes }
+}
