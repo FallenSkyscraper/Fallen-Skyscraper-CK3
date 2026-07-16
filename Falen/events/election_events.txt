@@ -95,60 +95,29 @@ joson_election.1 = {
 				every_in_global_list = {
 					variable = fs_prk_election_candidates
 					limit = { fs_prk_valid_election_candidate_trigger = yes }
-					set_variable = { name = fs_prk_election_ai_score value = 100 }
-					scope:fs_prk_elector = {
-						save_opinion_value_as = {
-							name = fs_prk_election_opinion
-							target = prev
-						}
-					}
-					change_variable = {
-						name = fs_prk_election_ai_score
-						add = scope:fs_prk_election_opinion
-					}
-					if = {
-						limit = {
-							faith = {
-								faith_hostility_level = {
-									target = scope:fs_prk_elector.faith
-									value = 1
-								}
-							}
-						}
-						change_variable = { name = fs_prk_election_ai_score subtract = 10 }
-					}
-					if = {
-						limit = {
-							faith = {
-								faith_hostility_level = {
-									target = scope:fs_prk_elector.faith
-									value = 2
-								}
-							}
-						}
-						change_variable = { name = fs_prk_election_ai_score subtract = 25 }
-					}
-					if = {
-						limit = {
-							faith = {
-								faith_hostility_level = {
-									target = scope:fs_prk_elector.faith
-									value = 3
-								}
-							}
-						}
-						change_variable = { name = fs_prk_election_ai_score subtract = 50 }
-					}
+					fs_prk_calculate_ai_election_score_effect = yes
 				}
 				ordered_in_global_list = {
 					variable = fs_prk_election_candidates
 					limit = { fs_prk_valid_election_candidate_trigger = yes }
 					order_by = var:fs_prk_election_ai_score
 					position = 0
+					save_scope_as = fs_prk_best_ai_candidate
+				}
+				random_in_global_list = {
+					variable = fs_prk_election_candidates
+					limit = {
+						fs_prk_valid_election_candidate_trigger = yes
+						var:fs_prk_election_ai_score = scope:fs_prk_best_ai_candidate.var:fs_prk_election_ai_score
+					}
 					change_variable = {
 						name = fs_prk_election_votes
 						add = { value = scope:fs_prk_elector.var:fs_prk_election_voting_power }
 					}
+				}
+				every_in_global_list = {
+					variable = fs_prk_election_candidates
+					remove_variable = fs_prk_election_ai_score
 				}
 				remove_variable = fs_prk_election_voting_power
 			}

@@ -42,6 +42,198 @@ fs_prk_refresh_republic_players_candidate_ui_effect = {
 	}
 }
 
+# Score the current candidate from the perspective of scope:fs_prk_elector.
+fs_prk_calculate_ai_election_score_effect = {
+	save_temporary_scope_as = fs_prk_scored_candidate
+	set_variable = { name = fs_prk_election_ai_score value = 100 }
+
+	# Personal preference.
+	scope:fs_prk_elector = {
+		save_opinion_value_as = {
+			name = fs_prk_election_opinion
+			target = scope:fs_prk_scored_candidate
+		}
+	}
+	change_variable = {
+		name = fs_prk_election_ai_score
+		add = scope:fs_prk_election_opinion
+	}
+	if = {
+		limit = { this = scope:fs_prk_elector }
+		change_variable = { name = fs_prk_election_ai_score add = 1000 }
+	}
+
+	# Institutional continuity.
+	if = {
+		limit = { has_title = title:k_prk }
+		change_variable = { name = fs_prk_election_ai_score add = 20 }
+	}
+	if = {
+		limit = { is_diarch_of_target = title:k_prk.holder }
+		change_variable = { name = fs_prk_election_ai_score add = 40 }
+	}
+
+	# Strong personal relationships are deliberately reinforced beyond opinion.
+	if = {
+		limit = {
+			OR = {
+				has_relation_best_friend = scope:fs_prk_elector
+				has_relation_soulmate = scope:fs_prk_elector
+			}
+		}
+		change_variable = { name = fs_prk_election_ai_score add = 50 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_relation_friend = scope:fs_prk_elector
+				has_relation_lover = scope:fs_prk_elector
+			}
+		}
+		change_variable = { name = fs_prk_election_ai_score add = 25 }
+	}
+	if = {
+		limit = { has_relation_nemesis = scope:fs_prk_elector }
+		change_variable = { name = fs_prk_election_ai_score subtract = 80 }
+	}
+	else_if = {
+		limit = { has_relation_rival = scope:fs_prk_elector }
+		change_variable = { name = fs_prk_election_ai_score subtract = 40 }
+	}
+	if = {
+		limit = { is_close_family_of = scope:fs_prk_elector }
+		change_variable = { name = fs_prk_election_ai_score add = 20 }
+	}
+	if = {
+		limit = {
+			exists = house
+			scope:fs_prk_elector = { exists = house }
+			house = scope:fs_prk_elector.house
+		}
+		change_variable = { name = fs_prk_election_ai_score add = 10 }
+	}
+
+	# Religious and cultural affinity.
+	if = {
+		limit = { faith = scope:fs_prk_elector.faith }
+		change_variable = { name = fs_prk_election_ai_score add = 15 }
+	}
+	else_if = {
+		limit = {
+			# Hostility is directional: the elector's faith judges the candidate's faith.
+			scope:fs_prk_elector = {
+				faith = {
+					faith_hostility_level = {
+						target = scope:fs_prk_scored_candidate.faith
+						value = 1
+					}
+				}
+			}
+		}
+		change_variable = { name = fs_prk_election_ai_score subtract = 10 }
+	}
+	else_if = {
+		limit = {
+			scope:fs_prk_elector = {
+				faith = {
+					faith_hostility_level = {
+						target = scope:fs_prk_scored_candidate.faith
+						value = 2
+					}
+				}
+			}
+		}
+		change_variable = { name = fs_prk_election_ai_score subtract = 25 }
+	}
+	else_if = {
+		limit = {
+			scope:fs_prk_elector = {
+				faith = {
+					faith_hostility_level = {
+						target = scope:fs_prk_scored_candidate.faith
+						value = 3
+					}
+				}
+			}
+		}
+		change_variable = { name = fs_prk_election_ai_score subtract = 50 }
+	}
+	if = {
+		limit = { has_same_culture_as = scope:fs_prk_elector }
+		change_variable = { name = fs_prk_election_ai_score add = 15 }
+	}
+	else_if = {
+		limit = {
+			culture = {
+				has_same_culture_heritage = scope:fs_prk_elector.culture
+			}
+		}
+		change_variable = { name = fs_prk_election_ai_score add = 5 }
+	}
+
+	# Administrative competence.
+	change_variable = {
+		name = fs_prk_election_ai_score
+		add = diplomacy
+	}
+	change_variable = {
+		name = fs_prk_election_ai_score
+		add = { value = stewardship multiply = 0.75 }
+	}
+	change_variable = {
+		name = fs_prk_election_ai_score
+		add = { value = learning multiply = 0.5 }
+	}
+	change_variable = {
+		name = fs_prk_election_ai_score
+		add = { value = martial multiply = 0.25 }
+	}
+	change_variable = {
+		name = fs_prk_election_ai_score
+		add = { value = intrigue multiply = 0.25 }
+	}
+
+	# Public standing.
+	change_variable = {
+		name = fs_prk_election_ai_score
+		add = { value = legitimacy_level multiply = 8 }
+	}
+	change_variable = {
+		name = fs_prk_election_ai_score
+		add = { value = prestige_level multiply = 4 }
+	}
+
+	# Traits with an obvious bearing on public office.
+	if = {
+		limit = { has_trait = diligent }
+		change_variable = { name = fs_prk_election_ai_score add = 15 }
+	}
+	else_if = {
+		limit = { has_trait = lazy }
+		change_variable = { name = fs_prk_election_ai_score subtract = 15 }
+	}
+	if = {
+		limit = { has_trait = just }
+		change_variable = { name = fs_prk_election_ai_score add = 10 }
+	}
+	else_if = {
+		limit = { has_trait = arbitrary }
+		change_variable = { name = fs_prk_election_ai_score subtract = 10 }
+	}
+	if = {
+		limit = { has_trait = honest }
+		change_variable = { name = fs_prk_election_ai_score add = 5 }
+	}
+	else_if = {
+		limit = { has_trait = deceitful }
+		change_variable = { name = fs_prk_election_ai_score subtract = 5 }
+	}
+	if = {
+		limit = { has_trait = incapable }
+		change_variable = { name = fs_prk_election_ai_score subtract = 100 }
+	}
+}
+
 fs_prk_try_schedule_election_finalization_effect = {
 	if = {
 		limit = {
