@@ -212,9 +212,23 @@
 			# doctrine = 	# 교리 변경이나 추가 가능
 			doctrine = special_doctrine_is_confucian_faith
 			
-			doctrine = tenet_asceticism	# 원리 설정
-			doctrine = tenet_esotericism
-			doctrine = tenet_legalism
+			doctrine_selection_pair = {
+				requires_dlc_flag = all_under_heaven
+				doctrine = tenet_benevolent_governance
+				fallback_doctrine = tenet_legalism
+			}
+			
+			doctrine_selection_pair = {
+				requires_dlc_flag = all_under_heaven
+				doctrine = tenet_filial_piety
+				fallback_doctrine = tenet_communal_identity
+			}
+			
+			doctrine_selection_pair = {
+				requires_dlc_flag = all_under_heaven
+				doctrine = tenet_pursuit_of_knowledge
+				fallback_doctrine = tenet_literalism
+			}
 			
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
@@ -241,9 +255,24 @@
 			# doctrine = 	# 교리 변경이나 추가 가능
 			doctrine = special_doctrine_is_confucian_faith
 			
-			doctrine = tenet_legalism	# 원리 설정
-			doctrine = tenet_mendicant_preachers
-			doctrine = tenet_adaptive
+			# 원리 설정
+			doctrine_selection_pair = {
+				requires_dlc_flag = all_under_heaven
+				doctrine = tenet_benevolent_governance
+				fallback_doctrine = tenet_legalism
+			}
+			
+			doctrine_selection_pair = {
+				requires_dlc_flag = all_under_heaven
+				doctrine = tenet_filial_piety
+				fallback_doctrine = tenet_communal_identity
+			}
+			
+			doctrine_selection_pair = {
+				requires_dlc_flag = all_under_heaven
+				doctrine = tenet_harmonious_society
+				fallback_doctrine = tenet_adaptive
+			}
 			
 			# reserved_male_names = {} # 남성 이름 추가 가능
 			# reserved_female_names = {} # 여성 이름 추가 가능
