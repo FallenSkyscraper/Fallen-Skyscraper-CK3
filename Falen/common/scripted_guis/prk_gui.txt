@@ -55,9 +55,7 @@ prk_run_candidate = {
 	scope = character
 	is_valid = {
 		root = {
-			fs_prk_election_is_idle_trigger = yes
-			fs_prk_valid_election_candidate_trigger = yes
-			NOT = { has_variable = fs_prk_candidate }
+			fs_prk_can_register_election_candidate_trigger = yes
 			gold >= 80
 			prestige >= 100
 			prestige_level >= 1
@@ -65,10 +63,9 @@ prk_run_candidate = {
 	}
 	effect = {
 		root = {
-			set_variable = fs_prk_candidate
 			remove_short_term_gold = 100
 			add_prestige = -100
-			fs_prk_refresh_republic_players_candidate_ui_effect = yes
+			fs_prk_register_election_candidate_effect = yes
 		}
 	}
 }
@@ -83,8 +80,7 @@ prk_resign_candidate = {
 	}
 	effect = {
 		root = {
-			remove_variable = fs_prk_candidate
-			fs_prk_refresh_republic_players_candidate_ui_effect = yes
+			fs_prk_resign_election_candidate_effect = yes
 		}
 	}
 }
@@ -105,7 +101,28 @@ fs_prk_election_candidate_list = {
 
 fs_prk_clear_election_candidate_list = {
 	scope = character
-	effect = { clear_variable_list = fs_prk_ui_election_candidates }
+	effect = {
+		clear_variable_list = fs_prk_ui_election_candidates
+		clear_variable_list = fs_prk_ui_pending_players
+	}
+}
+
+fs_prk_vote_confirmation_candidate = {
+	scope = character
+	is_shown = {
+		fs_prk_election_is_voting_trigger = yes
+		has_variable = fs_prk_election_vote_pending
+		has_variable = fs_prk_pending_vote_candidate
+	}
+}
+
+fs_prk_vote_confirmation_abstention = {
+	scope = character
+	is_shown = {
+		fs_prk_election_is_voting_trigger = yes
+		has_variable = fs_prk_election_vote_pending
+		has_variable = fs_prk_pending_abstention
+	}
 }
 
 voting = {
@@ -120,14 +137,17 @@ voting = {
 		scope:player = {
 			has_variable = fs_prk_election_vote_pending
 			has_variable = fs_prk_election_voting_power
+			NOT = { has_variable = fs_prk_pending_vote_candidate }
+			NOT = { has_variable = fs_prk_pending_abstention }
 		}
 	}
 	effect = {
-		change_variable = {
-			name = fs_prk_election_votes
-			add = scope:player.var:fs_prk_election_voting_power
+		scope:player = {
+			set_variable = {
+				name = fs_prk_pending_vote_candidate
+				value = root
+			}
 		}
-		scope:player = { fs_prk_complete_player_vote_effect = yes }
 	}
 }
 
@@ -136,6 +156,75 @@ voting_absent = {
 	is_valid = {
 		fs_prk_election_is_voting_trigger = yes
 		has_variable = fs_prk_election_vote_pending
+		NOT = { has_variable = fs_prk_pending_vote_candidate }
+		NOT = { has_variable = fs_prk_pending_abstention }
 	}
-	effect = { fs_prk_complete_player_vote_effect = yes }
+	effect = { set_variable = fs_prk_pending_abstention }
+}
+
+fs_prk_confirm_vote = {
+	scope = character
+	is_valid = {
+		root = {
+			fs_prk_election_is_voting_trigger = yes
+			has_variable = fs_prk_election_vote_pending
+			has_variable = fs_prk_election_voting_power
+			has_variable = fs_prk_pending_vote_candidate
+			var:fs_prk_pending_vote_candidate = {
+				fs_prk_valid_election_candidate_trigger = yes
+				is_target_in_global_variable_list = {
+					name = fs_prk_election_candidates
+					target = this
+				}
+			}
+		}
+	}
+	effect = {
+		root = {
+			save_temporary_scope_as = fs_prk_confirming_voter
+			var:fs_prk_pending_vote_candidate = {
+				change_variable = {
+					name = fs_prk_election_votes
+					add = scope:fs_prk_confirming_voter.var:fs_prk_election_voting_power
+				}
+			}
+			remove_variable = fs_prk_pending_vote_candidate
+			fs_prk_complete_player_vote_effect = yes
+		}
+	}
+}
+
+fs_prk_confirm_abstention = {
+	scope = character
+	is_valid = {
+		root = {
+			fs_prk_election_is_voting_trigger = yes
+			has_variable = fs_prk_election_vote_pending
+			has_variable = fs_prk_pending_abstention
+		}
+	}
+	effect = {
+		root = {
+			remove_variable = fs_prk_pending_abstention
+			fs_prk_complete_player_vote_effect = yes
+		}
+	}
+}
+
+fs_prk_cancel_vote_confirmation = {
+	scope = character
+	is_valid = {
+		root = {
+			OR = {
+				has_variable = fs_prk_pending_vote_candidate
+				has_variable = fs_prk_pending_abstention
+			}
+		}
+	}
+	effect = {
+		root = {
+			remove_variable = fs_prk_pending_vote_candidate
+			remove_variable = fs_prk_pending_abstention
+		}
+	}
 }

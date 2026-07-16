@@ -20,6 +20,7 @@ joson_election.1 = {
 			if = {
 				limit = { fs_prk_valid_election_candidate_trigger = yes }
 				set_variable = { name = fs_prk_election_votes value = 0 }
+				set_variable = { name = fs_prk_election_ai_votes value = 0 }
 				add_to_global_variable_list = {
 					name = fs_prk_election_candidates
 					target = this
@@ -43,6 +44,7 @@ joson_election.1 = {
 			title:k_prk.holder = {
 				set_variable = fs_prk_candidate
 				set_variable = { name = fs_prk_election_votes value = 0 }
+				set_variable = { name = fs_prk_election_ai_votes value = 0 }
 				add_to_global_variable_list = {
 					name = fs_prk_election_candidates
 					target = this
@@ -88,6 +90,10 @@ joson_election.1 = {
 					}
 				}
 			}
+			set_variable = {
+				name = fs_prk_election_voting_power_snapshot
+				value = var:fs_prk_election_voting_power
+			}
 
 			if = {
 				limit = { is_ai = yes }
@@ -114,6 +120,10 @@ joson_election.1 = {
 						name = fs_prk_election_votes
 						add = { value = scope:fs_prk_elector.var:fs_prk_election_voting_power }
 					}
+					change_variable = {
+						name = fs_prk_election_ai_votes
+						add = { value = scope:fs_prk_elector.var:fs_prk_election_voting_power }
+					}
 				}
 				every_in_global_list = {
 					variable = fs_prk_election_candidates
@@ -134,6 +144,7 @@ joson_election.1 = {
 				}
 			}
 		}
+		fs_prk_refresh_pending_player_ui_effect = yes
 
 		if = {
 			limit = { global_var:fs_prk_election_pending_player_count > 0 }
@@ -381,12 +392,7 @@ joson_election.4 = {
 	option = {
 		name = joson_election.4.c
 		trigger = {
-			fs_prk_election_is_idle_trigger = yes
-			NOT = { has_variable = fs_prk_candidate }
-			OR = {
-				has_title = title:k_prk
-				top_liege = { has_title = title:k_prk }
-			}
+			fs_prk_can_register_election_candidate_trigger = yes
 			gold >= 80
 			prestige >= 100
 			prestige_level >= 1
@@ -397,10 +403,9 @@ joson_election.4 = {
 				top_liege = { has_title = title:k_prk }
 			}
 		}
-		set_variable = fs_prk_candidate
 		remove_short_term_gold = 100
 		add_prestige = -100
-		fs_prk_refresh_republic_players_candidate_ui_effect = yes
+		fs_prk_register_election_candidate_effect = yes
 		custom_tooltip = joson_election.4.c.tooltip
 		hidden_effect = { fs_prk_clear_player_election_result_effect = yes }
 	}
@@ -417,7 +422,9 @@ joson_election.5 = {
 			remove_variable = fs_prk_election_vote_pending
 			remove_variable = fs_prk_election_gui_toggle
 			remove_variable = fs_prk_election_voting_power
-			clear_variable_list = fs_prk_ui_election_candidates
+			remove_variable = fs_prk_pending_vote_candidate
+			remove_variable = fs_prk_pending_abstention
+			fs_prk_clear_election_ui_effect = yes
 		}
 		clear_global_variable_list = fs_prk_election_pending_players
 		set_global_variable = { name = fs_prk_election_pending_player_count value = 0 }

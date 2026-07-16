@@ -1,6 +1,7 @@
 ﻿fs_prk_refresh_registered_candidates_ui_effect = {
 	save_temporary_scope_as = fs_prk_ui_owner
 	clear_variable_list = fs_prk_ui_candidates
+	clear_variable_list = fs_prk_ui_support_candidates
 	every_living_character = {
 		limit = {
 			has_variable = fs_prk_candidate
@@ -11,13 +12,20 @@
 				name = fs_prk_ui_candidates
 				target = prev
 			}
+			add_to_variable_list = {
+				name = fs_prk_ui_support_candidates
+				target = prev
+			}
 		}
 	}
+	fs_prk_refresh_election_overview_ui_effect = yes
 }
 
 fs_prk_refresh_election_candidates_ui_effect = {
 	save_temporary_scope_as = fs_prk_ui_owner
 	clear_variable_list = fs_prk_ui_election_candidates
+	clear_variable_list = fs_prk_ui_support_candidates
+	clear_variable_list = fs_prk_ui_pending_players
 	every_in_global_list = {
 		variable = fs_prk_election_candidates
 		limit = { fs_prk_valid_election_candidate_trigger = yes }
@@ -26,8 +34,226 @@ fs_prk_refresh_election_candidates_ui_effect = {
 				name = fs_prk_ui_election_candidates
 				target = prev
 			}
+			add_to_variable_list = {
+				name = fs_prk_ui_support_candidates
+				target = prev
+			}
 		}
 	}
+	every_in_global_list = {
+		variable = fs_prk_election_pending_players
+		scope:fs_prk_ui_owner = {
+			add_to_variable_list = {
+				name = fs_prk_ui_pending_players
+				target = prev
+			}
+		}
+	}
+	fs_prk_refresh_election_overview_ui_effect = yes
+}
+
+# Build the public electorate summary and the per-candidate AI support estimate.
+# Exact ties are deterministic in the preview only; the real ballot still
+# randomizes tied AI choices when voting starts.
+fs_prk_refresh_election_overview_ui_effect = {
+	save_temporary_scope_as = fs_prk_ui_owner
+	clear_variable_list = fs_prk_ui_electors
+	set_variable = { name = fs_prk_ui_elector_count value = 0 }
+	set_variable = { name = fs_prk_ui_total_electoral_votes value = 0 }
+	set_variable = { name = fs_prk_ui_human_electoral_votes value = 0 }
+	set_variable = { name = fs_prk_ui_my_electoral_votes value = 0 }
+
+	# During a ballot, show the frozen electorate. Otherwise preview the current realm.
+	if = {
+		limit = {
+			OR = {
+				fs_prk_election_is_voting_trigger = yes
+				fs_prk_election_is_finalizing_trigger = yes
+			}
+		}
+		every_in_global_list = {
+			variable = fs_prk_election_electors
+			save_temporary_scope_as = fs_prk_ui_elector
+			scope:fs_prk_ui_owner = {
+				add_to_variable_list = {
+					name = fs_prk_ui_electors
+					target = scope:fs_prk_ui_elector
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = { exists = title:k_prk.holder }
+		title:k_prk.holder = {
+			every_realm_county = {
+				holder = {
+					save_temporary_scope_as = fs_prk_ui_elector
+					scope:fs_prk_ui_owner = {
+						if = {
+							limit = {
+								NOT = {
+									is_target_in_variable_list = {
+										name = fs_prk_ui_electors
+										target = scope:fs_prk_ui_elector
+									}
+								}
+							}
+							add_to_variable_list = {
+								name = fs_prk_ui_electors
+								target = scope:fs_prk_ui_elector
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Calculate the development-weighted totals used by the election.
+	every_in_list = {
+		list = fs_prk_ui_support_candidates
+		set_variable = { name = fs_prk_ui_expected_ai_votes value = 0 }
+		set_variable = { name = fs_prk_ui_electoral_votes value = 0 }
+	}
+	every_in_list = {
+		list = fs_prk_ui_electors
+		save_temporary_scope_as = fs_prk_ui_elector
+		set_variable = { name = fs_prk_ui_electoral_votes value = 0 }
+		if = {
+			limit = {
+				OR = {
+					fs_prk_election_is_voting_trigger = yes
+					fs_prk_election_is_finalizing_trigger = yes
+				}
+				has_variable = fs_prk_election_voting_power_snapshot
+			}
+			set_variable = {
+				name = fs_prk_ui_electoral_votes
+				value = var:fs_prk_election_voting_power_snapshot
+			}
+		}
+		else = {
+			every_held_title = {
+				limit = {
+					tier = tier_county
+					development_level > 0
+				}
+				scope:fs_prk_ui_elector = {
+					change_variable = {
+						name = fs_prk_ui_electoral_votes
+						add = prev.development_level
+					}
+				}
+			}
+		}
+
+		scope:fs_prk_ui_owner = {
+			change_variable = { name = fs_prk_ui_elector_count add = 1 }
+			change_variable = {
+				name = fs_prk_ui_total_electoral_votes
+				add = scope:fs_prk_ui_elector.var:fs_prk_ui_electoral_votes
+			}
+		}
+		if = {
+			limit = { is_ai = no }
+			scope:fs_prk_ui_owner = {
+				change_variable = {
+					name = fs_prk_ui_human_electoral_votes
+					add = scope:fs_prk_ui_elector.var:fs_prk_ui_electoral_votes
+				}
+			}
+		}
+		if = {
+			limit = { this = scope:fs_prk_ui_owner }
+			scope:fs_prk_ui_owner = {
+				set_variable = {
+					name = fs_prk_ui_my_electoral_votes
+					value = scope:fs_prk_ui_elector.var:fs_prk_ui_electoral_votes
+				}
+			}
+		}
+	}
+
+	# Once voting has started, the AI ballot is frozen and can be shown exactly.
+	if = {
+		limit = {
+			OR = {
+				fs_prk_election_is_voting_trigger = yes
+				fs_prk_election_is_finalizing_trigger = yes
+			}
+		}
+		every_in_list = {
+			list = fs_prk_ui_support_candidates
+			set_variable = {
+				name = fs_prk_ui_expected_ai_votes
+				value = var:fs_prk_election_ai_votes
+			}
+		}
+	}
+	else = {
+		# Preview every AI elector under the same explicit score as the real ballot.
+		every_in_list = {
+			list = fs_prk_ui_electors
+			limit = { is_ai = yes }
+			save_temporary_scope_as = fs_prk_elector
+			scope:fs_prk_ui_owner = {
+				every_in_list = {
+					list = fs_prk_ui_support_candidates
+					fs_prk_calculate_ai_election_score_effect = yes
+				}
+				ordered_in_list = {
+					list = fs_prk_ui_support_candidates
+					order_by = var:fs_prk_election_ai_score
+					position = 0
+					save_temporary_scope_as = fs_prk_ui_expected_candidate
+				}
+			}
+			if = {
+				limit = { exists = scope:fs_prk_ui_expected_candidate }
+				scope:fs_prk_ui_expected_candidate = {
+					change_variable = {
+						name = fs_prk_ui_expected_ai_votes
+						add = scope:fs_prk_elector.var:fs_prk_ui_electoral_votes
+					}
+				}
+			}
+			scope:fs_prk_ui_owner = {
+				every_in_list = {
+					list = fs_prk_ui_support_candidates
+					remove_variable = fs_prk_election_ai_score
+				}
+			}
+		}
+	}
+}
+
+fs_prk_refresh_pending_player_ui_effect = {
+	every_in_global_list = {
+		variable = fs_prk_election_pending_players
+		save_temporary_scope_as = fs_prk_pending_ui_owner
+		clear_variable_list = fs_prk_ui_pending_players
+		every_in_global_list = {
+			variable = fs_prk_election_pending_players
+			scope:fs_prk_pending_ui_owner = {
+				add_to_variable_list = {
+					name = fs_prk_ui_pending_players
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+fs_prk_clear_election_ui_effect = {
+	clear_variable_list = fs_prk_ui_candidates
+	clear_variable_list = fs_prk_ui_election_candidates
+	clear_variable_list = fs_prk_ui_support_candidates
+	clear_variable_list = fs_prk_ui_electors
+	clear_variable_list = fs_prk_ui_pending_players
+	remove_variable = fs_prk_ui_elector_count
+	remove_variable = fs_prk_ui_total_electoral_votes
+	remove_variable = fs_prk_ui_human_electoral_votes
+	remove_variable = fs_prk_ui_my_electoral_votes
 }
 
 fs_prk_refresh_republic_players_candidate_ui_effect = {
@@ -40,6 +266,16 @@ fs_prk_refresh_republic_players_candidate_ui_effect = {
 		}
 		fs_prk_refresh_registered_candidates_ui_effect = yes
 	}
+}
+
+fs_prk_register_election_candidate_effect = {
+	set_variable = fs_prk_candidate
+	fs_prk_refresh_republic_players_candidate_ui_effect = yes
+}
+
+fs_prk_resign_election_candidate_effect = {
+	remove_variable = fs_prk_candidate
+	fs_prk_refresh_republic_players_candidate_ui_effect = yes
 }
 
 # Score the current candidate from the perspective of scope:fs_prk_elector.
@@ -257,6 +493,8 @@ fs_prk_complete_player_vote_effect = {
 		remove_variable = fs_prk_election_vote_pending
 		remove_variable = fs_prk_election_gui_toggle
 		remove_variable = fs_prk_election_voting_power
+		remove_variable = fs_prk_pending_vote_candidate
+		remove_variable = fs_prk_pending_abstention
 		remove_list_global_variable = {
 			name = fs_prk_election_pending_players
 			target = this
@@ -271,6 +509,7 @@ fs_prk_complete_player_vote_effect = {
 		else = {
 			set_global_variable = { name = fs_prk_election_pending_player_count value = 0 }
 		}
+		fs_prk_refresh_pending_player_ui_effect = yes
 		fs_prk_try_schedule_election_finalization_effect = yes
 	}
 }
@@ -279,22 +518,31 @@ fs_prk_clear_election_runtime_effect = {
 	every_in_global_list = {
 		variable = fs_prk_election_candidates
 		remove_variable = fs_prk_election_votes
+		remove_variable = fs_prk_election_ai_votes
 		remove_variable = fs_prk_election_ai_score
 		remove_variable = fs_prk_election_result_score
+		remove_variable = fs_prk_ui_expected_ai_votes
+		remove_variable = fs_prk_ui_electoral_votes
 	}
 	every_in_global_list = {
 		variable = fs_prk_election_electors
 		remove_variable = fs_prk_election_voting_power
+		remove_variable = fs_prk_election_voting_power_snapshot
 		remove_variable = fs_prk_election_vote_pending
 		remove_variable = fs_prk_election_gui_toggle
-		clear_variable_list = fs_prk_ui_election_candidates
+		remove_variable = fs_prk_pending_vote_candidate
+		remove_variable = fs_prk_pending_abstention
+		remove_variable = fs_prk_ui_electoral_votes
+		fs_prk_clear_election_ui_effect = yes
 	}
 	every_in_global_list = {
 		variable = fs_prk_election_pending_players
 		remove_variable = fs_prk_election_vote_pending
 		remove_variable = fs_prk_election_gui_toggle
 		remove_variable = fs_prk_election_voting_power
-		clear_variable_list = fs_prk_ui_election_candidates
+		remove_variable = fs_prk_pending_vote_candidate
+		remove_variable = fs_prk_pending_abstention
+		fs_prk_clear_election_ui_effect = yes
 	}
 	clear_global_variable_list = fs_prk_election_candidates
 	clear_global_variable_list = fs_prk_election_electors

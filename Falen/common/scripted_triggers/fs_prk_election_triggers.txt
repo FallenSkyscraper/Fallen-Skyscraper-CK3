@@ -23,3 +23,29 @@ fs_prk_valid_election_candidate_trigger = {
 		}
 	}
 }
+
+# Eligibility for voluntarily registering as a candidate. This is deliberately
+# stricter than the counting-stage trigger, which always retains the incumbent
+# as a safety fallback.
+fs_prk_can_register_election_candidate_trigger = {
+	fs_prk_election_is_idle_trigger = yes
+	is_alive = yes
+	is_adult = yes
+	is_imprisoned = no
+	OR = {
+		has_title = title:k_prk
+		top_liege = { has_title = title:k_prk }
+	}
+	NOT = { has_variable = fs_prk_candidate }
+}
+
+# The candidate cap exists only to prevent AI candidate proliferation.
+fs_prk_ai_candidate_slot_available_trigger = {
+	NOT = {
+		any_living_character = {
+			has_variable = fs_prk_candidate
+			fs_prk_valid_election_candidate_trigger = yes
+			count >= 9
+		}
+	}
+}

@@ -1,8 +1,8 @@
 window = {
 	name = "election_window"
 	parentanchor = center
-	position = { 50 100 }
-	size = { 1000 400 }
+	position = { 50 50 }
+	size = { 1160 900 }
 	layer = windows_layer
 	filter_mouse = all
 	alwaystransparent = no
@@ -10,16 +10,15 @@ window = {
 	using = Window_Decoration
 	movable = yes
 	visible = "[GetScriptedGui('fs_prk_election_gui_toggle').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-	
+
 	state = {
 		name = _show
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
 		using = Window_Position_MainTab
-		
 		on_start = "[GetScriptedGui('fs_prk_election_candidate_list').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 	}
-	
+
 	state = {
 		name = _hide
 		using = Animation_FadeOut_Quick
@@ -27,6 +26,7 @@ window = {
 		using = Window_Position_MainTab_Hide
 		on_start = "[GetScriptedGui('fs_prk_clear_election_candidate_list').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 	}
+
 	widget = {
 		size = { 100% 100% }
 		using = Window_Margins
@@ -42,70 +42,205 @@ window = {
 		}
 		margin_top = -5
 		margin_bottom = 5
-		
+
 		vbox = {
+			margin = { 12 12 }
+			spacing = 7
+
 			header_standard = {
-				using = Window_Margins
-				margin_bottom = 30
-				layoutpolicy_horizontal = expanding						
-				blockoverride "header_text"
-				{
+				layoutpolicy_horizontal = expanding
+				blockoverride "header_text" {
 					text = "PRK_ELECTION_TITLE"
 					margin = { -10 -10 }
 					parentanchor = center
 				}
-				blockoverride "button_close" {
-					visible = "[Not(GetPlayer.IsValid)]"
-				}
+				blockoverride "button_close" { visible = "[Not(GetPlayer.IsValid)]" }
 			}
-			text_single_big = {
-				using = Background_Area_Dark
-				text = "PRK_MY_VOTES"
-				
-			}
-			text_single_large = {
-				using = Background_Area_Dark
-				text = "PRK_CANDIDATES"
-				
-				margin_bottom = -60
-			}
-			hbox = {
-				using = Window_Margins
-				datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_election_candidates')]"
-				item = {
-					vbox = {
-						using = Background_Area_Dark
-						margin_right = 5
-						portrait_head_small = {datacontext = "[Scope.GetCharacter]"}
-						text_single = {
-							text = "[Scope.GetCharacter.GetFullNameNicknamedNoTooltip]"
-						}
-						button_standard = {
-							text_single_medium = { text = "PRK_VOTE" }
-							size = { 35 25 }
-							using = Background_Area_Light
-							enabled = "[GetScriptedGui('voting').IsValid(GuiScope.SetRoot(Scope.GetCharacter.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
-							onclick = "[GetScriptedGui('voting').Execute(GuiScope.SetRoot(Scope.GetCharacter.MakeScope).AddScope('player',GetPlayer.MakeScope ).End)]"
-						}
-					}
-				}
-			}
-			button_standard = {
-				name = "resign_candidate"
-				size = { 100 25 }
-				datacontext = "[GetScriptedGui('voting_absent')]"
-				enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				hbox = {
-					margin = { 20 0 }
-					margin_right = 10
 
-					text_single = {
-						layoutpolicy_horizontal = growing
-						text = "PRK_ABSTAIN"
-						align = nobaseline
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				minimumsize = { 0 112 }
+				margin = { 10 8 }
+				spacing = 3
+				using = Background_Area_Dark
+				text_single_big = { text = "PRK_MY_VOTES" layoutpolicy_horizontal = expanding }
+				text_single = { text = "PRK_ELECTORATE_SUMMARY" layoutpolicy_horizontal = expanding }
+				text_single = { text = "PRK_PENDING_VOTER_COUNT" layoutpolicy_horizontal = expanding }
+				text_single = {
+					text = "PRK_ELECTION_INSTRUCTIONS"
+					layoutpolicy_horizontal = expanding
+					default_format = "#weak"
+				}
+			}
+
+			text_single_large = { text = "PRK_PENDING_VOTERS" layoutpolicy_horizontal = expanding }
+			scrollarea = {
+				layoutpolicy_horizontal = expanding
+				minimumsize = { 0 122 }
+				scrollbarpolicy_vertical = always_off
+				scrollbarpolicy_horizontal = as_needed
+				scrollbar_horizontal = { using = Scrollbar_Horizontal }
+				scrollwidget = {
+					hbox = {
+						using = Scrollbox_Margins
+						spacing = 7
+						datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_pending_players')]"
+						item = {
+							hbox = {
+								datacontext = "[Scope.GetCharacter]"
+								size = { 210 115 }
+								margin = { 5 4 }
+								spacing = 6
+								using = Background_Area_Dark
+								portrait_head_small = {}
+								text_single = {
+									text = "[Character.GetFullNameNicknamedNoTooltip]"
+									max_width = 145
+									autoresize = yes
+								}
+							}
+						}
 					}
 				}
+			}
+
+			text_single_large = { text = "PRK_CANDIDATES" layoutpolicy_horizontal = expanding }
+			text_single = {
+				text = "PRK_CANDIDATE_LIST_HINT"
+				layoutpolicy_horizontal = expanding
+				default_format = "#weak"
+			}
+			text_single = {
+				visible = "[IsDataModelEmpty(GetPlayer.MakeScope.GetList('fs_prk_ui_election_candidates'))]"
+				text = "PRK_NO_ELECTION_CANDIDATES"
+				layoutpolicy_horizontal = expanding
+				default_format = "#weak"
+			}
+
+			scrollarea = {
+				layoutpolicy_horizontal = expanding
+				minimumsize = { 0 350 }
+				scrollbarpolicy_vertical = always_off
+				scrollbarpolicy_horizontal = as_needed
+				scrollbar_horizontal = { using = Scrollbar_Horizontal }
+				scrollwidget = {
+					hbox = {
+						using = Scrollbox_Margins
+						spacing = 10
+						datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_election_candidates')]"
+						item = {
+							vbox = {
+								datacontext = "[Scope.GetCharacter]"
+								size = { 250 340 }
+								margin = { 10 9 }
+								spacing = 3
+								using = Background_Area_Dark
+								portrait_head_small = {}
+								text_single = {
+									text = "[Character.GetFullNameNicknamedNoTooltip]"
+									max_width = 230
+									autoresize = yes
+								}
+								text_single = { text = "PRK_CANDIDATE_IDENTITY" max_width = 230 autoresize = yes }
+								text_single = { text = "PRK_CANDIDATE_SKILLS" max_width = 230 autoresize = yes }
+								text_single = { text = "PRK_CANDIDATE_STANDING" max_width = 230 autoresize = yes }
+								text_single = { text = "PRK_CANDIDATE_PLAYER_OPINION" max_width = 230 autoresize = yes }
+								text_single = {
+									text = "PRK_EXPECTED_AI_SUPPORT"
+									tooltip = "PRK_EXPECTED_SUPPORT_TOOLTIP"
+									using = tooltip_se
+								}
+								text_single = { text = "PRK_CURRENT_RECORDED_VOTES" }
+								text_single = { text = "PRK_CANDIDATE_ELECTORAL_VOTES" default_format = "#weak" }
+								button_standard = {
+									size = { 115 32 }
+									using = Background_Area_Light
+									enabled = "[GetScriptedGui('voting').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
+									onclick = "[GetScriptedGui('voting').Execute(GuiScope.SetRoot(Character.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
+									tooltip = "PRK_VOTE_TOOLTIP"
+									using = tooltip_se
+									text_single = { text = "PRK_VOTE" align = center|nobaseline parentanchor = center }
+								}
+							}
+						}
+					}
+				}
+			}
+
+			vbox = {
+				visible = "[GetScriptedGui('fs_prk_vote_confirmation_candidate').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				layoutpolicy_horizontal = expanding
+				minimumsize = { 0 78 }
+				margin = { 10 7 }
+				spacing = 4
+				using = Background_Area_Light
+				text_single_big = { text = "PRK_CONFIRM_VOTE_TEXT" layoutpolicy_horizontal = expanding }
+				text_single = { text = "PRK_CONFIRM_SELECTION_WARNING" layoutpolicy_horizontal = expanding }
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					expand = {}
+					button_standard = {
+						size = { 120 30 }
+						datacontext = "[GetScriptedGui('fs_prk_confirm_vote')]"
+						enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						text_single = { text = "PRK_CONFIRM" align = center|nobaseline parentanchor = center }
+					}
+					button_standard = {
+						size = { 120 30 }
+						datacontext = "[GetScriptedGui('fs_prk_cancel_vote_confirmation')]"
+						enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						text_single = { text = "PRK_CANCEL" align = center|nobaseline parentanchor = center }
+					}
+					expand = {}
+				}
+			}
+
+			vbox = {
+				visible = "[GetScriptedGui('fs_prk_vote_confirmation_abstention').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				layoutpolicy_horizontal = expanding
+				minimumsize = { 0 78 }
+				margin = { 10 7 }
+				spacing = 4
+				using = Background_Area_Light
+				text_single_big = { text = "PRK_CONFIRM_ABSTENTION_TEXT" layoutpolicy_horizontal = expanding }
+				text_single = { text = "PRK_CONFIRM_SELECTION_WARNING" layoutpolicy_horizontal = expanding }
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					expand = {}
+					button_standard = {
+						size = { 120 30 }
+						datacontext = "[GetScriptedGui('fs_prk_confirm_abstention')]"
+						enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						text_single = { text = "PRK_CONFIRM" align = center|nobaseline parentanchor = center }
+					}
+					button_standard = {
+						size = { 120 30 }
+						datacontext = "[GetScriptedGui('fs_prk_cancel_vote_confirmation')]"
+						enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						text_single = { text = "PRK_CANCEL" align = center|nobaseline parentanchor = center }
+					}
+					expand = {}
+				}
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				expand = {}
+				button_standard = {
+					name = "abstain_vote"
+					size = { 150 32 }
+					datacontext = "[GetScriptedGui('voting_absent')]"
+					enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					tooltip = "PRK_ABSTAIN_TOOLTIP"
+					using = tooltip_se
+					text_single = { text = "PRK_ABSTAIN" align = center|nobaseline parentanchor = center }
+				}
+				expand = {}
 			}
 		}
 	}

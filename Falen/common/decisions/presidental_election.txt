@@ -27,20 +27,13 @@
 		NOT = { has_variable = fs_prk_candidate }
 	}
 	is_valid = {
-		fs_prk_election_is_idle_trigger = yes
+		fs_prk_can_register_election_candidate_trigger = yes
+		fs_prk_ai_candidate_slot_available_trigger = yes
 		prestige_level >= 1
-		NOT = {
-			any_living_character = {
-				has_variable = fs_prk_candidate
-				fs_prk_valid_election_candidate_trigger = yes
-				count > 8
-			}
-		}
 	}
 	cost = { gold = 60 prestige = 100 }
 	effect = {
-		set_variable = fs_prk_candidate
-		fs_prk_refresh_republic_players_candidate_ui_effect = yes
+		fs_prk_register_election_candidate_effect = yes
 	}
 	ai_potential = {
 		always = yes
