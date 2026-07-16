@@ -13,3 +13,146 @@
 		}
 	}
 }
+
+# Score the current candidate from the perspective of scope:actor.
+fs_prk_calculate_ai_vice_president_score_effect = {
+	save_temporary_scope_as = fs_prk_scored_vice_president
+	set_variable = { name = fs_prk_ai_vice_president_score value = 100 }
+
+	# Mutual trust matters, with the president's preference carrying more weight.
+	scope:actor = {
+		save_opinion_value_as = {
+			name = fs_prk_president_opinion_of_vice_president
+			target = scope:fs_prk_scored_vice_president
+		}
+	}
+	save_opinion_value_as = {
+		name = fs_prk_vice_president_opinion_of_president
+		target = scope:actor
+	}
+	change_variable = {
+		name = fs_prk_ai_vice_president_score
+		add = scope:fs_prk_president_opinion_of_vice_president
+	}
+	change_variable = {
+		name = fs_prk_ai_vice_president_score
+		add = {
+			value = scope:fs_prk_vice_president_opinion_of_president
+			multiply = 0.5
+		}
+	}
+
+	# Preserve an existing succession plan when the candidate is already designated.
+	if = {
+		limit = {
+			scope:actor = {
+				designated_heir ?= scope:fs_prk_scored_vice_president
+			}
+		}
+		change_variable = { name = fs_prk_ai_vice_president_score add = 40 }
+	}
+
+	# Strong personal relationships are deliberately reinforced beyond opinion.
+	if = {
+		limit = {
+			OR = {
+				has_relation_best_friend = scope:actor
+				has_relation_soulmate = scope:actor
+			}
+		}
+		change_variable = { name = fs_prk_ai_vice_president_score add = 40 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_relation_friend = scope:actor
+				has_relation_lover = scope:actor
+			}
+		}
+		change_variable = { name = fs_prk_ai_vice_president_score add = 20 }
+	}
+	if = {
+		limit = { has_relation_nemesis = scope:actor }
+		change_variable = { name = fs_prk_ai_vice_president_score subtract = 100 }
+	}
+	else_if = {
+		limit = { has_relation_rival = scope:actor }
+		change_variable = { name = fs_prk_ai_vice_president_score subtract = 50 }
+	}
+	if = {
+		limit = { is_close_family_of = scope:actor }
+		change_variable = { name = fs_prk_ai_vice_president_score add = 15 }
+	}
+	if = {
+		limit = {
+			exists = house
+			scope:actor = { exists = house }
+			house = scope:actor.house
+		}
+		change_variable = { name = fs_prk_ai_vice_president_score add = 10 }
+	}
+
+	# Shared religion and culture make day-to-day cooperation easier.
+	if = {
+		limit = { faith = scope:actor.faith }
+		change_variable = { name = fs_prk_ai_vice_president_score add = 10 }
+	}
+	if = {
+		limit = { has_same_culture_as = scope:actor }
+		change_variable = { name = fs_prk_ai_vice_president_score add = 10 }
+	}
+	else_if = {
+		limit = {
+			culture = { has_same_culture_heritage = scope:actor.culture }
+		}
+		change_variable = { name = fs_prk_ai_vice_president_score add = 5 }
+	}
+
+	# Administrative and diplomatic competence are the core qualifications.
+	change_variable = {
+		name = fs_prk_ai_vice_president_score
+		add = diplomacy
+	}
+	change_variable = {
+		name = fs_prk_ai_vice_president_score
+		add = stewardship
+	}
+	change_variable = {
+		name = fs_prk_ai_vice_president_score
+		add = { value = martial multiply = 0.5 }
+	}
+	change_variable = {
+		name = fs_prk_ai_vice_president_score
+		add = { value = learning multiply = 0.5 }
+	}
+	change_variable = {
+		name = fs_prk_ai_vice_president_score
+		add = { value = intrigue multiply = 0.25 }
+	}
+
+	# Traits with an obvious bearing on public office.
+	if = {
+		limit = { has_trait = diligent }
+		change_variable = { name = fs_prk_ai_vice_president_score add = 15 }
+	}
+	else_if = {
+		limit = { has_trait = lazy }
+		change_variable = { name = fs_prk_ai_vice_president_score subtract = 15 }
+	}
+	if = {
+		limit = { has_trait = just }
+		change_variable = { name = fs_prk_ai_vice_president_score add = 10 }
+	}
+	else_if = {
+		limit = { has_trait = arbitrary }
+		change_variable = { name = fs_prk_ai_vice_president_score subtract = 10 }
+	}
+	if = {
+		limit = { has_trait = honest }
+		change_variable = { name = fs_prk_ai_vice_president_score add = 5 }
+	}
+	else_if = {
+		limit = { has_trait = deceitful }
+		change_variable = { name = fs_prk_ai_vice_president_score subtract = 5 }
+	}
+}
