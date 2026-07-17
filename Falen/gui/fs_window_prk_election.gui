@@ -1,8 +1,8 @@
 window = {
 	name = "election_window"
 	parentanchor = center
-	position = { 50 50 }
-	size = { 1160 900 }
+	position = { 50 30 }
+	size = { 1160 740 }
 	layer = windows_layer
 	filter_mouse = all
 	alwaystransparent = no
@@ -44,14 +44,13 @@ window = {
 		margin_bottom = 5
 
 		vbox = {
-			margin = { 12 12 }
-			spacing = 7
+			margin = { 14 12 }
+			spacing = 6
 
 			header_standard = {
 				layoutpolicy_horizontal = expanding
 				blockoverride "header_text" {
 					text = "PRK_ELECTION_TITLE"
-					margin = { -10 -10 }
 					parentanchor = center
 				}
 				blockoverride "button_close" { visible = "[Not(GetPlayer.IsValid)]" }
@@ -60,7 +59,7 @@ window = {
 			vbox = {
 				layoutpolicy_horizontal = expanding
 				minimumsize = { 0 112 }
-				margin = { 10 8 }
+				margin = { 12 8 }
 				spacing = 3
 				using = Background_Area_Dark
 				text_single_big = { text = "PRK_MY_VOTES" layoutpolicy_horizontal = expanding }
@@ -73,32 +72,33 @@ window = {
 				}
 			}
 
-			text_single_large = { text = "PRK_PENDING_VOTERS" layoutpolicy_horizontal = expanding }
-			scrollarea = {
+			hbox = {
 				layoutpolicy_horizontal = expanding
-				minimumsize = { 0 122 }
-				scrollbarpolicy_vertical = always_off
-				scrollbarpolicy_horizontal = as_needed
-				scrollbar_horizontal = { using = Scrollbar_Horizontal }
-				scrollwidget = {
-					hbox = {
-						using = Scrollbox_Margins
-						spacing = 7
-						datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_pending_players')]"
-						item = {
-							hbox = {
-								datacontext = "[Scope.GetCharacter]"
-								size = { 210 115 }
-								margin = { 5 4 }
-								spacing = 6
-								using = Background_Area_Dark
-								portrait_head_small = {}
+				minimumsize = { 0 48 }
+				spacing = 8
+				text_single_large = { text = "PRK_PENDING_VOTERS" }
+				scrollarea = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = { 0 42 }
+					scrollbarpolicy_vertical = always_off
+					scrollbarpolicy_horizontal = as_needed
+					scrollbar_horizontal = { using = Scrollbar_Horizontal }
+					scrollwidget = {
+						hbox = {
+							using = Scrollbox_Margins
+							spacing = 7
+							datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_pending_players')]"
+							item = {
 								text_single = {
+									datacontext = "[Scope.GetCharacter]"
+									size = { 190 32 }
+									using = Background_Area_Dark
 									text = "[Character.GetFullNameNicknamedNoTooltip]"
-									max_width = 145
+									max_width = 180
 									autoresize = yes
 								}
 							}
+							expand = {}
 						}
 					}
 				}
@@ -119,7 +119,7 @@ window = {
 
 			scrollarea = {
 				layoutpolicy_horizontal = expanding
-				minimumsize = { 0 350 }
+				minimumsize = { 0 250 }
 				scrollbarpolicy_vertical = always_off
 				scrollbarpolicy_horizontal = as_needed
 				scrollbar_horizontal = { using = Scrollbar_Horizontal }
@@ -131,20 +131,22 @@ window = {
 						item = {
 							vbox = {
 								datacontext = "[Scope.GetCharacter]"
-								size = { 250 340 }
-								margin = { 10 9 }
+								size = { 450 230 }
+								margin = { 10 8 }
 								spacing = 3
 								using = Background_Area_Dark
-								portrait_head_small = {}
-								text_single = {
-									text = "[Character.GetFullNameNicknamedNoTooltip]"
-									max_width = 230
-									autoresize = yes
+								hbox = {
+									minimumsize = { 0 95 }
+									spacing = 8
+									portrait_head_small = {}
+									vbox = {
+										text_single = { text = "[Character.GetFullNameNicknamedNoTooltip]" max_width = 325 autoresize = yes }
+										text_single = { text = "PRK_CANDIDATE_IDENTITY" max_width = 325 autoresize = yes }
+										text_single = { text = "PRK_CANDIDATE_SKILLS" max_width = 325 autoresize = yes }
+										text_single = { text = "PRK_CANDIDATE_STANDING" max_width = 325 autoresize = yes }
+										text_single = { text = "PRK_CANDIDATE_PLAYER_OPINION" max_width = 325 autoresize = yes }
+									}
 								}
-								text_single = { text = "PRK_CANDIDATE_IDENTITY" max_width = 230 autoresize = yes }
-								text_single = { text = "PRK_CANDIDATE_SKILLS" max_width = 230 autoresize = yes }
-								text_single = { text = "PRK_CANDIDATE_STANDING" max_width = 230 autoresize = yes }
-								text_single = { text = "PRK_CANDIDATE_PLAYER_OPINION" max_width = 230 autoresize = yes }
 								text_single = {
 									text = "PRK_EXPECTED_AI_SUPPORT"
 									tooltip = "PRK_EXPECTED_SUPPORT_TOOLTIP"
@@ -163,6 +165,7 @@ window = {
 								}
 							}
 						}
+						expand = {}
 					}
 				}
 			}
@@ -229,6 +232,7 @@ window = {
 
 			hbox = {
 				layoutpolicy_horizontal = expanding
+				minimumsize = { 0 36 }
 				expand = {}
 				button_standard = {
 					name = "abstain_vote"

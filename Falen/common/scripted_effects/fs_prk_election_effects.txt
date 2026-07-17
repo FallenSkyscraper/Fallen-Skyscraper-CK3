@@ -1,7 +1,6 @@
 ﻿fs_prk_refresh_registered_candidates_ui_effect = {
 	save_temporary_scope_as = fs_prk_ui_owner
 	clear_variable_list = fs_prk_ui_candidates
-	clear_variable_list = fs_prk_ui_support_candidates
 	every_living_character = {
 		limit = {
 			has_variable = fs_prk_candidate
@@ -12,10 +11,6 @@
 				name = fs_prk_ui_candidates
 				target = prev
 			}
-			add_to_variable_list = {
-				name = fs_prk_ui_support_candidates
-				target = prev
-			}
 		}
 	}
 	fs_prk_refresh_election_overview_ui_effect = yes
@@ -24,7 +19,6 @@
 fs_prk_refresh_election_candidates_ui_effect = {
 	save_temporary_scope_as = fs_prk_ui_owner
 	clear_variable_list = fs_prk_ui_election_candidates
-	clear_variable_list = fs_prk_ui_support_candidates
 	clear_variable_list = fs_prk_ui_pending_players
 	every_in_global_list = {
 		variable = fs_prk_election_candidates
@@ -32,10 +26,6 @@ fs_prk_refresh_election_candidates_ui_effect = {
 		scope:fs_prk_ui_owner = {
 			add_to_variable_list = {
 				name = fs_prk_ui_election_candidates
-				target = prev
-			}
-			add_to_variable_list = {
-				name = fs_prk_ui_support_candidates
 				target = prev
 			}
 		}
@@ -63,6 +53,31 @@ fs_prk_refresh_election_overview_ui_effect = {
 	set_variable = { name = fs_prk_ui_human_electoral_votes value = 0 }
 	set_variable = { name = fs_prk_ui_my_electoral_votes value = 0 }
 
+	# GUI variable lists are display models and cannot be iterated as script lists.
+	# Build dedicated temporary lists for all calculations in this refresh.
+	if = {
+		limit = {
+			OR = {
+				fs_prk_election_is_voting_trigger = yes
+				fs_prk_election_is_finalizing_trigger = yes
+			}
+		}
+		every_in_global_list = {
+			variable = fs_prk_election_candidates
+			limit = { fs_prk_valid_election_candidate_trigger = yes }
+			add_to_temporary_list = fs_prk_ui_calculation_candidates
+		}
+	}
+	else = {
+		every_living_character = {
+			limit = {
+				has_variable = fs_prk_candidate
+				fs_prk_valid_election_candidate_trigger = yes
+			}
+			add_to_temporary_list = fs_prk_ui_calculation_candidates
+		}
+	}
+
 	# During a ballot, show the frozen electorate. Otherwise preview the current realm.
 	if = {
 		limit = {
@@ -74,6 +89,7 @@ fs_prk_refresh_election_overview_ui_effect = {
 		every_in_global_list = {
 			variable = fs_prk_election_electors
 			save_temporary_scope_as = fs_prk_ui_elector
+			add_to_temporary_list = fs_prk_ui_calculation_electors
 			scope:fs_prk_ui_owner = {
 				add_to_variable_list = {
 					name = fs_prk_ui_electors
@@ -88,16 +104,10 @@ fs_prk_refresh_election_overview_ui_effect = {
 			every_realm_county = {
 				holder = {
 					save_temporary_scope_as = fs_prk_ui_elector
-					scope:fs_prk_ui_owner = {
-						if = {
-							limit = {
-								NOT = {
-									is_target_in_variable_list = {
-										name = fs_prk_ui_electors
-										target = scope:fs_prk_ui_elector
-									}
-								}
-							}
+					if = {
+						limit = { NOT = { is_in_list = fs_prk_ui_calculation_electors } }
+						add_to_temporary_list = fs_prk_ui_calculation_electors
+						scope:fs_prk_ui_owner = {
 							add_to_variable_list = {
 								name = fs_prk_ui_electors
 								target = scope:fs_prk_ui_elector
@@ -111,12 +121,12 @@ fs_prk_refresh_election_overview_ui_effect = {
 
 	# Calculate the development-weighted totals used by the election.
 	every_in_list = {
-		list = fs_prk_ui_support_candidates
+		list = fs_prk_ui_calculation_candidates
 		set_variable = { name = fs_prk_ui_expected_ai_votes value = 0 }
 		set_variable = { name = fs_prk_ui_electoral_votes value = 0 }
 	}
 	every_in_list = {
-		list = fs_prk_ui_electors
+		list = fs_prk_ui_calculation_electors
 		save_temporary_scope_as = fs_prk_ui_elector
 		set_variable = { name = fs_prk_ui_electoral_votes value = 0 }
 		if = {
@@ -183,7 +193,7 @@ fs_prk_refresh_election_overview_ui_effect = {
 			}
 		}
 		every_in_list = {
-			list = fs_prk_ui_support_candidates
+			list = fs_prk_ui_calculation_candidates
 			set_variable = {
 				name = fs_prk_ui_expected_ai_votes
 				value = var:fs_prk_election_ai_votes
@@ -193,16 +203,16 @@ fs_prk_refresh_election_overview_ui_effect = {
 	else = {
 		# Preview every AI elector under the same explicit score as the real ballot.
 		every_in_list = {
-			list = fs_prk_ui_electors
+			list = fs_prk_ui_calculation_electors
 			limit = { is_ai = yes }
 			save_temporary_scope_as = fs_prk_elector
 			scope:fs_prk_ui_owner = {
 				every_in_list = {
-					list = fs_prk_ui_support_candidates
+					list = fs_prk_ui_calculation_candidates
 					fs_prk_calculate_ai_election_score_effect = yes
 				}
 				ordered_in_list = {
-					list = fs_prk_ui_support_candidates
+					list = fs_prk_ui_calculation_candidates
 					order_by = var:fs_prk_election_ai_score
 					position = 0
 					save_temporary_scope_as = fs_prk_ui_expected_candidate
@@ -219,7 +229,7 @@ fs_prk_refresh_election_overview_ui_effect = {
 			}
 			scope:fs_prk_ui_owner = {
 				every_in_list = {
-					list = fs_prk_ui_support_candidates
+					list = fs_prk_ui_calculation_candidates
 					remove_variable = fs_prk_election_ai_score
 				}
 			}
@@ -247,7 +257,6 @@ fs_prk_refresh_pending_player_ui_effect = {
 fs_prk_clear_election_ui_effect = {
 	clear_variable_list = fs_prk_ui_candidates
 	clear_variable_list = fs_prk_ui_election_candidates
-	clear_variable_list = fs_prk_ui_support_candidates
 	clear_variable_list = fs_prk_ui_electors
 	clear_variable_list = fs_prk_ui_pending_players
 	remove_variable = fs_prk_ui_elector_count

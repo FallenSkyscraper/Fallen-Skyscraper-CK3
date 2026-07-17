@@ -1,8 +1,8 @@
 window = {
 	name = "prk_window"
 	parentanchor = center
-	position = { 50 50 }
-	size = { 1160 900 }
+	position = { 50 30 }
+	size = { 1160 700 }
 	layer = windows_layer
 	filter_mouse = all
 	alwaystransparent = no
@@ -29,14 +29,13 @@ window = {
 	}
 
 	vbox = {
-		margin = { 10 10 }
+		margin = { 14 12 }
 		spacing = 7
 
 		header_pattern = {
 			layoutpolicy_horizontal = expanding
 			blockoverride "header_text" {
 				text = "PRK_VIEW_TITLE"
-				margin = { -10 0 }
 				parentanchor = center
 			}
 			blockoverride "button_close" {
@@ -46,14 +45,13 @@ window = {
 		}
 
 		hbox = {
-			using = Window_Margins
 			layoutpolicy_horizontal = expanding
-			minimumsize = { 0 165 }
+			minimumsize = { 0 150 }
 			spacing = 12
 
 			vbox = {
-				size = { 210 160 }
-				margin = { 8 8 }
+				size = { 210 145 }
+				margin = { 8 6 }
 				using = Background_Area_Dark
 				text_single_big = { text = "PRK_CURRENT_PRESIDENT" }
 				datacontext = "[GetPlayer.MakeScope.Var('prk_president').GetCharacter]"
@@ -67,11 +65,11 @@ window = {
 
 			icon = {
 				texture = "gfx/interface/gui/peoples_republic_korea.dds"
-				size = { 600 160 }
+				size = { 600 145 }
 			}
 
 			vbox = {
-				size = { 280 160 }
+				size = { 280 145 }
 				margin = { 8 8 }
 				spacing = 4
 				using = Background_Area_Dark
@@ -85,13 +83,10 @@ window = {
 		vbox = {
 			layoutpolicy_horizontal = expanding
 			minimumsize = { 0 65 }
-			margin = { 10 8 }
-			spacing = 4
+			margin = { 12 7 }
+			spacing = 3
 			using = Background_Area_Dark
-			text_single_big = {
-				text = "PRK_ELECTORATE_SUMMARY"
-				layoutpolicy_horizontal = expanding
-			}
+			text_single_big = { text = "PRK_ELECTORATE_SUMMARY" layoutpolicy_horizontal = expanding }
 			text_single = {
 				text = "PRK_ELECTORATE_FORMULA"
 				layoutpolicy_horizontal = expanding
@@ -99,99 +94,108 @@ window = {
 			}
 		}
 
-		text_single_large = {
-			text = "PRK_CANDIDATES"
+		hbox = {
 			layoutpolicy_horizontal = expanding
-		}
-		text_single = {
-			text = "PRK_CANDIDATE_LIST_HINT"
-			layoutpolicy_horizontal = expanding
-			default_format = "#weak"
-		}
-		text_single = {
-			visible = "[IsDataModelEmpty(GetPlayer.MakeScope.GetList('fs_prk_ui_candidates'))]"
-			text = "PRK_NO_CANDIDATES"
-			layoutpolicy_horizontal = expanding
-			default_format = "#weak"
-		}
+			minimumsize = { 0 290 }
+			spacing = 14
 
-		scrollarea = {
-			layoutpolicy_horizontal = expanding
-			minimumsize = { 0 295 }
-			scrollbarpolicy_vertical = always_off
-			scrollbarpolicy_horizontal = as_needed
-			scrollbar_horizontal = { using = Scrollbar_Horizontal }
+			vbox = {
+				size = { 700 280 }
+				spacing = 4
+				text_single_large = { text = "PRK_CANDIDATES" layoutpolicy_horizontal = expanding }
+				text_single = {
+					text = "PRK_CANDIDATE_LIST_HINT"
+					layoutpolicy_horizontal = expanding
+					default_format = "#weak"
+				}
+				text_single = {
+					visible = "[IsDataModelEmpty(GetPlayer.MakeScope.GetList('fs_prk_ui_candidates'))]"
+					text = "PRK_NO_CANDIDATES"
+					layoutpolicy_horizontal = expanding
+					default_format = "#weak"
+				}
 
-			scrollwidget = {
-				hbox = {
-					using = Scrollbox_Margins
-					spacing = 10
-					datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_candidates')]"
-					item = {
-						vbox = {
-							datacontext = "[Scope.GetCharacter]"
-							size = { 245 275 }
-							margin = { 9 8 }
-							spacing = 3
-							using = Background_Area_Dark
-							portrait_head_small = {}
-							text_single = {
-								text = "[Character.GetFullNameNicknamedNoTooltip]"
-								max_width = 225
-								autoresize = yes
+				scrollarea = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = { 0 220 }
+					scrollbarpolicy_vertical = always_off
+					scrollbarpolicy_horizontal = as_needed
+					scrollbar_horizontal = { using = Scrollbar_Horizontal }
+					scrollwidget = {
+						hbox = {
+							using = Scrollbox_Margins
+							spacing = 10
+							datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_candidates')]"
+							item = {
+								vbox = {
+									datacontext = "[Scope.GetCharacter]"
+									size = { 430 190 }
+									margin = { 9 8 }
+									spacing = 3
+									using = Background_Area_Dark
+									hbox = {
+										minimumsize = { 0 95 }
+										spacing = 8
+										portrait_head_small = {}
+										vbox = {
+											text_single = { text = "[Character.GetFullNameNicknamedNoTooltip]" max_width = 305 autoresize = yes }
+											text_single = { text = "PRK_CANDIDATE_IDENTITY" max_width = 305 autoresize = yes }
+											text_single = { text = "PRK_CANDIDATE_SKILLS" max_width = 305 autoresize = yes }
+											text_single = { text = "PRK_CANDIDATE_STANDING" max_width = 305 autoresize = yes }
+											text_single = { text = "PRK_CANDIDATE_PLAYER_OPINION" max_width = 305 autoresize = yes }
+										}
+									}
+									text_single = {
+										text = "PRK_EXPECTED_AI_SUPPORT"
+										tooltip = "PRK_EXPECTED_SUPPORT_TOOLTIP"
+										using = tooltip_se
+									}
+									text_single = { text = "PRK_CANDIDATE_ELECTORAL_VOTES" default_format = "#weak" }
+								}
 							}
-							text_single = { text = "PRK_CANDIDATE_IDENTITY" max_width = 225 autoresize = yes }
-							text_single = { text = "PRK_CANDIDATE_SKILLS" max_width = 225 autoresize = yes }
-							text_single = { text = "PRK_CANDIDATE_STANDING" max_width = 225 autoresize = yes }
-							text_single = { text = "PRK_CANDIDATE_PLAYER_OPINION" max_width = 225 autoresize = yes }
-							text_single = {
-								text = "PRK_EXPECTED_AI_SUPPORT"
-								tooltip = "PRK_EXPECTED_SUPPORT_TOOLTIP"
-								using = tooltip_se
-							}
-							text_single = { text = "PRK_CANDIDATE_ELECTORAL_VOTES" default_format = "#weak" }
+							expand = {}
 						}
 					}
 				}
 			}
-		}
 
-		text_single_large = {
-			text = "PRK_ELECTOR_BREAKDOWN_TITLE"
-			layoutpolicy_horizontal = expanding
-		}
-		text_single = {
-			text = "PRK_ELECTOR_BREAKDOWN_HINT"
-			layoutpolicy_horizontal = expanding
-			default_format = "#weak"
-		}
-		scrollarea = {
-			layoutpolicy_horizontal = expanding
-			minimumsize = { 0 130 }
-			scrollbarpolicy_vertical = always_off
-			scrollbarpolicy_horizontal = as_needed
-			scrollbar_horizontal = { using = Scrollbar_Horizontal }
-			scrollwidget = {
-				hbox = {
-					using = Scrollbox_Margins
-					spacing = 8
-					datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_electors')]"
-					item = {
-						hbox = {
-							datacontext = "[Scope.GetCharacter]"
-							size = { 260 115 }
-							margin = { 7 6 }
+			vbox = {
+				size = { 410 280 }
+				spacing = 4
+				text_single_large = { text = "PRK_ELECTOR_BREAKDOWN_TITLE" layoutpolicy_horizontal = expanding }
+				text_single = {
+					text = "PRK_ELECTOR_BREAKDOWN_HINT"
+					layoutpolicy_horizontal = expanding
+					default_format = "#weak"
+					max_width = 400
+					autoresize = yes
+				}
+				scrollarea = {
+					layoutpolicy_horizontal = expanding
+					minimumsize = { 0 220 }
+					scrollbarpolicy_horizontal = always_off
+					scrollbarpolicy_vertical = as_needed
+					scrollbar_vertical = { using = Scrollbar_Vertical }
+					scrollwidget = {
+						vbox = {
+							using = Scrollbox_Margins
 							spacing = 7
-							using = Background_Area_Dark
-							portrait_head_small = {}
-							vbox = {
-								text_single = {
-									text = "[Character.GetFullNameNicknamedNoTooltip]"
-									max_width = 175
-									autoresize = yes
+							datamodel = "[GetPlayer.MakeScope.GetList('fs_prk_ui_electors')]"
+							item = {
+								hbox = {
+									datacontext = "[Scope.GetCharacter]"
+									size = { 370 105 }
+									margin = { 7 6 }
+									spacing = 7
+									using = Background_Area_Dark
+									portrait_head_small = {}
+									vbox = {
+										text_single = { text = "[Character.GetFullNameNicknamedNoTooltip]" max_width = 265 autoresize = yes }
+										text_single = { text = "PRK_ELECTOR_VOTE_BREAKDOWN" max_width = 265 autoresize = yes }
+									}
 								}
-								text_single = { text = "PRK_ELECTOR_VOTE_BREAKDOWN" max_width = 175 autoresize = yes }
 							}
+							expand = {}
 						}
 					}
 				}
@@ -200,6 +204,7 @@ window = {
 
 		hbox = {
 			layoutpolicy_horizontal = expanding
+			minimumsize = { 0 36 }
 			spacing = 12
 			expand = {}
 			button_standard = {
