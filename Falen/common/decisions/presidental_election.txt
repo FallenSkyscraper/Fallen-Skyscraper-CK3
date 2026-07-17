@@ -16,12 +16,12 @@
 			AND = {
 				is_ruler = yes
 				is_landed = yes
-				is_independent = no
+				is_independent_ruler = no
 				top_liege = {
 					has_title = title:k_prk
 				}
 			}
-			is_primary_heir_of = title:k_prk
+			is_primary_heir_of = title:k_prk.holder
 			has_title = title:k_prk
 		}
 		NOT = { has_variable = fs_prk_candidate }
