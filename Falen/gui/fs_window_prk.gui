@@ -83,7 +83,7 @@ window = {
 		vbox = {
 			layoutpolicy_horizontal = expanding
 			minimumsize = { 0 65 }
-			margin = { 12 7 }
+			margin = { 50 7 }
 			spacing = 3
 			using = Background_Area_Dark
 			text_single_big = { text = "PRK_ELECTORATE_SUMMARY" layoutpolicy_horizontal = expanding }
@@ -95,9 +95,10 @@ window = {
 		}
 
 		hbox = {
-			layoutpolicy_horizontal = expanding
+		#	layoutpolicy_horizontal = expanding
+			margin_top = -200
 			minimumsize = { 0 290 }
-			spacing = 14
+			spacing = 160
 
 			vbox = {
 				size = { 700 280 }
@@ -117,7 +118,7 @@ window = {
 
 				scrollarea = {
 					layoutpolicy_horizontal = expanding
-					minimumsize = { 0 220 }
+					minimumsize = { 0 200 }
 					scrollbarpolicy_vertical = always_off
 					scrollbarpolicy_horizontal = as_needed
 					scrollbar_horizontal = { using = Scrollbar_Horizontal }
@@ -190,6 +191,7 @@ window = {
 									using = Background_Area_Dark
 									portrait_head_small = {}
 									vbox = {
+										spacing = 5
 										text_single = { text = "[Character.GetFullNameNicknamedNoTooltip]" max_width = 265 autoresize = yes }
 										text_single = { text = "PRK_ELECTOR_VOTE_BREAKDOWN" max_width = 265 autoresize = yes }
 									}

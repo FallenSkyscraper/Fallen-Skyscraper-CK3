@@ -13,7 +13,7 @@
  PRK_ELECTORATE_SUMMARY: "선거인 #V [GetPlayer.MakeScope.Var('fs_prk_ui_elector_count').GetValue|0]명#! · 총 #P [GetPlayer.MakeScope.Var('fs_prk_ui_total_electoral_votes').GetValue|0]표#! · 플레이어 선거인단 #V [GetPlayer.MakeScope.Var('fs_prk_ui_human_electoral_votes').GetValue|0]표#!"
  PRK_ELECTORATE_FORMULA: "각 선거인의 표는 직접 보유한 모든 백작령의 개발도를 합산합니다. 나의 현재 선거인단 표: #P [GetPlayer.MakeScope.Var('fs_prk_ui_my_electoral_votes').GetValue|0]표#!"
  PRK_ELECTOR_BREAKDOWN_TITLE: "선거인단 표 산출 내역"
- PRK_ELECTOR_BREAKDOWN_HINT: "각 선거인이 직접 보유한 백작령의 개발도 합계입니다. 후보가 아닌 선거인도 모두 표시됩니다."
+ PRK_ELECTOR_BREAKDOWN_HINT: "각 선거인이 직접 보유한 백작령의 개발도 합계입니다."
  PRK_ELECTOR_VOTE_BREAKDOWN: "직할 백작령 개발도 합계: #P [Character.MakeScope.Var('fs_prk_ui_electoral_votes').GetValue|0]표#!"
  PRK_CANDIDATE_IDENTITY: "[Character.Custom('GetGovernmentIcon')] [Character.GetGovernment.GetNameNoTooltip] · [Character.GetFaith.GetTextIcon] [Character.GetFaith.GetNameNoTooltip]"
  PRK_CANDIDATE_SKILLS: "@skill_diplomacy_icon! [Character.GetSkill( 'diplomacy' )]  @skill_martial_icon! [Character.GetSkill( 'martial' )]  @skill_stewardship_icon! [Character.GetSkill( 'stewardship' )]  @skill_intrigue_icon! [Character.GetSkill( 'intrigue' )]  @skill_learning_icon! [Character.GetSkill( 'learning' )]"
