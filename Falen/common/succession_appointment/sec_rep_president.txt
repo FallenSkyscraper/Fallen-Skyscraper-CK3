@@ -589,14 +589,15 @@
 				}
 			}
 
-			# VICE_PRESIDENT
+			# VICE PRESIDENT: normal appointment succession should choose the
+			# incumbent vice president before the vacancy fallback has to intervene.
 			if = {
 				limit = {
 					is_diarch_of_target = scope:title.holder
 				}
-				# Once for their raw status.
+				# This must dominate ordinary family, skill and influence modifiers.
 				add = {
-					value = 150
+					value = 10000
 					desc = imperial_co_emperor_desc
 				}
 				# And once again for their actual power.

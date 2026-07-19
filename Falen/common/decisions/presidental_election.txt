@@ -91,13 +91,22 @@ delay_election_decision = {
 		has_title = title:k_prk
 	}
 	is_valid = {
-		fs_prk_election_is_idle_trigger = yes
+		custom_description = {
+			text = fs_prk_election_delay_requires_idle_tt
+			fs_prk_election_is_idle_trigger = yes
+			NOT = { has_global_variable = fs_prk_special_election_pending }
+			NOT = { has_global_variable = fs_prk_special_election_active }
+		}
+		custom_description = {
+			text = fs_prk_election_delay_once_per_cycle_tt
+			NOT = { has_global_variable = fs_prk_election_delay_used }
+		}
+		global_var:election_term >= 0
 		prestige_level >= 1
 	}
 	cost = { prestige = 400 }
 	effect = {
-		change_global_variable = { name = election_date add = 4 }
-		change_global_variable = { name = election_term add = 4 }
+		fs_prk_delay_election_calendar_effect = yes
 		custom_tooltip = delay_election_decision_tt
 		if = {
 			limit = { is_at_war = yes }

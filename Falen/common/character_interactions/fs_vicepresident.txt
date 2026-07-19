@@ -146,6 +146,12 @@ appoint_vice_president_interaction = {
 					}
 				}
 				set_designated_heir = scope:fs_prk_vice_president
+				# Keep an explicit pointer for the vacancy handler. The diarchy itself is
+				# already dismantled by the time title inheritance on-actions finish.
+				set_variable = {
+					name = fs_prk_appointed_vice_president
+					value = scope:fs_prk_vice_president
+				}
 			}
 
 			# Apply appointment and displaced-officeholder opinions to the actual appointee.

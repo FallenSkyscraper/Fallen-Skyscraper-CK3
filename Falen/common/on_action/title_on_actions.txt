@@ -2637,6 +2637,31 @@ on_title_gain_inheritance = {
 		diarchy.0113
 	}
 	effect = {
+		# Resolve a PRK presidential vacancy after the rest of inheritance has
+		# settled. Save the deceased president's appointed vice president because
+		# the old diarchy is no longer reliable at that point.
+		if = {
+			limit = { scope:title = title:k_prk }
+			remove_variable = fs_prk_vacancy_vice_president
+			set_variable = fs_prk_vacancy_handler_pending
+			if = {
+				limit = {
+					scope:previous_holder = {
+						government_has_flag = government_is_secular_republic
+					}
+					exists = scope:previous_holder.var:fs_prk_appointed_vice_president
+					scope:previous_holder.var:fs_prk_appointed_vice_president = { is_alive = yes }
+					scope:previous_holder = {
+						designated_heir ?= var:fs_prk_appointed_vice_president
+					}
+				}
+				set_variable = {
+					name = fs_prk_vacancy_vice_president
+					value = scope:previous_holder.var:fs_prk_appointed_vice_president
+				}
+			}
+			trigger_event = { id = joson_election.6 days = 1 }
+		}
 		if = {
 			limit = {
 				scope:title = {

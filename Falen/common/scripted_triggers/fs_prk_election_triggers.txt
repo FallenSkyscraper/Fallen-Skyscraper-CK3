@@ -12,6 +12,42 @@ fs_prk_election_is_finalizing_trigger = {
 	global_var:fs_prk_election_phase = 2
 }
 
+# The underlying nomination window: the final full year before a regular
+# election, or the 90-day nomination period for a special election.
+fs_prk_election_campaign_window_is_open_trigger = {
+	exists = title:k_prk.holder
+	fs_prk_election_is_idle_trigger = yes
+	OR = {
+		has_global_variable = fs_prk_special_election_pending
+		AND = {
+			has_global_variable = election_term
+			global_var:election_term = 0
+		}
+	}
+}
+
+# A round token is kept separately from the calendar window. Closing a round
+# invalidates event windows that a multiplayer client may still have open.
+fs_prk_election_campaign_is_open_trigger = {
+	has_global_variable = fs_prk_campaign_round_active
+	fs_prk_election_campaign_window_is_open_trigger = yes
+}
+
+fs_prk_campaign_event_belongs_to_current_round_trigger = {
+	fs_prk_election_campaign_is_open_trigger = yes
+	has_global_variable = fs_prk_campaign_generation
+	exists = scope:fs_prk_campaign_event_generation
+	has_variable = fs_prk_campaign_generation
+	scope:fs_prk_campaign_event_generation = global_var:fs_prk_campaign_generation
+	var:fs_prk_campaign_generation = scope:fs_prk_campaign_event_generation
+}
+
+fs_prk_campaign_event_can_be_used_trigger = {
+	fs_prk_campaign_event_belongs_to_current_round_trigger = yes
+	has_variable = fs_prk_candidate
+	fs_prk_valid_election_candidate_trigger = yes
+}
+
 fs_prk_valid_election_candidate_trigger = {
 	is_alive = yes
 	OR = {

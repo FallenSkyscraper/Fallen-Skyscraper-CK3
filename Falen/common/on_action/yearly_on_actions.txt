@@ -38,6 +38,10 @@ yearly_global_pulse = {
 		}
 		change_global_variable = { name = election_term subtract = 1 }
 		if = {
+			limit = { fs_prk_election_campaign_window_is_open_trigger = yes }
+			fs_prk_ensure_campaign_round_effect = yes
+		}
+		if = {
 			limit = {
 				current_date = 2666.1.1
 			}

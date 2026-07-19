@@ -16,8 +16,14 @@ startup.1 = {
 			character:846 = {
 				set_real_father = character:7012
 			}
-			character:6002 = {
-				set_variable = fs_prk_candidate
+			if = {
+				limit = {
+					NOT = { has_global_variable = fs_prk_initial_candidate_registered }
+				}
+				set_global_variable = { name = fs_prk_initial_candidate_registered value = yes }
+				character:6002 = {
+					fs_prk_register_election_candidate_effect = yes
+				}
 			}
 			character:4009 = {
 				add_prestige_level = 2

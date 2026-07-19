@@ -279,12 +279,136 @@ fs_prk_refresh_republic_players_candidate_ui_effect = {
 
 fs_prk_register_election_candidate_effect = {
 	set_variable = fs_prk_candidate
+	fs_prk_ensure_campaign_round_effect = yes
+	fs_prk_queue_campaign_event_effect = yes
 	fs_prk_refresh_republic_players_candidate_ui_effect = yes
 }
 
 fs_prk_resign_election_candidate_effect = {
 	remove_variable = fs_prk_candidate
 	fs_prk_refresh_republic_players_candidate_ui_effect = yes
+}
+
+# Open one uniquely identified campaign round. Calling this repeatedly is safe:
+# only the first call for the current calendar window advances the generation.
+fs_prk_ensure_campaign_round_effect = {
+	if = {
+		limit = { fs_prk_election_campaign_window_is_open_trigger = yes }
+		if = {
+			limit = { NOT = { has_global_variable = fs_prk_campaign_round_active } }
+			if = {
+				limit = { has_global_variable = fs_prk_campaign_generation }
+				change_global_variable = { name = fs_prk_campaign_generation add = 1 }
+			}
+			else = {
+				set_global_variable = { name = fs_prk_campaign_generation value = 1 }
+			}
+			set_global_variable = { name = fs_prk_campaign_round_active value = yes }
+		}
+		else_if = {
+			limit = { NOT = { has_global_variable = fs_prk_campaign_generation } }
+			set_global_variable = { name = fs_prk_campaign_generation value = 1 }
+		}
+
+		every_living_character = {
+			limit = {
+				has_variable = fs_prk_candidate
+				fs_prk_valid_election_candidate_trigger = yes
+			}
+			fs_prk_queue_campaign_event_effect = yes
+		}
+	}
+}
+
+# Invalidate all event instances from the round without erasing campaign support
+# before the ballot has consumed it. Candidate cleanup happens after the result.
+fs_prk_close_campaign_round_effect = {
+	if = {
+		limit = { has_global_variable = fs_prk_campaign_round_active }
+		remove_global_variable = fs_prk_campaign_round_active
+		if = {
+			limit = { has_global_variable = fs_prk_campaign_generation }
+			change_global_variable = { name = fs_prk_campaign_generation add = 1 }
+		}
+		else = {
+			set_global_variable = { name = fs_prk_campaign_generation value = 1 }
+		}
+	}
+}
+
+fs_prk_queue_campaign_event_effect = {
+	if = {
+		limit = {
+			has_variable = fs_prk_candidate
+			fs_prk_valid_election_candidate_trigger = yes
+			fs_prk_election_campaign_is_open_trigger = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { has_variable = fs_prk_campaign_generation }
+					var:fs_prk_campaign_generation != global_var:fs_prk_campaign_generation
+				}
+			}
+			fs_prk_clear_campaign_effect = yes
+			set_variable = {
+				name = fs_prk_campaign_generation
+				value = global_var:fs_prk_campaign_generation
+			}
+			set_variable = { name = fs_prk_campaign_support value = 0 }
+		}
+		if = {
+			limit = {
+				NOT = { has_variable = fs_prk_campaign_event_queued }
+				NOT = { has_variable = fs_prk_campaign_completed }
+			}
+			set_variable = fs_prk_campaign_event_queued
+			save_scope_value_as = {
+				name = fs_prk_campaign_event_generation
+				value = global_var:fs_prk_campaign_generation
+			}
+			trigger_event = {
+				id = joson_election.10
+				days = { 3 14 }
+			}
+		}
+	}
+}
+
+fs_prk_clear_campaign_effect = {
+	remove_variable = fs_prk_campaign_event_queued
+	remove_variable = fs_prk_campaign_completed
+	remove_variable = fs_prk_campaign_debate_completed
+	remove_variable = fs_prk_campaign_support
+	remove_variable = fs_prk_campaign_generation
+}
+
+fs_prk_clear_campaign_event_if_same_generation_effect = {
+	if = {
+		limit = {
+			has_variable = fs_prk_campaign_generation
+			exists = scope:fs_prk_campaign_event_generation
+			var:fs_prk_campaign_generation = scope:fs_prk_campaign_event_generation
+		}
+		# A withdrawal must clear only the pending ticket. Keep completed/support
+		# markers so resign-and-register cannot farm another campaign round.
+		remove_variable = fs_prk_campaign_event_queued
+	}
+}
+
+fs_prk_clear_all_campaign_effect = {
+	every_living_character = {
+		limit = {
+			OR = {
+				has_variable = fs_prk_campaign_event_queued
+				has_variable = fs_prk_campaign_completed
+				has_variable = fs_prk_campaign_debate_completed
+				has_variable = fs_prk_campaign_support
+				has_variable = fs_prk_campaign_generation
+			}
+		}
+		fs_prk_clear_campaign_effect = yes
+	}
 }
 
 # Score the current candidate from the perspective of scope:fs_prk_elector.
@@ -316,6 +440,14 @@ fs_prk_calculate_ai_election_score_effect = {
 	if = {
 		limit = { is_diarch_of_target = title:k_prk.holder }
 		change_variable = { name = fs_prk_election_ai_score add = 40 }
+	}
+	if = {
+		limit = { has_variable = fs_prk_campaign_support }
+		# Campaign gains feed the same score used by both the UI preview and ballot.
+		change_variable = {
+			name = fs_prk_election_ai_score
+			add = var:fs_prk_campaign_support
+		}
 	}
 
 	# Strong personal relationships are deliberately reinforced beyond opinion.
@@ -523,6 +655,54 @@ fs_prk_complete_player_vote_effect = {
 	}
 }
 
+# Open a uniquely identified special-election nomination period. The saved
+# generation carried by joson_election.7 prevents an older delayed event from
+# consuming a later vacancy's pending flag after a save/load or rapid succession.
+fs_prk_open_special_election_nomination_effect = {
+	set_global_variable = { name = fs_prk_special_election_pending value = yes }
+	if = {
+		limit = { has_global_variable = fs_prk_special_election_generation }
+		change_global_variable = {
+			name = fs_prk_special_election_generation
+			add = 1
+		}
+	}
+	else = {
+		set_global_variable = {
+			name = fs_prk_special_election_generation
+			value = 1
+		}
+	}
+	fs_prk_ensure_campaign_round_effect = yes
+}
+
+# Keep the public election year and the annual countdown on the same schedule.
+# A postponement is available only once until the postponed election concludes.
+fs_prk_delay_election_calendar_effect = {
+	change_global_variable = { name = election_date add = 4 }
+	change_global_variable = { name = election_term add = 4 }
+	set_global_variable = { name = fs_prk_election_delay_used value = yes }
+	# Do not let an early campaign remain banked across the four-year delay.
+	fs_prk_close_campaign_round_effect = yes
+	fs_prk_clear_all_campaign_effect = yes
+	fs_prk_refresh_republic_players_candidate_ui_effect = yes
+}
+
+fs_prk_advance_regular_election_calendar_effect = {
+	# Rebase on the year in which the election actually concluded. This keeps
+	# the displayed date aligned with the countdown after title destruction,
+	# a no-winner retry, or any other delayed regular election.
+	set_global_variable = {
+		name = election_date
+		value = {
+			value = current_year
+			add = 4
+		}
+	}
+	set_global_variable = { name = election_term value = 3 }
+	remove_global_variable = fs_prk_election_delay_used
+}
+
 fs_prk_clear_election_runtime_effect = {
 	every_in_global_list = {
 		variable = fs_prk_election_candidates
@@ -558,10 +738,4 @@ fs_prk_clear_election_runtime_effect = {
 	clear_global_variable_list = fs_prk_election_pending_players
 	remove_global_variable = fs_prk_election_pending_player_count
 	remove_global_variable = fs_prk_election_phase
-}
-
-fs_prk_clear_player_election_result_effect = {
-	remove_variable = fs_prk_last_election_winner
-	remove_variable = fs_prk_last_election_winner_votes
-	remove_variable = fs_prk_last_election_year
 }

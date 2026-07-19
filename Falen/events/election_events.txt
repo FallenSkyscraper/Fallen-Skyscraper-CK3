@@ -6,13 +6,45 @@ joson_election.1 = {
 	hidden = yes
 	trigger = {
 		fs_prk_election_is_idle_trigger = yes
-		global_var:election_term < 0
+		OR = {
+			global_var:election_term < 0
+			has_global_variable = fs_prk_special_election_active
+		}
 		exists = title:k_prk.holder
 	}
 	immediate = {
 		fs_prk_clear_election_runtime_effect = yes
+		# Invalidate any delayed campaign windows while keeping their support
+		# available for this ballot's AI score calculation.
+		fs_prk_close_campaign_round_effect = yes
+		# Identify this ballot so delayed multiplayer timeouts from an older
+		# election cannot act on the newly frozen voter list.
+		if = {
+			limit = { has_global_variable = fs_prk_election_generation }
+			change_global_variable = { name = fs_prk_election_generation add = 1 }
+		}
+		else = {
+			set_global_variable = { name = fs_prk_election_generation value = 1 }
+		}
+		# A regular election that becomes due before the vacancy deadline supersedes
+		# the queued special election. An active special election clears it as well.
+		remove_global_variable = fs_prk_special_election_pending
 		set_global_variable = { name = fs_prk_election_phase value = 1 }
 		set_global_variable = { name = fs_prk_election_pending_player_count value = 0 }
+		# Candidates who withdrew retain their campaign lock until this round begins,
+		# preventing resign-and-register loops from farming repeated campaign events.
+		every_living_character = {
+			limit = {
+				NOT = { has_variable = fs_prk_candidate }
+				OR = {
+					has_variable = fs_prk_campaign_event_queued
+					has_variable = fs_prk_campaign_completed
+					has_variable = fs_prk_campaign_debate_completed
+					has_variable = fs_prk_campaign_support
+				}
+			}
+			fs_prk_clear_campaign_effect = yes
+		}
 
 		# Freeze the candidate list. Invalid registrations are discarded.
 		every_living_character = {
@@ -27,6 +59,7 @@ joson_election.1 = {
 				}
 			}
 			else = {
+				fs_prk_clear_campaign_effect = yes
 				remove_variable = fs_prk_candidate
 			}
 		}
@@ -148,22 +181,16 @@ joson_election.1 = {
 
 		if = {
 			limit = { global_var:fs_prk_election_pending_player_count > 0 }
+			save_scope_value_as = {
+				name = fs_prk_vote_timeout_generation
+				value = global_var:fs_prk_election_generation
+			}
 			trigger_event = {
 				id = joson_election.5
 				days = 30
 			}
 		}
 		fs_prk_try_schedule_election_finalization_effect = yes
-	}
-}
-
-# Advance the public election calendar after the result has been announced.
-joson_election.2 = {
-	scope = none
-	hidden = yes
-	immediate = {
-		change_global_variable = { name = election_date add = 4 }
-		set_global_variable = { name = election_term value = 3 }
 	}
 }
 
@@ -175,7 +202,12 @@ joson_election.3 = {
 	immediate = {
 		if = {
 			limit = { NOT = { exists = title:k_prk.holder } }
-			set_global_variable = { name = election_term value = 0 }
+			if = {
+				limit = { NOT = { has_global_variable = fs_prk_special_election_active } }
+				set_global_variable = { name = election_term value = 0 }
+			}
+			remove_global_variable = fs_prk_special_election_active
+			remove_global_variable = fs_prk_special_election_pending
 			fs_prk_clear_election_runtime_effect = yes
 		}
 		else = {
@@ -248,6 +280,11 @@ joson_election.3 = {
 
 				if = {
 					limit = { scope:fs_prk_former_president != scope:fs_prk_winner }
+					scope:fs_prk_winner = {
+						# A newly elected president starts without a stale appointment from
+						# an earlier term and must appoint their own vice president.
+						remove_variable = fs_prk_appointed_vice_president
+					}
 					scope:fs_prk_former_president = {
 						if = {
 							limit = {
@@ -281,6 +318,7 @@ joson_election.3 = {
 						limit = {
 							scope:fs_prk_former_president = {
 								is_landed = yes
+								highest_held_title_tier < tier_kingdom
 								NOT = { liege = scope:fs_prk_winner }
 							}
 						}
@@ -309,6 +347,7 @@ joson_election.3 = {
 				}
 
 				scope:fs_prk_winner = {
+					remove_variable = fs_prk_interim_president
 					if = {
 						limit = { NOT = { government_has_flag = government_is_secular_republic } }
 						change_government = secular_republic_government
@@ -318,10 +357,14 @@ joson_election.3 = {
 						add_realm_law = gym_succession_law
 					}
 				}
+				scope:fs_prk_former_president = {
+					remove_variable = fs_prk_interim_president
+				}
 
 				# Close the old nomination round before exposing the result.
 				every_in_global_list = {
 					variable = fs_prk_election_candidates
+					fs_prk_clear_campaign_effect = yes
 					remove_variable = fs_prk_candidate
 				}
 
@@ -338,12 +381,14 @@ joson_election.3 = {
 							}
 						}
 					}
-					set_variable = { name = fs_prk_last_election_winner value = scope:fs_prk_winner }
-					set_variable = {
-						name = fs_prk_last_election_winner_votes
+					save_scope_value_as = {
+						name = fs_prk_result_notice_votes
 						value = scope:fs_prk_winner.var:fs_prk_election_votes
 					}
-					set_variable = { name = fs_prk_last_election_year value = global_var:election_date }
+					save_scope_value_as = {
+						name = fs_prk_result_notice_year
+						value = current_year
+					}
 					set_variable = { name = prk_president value = scope:fs_prk_winner }
 					fs_prk_refresh_registered_candidates_ui_effect = yes
 					trigger_event = {
@@ -353,41 +398,86 @@ joson_election.3 = {
 				}
 
 				fs_prk_clear_election_runtime_effect = yes
-				trigger_event = {
-					id = joson_election.2
-					days = 4
+				if = {
+					limit = { has_global_variable = fs_prk_special_election_active }
+					# A special election fills only the remainder of the current term.
+					remove_global_variable = fs_prk_special_election_active
+					remove_global_variable = fs_prk_special_election_pending
+					if = {
+						limit = { global_var:election_term < 0 }
+						# The yearly pulse already ran, so the normal post-result value
+						# of three full years remaining is correct.
+						fs_prk_advance_regular_election_calendar_effect = yes
+					}
+					else_if = {
+						limit = { current_year >= global_var:election_date }
+						# The result ran before the Jan 1 yearly pulse. Leave four here;
+						# that pulse will immediately reduce it to the normal value of three.
+						set_global_variable = {
+							name = election_date
+							value = {
+								value = current_year
+								add = 4
+							}
+						}
+						set_global_variable = { name = election_term value = 4 }
+						remove_global_variable = fs_prk_election_delay_used
+					}
+				}
+				else = {
+					# Commit the next regular date before returning to the idle state.
+					# A delayed calendar event could otherwise cross Jan 1 and start the
+					# same election a second time.
+					fs_prk_advance_regular_election_calendar_effect = yes
 				}
 			}
 			else = {
-				set_global_variable = { name = election_term value = 0 }
+				# Re-open nominations only after leaving the finalizing phase; the
+				# campaign-window trigger deliberately requires an idle election.
 				fs_prk_clear_election_runtime_effect = yes
+				if = {
+					limit = { has_global_variable = fs_prk_special_election_active }
+					remove_global_variable = fs_prk_special_election_active
+					fs_prk_open_special_election_nomination_effect = yes
+					save_scope_value_as = {
+						name = fs_prk_special_election_event_generation
+						value = global_var:fs_prk_special_election_generation
+					}
+					trigger_event = { id = joson_election.7 days = 90 }
+				}
+				else = {
+					set_global_variable = { name = election_term value = 0 }
+				}
 			}
 		}
 	}
 }
 
-# Announce the result using player-scoped data so multiplayer clients cannot clear each other.
+# Announce the result using immutable event scopes. Old multiplayer windows can
+# remain open without overwriting or clearing a later election's notice data.
 joson_election.4 = {
 	type = character_event
 	title = joson_election.4.t
 	desc = joson_election.4.desc
 	theme = martial_authority_focus
-	trigger = { has_variable = fs_prk_last_election_winner }
+	trigger = {
+		exists = scope:fs_prk_winner
+		exists = scope:fs_prk_result_notice_votes
+		exists = scope:fs_prk_result_notice_year
+	}
 	override_icon = {
 		reference = "gfx/interface/icons/event_types/type_election.dds"
 	}
 	right_portrait = {
-		character = var:fs_prk_last_election_winner
+		character = scope:fs_prk_winner
 		animation = happiness
 	}
 	option = {
 		name = joson_election.4.a
 		trigger = { has_title = title:k_prk }
-		hidden_effect = { fs_prk_clear_player_election_result_effect = yes }
 	}
 	option = {
 		name = joson_election.4.b
-		hidden_effect = { fs_prk_clear_player_election_result_effect = yes }
 	}
 	option = {
 		name = joson_election.4.c
@@ -407,7 +497,6 @@ joson_election.4 = {
 		add_prestige = -100
 		fs_prk_register_election_candidate_effect = yes
 		custom_tooltip = joson_election.4.c.tooltip
-		hidden_effect = { fs_prk_clear_player_election_result_effect = yes }
 	}
 }
 
@@ -415,7 +504,12 @@ joson_election.4 = {
 joson_election.5 = {
 	scope = none
 	hidden = yes
-	trigger = { fs_prk_election_is_voting_trigger = yes }
+	trigger = {
+		fs_prk_election_is_voting_trigger = yes
+		has_global_variable = fs_prk_election_generation
+		exists = scope:fs_prk_vote_timeout_generation
+		scope:fs_prk_vote_timeout_generation = global_var:fs_prk_election_generation
+	}
 	immediate = {
 		every_in_global_list = {
 			variable = fs_prk_election_pending_players
@@ -429,5 +523,474 @@ joson_election.5 = {
 		clear_global_variable_list = fs_prk_election_pending_players
 		set_global_variable = { name = fs_prk_election_pending_player_count value = 0 }
 		fs_prk_try_schedule_election_finalization_effect = yes
+	}
+}
+
+# Resolve presidential inheritance after all titles from the deceased have settled.
+joson_election.6 = {
+	type = character_event
+	hidden = yes
+	trigger = {
+		has_variable = fs_prk_vacancy_handler_pending
+	}
+	immediate = {
+		# A delayed inheritance handler is one-shot. If a regular election or
+		# another succession already changed the holder, it must become a no-op.
+		remove_variable = fs_prk_vacancy_handler_pending
+		if = {
+			limit = {
+				this = title:k_prk.holder
+				has_variable = fs_prk_vacancy_vice_president
+				var:fs_prk_vacancy_vice_president = { is_alive = yes }
+			}
+			var:fs_prk_vacancy_vice_president = { save_scope_as = fs_prk_interim_successor }
+			title:k_prk.holder = { save_scope_as = fs_prk_provisional_president }
+
+			# Appointment succession normally selects the vice president. This fallback
+			# also covers an unlanded appointee omitted from the appointment candidate pool.
+			if = {
+				limit = { scope:fs_prk_provisional_president != scope:fs_prk_interim_successor }
+				scope:fs_prk_provisional_president = {
+					if = {
+						limit = {
+							has_active_diarchy = yes
+							has_diarchy_type = vice_presidency
+						}
+						end_diarchy = yes
+					}
+				}
+
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = fs_prk_vacancy_title_change
+					add_claim_on_loss = no
+				}
+				title:k_prk = {
+					change_title_holder_include_vassals = {
+						holder = scope:fs_prk_interim_successor
+						change = scope:fs_prk_vacancy_title_change
+					}
+				}
+				if = {
+					limit = {
+						exists = title:c_pyongyang.holder
+						title:c_pyongyang.holder != scope:fs_prk_interim_successor
+					}
+					title:c_pyongyang = {
+						change_title_holder = {
+							holder = scope:fs_prk_interim_successor
+							change = scope:fs_prk_vacancy_title_change
+						}
+					}
+				}
+				resolve_title_and_vassal_change = scope:fs_prk_vacancy_title_change
+
+				if = {
+					limit = {
+						scope:fs_prk_provisional_president = {
+							is_alive = yes
+							is_landed = yes
+							highest_held_title_tier < tier_kingdom
+							NOT = { liege = scope:fs_prk_interim_successor }
+						}
+					}
+					create_title_and_vassal_change = {
+						type = swear_fealty
+						save_scope_as = fs_prk_vacancy_liege_change
+						add_claim_on_loss = no
+					}
+					scope:fs_prk_provisional_president = {
+						change_liege = {
+							liege = scope:fs_prk_interim_successor
+							change = scope:fs_prk_vacancy_liege_change
+						}
+					}
+					resolve_title_and_vassal_change = scope:fs_prk_vacancy_liege_change
+				}
+				else_if = {
+					limit = {
+						scope:fs_prk_provisional_president = {
+							is_alive = yes
+							is_landed = no
+							NOT = { is_courtier_of = scope:fs_prk_interim_successor }
+						}
+					}
+					scope:fs_prk_interim_successor = { add_courtier = scope:fs_prk_provisional_president }
+				}
+			}
+			# The presidential capital follows the office even when appointment
+			# succession already selected the vice president for the kingdom title.
+			if = {
+				limit = {
+					exists = title:c_pyongyang.holder
+					title:c_pyongyang.holder != scope:fs_prk_interim_successor
+				}
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = fs_prk_vacancy_capital_change
+					add_claim_on_loss = no
+				}
+				title:c_pyongyang = {
+					change_title_holder = {
+						holder = scope:fs_prk_interim_successor
+						change = scope:fs_prk_vacancy_capital_change
+					}
+				}
+				resolve_title_and_vassal_change = scope:fs_prk_vacancy_capital_change
+			}
+
+			scope:fs_prk_interim_successor = {
+				remove_variable = fs_prk_appointed_vice_president
+				set_variable = fs_prk_interim_president
+				if = {
+					limit = { NOT = { government_has_flag = government_is_secular_republic } }
+					change_government = secular_republic_government
+				}
+				if = {
+					limit = { NOT = { has_realm_law = gym_succession_law } }
+					add_realm_law = gym_succession_law
+				}
+				fs_prk_register_election_candidate_effect = yes
+			}
+
+			every_player = {
+				limit = {
+					OR = {
+						this = scope:fs_prk_interim_successor
+						has_title = title:k_prk
+						top_liege = { has_title = title:k_prk }
+					}
+			}
+				trigger_event = { id = joson_election.8 days = 1 }
+			}
+		}
+		else_if = {
+			limit = { this = title:k_prk.holder }
+			# Without a living appointed vice president, the normal successor holds the
+			# office provisionally while candidates organize for a special election.
+			title:k_prk.holder = {
+				save_scope_as = fs_prk_interim_successor
+				remove_variable = fs_prk_appointed_vice_president
+				set_variable = fs_prk_interim_president
+				if = {
+					limit = { NOT = { government_has_flag = government_is_secular_republic } }
+					change_government = secular_republic_government
+				}
+				if = {
+					limit = { NOT = { has_realm_law = gym_succession_law } }
+					add_realm_law = gym_succession_law
+				}
+				fs_prk_register_election_candidate_effect = yes
+			}
+			if = {
+				limit = {
+					exists = title:c_pyongyang.holder
+					title:c_pyongyang.holder != scope:fs_prk_interim_successor
+				}
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = fs_prk_interim_capital_change
+					add_claim_on_loss = no
+				}
+				title:c_pyongyang = {
+					change_title_holder = {
+						holder = scope:fs_prk_interim_successor
+						change = scope:fs_prk_interim_capital_change
+					}
+				}
+				resolve_title_and_vassal_change = scope:fs_prk_interim_capital_change
+			}
+			if = {
+				limit = {
+					fs_prk_election_is_idle_trigger = yes
+					NOT = { has_global_variable = fs_prk_special_election_pending }
+				}
+				fs_prk_open_special_election_nomination_effect = yes
+				every_living_character = {
+					limit = { has_variable = fs_prk_candidate }
+					fs_prk_queue_campaign_event_effect = yes
+				}
+				save_scope_value_as = {
+					name = fs_prk_special_election_event_generation
+					value = global_var:fs_prk_special_election_generation
+				}
+				trigger_event = { id = joson_election.7 days = 89 }
+			}
+
+			every_player = {
+				limit = {
+					OR = {
+						this = scope:fs_prk_interim_successor
+						has_title = title:k_prk
+						top_liege = { has_title = title:k_prk }
+					}
+			}
+				trigger_event = { id = joson_election.9 days = 1 }
+			}
+		}
+		remove_variable = fs_prk_vacancy_vice_president
+	}
+}
+
+# Begin the special election no later than 90 days after an uncovered vacancy.
+joson_election.7 = {
+	scope = none
+	hidden = yes
+	trigger = {
+		has_global_variable = fs_prk_special_election_pending
+		has_global_variable = fs_prk_special_election_generation
+		exists = scope:fs_prk_special_election_event_generation
+		scope:fs_prk_special_election_event_generation = global_var:fs_prk_special_election_generation
+	}
+	immediate = {
+		if = {
+			limit = { NOT = { exists = title:k_prk.holder } }
+			remove_global_variable = fs_prk_special_election_pending
+			fs_prk_close_campaign_round_effect = yes
+			fs_prk_clear_all_campaign_effect = yes
+		}
+		else_if = {
+			limit = { NOT = { fs_prk_election_is_idle_trigger = yes } }
+			# An election already in progress resolves the vacancy sooner.
+			remove_global_variable = fs_prk_special_election_pending
+		}
+		else = {
+			remove_global_variable = fs_prk_special_election_pending
+			if = {
+				limit = { global_var:election_term < 0 }
+				# A regular election that is already due takes precedence and begins a
+				# fresh term instead of immediately requiring two elections.
+				trigger_event = joson_election.1
+			}
+			else = {
+				set_global_variable = { name = fs_prk_special_election_active value = yes }
+				trigger_event = joson_election.1
+			}
+		}
+	}
+}
+
+# Player-facing vacancy notices retain their own successor scope, so consecutive
+# vacancies cannot overwrite one another while an older window remains open.
+joson_election.8 = {
+	type = character_event
+	title = joson_election.8.t
+	desc = joson_election.8.desc
+	theme = martial_authority_focus
+	trigger = { exists = scope:fs_prk_interim_successor }
+	right_portrait = {
+		character = scope:fs_prk_interim_successor
+		animation = personality_rational
+	}
+	option = {
+		name = joson_election.8.a
+	}
+}
+
+joson_election.9 = {
+	type = character_event
+	title = joson_election.9.t
+	desc = joson_election.9.desc
+	theme = martial_authority_focus
+	trigger = { exists = scope:fs_prk_interim_successor }
+	right_portrait = {
+		character = scope:fs_prk_interim_successor
+		animation = personality_rational
+	}
+	option = {
+		name = joson_election.9.a
+	}
+}
+
+# Choose how heavily to invest in the campaign. The resulting score is consumed
+# by fs_prk_calculate_ai_election_score_effect for both previews and real ballots.
+joson_election.10 = {
+	type = character_event
+	title = joson_election.10.t
+	desc = joson_election.10.desc
+	theme = martial_authority_focus
+	trigger = {
+		has_variable = fs_prk_campaign_event_queued
+		exists = scope:fs_prk_campaign_event_generation
+	}
+	immediate = {
+		if = {
+			limit = { fs_prk_campaign_event_can_be_used_trigger = yes }
+			remove_variable = fs_prk_campaign_event_queued
+			set_variable = fs_prk_campaign_completed
+		}
+		else_if = {
+			limit = {
+				has_variable = fs_prk_campaign_generation
+				var:fs_prk_campaign_generation = scope:fs_prk_campaign_event_generation
+			}
+			remove_variable = fs_prk_campaign_event_queued
+		}
+	}
+	override_icon = {
+		reference = "gfx/interface/icons/event_types/type_election.dds"
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	option = {
+		name = joson_election.10.a
+		trigger = {
+			fs_prk_campaign_event_can_be_used_trigger = yes
+			gold >= 75
+		}
+		remove_short_term_gold = 75
+		change_variable = { name = fs_prk_campaign_support add = 20 }
+		custom_tooltip = joson_election.10.a.tt
+		hidden_effect = {
+			fs_prk_refresh_republic_players_candidate_ui_effect = yes
+			trigger_event = { id = joson_election.11 days = { 20 40 } }
+		}
+		ai_chance = {
+			base = 50
+			modifier = { add = 50 has_trait = ambitious }
+			modifier = { add = 25 ai_energy >= 20 }
+			modifier = { add = -30 has_trait = greedy }
+		}
+	}
+	option = {
+		name = joson_election.10.b
+		trigger = {
+			fs_prk_campaign_event_can_be_used_trigger = yes
+			prestige >= 100
+		}
+		add_prestige = -100
+		change_variable = { name = fs_prk_campaign_support add = 12 }
+		custom_tooltip = joson_election.10.b.tt
+		hidden_effect = {
+			fs_prk_refresh_republic_players_candidate_ui_effect = yes
+			trigger_event = { id = joson_election.11 days = { 20 40 } }
+		}
+		ai_chance = {
+			base = 45
+			modifier = { add = 40 has_trait = diligent }
+			modifier = { add = 20 has_trait = just }
+		}
+	}
+	option = {
+		name = joson_election.10.c
+		trigger = { fs_prk_campaign_event_can_be_used_trigger = yes }
+		change_variable = { name = fs_prk_campaign_support add = 5 }
+		custom_tooltip = joson_election.10.c.tt
+		hidden_effect = {
+			fs_prk_refresh_republic_players_candidate_ui_effect = yes
+			trigger_event = { id = joson_election.11 days = { 20 40 } }
+		}
+		ai_chance = {
+			base = 20
+			modifier = { add = 50 has_trait = content }
+			modifier = { add = 30 has_trait = greedy }
+			modifier = { add = 20 has_trait = shy }
+		}
+	}
+	option = {
+		name = joson_election.10.d
+		trigger = { NOT = { fs_prk_campaign_event_can_be_used_trigger = yes } }
+		fs_prk_clear_campaign_event_if_same_generation_effect = yes
+		ai_chance = { base = 100 }
+	}
+}
+
+# A public debate turns the candidate's chosen administrative, rhetorical or
+# covert approach into a bounded second campaign bonus.
+joson_election.11 = {
+	type = character_event
+	title = joson_election.11.t
+	desc = joson_election.11.desc
+	theme = martial_authority_focus
+	trigger = {
+		has_variable = fs_prk_campaign_completed
+		NOT = { has_variable = fs_prk_campaign_debate_completed }
+		exists = scope:fs_prk_campaign_event_generation
+	}
+	immediate = {
+		if = {
+			limit = { fs_prk_campaign_event_can_be_used_trigger = yes }
+			set_variable = fs_prk_campaign_debate_completed
+		}
+	}
+	override_icon = {
+		reference = "gfx/interface/icons/event_types/type_election.dds"
+	}
+	left_portrait = {
+		character = root
+		animation = debating
+	}
+	option = {
+		name = joson_election.11.a
+		trigger = { fs_prk_campaign_event_can_be_used_trigger = yes }
+		change_variable = {
+			name = fs_prk_campaign_support
+			add = {
+				value = stewardship
+				add = learning
+				divide = 4
+				min = 2
+				max = 12
+			}
+		}
+		custom_tooltip = joson_election.11.a.tt
+		hidden_effect = { fs_prk_refresh_republic_players_candidate_ui_effect = yes }
+		ai_chance = {
+			base = 20
+			modifier = { add = 50 stewardship >= 12 }
+			modifier = { add = 50 learning >= 12 }
+			modifier = { add = 30 has_trait = diligent }
+		}
+	}
+	option = {
+		name = joson_election.11.b
+		trigger = { fs_prk_campaign_event_can_be_used_trigger = yes }
+		change_variable = {
+			name = fs_prk_campaign_support
+			add = {
+				value = diplomacy
+				divide = 2
+				min = 2
+				max = 12
+			}
+		}
+		custom_tooltip = joson_election.11.b.tt
+		hidden_effect = { fs_prk_refresh_republic_players_candidate_ui_effect = yes }
+		ai_chance = {
+			base = 20
+			modifier = { add = 80 diplomacy >= 12 }
+			modifier = { add = 30 ai_sociability >= 20 }
+			modifier = { add = -30 has_trait = shy }
+		}
+	}
+	option = {
+		name = joson_election.11.c
+		trigger = { fs_prk_campaign_event_can_be_used_trigger = yes }
+		add_prestige = -50
+		change_variable = {
+			name = fs_prk_campaign_support
+			add = {
+				value = intrigue
+				divide = 2
+				min = 2
+				max = 12
+			}
+		}
+		custom_tooltip = joson_election.11.c.tt
+		hidden_effect = { fs_prk_refresh_republic_players_candidate_ui_effect = yes }
+		ai_chance = {
+			base = 15
+			modifier = { add = 80 intrigue >= 12 }
+			modifier = { add = 30 has_trait = deceitful }
+			modifier = { add = -50 has_trait = honest }
+		}
+	}
+	option = {
+		name = joson_election.11.d
+		trigger = { NOT = { fs_prk_campaign_event_can_be_used_trigger = yes } }
+		fs_prk_clear_campaign_event_if_same_generation_effect = yes
+		ai_chance = { base = 100 }
 	}
 }
