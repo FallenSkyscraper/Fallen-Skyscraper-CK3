@@ -1875,6 +1875,7 @@ on_game_start_after_lobby = {
 		}
 
 		### Fallen Skyscraper: Startup settings
+			
 		every_player = {
 			trigger_event = startup.1
 		}
@@ -1898,6 +1899,25 @@ on_game_start_after_lobby = {
 				id = yalu_civil_war.2
 				days = 7
 			}
+		}
+		character:842 = {
+			set_real_father = character:7012
+		}
+		character:846 = {
+			set_real_father = character:7012
+		}
+		if = {
+			limit = {
+				NOT = { has_global_variable = fs_prk_initial_candidate_registered }
+			}
+			set_global_variable = { name = fs_prk_initial_candidate_registered value = yes }
+			character:6002 = {
+				fs_prk_register_election_candidate_effect = yes
+			}
+		}
+		character:4009 = {
+			add_prestige_level = 2
+			add_piety_level = 3
 		}
 		every_county = {
 			fs_initialize_technologies_effect = yes
