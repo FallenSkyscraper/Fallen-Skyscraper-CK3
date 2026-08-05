@@ -1,0 +1,39 @@
+seoul_autonomous_district_aspiration = {
+	is_default = yes
+	show_in_main_hud = yes
+	is_shown = {
+		house_head ?= { government_has_flag = government_is_seoul }
+	}
+	level = {
+		parameters = { no_aspect = yes }
+		ai_score = { value = 1 }
+	}
+	cooldown = { years = 1 }
+	illustration = "gfx/interface/icons/culture_pillars/ethos_communal.dds"
+}
+
+seoul_city_hall_aspiration = {
+	show_in_main_hud = yes
+	is_shown = {
+		house_head ?= { government_has_flag = government_is_seoul }
+	}
+	level = {
+		parameters = { no_aspect = yes }
+		ai_score = { value = 1 }
+	}
+	cooldown = { years = 1 }
+	illustration = "gfx/interface/icons/culture_pillars/ethos_bureaucratic.dds"
+}
+
+seoul_independence_aspiration = {
+	show_in_main_hud = yes
+	is_shown = {
+		house_head ?= { government_has_flag = government_is_seoul }
+	}
+	level = {
+		parameters = { no_aspect = yes }
+		ai_score = { value = 1 }
+	}
+	cooldown = { years = 1 }
+	illustration = "gfx/interface/icons/culture_pillars/ethos_egalitarian.dds"
+}

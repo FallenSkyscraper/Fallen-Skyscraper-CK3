@@ -1,0 +1,26 @@
+seoul_recovery = {
+	allowed_for_character = {
+		herders_and_tributary_constraints = yes
+		tgp_war_ban_all_ministers_trigger = yes
+	}
+}
+
+seoul_influence_dispute = {
+	allowed_for_character = {
+		herders_and_tributary_constraints = yes
+	}
+}
+
+independence = {
+	allowed_for_character = {
+		custom_tooltip = {
+			text = fs_seoul_independence_war_forbidden_tt
+			trigger_if = {
+				limit = { scope:attacker = { exists = liege } }
+				scope:attacker.liege = {
+					NOT = { government_has_flag = government_is_seoul }
+				}
+			}
+		}
+	}
+}

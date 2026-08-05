@@ -1,0 +1,205 @@
+fs_start_challenge_status_interaction = {
+	icon = icon_scheme_challenge_status
+	interface_priority = 80
+	category = interaction_category_hostile
+	common_interaction = no
+	send_name = START_SCHEME
+	scheme = fs_seoul_challenge_status
+	ignores_pending_interaction_block = yes
+
+	ai_targets = { ai_recipients = peer_vassals max = 5 }
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 92
+		duchy = 48
+		kingdom = 24
+		empire = 12
+		hegemony = 0
+	}
+
+	is_shown = {
+		scope:actor = { government_has_flag = government_is_seoul }
+		scope:recipient != scope:actor
+		scope:recipient = {
+			government_has_flag = government_is_seoul
+			top_liege = scope:actor.top_liege
+		}
+	}
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_lowborn = no }
+		scope:actor = {
+			is_adult = yes
+			is_imprisoned = no
+			can_start_scheme = {
+				type = fs_seoul_challenge_status
+				target_character = scope:recipient
+			}
+		}
+	}
+
+	desc = fs_start_challenge_status_interaction_desc
+	options_heading = schemes.t.agent_packages
+	send_options_exclusive = yes
+	send_option = {
+		flag = agent_focus_balance
+		current_description = start_challenge_status_interaction.tt.agent_focus_balance
+	}
+	send_option = {
+		flag = agent_focus_success
+		current_description = start_challenge_status_interaction.tt.agent_focus_success
+	}
+	send_option = {
+		flag = agent_focus_speed
+		current_description = start_challenge_status_interaction.tt.agent_focus_speed
+	}
+
+	on_accept = {
+		scope:actor = {
+			if = {
+				limit = { scope:agent_focus_success ?= yes }
+				begin_scheme_with_agents_effect = {
+					SCHEME_TYPE = fs_seoul_challenge_status
+					TARGET_TYPE = target_character
+					TARGET_SCOPE = scope:recipient
+					AGENT_1 = agent_proponent
+					AGENT_2 = agent_intermediary
+					AGENT_3 = agent_sycophant
+					AGENT_4 = agent_political_socialite
+					AGENT_5 = agent_bureaucrat
+				}
+			}
+			else_if = {
+				limit = { scope:agent_focus_speed ?= yes }
+				begin_scheme_with_agents_effect = {
+					SCHEME_TYPE = fs_seoul_challenge_status
+					TARGET_TYPE = target_character
+					TARGET_SCOPE = scope:recipient
+					AGENT_1 = agent_proponent
+					AGENT_2 = agent_intermediary
+					AGENT_3 = agent_political_socialite
+					AGENT_4 = agent_bureaucrat
+					AGENT_5 = agent_bureaucrat
+				}
+			}
+			else = {
+				begin_scheme_with_agents_effect = {
+					SCHEME_TYPE = fs_seoul_challenge_status
+					TARGET_TYPE = target_character
+					TARGET_SCOPE = scope:recipient
+					AGENT_1 = agent_proponent
+					AGENT_2 = agent_intermediary
+					AGENT_3 = agent_political_socialite
+					AGENT_4 = agent_bureaucrat
+					AGENT_5 = agent_amanuensis
+				}
+			}
+			custom_tooltip = challenge_status_success_actor_tt
+		}
+	}
+	auto_accept = yes
+	ai_potential = {
+		government_has_flag = government_is_seoul
+		ai_honor <= 20
+	}
+	ai_will_do = { base = 20 }
+}
+
+seoul_influence_candidacy_interaction = {
+	icon = support_candidacy
+	category = interaction_category_succession
+	common_interaction = yes
+	interface_priority = 100
+	desc = seoul_influence_candidacy_interaction_desc
+	target_type = title
+	target_filter = recipient_de_jure_titles
+	custom_character_sort = { candidate_score }
+
+	populate_recipient_list = {
+		scope:actor.top_liege = {
+			every_vassal_or_below = {
+				limit = {
+					government_has_flag = government_is_seoul
+					is_appointment_valid_trigger = {
+						TITLE = title:k_seoul
+						CANDIDATE = this
+						TOP_LIEGE = scope:actor.top_liege
+					}
+				}
+				add_to_list = characters
+			}
+		}
+	}
+	can_be_picked_title = {
+		this = title:k_seoul
+		is_appointment_valid_trigger = {
+			TITLE = scope:target
+			CANDIDATE = scope:secondary_recipient
+			TOP_LIEGE = scope:recipient
+		}
+	}
+	has_valid_target_showing_failures_only = {
+		scope:target ?= title:k_seoul
+		scope:target = {
+			exists = holder
+			has_title_law = seoul_acclamation_succession_law
+			holder.top_liege = scope:recipient
+		}
+	}
+	is_available = {
+		is_ai = no
+		government_has_flag = government_is_seoul
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = { government_has_flag = government_is_seoul }
+		scope:secondary_recipient ?= {
+			government_has_flag = government_is_seoul
+			top_liege = scope:actor.top_liege
+		}
+	}
+	redirect = {
+		scope:recipient = {
+			if = {
+				limit = { this != scope:actor.top_liege }
+				save_scope_as = secondary_recipient
+				scope:actor.top_liege = { save_scope_as = recipient }
+			}
+		}
+	}
+	auto_accept = yes
+	send_options_exclusive = yes
+	send_option = {
+		flag = seoul_major_influence_option
+		localization = seoul_major_influence_option_desc
+	}
+	send_option = {
+		flag = seoul_medium_influence_option
+		localization = seoul_medium_influence_option_desc
+		starts_enabled = { always = yes }
+	}
+	cost = {
+		influence = {
+			if = {
+				limit = { scope:seoul_major_influence_option = yes }
+				add = appointment_major_influence_cost
+			}
+			else = { add = appointment_medium_influence_cost }
+		}
+	}
+	on_accept = {
+		if = {
+			limit = { scope:seoul_major_influence_option = yes }
+			save_scope_value_as = { name = seoul_support_score value = appointment_score_major_value }
+		}
+		else = {
+			save_scope_value_as = { name = seoul_support_score value = appointment_score_medium_value }
+		}
+		scope:target = {
+			change_appointment_investment = {
+				target = scope:secondary_recipient
+				investor = scope:actor
+				value = scope:seoul_support_score
+			}
+		}
+		custom_tooltip = seoul_influence_candidacy_success_tt
+	}
+}

@@ -1,0 +1,104 @@
+on_title_gain = {
+	on_actions = { fs_seoul_government_on_title_gain }
+}
+
+fs_seoul_government_game_start = {
+	effect = {
+		title:k_seoul.holder ?= {
+			if = {
+				limit = { NOT = { government_has_flag = government_is_seoul } }
+				change_government = seoul_government
+			}
+			if = {
+				limit = {
+					NOR = {
+						has_realm_law = seoul_authority_0
+						has_realm_law = seoul_authority_1
+						has_realm_law = seoul_authority_2
+						has_realm_law = seoul_authority_3
+					}
+				}
+				add_realm_law = seoul_authority_1
+			}
+			if = {
+				limit = { NOT = { has_variable = fs_seoul_initial_influence_granted } }
+				change_influence = { value = 200 }
+				set_variable = { name = fs_seoul_initial_influence_granted value = yes }
+			}
+			every_vassal_or_below = {
+				limit = {
+					is_landed = yes
+					highest_held_title_tier >= tier_county
+				}
+				if = {
+					limit = { NOT = { government_has_flag = government_is_seoul } }
+					change_government = seoul_government
+				}
+				if = {
+					limit = {
+						NOR = {
+							has_realm_law = seoul_authority_0
+							has_realm_law = seoul_authority_1
+							has_realm_law = seoul_authority_2
+							has_realm_law = seoul_authority_3
+						}
+					}
+					add_realm_law = seoul_authority_1
+				}
+				if = {
+					limit = { NOT = { has_variable = fs_seoul_initial_influence_granted } }
+					change_influence = { value = 200 }
+					set_variable = { name = fs_seoul_initial_influence_granted value = yes }
+				}
+			}
+		}
+		title:k_seoul = {
+			if = {
+				limit = { NOT = { has_title_law = seoul_acclamation_succession_law } }
+				add_title_law = seoul_acclamation_succession_law
+			}
+		}
+	}
+}
+
+fs_seoul_government_on_title_gain = {
+	effect = {
+		if = {
+			limit = {
+				is_landed = yes
+				highest_held_title_tier >= tier_county
+				OR = {
+					scope:title = title:k_seoul
+					top_liege ?= {
+						has_title = title:k_seoul
+						government_has_flag = government_is_seoul
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { government_has_flag = government_is_seoul } }
+				change_government = seoul_government
+			}
+			if = {
+				limit = {
+					NOR = {
+						has_realm_law = seoul_authority_0
+						has_realm_law = seoul_authority_1
+						has_realm_law = seoul_authority_2
+						has_realm_law = seoul_authority_3
+					}
+				}
+				add_realm_law = seoul_authority_1
+			}
+		}
+		if = {
+			limit = { scope:title = title:k_seoul }
+			title:k_seoul = {
+				if = {
+					limit = { NOT = { has_title_law = seoul_acclamation_succession_law } }
+					add_title_law = seoul_acclamation_succession_law
+				}
+			}
+		}
+	}
+}

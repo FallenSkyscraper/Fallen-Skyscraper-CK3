@@ -246,6 +246,28 @@
 		flag = appointment_type_succession
 		flag = appointment_with_level_requirement
 	}
+
+	# The Seoul title uses appointment/acclamation while county titles continue
+	# to follow their holders' hereditary realm succession.
+	seoul_acclamation_succession_law = {
+		can_have = {
+			government_has_flag = government_is_seoul
+		}
+		can_pass = { always = no }
+		can_title_have = {
+			this = title:k_seoul
+		}
+		can_realm_have = { always = no }
+		should_show_for_title = {
+			this = title:k_seoul
+		}
+		can_remove_from_title = { always = no }
+		succession = {
+			order_of_succession = appointment
+			appointment_type = seoul_acclamation
+		}
+		flag = appointment_type_succession
+	}
 }
 
 

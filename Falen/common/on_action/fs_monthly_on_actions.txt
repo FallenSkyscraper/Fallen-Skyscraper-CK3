@@ -1,9 +1,11 @@
-﻿on_game_start_after_lobby = {
+on_game_start_after_lobby = {
 	on_actions = {
+		fs_seoul_government_game_start
 		delay = { days = 31 }
 		global_monthly_pulse
 	}
 }
+
 global_monthly_pulse = {
 	events = {
 		global_monthly.1

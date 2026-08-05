@@ -40,6 +40,7 @@ maritime_government = {
 		dynasty_named_realms = no#가문이 해당 백작령 이름으로 정해진다.
 		legitimacy = yes
 		allow_accolades = yes
+		disable_regnal_numbers = yes
 	}
 
 	royal_court = any
@@ -74,10 +75,69 @@ maritime_government = {
 	}
 	color = { 20 35 160 }#만약 파란색이 안나오면 	233°	88°	62°
 }
+
+## Seoul Special City
+seoul_government = {
+	government_rules = {
+		create_cadet_branches = yes
+		rulers_should_have_dynasty = yes
+		dynasty_named_realms = no
+		legitimacy = yes
+		sticky_government = yes
+		house_aspirations = yes
+		noble_families = no
+		administrative = no
+		deny_powerful_vassal = yes
+		disable_regnal_numbers = yes
+		allow_accolades = yes
+	}
+
+	royal_court = any
+	min_appointment_tier = kingdom
+	primary_holding = castle_holding
+	valid_holdings = { city_holding metropolis_holding temple_citadel_holding }
+	required_county_holdings = { castle_holding city_holding church_holding }
+	vassal_contract_group = feudal_vassal
+
+	character_modifier = {
+		domain_limit_max = 1
+		levy_size = -2.0
+		monthly_influence = 0.25
+	}
+
+	can_get_government = {
+		highest_held_title_tier >= tier_county
+		OR = {
+			has_title = title:k_seoul
+			top_liege ?= {
+				has_title = title:k_seoul
+				government_has_flag = government_is_seoul
+			}
+		}
+	}
+
+	mechanic_type = feudal
+	flags = {
+		government_is_seoul
+		government_is_feudal
+		government_is_settled
+		government_uses_domain_limit
+		government_has_influence
+		has_special_house_aspirations
+	}
+
+	currency_levels_cap = {
+		influence = 5
+	}
+
+	color = { 35 110 170 }
+}
 ## 프롤레타리아 독재제
 proletarian_government = {
 	government_rules = {
 		create_cadet_branches = yes
+		deny_powerful_vassal = yes
+		disable_regnal_numbers = yes
 		allow_accolades = yes
 	}
 	preferred_religions = { communism_religion }
@@ -107,6 +167,7 @@ secular_republic_government = {
 	#	use_as_base_on_rank_up = no
 		inherit_from_dynastic_government = no
 	#	state_faith = no
+		disable_regnal_numbers = yes
 		allow_accolades = yes
 	}
 	
@@ -140,6 +201,7 @@ secular_republic_government = {
 merchant_republic_government = {
 	government_rules = {
 		rulers_should_have_dynasty = yes
+		disable_regnal_numbers = yes
 		allow_accolades = yes
 	}
 	primary_holding = city_holding
@@ -168,6 +230,7 @@ merchant_republic_government = {
 oligarchic_republic_government = {
 	government_rules = {
 		rulers_should_have_dynasty = yes
+		disable_regnal_numbers = yes
 		allow_accolades = yes
 	}
 	primary_holding = city_holding

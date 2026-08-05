@@ -15,6 +15,7 @@
 
 @mandala_decree_piety_cost = 1000
 @mandala_decree_prestige_cost = 500
+@seoul_authority_cooldown_years = 10
 
 crown_authority = {
 	default = crown_authority_1
@@ -3711,55 +3712,115 @@ communism_authority = {
 			}
 		}
 	}
-	#국가 연합
-	#alliance_authority = {
-	#	default = alliance_authority_0
-	#	cumulative = no
-	#	flag = realm_law
-	#	alliance_authority_0 = {
-	#		modifier = {
-	#			direct_vassal_opinion = 15
-	#			feudal_government_tax_contribution_mult = -0.1
-	#			vassal_levy_contribution_mult = -0.1
-	#		}
-	#		flag = can_change_succession_laws
-	#
-	#		can_keep = { realm_law_use_alliance_authority = yes }
-	#	}
-	#
-	#	aliance_authority_1 = {
-	#		modifier = {
-	#			direct_vassal_opinion = -30
-	#		}
-	#		flag = can_change_succession_laws
-	#
-	#		can_keep = { realm_law_use_alliance_authority = yes prestige_level >= 5 }
-	#
-	#		can_pass = {
-	#			trigger_if = {
-	#				limit = { has_realm_law = alliance_authority_0 }
-	#				custom_description = {
-	#					subject = root
-	#					text = "has_crown_authority_cooldown"
-	#					NOT = { has_variable = crown_authority_cooldown }
-	#				}
-	#			}
-	#		}
-	#
-	#		pass_cost = {
-	#			prestige = {
-	#				crown_authority_prestige_cost
-	#			}
-	#		}
-	#
-	#
-	#		ai_will_do = {
-	#			if = {
-	#				limit = { has_realm_law = alliance_authority_0 }
-	#				value = 1
-	#			}
-	#		}
-	#	}
-	#}
 }
+
+seoul_authority = {
+	default = seoul_authority_1
+	cumulative = yes
+	flag = realm_law
+
+	seoul_authority_0 = {
+		modifier = {
+			direct_vassal_opinion = 15
+			vassal_tax_contribution_mult = -0.1
+			vassal_levy_contribution_mult = -0.1
+		}
+		flag = uses_seoul_authority
+		can_keep = { realm_law_use_seoul_authority = yes }
+		on_pass = { remove_law_related_modifiers_effect = yes }
+	}
+
+	seoul_authority_1 = {
+		modifier = { direct_vassal_opinion = 5 }
+		flag = title_revocation_allowed
+		flag = vassal_retraction_allowed
+		flag = can_have_tributaries
+		flag = can_change_partition_succession_laws
+		can_keep = { realm_law_use_seoul_authority = yes }
+		can_pass = {
+			trigger_if = {
+				limit = { has_realm_law = seoul_authority_0 }
+				custom_description = {
+					subject = root
+					text = fs_has_seoul_authority_cooldown
+					NOT = { has_variable = seoul_authority_cooldown }
+				}
+			}
+			can_pass_law_ca1_trigger = yes
+		}
+		pass_cost = { prestige = { add = increase_crown_authority_prestige_cost } }
+		on_pass = {
+			set_variable = {
+				name = seoul_authority_cooldown
+				years = @seoul_authority_cooldown_years
+			}
+			remove_law_related_modifiers_effect = yes
+		}
+		ai_will_do = { value = 1 }
+	}
+
+	seoul_authority_2 = {
+		modifier = {
+			direct_vassal_opinion = -10
+			vassal_tax_contribution_mult = 0.1
+			vassal_levy_contribution_mult = 0.1
+		}
+		flag = vassal_refusal_is_treason
+		flag = can_change_succession_laws
+		flag = titles_cannot_leave_realm_on_succession
+		can_keep = { realm_law_use_seoul_authority = yes }
+		can_pass = {
+			trigger_if = {
+				limit = { has_realm_law = seoul_authority_1 }
+				custom_description = {
+					subject = root
+					text = fs_has_seoul_authority_cooldown
+					NOT = { has_variable = seoul_authority_cooldown }
+				}
+			}
+			can_pass_law_ca2_trigger = yes
+		}
+		pass_cost = { prestige = { add = increase_crown_authority_prestige_cost } }
+		on_pass = {
+			set_variable = {
+				name = seoul_authority_cooldown
+				years = @seoul_authority_cooldown_years
+			}
+			remove_law_related_modifiers_effect = yes
+		}
+		ai_will_do = { value = 1 }
+	}
+
+	seoul_authority_3 = {
+		modifier = {
+			direct_vassal_opinion = -20
+			vassal_tax_contribution_mult = 0.25
+			vassal_levy_contribution_mult = 0.25
+		}
+		flag = can_designate_heirs
+		flag = max_authority_level
+		can_keep = { realm_law_use_seoul_authority = yes }
+		can_pass = {
+			trigger_if = {
+				limit = { has_realm_law = seoul_authority_2 }
+				custom_description = {
+					subject = root
+					text = fs_has_seoul_authority_cooldown
+					NOT = { has_variable = seoul_authority_cooldown }
+				}
+			}
+			can_pass_law_ca3_trigger = yes
+		}
+		pass_cost = { prestige = { add = increase_crown_authority_prestige_cost } }
+		on_pass = {
+			set_variable = {
+				name = seoul_authority_cooldown
+				years = @seoul_authority_cooldown_years
+			}
+			remove_law_related_modifiers_effect = yes
+		}
+		ai_will_do = { value = 1 }
+	}
+}
+
 
