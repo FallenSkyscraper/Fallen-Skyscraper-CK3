@@ -4,3 +4,84 @@ fs_seoul_title_creation_allowed_trigger = {
 		NOT = { government_has_flag = government_is_seoul }
 	}
 }
+
+fs_seoul_is_appointment_valid_trigger = {
+	$TITLE$ = { save_temporary_scope_as = title_temp }
+	$CANDIDATE$ = { save_temporary_scope_as = candidate_temp }
+	$TOP_LIEGE$ = { save_temporary_scope_as = top_liege_temp }
+	custom_tooltip = {
+		text = not_top_liege_capital_county_tt
+		NOT = { scope:title_temp ?= scope:candidate_temp.top_liege.capital_county }
+	}
+	scope:candidate_temp = {
+		trigger_if = {
+			limit = { exists = scope:title_temp }
+			custom_tooltip = {
+				text = has_appointment_succession_tt
+				$TITLE$ = {
+					OR = {
+						has_title_law_flag = appointment_type_succession
+						holder ?= { has_realm_law_flag = appointment_type_succession }
+					}
+				}
+			}
+			trigger_if = {
+				limit = {
+					NOT = { top_liege.highest_held_title_tier = scope:title_temp.tier }
+				}
+				is_adult = yes
+			}
+			trigger_if = {
+				limit = { any_held_title = { count >= 1 } }
+				trigger_if = {
+					limit = { government_has_flag = government_is_celestial }
+					custom_tooltip = {
+						text = cannot_compete_for_lower_rank_titles_tt
+						NOT = {
+							any_held_title = {
+								tier > scope:title_temp.tier
+								is_landless_type_title = no
+								is_noble_family_title = no
+							}
+						}
+					}
+				}
+				trigger_else = {
+					custom_tooltip = {
+						text = only_one_province_of_highest_rank_tt
+						NOT = {
+							any_held_title = {
+								tier = scope:title_temp.tier
+								is_landless_type_title = no
+								is_noble_family_title = no
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = promote_candidate_interaction_existing_holder_tt
+					this != scope:title_temp.holder
+				}
+			}
+		}
+		custom_tooltip = {
+			text = can_be_appointed_interaction_tt
+			OR = {
+				can_be_granted_titles_by = { RULER = scope:top_liege_temp }
+				can_be_granted_theocratic_titles_by = { RULER = scope:top_liege_temp }
+				AND = {
+					is_diarch_of_target = scope:top_liege_temp
+					scope:top_liege_temp = { has_diarchy_active_parameter = diarchy_is_co_rulership }
+				}
+			}
+		}
+		custom_tooltip = {
+			text = fs_seoul_appointment_candidate_government_tt
+			trigger_if = {
+				limit = { is_landed = yes }
+				government_has_flag = government_is_seoul
+			}
+		}
+		is_clergy = no
+	}
+}

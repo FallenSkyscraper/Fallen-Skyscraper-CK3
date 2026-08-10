@@ -4,26 +4,27 @@ seoul_acclamation = {
 	allow_same_tier_candidates = no
 
 	candidate_score = {
-		value = 0
-		add = { value = diplomacy multiply = 2 desc = seoul_acclamation_diplomacy_score }
-		add = { value = martial multiply = 2 desc = seoul_acclamation_martial_score }
-		add = { value = stewardship multiply = 3 desc = seoul_acclamation_stewardship_score }
-		add = { value = intrigue desc = seoul_acclamation_intrigue_score }
-		add = { value = learning desc = seoul_acclamation_learning_score }
-		add = {
-			value = influence_level
-			multiply = 20
-			desc = seoul_acclamation_influence_score
-		}
-		if = {
-			limit = {
-				scope:title.holder = { any_councillor ?= { this = root } }
+		value = {
+			add = { value = diplomacy multiply = 2 desc = seoul_acclamation_diplomacy_score }
+			add = { value = martial multiply = 2 desc = seoul_acclamation_martial_score }
+			add = { value = stewardship multiply = 3 desc = seoul_acclamation_stewardship_score }
+			add = { value = intrigue desc = seoul_acclamation_intrigue_score }
+			add = { value = learning desc = seoul_acclamation_learning_score }
+			add = {
+				value = influence_level
+				multiply = 20
+				desc = seoul_acclamation_influence_score
 			}
-			add = { value = 20 desc = seoul_acclamation_councillor_score }
-		}
-		if = {
-			limit = { has_trait = incapable }
-			add = { value = -1000 desc = seoul_acclamation_incapable_score }
+			if = {
+				limit = {
+					scope:title.holder = { any_councillor ?= { this = root } }
+				}
+				add = { value = 20 desc = seoul_acclamation_councillor_score }
+			}
+			if = {
+				limit = { has_trait = incapable }
+				add = { value = -1000 desc = seoul_acclamation_incapable_score }
+			}
 		}
 	}
 }

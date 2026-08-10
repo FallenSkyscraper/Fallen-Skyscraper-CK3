@@ -119,7 +119,7 @@ seoul_influence_candidacy_interaction = {
 			every_vassal_or_below = {
 				limit = {
 					government_has_flag = government_is_seoul
-					is_appointment_valid_trigger = {
+					fs_seoul_is_appointment_valid_trigger = {
 						TITLE = title:k_seoul
 						CANDIDATE = this
 						TOP_LIEGE = scope:actor.top_liege
@@ -130,18 +130,33 @@ seoul_influence_candidacy_interaction = {
 		}
 	}
 	can_be_picked_title = {
-		this = title:k_seoul
-		is_appointment_valid_trigger = {
-			TITLE = scope:target
-			CANDIDATE = scope:secondary_recipient
-			TOP_LIEGE = scope:recipient
+		trigger_if = {
+			limit = {
+				exists = scope:target
+				exists = scope:secondary_recipient
+				exists = scope:recipient
+			}
+			scope:target = {
+				custom_tooltip = {
+					text = fs_seoul_candidacy_title_tt
+					has_title_law = seoul_acclamation_succession_law
+				}
+			}
+			fs_seoul_is_appointment_valid_trigger = {
+				TITLE = scope:target
+				CANDIDATE = scope:secondary_recipient
+				TOP_LIEGE = scope:recipient
+			}
 		}
 	}
 	has_valid_target_showing_failures_only = {
-		scope:target ?= title:k_seoul
+		exists = scope:target
 		scope:target = {
+			custom_tooltip = {
+				text = fs_seoul_candidacy_title_tt
+				has_title_law = seoul_acclamation_succession_law
+			}
 			exists = holder
-			has_title_law = seoul_acclamation_succession_law
 			holder.top_liege = scope:recipient
 		}
 	}

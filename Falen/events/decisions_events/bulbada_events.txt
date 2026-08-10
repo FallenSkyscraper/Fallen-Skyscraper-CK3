@@ -1,9 +1,9 @@
-﻿namespace = bulbada.decisions
+﻿namespace = bulbada_decisions
 
-bulbada.decisions.0001 = {
+bulbada_decisions.0001 = {
 	type = character_event
-	title = bulbada.decisions.0001.t
-	desc = bulbada.decisions.0001.desc
+	title = bulbada_decisions.0001.t
+	desc = bulbada_decisions.0001.desc
 	theme = war
 	left_portrait = {
 		character = root
@@ -12,10 +12,15 @@ bulbada.decisions.0001 = {
 	override_background = {
 		reference = burning_building
 	}
-	#trigger = {
-	#	always = no
-	#}
+	trigger = {
+		has_character_flag = bulbada_decision_reward_pending
+		AND = {
+			exists = global_var:bulbada_decision
+			global_var:bulbada_decision = root
+		}
+	}
 	immediate = {
+		remove_character_flag = bulbada_decision_reward_pending
 		title:c_gaeseong = {
 			add_county_modifier = {
 				modifier = recently_sacked_modifier
@@ -29,7 +34,7 @@ bulbada.decisions.0001 = {
 		}
 	}
 	option = {
-		name = bulbada.decisions.0001.a
+		name = bulbada_decisions.0001.a
 		add_prestige = 2000
 		add_piety = 1000
 		add_gold = 200
