@@ -1,22 +1,4 @@
-﻿#공군
-k_airforce_central_command = {
-	2443.1.1 = {
-		holder = 2101
-		government = military_government
-		effect = {
-			if = {
-				limit = {
-					exists = holder
-					has_dlc_feature = royal_court
-				}
-				holder = {
-					set_court_type = court_warlike
-				}
-			}
-		}
-	}
-}
-d_chungju = {
+﻿d_chungju = {
 	2443.1.1 = {
 		holder = 2101
 	}
@@ -42,27 +24,24 @@ c_geumga = {
 #1
 d_cheongju = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2102
+		government = military_government
 	}
 }
 c_cheongju = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2102
 		change_development_level = 11
 	}
 }
 c_boeun = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2102
 		change_development_level = 7
 	}
 }
 c_seowon = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2102
 		change_development_level = 6
 	}
@@ -70,7 +49,6 @@ c_seowon = {
 #2
 d_chungseo = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2103
 		change_development_level = 6
 	}
@@ -78,20 +56,17 @@ d_chungseo = {
 #3
 d_cheongbuk = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2104
 	}
 }
 c_jincheon = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2104
 		change_development_level = 5
 	}
 }
 c_deoksan = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2104
 		change_development_level = 6
 	}
@@ -99,14 +74,12 @@ c_deoksan = {
 #4
 c_geumwang = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2105
 		change_development_level = 6
 	}
 }
 c_eumseong = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2105
 		change_development_level = 5
 	}
@@ -114,14 +87,12 @@ c_eumseong = {
 #5
 c_cheongwon = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2106
 		change_development_level = 6
 	}
 }
 c_heungdeok = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2106
 		change_development_level = 7
 	}
@@ -129,7 +100,6 @@ c_heungdeok = {
 #6
 c_sokri = {
 	2443.1.1 = {
-        liege = k_airforce_central_command
 		holder = 2107
 		change_development_level = 6
 	}
