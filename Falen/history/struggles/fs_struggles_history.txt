@@ -1,0 +1,16 @@
+﻿############################
+# FALLEN SKYSCRAPER STRUGGLES
+############################
+
+# The return prophecy begins with the 2444 bookmark.
+2444.1.1 = {
+	effect = {
+		if = {
+			limit = { NOT = { exists = struggle:juche_struggle } }
+			start_struggle = {
+				struggle_type = juche_struggle
+				start_phase = struggle_juche_phase_conquest
+			}
+		}
+	}
+}

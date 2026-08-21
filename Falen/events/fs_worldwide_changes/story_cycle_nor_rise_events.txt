@@ -5,6 +5,374 @@
 
 namespace = sun_from_north
 
+# Save-load repair. New games normally create the struggle from history.
+sun_from_north.9 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		NOT = { exists = struggle:juche_struggle }
+		NOT = { has_global_variable = nk_rising }
+		has_title = title:e_north_korea
+	}
+
+	immediate = {
+		if = {
+			limit = { current_date >= 2454.1.1 }
+			start_struggle = {
+				struggle_type = juche_struggle
+				start_phase = struggle_juche_phase_status_quo
+			}
+		}
+		else = {
+			start_struggle = {
+				struggle_type = juche_struggle
+				start_phase = struggle_juche_phase_conquest
+			}
+		}
+	}
+}
+
+# 2444: spread the prophecy and initialise its nine-year countdown.
+sun_from_north.10 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		NOT = { has_global_variable = fs_juche_prophecy_started }
+		has_title = title:e_north_korea
+	}
+
+	immediate = {
+		# History normally creates the struggle. This also repairs starts made from
+		# an older setup where history/struggles was missing.
+		if = {
+			limit = { NOT = { exists = struggle:juche_struggle } }
+			start_struggle = {
+				struggle_type = juche_struggle
+				start_phase = struggle_juche_phase_conquest
+			}
+		}
+		set_global_variable = { name = fs_juche_prophecy_started value = yes }
+		set_global_variable = { name = fs_juche_prophecy_years value = 0 }
+		every_living_character = {
+			limit = {
+				location ?= { geographical_region = world_korea_north }
+			}
+			trigger_event = { id = sun_from_north.11 days = 1 }
+		}
+		# The first 10% roll is made on the 2444 start date. If it succeeds,
+		# the old 2444.1.3 revival timing is retained as a rare outcome.
+		random = {
+			chance = 10
+			trigger_event = { id = sun_from_north.1 days = 2 }
+		}
+		# Do not rely solely on the global yearly pulse: keep a self-scheduling
+		# backup chain as well. Event 100 de-duplicates both paths.
+		trigger_event = { id = sun_from_north.100 years = 1 }
+	}
+}
+
+# The rumour is shown to every character physically present in North Korea.
+sun_from_north.11 = {
+	type = character_event
+	title = sun_from_north.11.t
+	desc = sun_from_north.11.desc
+	theme = faith
+	override_background = { reference = temple }
+
+	option = { name = sun_from_north.11.a }
+}
+
+# Yearly controller. The 90 branch is also the annual phase incident.
+sun_from_north.100 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		has_global_variable = fs_juche_prophecy_started
+		NOT = { has_global_variable = nk_rising }
+		NOT = { has_global_variable = fs_juche_annual_processed }
+		has_title = title:e_north_korea
+		current_date >= 2445.1.1
+	}
+
+	immediate = {
+		# The global pulse and the self-scheduled chain can arrive on the same day.
+		set_global_variable = {
+			name = fs_juche_annual_processed
+			value = yes
+			days = 7
+		}
+		# Save-game repair: older versions set the prophecy variable without ever
+		# constructing the struggle because its database/history paths were wrong.
+		if = {
+			limit = { NOT = { exists = struggle:juche_struggle } }
+			start_struggle = {
+				struggle_type = juche_struggle
+				start_phase = struggle_juche_phase_conquest
+			}
+		}
+		if = {
+			# Twenty years after the 2444 start, the bunker must open.
+			limit = { current_date >= 2464.1.1 }
+			trigger_event = sun_from_north.1
+		}
+		else = {
+			random_list = {
+				10 = { trigger_event = sun_from_north.1 }
+				90 = {
+					if = {
+						limit = { current_date >= 2454.1.1 }
+						if = {
+							limit = {
+								struggle:juche_struggle = {
+									is_struggle_phase = struggle_juche_phase_conquest
+								}
+							}
+							struggle:juche_struggle = {
+								change_struggle_phase = {
+									struggle_phase = struggle_juche_phase_status_quo
+								}
+							}
+							every_living_character = {
+								limit = { location ?= { geographical_region = world_korea_north } }
+								trigger_event = { id = sun_from_north.12 days = 1 }
+							}
+						}
+
+						# Waiting: one adverse incident each year.
+						random_list = {
+							25 = {
+								trigger = {
+									any_county_in_region = {
+										region = world_korea_north
+										faith = faith:juche
+										NOT = { this = title:c_jangjin }
+									}
+								}
+								random_county_in_region = {
+									region = world_korea_north
+									limit = {
+										faith = faith:juche
+										NOT = { this = title:c_jangjin }
+									}
+									save_scope_as = juche_incident_county
+									holder = { trigger_event = sun_from_north.23 }
+								}
+							}
+							25 = {
+								trigger = {
+									any_ruler = {
+										faith = faith:juche
+										capital_province ?= { geographical_region = world_korea_north }
+										NOT = { has_title = title:e_north_korea }
+									}
+								}
+								random_ruler = {
+									limit = {
+										faith = faith:juche
+										capital_province ?= { geographical_region = world_korea_north }
+										NOT = { has_title = title:e_north_korea }
+									}
+									trigger_event = sun_from_north.24
+								}
+							}
+							25 = {
+								trigger = {
+									any_county_in_region = {
+										region = world_korea_north
+										faith = faith:juche
+									}
+								}
+								random_county_in_region = {
+									region = world_korea_north
+									limit = { faith = faith:juche }
+									save_scope_as = juche_incident_county
+									holder = { trigger_event = sun_from_north.25 }
+								}
+							}
+							25 = {
+								trigger = {
+									any_ruler = {
+										faith = faith:juche
+										capital_province ?= { geographical_region = world_korea_north }
+									}
+								}
+								random_ruler = {
+									limit = {
+										faith = faith:juche
+										capital_province ?= { geographical_region = world_korea_north }
+									}
+									trigger_event = sun_from_north.26
+								}
+							}
+						}
+					}
+					else = {
+						# 2445-2453: nine yearly increments and one favourable incident.
+						change_global_variable = { name = fs_juche_prophecy_years add = 1 }
+						struggle:juche_struggle = {
+							if = {
+								limit = { is_struggle_phase = struggle_juche_phase_conquest }
+								activate_struggle_catalyst = catalyst_juche_prophecy_year
+							}
+						}
+						random_list = {
+							34 = {
+								trigger = {
+									any_county_in_region = {
+										region = world_korea_north
+										NOT = { faith = faith:juche }
+									}
+								}
+								random_county_in_region = {
+									region = world_korea_north
+									limit = { NOT = { faith = faith:juche } }
+									save_scope_as = juche_incident_county
+									holder = { trigger_event = sun_from_north.20 }
+								}
+							}
+							33 = {
+								trigger = {
+									any_ruler = {
+										faith = faith:juche
+										capital_province ?= { geographical_region = world_korea_north }
+									}
+								}
+								random_ruler = {
+									limit = {
+										faith = faith:juche
+										capital_province ?= { geographical_region = world_korea_north }
+									}
+									trigger_event = sun_from_north.21
+								}
+							}
+							33 = {
+								trigger = {
+									any_county_in_region = {
+										region = world_korea_north
+										faith = faith:juche
+										holder = { NOT = { faith = faith:juche } }
+									}
+								}
+								random_county_in_region = {
+									region = world_korea_north
+									limit = {
+										faith = faith:juche
+										holder = { NOT = { faith = faith:juche } }
+									}
+									save_scope_as = juche_incident_county
+									holder = { trigger_event = sun_from_north.22 }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_variable = nk_rising } }
+			title:e_north_korea.holder ?= {
+				trigger_event = { id = sun_from_north.100 years = 1 }
+			}
+		}
+	}
+}
+
+sun_from_north.12 = {
+	type = character_event
+	title = sun_from_north.12.t
+	desc = sun_from_north.12.desc
+	theme = faith
+	override_background = { reference = temple }
+
+	option = { name = sun_from_north.12.a }
+}
+
+# Prophecy incidents
+sun_from_north.20 = {
+	type = character_event
+	title = sun_from_north.20.t
+	desc = sun_from_north.20.desc
+	theme = faith
+	immediate = {
+		scope:juche_incident_county = { set_county_faith = faith:juche }
+	}
+	option = { name = sun_from_north.20.a }
+}
+
+sun_from_north.21 = {
+	type = character_event
+	title = sun_from_north.21.t
+	desc = sun_from_north.21.desc
+	theme = faith
+	immediate = {
+		add_character_modifier = { modifier = fs_juche_prophetic_fervor years = 3 }
+	}
+	option = { name = sun_from_north.21.a }
+}
+
+sun_from_north.22 = {
+	type = character_event
+	title = sun_from_north.22.t
+	desc = sun_from_north.22.desc
+	theme = faith
+	immediate = {
+		scope:juche_incident_county = {
+			add_county_modifier = { modifier = fs_juche_prophetic_uprising years = 3 }
+		}
+	}
+	option = { name = sun_from_north.22.a }
+}
+
+# Waiting incidents
+sun_from_north.23 = {
+	type = character_event
+	title = sun_from_north.23.t
+	desc = sun_from_north.23.desc
+	theme = faith
+	immediate = {
+		scope:juche_incident_county = { set_county_faith = faith:inmin_juche }
+	}
+	option = { name = sun_from_north.23.a }
+}
+
+sun_from_north.24 = {
+	type = character_event
+	title = sun_from_north.24.t
+	desc = sun_from_north.24.desc
+	theme = faith
+	immediate = {
+		set_character_faith = faith:inmin_juche
+	}
+	option = { name = sun_from_north.24.a }
+}
+
+sun_from_north.25 = {
+	type = character_event
+	title = sun_from_north.25.t
+	desc = sun_from_north.25.desc
+	theme = faith
+	immediate = {
+		scope:juche_incident_county = {
+			add_county_modifier = { modifier = fs_juche_waiting_disillusionment years = 5 }
+		}
+	}
+	option = { name = sun_from_north.25.a }
+}
+
+sun_from_north.26 = {
+	type = character_event
+	title = sun_from_north.26.t
+	desc = sun_from_north.26.desc
+	theme = faith
+	immediate = {
+		add_character_modifier = { modifier = fs_juche_volunteer_desertion years = 5 }
+	}
+	option = { name = sun_from_north.26.a }
+}
+
 #왕귀 준비
 sun_from_north.1 = {
 	type = character_event
@@ -22,6 +390,15 @@ sun_from_north.1 = {
 	}
 	immediate = {
 		set_global_variable = nk_rising
+		if = {
+			limit = { exists = struggle:juche_struggle }
+			struggle:juche_struggle = {
+				end_struggle = sun_from_north.1.t
+			}
+		}
+		remove_global_variable = fs_juche_prophecy_years
+		remove_global_variable = fs_juche_prophecy_started
+		remove_global_variable = fs_juche_annual_processed
 		root = { save_scope_as = avgvstvs }
 	}
 	option = {
@@ -73,7 +450,7 @@ sun_from_north.1 = {
 		}
 		every_independent_ruler = {
 			limit = {
-				NOT = { character = root }
+				NOT = { this = root }
 			}
 			trigger_event = {
 				id = sun_from_north.2

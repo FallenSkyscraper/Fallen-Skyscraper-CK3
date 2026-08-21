@@ -94,7 +94,7 @@ fp2_juche_struggle.0003 = {
 					# Current Phase: Hostility
 					#############################
 					if = {
-						limit = { root = { is_struggle_phase = struggle_juche_phase_hostility } }
+						limit = { root = { is_struggle_phase = struggle_juche_phase_status_quo } }
 						random_list = {
 							# Working towards Hostility: it means that the character wants to stay in
 							100 = {
@@ -129,7 +129,7 @@ fp2_juche_struggle.0003 = {
 					# Current Phase: Compromise
 					#############################
 					if = {
-						limit = { root = { is_struggle_phase = struggle_juche_phase_compromise } }
+						limit = { root = { is_struggle_phase = struggle_juche_phase_status_quo } }
 						random_list = {
 
 							# Working towards Opportunity
@@ -165,7 +165,7 @@ fp2_juche_struggle.0003 = {
 					# Current Phase: Conciliation
 					#############################
 					if = {
-						limit = { root = { is_struggle_phase = struggle_juche_phase_conciliation } }
+						limit = { root = { is_struggle_phase = struggle_juche_phase_status_quo } }
 						random_list = {
 							# Working towards Compromise
 							100 = {

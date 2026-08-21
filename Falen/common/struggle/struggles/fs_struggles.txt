@@ -1,0 +1,113 @@
+﻿juche_struggle = {
+	illustration = "gfx/interface/illustrations/event_story/fp2_struggle_start.dds"
+
+	##################################################
+	# Setup
+	##################################################
+	cultures = {
+		baekdu
+		kaema
+		hamheung
+		gyeongseong
+		yukjin
+		geumgang
+		wonsan
+		pyongyang
+		anju
+		deokcheon
+		uiju
+		yeongbyeon
+		jaseong
+		gapyeong
+		gaeseong
+		hwangju
+		haeju
+		singye
+		chuncheon
+	}
+
+	faiths = {
+		# Non-Juche faiths in the region
+		naturalism_pagan
+		marxism
+		new_left
+		cheondo
+		cheonjin
+		populism
+		authoritarianism
+		hamortho
+		mu_pagan
+
+		# Juche branches
+		juche
+		haeseoan
+		inmin_juche
+	}
+
+	regions = {
+		world_korea_north
+	}
+
+	involvement_prerequisite_percentage = 0.8
+	# The ninth yearly catalyst fills the bar in 2453; the one-year transition
+	# completes on 2454.1.1.
+	transition_state_duration = { years = 1 }
+
+	##################################################
+	# Exactly two phases: Prophecy -> Waiting
+	##################################################
+	start_phase = struggle_juche_phase_conquest
+
+	phase_list = {
+		# Prophecy phase. The yearly controller forces the transition on 2454.1.1
+		# if the bunker has not opened.
+		struggle_juche_phase_conquest = {
+			duration = { points = 9 }
+
+			future_phases = {
+				struggle_juche_phase_status_quo = {
+					catalysts = {
+						catalyst_juche_prophecy_year = minimal_struggle_catalyst_gain
+					}
+				}
+			}
+
+			faith_effects = {
+				name = fs_juche_prophecy_phase_faith_effects
+
+				# Juche and Haeseoan share the authoritarian tenet.
+				involved_doctrine_character_modifier = {
+					doctrine = tenet_authoritarianism
+					monthly_piety_gain_mult = 0.10
+					levy_reinforcement_rate = 0.10
+					levy_size = 0.05
+				}
+			}
+
+			# The struggle database requires at least one registered ending decision.
+			# This technical entry is permanently hidden; the prophecy chain controls
+			# the lifecycle instead.
+			ending_decisions = {
+				fs_juche_struggle_technical_ending_decision
+			}
+		}
+
+		# Waiting phase. It deliberately has no future phase or catalyst.
+		struggle_juche_phase_status_quo = {
+			future_phases = { }
+
+			faith_effects = {
+				name = fs_juche_waiting_phase_faith_effects
+
+				# The temporal-head doctrine distinguishes the orthodox Juche branches
+				# from the leaderless Inmin-Juche reaction.
+				involved_doctrine_character_modifier = {
+					doctrine = doctrine_temporal_head
+					monthly_piety_gain_mult = -0.10
+					levy_reinforcement_rate = -0.15
+					levy_size = -0.10
+				}
+			}
+		}
+	}
+}

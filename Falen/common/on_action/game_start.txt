@@ -6,6 +6,10 @@ on_game_start = {
 
 	effect = {
 		set_global_variable = { name = is_game_start_date days = 1 }
+		# Repair saves created while the Juche struggle definition/history was not loaded.
+		title:e_north_korea.holder ?= {
+			trigger_event = sun_from_north.9
+		}
 		# Chinese Song-fashion
 		if = {
 			limit = {
@@ -1883,7 +1887,7 @@ on_game_start_after_lobby = {
 			trigger_event = donghae.1
 		}
 		title:e_north_korea.holder ?= {
-			trigger_event = sun_from_north.1
+			trigger_event = sun_from_north.10
 		}
 		title:c_hoengseong.holder ?= {
 			trigger_event = gw_mgga.1

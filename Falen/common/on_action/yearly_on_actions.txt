@@ -2,6 +2,12 @@
 # Root does not exist
 yearly_global_pulse = {
 	effect = {
+		# Backup pulse for the Juche prophecy chain. The event also schedules its
+		# successor itself; a short-lived global flag prevents a double yearly tick.
+		title:e_north_korea.holder ?= {
+			trigger_event = sun_from_north.100
+		}
+
 		every_county = {
 			if = {
 				limit = { has_county_modifier = old_world_faith_penalty }
