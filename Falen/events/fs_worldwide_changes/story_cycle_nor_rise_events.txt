@@ -55,6 +55,12 @@ sun_from_north.10 = {
 		}
 		set_global_variable = { name = fs_juche_prophecy_started value = yes }
 		set_global_variable = { name = fs_juche_prophecy_years value = 0 }
+		capital_county = {
+			add_county_modifier = {
+				modifier = fs_juche_bunker_capital_garrison
+				years = 20
+			}
+		}
 		every_living_character = {
 			limit = {
 				location ?= { geographical_region = world_korea_north }
