@@ -1,0 +1,147 @@
+﻿# Schedules one-off religious anniversaries from the Jan 1 global pulse.
+# Non-January events re-check ruler and religion conditions on the actual date.
+fs_schedule_historical_anniversary_events_effect = {
+	if = {
+		limit = { current_date = 2445.1.1 }
+		every_ruler = {
+			limit = {
+				OR = {
+					religion = religion:koreanism_religion
+					religion = religion:juche_religion
+				}
+			}
+			trigger_event = { id = fs_anniversary.1 days = 226 }
+		}
+	}
+	if = {
+		limit = { current_date = 2448.1.1 }
+		every_ruler = {
+			limit = {
+				OR = {
+					religion = religion:koreanism_religion
+					religion = religion:juche_religion
+				}
+			}
+			trigger_event = { id = fs_anniversary.2 days = 226 }
+		}
+	}
+	if = {
+		limit = { current_date = 2449.1.1 }
+		every_ruler = {
+			limit = { religion = religion:confucianism_religion }
+			trigger_event = { id = fs_anniversary.3 days = 270 }
+		}
+	}
+	if = {
+		limit = { current_date = 2450.1.1 }
+		every_ruler = {
+			limit = {
+				OR = {
+					religion = religion:koreanism_religion
+					religion = religion:juche_religion
+				}
+			}
+			trigger_event = { id = fs_anniversary.4 days = 175 }
+		}
+	}
+	if = {
+		limit = { current_date = 2453.1.1 }
+		every_ruler = {
+			limit = {
+				OR = {
+					religion = religion:koreanism_religion
+					religion = religion:juche_religion
+				}
+			}
+			trigger_event = { id = fs_anniversary.5 days = 207 }
+		}
+	}
+	if = {
+		limit = { current_date = 2456.1.1 }
+		every_ruler = {
+			limit = { religion = religion:buddhism_religion }
+			trigger_event = fs_anniversary.6
+		}
+	}
+	if = {
+		limit = { current_date = 2460.1.1 }
+		every_ruler = {
+			limit = { religion = religion:cheondo_religion }
+			trigger_event = fs_anniversary.7
+		}
+	}
+	if = {
+		limit = { current_date = 2491.1.1 }
+		every_ruler = {
+			limit = { religion = religion:communism_religion }
+			trigger_event = { id = fs_anniversary.8 days = 358 }
+		}
+	}
+	if = {
+		limit = { current_date = 2500.1.1 }
+		every_ruler = {
+			limit = { religion = religion:christianity_religion }
+			trigger_event = fs_anniversary.9
+		}
+	}
+	if = {
+		limit = { current_date = 2505.1.1 }
+		every_ruler = {
+			limit = { faith = faith:cheondo }
+			trigger_event = fs_anniversary.10
+		}
+	}
+	if = {
+		limit = { current_date = 2511.1.1 }
+		every_ruler = {
+			limit = { religion = religion:islam_religion }
+			trigger_event = { id = fs_anniversary.11 days = 278 }
+		}
+	}
+	if = {
+		limit = { current_date = 2512.1.1 }
+		every_ruler = {
+			limit = { religion = religion:juche_religion }
+			trigger_event = { id = fs_anniversary.12 days = 104 }
+		}
+	}
+	if = {
+		limit = { current_date = 2516.1.1 }
+		every_ruler = {
+			limit = { religion = religion:won_buddhism_religion }
+			trigger_event = fs_anniversary.13
+		}
+	}
+	if = {
+		limit = { current_date = 2517.1.1 }
+		every_ruler = {
+			limit = { faith = faith:imperial_church }
+			trigger_event = fs_anniversary.14
+		}
+		every_ruler = {
+			limit = { religion = religion:protestant_religion }
+			trigger_event = { id = fs_anniversary.15 days = 303 }
+		}
+	}
+	if = {
+		limit = { current_date = 2562.1.1 }
+		every_ruler = {
+			limit = { religion = religion:islam_religion }
+			trigger_event = { id = fs_anniversary.16 days = 361 }
+		}
+	}
+	if = {
+		limit = { current_date = 2628.1.1 }
+		every_ruler = {
+			limit = { religion = religion:confucianism_religion }
+			trigger_event = fs_anniversary.17
+		}
+	}
+	if = {
+		limit = { current_date = 2667.1.1 }
+		every_ruler = {
+			limit = { religion = religion:pagan_religion }
+			trigger_event = fs_anniversary.18
+		}
+	}
+}

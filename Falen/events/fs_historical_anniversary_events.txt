@@ -1,0 +1,247 @@
+﻿namespace = fs_anniversary
+
+fs_anniversary.1 = {
+	type = character_event
+	title = fs_anniversary.1.t
+	desc = fs_anniversary.1.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2445.8.15
+		OR = {
+			religion = religion:koreanism_religion
+			religion = religion:juche_religion
+		}
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.2 = {
+	type = character_event
+	title = fs_anniversary.2.t
+	desc = fs_anniversary.2.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2448.8.15
+		OR = {
+			religion = religion:koreanism_religion
+			religion = religion:juche_religion
+		}
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.3 = {
+	type = character_event
+	title = fs_anniversary.3.t
+	desc = fs_anniversary.3.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2449.9.28
+		religion = religion:confucianism_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.4 = {
+	type = character_event
+	title = fs_anniversary.4.t
+	desc = fs_anniversary.4.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2450.6.25
+		OR = {
+			religion = religion:koreanism_religion
+			religion = religion:juche_religion
+		}
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.5 = {
+	type = character_event
+	title = fs_anniversary.5.t
+	desc = fs_anniversary.5.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2453.7.27
+		OR = {
+			religion = religion:koreanism_religion
+			religion = religion:juche_religion
+		}
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.6 = {
+	type = character_event
+	title = fs_anniversary.6.t
+	desc = fs_anniversary.6.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2456.1.1
+		religion = religion:buddhism_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.7 = {
+	type = character_event
+	title = fs_anniversary.7.t
+	desc = fs_anniversary.7.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2460.1.1
+		religion = religion:cheondo_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.8 = {
+	type = character_event
+	title = fs_anniversary.8.t
+	desc = fs_anniversary.8.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2491.12.25
+		religion = religion:communism_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.9 = {
+	type = character_event
+	title = fs_anniversary.9.t
+	desc = fs_anniversary.9.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2500.1.1
+		religion = religion:christianity_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.10 = {
+	type = character_event
+	title = fs_anniversary.10.t
+	desc = fs_anniversary.10.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2505.1.1
+		faith = faith:cheondo
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.11 = {
+	type = character_event
+	title = fs_anniversary.11.t
+	desc = fs_anniversary.11.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2511.10.6
+		religion = religion:islam_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.12 = {
+	type = character_event
+	title = fs_anniversary.12.t
+	desc = fs_anniversary.12.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2512.4.15
+		religion = religion:juche_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.13 = {
+	type = character_event
+	title = fs_anniversary.13.t
+	desc = fs_anniversary.13.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2516.1.1
+		religion = religion:won_buddhism_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.14 = {
+	type = character_event
+	title = fs_anniversary.14.t
+	desc = fs_anniversary.14.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2517.1.1
+		faith = faith:imperial_church
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.15 = {
+	type = character_event
+	title = fs_anniversary.15.t
+	desc = fs_anniversary.15.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2517.10.31
+		religion = religion:protestant_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.16 = {
+	type = character_event
+	title = fs_anniversary.16.t
+	desc = fs_anniversary.16.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2562.12.28
+		religion = religion:islam_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.17 = {
+	type = character_event
+	title = fs_anniversary.17.t
+	desc = fs_anniversary.17.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2628.1.1
+		religion = religion:confucianism_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
+
+fs_anniversary.18 = {
+	type = character_event
+	title = fs_anniversary.18.t
+	desc = fs_anniversary.18.desc
+	theme = faith
+	trigger = {
+		is_ruler = yes
+		current_date = 2667.1.1
+		religion = religion:pagan_religion
+	}
+	option = { name = fs_anniversary.common.a add_piety = 100 }
+}
