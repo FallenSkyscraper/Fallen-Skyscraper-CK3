@@ -2,7 +2,7 @@
 # FALLEN SKYSCRAPER STRUGGLES
 ############################
 
-# The return prophecy begins with the 2444 bookmark.
+# Both regional struggles begin with the 2444 bookmark.
 2444.1.1 = {
 	effect = {
 		if = {
@@ -10,6 +10,13 @@
 			start_struggle = {
 				struggle_type = juche_struggle
 				start_phase = struggle_juche_phase_conquest
+			}
+		}
+		if = {
+			limit = { NOT = { exists = struggle:grandduke_struggle } }
+			start_struggle = {
+				struggle_type = grandduke_struggle
+				start_phase = struggle_phase_grandduke_under_control
 			}
 		}
 	}

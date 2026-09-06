@@ -1,0 +1,91 @@
+# Northern rebellion and internal-war catalysts.
+on_war_started = {
+	effect = {
+		if = {
+			limit = {
+				exists = struggle:grandduke_struggle
+				struggle:grandduke_struggle = {
+					is_struggle_phase = struggle_phase_grandduke_under_control
+				}
+				scope:defender.capital_province ?= {
+					geographical_region = custom_grandduke
+				}
+				scope:war = { using_civil_war_cb_trigger = yes }
+			}
+			struggle:grandduke_struggle = {
+				activate_struggle_catalyst = {
+					catalyst = catalyst_grandduke_rebellion
+					character = scope:defender
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				exists = struggle:grandduke_struggle
+				struggle:grandduke_struggle = {
+					is_struggle_phase = struggle_phase_grandduke_under_control
+				}
+				scope:attacker.capital_province ?= {
+					geographical_region = custom_grandduke
+				}
+				scope:defender.capital_province ?= {
+					geographical_region = custom_grandduke
+				}
+			}
+			struggle:grandduke_struggle = {
+				activate_struggle_catalyst = {
+					catalyst = catalyst_grandduke_internal_war
+					character = scope:attacker
+				}
+			}
+		}
+	}
+}
+
+# Any title usurped inside the Northern region.
+on_title_gain_usurpation = {
+	effect = {
+		if = {
+			limit = {
+				exists = struggle:grandduke_struggle
+				struggle:grandduke_struggle = {
+					is_struggle_phase = struggle_phase_grandduke_under_control
+				}
+				scope:title.title_province ?= {
+					geographical_region = custom_grandduke
+				}
+			}
+			struggle:grandduke_struggle = {
+				activate_struggle_catalyst = {
+					catalyst = catalyst_grandduke_title_usurped
+					character = root
+				}
+			}
+		}
+	}
+}
+
+# Murder of a landed Northern ruler.
+on_death = {
+	effect = {
+		if = {
+			limit = {
+				exists = struggle:grandduke_struggle
+				struggle:grandduke_struggle = {
+					is_struggle_phase = struggle_phase_grandduke_under_control
+				}
+				exists = scope:killer
+				is_ruler = yes
+				capital_province ?= {
+					geographical_region = custom_grandduke
+				}
+			}
+			struggle:grandduke_struggle = {
+				activate_struggle_catalyst = {
+					catalyst = catalyst_grandduke_ruler_murdered
+					character = root
+				}
+			}
+		}
+	}
+}

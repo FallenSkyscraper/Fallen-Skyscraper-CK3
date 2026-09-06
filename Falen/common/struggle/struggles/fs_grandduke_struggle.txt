@@ -1,0 +1,93 @@
+﻿grandduke_struggle = {
+	illustration = "gfx/interface/illustrations/event_story/fp2_struggle_start.dds"
+
+	cultures = {
+		cheonan
+		seosan
+		hongseong
+		buyeo
+		daejeon
+		jeonju
+	}
+
+	faiths = {
+		mechanism
+		holy_mechanism
+		apologetics_mechanism
+		imperial_church
+	}
+
+	regions = { custom_grandduke }
+	involvement_prerequisite_percentage = 0.4
+	transition_state_duration = { days = 1 }
+
+	on_start = {
+		trigger_event = { on_action = fp2_grandduke_struggle_starting_events }
+		title:k_n_grandduke.holder ?= {
+			trigger_event = fs_grandduke_struggle.0001
+		}
+	}
+
+	start_phase = struggle_phase_grandduke_under_control
+
+	phase_list = {
+		struggle_phase_grandduke_under_control = {
+			duration = { points = 1000 }
+
+			future_phases = {
+				struggle_phase_grandduke_out_of_control = {
+					catalysts = {
+						catalyst_grandduke_rebellion = 250
+						catalyst_broke_truce_against_important_character = 100
+						catalyst_grandduke_title_usurped = 50
+						catalyst_grandduke_ruler_murdered = 50
+						catalyst_reveal_secret_important = 25
+						catalyst_grandduke_internal_war = 25
+						catalyst_grandduke_year_passed = 1
+						catalyst_grandduke_escalation_20 = 20
+						catalyst_grandduke_deescalation_20 = -20
+						catalyst_grandduke_deescalation_50 = -50
+						catalyst_grandduke_deescalation_200 = -200
+					}
+				}
+			}
+
+			faith_effects = {
+				name = fs_grandduke_stalemate_faith_effects
+
+				common_parameters = {
+					holy_wars_in_region_cannot_be_declared = yes
+					county_conversion_disabled_for_involved_faiths_within_region = yes
+					fs_grandduke_title_revocation_blocked = yes
+				}
+
+				involved_parameters = {
+					interfaith_marriages_available_between_involved_characters = yes
+				}
+			}
+
+			ending_decisions = {
+				fs_grandduke_end_struggle_decision
+			}
+		}
+
+		struggle_phase_grandduke_out_of_control = {
+			future_phases = { }
+
+			on_start = {
+				if = {
+					limit = { exists = title:k_n_grandduke.holder }
+					title:k_n_grandduke.holder = {
+						trigger_event = fs_grandduke_struggle.1000
+					}
+				}
+				else = {
+					random_ruler = {
+						limit = { capital_province ?= { geographical_region = custom_grandduke } }
+						trigger_event = fs_grandduke_struggle.1000
+					}
+				}
+			}
+		}
+	}
+}

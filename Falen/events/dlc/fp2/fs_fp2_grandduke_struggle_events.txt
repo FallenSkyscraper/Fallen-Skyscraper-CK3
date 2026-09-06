@@ -1,144 +1,299 @@
-﻿namespace = fp2_struggle
-namespace = fs_fp2_struggle_2
-namespace = fs_fp2_struggle
-namespace = fp2_grandduke_struggle
+﻿namespace = fs_grandduke_struggle
 
-fp2_grandduke_struggle.0003 = {
+# Initialise the annual pulse when the struggle begins.
+fs_grandduke_struggle.0001 = {
+	type = character_event
 	hidden = yes
-	scope = empty
-	scope = struggle
 
-	trigger = { # Should not need this, but, redundancy check! -h
+	trigger = {
 		exists = struggle:grandduke_struggle
-		struggle:grandduke_struggle = { any_involved_ruler = { count > 0 } } # For when the conflict is ongoing but nobody is left to fight it
+		has_title = title:k_n_grandduke
+		NOT = { has_global_variable = fs_grandduke_struggle_annual_chain }
 	}
 
 	immediate = {
-		# prepare needed variables; they will be destroyed at the end of the immediate
-		set_variable = {
-			name = agents_for_escalation
-			value = 0
-		}
-		set_variable = {
-			name = agents_for_deescalation
-			value = 0
-		}
-
-		# Go through the characters to distribute them between the potential transitions
-		struggle:grandduke_struggle = {
-			every_involved_ruler = {
-				limit = { is_alive = yes }
-				#######################
-				# Play cue track
-				######################
-				if = {
-					limit = { is_ai = no }
-					play_music_cue = "mx_Struggle_Opening"
-				}
-
-				#######################
-				# Check existing flags
-				######################
-				if = {
-					limit = { has_character_flag = agenda_towards_escalation }
-					change_variable = {
-						name = agents_for_escalation
-						add = 1
-					}
-				}
-				else_if = {
-					limit = { has_character_flag = agenda_towards_deescalation }
-					change_variable = {
-						name = agents_for_deescalation
-						add = 1
-					}
-				}
-				else = { # Set a flag
-					#############################
-					# Current Phase: Opportunity
-					#############################
-					if = {
-						limit = { root = { is_struggle_phase = struggle_phase_grandduke_under_control } }
-						random_list = {
-							# Working towards Hostility
-							# It should be for characters looking for direct conflicts and domination, with the will and ability to expand their realms
-							100 = {
-								# Odds modifiers
-								fp2_struggle_set_ai_agenda_common_modifiers = {
-									PHASE = out_of_control
-									INTENT = escalation
-								}
-
-								# Apply effects
-								fp2_struggle_apply_ai_agenda_effect = {
-									INTENT = escalation
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Clean variables
-		remove_variable = agents_for_escalation
-		remove_variable = agents_for_deescalation
+		set_global_variable = { name = fs_grandduke_struggle_annual_chain value = yes }
+		trigger_event = { id = fs_grandduke_struggle.0100 years = 1 }
 	}
 }
 
-fp2_grandduke_struggle.0501 = { # Fullscreen Intro Event
+# One passive point per year and a chance for one Mechanist flavour event.
+fs_grandduke_struggle.0100 = {
 	type = character_event
-	window = fullscreen_event
-	title = fp2_grandduke_struggle.0501.t
-	desc = {
-		desc = fp2_grandduke_struggle.0501.desc
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					any_character_struggle = {
-						involvement = involved
-						is_struggle_type = grandduke_struggle
-					}
-				}
-				desc = fp2_grandduke_struggle.0501.desc.involved
-			}
-			triggered_desc = {
-				trigger = {
-					any_character_struggle = {
-						involvement = interloper
-						is_struggle_type = grandduke_struggle
-					}
-				}
-				desc = fp2_grandduke_struggle.0501.desc.interloper
-			}
-		}
-	}
-	theme = realm
-	trigger = { # we need to prevent this from firing for all players when a new player joins in MP
-		is_ai = no
-		NOT = { has_character_flag = grandduke_struggle_intro_event_flag }
-		fp2_character_any_involvement_grandduke_struggle_trigger = yes
- 	}
-	override_background = { reference = fp2_fullscreen_intro }
-	override_sound = { reference = "event:/DLC/FP2/SFX/UI/fp2_struggle_ui_intro_animate" }
+	hidden = yes
 
-	widgets = {
-		widget = {
- 			gui = "event_window_widget_struggle_info"
- 			container = "dynamic_content_widget"
- 			controller = struggle_info
- 			setup_scope = { struggle:grandduke_struggle = { save_scope_as = struggle } }
+	trigger = {
+		exists = struggle:grandduke_struggle
+		struggle:grandduke_struggle = {
+			is_struggle_phase = struggle_phase_grandduke_under_control
+		}
+		has_title = title:k_n_grandduke
+		current_date >= 2445.1.1
+		NOT = { has_global_variable = fs_grandduke_year_processed }
+	}
+
+	immediate = {
+		set_global_variable = {
+			name = fs_grandduke_year_processed
+			value = yes
+			days = 7
+		}
+
+		struggle:grandduke_struggle = {
+			activate_struggle_catalyst = {
+				catalyst = catalyst_grandduke_year_passed
+				character = root
+			}
+		}
+
+		random = {
+			chance = 40
+			random_ruler = {
+				limit = {
+					is_adult = yes
+					is_imprisoned = no
+					faith = faith:mechanism
+					capital_province ?= { geographical_region = custom_grandduke }
+				}
+				random_list = {
+					33 = { trigger_event = fs_grandduke_struggle.2000 }
+					33 = { trigger_event = fs_grandduke_struggle.2010 }
+					34 = { trigger_event = fs_grandduke_struggle.2020 }
+				}
+			}
+		}
+
+		if = {
+			limit = { exists = struggle:grandduke_struggle }
+			title:k_n_grandduke.holder ?= {
+				trigger_event = { id = fs_grandduke_struggle.0100 years = 1 }
+			}
 		}
 	}
+}
+
+# The progress bar has reached 1000: the Grand Duchy collapses.
+fs_grandduke_struggle.1000 = {
+	type = character_event
+	title = fs_grandduke_struggle.1000.t
+	desc = fs_grandduke_struggle.1000.desc
+	theme = realm
+	override_background = { reference = battlefield }
+
 	immediate = {
-		play_music_cue = "mx_Struggle_Opening"
-		add_character_flag = grandduke_struggle_intro_event_flag
-		save_scope_value_as = {
-			name = start
-			value = yes
+		set_global_variable = { name = fs_grandduke_struggle_fallen value = yes }
+
+		every_ruler = {
+			limit = {
+				capital_province ?= { geographical_region = custom_grandduke }
+				NOT = { faith = faith:mechanism }
+			}
+			trigger_event = { id = fs_grandduke_struggle.1001 days = 1 }
+		}
+
+		title:k_n_grandduke.holder ?= {
+			destroy_title = title:k_n_grandduke
+		}
+
+		if = {
+			limit = { exists = struggle:grandduke_struggle }
+			struggle:grandduke_struggle = {
+				end_struggle = fs_grandduke_struggle_fall_reason
+			}
+		}
+		remove_global_variable = fs_grandduke_struggle_annual_chain
+		remove_global_variable = fs_grandduke_year_processed
+	}
+
+	option = { name = fs_grandduke_struggle.1000.a }
+}
+
+# Every AI ruler takes the only AI-valid conversion option.
+fs_grandduke_struggle.1001 = {
+	type = character_event
+	title = fs_grandduke_struggle.1001.t
+	desc = fs_grandduke_struggle.1001.desc
+	theme = faith
+
+	option = {
+		name = fs_grandduke_struggle.1001.a
+		set_character_faith = faith:mechanism
+		ai_chance = { base = 100 }
+	}
+	option = {
+		name = fs_grandduke_struggle.1001.b
+		trigger = { is_ai = no }
+	}
+}
+
+# Mechanist priesthood delegation.
+fs_grandduke_struggle.2000 = {
+	type = character_event
+	title = fs_grandduke_struggle.2000.t
+	desc = fs_grandduke_struggle.2000.desc
+	theme = faith
+
+	trigger = {
+		exists = struggle:grandduke_struggle
+		faith = faith:mechanism
+		is_adult = yes
+		is_ruler = yes
+		is_imprisoned = no
+	}
+
+	option = {
+		name = fs_grandduke_struggle.2000.a
+		add_gold = -50
+		add_prestige = 250
+		struggle:grandduke_struggle = {
+			activate_struggle_catalyst = {
+				catalyst = catalyst_grandduke_escalation_20
+				character = root
+			}
+		}
+		ai_chance = {
+			base = 10
+			modifier = { add = 40 has_trait = zealous }
+			modifier = { add = 30 has_trait = generous }
+			modifier = { add = 30 has_trait = humble }
 		}
 	}
 	option = {
-		name = fp2_grandduke_struggle_struggle.0501.a
+		name = fs_grandduke_struggle.2000.b
+		ai_chance = {
+			base = 20
+			modifier = { add = 50 has_trait = craven }
+		}
+	}
+	option = {
+		name = fs_grandduke_struggle.2000.c
+		add_gold = 50
+		add_piety = -500
+		struggle:grandduke_struggle = {
+			activate_struggle_catalyst = {
+				catalyst = catalyst_grandduke_deescalation_20
+				character = root
+			}
+		}
+		ai_chance = {
+			base = 5
+			modifier = { add = 40 has_trait = greedy }
+			modifier = { add = 40 has_trait = cynical }
+			modifier = { add = 40 has_trait = sadistic }
+		}
+	}
+}
+
+# Imperial inquisitors raid Mechanist communities.
+fs_grandduke_struggle.2010 = {
+	type = character_event
+	title = fs_grandduke_struggle.2010.t
+	desc = fs_grandduke_struggle.2010.desc
+	theme = intrigue
+
+	trigger = {
+		exists = struggle:grandduke_struggle
+		faith = faith:mechanism
+		is_adult = yes
+		is_ruler = yes
+		is_imprisoned = no
+	}
+
+	option = {
+		name = fs_grandduke_struggle.2010.a
+		add_gold = -50
+		ai_chance = {
+			base = 20
+			modifier = { add = 50 has_trait = greedy }
+		}
+	}
+	option = {
+		name = fs_grandduke_struggle.2010.b
+		custom_tooltip = fs_grandduke_struggle.2010.b.tt
+		random_list = {
+			50 = {
+				modifier = { factor = 2 intrigue >= 12 }
+				modifier = { factor = 1.5 intrigue >= 18 }
+				custom_tooltip = fs_grandduke_struggle.2010.b.success
+			}
+			50 = {
+				modifier = { factor = 2 intrigue < 8 }
+				modifier = { factor = 0.5 intrigue >= 18 }
+				add_prestige = -250
+				capital_county = {
+					add_county_modifier = {
+						modifier = fs_grandduke_inquisition_development_penalty
+						years = 5
+					}
+				}
+				struggle:grandduke_struggle = {
+					activate_struggle_catalyst = {
+						catalyst = catalyst_grandduke_escalation_20
+						character = root
+					}
+				}
+				custom_tooltip = fs_grandduke_struggle.2010.b.failure
+			}
+		}
+		ai_chance = {
+			base = 20
+			modifier = { add = 50 has_trait = deceitful }
+		}
+	}
+	option = {
+		name = fs_grandduke_struggle.2010.c
+		add_character_modifier = {
+			modifier = fs_grandduke_inquisition_popular_opinion_penalty
+			years = 5
+		}
+		add_piety = -150
+		struggle:grandduke_struggle = {
+			activate_struggle_catalyst = {
+				catalyst = catalyst_grandduke_deescalation_20
+				character = root
+			}
+		}
+		ai_chance = {
+			base = 20
+			modifier = { add = 50 has_trait = honest }
+		}
+	}
+}
+
+# Month of Science celebrations.
+fs_grandduke_struggle.2020 = {
+	type = character_event
+	title = fs_grandduke_struggle.2020.t
+	desc = fs_grandduke_struggle.2020.desc
+	theme = faith
+
+	trigger = {
+		exists = struggle:grandduke_struggle
+		faith = faith:mechanism
+		is_adult = yes
+		is_ruler = yes
+		is_imprisoned = no
+	}
+
+	option = {
+		name = fs_grandduke_struggle.2020.a
+		add_piety = 100
+		struggle:grandduke_struggle = {
+			activate_struggle_catalyst = {
+				catalyst = catalyst_grandduke_escalation_20
+				character = root
+			}
+		}
+		ai_chance = { base = 50 }
+	}
+	option = {
+		name = fs_grandduke_struggle.2020.b
+		struggle:grandduke_struggle = {
+			activate_struggle_catalyst = {
+				catalyst = catalyst_grandduke_deescalation_20
+				character = root
+			}
+		}
+		ai_chance = { base = 50 }
 	}
 }

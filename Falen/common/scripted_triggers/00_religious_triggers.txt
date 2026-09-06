@@ -1126,6 +1126,20 @@ valid_demand_conversion_conditions_trigger = {
 			is_at_war_with = scope:actor
 		}
 	}
+	custom_description = {
+		text = fs_grandduke_forced_conversion_blocked_tt
+		NOT = {
+			AND = {
+				exists = struggle:grandduke_struggle
+				scope:recipient = {
+					is_ruler = yes
+					capital_province ?= {
+						geographical_region = custom_grandduke
+					}
+				}
+			}
+		}
+	}
 	scope:actor = {
 		trigger_if = {
 			limit = {

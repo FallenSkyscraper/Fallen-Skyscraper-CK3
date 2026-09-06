@@ -7,6 +7,10 @@ yearly_global_pulse = {
 		title:e_north_korea.holder ?= {
 			trigger_event = sun_from_north.100
 		}
+		# Backup pulse for the Fate of the Northern Grand Duchy struggle.
+		title:k_n_grandduke.holder ?= {
+			trigger_event = fs_grandduke_struggle.0100
+		}
 		fs_schedule_historical_anniversary_events_effect = yes
 
 		every_county = {
