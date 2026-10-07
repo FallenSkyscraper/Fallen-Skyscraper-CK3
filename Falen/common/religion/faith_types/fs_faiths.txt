@@ -1,0 +1,1625 @@
+test_faith = {
+	faith_details = {
+		religion = test_religion_group
+		icon = custom_faith_2
+		reformed_icon = akanism_reformed
+		color = {
+			0.45
+			0.6
+			0.2
+		}
+	}
+	main_rite = test_faith
+}
+shamanism = {
+	faith_details = {
+		religion = shamanism_religion
+		icon = shamanism
+		reformed_icon = reformed_shamanism
+		color = {
+			23
+			67
+			56
+		}
+	}
+	main_rite = shamanism
+	eminent_holy_sites = {
+		jongno_default
+	}
+}
+atomism = {
+	faith_details = {
+		religion = atomism_religion
+		icon = atomism
+		color = {
+			4
+			255
+			0
+		}
+	}
+	main_rite = atomism
+	eminent_holy_sites = {
+		gampo_atomic_wolseong
+		gijang_atomic_gori
+		hongnong_atomic_hanbit
+	}
+	holy_sites = {
+		uljin_atomic_hanul
+		yuseong_atomic_kstar
+	}
+}
+jogye = {
+	faith_details = {
+		religion = buddhism_religion
+		icon = jogye
+		color = {
+			238
+			172
+			0
+		}
+	}
+	main_rite = jogye
+	eminent_holy_sites = {
+		jongno_default
+		gyeongju_default
+		hapcheon_buddism_haeinsa
+	}
+	holy_sites = {
+		yangsan_default
+		juam_default
+	}
+}
+maitreya = {
+	faith_details = {
+		religion = buddhism_religion
+		icon = maitreya
+		color = {
+			204
+			193
+			48
+		}
+	}
+	main_rite = maitreya
+	eminent_holy_sites = {
+		jongno_default
+		gyeongju_default
+		hapcheon_buddism_haeinsa
+	}
+	holy_sites = {
+		yangsan_default
+		juam_default
+	}
+}
+bailian = {
+	faith_details = {
+		religion = buddhism_religion
+		icon = bailian
+		color = {
+			204
+			167
+			75
+		}
+	}
+	main_rite = bailian
+	eminent_holy_sites = {
+		jongno_default
+		gyeongju_default
+		hapcheon_buddism_haeinsa
+	}
+	holy_sites = {
+		yangsan_default
+		juam_default
+	}
+}
+tibetan = {
+	faith_details = {
+		religion = buddhism_religion
+		icon = cat_vajrayana2
+		color = {
+			0.9
+			0.2
+			0.0
+		}
+	}
+	main_rite = tibetan
+	eminent_holy_sites = {
+		jongno_default
+		westbusan_tibet_gwangseongsa
+		eunpyeong_tibet_samhaksa
+	}
+	holy_sites = {
+		chaganhua_tibet_miaoyinsi
+		shenyang_tibet_hueguepalungung
+	}
+	localization = {
+		ReligiousText = tibetan_religious_text
+		ReligiousHeadName = tibetan_religious_head_title
+		PriestMale = tibetan_priest
+		PriestMalePlural = tibetan_priest_plural
+		PriestFemale = tibetan_priest
+		PriestFemalePlural = tibetan_priest_plural
+		PriestNeuter = tibetan_priest
+		PriestNeuterPlural = tibetan_priest_plural
+		AltPriestTermPlural = tibetan_priest_term_plural
+		BishopMale = tibetan_bishop
+		BishopMalePlural = tibetan_bishop_plural
+		BishopFemale = tibetan_bishop
+		BishopFemalePlural = tibetan_bishop_plural
+		BishopNeuter = tibetan_bishop
+		BishopNeuterPlural = tibetan_bishop_plural
+	}
+}
+cheondo = {
+	faith_details = {
+		religion = cheondo_religion
+		icon = cheondo
+		religious_head = d_cheondo
+		color = {
+			146
+			241
+			205
+		}
+	}
+	main_rite = cheondo
+	eminent_holy_sites = {
+		gyeongju_default
+		pyongyang_default
+		jongno_default
+	}
+	holy_sites = {
+		jeongeup_gobu_default
+		gongju_cheondo_ugeumti
+	}
+}
+cheonjin = {
+	faith_details = {
+		religion = cheondo_religion
+		icon = cheonjin
+		color = {
+			115
+			188
+			160
+		}
+	}
+	main_rite = cheonjin
+	eminent_holy_sites = {
+		gyeongju_default
+		pyongyang_default
+		jongno_default
+	}
+	holy_sites = {
+		cheongjin_default
+		naseon_default
+	}
+}
+changzhou = {
+	faith_details = {
+		religion = chinese_confucianism_religion
+		icon = cat_confucianism_2_3
+		color = {
+			16
+			180
+			128
+		}
+	}
+	main_rite = changzhou
+}
+ahnxing = {
+	faith_details = {
+		religion = chinese_confucianism_religion
+		icon = cat_confucianism_2_5
+		color = {
+			200
+			32
+			32
+		}
+	}
+	main_rite = ahnxing
+}
+catholic = {
+	faith_details = {
+		religion = christianity_religion
+		religious_head = k_catholic
+		graphical_faith = "catholic_gfx"
+		color = {
+			0.8
+			0.8
+			0.6
+		}
+	}
+	main_rite = catholic
+	eminent_holy_sites = {
+		jongno_default
+		myeoncheon_catholic_solmoe
+		gwangju_default
+	}
+	holy_sites = {
+		daegu_default
+		junggu_default
+		chuncheon_default
+	}
+	holy_order_names = {
+		{
+			name = "holy_order_regio_mariae"
+		}
+	}
+	localization = {
+		HighGodName = christianity_high_god_name
+		HighGodNamePossessive = christianity_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = christianity_high_god_name_alternate
+		HighGodNameAlternatePossessive = christianity_high_god_name_alternate_possessive
+		CreatorName = christianity_creator_god_name
+		CreatorNamePossessive = christianity_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+		HealthGodName = christianity_health_god_name
+		HealthGodNamePossessive = christianity_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		FertilityGodName = christianity_fertility_god_name
+		FertilityGodNamePossessive = christianity_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+		WealthGodName = christianity_wealth_god_name
+		WealthGodNamePossessive = christianity_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+		HouseholdGodName = christianity_household_god_name
+		HouseholdGodNamePossessive = christianity_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_HE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+		FateGodName = christianity_fate_god_name
+		FateGodNamePossessive = christianity_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+		KnowledgeGodName = christianity_knowledge_god_name
+		KnowledgeGodNamePossessive = christianity_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+		WarGodName = christianity_war_god_name
+		WarGodNamePossessive = christianity_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+		TricksterGodName = christianity_trickster_god_name
+		TricksterGodNamePossessive = christianity_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+		NightGodName = christianity_night_god_name
+		NightGodNamePossessive = christianity_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+		WaterGodName = christianity_water_god_name
+		WaterGodNamePossessive = christianity_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+		PantheonTerm = christianity_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {
+			christianity_high_god_name
+		}
+	}
+}
+marxism = {
+	faith_details = {
+		religion = communism_religion
+		icon = cat_communism2
+		color = {
+			204
+			0
+			0
+		}
+	}
+	main_rite = marxism
+	eminent_holy_sites = {
+		vladivostok_default
+		usurisk_default
+		sinuiju_default
+	}
+	holy_sites = {
+		pyongyang_default
+		daegu_default
+	}
+}
+maoism = {
+	faith_details = {
+		religion = communism_religion
+		icon = cat_communism_mao
+		color = {
+			196
+			44
+			38
+		}
+	}
+	main_rite = maoism
+	eminent_holy_sites = {
+		liaoyang_default
+		shenyang_default
+		girin_default
+	}
+	holy_sites = {
+		harbin_default
+		dandung_default
+	}
+}
+new_left = {
+	faith_details = {
+		religion = communism_religion
+		icon = new_left
+		color = {
+			204
+			20
+			20
+		}
+	}
+	main_rite = new_left
+	eminent_holy_sites = {
+		usurisk_default
+		maan_default
+		sinuiju_default
+	}
+	holy_sites = {
+		pyongyang_default
+		cheolsan_default
+	}
+}
+neocon = {
+	faith_details = {
+		religion = confucianism_religion
+		icon = cat_confucianism_2_1
+		color = {
+			219
+			214
+			85
+		}
+	}
+	main_rite = neocon
+	eminent_holy_sites = {
+		jongno_default
+		dosan_neocon
+		dodong_neocon
+	}
+	holy_sites = {
+		jeonju_neocon_jeonjusadang
+		yeongju_default
+	}
+}
+confucian = {
+	faith_details = {
+		religion = confucianism_religion
+		icon = rujia
+		color = {
+			16
+			64
+			128
+		}
+	}
+	main_rite = confucian
+}
+eternal_kingdom = {
+	faith_details = {
+		religion = eternal_kingdom_religion
+		icon = eternal_kingdom
+		graphical_faith = "catholic_gfx"
+		color = {
+			153
+			217
+			234
+		}
+	}
+	main_rite = eternal_kingdom
+	eminent_holy_sites = {
+		uijeongbu_default
+		pocheon_default
+		gapyeong_default
+	}
+	holy_sites = {
+		pyongyang_default
+		jongno_default
+	}
+}
+doom_completion = {
+	faith_details = {
+		religion = eternal_kingdom_religion
+		icon = doom_completion
+		graphical_faith = "catholic_gfx"
+		color = {
+			153
+			217
+			234
+		}
+	}
+	main_rite = doom_completion
+	eminent_holy_sites = {
+		dongducheon_default
+		pocheon_default
+		gapyeong_default
+	}
+	holy_sites = {
+		pyongyang_default
+		jongno_default
+	}
+}
+ashari = {
+	faith_details = {
+		religion = islam_religion
+		icon = sunni
+		color = {
+			0
+			0.6
+			0
+		}
+	}
+	main_rite = ashari
+}
+ismaili = {
+	faith_details = {
+		religion = islam_religion
+		icon = shia
+		color = {
+			0.2
+			0.8
+			0
+		}
+	}
+	main_rite = ismaili
+	localization = {
+		PriestMale = islam_shia_priest
+		PriestMalePlural = islam_shia_priest_plural
+		PriestFemale = islam_shia_priest
+		PriestFemalePlural = islam_shia_priest_plural
+		PriestNeuter = islam_shia_priest
+		PriestNeuterPlural = islam_shia_priest_plural
+		ReligiousHeadName = islam_shia_religious_head_title
+		ReligiousHeadTitleName = islam_shia_religious_head_title_name
+	}
+}
+muttahida = {
+	faith_details = {
+		religion = islam_religion
+		icon = sunni
+		color = {
+			0
+			0.6
+			0
+		}
+	}
+	main_rite = muttahida
+	eminent_holy_sites = {
+		gaeseong_default
+		yongsan_default
+		busan_default
+	}
+	holy_sites = {
+		daegu_default
+		shenyang_manchu_mukden
+		ansan_default
+	}
+}
+jeju_pagan = {
+	faith_details = {
+		religion = jeju_religion
+		icon = jeju
+		reformed_icon = jeju_reformed
+		color = {
+			232
+			85
+			0
+		}
+	}
+	main_rite = jeju_pagan
+	eminent_holy_sites = {
+		jeju_default
+		hankyeong_daejeong_default
+		busan_yeongdo_default
+	}
+	holy_sites = {
+		sinan_default
+		ganghwa_default
+	}
+}
+juche = {
+	faith_details = {
+		religion = juche_religion
+		icon = cat_Juche
+		religious_head = e_north_korea
+		color = {
+			230
+			0
+			18
+		}
+	}
+	main_rite = juche
+	eminent_holy_sites = {
+		pyongyang_default
+		hyesan_default_baekdusan
+		jongno_default
+	}
+	holy_sites = {
+		girin_default
+		gaeseong_default
+	}
+}
+haeseoan = {
+	faith_details = {
+		religion = juche_religion
+		icon = cat_Juche3
+		religious_head = e_north_korea
+		color = {
+			229
+			156
+			162
+		}
+	}
+	main_rite = haeseoan
+	eminent_holy_sites = {
+		pyongyang_default
+		haeju_default
+		jongno_default
+	}
+	holy_sites = {
+		hyesan_default_baekdusan
+		phungcheon_gwail_default
+	}
+}
+inmin_juche = {
+	faith_details = {
+		religion = juche_religion
+		icon = cat_Juche2
+		color = {
+			190
+			50
+			38
+		}
+	}
+	main_rite = inmin_juche
+	eminent_holy_sites = {
+		pyongyang_default
+		pyeonggang_default
+		jongno_default
+	}
+	holy_sites = {
+		sinuiju_default
+		wonsan_default
+	}
+}
+seoulism = {
+	faith_details = {
+		religion = koreanism_religion
+		icon = seoulism
+		color = {
+			66
+			72
+			195
+		}
+	}
+	main_rite = seoulism
+	eminent_holy_sites = {
+		jongno_default
+		gangnam_default
+		mapo_default
+	}
+	holy_sites = {
+		yeongi_sejong_default
+	}
+}
+populism = {
+	faith_details = {
+		religion = koreanism_religion
+		icon = populism_new
+		color = {
+			107
+			163
+			255
+		}
+	}
+	main_rite = populism
+	eminent_holy_sites = {
+		jongno_default
+		busan_default
+		yeongi_sejong_default
+	}
+	holy_sites = {
+		daegu_default
+		gwangju_default
+	}
+}
+authoritarianism = {
+	faith_details = {
+		religion = koreanism_religion
+		icon = authoritarianism_new
+		color = {
+			0
+			17
+			255
+		}
+	}
+	main_rite = authoritarianism
+	eminent_holy_sites = {
+		jongno_default
+		yeongi_sejong_default
+		busan_default
+	}
+	holy_sites = {
+		gwangju_default
+		daegu_default
+	}
+}
+unitizm = {
+	faith_details = {
+		religion = koreanism_religion
+		icon = cat_taoism4_1
+		color = {
+			0
+			237
+			255
+		}
+	}
+	main_rite = unitizm
+	eminent_holy_sites = {
+		jongno_default
+		busan_default
+		yeongi_sejong_default
+	}
+	holy_sites = {
+		daegu_default
+		gwangju_default
+	}
+}
+koreanism = {
+	faith_details = {
+		religion = koreanism_religion
+		icon = koreanism
+		color = {
+			12
+			64
+			128
+		}
+	}
+	main_rite = koreanism
+	eminent_holy_sites = {
+		jongno_default
+		yeongi_sejong_koreanism
+		daegu_koreanism
+	}
+	holy_sites = {
+		gwangju_koreanism
+		busan_koreanism
+	}
+}
+neofajia = {
+	faith_details = {
+		religion = legalist_religion
+		color = {
+			34
+			128
+			0
+		}
+	}
+	main_rite = neofajia
+}
+aisin_gioro = {
+	faith_details = {
+		religion = manchurian_religion
+		icon = aisin_gioro
+		color = {
+			216
+			164
+			128
+		}
+	}
+	main_rite = aisin_gioro
+	eminent_holy_sites = {
+		shenyang_manchu_mukden
+		songpa_manchu_samjeondo
+		girin_default
+	}
+	holy_sites = {
+		changbai_manchu_golminsangyanarin
+		xinbin_yunling_manchu_hetuala
+	}
+	localization = {
+		HighGodName = aisin_gioro_high_god_name
+		HighGodNamePossessive = aisin_gioro_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = manchurian_high_god_name_alternate
+		HighGodNameAlternatePossessive = manchurian_high_god_name_alternate_possessive
+		CreatorName = aisin_gioro_creator_god_name
+		CreatorNamePossessive = aisin_gioro_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+		HealthGodName = aisin_gioro_health_god_name
+		HealthGodNamePossessive = aisin_gioro_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		FertilityGodName = aisin_gioro_fertility_god_name
+		FertilityGodNamePossessive = aisin_gioro_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_HE
+		FertilityGodHerHis = CHARACTER_HERHIS_HIS
+		FertilityGodHerHim = CHARACTER_HERHIM_HIM
+		WealthGodName = aisin_gioro_wealth_god_name
+		WealthGodNamePossessive = aisin_gioro_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+		HouseholdGodName = aisin_gioro_household_god_name
+		HouseholdGodNamePossessive = aisin_gioro_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_HE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+		FateGodName = aisin_gioro_fate_god_name
+		FateGodNamePossessive = aisin_gioro_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+		KnowledgeGodName = aisin_gioro_knowledge_god_name
+		KnowledgeGodNamePossessive = aisin_gioro_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+		WarGodName = aisin_gioro_war_god_name
+		WarGodNamePossessive = aisin_gioro_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+		TricksterGodName = aisin_gioro_trickster_god_name
+		TricksterGodNamePossessive = aisin_gioro_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+		NightGodName = aisin_gioro_night_god_name
+		NightGodNamePossessive = aisin_gioro_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+		WaterGodName = aisin_gioro_water_god_name
+		WaterGodNamePossessive = aisin_gioro_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+		PantheonTerm = aisin_gioro_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {
+			aisin_gioro_high_god_name
+		}
+		DevilName = aisin_gioro_devil_name
+		DevilNamePossessive = aisin_gioro_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {
+			aisin_gioro_devil_name
+		}
+		HouseOfWorship = manchurian_house_of_worship
+		HouseOfWorshipPlural = manchurian_house_of_worship_plural
+		ReligiousSymbol = aisin_gioro_religious_symbol
+		ReligiousText = aisin_gioro_religious_text
+		ReligiousHeadName = manchurian_religious_head_title
+		ReligiousHeadTitleName = manchurian_religious_head_title_name
+		DevoteeMale = manchurian_devotee_male
+		DevoteeMalePlural = manchurian_devotee_male_plural
+		DevoteeFemale = manchurian_devotee_female
+		DevoteeFemalePlural = manchurian_devotee_female_plural
+		DevoteeNeuter = manchurian_devotee_neuter
+		DevoteeNeuterPlural = manchurian_devotee_neuter_plural
+		PriestMale = aisin_gioro_priest_male
+		PriestMalePlural = aisin_gioro_priest_male_plural
+		PriestFemale = aisin_gioro_priest_male
+		PriestFemalePlural = aisin_gioro_priest_male_plural
+		PriestNeuter = aisin_gioro_priest_male
+		PriestNeuterPlural = aisin_gioro_priest_male_plural
+		AltPriestTermPlural = aisin_gioro_priest_alternate_plural
+		BishopMale = aisin_gioro_bishop
+		BishopMalePlural = aisin_gioro_bishop_plural
+		BishopFemale = aisin_gioro_bishop
+		BishopFemalePlural = aisin_gioro_bishop_plural
+		BishopNeuter = aisin_gioro_bishop
+		BishopNeuterPlural = aisin_gioro_bishop_plural
+		DivineRealm = aisin_gioro_positive_afterlife
+		PositiveAfterLife = aisin_gioro_positive_afterlife
+		NegativeAfterLife = aisin_gioro_negative_afterlife
+		DeathDeityName = manchurian_death_deity_name
+		DeathDeityNamePossessive = manchurian_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		WitchGodName = manchurian_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+	}
+}
+wanyan = {
+	faith_details = {
+		religion = manchurian_religion
+		icon = wanyan
+		color = {
+			136
+			164
+			228
+		}
+	}
+	main_rite = wanyan
+	eminent_holy_sites = {
+		shenyang_manchu_mukden
+		harbin_default
+		girin_default
+	}
+	holy_sites = {
+		changbai_manchu_golminsangyanarin
+		xinbin_yunling_manchu_hetuala
+	}
+	localization = {
+		HighGodName = wanyan_high_god_name
+		HighGodNamePossessive = wanyan_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = manchurian_high_god_name_alternate
+		HighGodNameAlternatePossessive = manchurian_high_god_name_alternate_possessive
+		CreatorName = wanyan_creator_god_name
+		CreatorNamePossessive = wanyan_creator_god_name_possessive
+		CreatorSheHe = CHARACTER_SHEHE_HE
+		CreatorHerHis = CHARACTER_HERHIS_HIS
+		CreatorHerHim = CHARACTER_HERHIM_HIM
+		HealthGodName = wanyan_health_god_name
+		HealthGodNamePossessive = wanyan_health_god_name_possessive
+		HealthGodSheHe = CHARACTER_SHEHE_HE
+		HealthGodHerHis = CHARACTER_HERHIS_HIS
+		HealthGodHerHim = CHARACTER_HERHIM_HIM
+		WealthGodName = wanyan_wealth_god_name
+		WealthGodNamePossessive = wanyan_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+		FateGodName = wanyan_fate_god_name
+		FateGodNamePossessive = wanyan_fate_god_name_possessive
+		FateGodSheHe = CHARACTER_SHEHE_HE
+		FateGodHerHis = CHARACTER_HERHIS_HIS
+		FateGodHerHim = CHARACTER_HERHIM_HIM
+		WarGodName = wanyan_war_god_name
+		WarGodNamePossessive = wanyan_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+		TricksterGodName = wanyan_trickster_god_name
+		TricksterGodNamePossessive = wanyan_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+		NightGodName = wanyan_night_god_name
+		NightGodNamePossessive = wanyan_night_god_name_possessive
+		NightGodSheHe = CHARACTER_SHEHE_HE
+		NightGodHerHis = CHARACTER_HERHIS_HIS
+		NightGodHerHim = CHARACTER_HERHIM_HIM
+		PantheonTerm = wanyan_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {
+			wanyan_high_god_name
+		}
+		DevilName = wanyan_devil_name
+		DevilNamePossessive = wanyan_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {
+			wanyan_devil_name
+		}
+		HouseOfWorship = manchurian_house_of_worship
+		HouseOfWorshipPlural = manchurian_house_of_worship_plural
+		ReligiousSymbol = manchurian_religious_symbol
+		ReligiousText = wanyan_religious_text
+		ReligiousHeadName = manchurian_religious_head_title
+		ReligiousHeadTitleName = manchurian_religious_head_title_name
+		DevoteeMale = manchurian_devotee_male
+		DevoteeMalePlural = manchurian_devotee_male_plural
+		DevoteeFemale = manchurian_devotee_female
+		DevoteeFemalePlural = manchurian_devotee_female_plural
+		DevoteeNeuter = manchurian_devotee_neuter
+		DevoteeNeuterPlural = manchurian_devotee_neuter_plural
+		PriestMale = wanyan_priest_male
+		PriestMalePlural = wanyan_priest_male_plural
+		PriestFemale = wanyan_priest_male
+		PriestFemalePlural = wanyan_priest_male_plural
+		PriestNeuter = wanyan_priest_male
+		PriestNeuterPlural = wanyan_priest_male_plural
+		AltPriestTermPlural = wanyan_priest_alternate_plural
+		BishopMale = wanyan_bishop
+		BishopMalePlural = wanyan_bishop_plural
+		BishopFemale = wanyan_bishop
+		BishopFemalePlural = wanyan_bishop_plural
+		BishopNeuter = wanyan_bishop
+		BishopNeuterPlural = wanyan_bishop_plural
+		DivineRealm = wanyan_positive_afterlife
+		PositiveAfterLife = wanyan_positive_afterlife
+		NegativeAfterLife = wanyan_negative_afterlife
+		DeathDeityName = manchurian_death_deity_name
+		DeathDeityNamePossessive = manchurian_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		WitchGodName = manchurian_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+	}
+}
+mechanism = {
+	faith_details = {
+		religion = mechanism_religion
+		icon = mechanism
+		religious_head = d_mechanism
+		color = {
+			82
+			51
+			255
+		}
+	}
+	main_rite = mechanism
+	eminent_holy_sites = {
+		yuseong_mech_kaist
+		pohang_mech_postech
+		suwon_default
+	}
+	holy_sites = {
+		pyeongtaek_default
+		gongju_default
+	}
+}
+holy_mechanism = {
+	faith_details = {
+		religion = mechanism_religion
+		icon = holy_mechanism
+		color = {
+			62
+			31
+			255
+		}
+	}
+	main_rite = holy_mechanism
+	eminent_holy_sites = {
+		yuseong_mech_kaist
+		jeonju_default
+		gumi_default
+	}
+	holy_sites = {
+		pyeongtaek_default
+		ulsan_default
+	}
+	localization = {
+		HighGodName = imperial_high_god_name
+		HighGodNamePossessive = imperial_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = imperial_high_god_name_alternate
+		HighGodNameAlternatePossessive = imperial_high_god_name_alternate_possessive
+	}
+}
+apologetics_mechanism = {
+	faith_details = {
+		religion = mechanism_religion
+		icon = apologetic_mechanist
+		color = {
+			72
+			31
+			255
+		}
+	}
+	main_rite = apologetics_mechanism
+	eminent_holy_sites = {
+		yuseong_mech_kaist
+		jeonju_default
+		gumi_default
+	}
+	holy_sites = {
+		pyeongtaek_default
+		ulsan_default
+	}
+}
+imperial_mechanism = {
+	faith_details = {
+		religion = mechanism_religion
+		icon = imperial_mechanism
+		color = {
+			62
+			0
+			255
+		}
+	}
+	main_rite = imperial_mechanism
+	eminent_holy_sites = {
+		yuseong_mech_kaist
+		jeonju_default
+		gumi_default
+	}
+	holy_sites = {
+		pyeongtaek_default
+		ulsan_default
+	}
+	localization = {
+		HighGodName = imperial_high_god_name
+		HighGodNamePossessive = imperial_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = imperial_high_god_name_alternate
+		HighGodNameAlternatePossessive = imperial_high_god_name_alternate_possessive
+	}
+}
+naturalism_pagan = {
+	faith_details = {
+		religion = naturalism_religion
+		icon = naturalism
+		reformed_icon = naturalism
+		color = {
+			2
+			147
+			0
+		}
+	}
+	main_rite = naturalism_pagan
+	eminent_holy_sites = {
+		hyesan_default_baekdusan
+		hamyang_default
+		hoeyang_default
+	}
+	holy_sites = {
+		yeoncheon_default
+		gaeseong_default
+	}
+}
+new_world_destiny = {
+	faith_details = {
+		religion = new_world_religion
+		icon = default_custom
+		color = {
+			250
+			250
+			150
+		}
+	}
+	main_rite = new_world_destiny
+}
+new_world_land = {
+	faith_details = {
+		religion = new_world_religion
+		icon = default_custom
+		color = {
+			150
+			150
+			250
+		}
+	}
+	main_rite = new_world_land
+}
+orthodox = {
+	faith_details = {
+		religion = orthodox_religion
+		religious_head = k_orthodox
+		color = {
+			0.7
+			0
+			0.3
+		}
+	}
+	main_rite = orthodox
+	eminent_holy_sites = {
+		nakhodka_default
+		arsenyev_default
+		vladivostok_default
+	}
+	holy_sites = {
+		wonsan_default
+		harbin_default
+	}
+	holy_order_names = {
+		{
+			name = "holy_order_brotherhood_of_the_holy_sepulchre"
+		}
+		{
+			name = "holy_order_knights_of_the_first_patrirchate"
+		}
+		{
+			name = "holy_order_order_of_the_holy_virgin"
+		}
+	}
+}
+rusortho = {
+	faith_details = {
+		religion = orthodox_religion
+		icon = cat_orthodox3_1
+		color = {
+			0.7
+			0
+			0.5
+		}
+	}
+	main_rite = rusortho
+	eminent_holy_sites = {
+		arsenyev_default
+		harbin_default
+		nakhodka_default
+	}
+	holy_sites = {
+		vladivostok_default
+		wonsan_default
+	}
+}
+hamortho = {
+	faith_details = {
+		religion = orthodox_religion
+		icon = cat_orthodox1
+		color = {
+			146
+			59
+			153
+		}
+	}
+	main_rite = hamortho
+	eminent_holy_sites = {
+		hamheung_default
+		wonsan_default
+		harbin_default
+	}
+	holy_sites = {
+		nakhodka_default
+		vladivostok_default
+	}
+}
+mu_pagan = {
+	faith_details = {
+		religion = pagan_religion
+		icon = cat_taegeuk
+		reformed_icon = cat_taegeuk
+		color = {
+			118
+			160
+			122
+		}
+	}
+	main_rite = mu_pagan
+	eminent_holy_sites = {
+		gyeryong_default_gyeryongsan
+		taebaek_default_taebaeksan
+		hyesan_default_baekdusan
+	}
+	holy_sites = {
+		hwado_daejong_chamseongdan
+		unbong_default_jirisan
+		sadong_default_kumgangsan
+	}
+}
+anglicanism = {
+	faith_details = {
+		religion = protestant_religion
+		icon = cat_protestant2_1
+		religious_head = d_anglicanism
+		graphical_faith = "catholic_gfx"
+		color = {
+			153
+			217
+			234
+		}
+	}
+	main_rite = anglicanism
+	eminent_holy_sites = {
+		hwado_default
+		gimpo_default
+		incheon_default
+	}
+	holy_sites = {
+		pyongyang_default
+		jongno_default
+	}
+}
+lutheran = {
+	faith_details = {
+		religion = protestant_religion
+		icon = protestant
+		religious_head = d_protestant_assembly
+		graphical_faith = "catholic_gfx"
+		color = {
+			153
+			217
+			234
+		}
+	}
+	main_rite = lutheran
+	eminent_holy_sites = {
+		iksan_default
+		jeonju_default
+		incheon_default
+	}
+	holy_sites = {
+		pyongyang_default
+		jongno_default
+	}
+}
+minjung_prot = {
+	faith_details = {
+		religion = protestant_religion
+		icon = protestant
+		graphical_faith = "catholic_gfx"
+		color = {
+			153
+			217
+			234
+		}
+	}
+	main_rite = minjung_prot
+	eminent_holy_sites = {
+		iksan_default
+		jeonju_default
+		incheon_default
+	}
+	holy_sites = {
+		pyongyang_default
+		jongno_default
+	}
+}
+imperial_church = {
+	faith_details = {
+		religion = protestant_religion
+		icon = imperial
+		religious_head = k_imperial_church
+		graphical_faith = "catholic_gfx"
+		color = {
+			96
+			96
+			96
+		}
+	}
+	main_rite = imperial_church
+	eminent_holy_sites = {
+		iksan_default
+		jeonju_default
+		incheon_default
+	}
+	holy_sites = {
+		pyongyang_default
+		jongno_default
+	}
+	holy_order_names = {
+		{
+			name = "holy_order_knights_templar"
+			coat_of_arms = "ho_knights_templar"
+		}
+		{
+			name = "holy_order_knights_hospitaller"
+			coat_of_arms = "ho_knights_hospitaller"
+		}
+		{
+			name = "holy_order_teutonic_order"
+			coat_of_arms = "ho_teutonic_order"
+		}
+		{
+			name = "holy_order_order_of_calatrava"
+			coat_of_arms = "ho_order_of_calatrava"
+		}
+		{
+			name = "holy_order_order_of_alcantara"
+			coat_of_arms = "ho_order_of_alcantara"
+		}
+		{
+			name = "holy_order_knights_of_santiago"
+			coat_of_arms = "ho_knights_of_santiago"
+		}
+	}
+	localization = {
+		PantheonTerm = imperial_high_god_name
+		PantheonTermHasHave = pantheon_term_has
+		GoodGodNames = {
+			imperial_high_god_name
+			imperial_high_god_name_alternate
+			imperial_good_god_jesus
+			imperial_good_god_christ
+		}
+		DevilName = imperial_devil_name
+		DevilNamePossessive = imperial_devil_name_possessive
+		DevilSheHe = CHARACTER_SHEHE_HE
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerHis = CHARACTER_HERHIS_HIS
+		DevilHerselfHimself = CHARACTER_HIMSELF
+		EvilGodNames = {
+			imperial_devil_name
+			imperial_evil_god_lucifer
+			imperial_evil_god_beelzebub
+			imperial_evil_god_mephistopheles
+		}
+		HouseOfWorship = imperial_house_of_worship
+		HouseOfWorshipPlural = imperial_house_of_worship_plural
+		ReligiousSymbol = imperial_religious_symbol
+		ReligiousText = imperial_religious_text
+		ReligiousHeadName = imperial_religious_head_title
+		ReligiousHeadTitleName = imperial_religious_head_title_name
+		DevoteeMale = imperial_devotee_male
+		DevoteeMalePlural = imperial_devotee_male_plural
+		DevoteeFemale = imperial_devotee_female
+		DevoteeFemalePlural = imperial_devotee_female_plural
+		DevoteeNeuter = imperial_devotee_neuter
+		DevoteeNeuterPlural = imperial_devotee_neuter_plural
+		PriestMale = imperial_priest_male
+		PriestMalePlural = imperial_priest_male_plural
+		PriestFemale = imperial_priest_male
+		PriestFemalePlural = imperial_priest_male_plural
+		PriestNeuter = imperial_priest_male
+		PriestNeuterPlural = imperial_priest_male_plural
+		AltPriestTermPlural = imperial_priest_alternate_plural
+		BishopMale = imperial_bishop
+		BishopMalePlural = imperial_bishop_plural
+		BishopFemale = imperial_bishop
+		BishopFemalePlural = imperial_bishop_plural
+		BishopNeuter = imperial_bishop
+		BishopNeuterPlural = imperial_bishop_plural
+		DivineRealm = imperial_positive_afterlife
+		PositiveAfterLife = imperial_positive_afterlife
+		NegativeAfterLife = imperial_negative_afterlife
+		DeathDeityName = imperial_death_deity_name
+		DeathDeityNamePossessive = imperial_death_deity_name_possessive
+		DeathDeitySheHe = CHARACTER_SHEHE_HE
+		DeathDeityHerHis = CHARACTER_HERHIS_HIS
+		WitchGodName = imperial_witchgodname_the_horned_god
+		WitchGodHerHis = CHARACTER_HERHIS_HIS
+		WitchGodSheHe = CHARACTER_SHEHE_HE
+		WitchGodHerHim = CHARACTER_HERHIM_HIM
+		WitchGodMistressMaster = master
+		WitchGodMotherFather = father
+		GHWName = ghw_imperial_crusade
+		GHWNamePlural = ghw_imperial_crusades
+	}
+}
+holy_spirit = {
+	faith_details = {
+		religion = protestant_religion
+		icon = holy_spirit
+		reformed_icon = holy_spirit_reformed
+		religious_head = d_holy_spirit
+		graphical_faith = "catholic_gfx"
+		color = {
+			122
+			96
+			66
+		}
+	}
+	main_rite = holy_spirit
+	eminent_holy_sites = {
+		hunchun_default
+		jeonju_default
+		yeongil_default
+	}
+	holy_sites = {
+		pyongyang_default
+		jongno_default
+	}
+	localization = {
+		HighGodName = holy_spirit_high_god_name
+		HighGodName2 = holy_spirit_high_god_name_2
+		HighGodNamePossessive = holy_spirit_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodName = holy_spirit_wealth_god_name
+		WealthGodNamePossessive = holy_spirit_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_SHE
+		WealthGodHerHis = CHARACTER_HERHIS_HER
+		WealthGodHerHim = CHARACTER_HERHIM_HER
+		KnowledgeGodName = holy_spirit_knowledge_god_name
+		KnowledgeGodNamePossessive = holy_spirit_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_HE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HIS
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HIM
+		WarGodName = holy_spirit_war_god_name
+		WarGodNamePossessive = holy_spirit_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+		TricksterGodName = holy_spirit_trickster_god_name
+		TricksterGodNamePossessive = holy_spirit_trickster_god_name_possessive
+		TricksterGodSheHe = CHARACTER_SHEHE_HE
+		TricksterGodHerHis = CHARACTER_HERHIS_HIS
+		TricksterGodHerHim = CHARACTER_HERHIM_HIM
+		GoodGodNames = {
+			holy_spirit_high_god_name
+		}
+	}
+	holy_order_names = {
+		{
+			name = "holy_order_knights_templar"
+			coat_of_arms = "ho_knights_templar"
+		}
+		{
+			name = "holy_order_knights_hospitaller"
+			coat_of_arms = "ho_knights_hospitaller"
+		}
+		{
+			name = "holy_order_teutonic_order"
+			coat_of_arms = "ho_teutonic_order"
+		}
+		{
+			name = "holy_order_order_of_calatrava"
+			coat_of_arms = "ho_order_of_calatrava"
+		}
+		{
+			name = "holy_order_order_of_alcantara"
+			coat_of_arms = "ho_order_of_alcantara"
+		}
+		{
+			name = "holy_order_knights_of_santiago"
+			coat_of_arms = "ho_knights_of_santiago"
+		}
+	}
+}
+holyist = {
+	faith_details = {
+		religion = protestant_religion
+		icon = holyist
+		graphical_faith = "catholic_gfx"
+		color = {
+			180
+			180
+			180
+		}
+	}
+	main_rite = holyist
+	eminent_holy_sites = {
+		iksan_default
+		jeonju_default
+		incheon_default
+	}
+	holy_sites = {
+		gimje_default
+		jongno_default
+	}
+}
+steeler_pagan = {
+	faith_details = {
+		religion = steelers_religion
+		icon = steeler_pagan
+		reformed_icon = steeler_pagan
+		color = {
+			221
+			221
+			221
+		}
+	}
+	main_rite = steeler_pagan
+	eminent_holy_sites = {
+		pohang_iron_pohangjaechul
+		gwangyang_iron_gwangyangjaechul
+		dangjin_iron_dangjinjaechul
+	}
+	holy_sites = {
+		incheon_iron_donggujaechul
+		ulsan_default
+	}
+}
+zhengyi = {
+	faith_details = {
+		religion = taoism_religion
+		icon = taoism
+		color = {
+			8
+			140
+			131
+		}
+	}
+	main_rite = zhengyi
+	eminent_holy_sites = {
+		hwado_daejong_chamseongdan
+		beizhen_tao_bukjeonsa
+		liaoyuan_tao_boksugung
+	}
+	holy_sites = {
+		ulju_tao_suseonggung
+		jongno_default
+	}
+}
+nightglow = {
+	faith_details = {
+		religion = taoism_religion
+		icon = shangqing
+		color = {
+			208
+			249
+			211
+		}
+	}
+	main_rite = nightglow
+	eminent_holy_sites = {
+		gampo_atomic_wolseong
+		gijang_atomic_gori
+		hongnong_atomic_hanbit
+	}
+	holy_sites = {
+		shianjian_atomic_hongyanhe
+		yeongbyeon_atomic_atomiclab
+	}
+}
+tengri_pagan = {
+	faith_details = {
+		religion = tengrism_religion
+		icon = tengri
+		reformed_icon = tengri_reformed
+		color = {
+			0.0
+			0.2
+			0.8
+		}
+	}
+	main_rite = tengri_pagan
+	eminent_holy_sites = {
+		hwado_daejong_chamseongdan
+		huanren_tengri_jolbon
+		liaoyang_default
+	}
+	holy_sites = {
+		pyongyang_default
+		dunhwa_tengri_dongmosan
+	}
+}
+won_buddhism = {
+	faith_details = {
+		religion = won_buddhism_religion
+		icon = christianity_bogomilist
+		color = {
+			109
+			100
+			0
+		}
+	}
+	main_rite = won_buddhism
+	eminent_holy_sites = {
+		yeonggwang_default_yeongsan
+		byeonsan_default
+		iksan_default
+	}
+	holy_sites = {
+		jinan_default_manduksan
+		seongju_default
+	}
+}
+protestant = {
+	faith_details = {
+		religion = protestant_religion
+		color = {
+			153
+			217
+			234
+		}
+		graphical_faith = "catholic_gfx"
+	}
+	main_rite = presbyterianism
+	eminent_holy_sites = {
+		incheon_default
+		pyongyang_default
+		jongno_default
+	}
+	holy_sites = {
+		hwado_default
+		gimpo_default
+		iksan_default
+		jeonju_default
+	}
+}

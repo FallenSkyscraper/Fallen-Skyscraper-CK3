@@ -640,7 +640,10 @@ pool_repopulate_learning = {
 		if = {
 			limit = {
 				faith = {
-					has_doctrine = tenet_monasticism
+					OR = {
+						has_doctrine = doctrine_monasticism_accepted
+						has_doctrine = doctrine_monasticism_encouraged
+					}
 				}
 			}
 			random_list = {
@@ -900,7 +903,7 @@ pool_repopulate_local_flavor = {
 			}
 			random_list = {
 				50 = {
-					set_character_faith = faith:xiism
+					set_character_rite = rite:xiism
 					random_list = {
 						50 = {}
 						50 = {
@@ -966,7 +969,7 @@ pool_repopulate_local_flavor = {
 					set_character_faith = faith:catholic
 				}
 				10 = {
-					set_character_faith = faith:presbyterianism
+					set_character_rite = rite:presbyterianism
 				}
 			}
 		}

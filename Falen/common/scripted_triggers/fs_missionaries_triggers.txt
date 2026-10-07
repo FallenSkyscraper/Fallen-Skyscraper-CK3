@@ -1,19 +1,19 @@
 ﻿fs_can_have_missionaries_camp_purpose_trigger = {
 	faith = {
 		OR = {
-			has_doctrine = tenet_world_revolution
-			has_doctrine = tenet_mendicant_preachers
-			has_doctrine = tenet_aniconism
-			has_doctrine = tenet_protestantism
+			has_tenet = tenet_world_revolution
+			has_tenet = tenet_mendicant_preachers
+			has_tenet = tenet_aniconism
+			has_tenet = tenet_protestantism
 		}
 	}
 }
 fs_missionaries_additional_trigger = {
 	faith = {
 		OR = {
-			has_doctrine = tenet_world_revolution
-			has_doctrine = tenet_communism_syncretism
-			has_doctrine = tenet_populism
+			has_tenet = tenet_world_revolution
+			has_tenet = tenet_communism_syncretism
+			has_tenet = tenet_populism
 		}
 	}
 }

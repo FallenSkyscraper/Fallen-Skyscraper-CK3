@@ -206,7 +206,7 @@ faith_is_aniconic_trigger = {
 	faith = {
 		OR = {
 			religion = religion:islam_religion
-			has_doctrine = tenet_aniconism
+			has_tenet = tenet_aniconism
 		}
 	}
 }
@@ -1287,7 +1287,7 @@ fertilitygod_is_active_trigger = {
 can_become_reincarnation_trigger = {
 	save_temporary_scope_as = reincarnated_child
 	faith = {
-		has_doctrine = tenet_reincarnation
+		has_tenet = tenet_reincarnation
 	}
 	any_parent = {
 		is_playable_character = yes
@@ -1673,7 +1673,7 @@ has_tolerant_faith_or_culture_trigger = {
 
 is_open_to_inviting_other_faiths_trigger = {
 	OR = {
-		faith = { has_doctrine = tenet_adaptive }
+		faith = { has_tenet = tenet_adaptive }
 		faith = { has_doctrine = unreformed_faith_doctrine }
 		faith = { has_doctrine = doctrine_pluralism_pluralistic }
 		culture = { has_cultural_tradition = tradition_religion_blending }
@@ -1683,7 +1683,7 @@ is_open_to_inviting_other_faiths_trigger = {
 
 faith_is_open_minded_trigger = {
 	OR = {
-		has_doctrine = tenet_adaptive
+		has_tenet = tenet_adaptive
 		has_doctrine = doctrine_pluralism_pluralistic
 	}
 }
@@ -1725,7 +1725,7 @@ islam_or_syncretic_with_islam_trigger = {
 		faith = {
 			OR = {
 				religion = religion:islam_religion
-				has_doctrine = tenet_islamic_syncretism
+				has_tenet = tenet_islamic_syncretism
 			}
 		}
 	}
@@ -1736,7 +1736,7 @@ judaism_or_syncretic_with_judaism_trigger = {
 		faith = {
 			OR = {
 				religion = religion:judaism_religion
-				has_doctrine = tenet_jewish_syncretism
+				has_tenet = tenet_jewish_syncretism
 			}
 		}
 	}
@@ -1747,7 +1747,7 @@ christianity_or_syncretic_with_christianity_trigger = {
 		faith = {
 			OR = {
 				religion = religion:christianity_religion
-				has_doctrine = tenet_christian_syncretism
+				has_tenet = tenet_christian_syncretism
 			}
 		}
 	}
@@ -1758,7 +1758,7 @@ unreformed_or_syncretic_with_unreformed_trigger = {
 		faith = {
 			OR = {
 				has_doctrine_parameter = unreformed
-				has_doctrine = tenet_unreformed_syncretism
+				has_tenet = tenet_unreformed_syncretism
 			}
 		}
 	}
@@ -1769,7 +1769,7 @@ zoroastrian_or_syncretic_with_eastern_trigger = {
 		faith = {
 			OR = {
 				religion = religion:zoroastrianism_religion
-				has_doctrine = tenet_eastern_syncretism
+				has_tenet = tenet_eastern_syncretism
 			}
 		}
 	}
@@ -1780,7 +1780,7 @@ eastern_or_syncretic_with_eastern_trigger = {
 		faith = {
 			OR = {
 				religion = { is_in_family = rf_eastern }
-				has_doctrine = tenet_eastern_syncretism
+				has_tenet = tenet_eastern_syncretism
 			}
 		}
 	}
@@ -1793,7 +1793,7 @@ sinitic_or_syncretic_with_sinitic_trigger = {
 				religion = {
 					is_in_family = rf_sinitic
 				}
-				has_doctrine = tenet_sinitic_syncretism
+				has_tenet = tenet_sinitic_syncretism
 			}
 		}
 	}	
@@ -1804,7 +1804,7 @@ hindu_or_syncretic_with_eastern_trigger = {
 		faith = {
 			OR = {
 				religion = religion:hinduism_religion
-				has_doctrine = tenet_eastern_syncretism
+				has_tenet = tenet_eastern_syncretism
 			}
 		}
 	}	
@@ -1815,7 +1815,7 @@ communism_or_syncretic_with_communism_trigger = {
 		faith = {
 			OR = {
 				religion = religion:communism_religion
-				has_doctrine = tenet_communism_syncretism
+				has_tenet = tenet_communism_syncretism
 			}
 		}
 	}	
