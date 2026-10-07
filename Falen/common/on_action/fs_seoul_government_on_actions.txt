@@ -18,7 +18,7 @@ fs_seoul_government_game_start = {
 						has_realm_law = seoul_authority_3
 					}
 				}
-				add_realm_law = seoul_authority_1
+				add_realm_law_skip_effects = seoul_authority_1
 			}
 			if = {
 				limit = { NOT = { has_variable = fs_seoul_initial_influence_granted } }
@@ -43,7 +43,7 @@ fs_seoul_government_game_start = {
 							has_realm_law = seoul_authority_3
 						}
 					}
-					add_realm_law = seoul_authority_1
+					add_realm_law_skip_effects = seoul_authority_1
 				}
 				if = {
 					limit = { NOT = { has_variable = fs_seoul_initial_influence_granted } }
@@ -88,7 +88,7 @@ fs_seoul_government_on_title_gain = {
 						has_realm_law = seoul_authority_3
 					}
 				}
-				add_realm_law = seoul_authority_1
+				add_realm_law_skip_effects = seoul_authority_1
 			}
 		}
 		if = {

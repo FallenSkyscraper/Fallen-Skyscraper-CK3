@@ -1,6 +1,7 @@
 ﻿@crown_authority_cooldown_years = 20
 @tribal_authority_cooldown_years = 10
 @nomadic_authority_cooldown_years = 5
+@military_authority_cooldown_years = 10
 @imperial_bureaucracy_cooldown_years_1 = 10
 @imperial_bureaucracy_cooldown_years_2 = 20
 @imperial_bureaucracy_cooldown_years_3 = 30
@@ -514,10 +515,6 @@ tribal_authority = {
 			if = {
 				limit = { has_realm_law = tribal_authority_2 }
 				value = 1
-			}
-			if = { # Genghis is fundamentally uninterested in settling as feudal, and doesn't care for the additional -20 vassal opinion!
-				limit = { has_title = title:e_mongol_empire }
-				value = -10
 			}
 		}
 	}
@@ -1277,7 +1274,7 @@ camp_purpose = {
 			}
 			### Proud
 			if = {
-				limit = { has_trait = proud }
+				limit = { has_trait = arrogant }
 				add = @camp_purpose_ai_will_do_malus_t3
 			}
 			### Theologian
@@ -3347,9 +3344,7 @@ military_authority = {
 		}
 
 		ai_will_do = {
-			ai_value_modifier = {
-				ai_brave = 1
-			}
+			value = 1
 		}
 	}
 
@@ -3383,9 +3378,7 @@ military_authority = {
 		}
 
 		ai_will_do = {
-			ai_value_modifier = {
-				ai_impatient = 1
-			}
+			value = 1
 		}
 	}
 		
@@ -3393,7 +3386,7 @@ military_authority = {
 	military_authority_2 = {
 		modifier = {
 			monthly_war_income_mult = 0.1
-			monthly_county_control_change_add = 0.1
+			monthly_county_control_growth_add = 0.1
 		}
 
 		can_keep = { realm_law_use_military_authority = yes }
@@ -3418,9 +3411,7 @@ military_authority = {
 		}
 
 		ai_will_do = {
-			ai_value_modifier = {
-				ai_greedy = 1
-			}
+			value = 1
 		}
 	}
 	
@@ -3453,9 +3444,7 @@ military_authority = {
 		}
 
 		ai_will_do = {
-			ai_value_modifier = {
-				ai_callous = 1
-			}
+			value = 1
 		}
 	}
 }
@@ -3477,9 +3466,6 @@ slavery_authority = {
 		}
 		pass_cost = {
 			prestige = { add = 0 }
-		}
-		on_pass = {
-			always = no
 		}
 		flag = title_revocation_allowed
 		flag = vassal_retraction_allowed
@@ -3510,9 +3496,6 @@ slavery_authority = {
 		pass_cost = {
 			prestige = { add = 0 }
 		}
-		on_pass = {
-			always = no
-		}
 	}
 	slavery_authority_2 = {
 		modifier = {
@@ -3533,9 +3516,6 @@ slavery_authority = {
 		pass_cost = {
 			prestige = { add = 0 }
 		}
-		on_pass = {
-			always = no
-		}
 	}
 	slavery_authority_3 = {
 		modifier = {
@@ -3550,9 +3530,6 @@ slavery_authority = {
 		}
 		pass_cost = {
 			prestige = { add = 0 }
-		}
-		on_pass = {
-			always = no
 		}
 	}
 }
@@ -3680,22 +3657,18 @@ communism_authority = {
 		}
 
 		can_pass = {
-			trigger_if = {
-				has_realm_law = communism_authority_1
-				has_realm_law = crown_authority_3
-				custom_description = {
-					subject = root
-					text = "has_crown_authority_cooldown"
-					NOT = { has_variable = crown_authority_cooldown }
-				}
+			has_realm_law = communism_authority_1
+			has_realm_law = crown_authority_3
+			custom_description = {
+				subject = root
+				text = "has_crown_authority_cooldown"
+				NOT = { has_variable = crown_authority_cooldown }
 			}
 			root.culture = { has_innovation = innovation_royal_privilege }
 		}
 
 		pass_cost = {
-			prestige = {
-				increase_crown_authority_prestige_cost
-			}
+			prestige = increase_crown_authority_prestige_cost
 		}
 		
 		on_pass = {
@@ -3726,7 +3699,25 @@ seoul_authority = {
 			vassal_levy_contribution_mult = -0.1
 		}
 		flag = uses_seoul_authority
-		can_keep = { realm_law_use_seoul_authority = yes }
+		can_keep = {
+			realm_law_use_seoul_authority = yes
+			trigger_if = {
+				limit = { top_liege != this }
+				liege = { has_realm_law = seoul_authority_0 }
+			}
+		}
+		can_pass = {
+			trigger_if = {
+				limit = {
+					top_liege != this
+					liege = { has_realm_law = seoul_authority_0 }
+				}
+				custom_tooltip = {
+					text = seoul_authority_pending_law_change
+					always = no
+				}
+			}
+		}
 		on_pass = { remove_law_related_modifiers_effect = yes }
 	}
 
@@ -3736,14 +3727,33 @@ seoul_authority = {
 		flag = vassal_retraction_allowed
 		flag = can_have_tributaries
 		flag = can_change_partition_succession_laws
-		can_keep = { realm_law_use_seoul_authority = yes }
+		can_keep = {
+			realm_law_use_seoul_authority = yes
+			trigger_if = {
+				limit = { top_liege != this }
+				liege = { has_realm_law = seoul_authority_1 }
+			}
+		}
 		can_pass = {
 			trigger_if = {
-				limit = { has_realm_law = seoul_authority_0 }
+				limit = {
+					has_realm_law = seoul_authority_0
+					top_liege = this
+				}
 				custom_description = {
 					subject = root
 					text = fs_has_seoul_authority_cooldown
 					NOT = { has_variable = seoul_authority_cooldown }
+				}
+			}
+			trigger_if = {
+				limit = {
+					top_liege != this
+					liege = { has_realm_law = seoul_authority_1 }
+				}
+				custom_tooltip = {
+					text = seoul_authority_pending_law_change
+					always = no
 				}
 			}
 			can_pass_law_ca1_trigger = yes
@@ -3768,14 +3778,33 @@ seoul_authority = {
 		flag = vassal_refusal_is_treason
 		flag = can_change_succession_laws
 		flag = titles_cannot_leave_realm_on_succession
-		can_keep = { realm_law_use_seoul_authority = yes }
+		can_keep = {
+			realm_law_use_seoul_authority = yes
+			trigger_if = {
+				limit = { top_liege != this }
+				liege = { has_realm_law = seoul_authority_2 }
+			}
+		}
 		can_pass = {
 			trigger_if = {
-				limit = { has_realm_law = seoul_authority_1 }
+				limit = {
+					has_realm_law = seoul_authority_1
+					top_liege = this
+				}
 				custom_description = {
 					subject = root
 					text = fs_has_seoul_authority_cooldown
 					NOT = { has_variable = seoul_authority_cooldown }
+				}
+			}
+			trigger_if = {
+				limit = {
+					top_liege != this
+					liege = { has_realm_law = seoul_authority_2 }
+				}
+				custom_tooltip = {
+					text = seoul_authority_pending_law_change
+					always = no
 				}
 			}
 			can_pass_law_ca2_trigger = yes
@@ -3799,14 +3828,33 @@ seoul_authority = {
 		}
 		flag = can_designate_heirs
 		flag = max_authority_level
-		can_keep = { realm_law_use_seoul_authority = yes }
+		can_keep = {
+			realm_law_use_seoul_authority = yes
+			trigger_if = {
+				limit = { top_liege != this }
+				liege = { has_realm_law = seoul_authority_3 }
+			}
+		}
 		can_pass = {
 			trigger_if = {
-				limit = { has_realm_law = seoul_authority_2 }
+				limit = {
+					has_realm_law = seoul_authority_2
+					top_liege = this
+				}
 				custom_description = {
 					subject = root
 					text = fs_has_seoul_authority_cooldown
 					NOT = { has_variable = seoul_authority_cooldown }
+				}
+			}
+			trigger_if = {
+				limit = {
+					top_liege != this
+					liege = { has_realm_law = seoul_authority_3 }
+				}
+				custom_tooltip = {
+					text = seoul_authority_pending_law_change
+					always = no
 				}
 			}
 			can_pass_law_ca3_trigger = yes
