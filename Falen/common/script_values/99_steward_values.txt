@@ -19,6 +19,23 @@ steward_learn_on_the_job_scale = {
 	}
 }
 
+kurultai_steward_learn_on_the_job_scale = {
+	value = 0
+	if = {
+		limit = {
+			liege = { has_perk = learn_on_the_job_perk }
+			highest_skill = stewardship
+		}
+		add = stewardship
+		multiply = {
+			add = learn_on_the_job_percentage
+			divide = 100
+		}
+		floor = yes
+		min = 1
+	}
+}
+
 ### Reliable House modifier
 steward_reliable_house_scale = {
 	value = 0
@@ -72,6 +89,14 @@ steward_collect_taxes_family_business_bonus_scale = {
 	}
 }
 
+steward_collect_taxes_consulted_house_bonus_scale = {
+	add = steward_collect_taxes_scale_base
+	multiply = {
+		add = consulted_house_councillors_percentage
+		divide = 100
+	}
+}
+
 steward_collect_taxes_scale_tooltip_total = {
 	add = steward_collect_taxes_scale_base
 	if = {
@@ -90,7 +115,19 @@ steward_collect_taxes_scale_tooltip_total = {
 		limit = {
 			councillor_liege_has_family_business_bonus = yes
 		}
-		add = steward_collect_taxes_family_business_bonus_scale
+		add = steward_collect_taxes_family_business_bonus_scale # 0.1
+	}
+	if = {
+		limit = {
+			councillor_liege_has_consulted_house_bonus = yes
+		}
+		add = steward_collect_taxes_consulted_house_bonus_scale # 0.1
+	}
+	if = {
+		limit = {
+			scope:councillor_liege.culture = { has_cultural_parameter = bookkeeping_collect_taxes_bonus }
+		}
+		add = 10
 	}
 }
 
@@ -235,6 +272,15 @@ steward_develop_county_family_business_monthly_increase = {
 	}
 }
 
+steward_develop_county_consulted_house_monthly_increase = {
+	value = 0
+	add = steward_develop_county_base_total
+	multiply = {
+		add = consulted_house_councillors_percentage
+		divide = 100
+	}
+}
+
 steward_develop_county_total = {
 	add = steward_develop_county_base
 	add = steward_develop_county_monthly_increase
@@ -266,6 +312,7 @@ steward_develop_county_tribal_penalty = {
 			}
 		}
 		add = scope:councillor.steward_develop_county_total
+		add = scope:councillor.steward_develop_county_perk_bonus_monthly_increase
 		multiply = -0.5
 	}
 }
@@ -278,24 +325,6 @@ steward_develop_county_perk_bonus_modifier_scale = {
 		}
 		add = steward_develop_county_modifier_scale
 		multiply = 0.2
-	}
-}
-
-steward_develop_county_tribal_penalty = {
-	value = 0
-	if = {
-		limit = {
-			exists = scope:county
-			scope:county.holder = {
-				government_has_flag = government_is_tribal
-				any_neighboring_realm_same_rank_owner = {
-					NOT = { government_has_flag = government_is_feudal }
-				}
-			}
-		}
-		add = scope:councillor.steward_develop_county_base_total
-		add = scope:councillor.steward_develop_county_perk_bonus_monthly_increase
-		multiply = -0.5
 	}
 }
 
@@ -472,8 +501,8 @@ steward_promote_culture_contextual_bonuses = {
 	if = {
 		limit = {
 			exists = scope:county
-			scope:councillor_liege.faith = {
-				has_doctrine_parameter = same_faith_promote_culture_bonus_active
+			scope:councillor_liege.rite = {
+				rite_has_parameter = same_faith_promote_culture_bonus_active
 			}
 			scope:county.faith = scope:councillor_liege.faith
 		}
@@ -485,14 +514,12 @@ steward_promote_culture_contextual_bonuses = {
 	if = {
 		limit = {
 			exists = scope:county
-			scope:councillor_liege.faith = { has_doctrine_parameter = easier_to_convert_culture_in_same_faith_mountains }
+			scope:councillor_liege.rite = { rite_has_parameter = easier_to_convert_culture_in_same_faith_mountains }
 			scope:county = {
 				faith = scope:councillor_liege.faith
-				any_county_province = {
-					OR = {
-						terrain = mountains
-						terrain = desert_mountains
-					}
+				county_has_province_with_terrain = {
+					terrain = mountains
+					terrain = desert_mountains
 				}
 			}
 		}
@@ -522,7 +549,26 @@ steward_promote_culture_contextual_bonuses = {
 			desc = COURT_CHAPLAIN_CONVERSION_LOCAL_COUNTY_MODIFIERS
 		}
 	}
-		#Reduce for various county modifiers.
+	if = {
+		limit = {
+			exists = scope:county
+			scope:county = { has_county_modifier = easier_to_culture_convert }
+		}
+		add = {
+			value = scope:councillor.easier_to_convert_bonus
+			desc = COURT_CHAPLAIN_CONVERSION_LOCAL_COUNTY_MODIFIERS
+		}
+	}
+	if = {
+		limit = {
+			scope:councillor_liege = { has_character_modifier = court_fashion_culture_modifier }
+		}
+		add = {
+			value = scope:councillor.steward_fashion_bonus
+			desc = COUNCILLOR_LIEGE_MODIFIERS_BONUS
+		}
+	}
+	#Reduce for various county modifiers.
 	# Cultural Traditions
 	## Bonuses
 	if = {
@@ -534,6 +580,59 @@ steward_promote_culture_contextual_bonuses = {
 		add = {
 			value = conversion_culture_easier_to_culture_change_with_heritage_value
 			desc = TRADITION_EASIER_TO_CULTURE_CONVERT_WITH_HERITAGE_MODIFIER
+		}
+	}
+	if = {
+		limit = {
+			councillor_liege_has_erudition_legacy_5_perk = yes
+		}
+		add = {
+			value = steward_promote_culture_erudition_bonus_monthly_increase
+			desc = ERUDITION_DYNASTY_PERK_BONUS_VALUE
+		}
+	}
+	if = {
+		limit = {
+			councillor_liege_has_family_business_bonus = yes
+		}
+		add = {
+			value = steward_promote_culture_family_business_monthly_increase
+			desc = FAMILY_BUSINESS_BONUS_VALUE
+		}
+	}
+	if = {
+		limit = {
+			councillor_liege_has_consulted_house_bonus = yes
+		}
+		add = {
+			value = steward_promote_culture_consulted_house_monthly_increase
+			desc = CONSULTED_HOUSE_BONUS_VALUE
+		}
+	}
+	if = {
+		limit = {
+			scope:county = {
+				OR = {
+					has_county_modifier = 3020_own_culture_monument
+					has_county_modifier = 3020_multicultural_monument
+				}
+			}
+		}
+		add = {
+			value = hold_court_3020_culture_bonus
+			desc = 3020_MONUMENT_VALUE
+		}
+	}
+	if = {
+		limit = {
+			scope:councillor_liege.rite ?= {
+				rite_has_parameter = tenet_original_sin_county_conversion_bonus
+				this = scope:county.rite
+			}
+		}
+		add = {
+			value = original_sin_easier_to_convert_culture_modifier_value
+			desc = PAM_ORIGINAL_SIN_EASIER_TO_CONVERT_CULTURE_MODIFIER
 		}
 	}
 	## Penalties
@@ -550,6 +649,32 @@ steward_promote_culture_contextual_bonuses = {
 			desc = TRADITION_HARDER_TO_CULTURE_CONVERT_WITHOUT_HERITAGE_MODIFIER
 		}
 	}
+
+	if = {
+		limit = {
+			exists = scope:county
+			scope:county.culture = { has_cultural_parameter = harder_to_convert_county_culture }
+		}
+		add = {
+			value = conversion_culture_resistant_to_culture_change
+			desc = TRADITION_HARDER_TO_CULTURE_CONVERT
+		}
+	}
+
+	# PAM ORIGINAL SIN TENET
+
+	if = {
+		limit = {
+			exists = scope:county
+			scope:county.rite ?= { rite_has_parameter = tenet_original_sin_county_conversion_resistance }
+			scope:county.faith != scope:councillor_liege.faith
+		}
+		add = {
+			value = conversion_culture_resistant_to_culture_change
+			desc = PAM_ORIGINAL_SIN_HARDER_TO_CONVERT_CULTURE_MODIFIER
+		}
+	}
+
 	# Struggles
 	## Penalties
 	if = {
@@ -598,8 +723,58 @@ steward_promote_culture_contextual_bonuses = {
 			desc = STEWARD_PROMOTE_CULTURE_RECLAIMING_BRITANNIA
 		}
 	}
+
+	if = {
+		limit = {
+			scope:councillor_liege.culture = { has_cultural_pillar = heritage_syriac }
+			exists = scope:county
+			scope:county = {
+				has_county_modifier = promote_culture_beth_nahrain_modifier
+				NOT = {
+					culture = { has_cultural_pillar = heritage_syriac }
+				}
+			}
+		}
+		add = {
+			value = promote_culture_beth_nahrain_bonus
+			desc = steward_promote_culture_beth_nahrain
+		}
+	}
+
+	if = {
+		limit = {
+			scope:county.culture ?= { has_cultural_pillar = heritage_iranian }
+			exists = global_var:fp3_struggle_ending  
+			global_var:fp3_struggle_ending = flag:fp3_struggle_rekindle_iran_ending
+
+			NOT = {
+				scope:councillor_liege.culture = { has_same_culture_heritage = scope:county.culture }
+			}
+		}
+		add = {
+			value = conversion_culture_resistant_to_culture_change
+			desc = struggle_persia_ending_rekindle_iran_harder_to_convert_culture_reason
+		}
+	}
+
+	if = {
+		limit = {
+			scope:councillor_liege.culture = { has_cultural_pillar = heritage_iranian }
+			exists = global_var:fp3_struggle_ending  
+			global_var:fp3_struggle_ending = flag:fp3_struggle_rekindle_iran_ending
+
+			NOT = {
+				scope:councillor_liege.culture = { has_same_culture_heritage = scope:county.culture }
+			}
+		}
+		add = {
+			value = conversion_culture_easy
+			desc = struggle_persia_ending_rekindle_iran_harder_to_convert_culture_reason
+		}
+	}
+
 	# Events
-	if = { 
+	if = {
 		limit = {
 			exists = scope:county
 			scope:county = {
@@ -742,10 +917,49 @@ promote_culture_reclaimed_brittania_bonus = {
 	multiply = 0.75
 }
 
+promote_culture_beth_nahrain_bonus = {
+	value = steward_promote_culture_base_total
+	multiply = 0.75
+}
+
+steward_promote_culture_erudition_bonus_monthly_increase = {
+	value = steward_promote_culture_base_total
+	multiply = {
+		add = erudition_legacy_5_percentage
+		divide = 100
+	}
+}
+
+steward_promote_culture_family_business_monthly_increase = {
+	value = steward_promote_culture_base_total
+	multiply = {
+		add = family_business_councillors_percentage
+		divide = 100
+	}
+}
+
+steward_promote_culture_consulted_house_monthly_increase = {
+	value = steward_promote_culture_base_total
+	multiply = {
+		add = consulted_house_councillors_percentage
+		divide = 100
+	}
+}
+
+hold_court_3020_culture_bonus = {
+	value = 0.1
+}
+
 promote_culture_local_traditions_respected_penalty = {
 	value = 0
 	add = steward_promote_culture_base_total
 	multiply = -0.75
+}
+
+promote_culture_defiant_ambushers_penalty = {
+	value = 0
+	add = steward_promote_culture_base_total
+	multiply = -0.5
 }
 
 promote_culture_shuubiyya_penalty = {
@@ -790,7 +1004,13 @@ conversion_culture_easier_to_culture_change_with_heritage_value = {
 
 conversion_culture_resistant_to_culture_change_without_heritage_value = {
 	value = 0
-	subtract = steward_promote_culture_base
+	subtract = steward_promote_culture_base_total
+	multiply = 0.5
+}
+
+conversion_culture_resistant_to_culture_change = {
+	value = 0
+	subtract = steward_promote_culture_base_total
 	multiply = 0.5
 }
 
@@ -805,6 +1025,20 @@ conversion_culture_accepting_of_culture_change_due_to_struggle_phase_value = {
 	subtract = steward_promote_culture_base
 	multiply = -0.5
 }
+
+conversion_culture_easy = {
+	value = 0
+	add = steward_promote_culture_base_total
+	multiply = 0.5
+}
+
+original_sin_easier_to_convert_culture_modifier_value = {
+	value = 0
+	add = steward_promote_culture_base_total
+	multiply = 0.25
+}
+
+
 
 #########################################
 ######## CONVINCE DE JURE TASK ##########
@@ -862,6 +1096,14 @@ steward_convince_dejure_family_business_bonus = {
 	add = steward_convince_dejure_base_total
 	multiply = {
 		add = family_business_councillors_percentage
+		divide = 100
+	}
+}
+
+steward_convince_dejure_consulted_house_bonus = {
+	add = steward_convince_dejure_base_total
+	multiply = {
+		add = consulted_house_councillors_percentage
 		divide = 100
 	}
 }
@@ -965,7 +1207,7 @@ steward_accept_culture_yearly_increase_independent_bonus = {
 	if = {
 		limit = {
 			scope:councillor_liege = {
-				is_independent_ruler = yes
+				top_liege = this
 			}
 		}
 		add = {
@@ -981,6 +1223,7 @@ steward_accept_culture_court_type_bonus = {
 		limit = {
 			scope:councillor_liege = {
 				has_royal_court = yes
+				has_dlc_feature = royal_court
 				has_court_type = court_administrative
 				court_grandeur_current_level >= 4
 			}
@@ -1042,18 +1285,24 @@ task_accept_culture_progress = {
 		}
 		add = steward_accept_culture_erudition_bonus_yearly_increase
 	}
-	add = steward_accept_culture_yearly_increase_friend_bonus
-	add = steward_accept_culture_yearly_increase_best_friend_bonus
-	add = steward_accept_culture_yearly_increase_rival_bonus
-	add = steward_accept_culture_yearly_increase_nemesis_bonus
-	add = steward_accept_culture_yearly_increase_independent_bonus
-	add = steward_accept_culture_court_type_bonus
 	if = {
 		limit = {
 			councillor_liege_has_family_business_bonus = yes
 		}
 		add = steward_accept_culture_family_business_bonus_yearly_increase
 	}
+	if = {
+		limit = {
+			councillor_liege_has_consulted_house_bonus = yes
+		}
+		add = steward_accept_culture_consulted_house_bonus_yearly_increase
+	}
+	add = steward_accept_culture_yearly_increase_friend_bonus
+	add = steward_accept_culture_yearly_increase_best_friend_bonus
+	add = steward_accept_culture_yearly_increase_rival_bonus
+	add = steward_accept_culture_yearly_increase_nemesis_bonus
+	add = steward_accept_culture_yearly_increase_independent_bonus
+	add = steward_accept_culture_court_type_bonus
 	if = {
 		limit = {
 			exists = scope:county
@@ -1067,6 +1316,14 @@ steward_accept_culture_family_business_bonus_yearly_increase = {
 	add = steward_accept_culture_base_total
 	multiply = {
 		add = family_business_councillors_percentage
+		divide = 100
+	}
+}
+
+steward_accept_culture_consulted_house_bonus_yearly_increase = {
+	add = steward_accept_culture_base_total
+	multiply = {
+		add = consulted_house_councillors_percentage
 		divide = 100
 	}
 }

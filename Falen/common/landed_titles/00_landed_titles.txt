@@ -1,6 +1,11 @@
 ﻿@correct_culture_primary_score = 100
 @better_than_the_alternatives_score = 50
 @always_primary_score = 1000
+@never_primary_score = -1000
+
+# EMPIRES
+
+# special titles
 
 # If adding another hegemon title, you need to also update e.g. NeighboringHegemonTitle/DefinitiveName custom loc, save_tribute_mission_target_scope_effect, small/adequate/excessive_gold_tribute_value, etc to support Hegemonic Tributaries
 
@@ -41,6 +46,7 @@ h_dar_al_islam = {
 	capital = c_andong
 
 	can_create = {
+		rule_title_creation_imperial_power_projection_title_creation_trigger = yes
 		has_global_variable = created_dar_al_islam
 	}
 	can_destroy = {

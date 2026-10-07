@@ -40,6 +40,7 @@ pool_repopulate_prowess = {
 	gender_female_chance = root_soldier_female_chance
 	culture = root.culture
 	faith = root.faith
+	rite = root.rite
 	prowess = {
 		min_guest_template_skill max_guest_template_skill
 	}
@@ -196,6 +197,7 @@ pool_repopulate_diplomacy = {
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
+	rite = root.rite
 	diplomacy = {
 		min_guest_template_skill max_guest_template_skill
 	}
@@ -286,6 +288,7 @@ pool_repopulate_martial = {
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
+	rite = root.rite
 	martial = {
 		min_guest_template_skill max_guest_template_skill
 	}
@@ -452,6 +455,7 @@ pool_repopulate_stewardship = {
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
+	rite = root.rite
 	stewardship = {
 		min_guest_template_skill max_guest_template_skill
 	}
@@ -517,6 +521,7 @@ pool_repopulate_intrigue = {
 	gender_female_chance = 50 #No gender blocks for spymaster
 	culture = root.culture
 	faith = root.faith
+	rite = root.rite
 	intrigue = {
 		min_guest_template_skill max_guest_template_skill
 	}
@@ -586,6 +591,7 @@ pool_repopulate_learning = {
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
+	rite = root.rite
 	learning = {
 		min_guest_template_skill max_guest_template_skill
 	}
@@ -597,7 +603,7 @@ pool_repopulate_learning = {
 	}
 	random_traits_list = {
 		count = { 0 1 }
-		scholar = {}
+		erudite = {}
 		theologian = {}
 		whole_of_body = {}
 		lifestyle_physician = {}
@@ -640,7 +646,7 @@ pool_repopulate_learning = {
 		if = {
 			limit = {
 				faith = {
-					has_doctrine = tenet_monasticism
+					faith_has_monasticism_trigger = yes
 				}
 			}
 			random_list = {
@@ -681,6 +687,7 @@ pool_repopulate_spouse = {
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
+	rite = root.rite
 	random_traits_list = {
 		education_diplomacy_1 = { weight = { base = 35 } }
 		education_diplomacy_2 = { weight = { base = 35 } }
@@ -765,7 +772,7 @@ pool_repopulate_spouse = {
 		strategist = {}
 		architect = {}
 		schemer = {}
-		scholar = {}
+		erudite = {}
 		whole_of_body = {}
 		fecund = {}
 		intellect_good_1 = {}
@@ -816,6 +823,7 @@ pool_repopulate_local_flavor = {
 	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because council gender is doctrine dependent
 	random_traits = yes
 	faith = root.faith
+	rite = root.rite
 	
 	random_culture = {
 		root.culture = {
@@ -857,7 +865,7 @@ pool_repopulate_local_flavor = {
 		education_diplomacy_4 = { weight = { base = 20 } }
 	}
 	random_traits_list = {
-		scholar = {}
+		erudite = {}
 		theologian = {}
 		lifestyle_physician = {}
 		lifestyle_mystic = {}
@@ -893,14 +901,13 @@ pool_repopulate_local_flavor = {
 				change_current_weight = 200
 			}
 		}
-		
 		if = {
 			limit = {
 				culture = { has_cultural_pillar = heritage_chinese }
 			}
 			random_list = {
 				50 = {
-					set_character_faith = faith:xiism
+					set_character_rite = rite:xiism
 					random_list = {
 						50 = {}
 						50 = {
@@ -912,7 +919,7 @@ pool_repopulate_local_flavor = {
 					set_character_faith = faith:zhengyi
 				}
 				5 = {
-					set_character_faith = faith:maoism
+					set_character_rite = rite:maoism
 				}
 			}
 			random = {
@@ -966,7 +973,7 @@ pool_repopulate_local_flavor = {
 					set_character_faith = faith:catholic
 				}
 				10 = {
-					set_character_faith = faith:presbyterianism
+					set_character_rite = rite:presbyterianism
 				}
 			}
 		}
@@ -1023,7 +1030,7 @@ pool_repopulate_local_flavor = {
 				450 = {
 					trigger = {
 						NOT = {
-							trait_is_criminal_in_faith_trigger = { TRAIT = trait:witch FAITH = this.faith GENDER_CHARACTER = this }
+							trait_is_criminal_in_rite_trigger = { TRAIT = trait:witch RITE = this.rite GENDER_CHARACTER = this }
 						}
 					}
 					add_trait = witch

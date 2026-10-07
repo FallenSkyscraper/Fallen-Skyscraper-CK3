@@ -7,33 +7,13 @@
 setup_tributaries_effect = {
 	if = {
 		limit = { has_mpo_dlc_trigger = yes	}
-		if = {
-    		limit = { current_date < 1066.9.15 } # so, 867
-        	mpo_867_tributary_setup_effect = yes
-    	}
-    	else_if = {
-    		limit = { current_date = 1066.9.15 }
-        	mpo_1066_tributary_setup_effect = yes
-    	}
-    	else_if = {
-    		limit = { current_date > 1066.9.15 } # so, 1178
-        	mpo_1178_tributary_setup_effect = yes
-    	}
-    }
+		mpo_tributary_setup_effect = yes
+	}
 	if = {
-		if = {
-    		limit = { current_date < 1066.9.15 } # so, 867
-    		base_867_tributary_setup_effect = yes
-    	}
-    	else_if = {
-    		limit = { current_date = 1066.9.15 }
-        	base_1066_tributary_setup_effect = yes
-    	}
-    	else_if = {
-    		limit = { current_date > 1066.9.15 } # so, 1178
-        	base_1178_tributary_setup_effect = yes
-    	}
-    }
+		limit = { has_tgp_dlc_trigger = yes	}
+		tgp_tributary_setup_effect = yes
+	}
+	base_tributary_setup_effect = yes
 }
 
 # $TRIBUTARY$ = the new tributary
@@ -55,6 +35,21 @@ break_subject_contract_and_establish_tributary_effect = {
 	start_tributary_interaction_effect = {
 		SUZERAIN = $SUZERAIN$
 		TRIBUTARY = $TRIBUTARY$
+	}
+}
+
+mpo_tributary_setup_effect = {
+	if = {
+		limit = { current_date >= 1178.1.1 }
+		mpo_1178_tributary_setup_effect = yes
+	}
+	else_if = {
+		limit = { current_date >= 1066.1.1 }
+		mpo_1066_tributary_setup_effect = yes
+	}
+	else_if = {
+		limit = { current_date >= 867.1.1 }
+		mpo_867_tributary_setup_effect = yes
 	}
 }
 

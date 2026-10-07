@@ -86,7 +86,6 @@ seoul_government = {
 		sticky_government = yes
 		house_aspirations = yes
 		noble_families = no
-		administrative = no
 		deny_powerful_vassal = yes
 		disable_regnal_numbers = yes
 		allow_accolades = yes
@@ -161,12 +160,7 @@ proletarian_government = {
 ## 세속 공화제
 secular_republic_government = {
 	government_rules = {
-	#	administrative = yes
-	#	landless_playable = yes
-	#	use_as_base_on_landed = yes
-	#	use_as_base_on_rank_up = no
 		inherit_from_dynastic_government = no
-	#	state_faith = no
 		disable_regnal_numbers = yes
 		allow_accolades = yes
 	}

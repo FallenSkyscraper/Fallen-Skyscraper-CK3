@@ -9,6 +9,7 @@
 @holding_illustration_iberian = "gfx/interface/illustrations/holding_types/fp2_city_iberian.dds"
 @holding_illustration_iranian = "gfx/interface/illustrations/holding_types/fp3_city_iranian.dds"
 @holding_illustration_byzantine = "gfx/interface/illustrations/holding_types/ep3_city_byzantine.dds"
+@holding_illustration_trosky = "gfx/interface/illustrations/holding_types/kcd_castle_trosky.dds"
 
 city_01 = {
 	construction_time = slow_construction_time
@@ -435,6 +436,18 @@ city_01 = {
 				iberian_building_gfx byzantine_building_gfx caucasian_building_gfx 
 			}
 			graphical_regions = { graphical_mediterranean }
+		}
+		## Trosky ##
+		asset = {
+			type = pdxmesh
+			names = {
+				"western_city_01_a_mesh"
+				"western_city_01_b_mesh"
+				"western_city_01_c_mesh"
+			}
+			illustration = @holding_illustration_trosky
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 0 } }
+			provinces = { 4134 }
 		}
 
 	}
@@ -1013,6 +1026,18 @@ city_02 = {
 			}
 			graphical_regions = { graphical_mediterranean }
 		}
+		## Trosky ##
+		asset = {
+			type = pdxmesh
+			names = {
+				"western_city_01_a_mesh"
+				"western_city_01_b_mesh"
+				"western_city_01_c_mesh"
+			}
+			illustration = @holding_illustration_trosky
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 0 } }
+			provinces = { 4134 }
+		}
 
 	}
 
@@ -1555,6 +1580,16 @@ city_03 = {
 			}
 			graphical_regions = { graphical_mediterranean }
 		}
+		## Trosky ##
+		asset = {
+			type = pdxmesh
+			names = {
+				"building_western_city_02_mesh"
+			}
+			illustration = @holding_illustration_trosky
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 2 } }
+			provinces = { 4134 }
+		}
 
 	}
 
@@ -1602,6 +1637,7 @@ city_03 = {
 		parameter = city_buildings_more_county_opinion
 		county_opinion_add = 15
 	}
+
 
 	province_terrain_modifier = {
 		parameter = maritime_mercantilism_coastal_holdings
@@ -2091,6 +2127,16 @@ city_04 = {
 			}
 			graphical_regions = { graphical_mediterranean }
 		}
+		## Trosky ##
+		asset = {
+			type = pdxmesh
+			names = {
+				"building_western_city_02_mesh"
+			}
+			illustration = @holding_illustration_trosky
+			soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 2 } }
+			provinces = { 4134 }
+		}
 
 	}
 
@@ -2209,6 +2255,7 @@ city_04 = {
 		}
 	}
 }
+
 
 ####
 #
