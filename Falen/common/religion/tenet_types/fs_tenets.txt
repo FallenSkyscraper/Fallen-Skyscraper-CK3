@@ -4,7 +4,7 @@
 		# Multiplier for keeping same tenet
 		value = faith_tenet_cost_high
 		if = {
-			limit = { has_doctrine = tenet_aniconism }
+			limit = { rite_has_tenet = tenet_aniconism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -28,12 +28,12 @@ tenet_cheondoism = {
 		value = faith_tenet_cost_low
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = tenet_cheondoism }
+			limit = { rite_has_tenet = tenet_cheondoism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 	can_pick = {
-		religion_tag = cheondo_religion
+		religion = religion:cheondo_religion
 	}
 	character_modifier = {
 		short_reign_duration_mult = -0.99
@@ -45,8 +45,8 @@ tenet_righteous_army = {
 		if = {
 			limit = {
 				OR = {
-					religion_tag = koreanism_religion
-					religion_tag = cheondo_religion
+					rite_religion_tag = koreanism_religion
+					rite_religion_tag = cheondo_religion
 				}
 			}
 			value = faith_tenet_cost_low
@@ -56,25 +56,25 @@ tenet_righteous_army = {
 		}
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = tenet_righteous_army }
+			limit = { rite_has_tenet = tenet_righteous_army }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 	can_pick = {
 		custom_description = {
 			text = incompatible_tenet_pacifism_trigger
-			NOT = { doctrine:tenet_pacifism = { is_in_list = selected_doctrines } }
+			NOT = { flag:tenet_pacifism = { is_in_list = selected_tenets } }
 		}
 		custom_description = {
 			text = incompatible_tenet_dharmic_pacifism_trigger
-			NOT = { doctrine:tenet_dharmic_pacifism = { is_in_list = selected_doctrines } }
+			NOT = { flag:tenet_dharmic_pacifism = { is_in_list = selected_tenets } }
 		}
 	}
 
 	parameters = {
-		tenet_adaptive_conversion_resistance = yes
-		great_holy_wars_active = yes
-		ghw_no_hof_conversion_buffs_active = yes
+		tenet_adaptive_conversion_resistance
+		great_holy_wars_active
+		ghw_no_hof_conversion_buffs_active
 	#	
 	}
 	character_modifier = {
@@ -84,7 +84,7 @@ tenet_righteous_army = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
-					religion_tag = cheondo_religion
+					religion = religion:cheondo_religion
 				}
 				desc = tenet_righteous_army_donghak
 			}
@@ -102,19 +102,19 @@ tenet_inquiry_into_knowledge = { #격물치지
 		value = faith_tenet_cost_mid
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = tenet_inquiry_into_knowledge }
+			limit = { rite_has_tenet = tenet_inquiry_into_knowledge }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 
 	can_pick = {
-		religion_tag = mechanism_religion
+		religion = religion:mechanism_religion
 	}
 
 	parameters = {
-		same_faith_promote_culture_bonus_active = yes
-		innovation_from_learning_traits = yes
-		great_holy_wars_active = yes
+		same_faith_promote_culture_bonus_active
+		innovation_from_learning_traits
+		great_holy_wars_active
 	}
 
 	character_modifier = {
@@ -135,22 +135,23 @@ tenet_protracted_warfare = { # 지구전
 
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = tenet_protracted_warfare }
+			limit = { rite_has_tenet = tenet_protracted_warfare }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 
 	is_shown = {
-		religion_tag = communism_religion
+		religion = religion:communism_religion
 	}
 
-	parameters = {
+	character_modifier = {
 		controlled_province_advantage = 2
 		hostile_county_attrition = -0.1
 		monthly_county_control_change_factor = 0.05
-		clergy_can_fight = yes
-		
-		unlock_voluntary_laampdom_faith = yes
+	}
+	parameters = {
+		clergy_can_fight
+		unlock_voluntary_laampdom_faith
 	}
 	traits = {
 		virtues = { peasant_leader = 2 }
@@ -162,7 +163,7 @@ tenet_world_revolution = { # 세계혁명
 	
 		if = {
 			limit = {
-				religion_tag = communism_religion
+				rite_religion_tag = communism_religion
 			}
 			value = faith_tenet_cost_low
 		}
@@ -172,29 +173,29 @@ tenet_world_revolution = { # 세계혁명
 
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = tenet_world_revolution }
+			limit = { rite_has_tenet = tenet_world_revolution }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 
 	is_shown = {
-		religion_tag = communism_religion
+		religion = religion:communism_religion
 	}
 
 	parameters = {
-		great_holy_wars_active = yes
-		clergy_can_fight = yes
+		great_holy_wars_active
+		clergy_can_fight
 		
-		unlock_voluntary_laampdom_faith = yes
+		unlock_voluntary_laampdom_faith
 	}
 }
 tenet_diamat = { # 변증법적 유물론
-	icon = core_tenet_literalism
+	icon = tenet_literalism
 	piety_cost = {
 	
 		if = {
 			limit = {
-				religion_tag = communism_religion
+				rite_religion_tag = communism_religion
 			}
 			value = faith_tenet_cost_low
 		}
@@ -204,20 +205,22 @@ tenet_diamat = { # 변증법적 유물론
 
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = tenet_world_revolution }
+			limit = { rite_has_tenet = tenet_world_revolution }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 
 	is_shown = {
-		religion_tag = communism_religion
-		NOT = { has_doctrine = tenet_literalism }
+		religion = religion:communism_religion
+		NOT = { has_tenet = tenet_literalism }
 	}
 
 	parameters = {
-		maintains_head_of_faith_on_creation = yes
-		same_hof_hostility_override = 1
-		literalist_debate_enabled = yes
+		maintains_head_of_faith_on_creation
+		literalist_debate_enabled
+	}
+	special_parameters = {
+		same_hof_hostility_override = astray
 	}
 	traits = {
 		virtues = {
@@ -240,7 +243,7 @@ tenet_new_world = { #신천
 	piety_cost = {
 		if = {
 			limit = {
-					religion_tag = new_world_religion
+					rite_religion_tag = new_world_religion
 			}
 			value = faith_tenet_cost_low
 		}
@@ -250,22 +253,22 @@ tenet_new_world = { #신천
 
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = tenet_new_world }
+			limit = { rite_has_tenet = tenet_new_world }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 	
-	is_shown = { religion_tag = new_world_religion }
+	is_shown = { religion = religion:new_world_religion }
 	
 	can_pick = {
 		custom_description = {
-			NOT = { doctrine:tenet_adaptive = { is_in_list = selected_doctrines } }
+			NOT = { flag:tenet_adaptive = { is_in_list = selected_tenets } }
 		}
 	}
 
 	parameters = {
-		tenet_adaptive_conversion_resistance = yes
-		same_culture_conversion_bonus_active = yes
+		tenet_adaptive_conversion_resistance
+		same_culture_conversion_bonus_active
 	}
 
 	character_modifier = {
@@ -280,7 +283,7 @@ tenet_communism_syncretism = { # 공산주의 포용주의
 		if = {
 			limit = {
 				OR = {
-					religion_tag = chinese_confucianism_religion
+					rite_religion_tag = chinese_confucianism_religion
 				}
 			}
 			value = faith_tenet_cost_low
@@ -291,34 +294,35 @@ tenet_communism_syncretism = { # 공산주의 포용주의
 
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = tenet_communism_syncretism }
+			limit = { rite_has_tenet = tenet_communism_syncretism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 
 	is_shown = {
-		NOT = { religion_tag = communism_religion }
+		NOT = { religion = religion:communism_religion }
 	}
 	can_pick = {
 		custom_description = {
 			text = incompatible_tenet_other_syncretism_trigger
 			NOR = {
-				doctrine:tenet_eastern_syncretism = { is_in_list = selected_doctrines }
-				doctrine:tenet_unreformed_syncretism = { is_in_list = selected_doctrines }
-				doctrine:tenet_christian_syncretism = { is_in_list = selected_doctrines }
-				doctrine:tenet_islamic_syncretism = { is_in_list = selected_doctrines }
-				doctrine:tenet_jewish_syncretism = { is_in_list = selected_doctrines }
-				doctrine:tenet_plain_faith_syncretism = { is_in_list = selected_doctrines }
+				flag:tenet_eastern_syncretism = { is_in_list = selected_tenets }
+				flag:tenet_unreformed_syncretism = { is_in_list = selected_tenets }
+				flag:tenet_christian_syncretism = { is_in_list = selected_tenets }
+				flag:tenet_islamic_syncretism = { is_in_list = selected_tenets }
+				flag:tenet_jewish_syncretism = { is_in_list = selected_tenets }
+				flag:tenet_plain_faith_syncretism = { is_in_list = selected_tenets }
 			}
 		}
 	}
 
 	parameters = {
-		hostility_override_special_doctrine_is_communism_faith = 1
-		communism_syncretic_actor_opinion_active = yes
-		opinion_of_communism_syncretic_recipient_opinion_active = 30 #Sync this to syncretic_mutual_opinion_bonus_value
-		
-		unlock_voluntary_laampdom_faith = yes
+		communism_syncretic_actor
+		unlock_voluntary_laampdom_faith
+	}
+	special_parameters = {
+		hostility_level_override = { special_doctrine_is_communism_faith = astray }
+		parameter_opinion_override = { communism_syncretic_recipient = 30 }
 	}
 
 	traits = {
@@ -334,8 +338,8 @@ tenet_plain_faith_syncretism = { # 초원 신앙 포용주의
 		if = {
 			limit = {
 				OR = {
-					religion_tag = tengrism_religion
-					religion_tag = manchurian_religion
+					rite_religion_tag = tengrism_religion
+					rite_religion_tag = manchurian_religion
 				}
 			}
 			value = faith_tenet_cost_low
@@ -344,7 +348,7 @@ tenet_plain_faith_syncretism = { # 초원 신앙 포용주의
 			value = faith_tenet_cost_high
 		}
 		if = {
-			limit = { has_doctrine = tenet_plain_faith_syncretism }
+			limit = { rite_has_tenet = tenet_plain_faith_syncretism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -352,20 +356,24 @@ tenet_plain_faith_syncretism = { # 초원 신앙 포용주의
 		custom_description = {
 			text = incompatible_tenet_other_syncretism_trigger
 			NOR = {
-				doctrine:tenet_eastern_syncretism = { is_in_list = selected_doctrines }
-				doctrine:tenet_unreformed_syncretism = { is_in_list = selected_doctrines }
-				doctrine:tenet_christian_syncretism = { is_in_list = selected_doctrines }
-				doctrine:tenet_islamic_syncretism = { is_in_list = selected_doctrines }
-				doctrine:tenet_jewish_syncretism = { is_in_list = selected_doctrines }
-				doctrine:tenet_communism_syncretism = { is_in_list = selected_doctrines }
+				flag:tenet_eastern_syncretism = { is_in_list = selected_tenets }
+				flag:tenet_unreformed_syncretism = { is_in_list = selected_tenets }
+				flag:tenet_christian_syncretism = { is_in_list = selected_tenets }
+				flag:tenet_islamic_syncretism = { is_in_list = selected_tenets }
+				flag:tenet_jewish_syncretism = { is_in_list = selected_tenets }
+				flag:tenet_communism_syncretism = { is_in_list = selected_tenets }
 			}
 		}
 	}
 	parameters = {
-		hostility_override_special_doctrine_is_manchurian_faith = 2
-		hostility_override_special_doctrine_is_tengri_faith = 2
-		plain_faith_syncretic_actor_opinion_active = yes
-		opinion_of_plain_faith_syncretic_recipient_opinion_active = 30 #Sync this to syncretic_mutual_opinion_bonus_value
+		plain_faith_syncretic_actor
+	}
+	special_parameters = {
+		hostility_level_override = {
+			special_doctrine_is_manchurian_faith = hostile
+			special_doctrine_is_tengri_faith = hostile
+		}
+		parameter_opinion_override = { plain_faith_syncretic_recipient = 30 }
 	}
 }
 
@@ -375,7 +383,7 @@ tenet_populism = { #민중주의
 	piety_cost = {
 		value = faith_tenet_cost_high
 		if = {
-			limit ={ has_doctrine = tenet_populism }
+			limit ={ rite_has_tenet = tenet_populism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -386,16 +394,19 @@ tenet_populism = { #민중주의
 				doctrine:doctrine_spiritual_head = { is_in_list = selected_doctrines }
 				doctrine:doctrine_temporal_head = { is_in_list = selected_doctrines }
 				doctrine:doctrine_theocracy_temporal = { is_in_list = selected_doctrines }
-				doctrine:tenet_pentarchy = { is_in_list = selected_doctrines }
-				doctrine:tenet_authoritarianism = { is_in_list = selected_doctrines }
+				flag:tenet_pentarchy = { is_in_list = selected_tenets }
+				flag:tenet_authoritarianism = { is_in_list = selected_tenets }
 			}
 		}
 	}
 	parameters = {
-		hostility_override_tenet_populism = 1
-		hostility_override_tenet_authoritarianism = 3
-		
-		unlock_voluntary_laampdom_faith = yes
+		unlock_voluntary_laampdom_faith
+	}
+	special_parameters = {
+		hostility_level_override = {
+			tenet_populism = astray
+			tenet_authoritarianism = evil
+		}
 	}
 	character_modifier = {
 		dread_baseline_add = -20
@@ -413,7 +424,7 @@ tenet_authoritarianism = {
 	piety_cost = {
 		value = faith_tenet_cost_low
 		if = {
-			limit = { has_doctrine = tenet_authoritarianism }
+			limit = { rite_has_tenet = tenet_authoritarianism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -421,12 +432,12 @@ tenet_authoritarianism = {
 		custom_description = {
 			text = "can not select this tenet when there is already populistic doctrine selected"
 			NOR = {
-				doctrine:tenet_populism = { is_in_list = selected_doctrines }
+				flag:tenet_populism = { is_in_list = selected_tenets }
 			}
 		}
 	}
-	parameters = {
-		hostility_override_tenet_populism = 3
+	special_parameters = {
+		hostility_level_override = { tenet_populism = evil }
 	}
 	character_modifier = {
 		dread_baseline_add = 10
@@ -458,20 +469,20 @@ tenet_mixed = {
 				AND = {
 					religious_head.faith = {
 						OR = {
-							has_doctrine = tenet_armed_pilgrimages
-							has_doctrine = tenet_struggle_submission
-							has_doctrine = tenet_warmonger
-							has_doctrine = tenet_pursuit_of_power
+							has_tenet = tenet_armed_pilgrimages
+							has_tenet = tenet_struggle_submission
+							has_tenet = tenet_warmonger
+							has_tenet = tenet_pursuit_of_power
 						}
 					}
 				}
 				# ... or your HoF is and hates your warmongering.
 				AND = {
 					OR = {
-						doctrine:tenet_armed_pilgrimages = { is_in_list = selected_doctrines }
-						doctrine:tenet_struggle_submission = { is_in_list = selected_doctrines }
-						doctrine:tenet_warmonger = { is_in_list = selected_doctrines }
-						doctrine:tenet_pursuit_of_power = { is_in_list = selected_doctrines }
+						flag:tenet_armed_pilgrimages = { is_in_list = selected_tenets }
+						flag:tenet_struggle_submission = { is_in_list = selected_tenets }
+						flag:tenet_warmonger = { is_in_list = selected_tenets }
+						flag:tenet_pursuit_of_power = { is_in_list = selected_tenets }
 					}
 				}
 			}
@@ -482,13 +493,13 @@ tenet_mixed = {
 			NOR = {
 				# Either you're big on possessions but your HoF hates witchcraft...
 				AND = {
-					doctrine:tenet_adorcism = { is_in_list = selected_doctrines }
+					flag:tenet_adorcism = { is_in_list = selected_tenets }
 					religious_head.faith = { has_doctrine = doctrine_witchcraft_crime }
 				}
 				# ... or you hate witchcraft but your HoF likes possessions.
 				AND = {
 					doctrine:doctrine_witchcraft_crime = { is_in_list = selected_doctrines }
-					religious_head.faith = { has_doctrine = tenet_adorcism }
+					religious_head.faith = { has_tenet = tenet_adorcism }
 				}
 			}
 		}
@@ -498,13 +509,13 @@ tenet_mixed = {
 			NOR = {
 				# Either you like to indulge but your HoF believes less is more...
 				AND = {
-					doctrine:tenet_hedonistic = { is_in_list = selected_doctrines }
-					religious_head.faith = { has_doctrine = tenet_asceticism }
+					flag:tenet_hedonistic = { is_in_list = selected_tenets }
+					religious_head.faith = { has_tenet = tenet_asceticism }
 				}
 				# ... or your HoF throws constant wild parties whilst you prefer to sit and chill.
 				AND = {
-					doctrine:tenet_asceticism = { is_in_list = selected_doctrines }
-					religious_head.faith = { has_doctrine = tenet_hedonistic }
+					flag:tenet_asceticism = { is_in_list = selected_tenets }
+					religious_head.faith = { has_tenet = tenet_hedonistic }
 				}
 			}
 		}
@@ -514,16 +525,16 @@ tenet_mixed = {
 			NOR = {
 				# Cannibal-you doesn't get why your non-cannibal HoF freaks out when you offer them a hand...
 				AND = {
-					doctrine:tenet_ritual_cannibalism = { is_in_list = selected_doctrines }
+					flag:tenet_ritual_cannibalism = { is_in_list = selected_tenets }
 					NOT = {
-						religious_head.faith = { has_doctrine = tenet_ritual_cannibalism }
+						religious_head.faith = { has_tenet = tenet_ritual_cannibalism }
 					}
 				}
 				# ... or cannibal-HoF thinks you need to chill the hell out whilst they eat this dude.
 				AND = {
-					doctrine:tenet_ritual_cannibalism = { is_in_list = selected_doctrines }
+					flag:tenet_ritual_cannibalism = { is_in_list = selected_tenets }
 					NOT = {
-						religious_head.faith = { has_doctrine = tenet_ritual_cannibalism }
+						religious_head.faith = { has_tenet = tenet_ritual_cannibalism }
 					}
 				}
 			}
@@ -536,13 +547,13 @@ tenet_mixed = {
 			trigger_if = {
 				limit = {
 					OR = {
-						doctrine:tenet_gruesome_festivals = { is_in_list = selected_doctrines }
-						doctrine:tenet_human_sacrifice = { is_in_list = selected_doctrines }
+						flag:tenet_gruesome_festivals = { is_in_list = selected_tenets }
+						flag:tenet_human_sacrifice = { is_in_list = selected_tenets }
 					}
 				}
 				NOR = {
-					religious_head.faith = { has_doctrine = tenet_gruesome_festivals }
-					religious_head.faith = { has_doctrine = tenet_human_sacrifice }
+					religious_head.faith = { has_tenet = tenet_gruesome_festivals }
+					religious_head.faith = { has_tenet = tenet_human_sacrifice }
 				}
 			}
 		}
@@ -578,12 +589,14 @@ tenet_mixed = {
 	}
 
 	parameters = {
-		maintains_head_of_faith_on_creation = yes
+		maintains_head_of_faith_on_creation
 		# For loc:
-		ecumenical_christians_keep_ecumenism = yes
+		ecumenical_christians_keep_ecumenism
 		# And finally, you and your old faith see each other as astray.
 		## Please note, unlike other hostility overrides, this is _bilateral_, not unilateral.
-		same_hof_hostility_override = 1
+	}
+	special_parameters = {
+		same_hof_hostility_override = astray
 	}
 
 	character_modifier = {
@@ -598,8 +611,8 @@ tenet_prosperity_theology = {
 		if = {
 			limit = {
 				OR = {
-					religion_tag = christianity_religion
-					religion_tag = buddhism_religion
+					rite_religion_tag = christianity_religion
+					rite_religion_tag = buddhism_religion
 				}
 			}
 			value = faith_tenet_cost_low
@@ -618,7 +631,7 @@ tenet_prosperity_theology = {
 
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = tenet_prosperity_theology }
+			limit = { rite_has_tenet = tenet_prosperity_theology }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -626,15 +639,15 @@ tenet_prosperity_theology = {
 	can_pick = {
 		custom_description = {
 			text = incompatible_tenet_hedonistic_trigger
-			NOT = { doctrine:tenet_hedonistic = { is_in_list = selected_doctrines } }
+			NOT = { flag:tenet_hedonistic = { is_in_list = selected_tenets } }
 		}
 	}
 	character_modifier = {
 		domain_tax_different_faith_mult = 0.15
 	}
 	parameters = {
-		pilgrimage_decision_active = yes
-		tenet_easy_to_leave = yes
+		pilgrimage_decision_active
+		tenet_easy_to_leave
 	}
 	traits = {
 		virtues = { gluttonous }
@@ -649,19 +662,19 @@ tenet_totalitarianism = {
 	piety_cost = {
 		value = faith_tenet_cost_high
 		if = {
-			limit = { has_doctrine = tenet_totalitarianism }
+			limit = { rite_has_tenet = tenet_totalitarianism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 	is_shown = {
-		religion_tag = koreanism_religion
+		religion = religion:koreanism_religion
 	}
 	can_pick = {
 		has_doctrine = religion_policy_ultranationalism
 	}
 
 	parameters = {
-		totalitarianism_reduced_faction = yes
+		totalitarianism_reduced_faction
 	}
 	character_modifier = {
 		liege_opinion = 20
@@ -681,23 +694,25 @@ tenet_philosophy_of_hate = {
 	piety_cost = {
 		value = faith_tenet_cost_high
 		if = {
-			limit = { has_doctrine = tenet_philosophy_of_hate }
+			limit = { rite_has_tenet = tenet_philosophy_of_hate }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 
 	is_shown = {
-		religion_tag = koreanism_religion
+		religion = religion:koreanism_religion
 	}
 	can_pick = {
 		has_doctrine = religion_policy_ultranationalism
 	}
 
 	parameters = {
+		invasion_war
+		halved_holy_wars_active
+		clergy_can_fight
+	}
+	special_parameters = {
 		warmonger = yes
-		invasion_war = yes
-		halved_holy_wars_active = yes
-		clergy_can_fight = yes
 	}
 	character_modifier = {
 		diplomacy = -2
@@ -716,20 +731,20 @@ tenet_monster_of_the_old_world = {
 	piety_cost = {
 		value = faith_tenet_cost_high
 		if = {
-			limit = { has_doctrine = tenet_monster_of_the_old_world }
+			limit = { rite_has_tenet = tenet_monster_of_the_old_world }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
 	is_shown = {
-		religion_tag = koreanism_religion
+		religion = religion:koreanism_religion
 	}
 	can_pick = {
 		has_doctrine = religion_policy_ultranationalism
 	}
 
 	parameters = {
-		old_world_levy_penalty = yes
-		old_world_war_bonus = yes
+		old_world_levy_penalty
+		old_world_war_bonus
 	}
 	character_modifier = {
 		# 멸절 전쟁은 cb에서 관리할거임

@@ -1,4 +1,6 @@
 ﻿religion_policy_ultranationalism = {
+	doctrine_group_type = doctrine_religion_policy
+	index = 0
 	icon = "religion_policy_ultranationalism"
 	can_pick = {
 		has_doctrine = doctrine_pluralism_fundamentalist
@@ -6,18 +8,18 @@
 	piety_cost = {
 		value = faith_doctrine_cost_high
 		if = {
-			limit = { has_doctrine = religion_policy_ultranationalism }
+			limit = { rite_has_doctrine = religion_policy_ultranationalism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
-	parameters = {
-		hostility_same_religion = 3
-		hostility_same_family = 3
-		hostility_others = 3
+	special_parameters = {
+		hostility_levels = { same_religion = evil same_family = evil unrelated = evil }
 	}
 }
 
 religion_policy_state_atheism = {
+	doctrine_group_type = doctrine_religion_policy
+	index = 1
 	icon = "religion_policy_state_atheism"
 	can_pick = {
 		NOT = { has_doctrine = doctrine_pluralism_pluralistic }
@@ -25,34 +27,34 @@ religion_policy_state_atheism = {
 	piety_cost = {
 		value = faith_doctrine_cost_mid
 		if = {
-			limit = { has_doctrine = religion_policy_state_atheism }
+			limit = { rite_has_doctrine = religion_policy_state_atheism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
-	parameters = {
-		hostility_same_religion = 1
-		hostility_same_family = 3
-		hostility_others = 3
+	special_parameters = {
+		hostility_levels = { same_religion = astray same_family = evil unrelated = evil }
 	}
 }
 
 religion_policy_laicite = { # Base Option
+	doctrine_group_type = doctrine_religion_policy
+	index = 2
 	icon = "religion_policy_laicite"
 	piety_cost = {
 		value = faith_doctrine_cost_low
 		if = {
-			limit = { has_doctrine = religion_policy_laicite }
+			limit = { rite_has_doctrine = religion_policy_laicite }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
-	parameters = {
-		hostility_same_religion = 1
-		hostility_same_family = 3
-		hostility_others = 2
+	special_parameters = {
+		hostility_levels = { same_religion = astray same_family = evil unrelated = hostile }
 	}
 }
 
 religion_policy_freedom_of_religion = {
+	doctrine_group_type = doctrine_religion_policy
+	index = 3
 	icon = "religion_policy_freedom_of_religion"
 	can_pick = {
 		NOT = { has_doctrine = doctrine_pluralism_fundamentalist }
@@ -60,17 +62,17 @@ religion_policy_freedom_of_religion = {
 	piety_cost = {
 		value = faith_doctrine_cost_mid
 		if = {
-			limit = { has_doctrine = religion_policy_freedom_of_religion }
+			limit = { rite_has_doctrine = religion_policy_freedom_of_religion }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
-	parameters = {
-		hostility_same_religion = 1
-		hostility_same_family = 3
-		hostility_others = 1
+	special_parameters = {
+		hostility_levels = { same_religion = astray same_family = evil unrelated = astray }
 	}
 }
 religion_policy_pluralism = {
+	doctrine_group_type = doctrine_religion_policy
+	index = 4
 	icon = "religion_policy_pluralism"
 	can_pick = {
 		has_doctrine = doctrine_pluralism_pluralistic
@@ -78,13 +80,11 @@ religion_policy_pluralism = {
 	piety_cost = {
 		value = faith_doctrine_cost_high
 		if = {
-			limit = { has_doctrine = religion_policy_pluralism }
+			limit = { rite_has_doctrine = religion_policy_pluralism }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
-	parameters = {
-		hostility_same_religion = 1
-		hostility_same_family = 1
-		hostility_others = 1
+	special_parameters = {
+		hostility_levels = { same_religion = astray same_family = astray unrelated = astray }
 	}
 }

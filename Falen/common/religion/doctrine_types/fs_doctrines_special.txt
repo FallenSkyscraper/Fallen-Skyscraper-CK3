@@ -1,8 +1,12 @@
 ﻿special_doctrine_terror_governing = {
+	doctrine_group_type = terror_governing
+	index = 0
 	parameters = {
-		other_culture_conversion_penalty_active = yes
-		hostility_same_family = 2
-		hostility_override_special_doctrine_yingzhao_worship = 1
+		other_culture_conversion_penalty_active
+	}
+	special_parameters = {
+		hostility_levels = { same_family = hostile }
+		hostility_level_override = { special_doctrine_yingzhao_worship = astray }
 	}
 	character_modifier = {
 		monthly_income_mult = 0.05
@@ -12,11 +16,15 @@
 	}
 }
 special_doctrine_path_of_saint = {
-	parameters = {
-		hostility_others = 3
-		hostility_same_family = 3
-		hostility_same_religion = 3
-		hostility_override_special_doctrine_hundred_days_of_reform = 1
+	doctrine_group_type = path_of_saint
+	index = 0
+	special_parameters = {
+		hostility_levels = {
+			unrelated = evil
+			same_family = evil
+			same_religion = evil
+		}
+		hostility_level_override = { special_doctrine_hundred_days_of_reform = astray }
 	}
 	character_modifier = {
 		faith_creation_piety_cost_mult = 1
@@ -24,47 +32,65 @@ special_doctrine_path_of_saint = {
 	}
 }
 special_doctrine_hundred_days_of_reform = {
+	doctrine_group_type = hundred_days_of_reform
+	index = 0
 	parameters = {
-		same_faith_promote_culture_bonus_active = yes
+		same_faith_promote_culture_bonus_active
 	}
 }
 special_doctrine_is_communism_faith = {
+	doctrine_group_type = is_communism_faith
+	index = 0
 	parameters = {
-		hostility_override_tenet_communism_syncretism = 1
-		communism_syncretic_recipient_opinion_active = yes
-		opinion_of_communism_syncretic_actor_opinion_active = 30
+		communism_syncretic_recipient
+	}
+	special_parameters = {
+		hostility_level_override = { tenet_communism_syncretism = astray }
+		parameter_opinion_override = { communism_syncretic_actor = 30 }
 	}
 }
 special_doctrine_is_manchurian_faith = {
+	doctrine_group_type = is_manchurian_faith
+	index = 0
 	parameters = {
-		hostility_override_tenet_plain_faith_syncretism = 2
-		plain_faith_syncretic_recipient_opinion_active = yes
-		opinion_of_plain_faith_syncretic_actor_opinion_active = 30
+		plain_faith_syncretic_recipient
+	}
+	special_parameters = {
+		hostility_level_override = { tenet_plain_faith_syncretism = hostile }
+		parameter_opinion_override = { plain_faith_syncretic_actor = 30 }
 	}
 }
 special_doctrine_is_tengri_faith = {
+	doctrine_group_type = is_tengri_faith
+	index = 0
 	parameters = {
-		hostility_override_tenet_plain_faith_syncretism = 2
-		plain_faith_syncretic_recipient_opinion_active = yes
-		opinion_of_plain_faith_syncretic_actor_opinion_active = 30
+		plain_faith_syncretic_recipient
+	}
+	special_parameters = {
+		hostility_level_override = { tenet_plain_faith_syncretism = hostile }
+		parameter_opinion_override = { plain_faith_syncretic_actor = 30 }
 	}
 }
 special_doctrine_is_confucian_faith = {
-	parameters = {
-		hostility_same_family = 2
-		hostility_override_special_doctrine_munsunjae_worship = 1
+	doctrine_group_type = is_confucian_faith
+	index = 0
+	special_parameters = {
+		hostility_levels = { same_family = hostile }
+		hostility_level_override = { special_doctrine_munsunjae_worship = astray }
 	}
 }
 
 special_doctrine_aisingioro_worship = { #아이신기오로 숭배
+	doctrine_group_type = the_pantheon
+	index = 0
 	can_pick = {
-		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		flag:tenet_ancestor_worship = { is_in_list = selected_tenets }
 	}
 	piety_cost = {
 		value = faith_tenet_cost_mid
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = special_doctrine_aisingioro_worship }
+			limit = { rite_has_doctrine = special_doctrine_aisingioro_worship }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -77,14 +103,16 @@ special_doctrine_aisingioro_worship = { #아이신기오로 숭배
 	}
 }
 special_doctrine_wanyan_worship = { # 완안 숭배
+	doctrine_group_type = the_pantheon
+	index = 1
 	can_pick = {
-		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		flag:tenet_ancestor_worship = { is_in_list = selected_tenets }
 	}
 	piety_cost = {
 		value = faith_tenet_cost_mid
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = special_doctrine_wanyan_worship }
+			limit = { rite_has_doctrine = special_doctrine_wanyan_worship }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -97,14 +125,16 @@ special_doctrine_wanyan_worship = { # 완안 숭배
 	}
 }
 special_doctrine_khan_worship = { # 징기스칸 숭배
+	doctrine_group_type = the_pantheon
+	index = 2
 	can_pick = {
-		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		flag:tenet_ancestor_worship = { is_in_list = selected_tenets }
 	}
 	piety_cost = {
 		value = faith_tenet_cost_mid
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = special_doctrine_khan_worship }
+			limit = { rite_has_doctrine = special_doctrine_khan_worship }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -118,14 +148,16 @@ special_doctrine_khan_worship = { # 징기스칸 숭배
 	}
 }
 special_doctrine_cheewoo_worship = { # 치우 숭배
+	doctrine_group_type = the_pantheon
+	index = 3
 	can_pick = {
-		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		flag:tenet_ancestor_worship = { is_in_list = selected_tenets }
 	}
 	piety_cost = {
 		value = faith_tenet_cost_mid
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = special_doctrine_cheewoo_worship }
+			limit = { rite_has_doctrine = special_doctrine_cheewoo_worship }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -138,19 +170,21 @@ special_doctrine_cheewoo_worship = { # 치우 숭배
 	}
 }
 special_doctrine_munsunjae_worship = { # 공자 숭배
+	doctrine_group_type = the_pantheon
+	index = 4
 	can_pick = {
-		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		flag:tenet_ancestor_worship = { is_in_list = selected_tenets }
 	}
 	piety_cost = {
 		value = faith_tenet_cost_mid
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = special_doctrine_munsunjae_worship }
+			limit = { rite_has_doctrine = special_doctrine_munsunjae_worship }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
-	parameters = {
-		hostility_override_special_doctrine_is_confucian_faith = 1
+	special_parameters = {
+		hostility_level_override = { special_doctrine_is_confucian_faith = astray }
 	}
 	character_modifier = {
 		learning_per_piety_level = 1
@@ -161,19 +195,21 @@ special_doctrine_munsunjae_worship = { # 공자 숭배
 	}
 }
 special_doctrine_yingzhao_worship = { # 진시황 숭배
+	doctrine_group_type = the_pantheon
+	index = 5
 	can_pick = {
-		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		flag:tenet_ancestor_worship = { is_in_list = selected_tenets }
 	}
 	piety_cost = {
 		value = faith_tenet_cost_mid
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = special_doctrine_yingzhao_worship }
+			limit = { rite_has_doctrine = special_doctrine_yingzhao_worship }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
-	parameters = {
-		hostility_override_special_doctrine_terror_governing = 1
+	special_parameters = {
+		hostility_level_override = { special_doctrine_terror_governing = astray }
 	}
 	character_modifier = {
 		dread_baseline_add = 5
@@ -184,14 +220,16 @@ special_doctrine_yingzhao_worship = { # 진시황 숭배
 	}
 }
 special_doctrine_sinnong_worship = { # 신농 숭배
+	doctrine_group_type = the_pantheon
+	index = 6
 	can_pick = {
-		doctrine:tenet_ancestor_worship = { is_in_list = selected_doctrines }
+		flag:tenet_ancestor_worship = { is_in_list = selected_tenets }
 	}
 	piety_cost = {
 		value = faith_tenet_cost_mid
 		# Multiplier for keeping same tenet
 		if = {
-			limit = { has_doctrine = special_doctrine_sinnong_worship }
+			limit = { rite_has_doctrine = special_doctrine_sinnong_worship }
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
@@ -207,65 +245,75 @@ special_doctrine_sinnong_worship = { # 신농 숭배
 }
 
 special_doctrine_no_decision = {
+	doctrine_group_type = pantheon_reformed
+	index = 0
 	can_pick = {
 		always = no
 	}
 }
 special_doctrine_status_quo = {
+	doctrine_group_type = pantheon_reformed
+	index = 1
 	can_pick = {
 		has_doctrine = special_doctrine_no_decision
 		#has_innovation = innovation_northern_reformation_movement
 	}
 }
 special_doctrine_adopt_monothesism ={
+	doctrine_group_type = pantheon_reformed
+	index = 2
 	can_pick = {
 		has_doctrine = special_doctrine_no_decision
 		#has_innovation = innovation_northern_reformation_movement
 	}
 }
 special_doctrine_restore_pantheon = {
+	doctrine_group_type = pantheon_reformed
+	index = 3
 	can_pick = {
 		has_doctrine = special_doctrine_no_decision
 		#has_innovation = innovation_northern_reformation_movement
 	}
 }
 special_doctrine_end_of_pantheon = {
+	doctrine_group_type = pantheon_reformed
+	index = 4
 	can_pick = {
 		has_doctrine = special_doctrine_no_decision
 		#has_innovation = innovation_northern_reformation_movement
 	}
 }
 special_doctrine_path_of_peoples = {
-	can_pick = {
-		doctrine:special_doctrine_path_of_peoples = { is_in_list = selected_doctrines }
-	}
-	parameters = {
-		hostility_override_special_doctrine_path_of_seoul = 3
-		hostility_override_special_doctrine_path_of_authority = 1
+	doctrine_group_type = path_divided
+	index = 0
+	special_parameters = {
+		hostility_level_override = {
+			special_doctrine_path_of_seoul = evil
+			special_doctrine_path_of_authority = astray
+		}
 	}
 }
 special_doctrine_path_of_seoul = {
-	can_pick = {
-		doctrine:special_doctrine_path_of_seoul = { is_in_list = selected_doctrines }
-	}
-	parameters = {
-		hostility_override_special_doctrine_path_of_peoples = 3
-		hostility_override_special_doctrine_path_of_unity = 1
+	doctrine_group_type = path_divided
+	index = 1
+	special_parameters = {
+		hostility_level_override = {
+			special_doctrine_path_of_peoples = evil
+			special_doctrine_path_of_unity = astray
+		}
 	}
 }
 special_doctrine_path_of_authority = {
-	can_pick = {
-		doctrine:special_doctrine_path_of_authority = { is_in_list = selected_doctrines }
-	}
-	parameters = {
-		hostility_override_special_doctrine_path_of_peoples = 1
+	doctrine_group_type = path_divided
+	index = 2
+	special_parameters = {
+		hostility_level_override = { special_doctrine_path_of_peoples = astray }
 	}
 }
 special_doctrine_path_of_unity = {
-	can_pick = {
-		doctrine:special_doctrine_path_of_unity = { is_in_list = selected_doctrines }
-	}
-	parameters = {
-		hostiltiy_override_special_doctrine_path_of_seoul = 1
+	doctrine_group_type = path_divided
+	index = 3
+	special_parameters = {
+		hostility_level_override = { special_doctrine_path_of_seoul = astray }
 	}
 }

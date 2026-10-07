@@ -1,0 +1,18 @@
+doctrine_atheist = {
+	doctrine_group_type = doctrine_theism
+	index = 2
+	icon = "doctrine_atheist"
+	can_pick = {
+		has_doctrine = ideology_hostility_doctrine
+	}
+	piety_cost = {
+		value = faith_doctrine_cost_high
+		if = {
+			limit = { rite_has_doctrine = doctrine_atheist }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+		else = {
+			multiply = faith_changed_doctrine_cost_mult_three_step
+		}
+	}
+}
