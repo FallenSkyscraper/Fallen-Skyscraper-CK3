@@ -1,0 +1,27 @@
+﻿military_authority = {
+	required_government_flag = { government_is_military }
+	default = military_authority_3
+	cumulative = no
+	flag = realm_law
+}
+
+slavery_authority = {
+	required_government_flag = { government_is_slavery }
+	default = slavery_authority_0
+	cumulative = no
+	flag = realm_law
+}
+
+communism_authority = {
+	required_government_flag = { government_is_proletarian }
+	default = communism_authority_1
+	cumulative = no
+	flag = realm_law
+}
+
+seoul_authority = {
+	required_government_flag = { government_is_seoul }
+	default = seoul_authority_1
+	cumulative = yes
+	flag = realm_law
+}
