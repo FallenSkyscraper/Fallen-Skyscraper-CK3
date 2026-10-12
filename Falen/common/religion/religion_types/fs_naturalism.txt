@@ -29,14 +29,14 @@ naturalism_religion = {
 	doctrine = doctrine_no_anointment
 	traits = {
 		virtues = {
-			brave
-			gluttonous
-			lustful
+			brave = { weight = 20 scale = 1 }
+			gluttonous = { weight = 30 scale = 1 }
+			lustful = { weight = 20 scale = 1 }
 		}
 		sins = {
-			craven
-			temperate
-			chaste
+			craven = { weight = 20 scale = 1 }
+			temperate = { weight = 20 scale = 1 }
+			chaste = { weight = 10 scale = 1 }
 		}
 	}
 	custom_faith_icons = {

@@ -1,49 +1,49 @@
 ﻿terror_governing = {
-	category = "special"
+	category = special
 	is_available_on_create = {
 		has_doctrine = special_doctrine_terror_governing
 	}
 }
 path_of_saint = {
-	category = "special"
+	category = special
 	is_available_on_create = {
 		always = no
 	}
 }
 hundred_days_of_reform = {
-	category = "special"
+	category = special
 	is_available_on_create = {
 		has_doctrine = special_doctrine_hundred_days_of_reform
 	}
 }
 is_communism_faith = {
-	category = "special"
+	category = special
 
 	is_available_on_create = {
 		has_doctrine = special_doctrine_is_communism_faith
 	}
 }
 is_manchurian_faith = {
-	category = "special"
+	category = special
 
 	is_available_on_create = {
 		has_doctrine = special_doctrine_is_manchurian_faith
 	}
 }
 is_tengri_faith = {
-	category = "special"
+	category = special
 	is_available_on_create = {
 		has_doctrine = special_doctrine_is_tengri_faith
 	}
 }
 is_confucian_faith = {
-	category = "special"
+	category = special
 	is_available_on_create = {
 		has_doctrine = special_doctrine_is_confucian_faith
 	}
 }
 the_pantheon = {
-	category = "main_group"
+	category = main_group
 	is_available_on_create = {
 		OR = {
 			has_doctrine = special_doctrine_aisingioro_worship
@@ -58,13 +58,13 @@ the_pantheon = {
 	}
 }
 pantheon_reformed = {
-	category = "main_group"
+	category = main_group
 	is_available_on_create = {
 		religion = religion:manchurian_religion
 	}
 }
 path_divided = {
-	category = "main_group"
+	category = main_group
 	is_available_on_create = {
 			OR = {
 				has_doctrine = special_doctrine_path_of_peoples
@@ -75,7 +75,7 @@ path_divided = {
 	}
 }
 doctrine_religion_policy = {
-	category = "main_group"
+	category = main_group
 	is_available_on_create = {
 		#is_in_family = rf_ideologic
 		OR = {

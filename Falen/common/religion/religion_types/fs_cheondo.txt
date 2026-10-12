@@ -1,6 +1,6 @@
 cheondo_religion = {
 	religion_details = {
-		family = rf_sinitic
+		family = rf_eastern
 		graphical_faith = sinitic_gfx
 	}
 	doctrine = eastern_hostility_doctrine
@@ -27,14 +27,14 @@ cheondo_religion = {
 	doctrine = doctrine_funeral_cremation
 	traits = {
 		virtues = {
-			temperate
-			generous
-			just
+			temperate = { weight = 20 scale = 1 }
+			generous = { weight = 20 scale = 1 }
+			just = { weight = 30 scale = 1 }
 		}
 		sins = {
-			greedy
-			sadistic
-			arbitrary
+			greedy = { weight = 20 scale = 1 }
+			sadistic = { weight = 30 scale = 1 }
+			arbitrary = { weight = 20 scale = 1 }
 		}
 	}
 	reserved_male_names = {

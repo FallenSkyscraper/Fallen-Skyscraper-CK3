@@ -560,6 +560,7 @@ widget = {
 
 									widget = {
 										size = { 64 64 }
+										visible = "[SaveGameItem.HasCoatOfArms]"
 
 										coa_realm_shadow = {
 											texture = "[SaveGameItem.GetPlayerGovernment.GetRealmFrameShadow('(int32)62')]"
@@ -913,7 +914,7 @@ widget = {
 
 					button_group = {
 						onclick = "[FrontEndMainView.OnSettings]"
-						shortcut = "menu_4"
+						shortcut = "menu_10"
 
 						flowcontainer = {
 							spacing = 5

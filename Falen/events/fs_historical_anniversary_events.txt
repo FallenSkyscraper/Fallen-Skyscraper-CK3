@@ -137,7 +137,7 @@ fs_anniversary.10 = {
 	trigger = {
 		is_ruler = yes
 		current_date = 2505.1.1
-		faith = faith:cheondo
+		religion = religion:cheondo_religion
 	}
 	option = { name = fs_anniversary.common.a add_piety = 100 }
 }
@@ -189,7 +189,7 @@ fs_anniversary.14 = {
 	trigger = {
 		is_ruler = yes
 		current_date = 2517.1.1
-		faith = faith:imperial_church
+		top_liege ?= { has_title = title:e_hec }
 	}
 	option = { name = fs_anniversary.common.a add_piety = 100 }
 }
@@ -202,7 +202,7 @@ fs_anniversary.15 = {
 	trigger = {
 		is_ruler = yes
 		current_date = 2517.10.31
-		religion = religion:protestant_religion
+		rite ?= { has_tenet = tenet_protestantism }
 	}
 	option = { name = fs_anniversary.common.a add_piety = 100 }
 }
@@ -241,7 +241,7 @@ fs_anniversary.18 = {
 	trigger = {
 		is_ruler = yes
 		current_date = 2667.1.1
-		religion = religion:pagan_religion
+		religion = religion:muism_religion
 	}
 	option = { name = fs_anniversary.common.a add_piety = 100 }
 }

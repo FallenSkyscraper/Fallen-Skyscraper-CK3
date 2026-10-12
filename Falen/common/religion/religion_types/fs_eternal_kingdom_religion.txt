@@ -29,14 +29,14 @@ eternal_kingdom_religion = {
 	doctrine = doctrine_imperial_anointment
 	traits = {
 		virtues = {
-			forgiving
-			compassionate
-			chaste
+			forgiving = { weight = 30 scale = 1 }
+			compassionate = { weight = 20 scale = 1 }
+			chaste = { weight = 10 scale = 1 }
 		}
 		sins = {
-			vengeful
-			sadistic
-			lustful
+			vengeful = { weight = 30 scale = 1 }
+			sadistic = { weight = 30 scale = 1 }
+			lustful = { weight = 20 scale = 1 }
 		}
 	}
 	reserved_male_names = {

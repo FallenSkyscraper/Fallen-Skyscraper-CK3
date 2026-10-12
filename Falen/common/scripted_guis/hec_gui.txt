@@ -211,7 +211,7 @@ hec_reform_5_pass = {
 		custom_tooltip = imperial_authority_cost_tooltip
 		change_global_variable = { name = imperial_authority subtract =  imperial_authority_reform_pass_value }
 		every_vassal = {
-			limit = { government = feudal_government }
+			limit = { has_government = feudal_government }
 			vassal_contract_increase_obligation_level = feudal_government_taxes
 		}
 		if = {

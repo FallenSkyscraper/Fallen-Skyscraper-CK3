@@ -1,0 +1,1127 @@
+﻿#########################################################
+# Rite List	( In this file )							#
+# Mahayana: Jogye, Bailian, (Maitreya)					#
+# Vajrayana: Gelugpa									#
+# Won Buddhism*											#
+# Manchu: Aisin Gioro Worship, Wanyan Worship			#
+# Cheondo: Cheondo, Cheonjin							#
+# Confucian: Toegye School, Yulgok School				#
+# Nightglow*											#
+# Orthodox: Hamheung Rite, Primorskiy Rite				#
+# Protestant: Presbyterianism, Lutheran, Anglican,		#
+# Methodist, Baptist, Holy Spirit, Minjung				#
+# Imperial Church: Imperial Church(Jeonju Rite), Holyist#
+# Muttahida*											#
+# Eternal Kingdom: Eternal Kingdom, Doom Completed		#
+# Koreanism: Old Koreanism, Populism, Authoritarianism	#
+# Seoulism*												#
+# Sixth Republic*										#
+# Juche: Paektu Rite, Kaema Rite						#
+# Inmin Juche*											#
+# Haeseo Juche: Haeju Rite								#
+# Marxism-Leninism: Anti-Revisionism, Internationalism, #
+# Reformism, Marxism-Leninism-Maoism, New Left			#
+# Maoism: Maoism, Socialism with Chinese characteristics#
+# Muism: Hereditary Mu, Possessed Mu, Simbang			#
+# Jeju*													#
+# Steeler Faith*, Atomic Worship*, Naturalist Faith*	#
+# Mechanism: Mainline, Holy, Apologetics, Imperial		#
+# Engineers, Semiconductors, Vehicles					#
+#########################################################
+jogye = {
+	faith = mahayana_faith
+	color = { 238 172 0 }
+	icon = jogye
+	tenets = {
+		tenet_asceticism
+		tenet_inner_journey
+		tenet_vows_of_poverty
+	}
+	doctrines = {
+		doctrine_monasticism_encouraged
+		doctrine_gender_male_dominated
+		doctrine_pluralism_fundamentalist
+		doctrine_divorce_disallowed
+		doctrine_homosexuality_shunned
+		doctrine_adultery_men_crime
+		doctrine_adultery_women_crime
+		doctrine_witchcraft_accepted
+	}
+}
+bailian = {
+	faith = mahayana_faith
+	color = { 204 167 75 }
+	icon = bailian
+	tenets = {
+		tenet_communal_identity
+		tenet_sanctity_of_nature
+		tenet_esotericism
+	}
+	doctrines = {
+		doctrine_gender_male_dominated
+		doctrine_theocracy_lay_clergy
+		doctrine_consanguinity_aunt_nephew_and_uncle_niece
+		doctrine_homosexuality_shunned
+		doctrine_adultery_men_accepted
+		doctrine_adultery_women_accepted
+		doctrine_kinslaying_shunned
+		doctrine_witchcraft_accepted
+		doctrine_clerical_succession_spiritual_appointment
+	}
+}
+gelugpa = {
+	faith = vajrayana_faith
+
+	color = { 0.9 0.2 0.0 }
+	icon = lamaism_buddhism
+
+	tenets = {
+		tenet_reincarnation
+		tenet_inner_journey
+		tenet_esotericism
+	}
+
+	doctrines = {
+		doctrine_monasticism_encouraged
+		doctrine_gender_equal
+		doctrine_polygamy
+		doctrine_adultery_men_accepted
+		doctrine_adultery_women_accepted
+		doctrine_deviancy_accepted
+		doctrine_witchcraft_accepted
+		doctrine_funeral_sky_burial
+	}
+}
+won_buddhism = {
+	faith = won_buddhism
+	color = { 109 100 0 }
+	icon = christianity_bogomilist
+	tenets = {
+		tenet_pentarchy
+		tenet_adaptive
+		tenet_pacifism
+	}
+	doctrines = {
+		doctrine_spiritual_head
+		doctrine_gender_equal
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_temporal
+		doctrine_monogamy
+		doctrine_divorce_approval
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_cousins
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_crime
+		doctrine_adultery_women_crime
+		doctrine_kinslaying_extended_family_crime
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_alms_and_pacification
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_spiritual_fixed_appointment
+	}
+}
+aisin_gioro = {
+	faith = manchu_faith
+	color = { 216 164 128 }
+	icon = aisin_gioro
+	tenets = {
+		tenet_ancestor_worship
+		tenet_warmonger
+		tenet_struggle_submission
+	}
+	doctrines = {
+		doctrine_temporal_head
+		doctrine_gender_male_dominated
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_temporal
+		doctrine_concubines
+		doctrine_divorce_approval
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_aunt_nephew_and_uncle_niece
+		doctrine_homosexuality_shunned
+		doctrine_adultery_men_accepted
+		doctrine_adultery_women_accepted
+		doctrine_kinslaying_accepted
+		doctrine_deviancy_crime
+		doctrine_witchcraft_accepted
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_male_only
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+		special_doctrine_is_manchurian_faith
+		special_doctrine_aisingioro_worship
+	}
+}
+wanyan = {
+	faith = manchu_faith
+	color = { 136 164 228 }
+	icon = wanyan
+	tenets = {
+		tenet_ancestor_worship
+		tenet_unrelenting_faith
+		tenet_struggle_submission
+	}
+	doctrines = {
+		doctrine_temporal_head
+		doctrine_gender_male_dominated
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_concubines
+		doctrine_divorce_approval
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_aunt_nephew_and_uncle_niece
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_accepted
+		doctrine_adultery_women_accepted
+		doctrine_kinslaying_shunned
+		doctrine_deviancy_shunned
+		doctrine_witchcraft_shunned
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_spiritual_appointment
+		special_doctrine_is_manchurian_faith
+		special_doctrine_wanyan_worship
+	}
+}
+cheondo = {
+	faith = cheondo_faith
+	color = { 146 241 205 }
+	icon = cheondo
+	tenets = {
+		tenet_cheondoism
+		tenet_righteous_army
+		tenet_esotericism
+	}
+	doctrines = {
+	
+	}
+}
+cheonjin = {
+	faith = cheondo_faith
+	color = { 115 188 160 }
+	icon = cheonjin
+	tenets = {
+		tenet_cheondoism
+		tenet_adaptive
+		tenet_esotericism
+	}
+	doctrines = {
+		doctrine_gender_male_dominated
+	}
+}
+toegye = {
+	faith = confucian_faith
+	color = { 219 214 85 }
+	icon = cat_confucianism_2_1
+	tenets = {
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = all_under_heaven
+		tenet = tenet_benevolent_governance
+		fallback_tenet = tenet_legalism
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = all_under_heaven
+		tenet = tenet_filial_piety
+		fallback_tenet = tenet_communal_identity
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = all_under_heaven
+		tenet = tenet_pursuit_of_knowledge
+		fallback_tenet = tenet_literalism
+	}
+	doctrines = {
+		special_doctrine_is_confucian_faith
+	}
+}
+yulgok = {
+	faith = confucian_faith
+	color = { 16 64 128 }
+	icon = rujia
+	tenets = {
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = all_under_heaven
+		tenet = tenet_benevolent_governance
+		fallback_tenet = tenet_legalism
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = all_under_heaven
+		tenet = tenet_filial_piety
+		fallback_tenet = tenet_communal_identity
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = all_under_heaven
+		tenet = tenet_pursuit_of_knowledge
+		fallback_tenet = tenet_literalism
+	}
+	doctrines = {
+		special_doctrine_is_confucian_faith
+	}
+}
+nightglow = {
+	faith = nightglow
+	color = { 208 249 211 }
+	tenets = {
+		tenet_mystical_birthright
+		tenet_adorcism
+		tenet_mendicant_preachers
+	}
+	doctrines = {
+	}
+}
+hamheung_rite = {
+	faith = orthodox
+	color = { 146 59 153 }
+	icon = cat_orthodox1
+	tenets = {
+		tenet_pentarchy
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_celestial_hierarchy
+		fallback_tenet = tenet_communion
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_divine_liturgy
+		fallback_tenet = tenet_communal_identity
+	}
+	doctrines = {
+		special_doctrine_is_eastern_christian_faith
+		doctrine_clerical_marriage_disallowed
+	}
+}
+primorsky_rite = {
+	faith = orthodox
+	color = { 0.7 0 0.5 }
+	icon = cat_orthodox3_1
+	tenets = {
+		tenet_pentarchy
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_dulia
+		fallback_tenet = tenet_asceticism
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_celestial_hierarchy
+		fallback_tenet = tenet_communion
+	}
+	doctrines = {
+		special_doctrine_is_eastern_christian_faith
+		doctrine_clerical_marriage_disallowed
+	}
+}
+presbyterianism = {
+	faith = protestant
+	color = { 153 217 234 }
+	icon = cat_christian_korean_presbyterian
+	tenets = {
+		tenet_aniconism
+		tenet_protestantism
+		tenet_literalism
+	}
+	doctrines = {
+	}
+}
+lutheran = {
+	faith = protestant
+	color = { 153 217 234 }
+	icon = protestant
+	tenets = {
+		tenet_armed_pilgrimages
+		tenet_protestantism
+		tenet_vows_of_poverty
+	}
+	doctrines = {
+		doctrine_gender_equal
+		doctrine_homosexuality_accepted
+	}
+}
+anglican = {
+	faith = protestant
+	color = { 153 217 234 }
+	icon = cat_protestant2_1
+	tenets = {
+		tenet_communion
+		tenet_protestantism
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_apostolic_succession
+		fallback_tenet = tenet_communal_identity
+	}
+	doctrines = {
+		doctrine_monasticism_encouraged
+		doctrine_gender_equal
+		doctrine_pluralism_pluralistic
+		doctrine_homosexuality_accepted
+		doctrine_clerical_gender_either
+		doctrine_clerical_succession_spiritual_appointment
+	}
+}
+methodism = {
+	faith = protestant
+	color = { 153 217 234 }
+	icon = cat_protestant5_1
+	tenets = {
+		tenet_armed_pilgrimages
+		tenet_protestantism
+		tenet_literalism
+	}
+	doctrines = {
+	}
+}
+baptism = {
+	faith = protestant
+	color = { 153 217 234 }
+	icon = cat_protestant9
+	tenets = {
+		tenet_unrelenting_faith
+		tenet_protestantism
+		tenet_literalism
+	}
+	doctrines = {
+		doctrine_gender_equal
+		doctrine_monogamy
+		doctrine_divorce_disallowed
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_cousins
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_crime
+		doctrine_adultery_women_crime
+		doctrine_kinslaying_any_dynasty_member_crime
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_alms_and_pacification
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_spiritual_appointment
+	}
+}
+holy_spirit = {
+	faith = protestant
+	color = { 122 96 66 }
+	icon = holy_spirit
+	tenets = {
+		tenet_communion
+		tenet_armed_pilgrimages
+		tenet_aniconism
+	}
+	doctrines = {
+		doctrine_temporal_head
+		doctrine_gender_male_dominated
+		doctrine_pluralism_fundamentalist
+		doctrine_monogamy
+		doctrine_divorce_disallowed
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_cousins
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_accepted
+		doctrine_adultery_women_crime
+		doctrine_kinslaying_any_dynasty_member_crime
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_alms_and_pacification
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_spiritual_appointment
+	}
+}
+minjung_prot = {
+	faith = protestant
+	color = { 153 217 234 }
+	icon = protestant
+	tenets = {
+		tenet_protestantism
+		tenet_literalism
+		tenet_communism_syncretism
+	}
+	doctrines = {
+		doctrine_gender_equal
+		doctrine_pluralism_pluralistic
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_cousins
+		doctrine_homosexuality_accepted
+	}
+}
+jeonju_rite = {
+	faith = imperial_church
+	color = { 96 96 96 }
+	icon = imperial
+	tenets = {
+		tenet_communion
+		tenet_armed_pilgrimages
+		tenet_aniconism
+	}
+	doctrines = {
+		doctrine_spiritual_head
+		doctrine_gender_male_dominated
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_temporal
+		doctrine_monogamy
+		doctrine_divorce_disallowed
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_cousins
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_crime
+		doctrine_adultery_women_crime
+		doctrine_kinslaying_any_dynasty_member_crime
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_alms_and_pacification
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_spiritual_appointment
+	}
+}
+holyist = {
+	faith = imperial_church
+	color = { 180 180 180 }
+	icon = holyist
+	tenets = {
+		tenet_populism
+		tenet_unrelenting_faith
+		tenet_legalism
+	}
+	doctrines = {
+		doctrine_no_head
+		doctrine_theocracy_lay_clergy
+	}
+}
+muttahida = {
+	faith = muttahida
+	color = { 0 0.6 0 }
+	icon = sunni
+	tenets = {
+		tenet_struggle_submission
+		tenet_religious_legal_pronouncements
+		tenet_adaptive
+	}
+	doctrines = {
+		doctrine_no_head
+	}
+}
+eternal_kingdom = {
+	faith = eternal_kingdom
+	color = { 153 217 234 }
+	icon = eternal_kingdom
+	tenets = {
+		tenet_reincarnation
+		tenet_communion
+		tenet_religious_legal_pronouncements
+	}
+	doctrines = {
+		doctrine_gender_male_dominated
+		doctrine_concubines
+		doctrine_temporal_head
+		doctrine_clerical_gender_male_only
+		doctrine_clerical_succession_temporal_fixed_appointment
+	}
+}
+doom_completion = {
+	faith = eternal_kingdom
+	color = { 153 117 134 }
+	icon = doom_completion
+	tenets = {
+		tenet_gruesome_festivals
+		tenet_communion
+		tenet_religious_legal_pronouncements
+	}
+	doctrines = {
+		doctrine_gender_male_dominated
+		doctrine_monogamy
+		doctrine_temporal_head
+		doctrine_clerical_gender_male_only
+		doctrine_clerical_succession_temporal_fixed_appointment
+	}
+}
+old_koreanism = {
+	faith = koreanism_faith
+	color = { 12 64 128 }
+	icon = koreanism
+	tenets = {
+		tenet_totalitarianism
+		tenet_philosophy_of_hate
+		tenet_monster_of_the_old_world
+	}
+	doctrines = {
+		doctrine_no_head
+		doctrine_gender_equal
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_approval
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_restricted
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_crime
+		doctrine_adultery_women_crime
+		doctrine_kinslaying_any_dynasty_member_crime
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+		religion_policy_ultranationalism
+	}
+}
+populism = {
+	faith = koreanism_faith
+	color = { 107 163 255}
+	icon = populism_new
+	tenets = {
+		tenet_populism
+		tenet_adaptive
+		tenet_unrelenting_faith
+	}
+	doctrines = {
+		doctrine_no_head
+		doctrine_gender_equal
+		doctrine_pluralism_righteous
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_allowed
+		doctrine_bastardry_none
+		doctrine_consanguinity_restricted
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_shunned
+		doctrine_adultery_women_shunned
+		doctrine_kinslaying_close_kin_crime
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_fixed_appointment
+		religion_policy_freedom_of_religion
+	}
+}
+authoritarianism = {
+	faith = koreanism_faith
+	color = { 0 17 255 }
+	icon = authoritarianism_new
+	tenets = {
+		tenet_pursuit_of_power
+		tenet_authoritarianism
+		tenet_unrelenting_faith
+	}
+	doctrines = {
+		doctrine_no_head
+		doctrine_gender_male_dominated
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_allowed
+		doctrine_bastardry_none
+		doctrine_consanguinity_restricted
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_shunned
+		doctrine_adultery_women_shunned
+		doctrine_kinslaying_close_kin_crime
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_fixed_appointment
+	}
+}
+seoulism = {
+	faith = seoulism
+	color = { 66 72 195 }
+	icon = seoulism
+	tenets = {
+		tenet_communal_identity
+		tenet_religious_legal_pronouncements
+		tenet_ritual_celebrations
+	}
+	doctrines = {
+		doctrine_no_head
+		doctrine_gender_equal
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_approval
+		doctrine_bastardry_none
+		doctrine_consanguinity_restricted
+		doctrine_homosexuality_shunned
+		doctrine_adultery_men_shunned
+		doctrine_adultery_women_shunned
+		doctrine_kinslaying_any_dynasty_member_crime
+		doctrine_deviancy_shunned
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+	}
+}
+sixth_republic = {
+	faith = sixth_republic
+	color = { 12 64 128 }
+	icon = koreanism
+	tenets = {
+		tenet_totalitarianism
+		tenet_philosophy_of_hate
+		tenet_monster_of_the_old_world
+	}
+	doctrines = {
+		doctrine_no_head
+		doctrine_gender_equal
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_approval
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_restricted
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_crime
+		doctrine_adultery_women_crime
+		doctrine_kinslaying_any_dynasty_member_crime
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+		religion_policy_ultranationalism
+	}
+}
+paektu_rite = {
+	faith = juche_faith
+	color = { 230 0 18 }
+	icon = cat_Juche
+	tenets = {
+		tenet_pursuit_of_power
+		tenet_authoritarianism
+		tenet_warmonger
+	}
+	doctrines = {
+		doctrine_temporal_head
+		doctrine_gender_male_dominated
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_concubines
+		doctrine_divorce_allowed
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_aunt_nephew_and_uncle_niece
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_accepted
+		doctrine_adultery_women_crime
+		doctrine_kinslaying_accepted
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_male_only
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+	}
+}
+kaema_rite = {
+	faith = juche_faith
+	color = { 245 70 90 }
+	icon = cat_Juche4
+	tenets = {
+		tenet_pursuit_of_power
+		tenet_communal_identity
+		tenet_adaptive
+	}
+	doctrines = {
+		doctrine_temporal_head
+		doctrine_gender_male_dominated
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_concubines
+		doctrine_divorce_allowed
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_aunt_nephew_and_uncle_niece
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_accepted
+		doctrine_adultery_women_crime
+		doctrine_kinslaying_accepted
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_male_only
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+	}
+}
+inmin_juche = {
+	faith = inmin_juche
+	color = { 190 50 38 }
+	icon = cat_Juche2
+	tenets = {
+		tenet_pursuit_of_power
+		tenet_righteous_army
+		tenet_warmonger
+	}
+	doctrines = {
+		doctrine_no_head
+		doctrine_gender_male_dominated
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_concubines
+		doctrine_divorce_allowed
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_aunt_nephew_and_uncle_niece
+		doctrine_homosexuality_crime
+		doctrine_adultery_men_accepted
+		doctrine_adultery_women_crime
+		doctrine_kinslaying_accepted
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_male_only
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+		doctrine_funeral_cremation
+	}
+}
+haeju_rite = {
+	faith = haeseo_juche
+	color = { 229 156 162 }
+	icon = cat_Juche3
+	tenets = {
+		tenet_pursuit_of_power
+		tenet_mixed
+		tenet_authoritarianism
+	}
+	doctrines = {
+		doctrine_temporal_head
+		doctrine_gender_male_dominated
+		doctrine_pluralism_pluralistic
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_approval
+		doctrine_bastardry_legitimization
+		doctrine_consanguinity_cousins
+		doctrine_homosexuality_shunned
+		doctrine_adultery_men_shunned
+		doctrine_adultery_women_shunned
+		doctrine_kinslaying_close_kin_crime
+		doctrine_deviancy_crime
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_alms_and_pacification
+		doctrine_clerical_gender_male_only
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_spiritual_fixed_appointment
+		religion_policy_pluralism
+	}
+}
+anti_revisionism = {
+	faith = marxism
+	color = { 204 0 0 }
+	#icon = cat_communism2
+	tenets = {
+		tenet_world_revolution
+		tenet_diamat
+		tenet_legalism
+	}
+	doctrines = {
+		doctrine_temporal_head
+		doctrine_gender_equal
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_approval
+		doctrine_bastardry_none
+		doctrine_consanguinity_cousins
+		doctrine_homosexuality_shunned
+		doctrine_adultery_men_shunned
+		doctrine_adultery_women_shunned
+		doctrine_kinslaying_close_kin_crime
+		doctrine_deviancy_shunned
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+	}
+}
+internationalism = {
+	faith = marxism
+	color = { 254 0 0 }
+	tenets = {
+		tenet_world_revolution
+		tenet_warmonger
+		tenet_unrelenting_faith
+	}
+	doctrines = {
+		doctrine_temporal_head
+		doctrine_gender_equal
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_approval
+		doctrine_bastardry_none
+		doctrine_consanguinity_cousins
+		doctrine_homosexuality_shunned
+		doctrine_adultery_men_shunned
+		doctrine_adultery_women_shunned
+		doctrine_kinslaying_close_kin_crime
+		doctrine_deviancy_shunned
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+	}
+}
+reformism = { # Revisionism
+	faith = marxism
+	color = { 154 0 60 }
+	#icon = cat_communism2
+	tenets = {
+		tenet_unrelenting_faith
+		tenet_diamat
+		tenet_legalism
+	}
+	doctrines = {
+		doctrine_temporal_head
+		doctrine_gender_equal
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_approval
+		doctrine_bastardry_none
+		doctrine_consanguinity_cousins
+		doctrine_homosexuality_shunned
+		doctrine_adultery_men_shunned
+		doctrine_adultery_women_shunned
+		doctrine_kinslaying_close_kin_crime
+		doctrine_deviancy_shunned
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+	}
+}
+mlm_rite = {
+	faith = marxism
+	color = { 153 0 0 }
+	tenets = {
+		tenet_world_revolution
+		tenet_diamat
+		tenet_protracted_warfare
+	}
+	doctrines = {
+		doctrine_temporal_head
+		doctrine_gender_equal
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_approval
+		doctrine_bastardry_all
+		doctrine_consanguinity_aunt_nephew_and_uncle_niece
+		doctrine_homosexuality_shunned
+		doctrine_adultery_men_shunned
+		doctrine_adultery_women_crime
+		doctrine_kinslaying_close_kin_crime
+		doctrine_deviancy_shunned
+		doctrine_witchcraft_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_appointment
+		doctrine_funeral_mummification
+	}
+}
+new_left = {
+	faith = marxism
+	color = { 204 20 20 }
+	icon = new_left
+	tenets = {
+		tenet_world_revolution
+		tenet_populism
+		tenet_polyamory
+	}
+	doctrines = {
+		doctrine_no_head
+		doctrine_gender_equal
+		doctrine_pluralism_fundamentalist
+		doctrine_theocracy_lay_clergy
+		doctrine_monogamy
+		doctrine_divorce_allowed
+		doctrine_bastardry_all
+		doctrine_consanguinity_unrestricted
+		doctrine_homosexuality_accepted
+		doctrine_adultery_men_accepted
+		doctrine_adultery_women_accepted
+		doctrine_kinslaying_close_kin_crime
+		doctrine_deviancy_accepted
+		doctrine_witchcraft_accepted
+		doctrine_clerical_function_alms_and_pacification
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+	}
+}
+maoism = {
+	faith = maoism
+	color = { 196 44 38 }
+	icon = cat_commuism_mao
+	tenets = {
+		tenet_protracted_warfare
+		tenet_aniconism
+		tenet_armed_pilgrimages
+	}
+	doctrines = {
+	}
+}
+xiism = {
+	faith = maoism
+	color = { 96 24 19 }
+	icon = xiism
+	tenets = {
+		tenet_pursuit_of_power
+		tenet_aniconism
+		tenet_protracted_warfare
+	}
+	doctrines = {
+	}
+}
+hereditary_mu = {
+	faith = mu_pagan
+	color = { 118 160 122 }
+	tenets = {
+		tenet_adorcism
+		tenet_ancestor_worship
+		tenet_adaptive
+	}
+	doctrines = {
+		unreformed_faith_doctrine
+	}
+}
+possessed_mu = {
+	faith = mu_pagan
+	color = { 250 100 100 }
+	icon = mu
+	tenets = {
+		tenet_adorcism
+		tenet_mountain_worship
+		tenet_ritual_celebrations
+	}
+	doctrines = {
+		unreformed_faith_doctrine
+	}
+}
+simbang_mu = {
+	faith = mu_pagan
+	color = { 250 100 100 }
+	icon = mu
+	tenets = {
+		tenet_adorcism
+		tenet_mountain_worship
+		tenet_ritual_celebrations
+	}
+	doctrines = {
+		unreformed_faith_doctrine
+	}
+}
+jeju_pagan = {
+	faith = jeju_pagan
+	color = { 232 85 0 }
+	icon = jeju
+	tenets = {
+		tenet_gruesome_festivals
+		tenet_bhakti
+		tenet_warmonger
+	}
+}
+steeler = {
+	faith = steeler
+	color = { 221 221 221 }
+	icon = steeler_pagan
+}
+atomism = {
+	faith = atomism
+	color = { 4 255 0 }
+	icon = atomism
+}
+naturalism = {
+	faith = naturalism
+	color = { 2 147 0 }
+	icon = naturalism
+}
+mechanism = {
+	faith = mechanism_faith
+	color = { 82 51 255 }
+	icon = mechanism
+	tenets = {
+		tenet_inquiry_into_knowledge
+		tenet_esotericism
+		tenet_literalism
+	}
+	doctrines = {
+		doctrine_gender_equal
+	}
+}
+holy_mechanism = {
+	faith = mechanism_faith
+	color = { 62 31 255 }
+	icon = holy_mechanism
+	tenets = {
+		tenet_inquiry_into_knowledge
+		tenet_esotericism
+		tenet_christianity_syncretism
+	}
+	doctrines = {
+		doctrine_no_head
+		doctrine_gender_male_dominated
+	}
+	localization = {
+		HighGodName = imperial_high_god_name
+		HighGodNamePossessive = imperial_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = imperial_high_god_name_alternate
+		HighGodNameAlternatePossessive = imperial_high_god_name_alternate_possessive
+	}
+}
+apologetics_mechanism = {
+	faith = mechanism_faith
+	color = { 72 31 255 }
+	icon = apologetics_mechanist
+	tenets = {
+		tenet_inquiry_into_knowledge
+		tenet_esotericism
+		tenet_legalism
+	}
+	doctrines = {
+		doctrine_no_head
+		doctrine_gender_male_dominated
+	}
+}
+imperial_mechanism = {
+	faith = mechanism_faith
+	color = { 62 0 255 }
+	icon = imperial_mechanism
+	tenets = {
+		tenet_inquiry_into_knowledge
+		tenet_adaptive
+		tenet_christianity_syncretism
+	}
+	doctrines = {
+		doctrine_gender_male_dominated
+	}
+	localization = {
+		HighGodName = imperial_high_god_name
+		HighGodNamePossessive = imperial_high_god_name_possessive
+		HighGodNameSheHe = CHARACTER_SHEHE_HE
+		HighGodHerselfHimself = CHARACTER_HIMSELF
+		HighGodHerHis = CHARACTER_HERHIS_HIS
+		HighGodNameAlternate = imperial_high_god_name_alternate
+		HighGodNameAlternatePossessive = imperial_high_god_name_alternate_possessive
+	}
+}

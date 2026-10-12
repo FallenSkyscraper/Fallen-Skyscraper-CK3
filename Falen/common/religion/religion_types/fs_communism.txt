@@ -11,11 +11,11 @@ communism_religion = {
 	doctrine = religion_policy_state_atheism
 	traits = {
 		virtues = {
-			compassionate
-			peasant_leader
+			compassionate = { weight = 20 scale = 1 }
+			peasant_leader = { weight = 30 scale = 1.5 }
 		}
 		sins = {
-			greedy
+			greedy = { weight = 20 scale = 1 }
 		}
 	}
 	reserved_male_names = {

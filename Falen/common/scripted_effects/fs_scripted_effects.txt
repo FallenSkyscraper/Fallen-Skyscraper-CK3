@@ -1017,7 +1017,7 @@ tech_mining_init = {
 fs_naturalism_tech_init = {
 	every_county = {
 		limit = {
-			faith = faith:naturalism_pagan
+			rite = rite:naturalism
 		}
 		set_variable = { name = tech_metallurgy value = 0 }
 		set_variable = { name = tech_siege value = 0 }
@@ -1238,7 +1238,7 @@ tech_county_effect = {
 
 fs_missionary_great_effect = {
 	$LOCATION$ = {
-		set_county_faith = $PREACHER$.faith
+		set_county_rite = $PREACHER$.rite
 		add_county_modifier = {
 			modifier = recently_preached
 			years = 5
@@ -1248,7 +1248,7 @@ fs_missionary_great_effect = {
 		create_character = {
 			template = generic_peasant_character
 			location = this.location
-			faith = location.faith
+			rite = location.rite
 			culture = location.culture
 			random_traits = yes
 			trait = peasant_leader
@@ -1261,7 +1261,7 @@ fs_missionary_great_effect = {
 }
 fs_missionary_effect = {
 	$LOCATION$ = {
-		set_county_faith = $PREACHER$.faith
+		set_county_rite = $PREACHER$.rite
 		add_county_modifier = {
 			modifier = recently_preached
 			years = 5
@@ -1284,13 +1284,13 @@ fs_missionary_small_effect = {
 			}
 			set_variable = {
 				name = local_faith
-				value = $PREACHER$.faith
+				value = $PREACHER$.rite
 				years = 30
 			}
 		}
 		else_if = {
 			limit = {
-				NOT = { var:local_faith ?= $PREACHER$.faith }
+				NOT = { var:local_faith ?= $PREACHER$.rite }
 			}
 			remove_county_modifier = local_minor_faith
 			remove_variable = local_faith
@@ -1300,14 +1300,14 @@ fs_missionary_small_effect = {
 			}
 			set_variable = {
 				name = local_faith
-				value = $PREACHER$.faith
+				value = $PREACHER$.rite
 				years = 30
 			}
 		}
 		else = {
 			remove_county_modifier = local_minor_faith
 			remove_variable = local_faith
-			set_county_faith = $PREACHER$.faith
+			set_county_faith = $PREACHER$.rite
 		}
 	}
 }

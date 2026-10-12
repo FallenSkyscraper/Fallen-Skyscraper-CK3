@@ -1,4 +1,4 @@
-steelers_religion = {
+steeler_religion = {
 	religion_details = {
 		family = rf_pagan
 	}
@@ -6,11 +6,11 @@ steelers_religion = {
 	pagan_roots = yes
 	traits = {
 		virtues = {
-			marine
-			brave
+			marine = { weight = 30 scale = 1.5 }
+			brave = { weight = 20 scale = 1 }
 		}
 		sins = {
-			craven
+			craven = { weight = 20 scale = 1 }
 		}
 	}
 	reserved_male_names = {

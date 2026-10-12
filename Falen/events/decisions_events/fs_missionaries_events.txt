@@ -174,7 +174,7 @@ fs_missionaries.2 = {
 	option = { # To Convert.
 		name = fs_missionaries.2.a
 		custom_tooltip = fs_missionaries.2.a.tt
-		set_character_faith_with_conversion = scope:missionary.faith
+		set_character_rite_with_conversion = scope:missionary.rite
 		add_prestige = -250
 		add_piety = -250
 		stress_impact = {
@@ -244,13 +244,13 @@ fs_missionaries.3 = {
 			base = 100
 			modifier = {
 				factor = 0
-				root.faith = top_liege.faith
+				root.rite = top_liege.rite
 			}
 		}
 	}
 	option = {
 		name = fs_missionaries.3.b # Convert
-		set_character_faith_with_conversion = top_liege.faith
+		set_character_rite_with_conversion = top_liege.rite
 		change_government = proletarian_government
 		ai_chance = {
 			base = 50

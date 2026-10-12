@@ -1,0 +1,301 @@
+﻿### Historical Rites(Christianity, Islam, Buddhism, etc) ###
+
+roman_rite = {
+	name = roman_rite
+	desc = roman_rite_desc
+	#founder = k_papal_state
+	faith = catholic
+
+	color = { 0.8 0.8 0.6 }
+	icon = christianity_papal_cross_01
+    tenets = {
+        tenet_communion
+    }
+
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_dulia
+		fallback_tenet = tenet_armed_pilgrimages
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_apostolic_succession
+		fallback_tenet = tenet_communal_identity
+	}
+
+	doctrines = {
+		special_doctrine_is_western_christian_faith
+		doctrine_clerical_marriage_disallowed
+		doctrine_adultery_men_shunned
+		doctrine_homosexuality_shunned
+	}
+
+	# TODO_PAM_DESIGN TIT-72804
+	cultures = { italian roman lombard langobard cisalpine }
+}
+byzantine_rite = {
+	name = byzantine_rite
+	desc = byzantine_rite_desc
+	#founder = d_et_constantinople
+	faith = orthodox
+
+	color = { 0.7 0 0.5 }
+	icon = christianity_byzantine_cross_05
+
+	tenets = {
+		tenet_pentarchy
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_celestial_hierarchy
+		fallback_tenet = tenet_communion
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_divine_liturgy
+		fallback_tenet = tenet_communal_identity
+	}
+
+	doctrines = {
+		special_doctrine_is_eastern_christian_faith
+		doctrine_clerical_marriage_disallowed
+	}
+}
+slavic_rite = { # The result of the mission of Saints Cyril and Methodius, created mid-game on 867, should be based on the ecclesiastical title of Kyiv's region
+	name = slavic_rite
+	desc = slavic_rite_desc
+	faith = orthodox
+
+	color = { 0.45 0.2 0.75 }
+	icon = christianity_orthodox_cross_02
+
+	tenets = {
+		tenet_adaptive
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_dulia
+		fallback_tenet = tenet_asceticism
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = by_god_alone
+		tenet = tenet_anachoresis
+		fallback_tenet = tenet_communal_identity
+	}
+
+	doctrines = {
+		special_doctrine_is_eastern_christian_faith
+		doctrine_clerical_marriage_allowed
+	}
+}
+hanafi = { # Hanafi madhhab, prominent Sunni
+	name = hanafi
+	desc = hanafi_desc
+	faith = sunni
+	icon = islam_rub_el_hizb_arch_01
+	#founder = d_sunni
+
+	color = { 0.0 0.33 0.23 }
+
+	tenets = {
+		tenet_struggle_submission
+		tenet_religious_legal_pronouncements
+		tenet_legalism
+	}
+
+	doctrines = {
+		muhammad_succession_sunni_doctrine
+		doctrine_temporal_head
+	}
+}
+imami = {
+	name = imami
+	desc = imami_desc
+	faith = shia
+	#founder = d_imami
+
+	color = { 0.1 0.5 0.1 }
+	icon = islam_rub_el_hizb_iranian_03
+
+	tenets = {
+		tenet_legalism
+		tenet_false_conversion_sanction
+		tenet_religious_legal_pronouncements
+	}
+
+	doctrines = {
+		muhammad_succession_shia_doctrine
+		doctrine_witchcraft_shunned
+	}
+
+	localization = {
+		PriestMale = islam_shia_priest
+		PriestMalePlural = islam_shia_priest_plural
+		PriestFemale = islam_shia_priest
+		PriestFemalePlural = islam_shia_priest_plural
+		PriestNeuter = islam_shia_priest
+		PriestNeuterPlural = islam_shia_priest_plural
+		BishopMale = islam_ayatollah
+		BishopMalePlural = islam_ayatollah_plural
+		BishopFemale = islam_ayatollah
+		BishopFemalePlural = islam_ayatollah_plural
+		BishopNeuter = islam_ayatollah
+		BishopNeuterPlural = islam_ayatollah_plural
+		ReligiousHeadName = islam_shia_religious_head_title
+		ReligiousHeadNameFemale = islam_shia_religious_head_title
+		ReligiousHeadTitleName = islam_shia_religious_head_title_name
+	}
+}
+jingxue = {
+	name = jingxue
+	desc = jingxue_desc
+	faith = confucian_faith
+
+	color = { 236 190 85 }
+	icon = jingxue
+
+	tenets = {
+		tenet_benevolent_governance
+		tenet_filial_piety
+		tenet_harmonious_society
+	}
+}
+
+daoxue = {
+	name = daoxue
+	desc = daoxue_desc
+	faith = confucian_faith
+	create = no
+
+	color = { 150 211 198 }
+	icon = daoxue
+
+	tenets = {
+		tenet_benevolent_governance
+		tenet_filial_piety
+		tenet_pursuit_of_knowledge
+	}
+}
+zhengyi = {
+	faith = zhengyi
+
+	color = { 8 140 131 }
+
+	tenets = {
+		tenet_communion
+		tenet_esotericism
+		tenet_mendicant_preachers
+	}
+
+	doctrines = {
+		doctrine_sacraments_central
+		doctrine_spiritual_head
+		doctrine_pluralism_righteous
+		doctrine_adultery_men_crime
+		doctrine_adultery_women_crime
+		doctrine_deviancy_crime
+		doctrine_clerical_function_taxation
+		doctrine_clerical_marriage_disallowed
+		doctrine_clerical_succession_spiritual_fixed_appointment
+	}
+}
+### Mahayana Rites ###
+
+mahayana = {
+	name = mahayana
+	desc = mahayana_desc
+	faith = mahayana_faith
+
+	color = { 0.8 0.3 0.2 }
+	icon = mahayana
+
+	tenets = {
+		tenet_dharmic_pacifism
+		tenet_mendicant_preachers
+		tenet_asceticism
+	}
+}
+
+maitreya = {
+	name = maitreya
+	desc = maitreya_desc
+	faith = mahayana_faith
+
+	color = { 255 110 0 }
+	icon = maitreyanism
+
+	tenets = {
+		tenet_asceticism
+		tenet_unrelenting_faith
+		tenet_extinction_of_dharma
+	}
+
+	doctrines = {
+		doctrine_pluralism_fundamentalist
+		doctrine_consanguinity_restricted
+		doctrine_bastardry_all
+		doctrine_homosexuality_shunned
+		doctrine_polygamy
+		doctrine_clerical_gender_male_only
+		doctrine_pilgrimage_local_rites
+	}
+}
+
+### Vajrayana Rites ###
+
+vajrayana = {
+	name = vajrayana
+	desc = vajrayana_desc
+	faith = vajrayana_faith
+
+	color = { 0.9 0.3 0.0 }
+	icon = vajrayana
+
+	tenets = {
+		tenet_inner_journey
+		tenet_esotericism
+		tenet_ritual_hospitality
+	}
+}
+
+lamaism = {
+	name = lamaism
+	desc = lamaism_desc
+	faith = vajrayana_faith
+
+	color = { 0.9 0.2 0.0 }
+	icon = lamaism_buddhism
+
+	tenets = {
+		tenet_dharmic_pacifism
+		tenet_inner_journey
+		tenet_esotericism
+	}
+
+	doctrines = {
+		doctrine_monasticism_encouraged
+		doctrine_gender_equal
+		doctrine_polygamy
+		doctrine_adultery_men_accepted
+		doctrine_adultery_women_accepted
+		doctrine_deviancy_accepted
+		doctrine_witchcraft_accepted
+		doctrine_funeral_sky_burial
+	}
+}
+
+tengri_pagan = {
+	faith = tengri_pagan
+
+	color = { 0.0 0.2 0.8 }
+
+	tenets = {
+		tenet_esotericism
+		tenet_warmonger
+		tenet_ancestor_worship
+	}
+
+	doctrines = {
+		unreformed_faith_doctrine
+	}
+}

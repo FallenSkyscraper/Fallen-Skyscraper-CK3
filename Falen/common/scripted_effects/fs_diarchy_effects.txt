@@ -94,7 +94,7 @@ fs_prk_calculate_ai_vice_president_score_effect = {
 
 	# Shared religion and culture make day-to-day cooperation easier.
 	if = {
-		limit = { faith = scope:actor.faith }
+		limit = { rite = scope:actor.rite }
 		change_variable = { name = fs_prk_ai_vice_president_score add = 10 }
 	}
 	if = {

@@ -339,7 +339,7 @@ gw_mgga.6 = {
 			days = 1
 		}
 		# Configure Basque paganism's variable set-up.
-		faith:mu_pagan = {
+		rite:possessed_mu = {
 			# Remove the restrictions on converting to Basque paganism.
 			# And, since you're inherently creating a new priestly structure
 			## This is mostly done here for immersive reasons; we don't want to imply that Basque paganism already had a distinct organised religious hierarchy in 867 by just applying this on game start, even though you'll always have to have it to access the faith.
@@ -355,7 +355,7 @@ gw_mgga.6 = {
 				exists = scope:mu_choice
 				scope:mu_choice = flag:righteous
 			}
-			faith:mu_pagan = {
+			rite:possessed_mu = {
 		# First, we remove Christian Syncretism & replace it with Sanctity of Nature.
 		remove_doctrine = tenet_adorcism
 		add_doctrine = tenet_warmonger
@@ -389,7 +389,7 @@ gw_mgga.6 = {
 				exists = scope:mu_choice
 				scope:mu_choice = flag:fundamentalist
 			}
-			faith:mu_pagan = {
+			rite:possessed_mu = {
 		# First, we remove Christian Syncretism & replace it with Warmonger.
 		remove_doctrine = tenet_adorcism
 		add_doctrine = tenet_cthonic_redoubts
@@ -421,7 +421,7 @@ gw_mgga.6 = {
 				exists = scope:mu_choice
 				scope:mu_choice = flag:pluralist
 			}
-			faith:mu_pagan = {
+			rite:possessed_mu = {
 		# First, we mostly only need to remove Christian Syncretism & replace it with Islamic Syncretism.
 		remove_doctrine = tenet_adorcism
 		add_doctrine = tenet_prosperity_theology
@@ -439,7 +439,7 @@ gw_mgga.6 = {
 			limit = {
 				exists = scope:mu_choice
 				scope:mu_choice = flag:unchanged
-				faith:mu_pagan = {
+				rite:possessed_mu = {
 		# Here, we're not fiddling with the faith's traditions at all, so we get a chonky fervour bonus for the sudden limelight.
 		change_fervor = {
 			value = 100

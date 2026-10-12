@@ -36,7 +36,7 @@ scripted_trigger varangian_0001_available_varangian_trigger = {
 	}
 	#religion = religion:steelers_religion
 	NOR = {
-		faith = {
+		rite = {
 			has_doctrine_parameter = pacifist_opinion_active
 		}
 		has_trait = craven
@@ -50,9 +50,9 @@ varangian.0001 = {
 	hidden = yes
 
 	trigger = {
-		#religion = religion:steelers_religion
+		#religion = religion:steeler_religion
 		NOR = {
-			faith = {
+			rite = {
 				has_doctrine_parameter = pacifist_opinion_active
 			}
 			has_character_flag = had_recent_varangian_sendoff
@@ -709,11 +709,11 @@ scripted_trigger varangian_2005_should_marry_this_character_matrilineally = {
 			}
 		}
 		AND = {
-			faith = {
+			rite = {
 				has_doctrine = doctrine_gender_female_dominated
 			}
 			$OTHER_CHARACTER$ = {
-				faith = {
+				rite = {
 					OR = {
 						has_doctrine = doctrine_gender_female_dominated
 						has_doctrine = doctrine_gender_equal
@@ -931,7 +931,7 @@ varangian.2011 = {
 					age = { age_compared_to_root_minus_ten_always_adult age_compared_to_root_plus_ten_always_adult }
 					gender_female_chance = root_attraction_based_female_chance
 					employer = root.host
-					faith = root.host.faith
+					rite = root.host.rite
 					culture = root.host.culture
 					save_scope_as = lover
 				}
@@ -942,7 +942,7 @@ varangian.2011 = {
 					age = { age_compared_to_root_minus_ten_always_adult age_compared_to_root_plus_ten_always_adult }
 					gender_female_chance = root_attraction_based_female_chance
 					employer = root.host
-					faith = root.host.faith
+					rite = root.host.rite
 					culture = root.host.culture
 					dynasty = generate
 					save_scope_as = lover
@@ -954,7 +954,7 @@ varangian.2011 = {
 					age = { age_compared_to_root_minus_ten_always_adult age_compared_to_root_plus_ten_always_adult }
 					gender_female_chance = root_attraction_based_female_chance
 					employer = root.host
-					faith = root.host.faith
+					rite = root.host.rite
 					culture = root.host.culture
 					save_scope_as = lover
 				}
@@ -965,7 +965,7 @@ varangian.2011 = {
 					age = { age_compared_to_root_minus_ten_always_adult age_compared_to_root_plus_ten_always_adult }
 					gender_female_chance = root_attraction_based_female_chance
 					employer = root.host
-					faith = root.host.faith
+					rite = root.host.rite
 					culture = root.host.culture
 					dynasty = generate
 					save_scope_as = lover
