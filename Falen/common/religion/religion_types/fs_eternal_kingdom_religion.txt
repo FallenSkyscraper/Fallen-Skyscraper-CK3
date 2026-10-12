@@ -4,29 +4,50 @@ eternal_kingdom_religion = {
 		piety_icon_group = "christian"
 	}
 	doctrine = abrahamic_hostility_doctrine
+
+	#Main Group
 	doctrine = doctrine_monotheist
 	doctrine = doctrine_no_head
 	doctrine = doctrine_gender_male_dominated
 	doctrine = doctrine_pluralism_fundamentalist
 	doctrine = doctrine_theocracy_lay_clergy
+
+	#Marriage
 	doctrine = doctrine_monogamy
 	doctrine = doctrine_divorce_approval
 	doctrine = doctrine_bastardry_legitimization
 	doctrine = doctrine_consanguinity_cousins
+
+	#Crimes
 	doctrine = doctrine_homosexuality_crime
 	doctrine = doctrine_adultery_men_crime
 	doctrine = doctrine_adultery_women_crime
 	doctrine = doctrine_kinslaying_any_dynasty_member_crime
 	doctrine = doctrine_deviancy_crime
 	doctrine = doctrine_witchcraft_crime
+
+	#Clerical Functions
 	doctrine = doctrine_clerical_function_alms_and_pacification
 	doctrine = doctrine_clerical_gender_either
 	doctrine = doctrine_clerical_marriage_allowed
 	doctrine = doctrine_clerical_succession_spiritual_appointment
-	doctrine = special_doctrine_is_christian_faith
+	doctrine = doctrine_monasticism_absent
+	doctrine = doctrine_sacraments_absent
+
+	#Allow pilgrimages
 	doctrine = doctrine_pilgrimage_encouraged
+
+	#Funeral tradition
 	doctrine = doctrine_funeral_stoic
+
+	#Coronation tradition
 	doctrine = doctrine_imperial_anointment
+
+	#Preservation
+	doctrine = doctrine_oral_storytelling
+
+	doctrine = special_doctrine_is_christian_faith
+
 	traits = {
 		virtues = {
 			forgiving = { weight = 30 scale = 1 }

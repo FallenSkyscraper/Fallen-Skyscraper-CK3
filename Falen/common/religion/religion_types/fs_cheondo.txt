@@ -4,27 +4,48 @@ cheondo_religion = {
 		graphical_faith = sinitic_gfx
 	}
 	doctrine = eastern_hostility_doctrine
+
+	#Main Group
 	doctrine = doctrine_polytheist
 	doctrine = doctrine_spiritual_head
 	doctrine = doctrine_gender_equal
 	doctrine = doctrine_pluralism_pluralistic
 	doctrine = doctrine_theocracy_lay_clergy
+
+	#Marriage
 	doctrine = doctrine_monogamy
 	doctrine = doctrine_divorce_approval
 	doctrine = doctrine_bastardry_legitimization
 	doctrine = doctrine_consanguinity_cousins
+
+	#Crimes
 	doctrine = doctrine_homosexuality_shunned
 	doctrine = doctrine_adultery_men_shunned
 	doctrine = doctrine_adultery_women_shunned
 	doctrine = doctrine_kinslaying_close_kin_crime
 	doctrine = doctrine_deviancy_crime
 	doctrine = doctrine_witchcraft_shunned
+
+	#Clerical Functions
 	doctrine = doctrine_clerical_function_alms_and_pacification
 	doctrine = doctrine_clerical_gender_either
 	doctrine = doctrine_clerical_marriage_disallowed
 	doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
+	doctrine = doctrine_monasticism_absent
+	doctrine = doctrine_sacraments_absent
+
+	#Allow pilgrimages
 	doctrine = doctrine_pilgrimage_encouraged
+
+	#Funeral tradition
 	doctrine = doctrine_funeral_cremation
+
+	#Coronation tradition
+	doctrine = doctrine_no_anointment
+
+	#Preservation
+	doctrine = doctrine_oral_storytelling
+
 	traits = {
 		virtues = {
 			temperate = { weight = 20 scale = 1 }

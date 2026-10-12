@@ -3,12 +3,51 @@ communism_religion = {
 		family = rf_ideologic
 	}
 	doctrine = ideology_hostility_doctrine
-	doctrine = special_doctrine_is_communism_faith
+
+	#Main Group
 	doctrine = doctrine_atheist
+	doctrine = doctrine_no_head
+	doctrine = doctrine_gender_equal
+	doctrine = doctrine_pluralism_pluralistic
+	doctrine = doctrine_theocracy_temporal
+
+	#Marriage
+	doctrine = doctrine_concubines
+	doctrine = doctrine_divorce_allowed
+	doctrine = doctrine_bastardry_none
+	doctrine = doctrine_consanguinity_cousins
+
+	#Crimes
+	doctrine = doctrine_homosexuality_accepted
+	doctrine = doctrine_adultery_men_shunned
+	doctrine = doctrine_adultery_women_shunned
+	doctrine = doctrine_kinslaying_any_dynasty_member_crime
+	doctrine = doctrine_deviancy_shunned
+	doctrine = doctrine_witchcraft_accepted
+
+	#Clerical Functions
+	doctrine = doctrine_clerical_function_alms_and_pacification
+	doctrine = doctrine_clerical_gender_either
+	doctrine = doctrine_clerical_marriage_allowed
+	doctrine = doctrine_clerical_succession_spiritual_fixed_appointment
+	doctrine = doctrine_monasticism_absent
+	doctrine = doctrine_sacraments_absent
+
+	#Allow pilgrimages
 	doctrine = doctrine_pilgrimage_encouraged
+
+	#Funeral tradition
 	doctrine = doctrine_funeral_stoic
+
+	#Coronation tradition
 	doctrine = doctrine_no_anointment
+
+	#Preservation
+	doctrine = doctrine_oral_storytelling
+
+	doctrine = special_doctrine_is_communism_faith
 	doctrine = religion_policy_state_atheism
+
 	traits = {
 		virtues = {
 			compassionate = { weight = 20 scale = 1 }
