@@ -18,7 +18,7 @@
 	}
 	character_modifier = {
 		learning = 2
-		faith_creation_piety_cost_mult = -0.99
+		#faith_creation_piety_cost_mult = -0.99
 		same_faith_opinion = -10
 	}
 }
@@ -75,7 +75,6 @@ tenet_righteous_army = {
 		tenet_adaptive_conversion_resistance
 		great_holy_wars_active
 		ghw_no_hof_conversion_buffs_active
-	#	
 	}
 	character_modifier = {
 		#different_faith_county_opinion_mult = 1
@@ -92,8 +91,13 @@ tenet_righteous_army = {
 		}
 	}
 	traits = {
-		virtues = { peasant_leader just }
-		sins = { arbitrary }
+		virtues = {
+			peasant_leader = { weight = 30 scale = 1 }
+			just = { weight = 20 scale = 1 }
+		}
+		sins = {
+			arbitrary = { weight = 20 scale = 1 }
+		}
 	}
 }
 tenet_inquiry_into_knowledge = { #격물치지
@@ -123,8 +127,12 @@ tenet_inquiry_into_knowledge = { #격물치지
 		development_growth_factor = 0.15
 	}
 	traits = {
-		virtues = { diligent }
-		sins = { lazy }
+		virtues = {
+			diligent = { weight = 20 scale = 1 }
+		}
+		sins = {
+			lazy = { weight = 20 scale = 1 }
+		}
 	}
 }
 tenet_protracted_warfare = { # 지구전
@@ -154,7 +162,9 @@ tenet_protracted_warfare = { # 지구전
 		unlock_voluntary_laampdom_faith
 	}
 	traits = {
-		virtues = { peasant_leader = 2 }
+		virtues = {
+			peasant_leader = { weight = 45 scale = 2 }
+		}
 	}
 }
 tenet_world_revolution = { # 세계혁명
@@ -185,7 +195,6 @@ tenet_world_revolution = { # 세계혁명
 	parameters = {
 		great_holy_wars_active
 		clergy_can_fight
-		
 		unlock_voluntary_laampdom_faith
 	}
 }
@@ -224,10 +233,10 @@ tenet_diamat = { # 변증법적 유물론
 	}
 	traits = {
 		virtues = {
-			education_learning_3
-			education_learning_4
-			education_learning_5
-			scholar
+			education_learning_3 = { weight = 30 scale = 1 }
+			education_learning_4 = { weight = 40 scale = 1 }
+			education_learning_5 = { weight = 50 scale = 1 }
+			erudite = { weight = 30 scale = 1 }
 		}
 	}
 	
@@ -241,15 +250,7 @@ tenet_diamat = { # 변증법적 유물론
 tenet_new_world = { #신천
 	icon = core_tenet_cabal
 	piety_cost = {
-		if = {
-			limit = {
-					rite_religion_tag = new_world_religion
-			}
-			value = faith_tenet_cost_low
-		}
-		else= {
-			value = faith_tenet_cost_high
-		}
+		value = faith_tenet_cost_high
 
 		# Multiplier for keeping same tenet
 		if = {
@@ -258,7 +259,7 @@ tenet_new_world = { #신천
 		}
 	}
 	
-	is_shown = { religion = religion:new_world_religion }
+	is_shown = { always = no }
 	
 	can_pick = {
 		custom_description = {
@@ -272,7 +273,7 @@ tenet_new_world = { #신천
 	}
 
 	character_modifier = {
-		faith_creation_piety_cost_mult = -0.49
+		#faith_creation_piety_cost_mult = -0.49
 	}
 }
 
@@ -339,7 +340,7 @@ tenet_plain_faith_syncretism = { # 초원 신앙 포용주의
 			limit = {
 				OR = {
 					rite_religion_tag = tengrism_religion
-					rite_religion_tag = manchurian_religion
+					rite_religion_tag = manchu_religion
 				}
 			}
 			value = faith_tenet_cost_low
@@ -414,8 +415,14 @@ tenet_populism = { #민중주의
 		county_opinion_add = 50
 	}
 	traits = {
-		virtues = { just compassionate }
-		sins = { arbitrary sadistic }
+		virtues = {
+			just = { weight = 20 scale = 1 }
+			compassionate = { weight = 15 scale = 1 }
+		}
+		sins = {
+			arbitrary = { weight = 20 scale = 1 }
+			sadistic = { weight = 15 scale = 1 }
+		}
 	}
 }
 
@@ -445,8 +452,14 @@ tenet_authoritarianism = {
 		county_opinion_add = -25
 	}
 	traits = {
-		virtues = { arbitrary sadistic }
-		sins = { just compassionate }
+		virtues = {
+			arbitrary = { weight = 20 scale = 1 }
+			sadistic = { weight = 15 scale = 1 }
+		}
+		sins = {
+			just = { weight = 20 scale = 1 }
+			compassionate = { weight = 15 scale = 1 }
+		}
 	}
 }
 tenet_mixed = {
@@ -467,7 +480,7 @@ tenet_mixed = {
 			NOR = {
 				# Either you're trying to be pacifist and your HoF hates it...
 				AND = {
-					religious_head.faith = {
+					religious_head.rite = {
 						OR = {
 							has_tenet = tenet_armed_pilgrimages
 							has_tenet = tenet_struggle_submission
@@ -494,12 +507,12 @@ tenet_mixed = {
 				# Either you're big on possessions but your HoF hates witchcraft...
 				AND = {
 					flag:tenet_adorcism = { is_in_list = selected_tenets }
-					religious_head.faith = { has_doctrine = doctrine_witchcraft_crime }
+					religious_head.rite = { has_doctrine = doctrine_witchcraft_crime }
 				}
 				# ... or you hate witchcraft but your HoF likes possessions.
 				AND = {
 					doctrine:doctrine_witchcraft_crime = { is_in_list = selected_doctrines }
-					religious_head.faith = { has_tenet = tenet_adorcism }
+					religious_head.rite = { has_tenet = tenet_adorcism }
 				}
 			}
 		}
@@ -510,12 +523,12 @@ tenet_mixed = {
 				# Either you like to indulge but your HoF believes less is more...
 				AND = {
 					flag:tenet_hedonistic = { is_in_list = selected_tenets }
-					religious_head.faith = { has_tenet = tenet_asceticism }
+					religious_head.rite = { has_tenet = tenet_asceticism }
 				}
 				# ... or your HoF throws constant wild parties whilst you prefer to sit and chill.
 				AND = {
 					flag:tenet_asceticism = { is_in_list = selected_tenets }
-					religious_head.faith = { has_tenet = tenet_hedonistic }
+					religious_head.rite = { has_tenet = tenet_hedonistic }
 				}
 			}
 		}
@@ -527,14 +540,14 @@ tenet_mixed = {
 				AND = {
 					flag:tenet_ritual_cannibalism = { is_in_list = selected_tenets }
 					NOT = {
-						religious_head.faith = { has_tenet = tenet_ritual_cannibalism }
+						religious_head.rite = { has_tenet = tenet_ritual_cannibalism }
 					}
 				}
 				# ... or cannibal-HoF thinks you need to chill the hell out whilst they eat this dude.
 				AND = {
 					flag:tenet_ritual_cannibalism = { is_in_list = selected_tenets }
 					NOT = {
-						religious_head.faith = { has_tenet = tenet_ritual_cannibalism }
+						religious_head.rite = { has_tenet = tenet_ritual_cannibalism }
 					}
 				}
 			}
@@ -552,8 +565,8 @@ tenet_mixed = {
 					}
 				}
 				NOR = {
-					religious_head.faith = { has_tenet = tenet_gruesome_festivals }
-					religious_head.faith = { has_tenet = tenet_human_sacrifice }
+					religious_head.rite = { has_tenet = tenet_gruesome_festivals }
+					religious_head.rite = { has_tenet = tenet_human_sacrifice }
 				}
 			}
 		}
@@ -566,7 +579,7 @@ tenet_mixed = {
 					doctrine:doctrine_polygamy = { is_in_list = selected_doctrines }
 				}
 				NOT = {
-					religious_head.faith = { has_doctrine = doctrine_monogamy }
+					religious_head.rite = { has_doctrine = doctrine_monogamy }
 				}
 			}
 		}
@@ -579,7 +592,7 @@ tenet_mixed = {
 					doctrine:doctrine_consanguinity_unrestricted = { is_in_list = selected_doctrines }
 				}
 				NOT = {
-					religious_head.faith = { has_doctrine = doctrine_consanguinity_unrestricted }
+					religious_head.rite = { has_doctrine = doctrine_consanguinity_unrestricted }
 				}
 			}
 		}
@@ -600,8 +613,8 @@ tenet_mixed = {
 	}
 
 	character_modifier = {
-		faith_creation_piety_cost_mult = -0.25
-		opinion_of_same_faith = 5
+		# faith_creation_piety_cost_mult = -0.25
+		same_faith_opinion = 5
 		religious_head_opinion = -10
 	}
 }
@@ -650,8 +663,8 @@ tenet_prosperity_theology = {
 		tenet_easy_to_leave
 	}
 	traits = {
-		virtues = { gluttonous }
-		sins = { temperate }
+		virtues = { gluttonous = { weight = 25 scale = 1 } }
+		sins = { temperate = { weight = 25 scale = 1 } }
 	}
 }
 
@@ -684,8 +697,20 @@ tenet_totalitarianism = {
 	}
 
 	traits = {
-		virtues = { arrogant content zealous trusting pure_blooded }
-		sins = { paranoid arbitrary peasant_leader inbred infertile }
+		virtues = {
+			arrogant = { weight = 25 scale = 1 }
+			content = { weight = 30 scale = 1 }
+			zealous = { weight = 40 scale = 1 }
+			trusting = { weight = 30 scale = 1 }
+			pure_blooded = { weight = 60 scale = 2 }
+		}
+		sins = {
+			paranoid = { weight = 30 scale = 1 }
+			arbitrary = { weight = 30 scale = 1 }
+			peasant_leader = { weight = 60 scale = 2 }
+			inbred = { weight = 45 scale = 1 }
+			infertile = { weight = 30 scale = 1 }
+		}
 	}
 }
 
@@ -721,8 +746,11 @@ tenet_philosophy_of_hate = {
 	}
 
 	traits = {
-		virtues = { callous brave }
-		sins = { humble }
+		virtues = { 
+			callous = { weight = 30 scale = 1 }
+			brave = { weight = 30 scale = 1 }
+		}
+		sins = { humble = { weight = 30 scale = 1 } }
 	}
 }
 

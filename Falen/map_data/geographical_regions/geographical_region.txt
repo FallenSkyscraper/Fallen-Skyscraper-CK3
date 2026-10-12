@@ -506,7 +506,7 @@ graphical_steppe = {
 	graphical = yes
 	color = { 0 255 255 }
 	regions = {
-		world_steppe
+		world_steppe_west world_steppe_central world_steppe_east
 	}
 }
 
@@ -1147,7 +1147,6 @@ tgp_silk_road_region = {
 }
 
 dlc_tgp_silk_road_route_china = {
-	should_remember_counties_order = yes
 }
 
 tgp_silk_road_china_region = { # Omitting k_xia and k_hexi from the standard world_asia_china definition so it can be plugged into the Central Asia region instead
