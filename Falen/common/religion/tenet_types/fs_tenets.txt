@@ -390,7 +390,7 @@ tenet_populism = { #민중주의
 	}
 	can_pick = {
 		custom_description = {
-			text = "can not select this tenet when there is already authoritaric doctrine selected"
+			text = incompatible_tenet_populism_authority_trigger
 			NOR = {
 				doctrine:doctrine_spiritual_head = { is_in_list = selected_doctrines }
 				doctrine:doctrine_temporal_head = { is_in_list = selected_doctrines }
@@ -437,7 +437,7 @@ tenet_authoritarianism = {
 	}
 	can_pick = {
 		custom_description = {
-			text = "can not select this tenet when there is already populistic doctrine selected"
+			text = incompatible_tenet_authoritarianism_populism_trigger
 			NOR = {
 				flag:tenet_populism = { is_in_list = selected_tenets }
 			}
