@@ -157,7 +157,8 @@ cheondo_faith = {
 	faith_details = {
 		religion = cheondo_religion
 		color = { 146 241 205 }
-		icon = chendo
+		religious_head = d_cheondo
+		icon = cheondo
 	}
 
 	eminent_holy_sites = {
@@ -479,6 +480,7 @@ imperial_church = {
 		color = { 96 96 96 }
 		graphical_faith = "catholic_gfx"
 		religious_head = k_imperial_church
+		icon = imperial
 	}
 
 	origin = protestant
@@ -557,7 +559,6 @@ sunni = {
 	}
 
 }
-
 shia = {
 	main_rite = imami
     faith_details = {
@@ -635,10 +636,20 @@ koreanism_faith = {
 		religion = koreanism_religion
 		color = { 12 64 128 }
 		icon = koreanism
+		religious_head = k_koreanism
+	}
+	doctrines = {
+		special_doctrine_is_koreanism_faith
+		special_doctrine_has_clerical_electors
 	}
 	eminent_holy_sites = {
+		jongno_default
+		busan_default
+		yeongi_sejong_default
 	}
 	holy_sites = {
+		daegu_default
+		gaeseong_default
 	}
 }
 seoulism = {
@@ -647,6 +658,9 @@ seoulism = {
 		religion = koreanism_religion
 		color = { 66 72 195 }
 		icon = seoulism
+	}
+	doctrines = {
+		special_doctrine_is_koreanism_faith
 	}
 	eminent_holy_sites = {
 		jongno_default
@@ -796,12 +810,6 @@ mu_pagan = {
 	holy_sites = {
 		
 	}
-
-	tenets = {
-		tenet_adorcism
-		tenet_mountain_worship
-		tenet_ritual_celebrations
-	}
 	doctrines = {
 		unreformed_faith_doctrine
 	}
@@ -836,11 +844,6 @@ steeler = {
 		dangjin_iron_dangjinjaechul
 		incheon_iron_donggujaechul
 		ulsan_default
-	}
-	tenets = {
-		tenet_warmonger
-		tenet_pursuit_of_power
-		tenet_communal_identity
 	}
 	doctrines = {
 		doctrine_polytheist
@@ -893,11 +896,6 @@ naturalism = {
 	eminent_holy_sites = {
 	}
 	holy_sites = {
-	}
-	tenets = {
-		tenet_sanctity_of_nature
-		tenet_polyamory
-		tenet_natural_primitivism
 	}
 	doctrines = {
 		unreformed_faith_doctrine

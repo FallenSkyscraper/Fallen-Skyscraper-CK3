@@ -944,12 +944,6 @@ on_game_start = {
 
 		### PAM Cardinalates
 		setup_cardinalate_list_effect = yes
-		# Post-schism starts: top the College up if history left it under the vacancy floor
-		if = {
-			limit = { has_global_variable = pam_great_schism_decision_taken }
-			faith:christian_faith = { remove_doctrine = special_doctrine_has_clerical_electors }
-			faith:catholic = { pam_seed_cardinals_effect = yes }
-		}
 	}
 }
 

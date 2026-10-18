@@ -38,6 +38,18 @@ special_doctrine_hundred_days_of_reform = {
 		same_faith_promote_culture_bonus_active
 	}
 }
+special_doctrine_is_koreanism_faith = {
+	doctrine_group_type = is_koreanism_faith
+	index = 0
+	parameters = {
+		koreanism_syncretic_recipient
+		has_clerical_regions
+	}
+	#special_parameters = {
+	#	hostility_level_override = { tenet_koreanism_syncretism = astray }
+	#	parameter_opinion_override = { koreanism_syncretic_actor = 30 }
+	#}
+}
 special_doctrine_is_communism_faith = {
 	doctrine_group_type = is_communism_faith
 	index = 0

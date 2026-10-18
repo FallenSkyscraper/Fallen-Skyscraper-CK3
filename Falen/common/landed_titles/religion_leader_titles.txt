@@ -111,3 +111,20 @@ d_protestant_assembly = {
 	de_jure_drift_disabled = yes
 	can_use_nomadic_naming = no
 }
+
+k_koreanism = {
+	color = { 12 64 128 }
+	landless = yes
+	capital = c_yeongi
+	definite_form = yes
+	ruler_uses_title_name = no
+	no_automatic_claims = yes
+	always_follows_primary_heir = yes
+	destroy_if_invalid_heir = yes
+	de_jure_drift_disabled = yes
+	can_use_nomadic_naming = no
+	
+	ai_primary_priority = {
+		add = @always_primary_score
+	}
+}

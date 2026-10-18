@@ -1,0 +1,173 @@
+﻿### Clerical Regions ###
+clerical_region_duchy_koreanism = { # 도
+	type = title
+	tier = duchy
+	priority = 40
+
+	religion = { koreanism_religion }
+
+	flavourization_rules = { 
+		target_character = yes
+		top_liege = no
+		only_holder = yes
+	}
+
+	special_title = clerical_region
+}
+clerical_region_duchy_metropolitan_city = { # 광역시
+	type = title
+	tier = duchy
+	priority = 101
+
+	religions = { koreanism_religion }
+	titles = { d_et_busan d_et_incheon d_et_daegu d_et_daejeon d_et_ulsan d_et_gwangju }
+
+	flavourization_rules = { 
+		target_character = yes
+		top_liege = no
+		only_holder = yes
+	}
+
+	special_title = clerical_region
+}
+clerical_region_duchy_special_city = { # 특별시
+	type = title
+	tier = duchy
+	priority = 101
+
+	religions = { koreanism_religion }
+	titles = { d_et_seoul }
+
+	flavourization_rules = { 
+		target_character = yes
+		top_liege = no
+		only_holder = yes
+	}
+
+	special_title = clerical_region
+}
+clerical_region_duchy_special_sg_city = { # 특별자치시
+	type = title
+	tier = duchy
+	priority = 101
+	#governments = { ecclesiastical_government }
+
+	religions = { koreanism_religion }
+	titles = { d_et_sejong }
+
+	flavourization_rules = { 
+		target_character = yes
+		top_liege = no
+		only_holder = yes
+	}
+
+	special_title = clerical_region
+}
+clerical_region_duchy_state = { # 특별자치도
+	type = title
+	tier = duchy
+	priority = 101
+
+	religions = { koreanism_religion }
+	titles = { d_et_jeju }
+
+	flavourization_rules = { 
+		target_character = yes
+		top_liege = no
+		only_holder = yes
+	}
+
+	special_title = clerical_region
+}
+clerical_region_duke_male_koreanism = { # 도당위원장
+	type = character
+	gender = male
+	special = clerical_region_holder
+	tier = duchy
+	priority = 40
+	religions = { koreanism_religion }
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+clerical_region_duke_female_koreanism = {
+	type = character
+	gender = female
+	special = clerical_region_holder
+	tier = duchy
+	priority = 40
+	religions = { koreanism_religion }
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+clerical_region_duke_male_koreanism_city = { # 시당위원장
+	type = character
+	gender = male
+	special = clerical_region_holder
+	tier = duchy
+	priority = 50
+	religions = { koreanism_religion }
+	titles = { d_et_seoul d_et_sejong d_et_busan d_et_incheon d_et_daegu d_et_daejeon d_et_ulsan d_et_gwangju }
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+clerical_region_duke_female_koreanism_city = {
+	type = character
+	gender = female
+	special = clerical_region_holder
+	tier = duchy
+	priority = 50
+	religions = { koreanism_religion }
+	titles = { d_et_seoul d_et_sejong d_et_busan d_et_incheon d_et_daegu d_et_daejeon d_et_ulsan d_et_gwangju }
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+
+
+cardinal_koreanism_male = {
+	type = character
+	gender = male
+	special = holder
+	priority = 300
+	religions = { koreanism_religion }
+	flag = cardinal_flag
+	flavourization_rules = {
+		target_character = yes
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+
+cardinal_koreanism_female = {
+	type = character
+	gender = female
+	special = holder
+	priority = 300
+	religions = { koreanism_religion }
+	flag = cardinal_flag
+	flavourization_rules = {
+		target_character = yes
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+
+### Cardinalate
+clerical_elector_duchy_koreanism_cardinalate = {
+	type = title
+	tier = duchy
+	priority = 75
+	religions = { koreanism_religion }
+	flavourization_rules = {
+		only_holder = yes 
+		top_liege = no
+	}
+	special_title = clerical_elector
+}

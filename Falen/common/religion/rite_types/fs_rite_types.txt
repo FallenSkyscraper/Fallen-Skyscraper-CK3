@@ -591,7 +591,7 @@ populism = {
 		tenet_unrelenting_faith
 	}
 	doctrines = {
-		doctrine_no_head
+		doctrine_spiritual_head
 		doctrine_gender_equal
 		doctrine_pluralism_righteous
 		doctrine_theocracy_lay_clergy
@@ -622,7 +622,7 @@ authoritarianism = {
 		tenet_unrelenting_faith
 	}
 	doctrines = {
-		doctrine_no_head
+		doctrine_spiritual_head
 		doctrine_gender_male_dominated
 		doctrine_pluralism_fundamentalist
 		doctrine_theocracy_lay_clergy
@@ -736,7 +736,7 @@ paektu_rite = {
 kaema_rite = {
 	faith = juche_faith
 	color = { 245 70 90 }
-	icon = cat_Juche4
+	icon = cat_Juche
 	tenets = {
 		tenet_pursuit_of_power
 		tenet_communal_identity
@@ -976,7 +976,7 @@ new_left = {
 maoism = {
 	faith = maoism
 	color = { 196 44 38 }
-	icon = cat_commuism_mao
+	icon = cat_communism_mao
 	tenets = {
 		tenet_protracted_warfare
 		tenet_aniconism
@@ -1049,6 +1049,11 @@ steeler = {
 	faith = steeler
 	color = { 221 221 221 }
 	icon = steeler_pagan
+	tenets = {
+		tenet_warmonger
+		tenet_pursuit_of_power
+		tenet_communal_identity
+	}
 }
 atomism = {
 	faith = atomism
@@ -1064,6 +1069,11 @@ naturalism = {
 	faith = naturalism
 	color = { 2 147 0 }
 	icon = naturalism
+	tenets = {
+		tenet_sanctity_of_nature
+		tenet_polyamory
+		tenet_natural_primitivism
+	}
 }
 mechanism = {
 	faith = mechanism_faith
@@ -1104,7 +1114,7 @@ holy_mechanism = {
 apologetics_mechanism = {
 	faith = mechanism_faith
 	color = { 72 31 255 }
-	icon = apologetics_mechanist
+	icon = apologetic_mechanist
 	tenets = {
 		tenet_inquiry_into_knowledge
 		tenet_esotericism

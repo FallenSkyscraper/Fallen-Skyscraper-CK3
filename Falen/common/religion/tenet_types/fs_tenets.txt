@@ -33,7 +33,7 @@ tenet_cheondoism = {
 		}
 	}
 	can_pick = {
-		religion = religion:cheondo_religion
+		rite_religion_tag = cheondo_religion
 	}
 	character_modifier = {
 		short_reign_duration_mult = -0.99
@@ -83,7 +83,7 @@ tenet_righteous_army = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
-					religion = religion:cheondo_religion
+					rite_religion_tag = cheondo_religion
 				}
 				desc = tenet_righteous_army_donghak
 			}
@@ -112,7 +112,7 @@ tenet_inquiry_into_knowledge = { #격물치지
 	}
 
 	can_pick = {
-		religion = religion:mechanism_religion
+		rite_religion_tag = mechanism_religion
 	}
 
 	parameters = {
@@ -189,7 +189,7 @@ tenet_world_revolution = { # 세계혁명
 	}
 
 	is_shown = {
-		religion = religion:communism_religion
+		rite_religion_tag = communism_religion
 	}
 
 	parameters = {
@@ -220,7 +220,7 @@ tenet_diamat = { # 변증법적 유물론
 	}
 
 	is_shown = {
-		religion = religion:communism_religion
+		rite_religion_tag = communism_religion
 		NOT = { has_tenet = tenet_literalism }
 	}
 
@@ -301,7 +301,7 @@ tenet_communism_syncretism = { # 공산주의 포용주의
 	}
 
 	is_shown = {
-		NOT = { religion = religion:communism_religion }
+		NOT = { faith.religion = religion:communism_religion }
 	}
 	can_pick = {
 		custom_description = {

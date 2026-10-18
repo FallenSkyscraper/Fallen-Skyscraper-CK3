@@ -15,7 +15,7 @@ d_et_seoul = { # Seoul
 
 	ai_primary_priority = { add = @never_primary_score }
 }
-d_et_jeonnam_gwangju = {
+d_et_gwangju = {
 	color = { 25 255 155 }
 	capital = c_gwangju
 
@@ -148,6 +148,17 @@ d_et_gyeongbuk = {
 
 	ai_primary_priority = { add = @never_primary_score }
 }
+d_et_jeonnam = {
+	color = { 60 255 170 }
+	capital = c_mokpo
+
+	landless = yes
+	always_follows_primary_heir = yes
+	no_automatic_claims = yes
+
+
+	ai_primary_priority = { add = @never_primary_score }
+}
 # States
 d_et_gangwon = {
 	color = { 34 153 252 }
@@ -181,4 +192,71 @@ d_et_jeju = {
 
 
 	ai_primary_priority = { add = @never_primary_score }
+}
+### Cardinal(MP) Titles
+# Constituency Seats ( Now 23 ) Gyeonggi: 4 Gangwon: 2 Gyeongnam: 2 Busan: 2 Other Provinces: 1
+d_cd_seoul = {
+	color = { 200 200 200 }
+	capital = c_jongno
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+}
+# Proportianal Seats ( Now 7 )
+d_cd_prop_1 = {
+	color = { 200 200 200 }
+	capital = c_yeongi
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+}
+d_cd_prop_2 = {
+	color = { 200 200 200 }
+	capital = c_yeongi
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+}
+d_cd_prop_3 = {
+	color = { 200 200 200 }
+	capital = c_yeongi
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+}
+d_cd_prop_4 = {
+	color = { 200 200 200 }
+	capital = c_yeongi
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+}
+d_cd_prop_5 = {
+	color = { 200 200 200 }
+	capital = c_yeongi
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+}
+d_cd_prop_6 = {
+	color = { 200 200 200 }
+	capital = c_yeongi
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+}
+d_cd_prop_7 = {
+	color = { 200 200 200 }
+	capital = c_yeongi
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
 }

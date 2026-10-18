@@ -1,22 +1,37 @@
 ﻿d_et_seoul = {
     2030.1.1 = {
-        clerical_region = fs_et_seoul_region
+        
     }
+	2444.1.1 = {
+		clerical_region = fs_et_seoul_region
+		holder = koreanism_test_1
+		government = theocracy_government
+	}
 }
-d_et_jeonnam_gwangju = {
+d_et_gwangju = {
     2030.1.1 = {
-        clerical_region = fs_et_jeonnam_gwangju_region
+        clerical_region = fs_et_gwangju_region
     }
 }
 d_et_busan = {
     2030.1.1 = {
-        clerical_region = fs_et_busan_region
+        
     }
+	2444.1.1 = {
+		clerical_region = fs_et_busan_region
+		holder = koreanism_test_3
+		government = theocracy_government
+	}
 }
 d_et_daegu = {
     2030.1.1 = {
-        clerical_region = fs_et_daegu_region
+        
     }
+	2444.1.1 = {
+		clerical_region = fs_et_daegu_region
+		holder = koreanism_test_5
+		government = theocracy_government
+	}
 }
 d_et_incheon = {
     2030.1.1 = {
@@ -40,8 +55,13 @@ d_et_ulsan = {
 }
 d_et_gyeonggi = {
     2030.1.1 = {
-        clerical_region = fs_et_gyeonggi_region
+       
     }
+	2444.1.1 = {
+		clerical_region = fs_et_gyeonggi_region
+		holder = koreanism_test_4
+		government = theocracy_government
+	}
 }
 d_et_chungnam = {
     2030.1.1 = {
@@ -55,8 +75,13 @@ d_et_chungbuk = {
 }
 d_et_gyeongnam = {
     2030.1.1 = {
-        clerical_region = fs_et_gyeongnam_region
+        
     }
+	2444.1.1 = {
+		clerical_region = fs_et_gyeongnam_region
+		holder = koreanism_test_2
+		government = theocracy_government
+	}
 }
 d_et_gyeongbuk = {
     2030.1.1 = {
@@ -77,4 +102,26 @@ d_et_jeju = {
     2030.1.1 = {
         clerical_region = fs_et_jeju_region
     }
+}
+d_et_jeonnam = {
+	2030.1.1 = {
+        clerical_region = fs_et_jeonnam_region
+    }
+}
+
+d_cd_prop_1 = {
+	2444.1.1 = {
+		holder = koreanism_test_0
+		government = theocracy_government
+		effect = {
+			add_clerical_elector = faith:koreanism_faith
+		}
+	}
+}
+k_koreanism = {
+	2444.1.1 = {
+		government = theocracy_government
+		succession_laws = { theocratic_elective_succession_law }
+		holder = koreanism_test_1
+	}
 }
