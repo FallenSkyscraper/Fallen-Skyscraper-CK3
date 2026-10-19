@@ -1,0 +1,8 @@
+﻿# Same main-building cost formula as the vanilla church estate.
+admin_office_building_cost_main_01_value = {
+	value = {
+		value = estate_external_building_high_base_cost_value
+		multiply = 2
+	}
+	multiply = estate_location_cost_modifier_value
+}

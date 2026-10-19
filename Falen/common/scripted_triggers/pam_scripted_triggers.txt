@@ -3460,7 +3460,7 @@ pam_expand_target_is_same_faith_outside_home_kingdom_trigger = {
 # The lowest tier decides who may petition, not how large the region ends up
 pam_valid_new_clerical_region_anchor_trigger = {
 	trigger_if = {
-		limit = { $PETITIONER$ ?= { has_government = ecclesiastical_government } }
+		limit = { $PETITIONER$ ?= { government_has_flag = government_is_ecclesiastical } }
 		tier >= tier_county
 	}
 	trigger_else = {
@@ -5421,22 +5421,48 @@ pam_evangelize_personal_tenet_send_option_valid_trigger = {
 }
 
 pam_college_of_cardinals_election_active_trigger = {
-	exists = title:k_koreanism
-	title:k_koreanism.holder ?= {
-		has_realm_law = theocratic_elective_succession_law
+	trigger_if = {
+		limit = { faith = faith:koreanism_faith }
+		exists = title:k_koreanism
+		title:k_koreanism.holder ?= {
+			has_realm_law = theocratic_elective_succession_law
+		}
+	}
+	trigger_else = {
+		exists = title:k_papal_state
+		title:k_papal_state.holder ?= {
+			has_realm_law = theocratic_elective_succession_law
+		}
 	}
 }
 
 pam_leads_college_of_cardinals_trigger = {
-	has_title = title:k_koreanism
-	pam_college_of_cardinals_election_active_trigger = yes
+	trigger_if = {
+		limit = { faith = faith:koreanism_faith }
+		has_title = title:k_koreanism
+		pam_college_of_cardinals_election_active_trigger = yes
+	}
+	trigger_else = {
+		has_title = title:k_papal_state
+		pam_college_of_cardinals_election_active_trigger = yes
+	}
 }
 
 pam_pope_is_head_of_faith_or_rite_trigger = {
-	OR = {
-		rite.head_of_rite ?= { has_title = title:k_koreanism }
-		faith.main_rite.head_of_rite ?= { has_title = title:k_koreanism }
-		faith.religious_head ?= { has_title = title:k_koreanism }
+	trigger_if = {
+		limit = { faith = faith:koreanism_faith }
+		OR = {
+			rite.head_of_rite ?= { has_title = title:k_koreanism }
+			faith.main_rite.head_of_rite ?= { has_title = title:k_koreanism }
+			faith.religious_head ?= { has_title = title:k_koreanism }
+		}
+	}
+	trigger_else = {
+		OR = {
+			rite.head_of_rite ?= { has_title = title:k_papal_state }
+			faith.main_rite.head_of_rite ?= { has_title = title:k_papal_state }
+			faith.religious_head ?= { has_title = title:k_papal_state }
+		}
 	}
 }
 
@@ -5458,7 +5484,14 @@ pam_cardinal_is_nepotistic_appointment_trigger = {
 # Rome is named directly: headless Chalcedonianism has no religious_head_title to compare
 pam_title_is_church_seat_trigger = {
 	OR = {
-		$TITLE$ = title:k_papal_state
+		AND = {
+			NOT = { faith = faith:koreanism_faith }
+			$TITLE$ = title:k_papal_state
+		}
+		AND = {
+			faith = faith:koreanism_faith
+			$TITLE$ = title:k_koreanism
+		}
 		AND = {
 			exists = faith.religious_head_title
 			$TITLE$ = faith.religious_head_title
@@ -5482,7 +5515,14 @@ pam_holds_christian_patriarch_title_trigger = {
 pam_holds_church_seat_trigger = {
 	OR = {
 		any_held_title = { is_head_of_faith = yes }
-		has_title = title:k_papal_state
+		AND = {
+			NOT = { faith = faith:koreanism_faith }
+			has_title = title:k_papal_state
+		}
+		AND = {
+			faith = faith:koreanism_faith
+			has_title = title:k_koreanism
+		}
 	}
 }
 
@@ -5492,8 +5532,12 @@ pam_college_election_title_has_electors_trigger = {
 		# any_elector rather than a bare exists: is_candidate_from_set errors on a title with no election law.
 		faith.religious_head_title = { any_elector = {} }
 	}
-	trigger_else = {
+	trigger_else_if = {
+		limit = { faith = faith:koreanism_faith }
 		title:k_koreanism = { any_elector = {} }
+	}
+	trigger_else = {
+		title:k_papal_state = { any_elector = {} }
 	}
 }
 
@@ -5502,8 +5546,12 @@ pam_college_election_title_is_theocratic_elective_trigger = {
 		limit = { exists = faith.religious_head_title }
 		faith.religious_head_title.holder ?= { has_realm_law = theocratic_elective_succession_law }
 	}
-	trigger_else = {
+	trigger_else_if = {
+		limit = { faith = faith:koreanism_faith }
 		title:k_koreanism.holder ?= { has_realm_law = theocratic_elective_succession_law }
+	}
+	trigger_else = {
+		title:k_papal_state.holder ?= { has_realm_law = theocratic_elective_succession_law }
 	}
 }
 
@@ -5524,9 +5572,16 @@ pam_is_college_election_candidate_trigger = {
 				source = $SOURCE$
 			}
 		}
-		trigger_else = {
+		trigger_else_if = {
+			limit = { faith = faith:koreanism_faith }
 			is_candidate_from_set = {
 				title = title:k_koreanism
+				source = $SOURCE$
+			}
+		}
+		trigger_else = {
+			is_candidate_from_set = {
+				title = title:k_papal_state
 				source = $SOURCE$
 			}
 		}
@@ -7011,6 +7066,10 @@ pam_papal_ruling_rite_has_parameter_trigger = {
 	trigger_if = {
 		limit = { exists = faith.religious_head_title }
 		faith.religious_head_title.holder.rite ?= { rite_has_parameter = $PARAMETER$ }
+	}
+	trigger_else_if = {
+		limit = { faith = faith:koreanism_faith }
+		title:k_koreanism.holder.rite ?= { rite_has_parameter = $PARAMETER$ }
 	}
 	trigger_else = {
 		title:k_papal_state.holder.rite ?= { rite_has_parameter = $PARAMETER$ }

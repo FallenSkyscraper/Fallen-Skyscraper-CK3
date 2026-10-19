@@ -1,0 +1,68 @@
+﻿# Keep Koreanism's public offices on their own government after title transfers.
+fs_ensure_koreanism_government_effect = {
+	if = {
+		limit = {
+			fs_koreanism_public_office_holder_trigger = yes
+			is_ruler = yes
+		}
+		if = {
+			limit = { NOT = { has_government = koreanism_government } }
+			change_government = koreanism_government
+		}
+		if = {
+			limit = { has_title = title:k_koreanism }
+			set_primary_title_to = title:k_koreanism
+			if = {
+				limit = { NOT = { has_realm_law = theocratic_elective_succession_law } }
+				add_realm_law_skip_effects = theocratic_elective_succession_law
+			}
+			# Keep the presidential election on the title when realm laws are rebuilt.
+			title:k_koreanism = {
+				if = {
+					limit = { NOT = { has_title_law = theocratic_elective_succession_law } }
+					add_title_law = theocratic_elective_succession_law
+				}
+			}
+		}
+		else_if = {
+			limit = { any_held_title = { has_clerical_region = yes } }
+			random_held_title = {
+				limit = { has_clerical_region = yes }
+				save_scope_as = fs_koreanism_regional_office
+			}
+			set_primary_title_to = scope:fs_koreanism_regional_office
+		}
+	}
+}
+
+# Used by clerical-region interactions that otherwise force the Christian government.
+fs_set_clerical_office_government_effect = {
+	if = {
+		limit = { faith = faith:koreanism_faith }
+		change_government = koreanism_government
+	}
+	else = {
+		change_government = ecclesiastical_government
+	}
+}
+
+# Vanilla calls this on title gain and government change. The government guard above
+# stops recursion when an appointment or succession initially picks another government.
+pam_align_theocracy_with_faith_government_effect = {
+	if = {
+		limit = {
+			fs_koreanism_public_office_holder_trigger = yes
+			NOT = { has_government = koreanism_government }
+		}
+		fs_ensure_koreanism_government_effect = yes
+	}
+	else_if = {
+		limit = {
+			government_has_flag = government_is_theocracy
+			NOT = { government_has_flag = government_is_ecclesiastical }
+			faith.faith_theocratic_goverment_type = government_type:ecclesiastical_government
+			theocratic_lay_clergy_trigger = yes
+		}
+		change_government = ecclesiastical_government
+	}
+}

@@ -1,0 +1,31 @@
+﻿# Defer only when a public-office transfer has not established the ruler or government yet.
+on_title_gain = {
+	on_actions = { fs_koreanism_on_office_title_gain }
+}
+
+fs_koreanism_on_office_title_gain = {
+	trigger = {
+		fs_koreanism_public_office_holder_trigger = yes
+		OR = {
+			is_ruler = no
+			NOT = { has_government = koreanism_government }
+		}
+	}
+	effect = {
+		# Resolve the current holder after the title transfer has finished.
+		scope:title = {
+			trigger_event = {
+				on_action = fs_koreanism_finalize_office_title_gain
+				days = 1
+			}
+		}
+	}
+}
+
+fs_koreanism_finalize_office_title_gain = {
+	effect = {
+		holder ?= {
+			fs_ensure_koreanism_government_effect = yes
+		}
+	}
+}

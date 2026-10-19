@@ -204,6 +204,7 @@ on_title_gain = {
 				set_state_rite = root.rite
 			}
 		}
+		fs_ensure_koreanism_government_effect = yes
 		if = {
 			limit = { clerical_elector_title ?= scope:title }
 			pam_strip_illegal_cardinalate_effect = yes

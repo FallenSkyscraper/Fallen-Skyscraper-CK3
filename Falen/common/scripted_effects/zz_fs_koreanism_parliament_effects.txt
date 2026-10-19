@@ -1,0 +1,300 @@
+﻿# Character scope: the candidate. SEAT must be a vacant, pre-defined title.
+fs_grant_koreanism_parliament_seat_effect = {
+	if = {
+		limit = {
+			fs_koreanism_parliament_candidate_trigger = yes
+			exists = title:k_koreanism.holder
+			exists = $SEAT$
+			title:k_koreanism.holder ?= { fs_koreanism_parliament_president_trigger = yes }
+			$SEAT$ ?= { fs_koreanism_vacant_parliament_seat_trigger = yes }
+		}
+		save_scope_as = fs_parliament_recipient
+		$SEAT$ = {
+			save_scope_as = fs_parliament_seat
+			if = {
+				limit = {
+					NOT = {
+						faith:koreanism_faith = {
+							any_clerical_elector_title = { this = scope:fs_parliament_seat }
+						}
+					}
+				}
+				add_clerical_elector = faith:koreanism_faith
+			}
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = fs_parliament_change
+				add_claim_on_loss = no
+			}
+			change_title_holder = {
+				holder = scope:fs_parliament_recipient
+				change = scope:fs_parliament_change
+				government_base = title:k_koreanism.holder
+			}
+			resolve_title_and_vassal_change = scope:fs_parliament_change
+		}
+		add_character_flag = cardinal_flag
+		fs_ensure_koreanism_government_effect = yes
+	}
+}
+
+# Character scope: the outgoing member. Static titles remain registered and reusable.
+fs_vacate_koreanism_parliament_seat_effect = {
+	if = {
+		limit = {
+			exists = $SEAT$
+			$SEAT$ ?= {
+				fs_koreanism_parliament_seat_trigger = yes
+				holder = prev
+			}
+		}
+		destroy_title = $SEAT$
+		if = {
+			limit = { NOT = { exists = clerical_elector_title } }
+			remove_character_flag = cardinal_flag
+		}
+		fs_ensure_koreanism_government_effect = yes
+	}
+}
+
+
+# Keep the native behavior for every title outside the fixed parliament.
+pam_destroy_cardinal_title_effect = {
+	if = {
+		limit = { $CARDINALATE$ = { fs_koreanism_parliament_seat_trigger = yes } }
+		fs_vacate_koreanism_parliament_seat_effect = { SEAT = $CARDINALATE$ }
+	}
+	else = {
+		if = { # A dynamic cardinalate is deleted outright, so it has to leave the reuse pool with it
+			limit = { $CARDINALATE$ = { exists = var:pam_dynamic_cardinalate } }
+			remove_list_global_variable = {
+				name = roma_cardinalates
+				target = $CARDINALATE$
+			}
+		}
+		remove_character_flag = cardinal_flag
+		destroy_title = $CARDINALATE$
+		if = {
+			limit = {
+				NOR = {
+					exists = clerical_elector_title
+					any_held_title = { has_clerical_region = yes }
+				}
+			}
+			situation:the_christian_church ?= {
+				if = {
+					limit = { is_manual_participant = prev }
+					remove_manual_participant = prev
+				}
+			}
+		}
+	}
+}
+
+# Koreanism has no minimum membership and never seeds or automatically replaces MPs.
+pam_seed_cardinals_effect = {
+	if = {
+		limit = {
+			NOT = { this = faith:koreanism_faith }
+			has_pam_dlc_trigger = yes
+			has_doctrine_parameter = has_clerical_electors
+			any_clerical_elector_title = { count < 10 }
+			OR = {
+				exists = religious_head
+				exists = title:k_papal_state.holder
+			}
+		}
+		# Callers fire this from on_actions whose root is a character, so the faith needs its own scope
+		save_scope_as = pam_seed_faith
+		if = {
+			limit = { exists = religious_head }
+			religious_head = { save_scope_as = pam_seed_hof }
+		}
+		else = {
+			title:k_papal_state.holder = { save_scope_as = pam_seed_hof }
+		}
+		scope:pam_seed_hof.capital_county ?= { save_scope_as = pam_seed_cardinal_county }
+		if = {
+			limit = { NOT = { exists = scope:pam_seed_cardinal_county } }
+			title:c_roma = { save_scope_as = pam_seed_cardinal_county }
+		}
+		# One ordered pass - same eligibility as pam_cardinal_vacancy_on_death_effect
+		ordered_clerical_region_title = {
+			limit = {
+				holder ?= {
+					is_alive = yes
+					is_adult = yes
+					is_incapable = no
+					NOT = { has_trait = excommunicated }
+					NOT = { exists = clerical_elector_title }
+					this != scope:pam_seed_hof
+					pam_can_hold_cardinalate_trigger = yes
+					pam_pope_is_head_of_faith_or_rite_trigger = yes
+					pam_ai_cardinal_candidate_is_immersive_trigger = yes
+				}
+			}
+			order_by = holder.piety_level
+			max = 10
+			check_range_bounds = no
+			holder = {
+				if = {
+					limit = {
+						scope:pam_seed_faith = { any_clerical_elector_title = { count < 10 } }
+					}
+					grant_cardinal_title_effect = {
+						CARDINAL_COUNTY = capital_county
+					}
+					if = {
+						limit = {
+							is_ai = no
+							NOT = { current_date_is_start_date_trigger = yes }
+						}
+						scope:pam_seed_hof = { save_scope_as = head_of_faith }
+						pam_notify_player_became_cardinal_effect = yes
+					}
+					add_to_list = pam_seeded_cardinals
+				}
+			}
+		}
+		# Mint only what the promotion pass could not fill (count = 10 is a hard bound)
+		scope:pam_seed_hof = {
+			while = {
+				count = 10
+				limit = {
+					scope:pam_seed_faith = { any_clerical_elector_title = { count < 10 } }
+				}
+				pam_create_seed_cardinal_effect = {
+					HOF = scope:pam_seed_hof
+					LOCATION = scope:pam_seed_cardinal_county.title_province
+					FAITH = scope:pam_seed_faith
+				}
+				scope:pam_new_cardinal ?= {
+					grant_cardinal_title_effect = {
+						CARDINAL_COUNTY = scope:pam_seed_cardinal_county
+					}
+					add_to_list = pam_seeded_cardinals
+				}
+			}
+		}
+		# Seeding at game start is part of the setup, but mid-game it would otherwise be silent
+		if = {
+			limit = {
+				NOT = { current_date_is_start_date_trigger = yes }
+				any_in_list = { list = pam_seeded_cardinals count >= 1 }
+				scope:pam_seed_hof = { is_ai = no }
+			}
+			ordered_in_list = {
+				list = pam_seeded_cardinals
+				order_by = piety_level
+				max = 1
+				check_range_bounds = no
+				save_scope_as = cardinal_candidate
+			}
+			scope:pam_seed_hof = {
+				trigger_event = {
+					id = pam_clergy_events.0042
+					days = 3
+				}
+			}
+		}
+	}
+}
+
+pam_cardinal_vacancy_on_death_effect = {
+	if = {
+		limit = {
+			NOT = { faith = faith:koreanism_faith }
+			has_pam_dlc_trigger = yes
+			OR = {
+				exists = clerical_elector_title
+				has_character_flag = cardinal_flag
+			}
+			OR = {
+				exists = faith.religious_head
+				exists = title:k_papal_state.holder
+			}
+			faith = {
+				has_doctrine_parameter = has_clerical_electors
+				any_clerical_elector_title = { count < 10 }
+			}
+		}
+		if = {
+			limit = { exists = faith.religious_head }
+			faith.religious_head = { save_scope_as = head_of_faith }
+		}
+		else = {
+			title:k_papal_state.holder = { save_scope_as = head_of_faith }
+		}
+		if = {
+			limit = {
+				scope:head_of_faith = { is_ai = yes }
+			}
+			faith = {
+				ordered_clerical_region_title = {
+					limit = {
+						holder ?= {
+							is_alive = yes
+							is_adult = yes
+							is_incapable = no
+							NOT = { has_trait = excommunicated }
+							NOT = { exists = clerical_elector_title }
+							this != scope:head_of_faith
+							pam_can_hold_cardinalate_trigger = yes
+							pam_pope_is_head_of_faith_or_rite_trigger = yes
+							pam_ai_cardinal_candidate_is_immersive_trigger = yes
+							pam_is_antipope_trigger = no
+						}
+					}
+					order_by = holder.piety_level
+					max = 1
+					check_range_bounds = no
+					holder = {
+						save_scope_as = cardinal_candidate
+						trigger_event = {
+							id = pam_clergy_events.0040
+							days = 3
+						}
+					}
+				}
+			}
+		}
+		else = {
+			faith = {
+				ordered_clerical_region_title = {
+					limit = {
+						holder ?= {
+							is_ai = yes
+							is_alive = yes
+							is_adult = yes
+							is_incapable = no
+							NOT = { has_trait = excommunicated }
+							NOT = { exists = clerical_elector_title }
+							this != scope:head_of_faith
+							pam_can_hold_cardinalate_trigger = yes
+							pam_pope_is_head_of_faith_or_rite_trigger = yes
+							pam_ai_cardinal_candidate_is_immersive_trigger = yes
+							pam_is_antipope_trigger = no
+						}
+					}
+					order_by = holder.piety_level
+					max = 1
+					check_range_bounds = no
+					holder = {
+						save_scope_as = cardinal_candidate
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = scope:cardinal_candidate
+				}
+				scope:head_of_faith = {
+					trigger_event = {
+						id = pam_clergy_events.0041
+						days = 3
+					}
+				}
+			}
+		}
+	}
+}

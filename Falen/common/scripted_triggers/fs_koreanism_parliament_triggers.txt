@@ -1,0 +1,95 @@
+﻿# Title scope. Parliament is limited to these permanent seats.
+fs_koreanism_parliament_seat_trigger = {
+	OR = {
+		this = title:d_cd_seoul
+		this = title:d_cd_gyeonggi_a
+		this = title:d_cd_gyeonggi_b
+		this = title:d_cd_gyeonggi_c
+		this = title:d_cd_gyeonggi_d
+		this = title:d_cd_gangwon_a
+		this = title:d_cd_gangwon_b
+		this = title:d_cd_gyeongnam_a
+		this = title:d_cd_gyeongnam_b
+		this = title:d_cd_busan_a
+		this = title:d_cd_busan_b
+		this = title:d_cd_incheon
+		this = title:d_cd_chungnam
+		this = title:d_cd_chungbuk
+		this = title:d_cd_sejong
+		this = title:d_cd_daejeon
+		this = title:d_cd_gyeongbuk
+		this = title:d_cd_daegu
+		this = title:d_cd_jeonnam
+		this = title:d_cd_jeonbuk
+		this = title:d_cd_gwangju
+		this = title:d_cd_jeju
+		this = title:d_cd_ulsan
+		this = title:d_cd_prop_1
+		this = title:d_cd_prop_2
+		this = title:d_cd_prop_3
+		this = title:d_cd_prop_4
+		this = title:d_cd_prop_5
+		this = title:d_cd_prop_6
+		this = title:d_cd_prop_7
+	}
+}
+
+fs_koreanism_vacant_parliament_seat_trigger = {
+	fs_koreanism_parliament_seat_trigger = yes
+	NOT = { exists = holder }
+}
+
+# Character scope. Lay candidates and all Koreanism rites are eligible.
+fs_koreanism_parliament_candidate_trigger = {
+	faith = faith:koreanism_faith
+	is_available_quick = {
+		alive = yes
+		adult = yes
+		incapable = no
+		imprisoned = no
+		hostage = no
+	}
+	NOR = {
+		has_title = title:k_koreanism
+		exists = clerical_elector_title
+		any_held_title = { fs_koreanism_parliament_seat_trigger = yes }
+	}
+}
+
+# Character scope. Only the current president may appoint or dismiss members.
+fs_koreanism_parliament_president_trigger = {
+	faith = faith:koreanism_faith
+	has_title = title:k_koreanism
+	is_available_quick = {
+		alive = yes
+		adult = yes
+		incapable = no
+		imprisoned = no
+		hostage = no
+	}
+}
+
+fs_koreanism_has_parliament_vacancy_trigger = {
+	any_in_global_list = {
+		variable = fs_koreanism_parliament_seats
+		fs_koreanism_vacant_parliament_seat_trigger = yes
+	}
+}
+
+# Interaction scope. Requests are made by the candidate to the current president.
+fs_koreanism_parliament_request_valid_trigger = {
+	scope:puppet_or_actor = scope:actor
+	custom_tooltip = {
+		text = fs_parliament_candidate_tt
+		scope:actor = { fs_koreanism_parliament_candidate_trigger = yes }
+	}
+	scope:recipient = { fs_koreanism_parliament_president_trigger = yes }
+	scope:actor = {
+		this != scope:recipient
+		NOT = { is_at_war_with = scope:recipient }
+	}
+	custom_tooltip = {
+		text = fs_parliament_vacancy_tt
+		scope:actor = { fs_koreanism_has_parliament_vacancy_trigger = yes }
+	}
+}

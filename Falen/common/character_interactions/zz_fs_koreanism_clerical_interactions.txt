@@ -1,0 +1,1887 @@
+# Vanilla interactions with government-flag compatibility and faith-specific election titles.
+request_ecclesiastical_title_creation_interaction = {
+	category = interaction_category_religion
+	interface_priority = 10
+	desc = request_ecclesiastical_title_creation_interaction_desc
+	notification_text = request_ecclesiastical_title_creation_interaction_notification
+	icon = request_clerical_title_creation # TODO_PAM_ALI TIT-73245
+	use_diplomatic_range = no
+
+	# The picker chooses the seat, not the extent, and create_clerical_region fills the de jure kingdom
+	target_type = title
+	target_filter = domain_titles
+	target_source = puppet_or_actor
+	show_all_targets = no
+
+	cost = {
+		piety = {
+			# Free Christian de jure county count of the anchor's de jure kingdom * piety
+			add = {
+				value = pam_new_clerical_region_cost_value
+				if = { # AI pays less
+					limit = { scope:actor = { is_ai = yes } }
+					multiply = 0.75
+				}
+			}
+			if = {
+				limit = { scope:is_puppet_action ?= yes }
+				multiply = 0
+			}
+		}
+	}
+
+	# Sets the new-holder slot (secondary_recipient): secular → realm priest (picker can override); clergy → themselves. Title is resolved in on_accept (redirect can't save titles)
+	redirect = {
+		if = {
+			limit = {
+				scope:puppet_or_actor ?= { government_has_flag = government_is_ecclesiastical }
+			}
+			scope:puppet_or_actor = {
+				save_scope_as = secondary_recipient
+			}
+		}
+		else = {
+			scope:puppet_or_actor = {
+				# A character may hold only one clerical region, so an existing archbishop cannot default here
+				if = {
+					limit = {
+						exists = cp:councillor_court_chaplain
+						cp:councillor_court_chaplain = {
+							faith = scope:puppet_or_actor.faith
+							NOT = { any_held_title = { has_clerical_region = yes } }
+						}
+					}
+					cp:councillor_court_chaplain = {
+						save_scope_as = secondary_recipient
+					}
+				}
+				else = {
+					ordered_courtier = {
+						limit = {
+							NOT = { any_held_title = { has_clerical_region = yes } }
+							can_be_court_chaplain_trigger = { COURT_OWNER = scope:puppet_or_actor }
+						}
+						order_by = learning
+						save_scope_as = secondary_recipient
+					}
+				}
+			}
+		}
+	}
+
+	# Holder picker (secular actors only) — realm priest is the pre-selected default via redirect
+	populate_recipient_list = {
+		scope:puppet_or_actor = {
+			cp:councillor_court_chaplain ?= {
+				if = {
+					limit = {
+						faith = scope:puppet_or_actor.faith
+						NOT = { any_held_title = { has_clerical_region = yes } }
+					}
+					add_to_list = characters
+				}
+			}
+			every_courtier = {
+				limit = {
+					NOT = { any_held_title = { has_clerical_region = yes } }
+					can_be_court_chaplain_trigger = { COURT_OWNER = scope:puppet_or_actor }
+				}
+				add_to_list = characters
+			}
+			every_vassal = {
+				limit = {
+					NOT = { any_held_title = { has_clerical_region = yes } }
+					can_be_court_chaplain_trigger = { COURT_OWNER = scope:puppet_or_actor }
+					government_has_flag = government_is_ecclesiastical
+				}
+				add_to_list = characters
+			}
+		}
+	}
+
+	# can_be_picked_title handles title eligibility, so we keep is_shown fast for the AI
+	is_shown = {
+		scope:puppet_or_actor.faith ?= {
+			has_doctrine_parameter = has_clerical_regions
+			OR = {
+				NOT = { has_doctrine_parameter = temporal_head_of_faith }
+				NOT = { exists = religious_head }
+			}
+		}
+		OR = {
+			scope:puppet_or_actor ?= {
+				highest_held_title_tier >= tier_duchy
+				is_available_quick = {
+					adult = yes
+					alive = yes
+					imprisoned = no
+					incapable = no
+				}
+				NOT = { pam_government_is_religious_playable_trigger = yes }
+				any_held_title = {
+					tier >= tier_duchy
+					is_landless_type_title = no
+					is_head_of_faith = no
+					title_capital_county ?= {
+						NOT = { exists = clerical_region_title }
+					}
+				}
+			}
+			scope:puppet_or_actor ?= {
+				government_has_flag = government_is_ecclesiastical
+				is_landed = yes
+				liege.primary_title ?= {
+					tier = tier_kingdom
+					is_landless_type_title = no
+				}
+				is_available_quick = {
+					adult = yes
+					alive = yes
+					imprisoned = no
+					incapable = no
+				}
+				primary_title ?= { tier < tier_duchy }
+				NOT = { any_held_title = { has_clerical_region = yes } }
+				any_held_title = {
+					tier >= tier_county
+					is_landless_type_title = no
+					is_head_of_faith = no
+					title_capital_county ?= {
+						NOT = { exists = clerical_region_title }
+					}
+				}
+			}
+		}
+		# has_pam_dlc_trigger = yes
+		scope:recipient != scope:puppet_or_actor
+		OR = {
+			pam_recipient_is_clerical_title_authority_trigger = yes # HoF, or the Head of Rites when the faith has no HoF
+			# A realm under an antipope asks them instead
+			scope:puppet_or_actor.religious_head_or_challenger ?= scope:recipient
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		trigger_if = {
+			limit = { scope:is_puppet_action ?= yes }
+			scope:puppet_or_actor = {
+				piety >= pam_new_clerical_region_cost_value
+			}
+		}
+		scope:puppet_or_actor = {
+			is_available_quick = {
+				imprisoned = no
+				incapable = no
+			}
+			pam_antipope_clerical_request_trigger = { RECIPIENT = scope:recipient }
+			NOT = {
+				has_character_modifier = promised_pilgrimage_to_clergy_modifier
+			}
+		}
+		custom_tooltip = {
+			text = pam_request_ecclesiastical_title_creation_needs_free_cleric_tt
+			exists = scope:secondary_recipient
+			scope:secondary_recipient = {
+				faith = scope:puppet_or_actor.faith
+				NOT = { any_held_title = { has_clerical_region = yes } }
+			}
+		}
+		trigger_if = {
+			limit = { scope:actor = scope:puppet_or_actor }
+			custom_tooltip = {
+				text = pam_request_ecclesiastical_title_creation_no_eligible_anchor_tt
+				scope:puppet_or_actor = {
+					any_held_title = {
+						pam_valid_new_clerical_region_anchor_trigger = { PETITIONER = scope:puppet_or_actor }
+					}
+				}
+			}
+		}
+		trigger_else = {
+			custom_tooltip = {
+				text = pam_request_ecclesiastical_title_creation_no_eligible_anchor_tt_puppeteer
+				scope:puppet_or_actor = {
+					any_held_title = {
+						pam_valid_new_clerical_region_anchor_trigger = { PETITIONER = scope:puppet_or_actor }
+					}
+				}
+			}
+		}
+	}
+
+	has_valid_target_showing_failures_only = {
+		custom_tooltip = {
+			text = pam_new_clerical_region_invalid_anchor_tt
+			scope:target ?= {
+				pam_valid_new_clerical_region_anchor_trigger = { PETITIONER = scope:puppet_or_actor }
+			}
+		}
+	}
+
+	can_be_picked_title = {
+		scope:target = {
+			pam_valid_new_clerical_region_anchor_trigger = { PETITIONER = scope:puppet_or_actor }
+		}
+	}
+
+	is_highlighted = {
+		scope:puppet_or_actor.piety_level > scope:recipient.piety_level
+	}
+
+	# Creates a clerical region on the capital of the picked title; appoints the new holder as court chaplain of that title's holder
+	on_accept = {
+		scope:secondary_recipient = {
+			save_scope_as = new_ecclesiastical_holder
+		}
+		# The picked title seats the region; create_clerical_region fills it from that seat's de jure kingdom
+		scope:target = {
+			save_scope_as = target_kingdom
+			holder = { save_scope_as = kingdom_holder }
+		}
+		# We bring the new holder into court as chaplain unless they already hold the seat
+		if = {
+			limit = { scope:kingdom_holder != scope:new_ecclesiastical_holder }
+			scope:kingdom_holder = {
+				if = {
+					limit = {
+						scope:new_ecclesiastical_holder = {
+							NOT = { is_courtier_of = scope:kingdom_holder }
+							is_ruler = no
+						}
+					}
+					add_courtier = scope:new_ecclesiastical_holder
+				}
+				if = {
+					limit = {
+						scope:new_ecclesiastical_holder = {
+							NOT = { is_councillor_of = scope:kingdom_holder }
+						}
+					}
+					assign_councillor_type = {
+						type = councillor_court_chaplain
+						remove_existing_councillor = yes
+						target = scope:new_ecclesiastical_holder
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					# has_pam_dlc_trigger = yes
+					scope:puppet_or_actor = {
+						religion = religion:christianity_religion
+						any_character_situation = {
+							situation_type = the_christian_church
+							situation_top_has_catalyst = catalyst_the_christian_church_clerical_region_created
+						}
+					}
+				}
+				situation:the_christian_church = {
+					trigger_situation_catalyst = catalyst_the_christian_church_clerical_region_created
+				}
+			}
+		}
+		# Create the clerical region on the kingdom's capital and give the new title to the new holder
+		custom_tooltip = {
+			text = request_create_new_ecclesiastical_title_effect_tt
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			scope:target_kingdom = {
+				title_capital_county = {
+					save_scope_as = clerical_region_anchor_county
+					random_county_province = {
+						limit = { is_county_capital = yes }
+						save_scope_as = region_capital
+						if = {
+							limit = { scope:new_ecclesiastical_holder = { faith = faith:koreanism_faith } }
+							create_clerical_region = {
+								domicile_type = admin_office
+								name = CLERICAL_REGION_PROVINCE_TITLE_NAME
+								save_scope_as = new_title
+							}
+						}
+						else = {
+							create_clerical_region = {
+								domicile_type = ecclesiastical_domicile
+								name = CLERICAL_REGION_PROVINCE_TITLE_NAME
+								save_scope_as = new_title
+							}
+						}
+						scope:new_title ?= { # ?= avoids a tooltip-time error since the title does not exist yet when the description is built
+							set_coa = scope:target_kingdom
+							set_color_from_title = scope:target_kingdom
+							set_capital_county = scope:clerical_region_anchor_county
+							set_landless_title = yes
+							set_no_automatic_claims = yes
+							set_always_follows_primary_heir = yes
+							change_title_holder = {
+								holder = scope:new_ecclesiastical_holder
+								change = scope:change
+							}
+							resolve_title_and_vassal_change = scope:change
+						}
+					}
+				}
+			}
+		}
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = request_ecclesiastical_title_creation_accepted_tt
+				left_icon = scope:new_title
+				right_icon = scope:new_ecclesiastical_holder
+				# New holder is grateful — skipped when the petitioner appointed themselves (clergy path), to avoid a self-opinion bonus
+				if = {
+					limit = {
+						scope:new_ecclesiastical_holder != scope:puppet_or_actor
+					}
+					reverse_add_opinion = {
+						target = scope:new_ecclesiastical_holder
+						modifier = grateful_opinion
+						opinion = 50
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						government_has_flag = government_is_ecclesiastical
+					}
+				}
+				add_hook = {
+					type = loyalty_hook
+					target = scope:new_ecclesiastical_holder
+				}
+			}
+		}
+		if = {
+			limit = { scope:is_puppet_action ?= yes }
+			scope:puppet_or_actor = {
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = request_ecclesiastical_title_creation_accepted_tt
+					left_icon = scope:new_title
+					right_icon = scope:new_ecclesiastical_holder
+				}
+			}
+		}
+		if = {
+			limit = { scope:recipient != scope:actor }
+			scope:recipient = {
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = request_ecclesiastical_title_creation_accepted_tt
+					left_icon = scope:new_title
+					right_icon = scope:new_ecclesiastical_holder
+				}
+			}
+		}
+		# When a puppeteer initiates, the puppet also drains their own piety up to their current maximum
+		scope:puppet_or_actor = {
+			if = {
+				limit = {
+					piety > 0
+					scope:is_puppet_action ?= yes
+					pam_new_clerical_region_cost_value > 0
+				}
+				add_piety = {
+					value = {
+						add = pam_new_clerical_region_cost_value
+						max = piety
+						multiply = -1
+					}
+				}
+			}
+		}
+		scope:new_ecclesiastical_holder = {
+			if = {
+				limit = {
+					is_ruler = yes # Holder becomes a ruler only after resolve_title_and_vassal_change; guard prevents a tooltip crash
+					NOT = { government_has_flag = government_is_ecclesiastical }
+				}
+				fs_set_clerical_office_government_effect = yes
+			}
+			faith = {
+				change_fervor = {
+					value = notable_fervor_gain
+					desc = fervor_gain_clerical_title_created
+				}
+			}
+		}
+	}
+
+	on_decline = {
+		scope:puppet_or_actor = {
+			if = {
+				limit = { is_ai = yes }
+				add_opinion = {
+					target = scope:recipient
+					modifier = annoyed_opinion
+					opinion = -10
+				}
+			}
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = head_of_faith
+		ai_recipients = head_of_rite
+	}
+
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 36
+		duchy = 36
+		kingdom = 36
+		empire = 36
+		hegemony = 36
+	}
+
+	ai_accept = {
+		base = 75
+
+		celestial_hierarchy_acceptance_modifier = {
+			ACTOR = scope:puppet_or_actor
+			RECIPIENT = scope:recipient
+		}
+
+		clerical_petition_to_authority_acceptance_modifier = yes
+
+		# HOF's opinion of the new holder
+		opinion_modifier = {
+			trigger = {
+				exists = scope:secondary_recipient
+				scope:secondary_recipient != scope:puppet_or_actor
+			}
+			who = scope:recipient
+			opinion_target = scope:secondary_recipient
+			desc = AI_OPINION_REASON
+		}
+
+		# New holder's rite differs from the HoF
+		modifier = {
+			add = -25
+			exists = scope:secondary_recipient
+			scope:secondary_recipient != scope:puppet_or_actor
+			scope:secondary_recipient.rite != scope:recipient.rite
+			desc = SECONDARY_RECIPIENT_DIFFERENT_RITE
+		}
+
+		# New holder has virtuous traits
+		modifier = {
+			add = {
+				add = 10
+				multiply = scope:secondary_recipient.num_virtuous_traits
+			}
+			exists = scope:secondary_recipient
+			scope:secondary_recipient != scope:puppet_or_actor
+			scope:secondary_recipient.num_virtuous_traits > 0
+			desc = SECONDARY_RECIPIENT_VIRTUOUS
+		}
+
+		# New holder has sinful traits
+		modifier = {
+			add = {
+				add = -10
+				multiply = scope:secondary_recipient.num_sinful_traits
+			}
+			exists = scope:secondary_recipient
+			scope:secondary_recipient != scope:puppet_or_actor
+			scope:secondary_recipient.num_sinful_traits > 0
+			desc = SECONDARY_RECIPIENT_SINFUL
+		}
+
+		# New holder has a learning education
+		modifier = {
+			add = 10
+			exists = scope:secondary_recipient
+			scope:secondary_recipient != scope:puppet_or_actor
+			scope:secondary_recipient = { has_education_learning_trigger = yes }
+			desc = SECONDARY_RECIPIENT_LEARNING_EDUCATION_REASON
+		}
+
+		# New holder is celibate
+		modifier = {
+			add = 15
+			exists = scope:secondary_recipient
+			scope:secondary_recipient != scope:puppet_or_actor
+			scope:secondary_recipient = { has_trait = celibate }
+			desc = SECONDARY_RECIPIENT_CELIBATE
+		}
+
+		# New holder is devoted
+		modifier = {
+			add = 15
+			exists = scope:secondary_recipient
+			scope:secondary_recipient != scope:puppet_or_actor
+			scope:secondary_recipient = { has_trait = devoted }
+			desc = SECONDARY_RECIPIENT_DEVOTED
+		}
+
+		# New holder shares the realm's culture
+		modifier = {
+			add = 10
+			exists = scope:secondary_recipient
+			scope:secondary_recipient != scope:puppet_or_actor
+			scope:secondary_recipient.culture = scope:puppet_or_actor.capital_county.culture
+			desc = SECONDARY_RECIPIENT_SAME_CULTURE_AS_SEAT
+		}
+	}
+
+	ai_will_do = {
+		base = 100 # These have high costs, kind of steep requirements and we always want the AI to expand or create clerical titles whenever available, if they can convince the HoF
+
+		# Ambitious — wants to establish or expand clerical presence in their realm
+		modifier = {
+			trigger = {
+				scope:puppet_or_actor = { has_trait = ambitious }
+			}
+			add = 50
+		}
+
+		# Zealous — eager to plant the faith on new soil
+		modifier = {
+			trigger = {
+				scope:puppet_or_actor = { has_trait = zealous }
+			}
+			add = 50
+		}
+
+		# Secular: incentive increases when the realm has ANY uncovered de jure counties
+		modifier = {
+			trigger = {
+				scope:puppet_or_actor = {
+					NOT = { government_has_flag = government_is_ecclesiastical }
+					any_held_title = {
+						tier >= tier_duchy
+						any_de_jure_county = {
+							NOT = { exists = clerical_region_title }
+						}
+					}
+				}
+			}
+			add = 50
+		}
+
+		# The seat's de jure kingdom already has a see, so this one can only cover whatever pockets it could not reach
+		modifier = {
+			trigger = {
+				exists = scope:target.title_capital_county.kingdom
+				scope:target.title_capital_county.kingdom = {
+					any_de_jure_county = {
+						exists = clerical_region_title
+					}
+				}
+			}
+			add = -75
+		}
+
+		# Clergy: dislikes their secular liege — wants an independent title of their own
+		opinion_modifier = {
+			trigger = {
+				scope:puppet_or_actor = {
+					government_has_flag = government_is_ecclesiastical
+					exists = liege
+				}
+			}
+			opinion_target = scope:puppet_or_actor.liege
+			who = scope:puppet_or_actor
+			multiplier = -0.5
+		}
+
+		# Clergy: liege dislikes them back — reinforces their motivation to break away
+		opinion_modifier = {
+			trigger = {
+				scope:puppet_or_actor = {
+					government_has_flag = government_is_ecclesiastical
+					exists = liege
+				}
+			}
+			opinion_target = scope:puppet_or_actor
+			who = scope:puppet_or_actor.liege
+			multiplier = -0.5
+		}
+	}
+}
+
+request_ecclesiastical_title_split_interaction = {
+	category = interaction_category_religion
+	interface_priority = 10
+	desc = request_ecclesiastical_title_split_interaction_desc
+	notification_text = request_ecclesiastical_title_split_interaction_notification
+	icon = request_clerical_title_split # TODO_PAM_ALI TIT-73560
+	use_diplomatic_range = no
+
+	cooldown = { years = 10 }
+
+	cost = {
+		piety = {
+			# Province count of the liege's primary title * piety
+			add = {
+				value = pam_request_ecclesiastical_title_split_cost_value
+				if = { # AI pays half
+					limit = { scope:actor = { is_ai = yes } }
+					multiply = 0.75
+				}
+			}
+			if = {
+				limit = { scope:is_puppet_action ?= yes }
+				multiply = 0
+			}
+		}
+	}
+
+	# secondary_actor = new holder (secular: realm priest, picker can override; clergy: themselves); secondary_recipient = affected superior/region holder. Both slots persist into ai_accept/on_accept
+	redirect = {
+		# New holder of the split-off region
+		if = {
+			limit = {
+				scope:puppet_or_actor ?= { is_clergy = yes }
+			}
+			scope:puppet_or_actor = {
+				save_scope_as = secondary_actor
+			}
+		}
+		else = {
+			scope:puppet_or_actor = {
+				cp:councillor_court_chaplain ?= {
+					save_scope_as = secondary_actor
+				}
+			}
+		}
+		# Affected clerical superior / region holder — stored in the secondary_recipient slot so it persists into ai_accept and on_accept
+		if = {
+			limit = {
+				scope:puppet_or_actor ?= {
+					NOT = { pam_government_is_religious_playable_trigger = yes }
+					is_landed = yes
+					highest_held_title_tier >= tier_duchy
+					capital_county = { exists = clerical_region_title }
+				}
+			}
+			scope:puppet_or_actor.capital_county.clerical_region_title.holder ?= {
+				save_scope_as = secondary_recipient
+			}
+		}
+		else = {
+			scope:puppet_or_actor.superior ?= {
+				save_scope_as = secondary_recipient
+			}
+		}
+	}
+
+	# New-holder picker — realm priest is the pre-selected default for secular rulers; clergy default to themselves
+	populate_actor_list = {
+		scope:puppet_or_actor = {
+			# Clergy can take the new title themselves (the redirect default)
+			if = {
+				limit = { is_clergy = yes }
+				add_to_list = characters
+			}
+			cp:councillor_court_chaplain ?= { add_to_list = characters }
+			every_courtier = {
+				limit = {
+					NOT = { any_held_title = { has_clerical_region = yes } }
+					can_be_court_chaplain_trigger = { COURT_OWNER = scope:puppet_or_actor }
+				}
+				add_to_list = characters
+			}
+			every_vassal = {
+				limit = {
+					NOT = { any_held_title = { has_clerical_region = yes } }
+					can_be_court_chaplain_trigger = { COURT_OWNER = scope:puppet_or_actor }
+					government_has_flag = government_is_ecclesiastical
+				}
+				add_to_list = characters
+			}
+		}
+	}
+
+	# Visible for secular duke+ rulers whose capital sits in a splittable clerical region, and for landed county-tier clergy splitting off from their superior
+	is_shown = {
+		scope:puppet_or_actor.faith ?= {
+			has_doctrine_parameter = has_clerical_regions
+			OR = {
+				NOT = { has_doctrine_parameter = temporal_head_of_faith }
+				NOT = { exists = religious_head }
+			}
+		}
+		OR = {
+			# Clergy branch: county-tier (or landless) clergy splitting off from their superior
+			scope:puppet_or_actor ?= {
+				is_clergy = yes
+				trigger_if = {
+					limit = {
+						government_has_flag = government_is_ecclesiastical
+						is_landed = yes
+					}
+					highest_held_title_tier = tier_county
+				}
+				exists = superior
+			}
+			# Secular branch: duke+ secular ruler whose capital is in a held clerical region
+			scope:puppet_or_actor ?= {
+				highest_held_title_tier >= tier_duchy
+				is_landed = yes
+				capital_county ?= {
+					clerical_region_title ?= { exists = holder }
+				}
+				NOT = { pam_government_is_religious_playable_trigger = yes }
+			}
+		}
+		scope:puppet_or_actor ?= {
+			is_available_quick = {
+				adult = yes
+				alive = yes
+				imprisoned = no
+				incapable = no
+			}
+		}
+		# has_pam_dlc_trigger = yes
+		scope:recipient != scope:puppet_or_actor
+		OR = {
+			pam_recipient_is_clerical_title_authority_trigger = yes # HoF, or the Head of Rites when the faith has no HoF
+			# A realm under an antipope asks them instead
+			scope:puppet_or_actor.religious_head_or_challenger ?= scope:recipient
+		}
+		scope:recipient = {
+			trigger_if = {
+				limit = { scope:actor = { is_ai = yes } }
+				NOT = { has_variable = pam_request_ecclesiastical_title_split_ai_cooldown }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		trigger_if = {
+			limit = { scope:is_puppet_action ?= yes }
+			scope:puppet_or_actor = {
+				piety >= pam_request_ecclesiastical_title_split_cost_value
+			}
+		}
+		# A new holder must be available (redirect default or picked) — guards against rulers with no eligible clergy
+		custom_tooltip = {
+			text = pam_split_no_eligible_holder_tt
+			exists = scope:secondary_actor
+		}
+		scope:puppet_or_actor = {
+			pam_antipope_clerical_request_trigger = { RECIPIENT = scope:recipient }
+		}
+		scope:puppet_or_actor = {
+			NOT = {
+				has_character_modifier = promised_pilgrimage_to_clergy_modifier
+			}
+		}
+		trigger_if = {
+			# Secular: there must actually be a portion that can be carved off
+			limit = {
+				scope:puppet_or_actor ?= {
+					NOT = { pam_government_is_religious_playable_trigger = yes }
+					is_landed = yes
+					highest_held_title_tier >= tier_duchy
+				}
+			}
+			custom_tooltip = {
+				text = pam_split_region_is_religious_head_seat_tt
+				scope:puppet_or_actor.capital_county.clerical_region_title ?= {
+					is_head_of_faith = no
+					holder ?= {
+						this != rite.head_of_rite
+						this != scope:puppet_or_actor.religious_head_or_challenger
+					}
+				}
+			}
+			# The region's own capital stays with the original see; founding a new title on that same county fails and orphans counties
+			custom_tooltip = {
+				text = pam_split_capital_is_region_seat_tt
+				scope:puppet_or_actor.capital_county ?= {
+					NOT = { this = clerical_region_title.title_preferred_capital_county }
+				}
+			}
+			trigger_if = {
+				limit = { scope:actor = scope:puppet_or_actor }
+				custom_tooltip = {
+					text = pam_split_no_region_to_split_tt
+					scope:puppet_or_actor ?= { split_clerical_region_size > 0 }
+				}
+			}
+			trigger_else = {
+				custom_tooltip = {
+					text = pam_split_no_region_to_split_tt_puppeteer
+					scope:puppet_or_actor ?= { split_clerical_region_size > 0 }
+				}
+			}
+			# No tiny splits — the new region needs a real footprint
+			custom_tooltip = {
+				text = pam_split_too_small_tt
+				scope:puppet_or_actor ?= { split_clerical_region_size >= 3 }
+			}
+			# The new region must not be larger than what the superior keeps (at most half of the region)
+			custom_tooltip = {
+				text = pam_split_larger_than_superior_tt
+				scope:puppet_or_actor ?= {
+					split_clerical_region_size <= {
+						value = capital_county.clerical_region_title.clerical_region_size
+						divide = 2
+					}
+				}
+			}
+		}
+		trigger_else = {
+			custom_tooltip = {
+				text = pam_split_region_is_religious_head_seat_tt
+				scope:puppet_or_actor.superior ?= {
+					this != scope:puppet_or_actor.religious_head_or_challenger
+					this != rite.head_of_rite
+				}
+			}
+			# Clergy: must sit under a different secular liege than their superior does
+			trigger_if = {
+				limit = { scope:actor = scope:puppet_or_actor }
+				custom_tooltip = {
+					text = same_liege_as_superior_tt
+					scope:puppet_or_actor.liege != scope:puppet_or_actor.superior.liege
+				}
+			}
+			trigger_else = {
+				custom_tooltip = {
+					text = same_liege_as_superior_tt_puppeteer
+					scope:puppet_or_actor.liege != scope:puppet_or_actor.superior.liege
+				}
+			}
+			# The region's own capital stays with the original see; the clergy split founds the new title on the liege's capital, so the same seat collision orphans counties
+			custom_tooltip = {
+				text = pam_split_liege_capital_is_region_seat_tt
+				scope:puppet_or_actor.liege.capital_county ?= {
+					NOT = { this = clerical_region_title.title_preferred_capital_county }
+				}
+			}
+			# No tiny splits — the new region needs a real footprint (clergy split carves the liege's portion)
+			custom_tooltip = {
+				text = pam_split_too_small_tt
+				scope:puppet_or_actor.liege ?= { split_clerical_region_size >= 3 }
+			}
+			# The new region must not be larger than what the superior keeps (at most half of the region)
+			custom_tooltip = {
+				text = pam_split_larger_than_superior_tt
+				scope:puppet_or_actor.liege ?= {
+					split_clerical_region_size <= {
+						value = capital_county.clerical_region_title.clerical_region_size
+						divide = 2
+					}
+				}
+			}
+		}
+	}
+
+	is_highlighted = {
+		scope:puppet_or_actor.piety_level > scope:recipient.piety_level
+	}
+
+	on_accept = {
+		# Redirect sets secondary_actor as the new holder and secondary_recipient as the affected superior
+		scope:secondary_actor = {
+			save_scope_as = new_ecclesiastical_holder
+		}
+		scope:secondary_recipient = {
+			save_scope_as = clerical_region_holder
+		}
+		# Agreeing should improve the HoF's standing with the petitioner and the new holder
+		if = {
+			limit = { scope:new_ecclesiastical_holder != scope:recipient }
+			scope:recipient = {
+				reverse_add_opinion = {
+					target = scope:new_ecclesiastical_holder
+					modifier = grateful_opinion
+					opinion = 30
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:puppet_or_actor != scope:recipient
+				scope:puppet_or_actor != scope:new_ecclesiastical_holder
+			}
+			scope:recipient = {
+				reverse_add_opinion = {
+					target = scope:puppet_or_actor
+					modifier = grateful_opinion
+					opinion = 20
+				}
+			}
+		}
+		if = {
+			# SECULAR PATH — petitioner is a duke+ secular ruler; the carved-off region goes to their realm priest
+			limit = {
+				scope:puppet_or_actor ?= {
+					NOT = { pam_government_is_religious_playable_trigger = yes }
+					is_landed = yes
+					highest_held_title_tier >= tier_duchy
+				}
+			}
+			# Save the source region title before the split (afterwards the capital county points at the new title)
+			scope:puppet_or_actor.capital_county.clerical_region_title = {
+				save_scope_as = split_source_clerical_region
+			}
+			# Bring the new holder into court and appoint them as court chaplain if needed
+			scope:puppet_or_actor = {
+				if = {
+					limit = {
+						scope:new_ecclesiastical_holder = {
+							NOT = { is_courtier_of = scope:puppet_or_actor }
+							is_ruler = no
+						}
+					}
+					add_courtier = scope:new_ecclesiastical_holder
+				}
+				if = {
+					limit = {
+						scope:new_ecclesiastical_holder = {
+							NOT = {
+								is_councillor_of = scope:puppet_or_actor
+								this = scope:puppet_or_actor
+							}
+						}
+					}
+					assign_councillor_type = {
+						type = councillor_court_chaplain
+						remove_existing_councillor = yes
+						target = scope:new_ecclesiastical_holder
+					}
+				}
+			}
+			hidden_effect = {
+				scope:puppet_or_actor = {
+					capital_province = { save_scope_as = region_capital }
+					split_clerical_region = {
+						name = CLERICAL_REGION_PROVINCE_TITLE_NAME
+						save_scope_as = new_title
+					}
+				}
+				if = {
+					limit = {
+						# has_pam_dlc_trigger = yes
+						scope:puppet_or_actor = {
+							religion = religion:christianity_religion
+							any_character_situation = {
+								situation_type = the_christian_church
+								situation_top_has_catalyst = catalyst_the_christian_church_clerical_region_split
+							}
+						}
+					}
+					situation:the_christian_church = {
+						trigger_situation_catalyst = catalyst_the_christian_church_clerical_region_split
+					}
+				}
+			}
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			scope:new_title ?= { # ?= avoids a tooltip-time error since the title does not exist yet when the description is built
+				set_coa = scope:puppet_or_actor.primary_title
+				set_color_from_title = scope:puppet_or_actor.primary_title
+				set_capital_county = scope:puppet_or_actor.capital_county
+				set_landless_title = yes
+				set_no_automatic_claims = yes
+				set_always_follows_primary_heir = yes
+				change_title_holder = {
+					holder = scope:new_ecclesiastical_holder
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+			scope:actor = {
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = request_ecclesiastical_title_split_accepted_tt
+					left_icon = scope:puppet_or_actor
+					right_icon = scope:new_ecclesiastical_holder
+					custom_tooltip = request_ecclesiastical_title_split_effect_tt
+					# New holder is grateful — skipped when the petitioner appointed themselves
+					if = {
+						limit = {
+							scope:new_ecclesiastical_holder != scope:puppet_or_actor
+						}
+						reverse_add_opinion = {
+							target = scope:new_ecclesiastical_holder
+							modifier = grateful_opinion
+							opinion = 50
+						}
+					}
+				}
+			}
+			# Double toast — notify the superior that their clerical region was reduced
+			scope:clerical_region_holder = {
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = request_ecclesiastical_title_split_lost_tt
+					left_icon = scope:puppet_or_actor
+					right_icon = scope:clerical_region_holder
+				}
+			}
+			scope:new_ecclesiastical_holder = {
+				if = {
+					limit = {
+						is_ruler = yes # Holder becomes a ruler only after resolve_title_and_vassal_change; guard prevents a tooltip crash
+						NOT = { government_has_flag = government_is_ecclesiastical }
+					}
+					fs_set_clerical_office_government_effect = yes
+				}
+				faith = {
+					change_fervor = {
+						value = notable_fervor_gain
+						desc = fervor_gain_clerical_title_split
+					}
+				}
+			}
+			# When a puppeteer initiates, the puppet also drains their own piety up to their current maximum
+			scope:puppet_or_actor = {
+				if = {
+					limit = {
+						piety > 0
+						scope:is_puppet_action ?= yes
+						pam_request_ecclesiastical_title_split_cost_value > 0
+					}
+					add_piety = {
+						value = {
+							add = pam_request_ecclesiastical_title_split_cost_value
+							max = piety
+							multiply = -1
+						}
+					}
+				}
+			}
+		}
+		else = {
+			# CLERGY PATH — county-tier landed clergy splits off from their superior; the new title goes to the chosen holder (defaults to themselves)
+			scope:clerical_region_holder = {
+				save_scope_as = puppet_superior
+			}
+			hidden_effect = {
+				scope:puppet_or_actor.liege.capital_county.clerical_region_title ?= {
+					save_scope_as = split_source_clerical_region
+				}
+				scope:puppet_or_actor.liege = {
+					save_scope_as = puppet_liege
+					capital_province = { save_scope_as = region_capital }
+					split_clerical_region = {
+						name = CLERICAL_REGION_PROVINCE_TITLE_NAME
+						save_scope_as = new_title
+					}
+				}
+				if = {
+					limit = {
+						# has_pam_dlc_trigger = yes
+						scope:puppet_or_actor = {
+							religion = religion:christianity_religion
+							any_character_situation = {
+								situation_type = the_christian_church
+								situation_top_has_catalyst = catalyst_the_christian_church_clerical_region_split
+							}
+						}
+					}
+					situation:the_christian_church = {
+						trigger_situation_catalyst = catalyst_the_christian_church_clerical_region_split
+					}
+				}
+			}
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			scope:new_title ?= { # ?= avoids a tooltip-time error since the title does not exist yet when the description is built
+				set_coa = scope:puppet_or_actor.liege.primary_title
+				set_color_from_title = scope:puppet_or_actor.liege.primary_title
+				set_capital_county = scope:puppet_or_actor.liege.capital_county
+				set_landless_title = yes
+				set_no_automatic_claims = yes
+				set_always_follows_primary_heir = yes
+				change_title_holder = {
+					holder = scope:new_ecclesiastical_holder
+					change = scope:change
+				}
+				resolve_title_and_vassal_change = scope:change
+			}
+			scope:puppet_or_actor = {
+				custom_tooltip = clerical_title_split_tt
+			}
+			scope:new_ecclesiastical_holder = {
+				if = {
+					limit = {
+						is_ruler = yes
+						NOT = { government_has_flag = government_is_ecclesiastical }
+					}
+					fs_set_clerical_office_government_effect = yes
+				}
+			}
+			# When a puppeteer initiates, the puppet also drains their own piety up to their current maximum
+			scope:puppet_or_actor = {
+				if = {
+					limit = {
+						piety > 0
+						scope:is_puppet_action ?= yes
+						pam_request_ecclesiastical_title_split_cost_value > 0
+					}
+					add_piety = {
+						value = {
+							add = pam_request_ecclesiastical_title_split_cost_value
+							max = piety
+							multiply = -1
+						}
+					}
+				}
+			}
+		}
+		# Shared — the superior who lost territory resents the new holder (and the petitioner, if they are not the same person)
+		scope:clerical_region_holder = {
+			add_opinion = {
+				target = scope:new_ecclesiastical_holder
+				modifier = fp3_resentful_opinion
+				opinion = -50
+			}
+			if = {
+				limit = {
+					scope:puppet_or_actor != scope:new_ecclesiastical_holder
+				}
+				add_opinion = {
+					target = scope:puppet_or_actor
+					modifier = fp3_resentful_opinion
+					opinion = -50
+				}
+			}
+		}
+		# If recipient is a player - let's add a global AI cooldown so you don't get spammed with requests
+		scope:recipient = {
+			if = {
+				limit = { is_ai = no }
+				set_variable = {
+					name = pam_request_ecclesiastical_title_split_ai_cooldown
+					years = 3
+				}
+			}
+		}
+	}
+
+	on_decline = {
+		scope:puppet_or_actor = {
+			if = {
+				limit = { is_ai = yes }
+				add_opinion = {
+					target = scope:recipient
+					modifier = annoyed_opinion
+					opinion = -10
+				}
+			}
+		}
+		# If recipient is a player - let's add a global AI cooldown so you don't get spammed with requests
+		scope:recipient = {
+			if = {
+				limit = { is_ai = no }
+				set_variable = {
+					name = pam_request_ecclesiastical_title_split_ai_cooldown
+					years = 3
+				}
+			}
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = head_of_faith
+		ai_recipients = head_of_rite
+	}
+
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 120
+		kingdom = 120
+		empire = 120
+		hegemony = 120
+	}
+
+	ai_accept = {
+		base = 0
+
+		celestial_hierarchy_acceptance_modifier = {
+			ACTOR = scope:puppet_or_actor
+			RECIPIENT = scope:recipient
+		}
+
+		clerical_petition_to_authority_acceptance_modifier = yes
+
+		# scope:secondary_recipient is the affected clerical superior/region holder (set in redirect; works for both the secular and clergy branches)
+		clerical_petition_displace_incumbent_acceptance_modifier = {
+			INCUMBENT = scope:secondary_recipient
+			HELD_TITLE = scope:secondary_recipient.primary_title
+			DISPLACEMENT_DESC = SEAT_ALREADY_HELD_REASON
+			CULTURE_DESC = SAME_CULTURE_AS_SEAT_NONAME_REASON
+		}
+	}
+
+	ai_will_do = {
+		base = 10
+
+		# I dislike the affected superior/region holder
+		opinion_modifier = {
+			opinion_target = scope:secondary_recipient
+			who = scope:puppet_or_actor
+			multiplier = -1
+		}
+		# The affected superior/region holder dislikes me
+		opinion_modifier = {
+			opinion_target = scope:puppet_or_actor
+			who = scope:secondary_recipient
+			multiplier = -1
+		}
+		modifier = {
+			has_strong_hook = scope:secondary_actor
+			add = 50
+		}
+		modifier = {
+			has_hook = scope:secondary_actor
+			add = 25
+		}
+		# Clergy actors take the new title themselves, so there is no third party to weigh opinion against
+		opinion_modifier = {
+			trigger = { scope:secondary_actor != scope:actor }
+			opinion_target = scope:secondary_actor
+			who = scope:actor
+			multiplier = 0.1
+		}
+		opinion_modifier = {
+			trigger = { scope:secondary_actor != scope:actor }
+			opinion_target = scope:actor
+			who = scope:secondary_actor
+			multiplier = 0.1
+		}
+		modifier = {
+			scope:secondary_actor = {
+				is_clergy = yes
+			}
+			add = 25
+		}
+		modifier = {
+			add = {
+				value = scope:secondary_actor.learning
+			}
+		}
+		# Ambitious
+		modifier = {
+			trigger = {
+				scope:puppet_or_actor = { has_trait = ambitious }
+			}
+			add = 25
+		}
+		# Greedy
+		modifier = {
+			trigger = {
+				scope:puppet_or_actor = { has_trait = greedy }
+			}
+			add = 10
+		}
+		# Different Rite
+		modifier = {
+			add = 20
+			scope:puppet_or_actor.rite != scope:secondary_actor.rite
+			desc = I_HAVE_A_DIFFERENT_RITE
+		}
+	}
+}
+
+replace_ecclesiastical_title_holder_interaction = {
+	category = interaction_category_religion
+	icon = icon_clergy_move_lands
+	interface_priority = 45
+	common_interaction = yes
+
+	use_diplomatic_range = yes
+	ai_maybe = no
+	popup_on_receive = yes
+
+	desc = replace_ecclesiastical_title_holder_interaction_desc
+	target_type = title
+	target_filter = recipient_domain_titles
+	show_all_targets = no
+
+	# Actor's court chaplain as the default replacement; must match their entry in populate_recipient_list below
+	redirect = {
+		scope:actor = {
+			if = {
+				limit = {
+					cp:councillor_court_chaplain ?= {
+						NOT = { any_held_title = { has_clerical_region = yes } }
+						can_be_court_chaplain_trigger = { COURT_OWNER = scope:actor }
+						trigger_if = {
+							limit = { is_landed = yes }
+							capital_county.clerical_region_title.holder ?= scope:recipient
+						}
+					}
+				}
+				cp:councillor_court_chaplain ?= {
+					save_scope_as = secondary_recipient
+				}
+			}
+		}
+	}
+
+	# Landed candidates must be based in the recipient's archdiocese, or their lands would drag the see into a foreign realm
+	populate_recipient_list = {
+		scope:actor = {
+			if = {
+				limit = {
+					cp:councillor_court_chaplain ?= {
+						NOT = { any_held_title = { has_clerical_region = yes } }
+						can_be_court_chaplain_trigger = { COURT_OWNER = scope:actor }
+						trigger_if = {
+							limit = { is_landed = yes }
+							capital_county.clerical_region_title.holder ?= scope:recipient
+						}
+					}
+				}
+				cp:councillor_court_chaplain ?= { add_to_list = characters }
+			}
+			every_courtier = {
+				limit = {
+					NOT = { any_held_title = { has_clerical_region = yes } }
+					can_be_court_chaplain_trigger = { COURT_OWNER = scope:actor }
+				}
+				add_to_list = characters
+			}
+			every_close_family_member = {
+				limit = {
+					NOT = { any_held_title = { has_clerical_region = yes } }
+					can_be_court_chaplain_trigger = { COURT_OWNER = scope:actor }
+					trigger_if = {
+						limit = { is_landed = yes }
+						capital_county.clerical_region_title.holder ?= scope:recipient
+					}
+				}
+				add_to_list = characters
+			}
+			every_vassal = {
+				limit = {
+					NOT = { any_held_title = { has_clerical_region = yes } }
+					can_be_court_chaplain_trigger = { COURT_OWNER = scope:actor }
+					government_has_flag = government_is_ecclesiastical
+					trigger_if = {
+						limit = { is_landed = yes }
+						capital_county.clerical_region_title.holder ?= scope:recipient
+					}
+				}
+				add_to_list = characters
+			}
+		}
+	}
+
+	# Church authority (HoF / Head of Rites), or a liege the faith's Clerical Appointment doctrine empowers
+	is_available = {
+		faith ?= { has_doctrine_parameter = has_clerical_regions }
+		OR = {
+			# A secular liege when the doctrine grants rulers the right (Temporal/Revocable, Conditional)
+			AND = {
+				faith ?= { has_doctrine_parameter = clerical_appointment_ruler_can_replace_ecc }
+				government_is_religious_trigger = no
+			}
+			# A clergy liege under Conditional (which carries both rights)
+			AND = {
+				faith ?= {
+					has_doctrine_parameter = clerical_appointment_hof_can_replace_ecc
+					has_doctrine_parameter = clerical_appointment_ruler_can_replace_ecc
+				}
+				government_is_religious_trigger = yes
+			}
+			# HoF / Head of Rites - blocked only under Temporal, Revocable (the crown alone holds the right then)
+			AND = {
+				faith ?= {
+					OR = {
+						has_doctrine_parameter = clerical_appointment_hof_can_replace_ecc
+						NOT = { has_doctrine_parameter = clerical_appointment_ruler_can_replace_ecc }
+					}
+				}
+				pam_is_clerical_title_authority_trigger = yes
+			}
+		}
+		# has_pam_dlc_trigger = yes
+	}
+
+	cooldown = { years = 10 }
+
+	# Same-faith AI archbishops; the HoF's own see stays protected
+	is_shown = {
+		scope:recipient = {
+			is_ai = yes
+			is_ruler = yes
+			this != scope:actor
+			faith ?= scope:actor.faith
+			pam_government_is_religious_playable_trigger = yes
+			any_held_title = {
+				has_clerical_region = yes
+				is_head_of_faith = no
+			}
+			# A liege acting on the doctrine right (not the HoF / Head of Rites) may only depose their own vassals
+			trigger_if = {
+				limit = {
+					pam_actor_is_clerical_title_authority_of_this_trigger = no
+				}
+				is_vassal_or_below_of = scope:actor
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			is_imprisoned = no
+			is_at_war = no
+			is_incapable = no
+		}
+		scope:recipient = {
+			is_imprisoned = no
+			is_adult = yes
+		}
+		custom_tooltip = {
+			text = replace_ecclesiastical_title_holder_antipope_tt
+			scope:recipient = { pam_is_antipope_trigger = no }
+		}
+		pam_not_promised_pilgrimage_trigger = { ACTOR = scope:actor }
+		# Players may seat another rite of the faith; the AI keeps its sees on its own rite
+		trigger_if = {
+			limit = {
+				scope:actor = { is_ai = yes }
+				exists = scope:secondary_recipient
+			}
+			scope:secondary_recipient.rite = scope:actor.rite
+		}
+		custom_tooltip = { # Must match populate_recipient_list above
+			text = replace_ecclesiastical_title_holder_no_candidate_tt
+			scope:actor = {
+				OR = {
+					cp:councillor_court_chaplain ?= {
+						NOT = { any_held_title = { has_clerical_region = yes } }
+						can_be_court_chaplain_trigger = { COURT_OWNER = scope:actor }
+						trigger_if = {
+							limit = { is_landed = yes }
+							capital_county.clerical_region_title.holder ?= scope:recipient
+						}
+					}
+					any_courtier = {
+						NOT = { any_held_title = { has_clerical_region = yes } }
+						can_be_court_chaplain_trigger = { COURT_OWNER = scope:actor }
+					}
+					any_close_family_member = {
+						NOT = { any_held_title = { has_clerical_region = yes } }
+						can_be_court_chaplain_trigger = { COURT_OWNER = scope:actor }
+						trigger_if = {
+							limit = { is_landed = yes }
+							capital_county.clerical_region_title.holder ?= scope:recipient
+						}
+					}
+					any_vassal = {
+						government_has_flag = government_is_ecclesiastical
+						NOT = { any_held_title = { has_clerical_region = yes } }
+						can_be_court_chaplain_trigger = { COURT_OWNER = scope:actor }
+						trigger_if = {
+							limit = { is_landed = yes }
+							capital_county.clerical_region_title.holder ?= scope:recipient
+						}
+					}
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				scope:recipient = { rite != scope:actor.rite }
+			}
+			custom_tooltip = {
+				text = replace_ecclesiastical_title_holder_learning_tt_hashcollission
+				scope:actor.learning > scope:recipient.learning
+			}
+		}
+	}
+
+	can_be_picked_title = {
+		scope:target = {
+			holder = scope:recipient
+			has_clerical_region = yes
+			is_head_of_faith = no
+		}
+	}
+
+			# Deposing a holder doubles the cost; one of another rite costs three times the base, and their head of rite ten times
+	cost = {
+		piety = {
+			value = pam_grant_ecclesiastical_title_cost_value
+			# A Head of Rites acting for a faith with no Head of Faith pays more
+			if = {
+				limit = { NOT = { exists = scope:actor.faith.religious_head } }
+				multiply = 1.5
+			}
+		}
+		treasury_or_gold = {
+			value = pam_grant_ecclesiastical_title_gold_cost_value
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:secondary_recipient = { save_scope_as = pam_new_archbishop }
+		scope:recipient = { save_scope_as = pam_old_archbishop }
+		pam_grant_ecclesiastical_title_interaction_effect = yes
+		# Meddling by a liege (not the HoF / Head of Rites) angers the wider clergy
+		if = {
+			limit = {
+				scope:actor = { pam_is_clerical_title_authority_trigger = no }
+			}
+			scope:actor = {
+				add_character_modifier = {
+					modifier = pam_meddled_in_clerical_appointments_modifier
+					years = 10
+				}
+			}
+		}
+		# Using the Conditional doctrine's right (it carries both replace params) pushes toward the Investiture Crisis
+		if = {
+			limit = {
+				scope:actor = {
+					faith = {
+						has_doctrine_parameter = clerical_appointment_ruler_can_replace_ecc
+						has_doctrine_parameter = clerical_appointment_hof_can_replace_ecc
+					}
+				}
+				situation:the_christian_church ?= {
+					situation_top_has_catalyst = catalyst_conditional_appointment_used
+				}
+			}
+			situation:the_christian_church = {
+				trigger_situation_catalyst = catalyst_conditional_appointment_used
+			}
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = vassals
+		ai_recipients = clerical_region_rulers_in_realm
+		max = 10
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 48
+		kingdom = 24
+		empire = 24
+		hegemony = 24
+	}
+
+	# AI only acts where a Clerical Appointment doctrine grants the right, so the base-game tool stays player-driven
+	ai_will_do = {
+		base = 0
+		# A secular liege installs a loyal candidate over a disloyal bishop (Temporal/Revocable, Conditional)
+		modifier = {
+			add = 30
+			scope:actor = {
+				government_is_religious_trigger = no
+				faith = { has_doctrine_parameter = clerical_appointment_ruler_can_replace_ecc }
+			}
+			scope:recipient = {
+				opinion = {
+					target = scope:actor
+					value <= -20
+				}
+			}
+		}
+		# The Head of Faith removes disloyal bishops (Spiritual/Revocable, Conditional)
+		modifier = {
+			add = 40
+			scope:actor = {
+				religious_head_or_challenger ?= this
+				faith = { has_doctrine_parameter = clerical_appointment_hof_can_replace_ecc }
+			}
+			scope:recipient = {
+				opinion = {
+					target = scope:actor
+					value <= -25
+				}
+			}
+		}
+	}
+}
+
+increase_papabile_score_interaction = {
+	category = interaction_category_religion
+	icon = icon_increase_theocratic_heir_candidacy
+	common_interaction = yes
+	interface_priority = 75
+
+	cooldown_against_recipient = { years = 3 }
+
+	filter_tags = { papabile }
+
+	desc = increase_papabile_score_interaction_desc
+	filter_tags = { papabile }
+
+	is_available = {
+		faith ?= { has_doctrine_parameter = has_clerical_electors }
+		pam_pope_is_head_of_faith_or_rite_trigger = yes
+		pam_college_election_title_has_electors_trigger = yes
+		pam_college_election_title_is_theocratic_elective_trigger = yes
+		is_adult = yes
+		NOR = {
+			government_has_flag = government_is_mercenary
+			government_has_flag = government_is_herder
+			government_has_flag = government_is_military_holy_order
+		}
+		# has_pam_dlc_trigger = yes
+		trigger_if = {
+			# The incumbent stands in no conclave, so the AI Head of Faith has no candidacy worth buying
+			limit = { is_ai = yes }
+			NOT = { faith.religious_head ?= this }
+		}
+	}
+
+	is_shown = {
+		scope:recipient = {
+			faith ?= scope:actor.faith
+			is_adult = yes
+			exists = clerical_elector_title
+			NOT = { faith.religious_head ?= this }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			is_imprisoned = no
+			is_at_war = no
+			is_incapable = no
+			trigger_if = {
+				limit = {
+					is_ai = yes
+				}
+				scope:recipient = {
+					OR = {
+						is_papabile = yes
+						is_close_or_extended_family_of = scope:actor
+						custom_tooltip = {
+							text = increase_papabile_score_interaction_puppet_tt
+							OR = {
+								scope:actor.puppet:theological_agent_puppet ?= scope:recipient
+								scope:actor.puppet:external_theological_agent_puppet ?= scope:recipient
+							}
+						}
+					}
+				}
+			}
+		}
+		scope:recipient = {
+			is_imprisoned = no
+			is_at_war = no
+			is_incapable = no
+			NOT = { has_trait = excommunicated }
+		}
+	}
+
+	send_option = {
+		flag = pam_papabile_place_first_option
+		localization = increase_papabile_score_place_first_option_desc
+		is_valid = {
+			scope:actor = { is_ai = no }
+			custom_tooltip = {
+				text = increase_papabile_score_already_powerful_tt
+				scope:recipient = {
+					pam_papabile_slot_open_to_trigger = { SLOT = theocratic_elective_powerful }
+				}
+			}
+		}
+	}
+
+	send_option = {
+		flag = pam_papabile_gold_option
+		localization = increase_papabile_score_gold_option_desc
+		is_valid = {
+			scope:actor = { gold >= major_gold_value }
+			custom_tooltip = {
+				text = increase_papabile_score_gold_option_place_first_tt
+				NOT = { scope:pam_papabile_place_first_option = yes }
+			}
+		}
+	}
+	send_options_exclusive = no
+
+	localization_values = {
+		PAM_PAPABILE_PLACE_FIRST = scope:recipient.pam_papabile_place_first_powerful_value
+	}
+
+	cost = {
+		piety = {
+			value = major_piety_value
+			if = {
+				limit = { scope:pam_papabile_place_first_option = yes }
+				add = {
+					value = scope:recipient.pam_papabile_place_first_powerful_value
+					multiply = pam_papabile_place_first_piety_per_point_value
+				}
+			}
+			if = {
+				limit = { scope:actor = { has_perk = court_of_shadows_perk } }
+				multiply = 0.75
+			}
+		}
+		gold = {
+			value = 0
+			if = {
+				limit = {
+					scope:pam_papabile_gold_option = yes
+					NOT = { scope:pam_papabile_place_first_option = yes }
+				}
+				add = scope:actor.major_gold_value
+			}
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = increase_papabile_score_interaction_toast
+				left_icon = scope:actor
+				right_icon = scope:recipient
+				scope:recipient = {
+					if = {
+						limit = { scope:pam_papabile_place_first_option = yes }
+						pam_place_first_as_powerful_effect = { VALUE = pam_papabile_place_first_powerful_value }
+					}
+					else_if = {
+						limit = { scope:pam_papabile_gold_option = yes }
+						pam_increase_papabile_score_effect = { VALUE = pam_papabile_gold_option_score_value }
+					}
+					else = {
+						pam_increase_papabile_score_effect = { VALUE = pam_papabile_base_score_value }
+					}
+				}
+			}
+		}
+		scope:recipient = {
+			if = {
+				limit = {
+					this != scope:actor
+					is_ai = no
+				}
+				hidden_effect = {
+					send_interface_toast = {
+						type = event_toast_effect_good
+						title = increase_papabile_score_interaction_toast
+						left_icon = scope:recipient
+						right_icon = scope:actor
+						show_as_tooltip = {
+							if = {
+								limit = { scope:pam_papabile_place_first_option = yes }
+								pam_place_first_as_powerful_effect = { VALUE = pam_papabile_place_first_powerful_value }
+							}
+							else_if = {
+								limit = { scope:pam_papabile_gold_option = yes }
+								pam_increase_papabile_score_effect = { VALUE = pam_papabile_gold_option_score_value }
+							}
+							else = {
+								pam_increase_papabile_score_effect = { VALUE = pam_papabile_base_score_value }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = family
+		max = 5
+	}
+
+	ai_targets = {
+		ai_recipients = dynasty
+		max = 5
+	}
+
+	ai_targets = {
+		ai_recipients = self
+		ai_recipients = puppets
+		ai_recipients = spouses
+		ai_recipients = papabile
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 72
+		duchy = 36
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = 1000
+			scope:recipient = scope:actor
+		}
+
+		modifier = {
+			add = 100
+			OR = {
+				is_close_or_extended_family_of = scope:recipient
+				scope:recipient.puppeteer ?= this
+				has_relation_friend = scope:recipient
+				has_relation_lover = scope:recipient
+			}
+		}
+
+		modifier = {
+			add = 50
+			is_spouse_of = scope:recipient
+		}
+
+		modifier = {
+			add = 25
+			exists = scope:recipient.dynasty
+			scope:actor.dynasty ?= scope:recipient.dynasty
+		}
+
+		modifier = {
+			add = -25
+			scope:actor = { has_trait = cynical }
+		}
+
+		modifier = {
+			add = -25
+			scope:actor = { has_trait = greedy }
+		}
+
+		modifier = { # A candidate of another rite is a rival faction's champion, not ours to elevate
+			add = -60
+			scope:recipient != scope:actor
+			scope:actor = { rite != scope:recipient.rite }
+		}
+
+		modifier = {
+			factor = 0
+			scope:actor = { has_relation_rival = scope:recipient }
+		}
+	}
+}

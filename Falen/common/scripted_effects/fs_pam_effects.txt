@@ -1,281 +1,361 @@
-setup_cardinalate_list_effect = {
-	# 2444
-	add_to_global_variable_list = { name = roma_cardinalates target = title:d_cd_prop_1 }
-	add_to_global_variable_list = { name = roma_cardinalates target = title:d_cd_prop_2 }
-	add_to_global_variable_list = { name = roma_cardinalates target = title:d_cd_prop_3 }
-	add_to_global_variable_list = { name = roma_cardinalates target = title:d_cd_prop_4 }
-	add_to_global_variable_list = { name = roma_cardinalates target = title:d_cd_prop_5 }
-	add_to_global_variable_list = { name = roma_cardinalates target = title:d_cd_prop_6 }
-	add_to_global_variable_list = { name = roma_cardinalates target = title:d_cd_prop_7 }
-	
-	add_to_global_variable_list = { name = roma_cardinalates target = title:d_cd_seoul }
+﻿setup_cardinalate_list_effect = {
+	# Fixed constituency seats for the 2444 start.
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_seoul }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_gyeonggi_a }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_gyeonggi_b }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_gyeonggi_c }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_gyeonggi_d }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_gangwon_a }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_gangwon_b }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_gyeongnam_a }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_gyeongnam_b }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_busan_a }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_busan_b }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_incheon }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_chungnam }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_chungbuk }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_sejong }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_daejeon }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_gyeongbuk }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_daegu }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_jeonnam }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_jeonbuk }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_gwangju }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_jeju }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_ulsan }
+
+	# Fixed proportional seats share the parliamentary pool.
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_prop_1 }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_prop_2 }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_prop_3 }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_prop_4 }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_prop_5 }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_prop_6 }
+	add_to_global_variable_list = { name = fs_koreanism_parliament_seats target = title:d_cd_prop_7 }
+}
+
+# History assigns the holders; this only normalizes their election state.
+fs_initialize_koreanism_parliament_effect = {
+	if = {
+		limit = {
+			game_start_date = 2444.1.1
+			exists = title:k_koreanism.holder
+		}
+		title:k_koreanism.holder = {
+			pam_vacate_head_of_faith_cardinalate_effect = yes
+			remove_character_flag = cardinal_flag
+			fs_ensure_koreanism_government_effect = yes
+		}
+		every_in_global_list = {
+			variable = fs_koreanism_parliament_seats
+			save_scope_as = fs_parliament_seat
+			# Vacant seats must also appear in the appointment title picker.
+			if = {
+				limit = {
+					NOT = {
+						faith:koreanism_faith = {
+							any_clerical_elector_title = { this = scope:fs_parliament_seat }
+						}
+					}
+				}
+				add_clerical_elector = faith:koreanism_faith
+			}
+			if = {
+				limit = {
+					exists = holder
+					holder = {
+						faith = faith:koreanism_faith
+						NOT = { has_title = title:k_koreanism }
+					}
+				}
+				holder = {
+					add_character_flag = cardinal_flag
+					fs_ensure_koreanism_government_effect = yes
+				}
+			}
+		}
+	}
 }
 
 # Creates and immediately grants a landless cardinalate to ROOT.
 grant_cardinal_title_effect = {
-	save_scope_as = cardinal_recipient
-	# Government is picked during the title transfer, before change_government below
-	# A theocratic government_base keeps a lowborn from founding a dynasty
+	# Parliamentary appointments require an explicitly selected fixed seat.
 	if = {
-		limit = { rite.head_of_rite ?= { government_has_flag = government_is_theocracy } }
-		rite.head_of_rite = { save_scope_as = cardinal_government_base }
-	}
-	else_if = {
-		limit = { faith.religious_head ?= { government_has_flag = government_is_theocracy } }
-		faith.religious_head = { save_scope_as = cardinal_government_base }
-	}
-	else_if = {
-		limit = { title:k_papal_state.holder ?= { government_has_flag = government_is_theocracy } }
-		title:k_papal_state.holder = { save_scope_as = cardinal_government_base }
-	}
-	else = {
-		save_scope_as = cardinal_government_base
-	}
-	# Grant a vacant cardinalate
-	if = {
-		limit = {
-			pam_can_hold_cardinalate_trigger = yes
-			pam_can_receive_cardinalate_trigger = yes
-			pam_pope_is_head_of_faith_or_rite_trigger = yes
-			any_in_global_list = {
-				variable = roma_cardinalates
-				NOR = {
-					exists = holder
-					AND = {
-						this = title:d_cd_seoul
-						game_start_date >= 1178.1.1
-					}
-				}
-			}
+		limit = { NOT = { faith = faith:koreanism_faith } }
+		save_scope_as = cardinal_recipient
+		# Government is picked during the title transfer, before change_government below
+		# A theocratic government_base keeps a lowborn from founding a dynasty
+		if = {
+			limit = { rite.head_of_rite ?= { government_has_flag = government_is_theocracy } }
+			rite.head_of_rite = { save_scope_as = cardinal_government_base }
 		}
-		random_in_global_list = {
-			variable = roma_cardinalates
+		else_if = {
+			limit = { faith.religious_head ?= { government_has_flag = government_is_theocracy } }
+			faith.religious_head = { save_scope_as = cardinal_government_base }
+		}
+		else_if = {
 			limit = {
-				NOR = {
-					exists = holder
-					exists = var:suppressed_cardinalate
-				}
-				any_past_holder = {} # prefer titles which have been used before
+				faith = faith:koreanism_faith
+				title:k_koreanism.holder ?= { government_has_flag = government_is_theocracy }
 			}
-			alternative_limit = {
-				NOR = {
-					exists = holder
-					exists = var:suppressed_cardinalate
-				}
-			}
-			save_scope_as = cardinalate
+			title:k_koreanism.holder = { save_scope_as = cardinal_government_base }
 		}
-		scope:cardinalate ?= {
-			# Register before transfer so lay-clergy rites see a clerical elector during gov validation
-			if = {
+		else_if = {
+			limit = {
+				NOT = { faith = faith:koreanism_faith }
+				title:k_papal_state.holder ?= { government_has_flag = government_is_theocracy }
+			}
+			title:k_papal_state.holder = { save_scope_as = cardinal_government_base }
+		}
+		else = {
+			save_scope_as = cardinal_government_base
+		}
+		# Grant a vacant cardinalate
+		if = {
+			limit = {
+				pam_can_hold_cardinalate_trigger = yes
+				pam_can_receive_cardinalate_trigger = yes
+				pam_pope_is_head_of_faith_or_rite_trigger = yes
+				any_in_global_list = {
+					variable = roma_cardinalates
+					NOR = {
+						exists = holder
+						exists = var:suppressed_cardinalate
+					}
+					NOT = { fs_koreanism_parliament_seat_trigger = yes }
+				}
+			}
+			random_in_global_list = {
+				variable = roma_cardinalates
 				limit = {
-					scope:cardinal_recipient.faith = {
-						NOT = {
-							any_clerical_elector_title = { scope:cardinalate = this }
+					NOR = {
+						exists = holder
+						exists = var:suppressed_cardinalate
+					}
+					NOT = { fs_koreanism_parliament_seat_trigger = yes }
+					any_past_holder = {} # prefer titles which have been used before
+				}
+				alternative_limit = {
+					NOR = {
+						exists = holder
+						exists = var:suppressed_cardinalate
+					}
+					NOT = { fs_koreanism_parliament_seat_trigger = yes }
+				}
+				save_scope_as = cardinalate
+			}
+			scope:cardinalate ?= {
+				# Register before transfer so lay-clergy rites see a clerical elector during gov validation
+				if = {
+					limit = {
+						scope:cardinal_recipient.faith = {
+							NOT = {
+								any_clerical_elector_title = { scope:cardinalate = this }
+							}
 						}
 					}
+					add_clerical_elector = scope:cardinal_recipient.faith
 				}
-				add_clerical_elector = scope:cardinal_recipient.faith
+				create_title_and_vassal_change = {
+					type = granted
+					save_scope_as = change
+					add_claim_on_loss = no
+				}
+				change_title_holder = {
+					holder = scope:cardinal_recipient
+					change = scope:change
+					government_base = scope:cardinal_government_base
+				}
+				resolve_title_and_vassal_change = scope:change
 			}
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = change
-				add_claim_on_loss = no
-			}
-			change_title_holder = {
-				holder = scope:cardinal_recipient
-				change = scope:change
-				government_base = scope:cardinal_government_base
-			}
-			resolve_title_and_vassal_change = scope:change
 		}
-	}
-	# Create a new cardinalate
-	else_if = {
-		limit = {
-			pam_can_hold_cardinalate_trigger = yes
-			pam_can_receive_cardinalate_trigger = yes
-			pam_pope_is_head_of_faith_or_rite_trigger = yes
-		}
-		capital_barony ?= { save_scope_as = capital_barony }
-		$CARDINAL_COUNTY$ ?= { save_scope_as = cardinal_county }
-		if = {
+		# Create a new cardinalate
+		else_if = {
 			limit = {
-				NOT = { exists = scope:cardinal_county }
-				exists = default_location.county
+				pam_can_hold_cardinalate_trigger = yes
+				pam_can_receive_cardinalate_trigger = yes
+				pam_pope_is_head_of_faith_or_rite_trigger = yes
 			}
-			default_location.county = { save_scope_as = cardinal_county }
-		}
-		if = {
-			limit = { exists = scope:cardinal_county }
-			scope:cardinal_county = {
-				random_direct_de_jure_vassal_title = {
-					limit = {
-						title_province = { has_holding_type = church_holding }
-						save_temporary_scope_as = temple_barony
-						NOT = {
-							scope:cardinal_recipient.faith = {
-								any_clerical_elector_title = {
-									var:named_after ?= scope:temple_barony
+			capital_barony ?= { save_scope_as = capital_barony }
+			$CARDINAL_COUNTY$ ?= { save_scope_as = cardinal_county }
+			if = {
+				limit = {
+					NOT = { exists = scope:cardinal_county }
+					exists = default_location.county
+				}
+				default_location.county = { save_scope_as = cardinal_county }
+			}
+			if = {
+				limit = { exists = scope:cardinal_county }
+				scope:cardinal_county = {
+					random_direct_de_jure_vassal_title = {
+						limit = {
+							title_province = { has_holding_type = church_holding }
+							save_temporary_scope_as = temple_barony
+							NOT = {
+								scope:cardinal_recipient.faith = {
+									any_clerical_elector_title = {
+										var:named_after ?= scope:temple_barony
+									}
 								}
 							}
 						}
-					}
-					save_scope_as = cardinal_temple_barony
-				}
-			}
-		}
-		create_dynamic_title = {
-			tier = duchy
-			name = {
-				first_valid = {
-					triggered_desc = {
-						trigger = { exists = scope:cardinal_temple_barony }
-						desc = CE3_CARDINAL_DYNAMIC_TITLE_NAME_TEMPLE
-					}
-					triggered_desc = {
-						trigger = { exists = scope:capital_barony }
-						desc = CE3_CARDINAL_DYNAMIC_TITLE_NAME_CAPITAL_BARONY
-					}
-					triggered_desc = {
-						trigger = { exists = scope:cardinal_county }
-						desc = CE3_CARDINAL_DYNAMIC_TITLE_NAME_COUNTY
-					}
-					desc = CE3_CARDINAL_DYNAMIC_TITLE_NAME_PERSON
-				}
-			}
-			adj = {
-				first_valid = {
-					triggered_desc = {
-						trigger = { exists = scope:cardinal_temple_barony }
-						desc = CE3_CARDINAL_DYNAMIC_TITLE_ADJ_TEMPLE
-					}
-					triggered_desc = {
-						trigger = { exists = scope:capital_barony }
-						desc = CE3_CARDINAL_DYNAMIC_TITLE_ADJ_CAPITAL_BARONY
-					}
-					triggered_desc = {
-						trigger = { exists = scope:cardinal_county }
-						desc = CE3_CARDINAL_DYNAMIC_TITLE_ADJ_COUNTY
-					}
-					desc = CE3_CARDINAL_DYNAMIC_TITLE_ADJ_PERSON
-				}
-			}
-		}
-		scope:new_title ?= {
-			add_clerical_elector = scope:cardinal_recipient.faith
-			set_variable = pam_dynamic_cardinalate
-			save_scope_as = cardinalate
-		}
-		create_title_and_vassal_change = {
-			type = created
-			save_scope_as = change
-			add_claim_on_loss = no
-		}
-		scope:new_title ?= {
-			if = {
-				limit = { exists = scope:cardinal_temple_barony }
-				set_variable = {
-					name = named_after
-					value = scope:cardinal_temple_barony
-				}
-				set_coa = scope:cardinal_temple_barony
-				set_color_from_title = scope:cardinal_temple_barony
-				set_capital_county = scope:cardinal_temple_barony.county
-			}
-			else_if = {
-				limit = { exists = scope:capital_barony }
-				set_coa = scope:capital_barony
-				set_color_from_title = scope:capital_barony
-				set_capital_county = scope:capital_barony.county
-			}
-			else_if = {
-				limit = { exists = scope:cardinal_county }
-				set_coa = scope:cardinal_county
-				set_color_from_title = scope:cardinal_county
-				set_capital_county = scope:cardinal_county
-			}
-			else = {
-				set_coa = scope:cardinal_recipient.rite.head_of_rite.default_location.county
-				set_color_from_title = scope:cardinal_recipient.rite.head_of_rite.default_location.county
-				set_capital_county = scope:cardinal_recipient.rite.head_of_rite.default_location.county
-			}
-			set_landless_title = yes
-			set_destroy_on_succession = yes
-			set_no_automatic_claims = yes
-			set_can_be_named_after_dynasty = no
-			set_can_use_nomadic_naming = no
-			change_title_holder = {
-				holder = scope:cardinal_recipient
-				change = scope:change
-				government_base = scope:cardinal_government_base
-			}
-		}
-		resolve_title_and_vassal_change = scope:change
-	}
-	scope:cardinalate ?= {
-		if = {
-			limit = {
-				NOT = {
-					is_target_in_global_variable_list = {
-						name = roma_cardinalates
-						target = scope:cardinalate
+						save_scope_as = cardinal_temple_barony
 					}
 				}
 			}
-			add_to_global_variable_list = {
-				name = roma_cardinalates
-				target = scope:cardinalate
-			}
-		}
-	}
-	if = {
-		limit = { exists = scope:cardinalate }
-		scope:cardinal_recipient ?= {
-		#	change_government = ecclesiastical_government
-			add_character_flag = cardinal_flag
-			if = {
-				limit = { rite = { rite_has_doctrine = doctrine_clerical_marriage_disallowed } }
-				hidden_effect = {
-					if = {
-						limit = {
-							is_married = yes
-							is_ai = yes
+			create_dynamic_title = {
+				tier = duchy
+				name = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { exists = scope:cardinal_temple_barony }
+							desc = CE3_CARDINAL_DYNAMIC_TITLE_NAME_TEMPLE
 						}
-						every_spouse = {
-							limit = { is_ai = yes }
-							save_temporary_scope_as = cardinal_divorcee
-							less_verbose_divorce_effect = {
-								DIVORCER = prev
-								DIVORCEE = scope:cardinal_divorcee
-							}
+						triggered_desc = {
+							trigger = { exists = scope:capital_barony }
+							desc = CE3_CARDINAL_DYNAMIC_TITLE_NAME_CAPITAL_BARONY
 						}
+						triggered_desc = {
+							trigger = { exists = scope:cardinal_county }
+							desc = CE3_CARDINAL_DYNAMIC_TITLE_NAME_COUNTY
+						}
+						desc = CE3_CARDINAL_DYNAMIC_TITLE_NAME_PERSON
 					}
-					if = {
-						limit = { exists = betrothed }
-						break_betrothal = betrothed
+				}
+				adj = {
+					first_valid = {
+						triggered_desc = {
+							trigger = { exists = scope:cardinal_temple_barony }
+							desc = CE3_CARDINAL_DYNAMIC_TITLE_ADJ_TEMPLE
+						}
+						triggered_desc = {
+							trigger = { exists = scope:capital_barony }
+							desc = CE3_CARDINAL_DYNAMIC_TITLE_ADJ_CAPITAL_BARONY
+						}
+						triggered_desc = {
+							trigger = { exists = scope:cardinal_county }
+							desc = CE3_CARDINAL_DYNAMIC_TITLE_ADJ_COUNTY
+						}
+						desc = CE3_CARDINAL_DYNAMIC_TITLE_ADJ_PERSON
 					}
 				}
 			}
+			scope:new_title ?= {
+				add_clerical_elector = scope:cardinal_recipient.faith
+				set_variable = pam_dynamic_cardinalate
+				save_scope_as = cardinalate
+			}
+			create_title_and_vassal_change = {
+				type = created
+				save_scope_as = change
+				add_claim_on_loss = no
+			}
+			scope:new_title ?= {
+				if = {
+					limit = { exists = scope:cardinal_temple_barony }
+					set_variable = {
+						name = named_after
+						value = scope:cardinal_temple_barony
+					}
+					set_coa = scope:cardinal_temple_barony
+					set_color_from_title = scope:cardinal_temple_barony
+					set_capital_county = scope:cardinal_temple_barony.county
+				}
+				else_if = {
+					limit = { exists = scope:capital_barony }
+					set_coa = scope:capital_barony
+					set_color_from_title = scope:capital_barony
+					set_capital_county = scope:capital_barony.county
+				}
+				else_if = {
+					limit = { exists = scope:cardinal_county }
+					set_coa = scope:cardinal_county
+					set_color_from_title = scope:cardinal_county
+					set_capital_county = scope:cardinal_county
+				}
+				else = {
+					set_coa = scope:cardinal_recipient.rite.head_of_rite.default_location.county
+					set_color_from_title = scope:cardinal_recipient.rite.head_of_rite.default_location.county
+					set_capital_county = scope:cardinal_recipient.rite.head_of_rite.default_location.county
+				}
+				set_landless_title = yes
+				set_destroy_on_succession = yes
+				set_no_automatic_claims = yes
+				set_can_be_named_after_dynasty = no
+				set_can_use_nomadic_naming = no
+				change_title_holder = {
+					holder = scope:cardinal_recipient
+					change = scope:change
+					government_base = scope:cardinal_government_base
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+		scope:cardinalate ?= {
 			if = {
 				limit = {
-					any_held_title = {
-						tier = tier_duchy
-						has_clerical_region = yes
+					NOT = {
+						is_target_in_global_variable_list = {
+							name = roma_cardinalates
+							target = scope:cardinalate
+						}
 					}
 				}
-				random_held_title = {
-					limit = {
-						tier = tier_duchy
-						has_clerical_region = yes
-					}
-					save_scope_as = clerical_region_title
+				add_to_global_variable_list = {
+					name = roma_cardinalates
+					target = scope:cardinalate
 				}
-				set_primary_title_to = scope:clerical_region_title
 			}
-		#	situation:the_christian_church ?= {
-		#		add_manual_participant = prev
-		#	}
+		}
+		if = {
+			limit = { exists = scope:cardinalate }
+			scope:cardinal_recipient ?= {
+				fs_ensure_koreanism_government_effect = yes
+				add_character_flag = cardinal_flag
+				if = {
+					limit = { rite = { rite_has_doctrine = doctrine_clerical_marriage_disallowed } }
+					hidden_effect = {
+						if = {
+							limit = {
+								is_married = yes
+								is_ai = yes
+							}
+							every_spouse = {
+								limit = { is_ai = yes }
+								save_temporary_scope_as = cardinal_divorcee
+								less_verbose_divorce_effect = {
+									DIVORCER = prev
+									DIVORCEE = scope:cardinal_divorcee
+								}
+							}
+						}
+						if = {
+							limit = { exists = betrothed }
+							break_betrothal = betrothed
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_held_title = {
+							tier = tier_duchy
+							has_clerical_region = yes
+						}
+					}
+					random_held_title = {
+						limit = {
+							tier = tier_duchy
+							has_clerical_region = yes
+						}
+						save_scope_as = clerical_region_title
+					}
+					set_primary_title_to = scope:clerical_region_title
+				}
+			#	situation:the_christian_church ?= {
+			#		add_manual_participant = prev
+			#	}
+			}
 		}
 	}
 }

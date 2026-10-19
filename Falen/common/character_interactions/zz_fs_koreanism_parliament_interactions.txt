@@ -1,0 +1,1789 @@
+﻿# Koreanism uses a fixed title picker instead of creating cardinalates.
+fs_appoint_parliament_member_interaction = {
+	category = interaction_category_religion
+	icon = cardinal
+	interface_priority = 45
+	common_interaction = yes
+	desc = fs_appoint_parliament_member_interaction_desc
+	notification_text = fs_appoint_parliament_member_interaction_notification
+	use_diplomatic_range = no
+	ai_maybe = yes
+	ai_min_reply_days = 1
+	ai_max_reply_days = 5
+	popup_on_receive = yes
+
+	target_type = title
+	target_source = actor
+	target_filter = clerical_elector_titles
+	show_all_targets = no
+
+	is_available = {
+		# has_pam_dlc_trigger = yes
+		always = yes
+	}
+	is_shown = {
+		scope:actor = {
+			faith = faith:koreanism_faith
+			has_title = title:k_koreanism
+			this != scope:recipient
+		}
+		scope:recipient = {
+			faith = faith:koreanism_faith
+			NOT = { has_title = title:k_koreanism }
+			NOT = { any_held_title = { fs_koreanism_parliament_seat_trigger = yes } }
+		}
+	}
+	can_be_picked_title = {
+		scope:target = { fs_koreanism_vacant_parliament_seat_trigger = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = { fs_koreanism_parliament_president_trigger = yes }
+		custom_tooltip = {
+			text = fs_parliament_candidate_tt
+			scope:recipient = { fs_koreanism_parliament_candidate_trigger = yes }
+		}
+		custom_tooltip = {
+			text = fs_parliament_vacancy_tt
+			scope:actor = { fs_koreanism_has_parliament_vacancy_trigger = yes }
+		}
+	}
+	has_valid_target_showing_failures_only = {
+		custom_tooltip = {
+			text = fs_parliament_selected_vacancy_tt
+			exists = scope:target
+			scope:target ?= { fs_koreanism_vacant_parliament_seat_trigger = yes }
+		}
+	}
+	auto_accept = { scope:recipient = { is_ai = yes } }
+	ai_accept = { base = 100 }
+	on_accept = {
+		# Recheck after the reply: another appointment may have filled the seat.
+		if = {
+			limit = {
+				scope:actor = { fs_koreanism_parliament_president_trigger = yes }
+				scope:recipient = { fs_koreanism_parliament_candidate_trigger = yes }
+				exists = scope:target
+				scope:target ?= { fs_koreanism_vacant_parliament_seat_trigger = yes }
+			}
+			scope:recipient = {
+				fs_grant_koreanism_parliament_seat_effect = { SEAT = scope:target }
+			}
+		}
+	}
+	ai_potential = {
+		fs_koreanism_parliament_president_trigger = yes
+		fs_koreanism_has_parliament_vacancy_trigger = yes
+	}
+	ai_targets = {
+		ai_recipients = courtiers
+		ai_recipients = vassals
+		ai_recipients = subordinates
+		ai_recipients = clerical_region_rulers_in_realm
+		max = 5
+	}
+	ai_target_quick_trigger = { adult = yes }
+	ai_frequency = 6
+	ai_will_do = {
+		base = 20
+		modifier = {
+			add = 20
+			scope:actor = { opinion = { target = scope:recipient value >= 50 } }
+		}
+		modifier = {
+			factor = 0
+			scope:actor = {
+				OR = {
+					has_relation_rival = scope:recipient
+					has_relation_nemesis = scope:recipient
+				}
+			}
+		}
+	}
+}
+
+fs_dismiss_parliament_member_interaction = {
+	category = interaction_category_religion
+	icon = cardinal
+	interface_priority = 45
+	common_interaction = yes
+	desc = fs_dismiss_parliament_member_interaction_desc
+	use_diplomatic_range = no
+	auto_accept = { always = yes }
+
+	is_available = {
+		# has_pam_dlc_trigger = yes
+		always = yes
+	}
+	is_shown = {
+		scope:actor = {
+			faith = faith:koreanism_faith
+			has_title = title:k_koreanism
+			this != scope:recipient
+		}
+		scope:recipient = {
+			NOT = { has_title = title:k_koreanism }
+			any_held_title = { fs_koreanism_parliament_seat_trigger = yes }
+		}
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = { fs_koreanism_parliament_president_trigger = yes }
+		scope:recipient = {
+			is_alive = yes
+			NOT = { has_title = title:k_koreanism }
+			any_held_title = { fs_koreanism_parliament_seat_trigger = yes }
+		}
+	}
+	on_accept = {
+		if = {
+			limit = {
+				scope:actor = { fs_koreanism_parliament_president_trigger = yes }
+				scope:recipient = { NOT = { has_title = title:k_koreanism } }
+			}
+			scope:recipient = {
+				every_held_title = {
+					limit = { fs_koreanism_parliament_seat_trigger = yes }
+					save_scope_as = fs_dismissed_parliament_seat
+					prev = {
+						fs_vacate_koreanism_parliament_seat_effect = { SEAT = scope:fs_dismissed_parliament_seat }
+					}
+				}
+				add_opinion = { target = scope:actor modifier = revoked_title }
+			}
+		}
+	}
+	ai_potential = { fs_koreanism_parliament_president_trigger = yes }
+	ai_targets = {
+		ai_recipients = papabile
+		ai_recipients = subordinates
+		ai_recipients = scripted_relations
+	}
+	ai_target_quick_trigger = { adult = yes }
+	ai_frequency = 12
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 30
+			scope:actor = {
+				OR = {
+					has_relation_rival = scope:recipient
+					has_relation_nemesis = scope:recipient
+				}
+			}
+		}
+		modifier = {
+			add = 30
+			scope:actor = { opinion = { target = scope:recipient value <= -50 } }
+		}
+		modifier = {
+			factor = 0
+			scope:actor = {
+				OR = {
+					has_relation_friend = scope:recipient
+					has_relation_best_friend = scope:recipient
+				}
+			}
+		}
+	}
+}
+
+
+# Native interactions remain available to other faiths. Koreanism uses the fixed-seat actions above.
+appoint_cardinal_interaction = {
+	category = interaction_category_religion
+	icon = cardinal
+	interface_priority = 45
+	common_interaction = yes
+
+	# The Head of Faith names cardinals across all of Christendom
+	use_diplomatic_range = no
+	ai_maybe = yes
+	ai_min_reply_days = 1
+	ai_max_reply_days = 5
+	popup_on_receive = yes
+	notification_text = appoint_cardinal_interaction_notification
+
+	desc = appoint_cardinal_interaction_desc
+
+	is_available = {
+		has_pam_dlc_trigger = yes
+	}
+
+	is_shown = {
+		NOR = {
+			scope:actor = { faith = faith:koreanism_faith }
+			AND = {
+				exists = scope:puppet_or_actor
+				scope:puppet_or_actor = { faith = faith:koreanism_faith }
+			}
+		}
+		scope:puppet_or_actor ?= {
+			this != scope:recipient
+			faith ?= { has_doctrine_parameter = has_clerical_electors }
+			faith = scope:recipient.faith
+			pam_leads_college_of_cardinals_trigger = yes
+		}
+		scope:recipient = {
+			# is_clergy alone misses PAM's landed archbishops, whose organization does not match the faith's
+			pam_is_investiture_clergy_trigger = yes
+			pam_can_hold_cardinalate_trigger = yes
+			pam_can_receive_cardinalate_trigger = yes
+			pam_pope_is_head_of_faith_or_rite_trigger = yes
+			NOT = { exists = clerical_elector_title } # already a cardinal
+		}
+	}
+
+	cooldown_against_recipient = { years = 10 }
+
+	is_valid_showing_failures_only = {
+		trigger_if = {
+			limit = { scope:is_puppet_action ?= yes }
+			scope:puppet_or_actor = {
+				piety >= medium_piety_value
+			}
+		}
+		trigger_if = {
+			limit = { scope:is_puppet_action ?= yes }
+			scope:puppet_or_actor = {
+				treasury >= minor_treasury_value
+			}
+		}
+		custom_tooltip = {
+			text = appoint_cardinal_interaction_max_cardinals_tt
+			scope:puppet_or_actor.faith ?= {
+				NOT = { any_clerical_elector_title = { count >= 70 } }
+			}
+		}
+		scope:puppet_or_actor = {
+			is_available_quick = {
+				adult = yes
+				incapable = no
+				imprisoned = no
+				hostage = no
+			}
+		}
+		scope:recipient = {
+			is_available_quick = {
+				adult = yes
+				incapable = no
+				imprisoned = no
+				hostage = no
+			}
+			NOR = {
+				is_at_war_with = scope:puppet_or_actor
+				has_trait = excommunicated
+			}
+		}
+		custom_tooltip = {
+			text = pam_interaction_clerical_gender_tt
+			scope:puppet_or_actor.rite = { rite_has_allowed_gender_for_clergy = scope:recipient }
+		}
+	}
+
+	cost = {
+		treasury = {
+			value = scope:actor.minor_treasury_value
+			if = {
+				limit = { scope:is_puppet_action ?= yes }
+				multiply = 0
+			}
+		}
+	}
+
+	auto_accept = {
+		trigger_if = {
+			limit = {
+				scope:recipient = {
+					is_ai = yes
+				}
+			}
+			always =  yes
+		}
+	}
+
+	on_accept = {
+		if = {
+			limit = { scope:is_puppet_action ?= yes }
+			scope:puppet_or_actor = {
+				if = {
+					limit = { minor_treasury_value > 0 }
+					remove_treasury = {
+						value = minor_treasury_value
+					}
+				}
+			}
+		}
+		scope:recipient = {
+			custom_tooltip = {
+				text = appoint_cardinal_interaction_accept_tt
+				hidden_effect = {
+					grant_cardinal_title_effect = { CARDINAL_COUNTY = capital_county }
+				}
+			}
+		}
+		scope:puppet_or_actor = {
+			show_as_tooltip = { add_piety = medium_piety_gain }
+			hidden_effect = {
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = appoint_cardinal_interaction_toast
+					left_icon = scope:recipient
+					right_icon = scope:cardinalate
+					custom_tooltip = appoint_cardinal_interaction_accept_title_tt
+					add_piety = medium_piety_value
+				}
+			}
+			if = {
+				limit = {
+					scope:recipient = { pam_is_monastic_order_member_trigger = yes }
+				}
+				if = {
+					limit = {
+						can_add_hook = {
+							target = scope:recipient
+							type = favor_hook
+						}
+					}
+					add_hook = {
+						type = favor_hook
+						target = scope:recipient
+					}
+				}
+				pam_the_christian_church_appointed_cardinal_catalyst_effect = {
+					POPE = scope:puppet_or_actor
+					CARDINAL = scope:recipient
+					OTHERWISE = catalyst_the_christian_church_appointed_monastic_cardinal
+				}
+			}
+			else = {
+				pam_the_christian_church_appointed_cardinal_catalyst_effect = {
+					POPE = scope:puppet_or_actor
+					CARDINAL = scope:recipient
+					OTHERWISE = catalyst_the_christian_church_appointed_cardinal
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:is_puppet_action ?= yes
+				scope:actor != scope:recipient
+			}
+			scope:actor = {
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = appoint_cardinal_interaction_toast_puppeteer
+					left_icon = scope:puppet_or_actor
+					right_icon = scope:recipient
+					custom_tooltip = appoint_cardinal_interaction_accept_title_tt
+				}
+			}
+		}
+	}
+
+	on_decline = {
+		scope:puppet_or_actor = {
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = appoint_cardinal_interaction_decline_toast
+				right_icon = scope:recipient
+				scope:recipient = {
+					if = {
+						limit = { is_ai = yes }
+						add_opinion = {
+							target = scope:puppet_or_actor
+							modifier = annoyed_opinion
+							opinion = -10
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:is_puppet_action ?= yes
+				scope:actor != scope:recipient
+			}
+			scope:actor = {
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = appoint_cardinal_interaction_decline_toast_puppeteer
+					left_icon = scope:puppet_or_actor
+					right_icon = scope:recipient
+				}
+			}
+		}
+	}
+
+	ai_accept = {
+		base = 100
+	}
+
+	ai_targets = {
+		ai_recipients = family
+		max = 5
+	}
+
+	ai_targets = {
+		ai_recipients = vassals
+		ai_recipients = clerical_region_rulers_in_realm
+		ai_recipients = rulers_in_clerical_region
+		ai_recipients = subordinates
+		ai_recipients = scripted_relations
+		ai_recipients = faith_holy_order_leaders
+	}
+
+	ai_targets = {
+		ai_recipients = courtiers
+		max = 5
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 24
+		kingdom = 6
+		empire = 6
+		hegemony = 6
+	}
+
+	ai_will_do = {
+		base = 20
+		modifier = { #The pope definitely wants to keep family close
+			scope:puppet_or_actor = {
+				is_any_family_relation_or_spouse_trigger = { CHARACTER = scope:recipient }
+			}
+			add = 70
+		}
+		modifier = {
+			add = 10
+			scope:recipient = {
+				has_trait = overseer
+			}
+		}
+		modifier = {
+			add = 10
+			scope:recipient = {
+				has_trait = administrator
+			}
+		}
+		modifier = {
+			add = 30
+			scope:recipient = {
+				has_trait = zealous
+			}
+		}
+		modifier = {
+			add = 30
+			scope:puppet_or_actor = {
+				has_trait = zealous
+			}
+		}
+		modifier = { # A cynical Pope still builds a College, just a venal one
+			add = -20
+			scope:puppet_or_actor = {
+				has_trait = cynical
+			}
+		}
+		modifier = {
+			add = 20
+			scope:puppet_or_actor = {
+				is_allied_to = scope:recipient
+			}
+		}
+		modifier = {
+			add = 1000
+			scope:puppet_or_actor = {
+				has_relation_friend = scope:recipient
+			}
+		}
+		modifier = {
+			add = 1000
+			scope:puppet_or_actor = {
+				has_relation_lover = scope:recipient
+			}
+		}
+		modifier = {
+			add = 10
+			scope:recipient = {
+				opinion = {
+					target = scope:puppet_or_actor
+					value >= 65
+				}
+			}
+		}
+		modifier = { # More likely to seek out bishops who own a Holy Site
+			add = 20
+			scope:puppet_or_actor.faith = {
+				any_holy_site = {
+					holy_site_county ?= {
+						holder ?= {
+							OR = {
+								this = scope:recipient
+								is_vassal_or_below_of = scope:recipient
+							}
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 150
+			desc = pam_the_christian_church_desire_more_cardinals_desc
+			scope:puppet_or_actor.religion = religion:christianity_religion
+			situation:the_christian_church ?= {
+				has_situation_top_phase_parameter = the_christian_church_desire_more_cardinals
+			}
+			scope:puppet_or_actor.faith ?= {
+				any_clerical_elector_title = { count < 40 }
+			}
+		}
+		modifier = { # HoR is a good candidate so that they're more controllable by the Pope.
+			add = 50
+			scope:recipient.rite.head_of_rite ?= scope:recipient
+		}
+		modifier = { # Traits in common
+			add = 25
+			scope:puppet_or_actor = {
+				number_of_personality_traits_in_common = {
+					target = scope:recipient
+					value = 1
+				}
+			}
+		}
+		modifier = { # Traits in common
+			add = 25
+			scope:puppet_or_actor = {
+				number_of_personality_traits_in_common = {
+					target = scope:recipient
+					value = 2
+				}
+			}
+		}
+		modifier = { # Traits in common
+			add = 25
+			scope:puppet_or_actor = {
+				number_of_personality_traits_in_common = {
+					target = scope:recipient
+					value = 3
+				}
+			}
+		}
+		modifier = { # Same culture
+			add = 40
+			scope:puppet_or_actor = {
+				has_same_culture_as = scope:recipient
+			}
+		}
+		modifier = { # More likely to take this if we're running low on cardinals
+			add = 100
+			scope:puppet_or_actor.faith ?= {
+				any_clerical_elector_title = { count < 20 }
+			}
+		}
+		modifier = { # Much more likely to take this if we're running _very_ low
+			add = 200
+			scope:puppet_or_actor.faith ?= {
+				any_clerical_elector_title = { count < 10 }
+			}
+		}
+		modifier = { # Mitre and Crosier dynasty legacy
+			add = 40
+			scope:recipient = {
+				dynasty ?= { has_dynasty_perk = pam_legacy_4 }
+			}
+		}
+		modifier = {
+			factor = 0
+			scope:recipient = {
+				has_relation_rival = scope:puppet_or_actor
+			}
+		}
+		modifier = {
+			factor = 0.5
+			scope:puppet_or_actor.treasury < 500
+			scope:puppet_or_actor.faith ?= {
+				any_clerical_elector_title = { count >= 30 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			scope:puppet_or_actor.faith ?= {
+				any_clerical_elector_title = { count >= 30 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			scope:puppet_or_actor.faith ?= {
+				any_clerical_elector_title = { count >= 40 }
+			}
+		}
+		modifier = {
+			factor = 0
+			scope:recipient = {
+				pam_ai_cardinal_candidate_is_immersive_trigger = no
+			}
+		}
+		# Players request their courtiers' cardinalates themselves
+		modifier = {
+			factor = 0
+			scope:recipient = {
+				is_ruler = no
+				employer ?= {
+					is_ai = no
+					this != scope:puppet_or_actor
+				}
+			}
+		}
+	}
+}
+
+request_court_chaplain_cardinalate_interaction = {
+	category = interaction_category_religion
+	icon = cardinal
+	interface_priority = 45
+	common_interaction = yes
+
+	ai_maybe = yes
+	ai_min_reply_days = 1
+	ai_max_reply_days = 5
+	popup_on_receive = yes
+	notification_text = request_court_chaplain_cardinalate_interaction_notification
+
+	desc = request_court_chaplain_cardinalate_interaction_desc
+
+	cooldown_against_recipient = { years = 10 }
+
+	# Actor-only tests belong here, since is_available runs once per actor and is_shown per recipient
+	is_available = {
+		pam_can_hold_cardinalate_trigger = yes
+		NOT = { religious_head_or_challenger ?= this }
+		exists = cp:councillor_court_chaplain
+		cp:councillor_court_chaplain = { pam_can_receive_cardinalate_trigger = yes }
+		has_pam_dlc_trigger = yes
+	}
+
+	is_shown = {
+		NOR = {
+			scope:actor = { faith = faith:koreanism_faith }
+			AND = {
+				exists = scope:puppet_or_actor
+				scope:puppet_or_actor = { faith = faith:koreanism_faith }
+			}
+		}
+		scope:actor != scope:recipient
+		OR = {
+			scope:actor.religious_head_or_challenger ?= scope:recipient
+			AND = {
+				NOT = { exists = scope:actor.faith.religious_head }
+				scope:actor.faith = scope:recipient.faith
+				scope:recipient = { pam_leads_college_of_cardinals_trigger = yes }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = appoint_cardinal_interaction_max_cardinals_tt
+			scope:actor.faith ?= {
+				NOT = { any_clerical_elector_title = { count >= 70 } }
+			}
+		}
+		pam_not_antipope_when_recipient_is_hof_tt = { CHARACTER = scope:actor }
+		scope:actor = {
+			NOT = { has_trait = excommunicated }
+			NOT = { is_at_war_with = scope:recipient }
+			custom_tooltip = {
+				text = actor_promised_pilgrimage_tt
+				NOT = { has_character_modifier = promised_pilgrimage_to_clergy_modifier }
+			}
+			clergy_interaction_generic_piety_level_or_puppet_req_trigger = yes
+			cp:councillor_court_chaplain ?= {
+				is_available_quick = {
+					adult = yes
+					incapable = no
+					imprisoned = no
+					hostage = no
+				}
+				custom_tooltip = {
+					text = request_court_chaplain_cardinalate_chaplain_not_excommunicated_tt
+					NOT = { has_trait = excommunicated }
+				}
+				custom_tooltip = {
+					text = request_court_chaplain_cardinalate_chaplain_not_cardinal_tt
+					NOT = { exists = clerical_elector_title }
+				}
+				custom_tooltip = {
+					text = request_court_chaplain_cardinalate_chaplain_follows_pope_tt
+					pam_pope_is_head_of_faith_or_rite_trigger = yes
+				}
+			}
+		}
+		scope:recipient = {
+			is_available_quick = {
+				adult = yes
+				incapable = no
+				imprisoned = no
+				hostage = no
+			}
+		}
+	}
+
+	is_highlighted = {
+		scope:actor.piety_level > scope:recipient.piety_level
+	}
+
+	cost = {
+		piety = pam_request_court_chaplain_cardinalate_cost_value
+	}
+
+	#Use hook
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+			scope:recipient = {
+				NOT = { is_imprisoned_by = scope:actor }
+			}
+		}
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	send_option = {
+		is_shown = {
+			pam_offer_pilgrimage_option_shown_trigger = { ACTOR = scope:actor }
+		}
+		is_valid = {
+			pam_offer_pilgrimage_option_valid_trigger = { ACTOR = scope:actor }
+		}
+		flag = offer_pilgrimage
+		localization = OFFER_PILGRIMAGE_INTERACTION_OPTION
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:hook = yes
+			scope:actor = { has_strong_hook = scope:recipient }
+		}
+	}
+
+	on_accept = {
+		scope:actor.cp:councillor_court_chaplain ?= {
+			save_scope_as = new_cardinal
+		}
+		if = {
+			limit = { exists = scope:new_cardinal }
+			scope:actor = {
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = request_court_chaplain_cardinalate_interaction_toast
+					left_icon = scope:recipient
+					right_icon = scope:new_cardinal
+					custom_tooltip = {
+						text = request_court_chaplain_cardinalate_interaction_accept_tt
+						scope:new_cardinal = {
+							grant_cardinal_title_effect = { CARDINAL_COUNTY = capital_county }
+						}
+					}
+				}
+			}
+			if = {
+				limit = { scope:new_cardinal = { is_ai = no } }
+				scope:recipient = { save_scope_as = head_of_faith }
+				scope:new_cardinal = { pam_notify_player_became_cardinal_effect = yes }
+			}
+			# on_lose_position covers other title gains
+			if = {
+				limit = {
+					scope:actor = { NOT = { exists = puppet:external_theological_agent_puppet } }
+				}
+				custom_tooltip = {
+					text = request_court_chaplain_cardinalate_becomes_clerical_puppet_tt
+					scope:actor = { fire_councillor = scope:new_cardinal }
+					scope:new_cardinal = {
+						pam_make_clerical_ruler_puppet_effect = { PUPPETEER = scope:actor }
+					}
+				}
+			}
+			else = {
+				custom_tooltip = {
+					text = request_court_chaplain_cardinalate_leaves_council_tt
+					scope:actor = { fire_councillor = scope:new_cardinal }
+				}
+			}
+			scope:new_cardinal = {
+				# The hat came from his liege's petition, and he knows whose it was
+				add_opinion = {
+					target = scope:actor
+					modifier = grateful_opinion
+					opinion = 50
+				}
+				# This is a promotion not a dismissal, so we hide the fired from council opinion or it cancels at once
+				hidden_effect = {
+					remove_opinion = {
+						modifier = fired_from_council_opinion
+						target = scope:actor
+					}
+				}
+			}
+		}
+		pam_offer_pilgrimage_effect = {
+			ACTOR = scope:actor
+			CLERIC = scope:recipient
+		}
+	}
+
+	on_decline = {
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = request_court_chaplain_cardinalate_interaction_decline_toast
+				right_icon = scope:recipient
+				if = {
+					limit = { is_ai = yes }
+					add_opinion = {
+						target = scope:recipient
+						modifier = annoyed_opinion
+						opinion = -10
+					}
+				}
+			}
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = head_of_faith
+	}
+
+	# Only kings and above bother the Pope with this
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 24
+		empire = 24
+		hegemony = 24
+	}
+
+	ai_will_do = {
+		base = 30
+
+		modifier = { # A kinsman in the College is a kinsman on the papal throne
+			add = 60
+			scope:actor.cp:councillor_court_chaplain ?= {
+				is_any_family_relation_or_spouse_trigger = { CHARACTER = scope:actor }
+			}
+		}
+		modifier = {
+			add = 40
+			scope:actor.cp:councillor_court_chaplain ?= {
+				dynasty ?= scope:actor.dynasty
+			}
+		}
+		modifier = { # No point elevating a chaplain we cannot steer
+			add = 40
+			scope:actor = {
+				puppet:theological_agent_puppet ?= cp:councillor_court_chaplain
+			}
+		}
+		modifier = {
+			add = 30
+			scope:actor = { has_trait = zealous }
+		}
+		modifier = {
+			add = -60
+			scope:actor = { has_trait = cynical }
+		}
+		modifier = { # A chaplain nobody respects will not be made a Cardinal
+			add = -40
+			scope:actor.cp:councillor_court_chaplain ?= {
+				piety_level < 2
+			}
+		}
+		modifier = { # No use spending the favour on a chaplain we are about to replace
+			add = -50
+			scope:actor = {
+				exists = cp:councillor_court_chaplain
+				opinion = {
+					target = cp:councillor_court_chaplain
+					value < 0
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			scope:actor.cp:councillor_court_chaplain ?= {
+				pam_ai_cardinal_candidate_is_immersive_trigger = no
+			}
+		}
+	}
+
+	ai_accept = {
+		base = 0
+
+		# The petitioner's own standing with the Pope, shared with the other clerical title petitions
+		clerical_petition_to_authority_acceptance_modifier = yes
+
+		# Weak hook: a strong one already auto-accepts
+		modifier = {
+			scope:hook = yes
+			add = 100
+			scope:actor = { NOT = { has_strong_hook = scope:recipient } }
+			desc = SCHEME_WEAK_HOOK_USED
+		}
+
+		modifier = {
+			add = pam_offer_pilgrimage_acceptance_value
+			scope:offer_pilgrimage = yes
+			desc = OFFER_PILGRIMAGE_INTERACTION_OPTION_REASON
+		}
+
+		# The rest weighs the candidate rather than the petitioner
+		opinion_modifier = {
+			trigger = { exists = scope:actor.cp:councillor_court_chaplain }
+			who = scope:recipient
+			opinion_target = scope:actor.cp:councillor_court_chaplain
+			desc = AI_OPINION_REASON
+		}
+
+		modifier = {
+			add = -25
+			exists = scope:actor.cp:councillor_court_chaplain
+			scope:actor.cp:councillor_court_chaplain.rite != scope:recipient.rite
+			desc = COURT_CHAPLAIN_DIFFERENT_RITE
+		}
+
+		modifier = {
+			add = -50
+			exists = scope:actor.cp:councillor_court_chaplain
+			scope:recipient.rite = {
+				NOT = { rite_has_allowed_gender_for_clergy = scope:actor.cp:councillor_court_chaplain }
+			}
+			desc = COURT_CHAPLAIN_WRONG_CLERICAL_GENDER
+		}
+
+		modifier = {
+			add = {
+				add = 10
+				multiply = scope:actor.cp:councillor_court_chaplain.num_virtuous_traits
+			}
+			exists = scope:actor.cp:councillor_court_chaplain
+			scope:actor.cp:councillor_court_chaplain.num_virtuous_traits > 0
+			desc = COURT_CHAPLAIN_VIRTUOUS
+		}
+
+		modifier = {
+			add = {
+				add = -10
+				multiply = scope:actor.cp:councillor_court_chaplain.num_sinful_traits
+			}
+			exists = scope:actor.cp:councillor_court_chaplain
+			scope:actor.cp:councillor_court_chaplain.num_sinful_traits > 0
+			desc = COURT_CHAPLAIN_SINFUL
+		}
+
+		modifier = {
+			add = 10
+			exists = scope:actor.cp:councillor_court_chaplain
+			scope:actor.cp:councillor_court_chaplain = { has_education_learning_trigger = yes }
+			desc = COURT_CHAPLAIN_LEARNING_EDUCATION_REASON
+		}
+
+		modifier = {
+			add = 15
+			exists = scope:actor.cp:councillor_court_chaplain
+			scope:actor.cp:councillor_court_chaplain = { has_trait = celibate }
+			desc = COURT_CHAPLAIN_CELIBATE
+		}
+
+		modifier = {
+			add = 15
+			exists = scope:actor.cp:councillor_court_chaplain
+			scope:actor.cp:councillor_court_chaplain = { has_trait = devoted }
+			desc = COURT_CHAPLAIN_DEVOTED
+		}
+
+		# A chaplain of no standing is not Cardinal material
+		modifier = {
+			add = -25
+			exists = scope:actor.cp:councillor_court_chaplain
+			scope:actor.cp:councillor_court_chaplain = { piety_level = 0 }
+			desc = COURT_CHAPLAIN_LOW_PIETY
+		}
+
+		# A College short on Cardinals needs bodies more than it needs leverage
+		modifier = {
+			add = 60
+			scope:recipient.faith ?= {
+				any_clerical_elector_title = { count < 20 }
+			}
+			desc = COLLEGE_OF_CARDINALS_UNDERMANNED_REASON
+		}
+
+		modifier = {
+			add = 100
+			scope:recipient.faith ?= {
+				any_clerical_elector_title = { count < 10 }
+			}
+			desc = COLLEGE_OF_CARDINALS_SEVERELY_UNDERMANNED_REASON
+		}
+	}
+}
+
+destroy_cardinalate_interaction = {
+	category = interaction_category_religion
+	icon = cardinal
+	interface_priority = 45
+
+	desc = destroy_cardinalate_interaction_desc
+	filter_tags = { papabile }
+
+	auto_accept = { always = yes }
+	cooldown_against_recipient = { years = 10 }
+
+	is_available = {
+		has_pam_dlc_trigger = yes
+	}
+
+	is_shown = {
+		NOR = {
+			scope:actor = { faith = faith:koreanism_faith }
+			AND = {
+				exists = scope:puppet_or_actor
+				scope:puppet_or_actor = { faith = faith:koreanism_faith }
+			}
+		}
+		scope:puppet_or_actor ?= {
+			this != scope:recipient
+			rite ?= { rite_has_parameter = has_clerical_electors }
+			pam_leads_college_of_cardinals_trigger = yes
+			trigger_if = { # A shrinking College is a problem the AI should not create
+				limit = {
+					is_ai = yes
+					NOT = { puppeteer ?= { is_ai = no } }
+				}
+				faith ?= {
+					any_clerical_elector_title = { count > 30 }
+				}
+			}
+		}
+		exists = scope:recipient.clerical_elector_title
+		scope:recipient = {
+			is_ai = yes
+			faith = scope:actor.faith
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = destroy_cardinalate_interaction_min_cardinals_tt
+			scope:puppet_or_actor.faith ?= {
+				any_clerical_elector_title = { count > 10 }
+			}
+		}
+		scope:puppet_or_actor = {
+			is_available_quick = {
+				adult = yes
+				incapable = no
+				imprisoned = no
+				hostage = no
+			}
+		}
+		trigger_if = {
+			limit = { scope:is_puppet_action ?= yes }
+			scope:puppet_or_actor = {
+				piety >= medium_piety_value
+			}
+		}
+	}
+
+	cost = {
+		piety = major_piety_value
+	}
+
+	on_accept = {
+		scope:recipient.clerical_elector_title ?= { save_scope_as = cardinalate }
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = destroy_cardinalate_interaction_toast
+				left_icon = scope:puppet_or_actor
+				right_icon = scope:recipient
+				custom_tooltip = destroy_cardinalate_interaction_accept_tt
+				scope:recipient = {
+					add_opinion = {
+						target = scope:puppet_or_actor
+						modifier = revoked_title
+					}
+					pam_destroy_cardinal_title_effect = { CARDINALATE = scope:cardinalate }
+					faith = {
+						every_clerical_elector_title = {
+							custom = custom.every_clerical_elector_title
+							limit = {
+								holder != scope:recipient
+							}
+							holder = {
+								add_opinion = {
+									target = scope:puppet_or_actor
+									modifier = removed_cardinalate
+								}
+							}
+						}
+					}
+				}
+				situation:the_christian_church ?= {
+					situation_participant_group:christian_clerical_main_power_rulers = {
+						every_situation_group_participant = {
+							custom = custom.every_main_power_clerical_ruler
+							limit = {
+								NOR = {
+									this = scope:actor
+									this = scope:puppet_or_actor
+									this = scope:recipient
+									exists = clerical_elector_title
+								}
+							}
+							add_opinion = {
+								target = scope:puppet_or_actor
+								modifier = removed_cardinalate
+								opinion = -20
+							}
+						}
+					}
+				}
+				# Catalysts
+				if = {
+					limit = {
+						scope:puppet_or_actor.religion = religion:christianity_religion
+						situation:the_christian_church ?= { situation_top_has_catalyst = catalyst_the_christian_church_stripped_cardinalate }
+					}
+					situation:the_christian_church = { trigger_situation_catalyst = catalyst_the_christian_church_stripped_cardinalate }
+				}
+			}
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = subordinates
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 0
+		duchy = 0
+		kingdom = 12
+		empire = 12
+		hegemony = 12
+	}
+
+	# Stripping a hat is a last resort, so nothing but a real grievance moves this off zero
+	ai_will_do = {
+		base = 0
+
+		modifier = { # An excommunicate has no business choosing the next Head of Faith
+			add = 100
+			scope:recipient = { has_trait = excommunicated }
+		}
+		modifier = {
+			add = 30
+			scope:puppet_or_actor = {
+				OR = {
+					has_relation_rival = scope:recipient
+					has_relation_nemesis = scope:recipient
+				}
+			}
+		}
+		modifier = { # Never against our own
+			factor = 0
+			scope:puppet_or_actor = {
+				OR = {
+					has_relation_friend = scope:recipient
+					has_relation_best_friend = scope:recipient
+					is_any_family_relation_or_spouse_trigger = { CHARACTER = scope:recipient }
+				}
+			}
+		}
+	}
+}
+
+request_clerical_elector_title_interaction = {
+	category = interaction_category_religion
+	icon = cardinal
+	interface_priority = 45
+	common_interaction = yes
+
+	ai_maybe = yes
+	ai_min_reply_days = 1
+	ai_max_reply_days = 5
+	popup_on_receive = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:actor = { faith = faith:koreanism_faith } }
+				desc = fs_request_parliament_seat_desc
+			}
+			desc = request_clerical_elector_title_interaction_desc
+		}
+	}
+	notification_text = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:actor = { faith = faith:koreanism_faith } }
+				desc = fs_request_parliament_seat_notification
+			}
+			desc = request_clerical_elector_title_interaction_notification
+		}
+	}
+
+	cooldown_against_recipient = { years = 10 }
+
+	is_available = {
+		trigger_if = {
+			limit = { faith = faith:koreanism_faith }
+			# has_pam_dlc_trigger = yes
+			always = yes
+		}
+		trigger_else = {
+			has_pam_dlc_trigger = yes
+		}
+	}
+
+	is_shown = {
+		trigger_if = {
+			limit = { scope:actor = { faith = faith:koreanism_faith } }
+			scope:puppet_or_actor = scope:actor
+			scope:actor = {
+				this != scope:recipient
+				NOR = {
+					has_title = title:k_koreanism
+					exists = clerical_elector_title
+					any_held_title = { fs_koreanism_parliament_seat_trigger = yes }
+				}
+			}
+			scope:recipient = {
+				faith = faith:koreanism_faith
+				has_title = title:k_koreanism
+			}
+		}
+		trigger_else = {
+			NOR = {
+				scope:actor = { faith = faith:koreanism_faith }
+				AND = {
+					exists = scope:puppet_or_actor
+					scope:puppet_or_actor = { faith = faith:koreanism_faith }
+				}
+			}
+			scope:puppet_or_actor ?= {
+				this != scope:recipient
+				is_clergy = yes
+				pam_can_hold_cardinalate_trigger = yes
+				pam_can_receive_cardinalate_trigger = yes
+				NOT = { exists = clerical_elector_title } # already a cardinal
+				OR = {
+					faith.religious_head ?= scope:recipient
+					AND = {
+						NOT = { exists = faith.religious_head }
+						faith = scope:recipient.faith
+						scope:recipient = { pam_leads_college_of_cardinals_trigger = yes }
+					}
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		trigger_if = {
+			limit = { scope:actor = { faith = faith:koreanism_faith } }
+			fs_koreanism_parliament_request_valid_trigger = yes
+		}
+		trigger_else = {
+			trigger_if = {
+				limit = { scope:is_puppet_action ?= yes }
+				scope:puppet_or_actor = {
+					piety >= pam_request_clerical_elector_title_cost_value
+				}
+			}
+			custom_tooltip = {
+				text = appoint_cardinal_interaction_max_cardinals_tt
+				scope:puppet_or_actor.faith ?= {
+					NOT = { any_clerical_elector_title = { count >= 70 } }
+				}
+			}
+			scope:puppet_or_actor = {
+				is_available_quick = {
+					adult = yes
+					ruler = yes
+					imprisoned = no
+					incapable = no
+					hostage = no
+				}
+				NOR = {
+					has_trait = excommunicated
+					is_at_war_with = scope:recipient
+				}
+				pam_not_antipope_when_recipient_is_hof_tt = { CHARACTER = scope:puppet_or_actor }
+			}
+		}
+	}
+
+	is_highlighted = {
+		trigger_if = {
+			limit = { scope:actor = { faith = faith:koreanism_faith } }
+			scope:recipient = { opinion = { target = scope:actor value >= 50 } }
+		}
+		trigger_else = {
+			scope:puppet_or_actor.piety_level > scope:recipient.piety_level
+		}
+	}
+
+	cost = {
+		piety = {
+			value = pam_request_clerical_elector_title_cost_value
+			if = {
+				limit = { scope:actor = { faith = faith:koreanism_faith } }
+				multiply = 0
+			}
+			if = {
+				limit = { scope:is_puppet_action ?= yes }
+				multiply = 0
+			}
+		}
+	}
+	#Use hook
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+			scope:recipient = {
+				NOT = { is_imprisoned_by = scope:actor }
+			}
+		}
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:hook = yes
+			scope:actor = { has_strong_hook = scope:recipient }
+		}
+	}
+
+
+	on_accept = {
+		if = {
+			limit = { scope:actor = { faith = faith:koreanism_faith } }
+			# Recheck eligibility and vacancies after the president's reply.
+			if = {
+				limit = { fs_koreanism_parliament_request_valid_trigger = yes }
+				random_in_global_list = {
+					variable = fs_koreanism_parliament_seats
+					limit = { fs_koreanism_vacant_parliament_seat_trigger = yes }
+					save_scope_as = fs_requested_parliament_seat
+				}
+				scope:actor = {
+					fs_grant_koreanism_parliament_seat_effect = { SEAT = scope:fs_requested_parliament_seat }
+					if = {
+						limit = {
+							exists = scope:fs_requested_parliament_seat
+							scope:fs_requested_parliament_seat = { holder = scope:actor }
+						}
+						send_interface_toast = {
+							type = event_toast_effect_good
+							title = request_clerical_elector_title_interaction_toast
+							left_icon = scope:recipient
+							right_icon = scope:fs_requested_parliament_seat
+							custom_tooltip = fs_request_parliament_seat_accept_tt
+						}
+					}
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = { scope:is_puppet_action ?= yes }
+				scope:puppet_or_actor = {
+					if = {
+						limit = { pam_request_clerical_elector_title_cost_value > 0 }
+						add_piety = { value = { add = pam_request_clerical_elector_title_cost_value max = piety multiply = -1 } }
+					}
+				}
+			}
+			scope:actor = {
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = request_clerical_elector_title_interaction_toast
+					left_icon = scope:recipient
+					right_icon = scope:puppet_or_actor
+					custom_tooltip = {
+						text = request_clerical_elector_title_interaction_accept_tt
+						scope:puppet_or_actor = {
+							grant_cardinal_title_effect = {
+								CARDINAL_COUNTY = capital_county
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					scope:puppet_or_actor = { is_ai = no }
+					scope:actor != scope:puppet_or_actor
+				}
+				scope:recipient = { save_scope_as = head_of_faith }
+				scope:puppet_or_actor = { pam_notify_player_became_cardinal_effect = yes }
+			}
+		}
+	}
+
+	on_decline = {
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_bad
+				title = request_clerical_elector_title_interaction_decline_toast
+				right_icon = scope:recipient
+				if = {
+					limit = { scope:puppet_or_actor = { is_ai = yes } }
+					scope:puppet_or_actor = {
+						add_opinion = {
+							target = scope:recipient
+							modifier = annoyed_opinion
+							opinion = -10
+						}
+					}
+				}
+			}
+		}
+	}
+
+	ai_targets = {
+		ai_recipients = head_of_faith
+	}
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 24
+		duchy = 24
+		kingdom = 24
+		empire = 0
+		hegemony = 0
+	}
+
+	# Native acceptance modifiers are expanded to keep their weights outside Koreanism.
+	# Koreanism instead uses opinion, rivalries and hooks.
+	ai_accept = {
+		base = -50
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 20
+			scope:puppet_or_actor = {
+				is_clergy = yes
+				faith = {
+					has_doctrine_parameter = tenet_celestial_hierarchy_clergy_acceptance
+				}
+			}
+			scope:recipient = {
+				is_clergy = no
+				is_ruler = yes
+			}
+			desc = CELESTIAL_HIERARCHY_CLERGY_ACCEPTANCE_REASON
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = {
+				value = scope:puppet_or_actor.piety_level
+				subtract = scope:recipient.piety_level
+				multiply = 10
+			}
+			scope:puppet_or_actor = {
+				has_personal_tenet_flag = tenet_celestial_hierarchy_interaction_acceptance
+				faith = scope:recipient.faith
+			}
+			desc = CELESTIAL_HIERARCHY_DEVOTION_ACCEPTANCE_REASON
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 15
+			NOT = {
+				exists = scope:puppet_or_actor.faith.religious_head
+			}
+			scope:puppet_or_actor.faith.main_rite.head_of_rite ?= scope:recipient
+			desc = HEAD_OF_RITE_MORE_LENIENT_REASON
+		}
+		first_valid = {
+			modifier = {
+				NOT = { scope:actor = { faith = faith:koreanism_faith } }
+				add = -50
+				scope:puppet_or_actor.faith = scope:recipient.faith
+				scope:puppet_or_actor.rite != scope:recipient.rite
+				scope:recipient.rite = {
+					"divergence(scope:puppet_or_actor.rite)" >= scope:recipient.faith.heresy_threshold
+				}
+				desc = I_HAVE_A_HERETICAL_RITE
+			}
+			modifier = {
+				NOT = { scope:actor = { faith = faith:koreanism_faith } }
+				add = -25
+				scope:puppet_or_actor.rite != scope:recipient.rite
+				desc = I_HAVE_A_DIFFERENT_RITE
+			}
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = -25
+			scope:puppet_or_actor.piety_level = 0
+			desc = I_HAVE_LOW_PIETY
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 25
+			scope:puppet_or_actor.piety_level > scope:recipient.piety_level
+			desc = GREATER_PIETY_LEVEL_THAN_RECIPIENT
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 15
+			scope:puppet_or_actor.prestige_level > scope:recipient.prestige_level
+			desc = GREATER_PRESTIGE_LEVEL_THAN_RECIPIENT
+		}
+		opinion_modifier = {
+			trigger = {
+				NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			}
+			who = scope:recipient
+			opinion_target = scope:puppet_or_actor
+			desc = AI_OPINION_REASON
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = {
+				add = 10
+				multiply = scope:puppet_or_actor.num_virtuous_traits
+			}
+			scope:puppet_or_actor.num_virtuous_traits > 0
+			desc = I_AM_VIRTUOUS
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = {
+				add = -10
+				multiply = scope:puppet_or_actor.num_sinful_traits
+			}
+			scope:puppet_or_actor.num_sinful_traits > 0
+			desc = I_AM_SINFUL
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = -30
+			scope:recipient = {
+				has_trait = cynical
+			}
+			desc = HOF_IS_CYNICAL_REASON
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 20
+			scope:recipient.faith = {
+				any_holy_site_barony = {
+					county.holder = {
+						OR = {
+							this = scope:puppet_or_actor
+							is_vassal_or_below_of = scope:puppet_or_actor
+						}
+					}
+				}
+			}
+			desc = ACTOR_OWNS_HOLY_SITE_REASON
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 25
+			scope:puppet_or_actor.rite.head_of_rite ?= scope:puppet_or_actor
+			desc = HEAD_OF_RITE_REASON
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 30
+			scope:puppet_or_actor = {
+				is_any_family_relation_or_spouse_trigger = {
+					CHARACTER = scope:recipient
+				}
+			}
+			desc = FAMILY_RELATION_TO_RECIPIENT_REASON
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 20
+			scope:puppet_or_actor = {
+				is_allied_to = scope:recipient
+			}
+			desc = ALLIED_TO_RECIPIENT_REASON
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 10
+			scope:puppet_or_actor = {
+				has_relation_best_friend = scope:recipient
+			}
+			desc = WE_ARE_BEST_FRIENDS
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			scope:puppet_or_actor = {
+				any_secret = {
+					type = secret_forbidden_personal_tenet
+					is_known_by = scope:recipient
+				}
+			}
+			add = -60
+			desc = EXPOSED_HERETICAL_PERSONAL_TENET
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			scope:hook = yes
+			add = 100
+			scope:actor = {
+				NOT = {
+					has_strong_hook = scope:recipient
+				}
+			}
+			desc = SCHEME_WEAK_HOOK_USED
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = -100
+			desc = WE_ARE_RIVALS
+			scope:recipient = {
+				has_relation_rival = scope:puppet_or_actor
+			}
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = -500
+			desc = WE_ARE_NEMESES
+			scope:recipient = {
+				has_relation_nemesis = scope:puppet_or_actor
+			}
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 15
+			scope:puppet_or_actor = {
+				has_trait = celibate
+			}
+			desc = I_AM_CELIBATE
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 15
+			scope:puppet_or_actor = {
+				has_trait = devoted
+			}
+			desc = I_AM_DEVOTED
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 25
+			scope:recipient.culture = scope:puppet_or_actor.culture
+			desc = SAME_CULTURE_AS_RECIPIENT_REASON
+		}
+		modifier = {
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			add = 40
+			scope:puppet_or_actor ?= {
+				dynasty ?= {
+					has_dynasty_perk = pam_legacy_4
+				}
+			}
+			desc = DYNASTY_LEGACY_PAM_LEGACY_4_ACCEPTANCE_PERK_MODIFIER
+		}
+		modifier = {
+			add = 25
+			scope:actor = { faith = faith:koreanism_faith }
+			desc = fs_request_parliament_seat_base_reason
+		}
+		opinion_modifier = {
+			trigger = {
+				scope:actor = { faith = faith:koreanism_faith }
+			}
+			who = scope:recipient
+			opinion_target = scope:actor
+			desc = AI_OPINION_REASON
+		}
+		modifier = {
+			add = 100
+			scope:actor = {
+				faith = faith:koreanism_faith
+				NOT = {
+					has_strong_hook = scope:recipient
+				}
+			}
+			scope:hook = yes
+			desc = SCHEME_WEAK_HOOK_USED
+		}
+		modifier = {
+			add = -100
+			scope:actor = { faith = faith:koreanism_faith }
+			scope:recipient = {
+				has_relation_rival = scope:actor
+			}
+			desc = WE_ARE_RIVALS
+		}
+		modifier = {
+			add = -500
+			scope:actor = { faith = faith:koreanism_faith }
+			scope:recipient = {
+				has_relation_nemesis = scope:actor
+			}
+			desc = WE_ARE_NEMESES
+		}
+	}
+
+	ai_will_do = {
+		# Requests remain infrequent; ambitious candidates are more likely to petition.
+		base = 0
+		modifier = {
+			add = 20
+			scope:actor = { faith = faith:koreanism_faith }
+		}
+		modifier = {
+			add = 25
+			scope:actor = {
+				has_trait = ambitious
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { scope:actor = { faith = faith:koreanism_faith } }
+			scope:puppet_or_actor = {
+				pam_ai_cardinal_candidate_is_immersive_trigger = no
+			}
+		}
+	}
+}

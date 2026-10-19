@@ -1,0 +1,334 @@
+﻿# Main buildings only. Conditions, effects and assets match the vanilla cathedral chain.
+
+@admin_office_construction_time_main = 730
+@admin_office_main_domicile_monthly_gold_add_1 = 2
+@admin_office_domicile_monthly_piety_add_main_01 = 0.3
+@admin_office_domicile_monthly_prestige_add_2 = 0.25
+@admin_office_domicile_external_slots_capacity_add = 6
+@admin_office_monthly_county_control_growth_factor_3 = 0.1
+@admin_office_development_growth = 0.05
+@admin_office_tax_mult = 0.05
+@admin_office_piety_standalone_mini = 0.05
+@admin_office_main_domicile_monthly_gold_add_2 = 3
+@admin_office_domicile_monthly_piety_add_main_02 = 0.5
+@admin_office_clergy_opinion = 5
+@admin_office_monthly_piety_gain_mult_main_02 = 0.15
+@admin_office_piety_level_impact_mult_main = 0.1
+@admin_office_same_faith_opinion_main = 5
+@admin_office_holy_order_hire_cost_mult_main = -0.15
+@admin_office_church_holding_build_speed = -0.1
+@admin_office_church_holding_build_gold_cost = -0.1
+@admin_office_monthly_income = 1
+@admin_office_rite_creation_cost_main = -0.05
+@admin_office_domicile_monthly_piety_add_main_03 = 0.5
+@admin_office_monthly_piety_gain_mult_main_03 = 0.1
+@admin_office_learning_per_piety_level_main = 1
+@admin_office_monthly_lifestyle_xp_gain_mult_main = 0.15
+@admin_office_development_growth_factor_main = 0.1
+@admin_office_domicile_monthly_piety_add_main_04 = 0.7
+@admin_office_domicile_monthly_prestige_add_main_04 = 0.5
+@admin_office_treasury_from_vassals_mult_main = 0.05
+@admin_office_diplomacy_per_piety_level_main = 1
+@admin_office_stewardship_per_piety_level_main = 1
+@admin_office_attraction_opinion_main = 10
+@admin_office_tax_mult_main_04 = 0.1
+
+admin_office_main_01 = {
+	slot_type = main
+	internal_slots = 2
+	construction_time = @admin_office_construction_time_main
+	allowed_domicile_types = { admin_office }
+
+	cost = {
+		treasury_or_gold = admin_office_building_cost_main_01_value
+	}
+
+	character_modifier = {
+		domicile_monthly_gold_add = @admin_office_main_domicile_monthly_gold_add_1
+		domicile_monthly_piety_add = @admin_office_domicile_monthly_piety_add_main_01
+		domicile_monthly_prestige_add = @admin_office_domicile_monthly_prestige_add_2
+		domicile_external_slots_capacity_add = @admin_office_domicile_external_slots_capacity_add
+		monthly_county_control_growth_factor = @admin_office_monthly_county_control_growth_factor_3
+	}
+
+	province_modifier = {
+		development_growth = @admin_office_development_growth
+		tax_mult = @admin_office_tax_mult
+	}
+
+	ai_value = {
+		value = 100
+	}
+	#Western
+	asset = {
+		trigger = {
+			domicile_location.county.rite = {
+				rite_has_doctrine = special_doctrine_is_western_christian_faith
+			}
+		}
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_catholic_01.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_early_cathedral.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_early_cathedral_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+	#Eastern
+	asset = {
+		trigger = {
+			domicile_location.county.rite = {
+				rite_has_doctrine = special_doctrine_is_eastern_christian_faith
+			}
+		}
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_orthodox_01.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_early_cathedral_orthodox.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_early_cathedral_orthodox_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+	#Fallback
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_catholic_01.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_early_cathedral.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_early_cathedral_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+}
+
+admin_office_main_02 = {
+	slot_type = main
+	internal_slots = 3
+	construction_time = @admin_office_construction_time_main
+	allowed_domicile_types = { admin_office }
+	previous_building = admin_office_main_01
+
+	can_construct = {
+		custom_tooltip = {
+			text = admin_office_main_02_upgrade_required
+			domicile.domicile_location = {
+				has_building_or_higher = great_project_cathedral_01
+			}
+		}
+	}
+
+	parameters = {
+		estate_easier_sway_to_rite_1 = yes
+	}
+
+	character_modifier = {
+		piety_standalone_gain_mult = @admin_office_piety_standalone_mini
+		domicile_monthly_gold_add = @admin_office_main_domicile_monthly_gold_add_2
+		domicile_monthly_piety_add = @admin_office_domicile_monthly_piety_add_main_02
+		domicile_monthly_prestige_add = @admin_office_domicile_monthly_prestige_add_2
+		monthly_county_control_growth_factor = @admin_office_monthly_county_control_growth_factor_3
+		clergy_opinion = @admin_office_clergy_opinion
+		monthly_piety_gain_mult = @admin_office_monthly_piety_gain_mult_main_02
+		piety_level_impact_mult = @admin_office_piety_level_impact_mult_main
+		same_faith_opinion = @admin_office_same_faith_opinion_main
+		holy_order_hire_cost_mult = @admin_office_holy_order_hire_cost_mult_main
+	}
+
+	province_modifier = {
+		church_holding_build_speed = @admin_office_church_holding_build_speed
+		church_holding_build_gold_cost = @admin_office_church_holding_build_gold_cost
+		development_growth = @admin_office_development_growth
+		monthly_income = @admin_office_monthly_income
+		tax_mult = @admin_office_tax_mult
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	#Western
+	asset = {
+		trigger = {
+			domicile_location.county.rite = {
+				rite_has_doctrine = special_doctrine_is_western_christian_faith
+			}
+		}
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_catholic_02.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_high_cathedral.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_high_cathedral_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+	#Eastern
+	asset = {
+		trigger = {
+			domicile_location.county.rite = {
+				rite_has_doctrine = special_doctrine_is_eastern_christian_faith
+			}
+		}
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_orthodox_02.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_high_cathedral_orthodox.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_high_cathedral_orthodox_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+	#Fallback
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_catholic_02.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_high_cathedral.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_high_cathedral_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+}
+
+admin_office_main_03 = {
+	slot_type = main
+	internal_slots = 4
+	construction_time = @admin_office_construction_time_main
+	allowed_domicile_types = { admin_office }
+	previous_building = admin_office_main_02
+
+	can_construct = {
+		custom_tooltip = {
+			text = admin_office_main_03_upgrade_required
+			domicile.domicile_location = {
+				has_building_or_higher = great_project_cathedral_02
+			}
+		}
+
+	}
+
+	parameters = {
+		estate_easier_sway_to_rite_1 = yes
+		estate_cathedral_awe_1 = yes
+	}
+
+	character_modifier = {
+		rite_creation_piety_cost_mult = @admin_office_rite_creation_cost_main
+		piety_standalone_gain_mult = @admin_office_piety_standalone_mini
+		domicile_monthly_gold_add = @admin_office_main_domicile_monthly_gold_add_2
+		domicile_monthly_piety_add = @admin_office_domicile_monthly_piety_add_main_03
+		domicile_monthly_prestige_add = @admin_office_domicile_monthly_prestige_add_2
+		monthly_county_control_growth_factor = @admin_office_monthly_county_control_growth_factor_3
+		clergy_opinion = @admin_office_clergy_opinion
+		monthly_piety_gain_mult = @admin_office_monthly_piety_gain_mult_main_03
+		learning_per_piety_level = @admin_office_learning_per_piety_level_main
+		monthly_lifestyle_xp_gain_mult = @admin_office_monthly_lifestyle_xp_gain_mult_main
+	}
+
+	province_modifier = {
+		church_holding_build_speed = @admin_office_church_holding_build_speed
+		church_holding_build_gold_cost = @admin_office_church_holding_build_gold_cost
+		development_growth = @admin_office_development_growth
+		development_growth_factor = @admin_office_development_growth_factor_main
+		monthly_income = @admin_office_monthly_income
+		tax_mult = @admin_office_tax_mult
+		fort_level = good_building_fort_level_tier_1
+	}
+	ai_value = {
+		value = 100
+	}
+
+	#Western
+	asset = {
+		trigger = {
+			domicile_location.county.rite = {
+				rite_has_doctrine = special_doctrine_is_western_christian_faith
+			}
+		}
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_catholic_03.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+	#Eastern
+	asset = {
+		trigger = {
+			domicile_location.county.rite = {
+				rite_has_doctrine = special_doctrine_is_eastern_christian_faith
+			}
+		}
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_orthodox_03.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral_orthodox.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral_orthodox_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+	#Fallback
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_catholic_03.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+}
+
+admin_office_main_04 = {
+	slot_type = main
+	internal_slots = 5
+	construction_time = @admin_office_construction_time_main
+	allowed_domicile_types = { admin_office }
+	previous_building = admin_office_main_03
+
+	can_construct = {
+		custom_tooltip = {
+			text = admin_office_main_04_upgrade_required
+			domicile.domicile_location = {
+				has_building_or_higher = great_project_cathedral_03
+			}
+		}
+	}
+
+	parameters = {
+		estate_easier_sway_to_rite_2 = yes
+		estate_cathedral_awe_2 = yes
+	}
+
+	character_modifier = {
+		rite_creation_piety_cost_mult = @admin_office_rite_creation_cost_main
+		piety_standalone_gain_mult = @admin_office_piety_standalone_mini
+		domicile_monthly_gold_add = @admin_office_main_domicile_monthly_gold_add_2
+		domicile_monthly_piety_add = @admin_office_domicile_monthly_piety_add_main_04
+		domicile_monthly_prestige_add = @admin_office_domicile_monthly_prestige_add_main_04
+		monthly_county_control_growth_factor = @admin_office_monthly_county_control_growth_factor_3
+		clergy_opinion = @admin_office_clergy_opinion
+		piety_level_impact_mult = @admin_office_piety_level_impact_mult_main
+		monthly_treasury_from_vassals_mult = @admin_office_treasury_from_vassals_mult_main
+		diplomacy_per_piety_level = @admin_office_diplomacy_per_piety_level_main
+		stewardship_per_piety_level = @admin_office_stewardship_per_piety_level_main
+		attraction_opinion = @admin_office_attraction_opinion_main
+	}
+
+	province_modifier = {
+		church_holding_build_speed = @admin_office_church_holding_build_speed
+		church_holding_build_gold_cost = @admin_office_church_holding_build_gold_cost
+		development_growth = @admin_office_development_growth
+		development_growth_factor = @admin_office_development_growth_factor_main
+		monthly_income = @admin_office_monthly_income
+		tax_mult = @admin_office_tax_mult_main_04
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	#Western
+	asset = {
+		trigger = {
+			domicile_location.county.rite = {
+				rite_has_doctrine = special_doctrine_is_western_christian_faith
+			}
+		}
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_catholic_03.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+	#Eastern
+	asset = {
+		trigger = {
+			domicile_location.county.rite = {
+				rite_has_doctrine = special_doctrine_is_eastern_christian_faith
+			}
+		}
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_orthodox_03.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral_orthodox.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral_orthodox_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+	#Fallback
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_building_church_main_catholic_03.dds"
+		texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/church_estate_building_late_cathedral_mask.png"
+		soundeffect = "event:/DLC/EP3/SFX/UI/domicile_buildings/ep3_ui_domicile_buildings_temple_large"
+	}
+}

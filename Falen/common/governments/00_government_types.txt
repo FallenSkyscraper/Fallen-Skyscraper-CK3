@@ -37,7 +37,7 @@ feudal_government = {
 	mechanic_type = feudal
 	is_mechanic_type_default = yes
 
-	possible_grant_vassal_governments = { theocracy_government ecclesiastical_government }
+	possible_grant_vassal_governments = { theocracy_government ecclesiastical_government koreanism_government }
 
 	# Grant candidate for nomads and herders who want to settle
 	grant_vassal_ai_will_do = {
@@ -47,7 +47,7 @@ feudal_government = {
 				pam_nomad_grant_settled_government_trigger = yes
 				faith = {
 					NOR = {
-						religion = religion:islam_religion
+						religion = religion:confucianism_religion
 						has_doctrine_parameter = unreformed
 					}
 				}
@@ -549,7 +549,7 @@ administrative_government = {
 	mechanic_type = administrative
 	is_mechanic_type_default = yes
 
-	possible_grant_vassal_governments = { theocracy_government ecclesiastical_government }
+	possible_grant_vassal_governments = { theocracy_government ecclesiastical_government koreanism_government }
 
 	color = { 72 6 92 }
 	realm_mask_offset = { 0.0 0.01 }
@@ -911,7 +911,7 @@ celestial_government = {
 		merit = 9
 	}
 
-	possible_grant_vassal_governments = { theocracy_government ecclesiastical_government }
+	possible_grant_vassal_governments = { theocracy_government ecclesiastical_government koreanism_government }
 
 	color = { 250 230 10 }
 	realm_mask_offset = { 0.0 0.1 }
@@ -1228,7 +1228,7 @@ steppe_admin_government = {
 		has_tgp_dlc_trigger = yes
 	}
 
-	possible_grant_vassal_governments = { theocracy_government ecclesiastical_government }
+	possible_grant_vassal_governments = { theocracy_government ecclesiastical_government koreanism_government }
 
 	color = { 255 110 40 }
 	realm_mask_offset = { 0.0 0.2 }
@@ -1350,7 +1350,7 @@ meritocratic_government = { # e.g. Korea, Dai Viet
 		merit = 5
 	}
 
-	possible_grant_vassal_governments = { theocracy_government ecclesiastical_government }
+	possible_grant_vassal_governments = { theocracy_government ecclesiastical_government koreanism_government }
 
 	color = { 250 100 0 }
 	realm_mask_offset = { 0.0 0.12 }

@@ -1,0 +1,46 @@
+﻿# Province scope. Keep the cathedral's automatic main-building upgrades for offices.
+on_building_completed = {
+	on_actions = {
+		fs_admin_office_cathedral_completed_on_action
+	}
+}
+
+fs_admin_office_cathedral_completed_on_action = {
+	trigger = {
+		OR = {
+			has_building = great_project_cathedral_01
+			has_building = great_project_cathedral_02
+			has_building = great_project_cathedral_03
+		}
+	}
+	effect = {
+		every_province_domicile = {
+			limit = {
+				is_domicile_type = admin_office
+				exists = owner
+				owner = { has_government = koreanism_government }
+			}
+			if = {
+				limit = {
+					domicile_location = { has_building = great_project_cathedral_03 }
+					NOT = { has_domicile_building_or_higher = admin_office_main_04 }
+				}
+				add_animate_domicile_building = admin_office_main_04
+			}
+			else_if = {
+				limit = {
+					domicile_location = { has_building = great_project_cathedral_02 }
+					NOT = { has_domicile_building_or_higher = admin_office_main_03 }
+				}
+				add_animate_domicile_building = admin_office_main_03
+			}
+			else_if = {
+				limit = {
+					domicile_location = { has_building = great_project_cathedral_01 }
+					NOT = { has_domicile_building_or_higher = admin_office_main_02 }
+				}
+				add_animate_domicile_building = admin_office_main_02
+			}
+		}
+	}
+}

@@ -202,8 +202,344 @@ d_cd_seoul = {
 	allow_domicile = no
 	destroy_on_succession = yes
 	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
 }
-# Proportianal Seats ( Now 7 )
+d_cd_gyeonggi_a = {
+	color = { 200 200 200 }
+	capital = c_suwon
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_gyeonggi_b = {
+	color = { 200 200 200 }
+	capital = c_seongnam
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_gyeonggi_c = {
+	color = { 200 200 200 }
+	capital = c_goyang
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_gyeonggi_d = {
+	color = { 200 200 200 }
+	capital = c_gaeseong
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_gangwon_a = {
+	color = { 200 200 200 }
+	capital = c_chuncheon
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_gangwon_b = {
+	color = { 200 200 200 }
+	capital = c_gangneung
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_gyeongnam_a = {
+	color = { 200 200 200 }
+	capital = c_gimhae
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_gyeongnam_b = {
+	color = { 200 200 200 }
+	capital = c_changwon
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_busan_a = {
+	color = { 200 200 200 }
+	capital = c_busan
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_busan_b = {
+	color = { 200 200 200 }
+	capital = c_dongrae
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_incheon = {
+	color = { 200 200 200 }
+	capital = c_incheon
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_chungnam = {
+	color = { 200 200 200 }
+	capital = c_hongju
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_chungbuk = {
+	color = { 200 200 200 }
+	capital = c_cheongju
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_sejong = {
+	color = { 200 200 200 }
+	capital = c_yeongi
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_daejeon = {
+	color = { 200 200 200 }
+	capital = c_daejeon
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_gyeongbuk = {
+	color = { 200 200 200 }
+	capital = c_andong
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_daegu = {
+	color = { 200 200 200 }
+	capital = c_daegu
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_jeonnam = {
+	color = { 200 200 200 }
+	capital = c_mokpo
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_jeonbuk = {
+	color = { 200 200 200 }
+	capital = c_jeonju
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_gwangju = {
+	color = { 200 200 200 }
+	capital = c_gwangju
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_jeju = {
+	color = { 200 200 200 }
+	capital = c_jeju
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+d_cd_ulsan = {
+	color = { 200 200 200 }
+	capital = c_ulsan
+	landless = yes
+	allow_domicile = no
+	destroy_on_succession = yes
+	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
+}
+
+# Proportional Seats (7)
 d_cd_prop_1 = {
 	color = { 200 200 200 }
 	capital = c_yeongi
@@ -211,6 +547,12 @@ d_cd_prop_1 = {
 	allow_domicile = no
 	destroy_on_succession = yes
 	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
 }
 d_cd_prop_2 = {
 	color = { 200 200 200 }
@@ -219,6 +561,12 @@ d_cd_prop_2 = {
 	allow_domicile = no
 	destroy_on_succession = yes
 	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
 }
 d_cd_prop_3 = {
 	color = { 200 200 200 }
@@ -227,6 +575,12 @@ d_cd_prop_3 = {
 	allow_domicile = no
 	destroy_on_succession = yes
 	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
 }
 d_cd_prop_4 = {
 	color = { 200 200 200 }
@@ -235,6 +589,12 @@ d_cd_prop_4 = {
 	allow_domicile = no
 	destroy_on_succession = yes
 	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
 }
 d_cd_prop_5 = {
 	color = { 200 200 200 }
@@ -243,6 +603,12 @@ d_cd_prop_5 = {
 	allow_domicile = no
 	destroy_on_succession = yes
 	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
 }
 d_cd_prop_6 = {
 	color = { 200 200 200 }
@@ -251,6 +617,12 @@ d_cd_prop_6 = {
 	allow_domicile = no
 	destroy_on_succession = yes
 	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
 }
 d_cd_prop_7 = {
 	color = { 200 200 200 }
@@ -259,4 +631,10 @@ d_cd_prop_7 = {
 	allow_domicile = no
 	destroy_on_succession = yes
 	no_automatic_claims = yes
+	can_create = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_creation_tt always = no }
+	}
+	can_destroy = {
+		custom_tooltip = { text = fs_parliament_fixed_seat_destruction_tt always = no }
+	}
 }

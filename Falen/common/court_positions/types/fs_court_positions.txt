@@ -1,7 +1,8 @@
-court_researcher_court_position = { # FP3
+﻿court_researcher_court_position = { # FP3
 	sort_order = 500
 	max_available_positions = 1
 	minimum_rank = duchy
+	skill = learning
 
 	court_position_asset = {
 		animation = page_flipping
@@ -42,10 +43,10 @@ court_researcher_court_position = { # FP3
 			}
 		}
 		if = {
-			limit = { has_trait = scholar }
+			limit = { has_trait = erudite }
 			add = {
 				value = 15
-				desc = court_position_scholar_trait
+				desc = court_position_erudite_trait
 			}
 		}
 		if = {
@@ -157,7 +158,7 @@ court_researcher_court_position = { # FP3
 		}
 		if = {
 			limit = {
-				faith = { has_tenet = tenet_inquiry_into_knowledge }
+				rite = { rite_has_tenet = tenet_inquiry_into_knowledge }
 			}
 			add = {
 				value = 10
@@ -170,7 +171,7 @@ court_researcher_court_position = { # FP3
 		add = court_position_aptitude_low_penalty_value
 		# Bonus from court.8311
 		if = {
-			limit = { var:bonus_aptitude_role ?= flag:court_scholar }
+			limit = { var:bonus_aptitude_role ?= flag:court_researcher }
 			add = {
 				value = cp_bonus_aptitude_value
 				desc = cp_bonus_aptitude
@@ -203,7 +204,7 @@ court_researcher_court_position = { # FP3
 	}
 
 	is_shown = {
-		is_landed_or_landless_administrative = yes
+		is_landed_or_landless_administrative_or_theocratic = yes
 		trigger_if = {
 			limit = {
 				is_ai = yes
@@ -215,9 +216,9 @@ court_researcher_court_position = { # FP3
 
 	# Only Kingdoms+ can attract prominent enough scholars
 	valid_position = {
-		is_landed_or_landless_administrative = yes
+		is_landed_or_landless_administrative_or_theocratic = yes
 		highest_held_title_tier >= tier_duchy
-		faith = { NOT = { religion = religion:naturalism_religion } }
+		rite.faith = { NOT = { religion = religion:naturalism_religion } }
 	}
 
 	valid_character = {
@@ -233,7 +234,7 @@ court_researcher_court_position = { # FP3
 			if = {
 				limit = {
 					court_position_obligation_hook_salary_trigger = {
-						POS = court_scholar
+						POS = court_researcher
 						LIEGE = root
 					}
 				}
@@ -414,7 +415,7 @@ court_researcher_court_position = { # FP3
 	}
 
 	modifier = {
-		stress_gain = 0.2
+		stress_gain_mult = 0.2
 		monthly_learning_lifestyle_xp_gain_mult = 0.2
 	}
 
@@ -434,14 +435,11 @@ court_researcher_court_position = { # FP3
 	}
 
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
-	candidate_score = {
+	ai_position_score = {
 		value = 50
-		add = scope:base_value
-		add = court_position_candidate_score_base_value
-		add = court_position_candidate_aptitude_value
 		scope:liege = {
 			if = {
-				limit = { has_trait = scholar }
+				limit = { has_trait = erudite }
 				add = 25
 			}
 			if = {
@@ -455,6 +453,13 @@ court_researcher_court_position = { # FP3
 				add = 100
 			}
 		}
+		add = court_position_debt_considerations_value
+	}
+	ai_candidate_score = {
+		value = 50
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		add = court_position_candidate_aptitude_value
 		if = {
 			limit = {
 				exists = scope:firing_court_position
@@ -476,6 +481,5 @@ court_researcher_court_position = { # FP3
 			}
 			add = 1000
 		}
-		add = court_position_debt_considerations_value
 	}
 }

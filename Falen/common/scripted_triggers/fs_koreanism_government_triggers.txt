@@ -1,0 +1,9 @@
+﻿# Character scope: holders of Koreanism's presidential, regional or parliamentary offices.
+fs_koreanism_public_office_holder_trigger = {
+	faith = faith:koreanism_faith
+	OR = {
+		has_title = title:k_koreanism
+		exists = clerical_elector_title
+		any_held_title = { has_clerical_region = yes }
+	}
+}
