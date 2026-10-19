@@ -6,9 +6,28 @@ fs_grant_koreanism_parliament_seat_effect = {
 			exists = title:k_koreanism.holder
 			exists = $SEAT$
 			title:k_koreanism.holder ?= { fs_koreanism_parliament_president_trigger = yes }
+			$SEAT$ ?= { fs_koreanism_appointable_parliament_seat_trigger = yes }
+		}
+		fs_apply_koreanism_parliament_seat_effect = { SEAT = $SEAT$ }
+	}
+}
+
+# Internal transfer shared by authorized appointments and elections.
+# Callers validate their own authority/reservation. Do not invoke directly from UI.
+fs_apply_koreanism_parliament_seat_effect = {
+	if = {
+		limit = {
+			fs_koreanism_parliament_candidate_trigger = yes
+			exists = $SEAT$
 			$SEAT$ ?= { fs_koreanism_vacant_parliament_seat_trigger = yes }
 		}
 		save_scope_as = fs_parliament_recipient
+		save_scope_as = fs_parliament_government_base
+		# Elections do not depend on the president being available or consenting.
+		if = {
+			limit = { exists = title:k_koreanism.holder }
+			title:k_koreanism.holder = { save_scope_as = fs_parliament_government_base }
+		}
 		$SEAT$ = {
 			save_scope_as = fs_parliament_seat
 			if = {
@@ -29,7 +48,7 @@ fs_grant_koreanism_parliament_seat_effect = {
 			change_title_holder = {
 				holder = scope:fs_parliament_recipient
 				change = scope:fs_parliament_change
-				government_base = title:k_koreanism.holder
+				government_base = scope:fs_parliament_government_base
 			}
 			resolve_title_and_vassal_change = scope:fs_parliament_change
 		}

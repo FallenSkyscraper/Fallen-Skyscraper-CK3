@@ -1,0 +1,51 @@
+# Compact phase guidance uses the same slot as the examination progress widget.
+widget = {
+	name = "fs_constituency_progress"
+	datacontext = "[ActivityWindow.GetActivity]"
+	visible = "[Not(Activity.MakeScope.Var('fs_constituency_resolved').IsSet)]"
+	size = { 270 76 }
+	vbox = {
+		layoutpolicy_horizontal = expanding
+		spacing = 4
+		hbox = {
+			spacing = 6
+			text_single = { text = "fs_constituency_scoreboard_round" using = Font_Size_Small }
+			button_standard = {
+				size = { 104 28 }
+				text = "fs_constituency_toggle_candidates"
+				down = "[Not(GetVariableSystem.Exists('fs_constituency_scoreboard_hidden'))]"
+				onclick = "[GetVariableSystem.Toggle('fs_constituency_scoreboard_hidden')]"
+				tooltip = "fs_constituency_participation_rewards"
+				using = tooltip_se
+			}
+		}
+		text_multi = {
+			visible = "[EqualTo_CFixedPoint(Activity.MakeScope.Var('fs_constituency_round').GetValue, '(CFixedPoint)0')]"
+			text = "fs_constituency_progress_assembly"
+			max_width = 250
+			autoresize = yes
+			using = Font_Size_Small
+		}
+		text_multi = {
+			visible = "[EqualTo_CFixedPoint(Activity.MakeScope.Var('fs_constituency_round').GetValue, '(CFixedPoint)1')]"
+			text = "fs_constituency_progress_canvassing"
+			max_width = 250
+			autoresize = yes
+			using = Font_Size_Small
+		}
+		text_multi = {
+			visible = "[EqualTo_CFixedPoint(Activity.MakeScope.Var('fs_constituency_round').GetValue, '(CFixedPoint)2')]"
+			text = "fs_constituency_progress_manifesto"
+			max_width = 250
+			autoresize = yes
+			using = Font_Size_Small
+		}
+		text_multi = {
+			visible = "[EqualTo_CFixedPoint(Activity.MakeScope.Var('fs_constituency_round').GetValue, '(CFixedPoint)3')]"
+			text = "fs_constituency_progress_debate"
+			max_width = 250
+			autoresize = yes
+			using = Font_Size_Small
+		}
+	}
+}

@@ -1,5 +1,5 @@
 ﻿uji_minamoto = {
-	fame = yes
+	category = fame
 	
 	ruler_designer_cost = 25
 
@@ -18,7 +18,7 @@
 	inherit_from_real_father = no
 }
 uji_taira = {
-	fame = yes
+	category = fame
 	
 	ruler_designer_cost = 25
 
@@ -37,7 +37,7 @@ uji_taira = {
 	inherit_from_real_father = no
 }
 uji_fujiwara = {
-	fame = yes
+	category = fame
 	
 	ruler_designer_cost = 25
 
@@ -56,7 +56,7 @@ uji_fujiwara = {
 	inherit_from_real_father = no
 }
 uji_tachibana = {
-	fame = yes
+	category = fame
 	
 	ruler_designer_cost = 25
 
@@ -75,7 +75,7 @@ uji_tachibana = {
 	inherit_from_real_father = no
 }
 paektu = {
-	fame = yes
+	category = fame
 	
 	ruler_designer_cost = 50
 	juche_religion_opinion = 50
@@ -95,7 +95,7 @@ paektu = {
 	inherit_from_real_father = no
 }
 marine = {
-	fame = yes
+	category = fame
 	
 	ruler_designer_cost = 30
 	same_opinion = 30
@@ -111,20 +111,28 @@ marine = {
 	}
 }
 hec_reformist = {
-	fame = yes
+	category = fame
 	same_opinion = 5
 }
 hec_religious = {
-	fame = yes
+	category = fame
 	same_opinion = 5
 }
 hec_conservative = {
-	fame = yes
+	category = fame
 	same_opinion = 5
 }
 
 six_leader = {
-  fame = yes
+  category = fame
   
   desc = trait_six_leader_characte.desc
+}
+fs_election_offender = {
+	category = fame
+	shown_in_ruler_designer = no
+	triggered_opinion = {
+		parameter = fs_election_fraud_illegal
+		opinion_modifier = fs_election_offender_crime
+	}
 }

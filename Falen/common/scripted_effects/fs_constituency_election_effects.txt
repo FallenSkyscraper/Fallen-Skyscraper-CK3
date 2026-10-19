@@ -1,0 +1,443 @@
+﻿# Activity scope. Recheck at creation: two planners may have selected the same vacancy.
+fs_constituency_initialize_effect = {
+	if = {
+		limit = {
+			NOT = { has_variable = fs_constituency_seat }
+			NOT = { has_variable = fs_constituency_resolved }
+		}
+		# The selected option supplies its title directly in its on_start callback.
+		# Do not depend on has_activity_option while creation is still assembling options.
+		set_variable = { name = fs_constituency_seat value = $SEAT$ }
+		set_variable = { name = fs_constituency_round value = 0 }
+		if = {
+			limit = {
+				scope:host = { fs_constituency_can_host_seat_trigger = { SEAT = $SEAT$ } }
+			}
+			$SEAT$ = {
+				set_variable = { name = fs_constituency_election_activity value = scope:activity }
+			}
+		}
+	}
+	# A failed creation is invalidated by is_valid without disturbing the other activity.
+}
+
+# Host scope. Called separately for every scripted phase during planning.
+# Resolve the fixed capital county directly, even when the landless MP title does not exist.
+# The planner reads the saved province; planning must not reserve or initialize a seat.
+fs_constituency_select_venue_effect = {
+	if = {
+		limit = { exists = scope:special_option }
+		if = {
+			limit = { scope:special_option = flag:fs_constituency_seoul }
+			title:c_jongno.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_gyeonggi_a }
+			title:c_suwon.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_gyeonggi_b }
+			title:c_seongnam.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_gyeonggi_c }
+			title:c_goyang.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_gyeonggi_d }
+			title:c_gaeseong.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_gangwon_a }
+			title:c_chuncheon.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_gangwon_b }
+			title:c_gangneung.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_gyeongnam_a }
+			title:c_gimhae.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_gyeongnam_b }
+			title:c_changwon.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_busan_a }
+			title:c_busan.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_busan_b }
+			title:c_dongrae.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_incheon }
+			title:c_incheon.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_chungnam }
+			title:c_hongju.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_chungbuk }
+			title:c_cheongju.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_sejong }
+			title:c_yeongi.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_daejeon }
+			title:c_daejeon.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_gyeongbuk }
+			title:c_andong.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_daegu }
+			title:c_daegu.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_jeonnam }
+			title:c_mokpo.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_jeonbuk }
+			title:c_jeonju.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_gwangju }
+			title:c_gwangju.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_jeju }
+			title:c_jeju.title_province = { save_scope_as = province }
+		}
+		else_if = {
+			limit = { scope:special_option = flag:fs_constituency_ulsan }
+			title:c_ulsan.title_province = { save_scope_as = province }
+		}
+	}
+}
+
+# Character scope. Only the state belonging to ACTIVITY may be erased.
+fs_constituency_clear_candidate_effect = {
+	if = {
+		limit = { var:fs_constituency_candidate_activity = $ACTIVITY$ }
+		remove_variable = fs_constituency_candidate_activity
+		remove_variable = fs_constituency_candidate_round
+		remove_variable = fs_constituency_round_skill
+		remove_variable = fs_constituency_score
+		remove_variable = fs_constituency_first_done
+		remove_variable = fs_constituency_second_done
+		remove_variable = fs_constituency_disqualified
+		remove_variable = fs_constituency_fraud_disqualified
+		remove_variable = fs_constituency_fraud_method
+	}
+}
+
+# Activity scope. Freeze only candidates physically present at the start of the first phase.
+fs_constituency_freeze_candidates_effect = {
+	if = {
+		limit = { NOT = { has_variable = fs_constituency_roster_frozen } }
+		set_variable = { name = fs_constituency_roster_frozen value = yes }
+		every_attending_character = {
+			limit = {
+				has_activity_intent = fs_constituency_candidate_intent
+				fs_constituency_candidate_for_seat_trigger = { SEAT = scope:activity.var:fs_constituency_seat }
+				involved_activity = scope:activity
+				location = scope:activity.activity_location
+			}
+			# A character can only attend one activity. Reset any previous round's state.
+			remove_variable = fs_constituency_disqualified
+			remove_variable = fs_constituency_fraud_disqualified
+			remove_variable = fs_constituency_fraud_method
+			remove_variable = fs_constituency_first_done
+			remove_variable = fs_constituency_second_done
+			set_variable = { name = fs_constituency_candidate_activity value = scope:activity }
+			set_variable = { name = fs_constituency_score value = fs_constituency_initial_score_value }
+			save_scope_as = fs_constituency_candidate
+			scope:activity = {
+				add_to_variable_list = { name = fs_constituency_candidates target = scope:fs_constituency_candidate }
+			}
+			fs_constituency_offer_integrity_choice_effect = yes
+		}
+	}
+}
+
+# Activity scope. Once disqualified, a candidate cannot re-enter this frozen ballot.
+fs_constituency_prune_candidates_effect = {
+	every_in_list = {
+		variable = fs_constituency_candidates
+		limit = {
+			is_alive = yes
+			var:fs_constituency_candidate_activity = scope:activity
+			NOT = { fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity } }
+		}
+		set_variable = { name = fs_constituency_disqualified value = yes }
+	}
+}
+
+# Activity scope. The event context carries the exact activity and round across delays.
+fs_constituency_start_round_effect = {
+	if = {
+		limit = {
+			fs_constituency_running_activity_trigger = yes
+			var:fs_constituency_round < $ROUND$
+		}
+		# Close the preceding round even if its per-host on_end callback was skipped.
+		fs_constituency_close_round_effect = yes
+		fs_constituency_freeze_candidates_effect = yes
+		fs_constituency_prune_candidates_effect = yes
+		set_variable = { name = fs_constituency_round value = $ROUND$ }
+		fs_constituency_start_fraud_round_effect = yes
+		save_scope_as = fs_constituency_event_activity
+		save_scope_value_as = { name = fs_constituency_observer_round value = $ROUND$ }
+		save_scope_value_as = { name = fs_constituency_log_round value = $ROUND$ }
+		add_activity_log_entry = {
+			key = fs_constituency_round_started
+			character = scope:host
+			location = scope:activity.activity_location
+			score = 10
+			tags = { activity }
+		}
+		every_attending_character = {
+			limit = {
+				is_alive = yes
+				location = scope:activity.activity_location
+				NOT = { fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity } }
+			}
+			trigger_event = fs_constituency_election.10
+		}
+		every_in_list = {
+			variable = fs_constituency_candidates
+			limit = { fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity } }
+			# Guest subsets are per phase; rebuild the visible roster when each round activates.
+			save_scope_as = fs_constituency_candidate
+			scope:activity = { add_to_guest_subset = { name = fs_constituency_contestants target = scope:fs_constituency_candidate } }
+			set_variable = { name = fs_constituency_candidate_round value = $ROUND$ }
+			set_variable = { name = fs_constituency_round_skill value = $SKILL$ }
+			remove_variable = fs_constituency_first_done
+			remove_variable = fs_constituency_second_done
+			if = {
+				limit = { scope:activity = { var:fs_constituency_round = 1 } }
+				trigger_event = fs_constituency_election.20
+			}
+			trigger_event = $FIRST$
+			trigger_event = { id = $SECOND$ days = fs_constituency_second_event_days }
+		}
+		progress_activity_phase_after = { days = fs_constituency_phase_days }
+	}
+}
+
+# Activity scope. Resolve unanswered windows with the safe choice before closing a round.
+fs_constituency_close_round_effect = {
+	if = {
+		limit = { NOT = { has_variable = fs_constituency_resolved } }
+		fs_constituency_close_fraud_round_effect = yes
+		fs_constituency_prune_candidates_effect = yes
+		every_in_list = {
+			variable = fs_constituency_candidates
+			limit = {
+				fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity }
+				var:fs_constituency_candidate_round = scope:activity.var:fs_constituency_round
+			}
+			if = {
+				limit = { NOT = { has_variable = fs_constituency_first_done } }
+				set_variable = { name = fs_constituency_first_done value = yes }
+				change_variable = { name = fs_constituency_score add = fs_constituency_safe_gain }
+			}
+			if = {
+				limit = { NOT = { has_variable = fs_constituency_second_done } }
+				set_variable = { name = fs_constituency_second_done value = yes }
+				change_variable = { name = fs_constituency_score add = fs_constituency_safe_gain }
+			}
+		}
+		if = {
+			limit = {
+				var:fs_constituency_round > 0
+				OR = {
+					NOT = { has_variable = fs_constituency_closed_round }
+					var:fs_constituency_closed_round < var:fs_constituency_round
+				}
+			}
+			set_variable = { name = fs_constituency_closed_round value = var:fs_constituency_round }
+			save_scope_value_as = { name = fs_constituency_log_round value = var:fs_constituency_round }
+			add_activity_log_entry = {
+				key = fs_constituency_round_closed
+				character = scope:host
+				location = scope:activity.activity_location
+				score = 15
+				tags = { activity }
+			}
+		}
+	}
+}
+
+# Character scope. Every option rechecks its round after the player answers.
+fs_constituency_safe_choice_effect = {
+	if = {
+		limit = { fs_constituency_current_event_trigger = { ROUND = $ROUND$ DONE = $DONE$ } }
+		set_variable = { name = $DONE$ value = yes }
+		change_variable = { name = fs_constituency_score add = fs_constituency_safe_gain }
+		if = { limit = { scope:fs_constituency_event_activity = { has_variable = fs_constituency_fraud_rules } } fs_constituency_safe_stress_effect = yes }
+		fs_constituency_record_choice_effect = { GAIN = fs_constituency_safe_gain LOG = fs_constituency_safe_speech }
+	}
+}
+
+fs_constituency_expert_choice_effect = {
+	if = {
+		limit = { fs_constituency_current_event_trigger = { ROUND = $ROUND$ DONE = $DONE$ } }
+		set_variable = { name = $DONE$ value = yes }
+		if = { limit = { scope:fs_constituency_event_activity = { has_variable = fs_constituency_fraud_rules } } fs_constituency_expert_stress_effect = yes }
+		random_list = {
+			0 = {
+				modifier = { add = fs_constituency_expert_chance_value }
+				change_variable = { name = fs_constituency_score add = fs_constituency_expert_gain }
+				fs_constituency_record_choice_effect = { GAIN = fs_constituency_expert_gain LOG = fs_constituency_expert_success }
+			}
+			0 = {
+				modifier = { add = fs_constituency_expert_failure_chance_value }
+				change_variable = { name = fs_constituency_score add = fs_constituency_expert_failure_gain }
+				fs_constituency_record_choice_effect = { GAIN = fs_constituency_expert_failure_gain LOG = fs_constituency_expert_failure }
+			}
+		}
+	}
+}
+
+fs_constituency_risk_choice_effect = {
+	if = {
+		limit = { fs_constituency_current_event_trigger = { ROUND = $ROUND$ DONE = $DONE$ } }
+		set_variable = { name = $DONE$ value = yes }
+		if = { limit = { scope:fs_constituency_event_activity = { has_variable = fs_constituency_fraud_rules } } fs_constituency_risk_stress_effect = yes }
+		random_list = {
+			0 = {
+				modifier = { add = fs_constituency_risk_chance_value }
+				change_variable = { name = fs_constituency_score add = fs_constituency_risk_gain }
+				fs_constituency_record_choice_effect = { GAIN = fs_constituency_risk_gain LOG = fs_constituency_risk_success }
+			}
+			0 = {
+				modifier = { add = fs_constituency_risk_failure_chance_value }
+				change_variable = { name = fs_constituency_score add = fs_constituency_risk_failure_gain }
+				fs_constituency_record_choice_effect = { GAIN = fs_constituency_risk_failure_gain LOG = fs_constituency_risk_failure }
+			}
+		}
+	}
+}
+
+# Character scope. An election can only fill its own reserved constituency.
+fs_elect_koreanism_constituency_member_effect = {
+	if = {
+		limit = {
+			fs_constituency_registered_candidate_trigger = { ACTIVITY = $ACTIVITY$ }
+			$ACTIVITY$ = {
+				NOT = { has_variable = fs_constituency_resolved }
+				var:fs_constituency_seat = $SEAT$
+			}
+			$SEAT$ = {
+				fs_koreanism_constituency_parliament_seat_trigger = yes
+				fs_koreanism_vacant_parliament_seat_trigger = yes
+				var:fs_constituency_election_activity = $ACTIVITY$
+			}
+		}
+		fs_apply_koreanism_parliament_seat_effect = { SEAT = $SEAT$ }
+	}
+}
+
+# Activity scope. A stale cancellation must never release a newer election's reservation.
+fs_constituency_release_seat_effect = {
+	var:fs_constituency_seat ?= {
+		if = {
+			limit = { var:fs_constituency_election_activity = scope:activity }
+			remove_variable = fs_constituency_election_activity
+		}
+	}
+}
+
+# Activity scope. Keep immutable winner/score snapshots for the conclusion screen.
+fs_constituency_cleanup_effect = {
+	fs_constituency_release_seat_effect = yes
+	fs_constituency_cleanup_fraud_effect = yes
+	every_in_list = {
+		variable = fs_constituency_candidates
+		limit = { is_alive = yes }
+		fs_constituency_clear_candidate_effect = { ACTIVITY = scope:activity }
+	}
+	clear_variable_list = fs_constituency_candidates
+}
+
+# Character scope, called before candidate cleanup so former attendees also receive results.
+fs_constituency_notify_result_effect = {
+	fs_constituency_present_result_effect = yes
+}
+
+# Activity scope. The completion callback runs for each attendee; resolve the ballot once.
+fs_constituency_finalize_effect = {
+	if = {
+		limit = { NOT = { has_variable = fs_constituency_resolved } }
+		if = {
+			limit = { fs_constituency_running_activity_trigger = yes }
+			fs_constituency_close_round_effect = yes
+			fs_constituency_capture_final_candidates_effect = yes
+			ordered_in_list = {
+				variable = fs_constituency_candidates
+				limit = { fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity } }
+				order_by = var:fs_constituency_score
+				max = 1
+				check_range_bounds = no
+				save_scope_as = fs_constituency_leader
+			}
+			if = {
+				limit = { exists = scope:fs_constituency_leader }
+				random_in_list = {
+					variable = fs_constituency_candidates
+					limit = {
+						fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity }
+						var:fs_constituency_score = scope:fs_constituency_leader.var:fs_constituency_score
+					}
+					save_scope_as = fs_constituency_winner
+				}
+				scope:fs_constituency_winner = {
+					# Snapshot before title callbacks or cleanup can change candidate state.
+					save_scope_value_as = { name = fs_constituency_winning_score value = var:fs_constituency_score }
+					fs_elect_koreanism_constituency_member_effect = {
+						SEAT = scope:activity.var:fs_constituency_seat
+						ACTIVITY = scope:activity
+					}
+				}
+				if = {
+					limit = { var:fs_constituency_seat = { holder = scope:fs_constituency_winner } }
+					set_variable = { name = fs_constituency_winner value = scope:fs_constituency_winner }
+					set_variable = { name = fs_constituency_winning_score value = scope:fs_constituency_winning_score }
+				}
+			}
+		}
+		set_variable = { name = fs_constituency_resolved value = yes }
+		scope:host = { fs_constituency_notify_result_effect = yes }
+		every_attending_character = { fs_constituency_notify_result_effect = yes }
+		every_in_list = {
+			variable = fs_constituency_candidates
+			limit = { this != scope:host }
+			fs_constituency_notify_result_effect = yes
+		}
+		fs_constituency_cleanup_effect = yes
+	}
+}
+
+fs_constituency_cancel_effect = {
+	if = {
+		limit = { NOT = { has_variable = fs_constituency_resolved } }
+		set_variable = { name = fs_constituency_resolved value = yes }
+		set_variable = { name = fs_constituency_cancelled value = yes }
+		scope:host ?= { fs_constituency_notify_result_effect = yes }
+		every_attending_character = { fs_constituency_notify_result_effect = yes }
+		every_in_list = {
+			variable = fs_constituency_candidates
+			limit = { this != scope:host }
+			fs_constituency_notify_result_effect = yes
+		}
+		fs_constituency_cleanup_effect = yes
+	}
+}

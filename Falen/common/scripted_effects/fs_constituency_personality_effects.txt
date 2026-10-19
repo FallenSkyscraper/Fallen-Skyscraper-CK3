@@ -1,0 +1,62 @@
+﻿# Match each group once; a character with both traits never pays twice.
+# Use the native examination stress/fulfillment boundary, inside response guards.
+
+fs_constituency_unethical_stress_effect = {
+	if = { limit = { OR = { has_trait = honest has_trait = just } } stress_and_fulfillment_impact = { base = fs_constituency_moral_stress } }
+	if = { limit = { OR = { has_trait = deceitful has_trait = arbitrary } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_ethical_stress_effect = {
+	if = { limit = { OR = { has_trait = greedy has_trait = ambitious } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = honest has_trait = just } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_investigate_stress_effect = {
+	if = { limit = { OR = { has_trait = lazy has_trait = shy } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = just has_trait = diligent } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_ignore_stress_effect = {
+	if = { limit = { OR = { has_trait = just has_trait = diligent } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = lazy has_trait = trusting } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_safe_stress_effect = {
+	if = { limit = { OR = { has_trait = ambitious has_trait = brave } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = content has_trait = craven } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_expert_stress_effect = {
+	if = { limit = { OR = { has_trait = lazy has_trait = impatient } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = diligent has_trait = patient } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_risk_stress_effect = {
+	if = { limit = { OR = { has_trait = craven has_trait = content } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = brave has_trait = ambitious } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_listen_stress_effect = {
+	if = { limit = { OR = { has_trait = lazy has_trait = impatient } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = diligent has_trait = patient } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_mediate_stress_effect = {
+	if = { limit = { OR = { has_trait = callous has_trait = shy } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = compassionate has_trait = gregarious } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_reflect_stress_effect = {
+	if = { limit = { OR = { has_trait = wrathful has_trait = ambitious } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = calm has_trait = content } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_pardon_stress_effect = {
+	if = { limit = { OR = { has_trait = just has_trait = vengeful } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = compassionate has_trait = forgiving } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}
+
+fs_constituency_refuse_pardon_stress_effect = {
+	if = { limit = { OR = { has_trait = compassionate has_trait = forgiving } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+	if = { limit = { OR = { has_trait = just has_trait = vengeful } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+}

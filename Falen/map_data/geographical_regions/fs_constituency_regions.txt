@@ -1,0 +1,127 @@
+﻿# Single-member constituencies. These are geographical regions, not clerical offices.
+# PLACEHOLDERS: replace/extend each counties list to draw the actual district.
+# Hosting and candidacy both use these definitions; no other mapping needs editing.
+# Keep each seat's de jure capital inside its district and avoid overlapping districts.
+
+fs_cd_seoul_region = {
+	kingdoms = { k_seoul }
+}
+
+fs_cd_gyeonggi_a_region = {
+	duchies = { d_suwon d_pyeongtaek d_ansan }
+	counties = { c_bucheon c_daebu }
+}
+
+fs_cd_gyeonggi_b_region = {
+	duchies = { d_seongnam d_yeoju d_yongin d_anseong }
+}
+
+fs_cd_gyeonggi_c_region = {
+	duchies = { d_gapyeong d_goyang d_gimpo d_uijeongbu d_pocheon }
+}
+
+fs_cd_gyeonggi_d_region = {
+	duchies = { d_gaeseong d_jangdan d_yeoncheon }
+}
+
+fs_cd_gangwon_a_region = {
+	kingdoms = { k_cherwon k_yeongseo }
+}
+
+fs_cd_gangwon_b_region = {
+	kingdoms = { k_yeongdong }
+}
+
+fs_cd_gyeongnam_a_region = {
+	duchies = { d_gimhae d_yangsan d_miryang d_geochang d_hapcheon }
+}
+
+fs_cd_gyeongnam_b_region = {
+	duchies = { d_changwon d_geoje d_namhae d_tongyeong d_jinju d_sacheon d_sancheong d_haman }
+}
+
+fs_cd_busan_a_region = {
+	counties = { c_busan c_westernbusan }
+}
+
+fs_cd_busan_b_region = {
+	counties = { c_dongrae c_easternbusan c_gijang }
+}
+
+fs_cd_incheon_region = {
+	regions = { fs_et_incheon_region }
+}
+
+fs_cd_chungnam_region = {
+	regions = { fs_et_chungnam_region }
+}
+
+fs_cd_chungbuk_region = {
+	regions = { fs_et_chungbuk_region }
+}
+
+fs_cd_sejong_region = {
+	counties = { c_yeongi c_jochiwon }
+}
+
+fs_cd_daejeon_region = {
+	duchies = { d_daejeon }
+}
+
+fs_cd_gyeongbuk_region = {
+	regions = { fs_et_gyeongbuk_region }
+}
+
+fs_cd_daegu_region = {
+	duchies = { d_daegu }
+}
+
+fs_cd_jeonnam_region = {
+	regions = { fs_et_jeonnam_region }
+}
+
+fs_cd_jeonbuk_region = {
+	regions = { fs_et_jeonbuk_region }
+}
+
+fs_cd_gwangju_region = {
+	duchies = { d_gwangju }
+}
+
+fs_cd_jeju_region = {
+	regions = { fs_et_jeju_region }
+}
+
+fs_cd_ulsan_region = {
+	regions = { fs_et_ulsan_region }
+}
+
+# The activity only evaluates provinces in the constituency regions.
+# Subregions must be defined before this aggregate.
+fs_constituency_election_region = {
+	regions = {
+		fs_cd_seoul_region
+		fs_cd_gyeonggi_a_region
+		fs_cd_gyeonggi_b_region
+		fs_cd_gyeonggi_c_region
+		fs_cd_gyeonggi_d_region
+		fs_cd_gangwon_a_region
+		fs_cd_gangwon_b_region
+		fs_cd_gyeongnam_a_region
+		fs_cd_gyeongnam_b_region
+		fs_cd_busan_a_region
+		fs_cd_busan_b_region
+		fs_cd_incheon_region
+		fs_cd_chungnam_region
+		fs_cd_chungbuk_region
+		fs_cd_sejong_region
+		fs_cd_daejeon_region
+		fs_cd_gyeongbuk_region
+		fs_cd_daegu_region
+		fs_cd_jeonnam_region
+		fs_cd_jeonbuk_region
+		fs_cd_gwangju_region
+		fs_cd_jeju_region
+		fs_cd_ulsan_region
+	}
+}

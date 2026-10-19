@@ -39,6 +39,35 @@ fs_koreanism_vacant_parliament_seat_trigger = {
 	NOT = { exists = holder }
 }
 
+# Classify by title identity: Sejong shares its capital with proportional seats.
+fs_koreanism_proportional_parliament_seat_trigger = {
+	OR = {
+		this = title:d_cd_prop_1
+		this = title:d_cd_prop_2
+		this = title:d_cd_prop_3
+		this = title:d_cd_prop_4
+		this = title:d_cd_prop_5
+		this = title:d_cd_prop_6
+		this = title:d_cd_prop_7
+	}
+}
+
+fs_koreanism_constituency_parliament_seat_trigger = {
+	fs_koreanism_parliament_seat_trigger = yes
+	NOT = { fs_koreanism_proportional_parliament_seat_trigger = yes }
+}
+
+# Vacancies remain vacancies while reserved, but appointments must skip them.
+fs_koreanism_appointable_parliament_seat_trigger = {
+	fs_koreanism_vacant_parliament_seat_trigger = yes
+	NOT = { exists = var:fs_constituency_election_activity }
+}
+
+fs_constituency_open_seat_trigger = {
+	fs_koreanism_constituency_parliament_seat_trigger = yes
+	fs_koreanism_appointable_parliament_seat_trigger = yes
+}
+
 # Character scope. Lay candidates and all Koreanism rites are eligible.
 fs_koreanism_parliament_candidate_trigger = {
 	faith = faith:koreanism_faith
@@ -72,7 +101,7 @@ fs_koreanism_parliament_president_trigger = {
 fs_koreanism_has_parliament_vacancy_trigger = {
 	any_in_global_list = {
 		variable = fs_koreanism_parliament_seats
-		fs_koreanism_vacant_parliament_seat_trigger = yes
+		fs_koreanism_appointable_parliament_seat_trigger = yes
 	}
 }
 

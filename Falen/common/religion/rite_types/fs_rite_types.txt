@@ -555,9 +555,17 @@ old_koreanism = {
 	color = { 12 64 128 }
 	icon = koreanism
 	tenets = {
-		tenet_totalitarianism
 		tenet_philosophy_of_hate
-		tenet_monster_of_the_old_world
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = all_under_heaven
+		tenet = tenet_filial_piety
+		fallback_tenet = tenet_communal_identity
+	}
+	tenet_selection_pair = {
+		requires_dlc_flag = all_under_heaven
+		tenet = tenet_pursuit_of_knowledge
+		fallback_tenet = tenet_literalism
 	}
 	doctrines = {
 		doctrine_no_head
@@ -578,7 +586,7 @@ old_koreanism = {
 		doctrine_clerical_gender_either
 		doctrine_clerical_marriage_allowed
 		doctrine_clerical_succession_temporal_appointment
-		religion_policy_ultranationalism
+		religion_policy_freedom_of_religion
 	}
 }
 populism = {

@@ -1,0 +1,342 @@
+﻿# Fraud, administration and absolution tuning. Probabilities are percentage points.
+fs_constituency_fair_gold_cost = 50
+fs_constituency_biased_gold_cost = 50
+fs_constituency_bias_gain = 8
+fs_constituency_fraud_gain = 30
+fs_constituency_fraud_piety_cost = 100
+fs_constituency_integrity_grace_days = 1
+fs_constituency_fraud_audit_days = 5
+fs_constituency_fraud_variant_weight = 50
+fs_constituency_evidence_base = 55
+fs_constituency_evidence_skill_factor = 1
+fs_constituency_evidence_min = 5
+fs_constituency_evidence_max = 90
+fs_constituency_fair_detection_bonus = 25
+fs_constituency_biased_detection_penalty = -20
+fs_constituency_false_suspicion_chance = 15
+fs_constituency_investigation_base = 25
+fs_constituency_investigation_skill_factor = 2
+fs_constituency_investigation_min = 10
+fs_constituency_investigation_max = 90
+fs_constituency_fraud_report_piety = 100
+fs_constituency_false_report_prestige = -50
+fs_constituency_false_report_piety = -50
+fs_constituency_offender_level_loss = -1
+fs_constituency_presidential_offender_penalty = -10000
+fs_constituency_protest_prestige = -25
+fs_constituency_protest_stress = 10
+fs_constituency_protest_delay_days = 1
+fs_constituency_ai_trait_multiplier = 2
+fs_constituency_ai_min_weight = 1
+fs_constituency_minor_stress = 10
+fs_constituency_moral_stress = 20
+fs_constituency_stress_relief = -5
+fs_constituency_pardon_request_ai_base = 25
+fs_constituency_pardon_ai_base = 10
+fs_constituency_pardon_accept_base = -25
+fs_constituency_pardon_same_rite_bonus = 25
+fs_constituency_pardon_merciful_bonus = 30
+fs_constituency_pardon_strict_penalty = -30
+fs_constituency_pardon_rival_penalty = -100
+fs_constituency_pardon_opinion_factor = 0.5
+
+fs_constituency_fraud_piety_loss = { value = fs_constituency_fraud_piety_cost multiply = -1 }
+fs_constituency_evidence_chance_value = {
+	value = fs_constituency_evidence_base
+	subtract = { value = intrigue multiply = fs_constituency_evidence_skill_factor }
+	subtract = { value = learning multiply = fs_constituency_evidence_skill_factor }
+	if = {
+		limit = { scope:activity = { var:fs_constituency_administration = flag:fs_constituency_fair } }
+		add = fs_constituency_fair_detection_bonus
+	}
+	if = {
+		limit = {
+			scope:activity = { var:fs_constituency_administration = flag:fs_constituency_biased }
+			rite = scope:activity.var:fs_constituency_organizing_rite
+		}
+		add = fs_constituency_biased_detection_penalty
+	}
+	min = fs_constituency_evidence_min
+	max = fs_constituency_evidence_max
+}
+fs_constituency_evidence_failure_value = { value = 100 subtract = fs_constituency_evidence_chance_value }
+fs_constituency_false_suspicion_failure_value = { value = 100 subtract = fs_constituency_false_suspicion_chance }
+fs_constituency_investigation_chance_value = {
+	value = fs_constituency_investigation_base
+	add = { value = diplomacy multiply = fs_constituency_investigation_skill_factor }
+	add = { value = stewardship multiply = fs_constituency_investigation_skill_factor }
+	min = fs_constituency_investigation_min
+	max = fs_constituency_investigation_max
+}
+fs_constituency_investigation_failure_value = { value = 100 subtract = fs_constituency_investigation_chance_value }
+
+# Shared candidate priority, restricted by the title rather than the elector's faith.
+fs_constituency_presidential_offender_penalty_value = {
+	value = 0
+	if = {
+		limit = { scope:title = title:k_koreanism has_trait = fs_election_offender }
+		add = { value = fs_constituency_presidential_offender_penalty desc = fs_constituency_presidential_offender_penalty_tt }
+	}
+}
+
+fs_constituency_ethical_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = honest } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = just } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = deceitful } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = arbitrary } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_unethical_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = deceitful } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = arbitrary } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = honest } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = just } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_ordinary_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = greedy } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = content } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = lazy } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = generous } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = ambitious } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = diligent } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_biased_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = deceitful } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = arbitrary } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = zealous } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = honest } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = just } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = cynical } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_honest_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = honest } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = just } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = content } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = deceitful } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = arbitrary } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = ambitious } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_fraud_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = deceitful } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = arbitrary } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = ambitious } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = honest } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = just } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = content } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_investigate_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = just } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = diligent } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = paranoid } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = arbitrary } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = lazy } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = trusting } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_ignore_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = lazy } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = trusting } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = content } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = diligent } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = paranoid } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = ambitious } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_cover_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = deceitful } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = arbitrary } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = zealous } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = honest } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = just } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = cynical } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_protest_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = ambitious } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = arrogant } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = zealous } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = vengeful } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = content } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = humble } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = cynical } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = forgiving } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_accept_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = content } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = humble } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = cynical } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = forgiving } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = ambitious } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = arrogant } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = zealous } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = vengeful } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_safe_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = craven } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = content } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = brave } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = ambitious } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_expert_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = diligent } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = patient } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = lazy } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = impatient } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_risk_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = brave } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = ambitious } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = craven } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = content } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_listen_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = diligent } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = patient } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = lazy } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = impatient } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_mediate_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = compassionate } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = gregarious } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = callous } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = shy } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_reflect_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = calm } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = content } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = wrathful } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = ambitious } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_pardon_ai_factor = {
+	value = 1
+	if = { limit = { has_trait = compassionate } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = forgiving } multiply = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = callous } divide = fs_constituency_ai_trait_multiplier }
+	if = { limit = { has_trait = vengeful } divide = fs_constituency_ai_trait_multiplier }
+}
+
+fs_constituency_ordinary_ai_weight = {
+	value = 60
+	multiply = fs_constituency_ordinary_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_fair_ai_weight = {
+	value = 25
+	multiply = fs_constituency_ethical_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_biased_ai_weight = {
+	value = 15
+	multiply = fs_constituency_biased_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_honest_ai_weight = {
+	value = 80
+	multiply = fs_constituency_honest_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_fraud_ai_weight = {
+	value = 20
+	multiply = fs_constituency_fraud_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_investigate_ai_weight = {
+	value = 65
+	multiply = fs_constituency_investigate_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_ignore_ai_weight = {
+	value = 35
+	multiply = fs_constituency_ignore_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_punish_ai_weight = {
+	value = 60
+	multiply = fs_constituency_ethical_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_cover_ai_weight = {
+	value = 40
+	multiply = fs_constituency_cover_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_protest_ai_weight = {
+	value = 35
+	multiply = fs_constituency_protest_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_accept_ai_weight = {
+	value = 65
+	multiply = fs_constituency_accept_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_listen_ai_weight = {
+	value = 50
+	multiply = fs_constituency_listen_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_mediate_ai_weight = {
+	value = 30
+	multiply = fs_constituency_mediate_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_reflect_ai_weight = {
+	value = 20
+	multiply = fs_constituency_reflect_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_pardon_ai_weight = {
+	value = fs_constituency_pardon_ai_base
+	multiply = fs_constituency_pardon_ai_factor
+	min = fs_constituency_ai_min_weight
+}
+
+fs_constituency_pardon_request_ai_weight = {
+	value = fs_constituency_pardon_request_ai_base
+	multiply = fs_constituency_pardon_ai_factor
+	min = fs_constituency_ai_min_weight
+}

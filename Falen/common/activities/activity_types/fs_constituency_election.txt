@@ -1,0 +1,408 @@
+﻿# A manually hosted single-member by-election. No vacancy or calendar on_action starts it.
+activity_fs_constituency_election = {
+	is_shown = { faith = faith:koreanism_faith }
+	notify_player_can_join_activity = yes
+	can_plan = { fs_constituency_has_hostable_seat_trigger = yes }
+	can_start = {
+		custom_tooltip = {
+			text = fs_constituency_hostable_seat_tt
+			fs_constituency_has_hostable_seat_trigger = yes
+		}
+	}
+	can_always_plan = no
+	is_valid = { fs_constituency_activity_valid_trigger = yes }
+	on_invalidated = { fs_constituency_cancel_effect = yes }
+	on_host_death = { fs_constituency_cancel_effect = yes }
+	on_start = { fs_constituency_enable_fraud_rules_effect = yes }
+	on_enter_passive_state = { fs_constituency_offer_integrity_choice_effect = yes }
+	on_passive_state_pulse = { fs_constituency_offer_integrity_choice_effect = yes }
+
+	province_filter = geographical_region
+	ai_province_filter = geographical_region
+	province_filter_target = fs_constituency_election_region
+	is_location_valid = { fs_constituency_selected_venue_trigger = yes }
+	# Keep the one map marker on the selected district's valid venue.
+	province_score = {
+		value = 1
+		if = {
+			limit = { fs_constituency_selected_venue_trigger = yes }
+			add = 100
+		}
+	}
+	ai_will_select_province = { value = 1 }
+	max_province_icons = 1
+	is_single_location = yes
+
+	special_option_category = fs_constituency_district
+	options = {
+		fs_constituency_administration = {
+			fs_constituency_ordinary = {
+				default = yes
+				is_shown = { always = yes }
+				is_valid = { always = yes }
+				ai_will_do = { value = fs_constituency_ordinary_ai_weight }
+				on_start = { set_variable = { name = fs_constituency_administration value = flag:fs_constituency_ordinary } }
+			}
+			fs_constituency_fair = {
+				is_shown = { always = yes }
+				is_valid = { always = yes }
+				cost = { gold = fs_constituency_fair_gold_cost }
+				ai_will_do = { value = fs_constituency_fair_ai_weight }
+				on_start = {
+					set_variable = { name = fs_constituency_administration value = flag:fs_constituency_fair }
+					scope:host = { fs_constituency_ethical_stress_effect = yes }
+				}
+			}
+			fs_constituency_biased = {
+				is_shown = { always = yes }
+				is_valid = { always = yes }
+				cost = { gold = fs_constituency_biased_gold_cost }
+				ai_will_do = { value = fs_constituency_biased_ai_weight }
+				on_start = {
+					set_variable = { name = fs_constituency_administration value = flag:fs_constituency_biased }
+					scope:host = { fs_constituency_unethical_stress_effect = yes }
+				}
+			}
+		}
+		fs_constituency_district = {
+			fs_constituency_seoul = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_seoul } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_seoul } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_seoul } }
+			}
+			fs_constituency_gyeonggi_a = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_gyeonggi_a } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_gyeonggi_a } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_gyeonggi_a } }
+			}
+			fs_constituency_gyeonggi_b = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_gyeonggi_b } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_gyeonggi_b } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_gyeonggi_b } }
+			}
+			fs_constituency_gyeonggi_c = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_gyeonggi_c } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_gyeonggi_c } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_gyeonggi_c } }
+			}
+			fs_constituency_gyeonggi_d = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_gyeonggi_d } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_gyeonggi_d } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_gyeonggi_d } }
+			}
+			fs_constituency_gangwon_a = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_gangwon_a } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_gangwon_a } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_gangwon_a } }
+			}
+			fs_constituency_gangwon_b = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_gangwon_b } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_gangwon_b } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_gangwon_b } }
+			}
+			fs_constituency_gyeongnam_a = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_gyeongnam_a } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_gyeongnam_a } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_gyeongnam_a } }
+			}
+			fs_constituency_gyeongnam_b = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_gyeongnam_b } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_gyeongnam_b } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_gyeongnam_b } }
+			}
+			fs_constituency_busan_a = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_busan_a } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_busan_a } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_busan_a } }
+			}
+			fs_constituency_busan_b = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_busan_b } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_busan_b } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_busan_b } }
+			}
+			fs_constituency_incheon = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_incheon } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_incheon } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_incheon } }
+			}
+			fs_constituency_chungnam = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_chungnam } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_chungnam } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_chungnam } }
+			}
+			fs_constituency_chungbuk = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_chungbuk } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_chungbuk } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_chungbuk } }
+			}
+			fs_constituency_sejong = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_sejong } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_sejong } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_sejong } }
+			}
+			fs_constituency_daejeon = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_daejeon } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_daejeon } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_daejeon } }
+			}
+			fs_constituency_gyeongbuk = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_gyeongbuk } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_gyeongbuk } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_gyeongbuk } }
+			}
+			fs_constituency_daegu = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_daegu } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_daegu } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_daegu } }
+			}
+			fs_constituency_jeonnam = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_jeonnam } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_jeonnam } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_jeonnam } }
+			}
+			fs_constituency_jeonbuk = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_jeonbuk } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_jeonbuk } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_jeonbuk } }
+			}
+			fs_constituency_gwangju = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_gwangju } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_gwangju } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_gwangju } }
+			}
+			fs_constituency_jeju = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_jeju } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_jeju } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_jeju } }
+			}
+			fs_constituency_ulsan = {
+				is_shown = { always = yes }
+				is_valid = { fs_constituency_option_valid_trigger = { SEAT = title:d_cd_ulsan } }
+				default = { fs_constituency_can_host_seat_trigger = { SEAT = title:d_cd_ulsan } }
+				ai_will_do = { value = 1 }
+				on_start = { fs_constituency_initialize_effect = { SEAT = title:d_cd_ulsan } }
+			}
+		}
+	}
+
+	phases = {
+		fs_constituency_canvassing = {
+			order = 1
+			is_predefined = yes
+		#	location_source = scripted
+		#	select_scripted_location = { fs_constituency_select_venue_effect = yes }
+			on_phase_active_activity = {
+				fs_constituency_start_round_effect = {
+					ROUND = 1
+					SKILL = diplomacy
+					FIRST = fs_constituency_election.1
+					SECOND = fs_constituency_election.2
+				}
+			}
+			on_weekly_pulse = {
+				if = {
+					limit = { this = scope:host }
+					scope:activity = { fs_constituency_prune_candidates_effect = yes }
+				}
+			}
+			on_end = {
+				if = {
+					limit = { this = scope:host }
+					scope:activity = { fs_constituency_close_round_effect = yes }
+				}
+			}
+		}
+		fs_constituency_manifesto = {
+			order = 2
+			is_predefined = yes
+		#	location_source = scripted
+		#	select_scripted_location = { fs_constituency_select_venue_effect = yes }
+			# Later phases need an explicit passive-to-active transition at the same venue.
+			on_enter_phase = {
+				if = {
+					limit = { this = scope:host }
+					scope:activity = { progress_activity_phase_after = { days = fs_constituency_phase_transition_days } }
+				}
+			}
+			on_phase_active_activity = {
+				fs_constituency_start_round_effect = {
+					ROUND = 2
+					SKILL = stewardship
+					FIRST = fs_constituency_election.3
+					SECOND = fs_constituency_election.4
+				}
+			}
+			on_weekly_pulse = {
+				if = {
+					limit = { this = scope:host }
+					scope:activity = { fs_constituency_prune_candidates_effect = yes }
+				}
+			}
+			on_end = {
+				if = {
+					limit = { this = scope:host }
+					scope:activity = { fs_constituency_close_round_effect = yes }
+				}
+			}
+		}
+		fs_constituency_debate = {
+			order = 3
+			is_predefined = yes
+		#	location_source = scripted
+		#	select_scripted_location = { fs_constituency_select_venue_effect = yes }
+			# Later phases need an explicit passive-to-active transition at the same venue.
+			on_enter_phase = {
+				if = {
+					limit = { this = scope:host }
+					scope:activity = { progress_activity_phase_after = { days = fs_constituency_phase_transition_days } }
+				}
+			}
+			on_phase_active_activity = {
+				fs_constituency_start_round_effect = {
+					ROUND = 3
+					SKILL = learning
+					FIRST = fs_constituency_election.5
+					SECOND = fs_constituency_election.6
+				}
+			}
+			on_weekly_pulse = {
+				if = {
+					limit = { this = scope:host }
+					scope:activity = { fs_constituency_prune_candidates_effect = yes }
+				}
+			}
+			on_end = {
+				if = {
+					limit = { this = scope:host }
+					# Resolve before completion clears attendance or auto-completes intents.
+					scope:activity = { fs_constituency_finalize_effect = yes }
+				}
+			}
+		}
+	}
+
+	wait_time_before_start = { days = 30 }
+	max_guest_arrival_delay_time = { days = 30 }
+	cooldown = { days = 0 }
+	cost = { gold = fs_constituency_host_gold_cost }
+	ui_predicted_cost = { gold = fs_constituency_host_gold_cost }
+	ai_check_interval = 24
+	ai_will_do = { value = fs_constituency_host_ai_weight }
+
+	# Invite residents regardless of realm borders; guests opt into candidacy through intent.
+	open_invite = yes
+	allow_zero_guest_invites = yes
+	max_guests = { value = fs_constituency_guest_limit }
+	guest_subsets = { fs_constituency_contestants }
+	reserved_guest_slots = 0
+	guest_invite_rules = {
+		defaults = { 1 = fs_constituency_residents }
+	}
+	can_be_activity_guest = {
+		fs_constituency_organizer_trigger = yes
+		OR = {
+			has_title = title:k_koreanism
+			fs_constituency_selected_resident_trigger = yes
+		}
+	}
+	guest_join_chance = { base = 100 }
+	host_intents = {
+		intents = { fs_constituency_observer_intent fs_constituency_candidate_intent }
+		default = fs_constituency_observer_intent
+	}
+	guest_intents = {
+		intents = { fs_constituency_observer_intent fs_constituency_candidate_intent }
+		default = fs_constituency_observer_intent
+	}
+
+	on_complete = {
+		scope:activity = { fs_constituency_finalize_effect = yes }
+	}
+	conclusion_description = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:activity = { has_variable = fs_constituency_cancelled } }
+				desc = fs_constituency_cancelled_summary
+			}
+			triggered_desc = {
+				trigger = { scope:activity = { exists = var:fs_constituency_winner } }
+				desc = fs_constituency_winner_summary
+			}
+			desc = fs_constituency_no_winner_summary
+		}
+	}
+
+	header_background = "gfx/interface/illustrations/activity_header_backgrounds/activity_debate.dds"
+	background = {
+		texture = "gfx/interface/illustrations/event_scenes/tgp_study_asia.dds"
+		environment = "environment_tgp_study_asia"
+		ambience = "event:/DLC/EP4/SFX/Events/Event_Backgrounds/tgp_study_asia"
+	}
+	activity_window_widgets = {
+		fs_constituency_scoreboard = "window_activity_contestants_right_bar_container"
+		fs_constituency_progress = "activity_plugin_widgets_summary"
+	}
+	window_characters = {
+		host = {
+			camera = camera_event_center
+			effect = { scope:host = { add_to_list = characters } }
+			scripted_animation = { animation = personality_bold }
+		}
+		participant = {
+			camera = camera_event_right
+			effect = {
+				scope:player ?= {
+					if = {
+						limit = { this != scope:host location = scope:activity.activity_location }
+						add_to_list = characters
+					}
+				}
+			}
+			scripted_animation = { animation = thinking }
+		}
+	}
+}

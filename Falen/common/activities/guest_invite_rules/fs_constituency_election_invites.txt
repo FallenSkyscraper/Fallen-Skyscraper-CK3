@@ -1,0 +1,17 @@
+﻿fs_constituency_residents = {
+	locked = yes
+	effect = {
+		# Only evaluated when composing invitations, never from a recurring vacancy pulse.
+		every_living_character = {
+			limit = {
+				this != root
+				fs_constituency_organizer_trigger = yes
+				OR = {
+					has_title = title:k_koreanism
+					fs_constituency_selected_resident_trigger = yes
+				}
+			}
+			add_to_list = characters
+		}
+	}
+}

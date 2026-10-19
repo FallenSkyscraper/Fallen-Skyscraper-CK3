@@ -1,0 +1,298 @@
+﻿namespace = fs_constituency_election
+
+# Each event carries its activity context. Open windows from an older round are harmless.
+
+fs_constituency_election.1 = {
+	type = activity_event
+	title = fs_constituency_election.1.t
+	desc = {
+		desc = fs_constituency_election.1.desc
+		desc = { triggered_desc = { trigger = { exists = scope:fs_constituency_rival } desc = fs_constituency_rival_present } }
+		desc = fs_constituency_candidate_event_context
+	}
+	theme = debate
+	override_background = { reference = tgp_chinese_city }
+	left_portrait = { character = root animation = holding_scrolls }
+	right_portrait = { trigger = { exists = scope:fs_constituency_rival } character = scope:fs_constituency_rival animation = thinking }
+	immediate = { fs_constituency_prepare_candidate_event_effect = yes }
+	trigger = { fs_constituency_current_event_trigger = { ROUND = 1 DONE = fs_constituency_first_done } }
+	option = {
+		name = fs_constituency_election.1.safe
+		custom_tooltip = fs_constituency_safe_choice_tt
+		fs_constituency_safe_choice_effect = { ROUND = 1 DONE = fs_constituency_first_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_safe_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.1.expert
+		custom_tooltip = fs_constituency_expert_choice_tt
+		fs_constituency_expert_choice_effect = { ROUND = 1 DONE = fs_constituency_first_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_expert_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.1.risk
+		custom_tooltip = fs_constituency_risk_choice_tt
+		fs_constituency_risk_choice_effect = { ROUND = 1 DONE = fs_constituency_first_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_risk_ai_weight } }
+	}
+}
+
+fs_constituency_election.2 = {
+	type = activity_event
+	title = fs_constituency_election.2.t
+	desc = {
+		desc = fs_constituency_election.2.desc
+		desc = { triggered_desc = { trigger = { exists = scope:fs_constituency_rival } desc = fs_constituency_rival_present } }
+		desc = fs_constituency_candidate_event_context
+	}
+	theme = debate
+	override_background = { reference = tgp_chinese_city }
+	left_portrait = { character = root animation = holding_scrolls }
+	right_portrait = { trigger = { exists = scope:fs_constituency_rival } character = scope:fs_constituency_rival animation = thinking }
+	immediate = { fs_constituency_prepare_candidate_event_effect = yes }
+	trigger = { fs_constituency_current_event_trigger = { ROUND = 1 DONE = fs_constituency_second_done } }
+	option = {
+		name = fs_constituency_election.2.safe
+		custom_tooltip = fs_constituency_safe_choice_tt
+		fs_constituency_safe_choice_effect = { ROUND = 1 DONE = fs_constituency_second_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_safe_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.2.expert
+		custom_tooltip = fs_constituency_expert_choice_tt
+		fs_constituency_expert_choice_effect = { ROUND = 1 DONE = fs_constituency_second_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_expert_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.2.risk
+		custom_tooltip = fs_constituency_risk_choice_tt
+		fs_constituency_risk_choice_effect = { ROUND = 1 DONE = fs_constituency_second_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_risk_ai_weight } }
+	}
+}
+
+fs_constituency_election.3 = {
+	type = activity_event
+	title = fs_constituency_election.3.t
+	desc = {
+		desc = fs_constituency_election.3.desc
+		desc = { triggered_desc = { trigger = { exists = scope:fs_constituency_rival } desc = fs_constituency_rival_present } }
+		desc = fs_constituency_candidate_event_context
+	}
+	theme = debate
+	override_background = { reference = tgp_study_asia }
+	left_portrait = { character = root animation = holding_scrolls }
+	right_portrait = { trigger = { exists = scope:fs_constituency_rival } character = scope:fs_constituency_rival animation = thinking }
+	immediate = { fs_constituency_prepare_candidate_event_effect = yes }
+	trigger = { fs_constituency_current_event_trigger = { ROUND = 2 DONE = fs_constituency_first_done } }
+	option = {
+		name = fs_constituency_election.3.safe
+		custom_tooltip = fs_constituency_safe_choice_tt
+		fs_constituency_safe_choice_effect = { ROUND = 2 DONE = fs_constituency_first_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_safe_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.3.expert
+		custom_tooltip = fs_constituency_expert_choice_tt
+		fs_constituency_expert_choice_effect = { ROUND = 2 DONE = fs_constituency_first_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_expert_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.3.risk
+		custom_tooltip = fs_constituency_risk_choice_tt
+		fs_constituency_risk_choice_effect = { ROUND = 2 DONE = fs_constituency_first_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_risk_ai_weight } }
+	}
+}
+
+fs_constituency_election.4 = {
+	type = activity_event
+	title = fs_constituency_election.4.t
+	desc = {
+		desc = fs_constituency_election.4.desc
+		desc = { triggered_desc = { trigger = { exists = scope:fs_constituency_rival } desc = fs_constituency_rival_present } }
+		desc = fs_constituency_candidate_event_context
+	}
+	theme = debate
+	override_background = { reference = tgp_study_asia }
+	left_portrait = { character = root animation = holding_scrolls }
+	right_portrait = { trigger = { exists = scope:fs_constituency_rival } character = scope:fs_constituency_rival animation = thinking }
+	immediate = { fs_constituency_prepare_candidate_event_effect = yes }
+	trigger = { fs_constituency_current_event_trigger = { ROUND = 2 DONE = fs_constituency_second_done } }
+	option = {
+		name = fs_constituency_election.4.safe
+		custom_tooltip = fs_constituency_safe_choice_tt
+		fs_constituency_safe_choice_effect = { ROUND = 2 DONE = fs_constituency_second_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_safe_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.4.expert
+		custom_tooltip = fs_constituency_expert_choice_tt
+		fs_constituency_expert_choice_effect = { ROUND = 2 DONE = fs_constituency_second_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_expert_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.4.risk
+		custom_tooltip = fs_constituency_risk_choice_tt
+		fs_constituency_risk_choice_effect = { ROUND = 2 DONE = fs_constituency_second_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_risk_ai_weight } }
+	}
+}
+
+fs_constituency_election.5 = {
+	type = activity_event
+	title = fs_constituency_election.5.t
+	desc = {
+		desc = fs_constituency_election.5.desc
+		desc = { triggered_desc = { trigger = { exists = scope:fs_constituency_rival } desc = fs_constituency_rival_present } }
+		desc = fs_constituency_candidate_event_context
+	}
+	theme = debate
+	override_background = { reference = tgp_examination_room }
+	left_portrait = { character = root animation = holding_scrolls }
+	right_portrait = { trigger = { exists = scope:fs_constituency_rival } character = scope:fs_constituency_rival animation = thinking }
+	immediate = { fs_constituency_prepare_candidate_event_effect = yes }
+	trigger = { fs_constituency_current_event_trigger = { ROUND = 3 DONE = fs_constituency_first_done } }
+	option = {
+		name = fs_constituency_election.5.safe
+		custom_tooltip = fs_constituency_safe_choice_tt
+		fs_constituency_safe_choice_effect = { ROUND = 3 DONE = fs_constituency_first_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_safe_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.5.expert
+		custom_tooltip = fs_constituency_expert_choice_tt
+		fs_constituency_expert_choice_effect = { ROUND = 3 DONE = fs_constituency_first_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_expert_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.5.risk
+		custom_tooltip = fs_constituency_risk_choice_tt
+		fs_constituency_risk_choice_effect = { ROUND = 3 DONE = fs_constituency_first_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_risk_ai_weight } }
+	}
+}
+
+fs_constituency_election.6 = {
+	type = activity_event
+	title = fs_constituency_election.6.t
+	desc = {
+		desc = fs_constituency_election.6.desc
+		desc = { triggered_desc = { trigger = { exists = scope:fs_constituency_rival } desc = fs_constituency_rival_present } }
+		desc = fs_constituency_candidate_event_context
+	}
+	theme = debate
+	override_background = { reference = tgp_examination_room }
+	left_portrait = { character = root animation = holding_scrolls }
+	right_portrait = { trigger = { exists = scope:fs_constituency_rival } character = scope:fs_constituency_rival animation = thinking }
+	immediate = { fs_constituency_prepare_candidate_event_effect = yes }
+	trigger = { fs_constituency_current_event_trigger = { ROUND = 3 DONE = fs_constituency_second_done } }
+	option = {
+		name = fs_constituency_election.6.safe
+		custom_tooltip = fs_constituency_safe_choice_tt
+		fs_constituency_safe_choice_effect = { ROUND = 3 DONE = fs_constituency_second_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_safe_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.6.expert
+		custom_tooltip = fs_constituency_expert_choice_tt
+		fs_constituency_expert_choice_effect = { ROUND = 3 DONE = fs_constituency_second_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_expert_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.6.risk
+		custom_tooltip = fs_constituency_risk_choice_tt
+		fs_constituency_risk_choice_effect = { ROUND = 3 DONE = fs_constituency_second_done }
+		ai_chance = { base = 0 modifier = { add = fs_constituency_risk_ai_weight } }
+	}
+}
+
+# Non-candidates take part in the public hearings without changing election scores.
+fs_constituency_election.10 = {
+	type = activity_event
+	title = {
+		first_valid = {
+			triggered_desc = { trigger = { scope:fs_constituency_observer_round = 1 } desc = fs_constituency_election.10.t1 }
+			triggered_desc = { trigger = { scope:fs_constituency_observer_round = 2 } desc = fs_constituency_election.10.t2 }
+			desc = fs_constituency_election.10.t3
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = { trigger = { scope:fs_constituency_observer_round = 1 } desc = fs_constituency_election.10.desc1 }
+			triggered_desc = { trigger = { scope:fs_constituency_observer_round = 2 } desc = fs_constituency_election.10.desc2 }
+			desc = fs_constituency_election.10.desc3
+		}
+	}
+	theme = debate
+	override_background = { reference = tgp_chinese_city }
+	left_portrait = { character = root animation = thinking }
+	right_portrait = { trigger = { root != scope:host } character = scope:host animation = personality_bold }
+	trigger = { fs_constituency_current_observer_event_trigger = yes }
+	option = {
+		name = fs_constituency_election.10.listen
+		custom_tooltip = fs_constituency_observer_listen_tt
+		fs_constituency_observer_listen_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_listen_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.10.mediate
+		fs_constituency_observer_mediate_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_mediate_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_election.10.reflect
+		fs_constituency_observer_reflect_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_reflect_ai_weight } }
+	}
+}
+
+fs_constituency_election.20 = {
+	type = activity_event
+	title = fs_constituency_election.20.t
+	desc = fs_constituency_election.20.desc
+	theme = debate
+	override_background = { reference = tgp_chinese_city }
+	left_portrait = { character = root animation = personality_bold }
+	trigger = {
+		fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:fs_constituency_event_activity }
+		scope:fs_constituency_event_activity = { var:fs_constituency_round = 1 }
+	}
+	option = { name = fs_constituency_election.20.a }
+}
+
+# Dispatched in the last phase's on_end, like imperial_examination.7000.
+# All text uses captured scopes/values. Acknowledging this event never repeats rewards.
+fs_constituency_election.100 = {
+	type = activity_event
+	title = fs_constituency_election.100.t
+	desc = {
+		desc = fs_constituency_election.100.intro
+		desc = {
+			first_valid = {
+				triggered_desc = { trigger = { exists = scope:fs_constituency_result_winner } desc = fs_constituency_election.100.winner }
+				desc = fs_constituency_election.100.empty
+			}
+		}
+		desc = {
+			first_valid = {
+				triggered_desc = { trigger = { scope:fs_constituency_result_candidate ?= root scope:fs_constituency_candidate_reward > 0 } desc = fs_constituency_election.100.candidate }
+				desc = fs_constituency_election.100.observer
+			}
+		}
+		desc = { triggered_desc = { trigger = { scope:fs_constituency_host_reward > 0 } desc = fs_constituency_election.100.host_reward } }
+		desc = { triggered_desc = { trigger = { scope:fs_constituency_candidate_reward > 0 } desc = fs_constituency_election.100.candidate_reward } }
+		desc = { triggered_desc = { trigger = { scope:fs_constituency_winner_reward > 0 } desc = fs_constituency_election.100.winner_reward } }
+		desc = { triggered_desc = { trigger = { scope:fs_constituency_observer_reward > 0 } desc = fs_constituency_election.100.observer_reward } }
+		desc = { triggered_desc = { trigger = { scope:fs_constituency_result_fraud_count > 0 } desc = fs_constituency_election.100.scandal } }
+		desc = { triggered_desc = { trigger = { scope:fs_constituency_result_covered_count > 0 } desc = fs_constituency_election.100.covered } }
+	}
+	theme = debate
+	override_background = { reference = tgp_examination_room }
+	left_portrait = { character = root animation = thinking }
+	right_portrait = {
+		trigger = { exists = scope:fs_constituency_result_winner root != scope:fs_constituency_result_winner }
+		character = scope:fs_constituency_result_winner
+		animation = personality_bold
+	}
+	option = { name = fs_constituency_election.100.a }
+}

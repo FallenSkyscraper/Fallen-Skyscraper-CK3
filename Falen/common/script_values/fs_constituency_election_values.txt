@@ -1,0 +1,73 @@
+﻿# All electoral tuning lives here. Phase duration is independent of travel/assembly.
+fs_constituency_phase_days = 20
+fs_constituency_phase_transition_days = 1
+fs_constituency_second_event_days = 10
+fs_constituency_initial_score_cap = 20
+fs_constituency_safe_gain = 8
+fs_constituency_expert_gain = 18
+fs_constituency_expert_failure_gain = 0
+fs_constituency_risk_gain = 30
+fs_constituency_risk_failure_gain = -8
+fs_constituency_safe_ai_weight = { value = 50 multiply = fs_constituency_safe_ai_factor min = fs_constituency_ai_min_weight }
+fs_constituency_expert_ai_weight = { value = 40 multiply = fs_constituency_expert_ai_factor min = fs_constituency_ai_min_weight }
+fs_constituency_risk_ai_weight = { value = 10 multiply = fs_constituency_risk_ai_factor min = fs_constituency_ai_min_weight }
+fs_constituency_guest_limit = 100
+fs_constituency_host_ai_weight = 25
+
+# Base hosting pays for the venue; administration options have their own native cost.
+fs_constituency_host_gold_cost = 50
+fs_constituency_host_prestige_reward = 75
+fs_constituency_winner_prestige_reward = 150
+fs_constituency_candidate_prestige_reward = 25
+fs_constituency_candidate_skill_xp_reward = 50
+fs_constituency_observer_completion_xp = 25
+fs_constituency_observer_choice_xp = 25
+fs_constituency_observer_choice_piety = 15
+fs_constituency_observer_choice_stress = -5
+
+# Native guest-subset sorting uses a script value, as in imperial_examination.
+fs_constituency_scoreboard_sort_value = {
+	value = 0
+	if = {
+		limit = { has_variable = fs_constituency_score }
+		add = var:fs_constituency_score
+	}
+	if = {
+		limit = { OR = { has_variable = fs_constituency_disqualified is_alive = no } }
+		subtract = 10000
+	}
+}
+
+fs_constituency_initial_score_value = {
+	value = diplomacy
+	add = stewardship
+	add = learning
+	divide = 5
+	floor = yes
+	add = prestige_level
+	max = fs_constituency_initial_score_cap
+}
+
+# The relevant skill is snapshotted when each round begins.
+fs_constituency_expert_chance_value = {
+	value = var:fs_constituency_round_skill
+	multiply = 3
+	add = 30
+	min = 15
+	max = 90
+}
+fs_constituency_expert_failure_chance_value = {
+	value = 100
+	subtract = fs_constituency_expert_chance_value
+}
+fs_constituency_risk_chance_value = {
+	value = var:fs_constituency_round_skill
+	multiply = 2
+	add = 20
+	min = 15
+	max = 75
+}
+fs_constituency_risk_failure_chance_value = {
+	value = 100
+	subtract = fs_constituency_risk_chance_value
+}

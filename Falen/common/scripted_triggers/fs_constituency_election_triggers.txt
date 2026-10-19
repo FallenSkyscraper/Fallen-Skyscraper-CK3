@@ -1,0 +1,604 @@
+﻿# Character scope. Resolve a permanent home, never the current travel location.
+fs_constituency_court_home_in_region_trigger = {
+	trigger_if = {
+		limit = { is_landed = yes }
+		capital_province = { geographical_region = $REGION$ }
+	}
+	trigger_else_if = {
+		limit = { exists = domicile.domicile_location }
+		domicile.domicile_location = { geographical_region = $REGION$ }
+	}
+	trigger_else = {
+		exists = capital_province
+		capital_province = { geographical_region = $REGION$ }
+	}
+}
+
+fs_constituency_home_in_region_trigger = {
+	trigger_if = {
+		limit = { is_landed = yes }
+		capital_province = { geographical_region = $REGION$ }
+	}
+	trigger_else_if = {
+		limit = { exists = domicile.domicile_location }
+		domicile.domicile_location = { geographical_region = $REGION$ }
+	}
+	trigger_else_if = {
+		limit = {
+			exists = court_owner
+			this != court_owner
+		}
+		court_owner = { fs_constituency_court_home_in_region_trigger = { REGION = $REGION$ } }
+	}
+	trigger_else = {
+		exists = capital_province
+		capital_province = { geographical_region = $REGION$ }
+	}
+}
+
+# Character scope; SEAT is an explicit title scope. Proportional seats never match.
+fs_constituency_resident_trigger = {
+	OR = {
+		AND = {
+			$SEAT$ = { this = title:d_cd_seoul }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_seoul_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_gyeonggi_a }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_gyeonggi_a_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_gyeonggi_b }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_gyeonggi_b_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_gyeonggi_c }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_gyeonggi_c_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_gyeonggi_d }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_gyeonggi_d_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_gangwon_a }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_gangwon_a_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_gangwon_b }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_gangwon_b_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_gyeongnam_a }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_gyeongnam_a_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_gyeongnam_b }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_gyeongnam_b_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_busan_a }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_busan_a_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_busan_b }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_busan_b_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_incheon }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_incheon_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_chungnam }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_chungnam_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_chungbuk }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_chungbuk_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_sejong }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_sejong_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_daejeon }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_daejeon_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_gyeongbuk }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_gyeongbuk_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_daegu }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_daegu_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_jeonnam }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_jeonnam_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_jeonbuk }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_jeonbuk_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_gwangju }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_gwangju_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_jeju }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_jeju_region }
+		}
+		AND = {
+			$SEAT$ = { this = title:d_cd_ulsan }
+			fs_constituency_home_in_region_trigger = { REGION = fs_cd_ulsan_region }
+		}
+	}
+}
+
+# The special-option flag is available while planning and when joining an activity.
+fs_constituency_selected_resident_trigger = {
+	OR = {
+		AND = {
+			scope:special_option ?= flag:fs_constituency_seoul
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_seoul }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_gyeonggi_a
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_gyeonggi_a }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_gyeonggi_b
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_gyeonggi_b }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_gyeonggi_c
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_gyeonggi_c }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_gyeonggi_d
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_gyeonggi_d }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_gangwon_a
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_gangwon_a }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_gangwon_b
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_gangwon_b }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_gyeongnam_a
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_gyeongnam_a }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_gyeongnam_b
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_gyeongnam_b }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_busan_a
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_busan_a }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_busan_b
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_busan_b }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_incheon
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_incheon }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_chungnam
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_chungnam }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_chungbuk
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_chungbuk }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_sejong
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_sejong }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_daejeon
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_daejeon }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_gyeongbuk
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_gyeongbuk }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_daegu
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_daegu }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_jeonnam
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_jeonnam }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_jeonbuk
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_jeonbuk }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_gwangju
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_gwangju }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_jeju
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_jeju }
+		}
+		AND = {
+			scope:special_option ?= flag:fs_constituency_ulsan
+			fs_constituency_resident_trigger = { SEAT = title:d_cd_ulsan }
+		}
+	}
+}
+
+# Province scope. There is exactly one venue for each selected seat.
+fs_constituency_selected_venue_trigger = {
+	exists = scope:special_option
+	OR = {
+		AND = {
+			scope:special_option = flag:fs_constituency_seoul
+			this = title:c_jongno.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_gyeonggi_a
+			this = title:c_suwon.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_gyeonggi_b
+			this = title:c_seongnam.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_gyeonggi_c
+			this = title:c_goyang.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_gyeonggi_d
+			this = title:c_gaeseong.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_gangwon_a
+			this = title:c_chuncheon.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_gangwon_b
+			this = title:c_gangneung.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_gyeongnam_a
+			this = title:c_gimhae.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_gyeongnam_b
+			this = title:c_changwon.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_busan_a
+			this = title:c_busan.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_busan_b
+			this = title:c_dongrae.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_incheon
+			this = title:c_incheon.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_chungnam
+			this = title:c_hongju.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_chungbuk
+			this = title:c_cheongju.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_sejong
+			this = title:c_yeongi.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_daejeon
+			this = title:c_daejeon.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_gyeongbuk
+			this = title:c_andong.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_daegu
+			this = title:c_daegu.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_jeonnam
+			this = title:c_mokpo.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_jeonbuk
+			this = title:c_jeonju.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_gwangju
+			this = title:c_gwangju.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_jeju
+			this = title:c_jeju.title_province
+		}
+		AND = {
+			scope:special_option = flag:fs_constituency_ulsan
+			this = title:c_ulsan.title_province
+		}
+	}
+}
+
+# Character scope. Members can organize an election but cannot stand as candidates.
+fs_constituency_organizer_trigger = {
+	faith = faith:koreanism_faith
+	is_available_quick = {
+		alive = yes
+		adult = yes
+		incapable = no
+		imprisoned = no
+		hostage = no
+	}
+}
+
+fs_constituency_can_host_seat_trigger = {
+	fs_constituency_organizer_trigger = yes
+	$SEAT$ = { fs_constituency_open_seat_trigger = yes }
+	OR = {
+		has_title = title:k_koreanism
+		fs_constituency_resident_trigger = { SEAT = $SEAT$ }
+	}
+}
+
+# Character scope. The chosen option remains valid after reserving its own seat.
+# A new planner or a competing activity still cannot select that reservation.
+fs_constituency_option_valid_trigger = {
+	fs_constituency_organizer_trigger = yes
+	$SEAT$ = {
+		fs_koreanism_constituency_parliament_seat_trigger = yes
+		fs_koreanism_vacant_parliament_seat_trigger = yes
+		OR = {
+			NOT = { exists = var:fs_constituency_election_activity }
+			AND = {
+				exists = scope:activity
+				var:fs_constituency_election_activity ?= scope:activity
+				scope:activity ?= {
+					var:fs_constituency_seat = $SEAT$
+					NOT = { has_variable = fs_constituency_resolved }
+				}
+			}
+		}
+	}
+	OR = {
+		has_title = title:k_koreanism
+		fs_constituency_resident_trigger = { SEAT = $SEAT$ }
+	}
+}
+
+fs_constituency_has_hostable_seat_trigger = {
+	fs_constituency_organizer_trigger = yes
+	any_in_global_list = {
+		variable = fs_koreanism_parliament_seats
+		fs_constituency_open_seat_trigger = yes
+		prev = {
+			OR = {
+				has_title = title:k_koreanism
+				fs_constituency_resident_trigger = { SEAT = prev }
+			}
+		}
+	}
+}
+
+fs_constituency_candidate_for_seat_trigger = {
+	fs_koreanism_parliament_candidate_trigger = yes
+	fs_constituency_electoral_rights_trigger = yes
+	fs_constituency_resident_trigger = { SEAT = $SEAT$ }
+}
+
+# The frozen roster is authoritative. A late arrival cannot enter through an intent change.
+fs_constituency_can_choose_candidacy_trigger = {
+	fs_koreanism_parliament_candidate_trigger = yes
+	fs_constituency_electoral_rights_trigger = yes
+	fs_constituency_selected_resident_trigger = yes
+	trigger_if = {
+		limit = { exists = involved_activity }
+		involved_activity = {
+			OR = {
+				NOT = { has_variable = fs_constituency_roster_frozen }
+				is_target_in_variable_list = {
+					name = fs_constituency_candidates
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+# Activity scope. Native creation can validate before selected-option on_start runs.
+# Only the short creation window may omit reservation state. Once a seat is bound,
+# strict ownership applies, including to failed reservations and older saved activities.
+fs_constituency_activity_valid_trigger = {
+	NOT = { has_variable = fs_constituency_resolved }
+	trigger_if = {
+		limit = { has_variable = fs_constituency_seat }
+		fs_constituency_running_activity_trigger = yes
+	}
+	trigger_else = {
+		scope:host = { fs_constituency_has_hostable_seat_trigger = yes }
+	}
+}
+
+# Activity scope. Retain authority while travelling; do not test the host's current location.
+fs_constituency_running_activity_trigger = {
+	exists = var:fs_constituency_seat
+	NOT = { has_variable = fs_constituency_resolved }
+	var:fs_constituency_seat = {
+		fs_koreanism_vacant_parliament_seat_trigger = yes
+		var:fs_constituency_election_activity = scope:activity
+	}
+	scope:host = {
+		fs_constituency_organizer_trigger = yes
+		OR = {
+			has_title = title:k_koreanism
+			fs_constituency_resident_trigger = { SEAT = scope:activity.var:fs_constituency_seat }
+		}
+	}
+}
+
+# Character scope. ACTIVITY must be a named scope, not 'this' or 'prev'.
+fs_constituency_registered_candidate_trigger = {
+	var:fs_constituency_candidate_activity = $ACTIVITY$
+	NOT = { has_variable = fs_constituency_disqualified }
+	fs_constituency_candidate_for_seat_trigger = { SEAT = $ACTIVITY$.var:fs_constituency_seat }
+	has_activity_intent = fs_constituency_candidate_intent
+	involved_activity = $ACTIVITY$
+	# Presence is distinct from residence: travel must not count as participation.
+	location = $ACTIVITY$.activity_location
+}
+
+# Delayed events and open multiplayer windows must still belong to this exact round.
+# Character event scope. Stale observer windows cannot grant XP, piety or stress relief.
+fs_constituency_current_observer_event_trigger = {
+	exists = scope:fs_constituency_event_activity
+	is_alive = yes
+	involved_activity = scope:fs_constituency_event_activity
+	location = scope:fs_constituency_event_activity.activity_location
+	NOT = { fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:fs_constituency_event_activity } }
+	scope:fs_constituency_event_activity = {
+		fs_constituency_running_activity_trigger = yes
+		var:fs_constituency_round = scope:fs_constituency_observer_round
+		trigger_if = {
+			limit = { has_variable = fs_constituency_closed_round }
+			var:fs_constituency_closed_round < var:fs_constituency_round
+		}
+		trigger_if = {
+			limit = { var:fs_constituency_round = 1 }
+			NOT = { is_target_in_variable_list = { name = fs_constituency_observer_responses_1 target = root } }
+		}
+		trigger_else_if = {
+			limit = { var:fs_constituency_round = 2 }
+			NOT = { is_target_in_variable_list = { name = fs_constituency_observer_responses_2 target = root } }
+		}
+		trigger_else = {
+			NOT = { is_target_in_variable_list = { name = fs_constituency_observer_responses_3 target = root } }
+		}
+	}
+}
+
+# Delayed candidate events and multiplayer windows must still belong to this exact round.
+fs_constituency_current_event_trigger = {
+	exists = scope:fs_constituency_event_activity
+	fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:fs_constituency_event_activity }
+	var:fs_constituency_candidate_round = $ROUND$
+	NOT = { has_variable = $DONE$ }
+	scope:fs_constituency_event_activity = {
+		NOT = { has_variable = fs_constituency_resolved }
+		var:fs_constituency_round = $ROUND$
+		var:fs_constituency_seat = {
+			NOT = { exists = holder }
+			var:fs_constituency_election_activity = scope:fs_constituency_event_activity
+		}
+	}
+}
+
+# Do not put this restriction in the shared appointment eligibility trigger.
+fs_constituency_electoral_rights_trigger = {
+	custom_tooltip = {
+		text = fs_constituency_offender_cannot_run_tt
+		NOT = { has_trait = fs_election_offender }
+	}
+}
+
+# Character scope. The exact activity owns offered and answered choices.
+fs_constituency_integrity_choice_trigger = {
+	exists = scope:fs_constituency_fraud_activity
+	fs_constituency_candidate_for_seat_trigger = { SEAT = scope:fs_constituency_fraud_activity.var:fs_constituency_seat }
+	has_activity_intent = fs_constituency_candidate_intent
+	involved_activity = scope:fs_constituency_fraud_activity
+	location = scope:fs_constituency_fraud_activity.activity_location
+	scope:fs_constituency_fraud_activity = {
+		fs_constituency_running_activity_trigger = yes
+		has_variable = fs_constituency_fraud_rules
+		NOT = { has_variable = fs_constituency_integrity_locked }
+		is_target_in_variable_list = { name = fs_constituency_integrity_offered target = root }
+		NOT = { is_target_in_variable_list = { name = fs_constituency_honest_candidates target = root } }
+		NOT = { is_target_in_variable_list = { name = fs_constituency_fraud_candidates target = root } }
+	}
+}
+
+# Activity scope. A scheduled timer must still belong to an open round.
+fs_constituency_fraud_round_open_trigger = {
+	fs_constituency_running_activity_trigger = yes
+	has_variable = fs_constituency_fraud_rules
+	var:fs_constituency_round > 0
+	trigger_if = {
+		limit = { has_variable = fs_constituency_closed_round }
+		var:fs_constituency_closed_round < var:fs_constituency_round
+	}
+	trigger_if = {
+		limit = { has_variable = fs_constituency_fraud_closed_round }
+		var:fs_constituency_fraud_closed_round < var:fs_constituency_round
+	}
+}
+
+# Character scope. Former candidates never become monitors of the same ballot.
+fs_constituency_fraud_observer_trigger = {
+	is_alive = yes
+	has_activity_intent = fs_constituency_observer_intent
+	involved_activity = scope:activity
+	location = scope:activity.activity_location
+	NOT = { scope:activity = { is_target_in_variable_list = { name = fs_constituency_candidates target = prev } } }
+}
+
+# The immutable event tuple identifies one assignment. Each observer and suspect
+# has at most one assignment in a round; all mutable case state stays on activity.
+fs_constituency_current_case_trigger = {
+	exists = scope:fs_constituency_case_activity
+	this = scope:fs_constituency_case_observer
+	is_alive = yes
+	has_activity_intent = fs_constituency_observer_intent
+	involved_activity = scope:fs_constituency_case_activity
+	location = scope:fs_constituency_case_activity.activity_location
+	scope:fs_constituency_case_suspect = {
+		fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:fs_constituency_case_activity }
+	}
+	scope:fs_constituency_case_activity = {
+		fs_constituency_fraud_round_open_trigger = yes
+		var:fs_constituency_round = scope:fs_constituency_case_round
+		is_target_in_variable_list = { name = fs_constituency_case_observers target = scope:fs_constituency_case_observer }
+		is_target_in_variable_list = { name = fs_constituency_case_suspects target = scope:fs_constituency_case_suspect }
+		NOT = { is_target_in_variable_list = { name = fs_constituency_observer_done target = scope:fs_constituency_case_observer } }
+		NOT = { is_target_in_variable_list = { name = fs_constituency_case_resolved target = scope:fs_constituency_case_suspect } }
+		NOT = { is_target_in_variable_list = { name = fs_constituency_public_offenders target = scope:fs_constituency_case_suspect } }
+		NOT = { is_target_in_variable_list = { name = fs_constituency_candidates target = scope:fs_constituency_case_observer } }
+	}
+}
+
+fs_constituency_current_host_case_trigger = {
+	exists = scope:fs_constituency_case_activity
+	is_alive = yes
+	this = scope:fs_constituency_case_activity.activity_host
+	scope:fs_constituency_case_activity = {
+		fs_constituency_fraud_round_open_trigger = yes
+		var:fs_constituency_round = scope:fs_constituency_case_round
+		is_target_in_variable_list = { name = fs_constituency_host_pending target = scope:fs_constituency_case_suspect }
+		NOT = { is_target_in_variable_list = { name = fs_constituency_case_resolved target = scope:fs_constituency_case_suspect } }
+	}
+}
+
+fs_constituency_may_cover_case_trigger = {
+	fs_constituency_current_host_case_trigger = yes
+	scope:fs_constituency_case_activity = { var:fs_constituency_administration = flag:fs_constituency_biased }
+	scope:fs_constituency_case_suspect = {
+		is_alive = yes
+		rite = scope:fs_constituency_case_activity.var:fs_constituency_organizing_rite
+	}
+}
+
+fs_constituency_pardon_target_trigger = {
+	is_alive = yes
+	faith = faith:koreanism_faith
+	has_trait = fs_election_offender
+}

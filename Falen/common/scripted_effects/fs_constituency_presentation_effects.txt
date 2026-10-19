@@ -1,0 +1,221 @@
+﻿# Character scope. Record the resolved outcome, never merely the attempted action.
+fs_constituency_record_choice_effect = {
+	save_scope_as = fs_constituency_speaker
+	save_scope_value_as = { name = fs_constituency_choice_gain value = $GAIN$ }
+	scope:fs_constituency_event_activity = {
+		add_activity_log_entry = {
+			key = $LOG$
+			character = scope:fs_constituency_speaker
+			location = scope:activity.activity_location
+			score = 10
+			tags = { activity }
+		}
+	}
+	if = {
+		limit = { is_ai = no }
+		send_interface_toast = {
+			type = event_toast_effect_neutral
+			title = fs_constituency_choice_result
+			left_icon = scope:fs_constituency_speaker
+			custom_tooltip = fs_constituency_choice_result_tt
+		}
+	}
+}
+
+# Character event scope. A rival adds context, but never changes the scoring formula.
+fs_constituency_prepare_candidate_event_effect = {
+	clear_saved_scope = fs_constituency_rival
+	scope:fs_constituency_event_activity = {
+		random_in_list = {
+			variable = fs_constituency_candidates
+			limit = {
+				this != root
+				fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:fs_constituency_event_activity }
+			}
+			save_scope_as = fs_constituency_rival
+		}
+	}
+}
+
+# Character scope. Responses are owned by this activity and this round.
+fs_constituency_mark_observer_response_effect = {
+	save_scope_as = fs_constituency_observer
+	scope:fs_constituency_event_activity = {
+		if = {
+			limit = { var:fs_constituency_round = 1 }
+			add_to_variable_list = { name = fs_constituency_observer_responses_1 target = scope:fs_constituency_observer }
+		}
+		else_if = {
+			limit = { var:fs_constituency_round = 2 }
+			add_to_variable_list = { name = fs_constituency_observer_responses_2 target = scope:fs_constituency_observer }
+		}
+		else = {
+			add_to_variable_list = { name = fs_constituency_observer_responses_3 target = scope:fs_constituency_observer }
+		}
+		add_activity_log_entry = {
+			key = fs_constituency_public_hearing
+			character = scope:fs_constituency_observer
+			location = scope:activity.activity_location
+			score = 10
+			tags = { activity }
+		}
+	}
+}
+
+fs_constituency_observer_listen_effect = {
+	if = {
+		limit = { fs_constituency_current_observer_event_trigger = yes }
+		fs_constituency_mark_observer_response_effect = yes
+		if = { limit = { scope:fs_constituency_event_activity = { has_variable = fs_constituency_fraud_rules } } fs_constituency_listen_stress_effect = yes }
+		if = {
+			limit = { scope:fs_constituency_observer_round = 1 }
+			add_diplomacy_lifestyle_xp = fs_constituency_observer_choice_xp
+		}
+		else_if = {
+			limit = { scope:fs_constituency_observer_round = 2 }
+			add_stewardship_lifestyle_xp = fs_constituency_observer_choice_xp
+		}
+		else = { add_learning_lifestyle_xp = fs_constituency_observer_choice_xp }
+	}
+}
+fs_constituency_observer_mediate_effect = {
+	if = {
+		limit = { fs_constituency_current_observer_event_trigger = yes }
+		fs_constituency_mark_observer_response_effect = yes
+		if = { limit = { scope:fs_constituency_event_activity = { has_variable = fs_constituency_fraud_rules } } fs_constituency_mediate_stress_effect = yes }
+		add_piety = fs_constituency_observer_choice_piety
+	}
+}
+fs_constituency_observer_reflect_effect = {
+	if = {
+		limit = { fs_constituency_current_observer_event_trigger = yes }
+		fs_constituency_mark_observer_response_effect = yes
+		if = { limit = { scope:fs_constituency_event_activity = { has_variable = fs_constituency_fraud_rules } } fs_constituency_reflect_stress_effect = yes }
+		add_stress = fs_constituency_observer_choice_stress
+	}
+}
+
+# Activity scope. Capture eligibility before a winner gains an MP title.
+fs_constituency_capture_final_candidates_effect = {
+	set_variable = { name = fs_constituency_final_candidate_count value = 0 }
+	every_in_list = {
+		variable = fs_constituency_candidates
+		limit = { fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity } }
+		save_scope_as = fs_constituency_final_candidate
+		scope:activity = {
+			add_to_variable_list = { name = fs_constituency_final_candidates target = scope:fs_constituency_final_candidate }
+			change_variable = { name = fs_constituency_final_candidate_count add = 1 }
+		}
+	}
+}
+
+# Character scope. The result-recipient guard surrounds all rewards.
+# Native log entries collect these effects for the activity conclusion, as in imperial_examination.
+fs_constituency_pay_completion_rewards_effect = {
+	scope:activity = {
+		add_activity_log_entry = {
+			key = fs_constituency_participant_rewards
+			character = scope:fs_constituency_result_recipient
+			location = scope:activity.activity_location
+			score = 100
+			tags = { completed }
+			show_in_conclusion = yes
+			scope:fs_constituency_result_recipient = {
+				if = {
+					limit = { this = scope:host exists = scope:fs_constituency_result_winner }
+					add_prestige = fs_constituency_host_prestige_reward
+					save_scope_value_as = { name = fs_constituency_host_reward value = fs_constituency_host_prestige_reward }
+				}
+				if = {
+					limit = {
+						scope:activity = {
+							is_target_in_variable_list = { name = fs_constituency_final_candidates target = scope:fs_constituency_result_recipient }
+						}
+					}
+					add_prestige = fs_constituency_candidate_prestige_reward
+					add_diplomacy_lifestyle_xp = fs_constituency_candidate_skill_xp_reward
+					add_stewardship_lifestyle_xp = fs_constituency_candidate_skill_xp_reward
+					add_learning_lifestyle_xp = fs_constituency_candidate_skill_xp_reward
+					save_scope_as = fs_constituency_result_candidate
+					save_scope_value_as = { name = fs_constituency_personal_score value = var:fs_constituency_score }
+					save_scope_value_as = { name = fs_constituency_candidate_reward value = fs_constituency_candidate_prestige_reward }
+				}
+				else = {
+					add_learning_lifestyle_xp = fs_constituency_observer_completion_xp
+					save_scope_value_as = { name = fs_constituency_observer_reward value = fs_constituency_observer_completion_xp }
+				}
+				if = {
+					limit = { exists = scope:fs_constituency_result_winner this = scope:fs_constituency_result_winner }
+					add_prestige = fs_constituency_winner_prestige_reward
+					save_scope_value_as = { name = fs_constituency_winner_reward value = fs_constituency_winner_prestige_reward }
+				}
+			}
+		}
+	}
+}
+
+# Character scope. Snapshot all event text before cleanup; acknowledgement grants nothing.
+fs_constituency_present_result_effect = {
+	if = {
+		limit = { is_alive = yes }
+		save_scope_as = fs_constituency_result_recipient
+		if = {
+			limit = {
+				scope:activity = {
+					NOT = { is_target_in_variable_list = { name = fs_constituency_result_recipients target = scope:fs_constituency_result_recipient } }
+				}
+			}
+			scope:activity = {
+				add_to_variable_list = { name = fs_constituency_result_recipients target = scope:fs_constituency_result_recipient }
+			}
+			clear_saved_scope = fs_constituency_result_seat
+			clear_saved_scope = fs_constituency_result_winner
+			clear_saved_scope = fs_constituency_result_candidate
+			scope:activity.var:fs_constituency_seat ?= { save_scope_as = fs_constituency_result_seat }
+			scope:activity.var:fs_constituency_winner ?= { save_scope_as = fs_constituency_result_winner }
+			save_scope_value_as = { name = fs_constituency_host_reward value = 0 }
+			save_scope_value_as = { name = fs_constituency_candidate_reward value = 0 }
+			save_scope_value_as = { name = fs_constituency_winner_reward value = 0 }
+			save_scope_value_as = { name = fs_constituency_observer_reward value = 0 }
+			save_scope_value_as = { name = fs_constituency_personal_score value = 0 }
+			save_scope_value_as = { name = fs_constituency_final_score value = 0 }
+			save_scope_value_as = { name = fs_constituency_final_count value = 0 }
+			scope:activity = {
+				if = {
+					limit = { has_variable = fs_constituency_winning_score }
+					save_scope_value_as = { name = fs_constituency_final_score value = var:fs_constituency_winning_score }
+				}
+				if = {
+					limit = { has_variable = fs_constituency_final_candidate_count }
+					save_scope_value_as = { name = fs_constituency_final_count value = var:fs_constituency_final_candidate_count }
+				}
+			}
+			# Every participant gets a fresh event context; do not inherit the preceding recipient's score.
+			if = {
+				limit = {
+					scope:activity = { NOT = { has_variable = fs_constituency_cancelled } }
+					involved_activity = scope:activity
+					location = scope:activity.activity_location
+				}
+				fs_constituency_pay_completion_rewards_effect = yes
+				fs_constituency_capture_fraud_result_effect = yes
+				trigger_event = fs_constituency_election.100
+			}
+			send_interface_toast = {
+				type = event_toast_effect_neutral
+				title = fs_constituency_result_toast
+				left_icon = scope:host
+				right_icon = scope:activity.var:fs_constituency_seat
+				if = {
+					limit = { scope:activity = { has_variable = fs_constituency_cancelled } }
+					custom_tooltip = fs_constituency_cancelled_tt
+				}
+				else_if = {
+					limit = { exists = scope:fs_constituency_result_winner }
+					custom_tooltip = fs_constituency_winner_tt
+				}
+				else = { custom_tooltip = fs_constituency_no_winner_tt }
+			}
+		}
+	}
+}

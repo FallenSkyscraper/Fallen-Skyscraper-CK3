@@ -2,6 +2,8 @@
 	doctrine_group_type = doctrine_religion_policy
 	index = 0
 	icon = "religion_policy_ultranationalism"
+	
+	divergence = 140
 	can_pick = {
 		has_doctrine = doctrine_pluralism_fundamentalist
 	}
@@ -21,6 +23,8 @@ religion_policy_state_atheism = {
 	doctrine_group_type = doctrine_religion_policy
 	index = 1
 	icon = "religion_policy_state_atheism"
+	
+	divergence = 65
 	can_pick = {
 		NOT = { has_doctrine = doctrine_pluralism_pluralistic }
 	}
@@ -40,6 +44,8 @@ religion_policy_laicite = { # Base Option
 	doctrine_group_type = doctrine_religion_policy
 	index = 2
 	icon = "religion_policy_laicite"
+	
+	divergence = 40
 	piety_cost = {
 		value = faith_doctrine_cost_low
 		if = {
@@ -56,6 +62,7 @@ religion_policy_freedom_of_religion = {
 	doctrine_group_type = doctrine_religion_policy
 	index = 3
 	icon = "religion_policy_freedom_of_religion"
+	divergence = 30
 	can_pick = {
 		NOT = { has_doctrine = doctrine_pluralism_fundamentalist }
 	}
@@ -74,6 +81,7 @@ religion_policy_pluralism = {
 	doctrine_group_type = doctrine_religion_policy
 	index = 4
 	icon = "religion_policy_pluralism"
+	divergence = 0
 	can_pick = {
 		has_doctrine = doctrine_pluralism_pluralistic
 	}

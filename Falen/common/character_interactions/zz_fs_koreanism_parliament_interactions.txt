@@ -34,7 +34,7 @@ fs_appoint_parliament_member_interaction = {
 		}
 	}
 	can_be_picked_title = {
-		scope:target = { fs_koreanism_vacant_parliament_seat_trigger = yes }
+		scope:target = { fs_koreanism_appointable_parliament_seat_trigger = yes }
 	}
 	is_valid_showing_failures_only = {
 		scope:actor = { fs_koreanism_parliament_president_trigger = yes }
@@ -51,7 +51,7 @@ fs_appoint_parliament_member_interaction = {
 		custom_tooltip = {
 			text = fs_parliament_selected_vacancy_tt
 			exists = scope:target
-			scope:target ?= { fs_koreanism_vacant_parliament_seat_trigger = yes }
+			scope:target ?= { fs_koreanism_appointable_parliament_seat_trigger = yes }
 		}
 	}
 	auto_accept = { scope:recipient = { is_ai = yes } }
@@ -63,7 +63,7 @@ fs_appoint_parliament_member_interaction = {
 				scope:actor = { fs_koreanism_parliament_president_trigger = yes }
 				scope:recipient = { fs_koreanism_parliament_candidate_trigger = yes }
 				exists = scope:target
-				scope:target ?= { fs_koreanism_vacant_parliament_seat_trigger = yes }
+				scope:target ?= { fs_koreanism_appointable_parliament_seat_trigger = yes }
 			}
 			scope:recipient = {
 				fs_grant_koreanism_parliament_seat_effect = { SEAT = scope:target }
@@ -1405,7 +1405,7 @@ request_clerical_elector_title_interaction = {
 				limit = { fs_koreanism_parliament_request_valid_trigger = yes }
 				random_in_global_list = {
 					variable = fs_koreanism_parliament_seats
-					limit = { fs_koreanism_vacant_parliament_seat_trigger = yes }
+					limit = { fs_koreanism_appointable_parliament_seat_trigger = yes }
 					save_scope_as = fs_requested_parliament_seat
 				}
 				scope:actor = {

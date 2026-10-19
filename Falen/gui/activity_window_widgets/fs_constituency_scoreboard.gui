@@ -1,0 +1,84 @@
+# Use imperial_examination's right-side container instead of covering the summary row.
+widget = {
+	name = "fs_constituency_scoreboard"
+	datacontext = "[ActivityWindow.GetActivity]"
+	visible = "[And(Not(Activity.MakeScope.Var('fs_constituency_resolved').IsSet), Not(GetVariableSystem.Exists('fs_constituency_scoreboard_hidden')))]"
+	size = { 250 560 }
+
+	state = {
+		name = _show
+		trigger_on_create = yes
+		trigger_when = "[And(Not(GetVariableSystem.Exists('fs_constituency_scoreboard_hidden')), DataModelHasItems(ActivityWindow.GetCurrentPhaseGuestSubset('fs_constituency_contestants')))]"
+		on_start = "[ActivityWindow.SetAllPhasesGuestSubsetSortingDescending('fs_constituency_contestants', 'fs_constituency_scoreboard_sort_value')]"
+	}
+	vbox = {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		margin = { 12 12 }
+		spacing = 8
+		background = { using = Background_Area }
+		text_label_center = { text = "fs_constituency_scoreboard_title" layoutpolicy_horizontal = expanding }
+		text_multi = { text = "fs_constituency_scoreboard_seat" max_width = 220 autoresize = yes }
+		text_single = { text = "fs_constituency_candidate_count" using = Font_Size_Small }
+		text_single = { text = "fs_constituency_sort_help" using = Font_Size_Small default_format = "#weak" }
+		text_multi = {
+			visible = "[Not(Activity.MakeScope.Var('fs_constituency_roster_frozen').IsSet)]"
+			text = "fs_constituency_assembly_help"
+			max_width = 220
+			autoresize = yes
+		}
+		text_multi = {
+			visible = "[And(Activity.MakeScope.Var('fs_constituency_roster_frozen').IsSet, Not(DataModelHasItems(ActivityWindow.GetCurrentPhaseGuestSubset('fs_constituency_contestants'))))]"
+			text = "fs_constituency_empty_ballot_help"
+			max_width = 220
+			autoresize = yes
+		}
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			scrollbarpolicy_vertical = as_needed
+			blockoverride "scrollbox_content" {
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					spacing = 6
+					datamodel = "[ActivityWindow.GetCurrentPhaseGuestSubset('fs_constituency_contestants')]"
+					item = {
+						button_tertiary = {
+							layoutpolicy_horizontal = expanding
+							size = { 100% 58 }
+							onclick = "[DefaultOnCharacterClick(Character.GetID)]"
+							tooltip = "CHARACTER_UI_NAME_NOT_ME"
+							using = tooltip_se
+							hbox = {
+								alwaystransparent = yes
+								layoutpolicy_horizontal = expanding
+								spacing = 6
+								portrait_head_small = { size = { 36 36 } }
+								vbox = {
+									layoutpolicy_horizontal = expanding
+									text_single = { text = "[Character.GetShortUINameNoTooltip]" max_width = 155 fontsize_min = 12 }
+									text_single = {
+										text = "fs_constituency_candidate_score"
+										using = Font_Size_Small
+										visible = "[And(Character.IsAlive, Not(Character.MakeScope.Var('fs_constituency_disqualified').IsSet))]"
+									}
+									text_single = {
+										text = "fs_constituency_candidate_disqualified"
+										using = Font_Size_Small
+										visible = "[And(Or(Not(Character.IsAlive), Character.MakeScope.Var('fs_constituency_disqualified').IsSet), Not(Character.MakeScope.Var('fs_constituency_fraud_disqualified').IsSet))]"
+									}
+									text_single = {
+										text = "fs_constituency_candidate_fraud_disqualified"
+										using = Font_Size_Small
+										visible = "[Character.MakeScope.Var('fs_constituency_fraud_disqualified').IsSet]"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		text_multi = { text = "fs_constituency_ballot_rules_short" max_width = 220 autoresize = yes using = Font_Size_Small default_format = "#weak" }
+	}
+}

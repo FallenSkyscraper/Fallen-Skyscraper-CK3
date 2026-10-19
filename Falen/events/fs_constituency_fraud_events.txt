@@ -1,0 +1,191 @@
+﻿namespace = fs_constituency_fraud
+
+# Like examination opening events, the choice precedes the competitive rounds.
+fs_constituency_fraud.1 = {
+	type = activity_event
+	title = fs_constituency_fraud.1.t
+	desc = fs_constituency_fraud.1.desc
+	theme = debate
+	override_background = { reference = tgp_study_asia }
+	left_portrait = { character = root animation = thinking }
+	trigger = { fs_constituency_integrity_choice_trigger = yes }
+	option = {
+		name = fs_constituency_fraud.1.honest
+		custom_tooltip = fs_constituency_honest_campaign_tt
+		fs_constituency_choose_honest_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_honest_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_fraud.1.cheat
+		custom_tooltip = fs_constituency_fraud_campaign_tt
+		fs_constituency_choose_fraud_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_fraud_ai_weight } }
+	}
+}
+
+# The host is only a delivery carrier. Ownership and round guards live on activity.
+fs_constituency_fraud.2 = {
+	type = character_event
+	hidden = yes
+	trigger = {
+		scope:fs_constituency_fraud_activity = {
+			fs_constituency_fraud_round_open_trigger = yes
+			var:fs_constituency_round = scope:fs_constituency_fraud_round
+		}
+	}
+	immediate = { scope:fs_constituency_fraud_activity = { fs_constituency_lock_integrity_effect = yes } }
+}
+
+fs_constituency_fraud.3 = {
+	type = character_event
+	hidden = yes
+	trigger = {
+		scope:fs_constituency_fraud_activity = {
+			fs_constituency_fraud_round_open_trigger = yes
+			var:fs_constituency_round = scope:fs_constituency_fraud_round
+		}
+	}
+	immediate = { scope:fs_constituency_fraud_activity = { fs_constituency_audit_fraud_effect = yes } }
+}
+
+# Private account of the already-applied bonus. Acknowledgement grants nothing.
+fs_constituency_fraud.10 = {
+	type = activity_event
+	title = fs_constituency_fraud.10.t
+	desc = {
+		desc = {
+			first_valid = {
+				triggered_desc = { trigger = { scope:fs_constituency_case_method = 1 } desc = fs_constituency_fraud.10.bribes }
+				triggered_desc = { trigger = { scope:fs_constituency_case_method = 2 } desc = fs_constituency_fraud.10.patronage }
+				triggered_desc = { trigger = { scope:fs_constituency_case_method = 3 } desc = fs_constituency_fraud.10.ghosts }
+				triggered_desc = { trigger = { scope:fs_constituency_case_method = 4 } desc = fs_constituency_fraud.10.boxes }
+				desc = fs_constituency_fraud.10.counts
+			}
+		}
+		desc = fs_constituency_fraud.10.conscience
+	}
+	theme = debate
+	override_background = { reference = tgp_study_asia }
+	left_portrait = { character = root animation = thinking }
+	trigger = {
+		fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:fs_constituency_fraud_activity }
+		scope:fs_constituency_fraud_activity = {
+			fs_constituency_fraud_round_open_trigger = yes
+			var:fs_constituency_round = scope:fs_constituency_fraud_round
+		}
+	}
+	option = { name = fs_constituency_fraud.10.a }
+}
+
+# Identical kinds of circumstantial evidence can be genuine or misleading.
+fs_constituency_fraud.20 = {
+	type = activity_event
+	title = fs_constituency_fraud.20.t
+	desc = {
+		desc = fs_constituency_fraud.20.intro
+		desc = {
+			first_valid = {
+				triggered_desc = { trigger = { scope:fs_constituency_case_method = 1 } desc = fs_constituency_fraud.20.bribes }
+				triggered_desc = { trigger = { scope:fs_constituency_case_method = 2 } desc = fs_constituency_fraud.20.patronage }
+				triggered_desc = { trigger = { scope:fs_constituency_case_method = 3 } desc = fs_constituency_fraud.20.ghosts }
+				triggered_desc = { trigger = { scope:fs_constituency_case_method = 4 } desc = fs_constituency_fraud.20.boxes }
+				desc = fs_constituency_fraud.20.counts
+			}
+		}
+		desc = fs_constituency_fraud.20.doubt
+	}
+	theme = debate
+	override_background = { reference = tgp_chinese_city }
+	left_portrait = { character = root animation = thinking }
+	right_portrait = { character = scope:fs_constituency_case_suspect animation = thinking }
+	trigger = { fs_constituency_current_case_trigger = yes }
+	option = {
+		name = fs_constituency_fraud.20.investigate
+		custom_tooltip = fs_constituency_investigate_fraud_tt
+		fs_constituency_investigate_case_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_investigate_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_fraud.20.ignore
+		custom_tooltip = fs_constituency_ignore_fraud_tt
+		fs_constituency_ignore_case_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_ignore_ai_weight } }
+	}
+}
+
+fs_constituency_fraud.21 = {
+	type = activity_event
+	title = fs_constituency_fraud.21.t
+	desc = {
+		first_valid = {
+			triggered_desc = { trigger = { scope:fs_constituency_case_outcome = 1 } desc = fs_constituency_fraud.21.proved }
+			triggered_desc = { trigger = { scope:fs_constituency_case_outcome = 2 } desc = fs_constituency_fraud.21.unresolved }
+			triggered_desc = { trigger = { scope:fs_constituency_case_outcome = 3 } desc = fs_constituency_fraud.21.cleared }
+			desc = fs_constituency_fraud.21.false
+		}
+	}
+	theme = debate
+	override_background = { reference = tgp_examination_room }
+	left_portrait = { character = root animation = thinking }
+	right_portrait = { character = scope:fs_constituency_case_suspect animation = thinking }
+	option = { name = fs_constituency_fraud.21.a }
+}
+
+fs_constituency_fraud.30 = {
+	type = activity_event
+	title = fs_constituency_fraud.30.t
+	desc = {
+		desc = fs_constituency_fraud.30.intro
+		desc = {
+			first_valid = {
+				triggered_desc = { trigger = { this = scope:fs_constituency_case_suspect } desc = fs_constituency_fraud.30.self }
+				desc = fs_constituency_fraud.30.ally
+			}
+		}
+		desc = fs_constituency_fraud.30.choice
+	}
+	theme = debate
+	override_background = { reference = tgp_study_asia }
+	left_portrait = { character = root animation = thinking }
+	right_portrait = { trigger = { this != scope:fs_constituency_case_suspect } character = scope:fs_constituency_case_suspect animation = thinking }
+	trigger = { fs_constituency_current_host_case_trigger = yes }
+	option = {
+		name = fs_constituency_fraud.30.punish
+		custom_tooltip = fs_constituency_fraud_conviction_tt
+		fs_constituency_host_punish_case_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_punish_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_fraud.30.cover
+		trigger = { fs_constituency_may_cover_case_trigger = yes }
+		custom_tooltip = fs_constituency_cover_fraud_tt
+		fs_constituency_host_cover_case_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_cover_ai_weight } }
+	}
+}
+
+# This conclusion reaction contains only immutable result snapshots. The activity
+# may already have been destroyed, or this character may be at another election.
+fs_constituency_fraud.40 = {
+	type = character_event
+	title = fs_constituency_fraud.40.t
+	desc = fs_constituency_fraud.40.desc
+	theme = debate
+	override_background = { reference = tgp_chinese_city }
+	left_portrait = { character = root animation = personality_bold }
+	right_portrait = { character = scope:fs_constituency_result_winner animation = thinking }
+	trigger = { is_alive = yes scope:fs_constituency_protest_allowed = 1 scope:fs_constituency_protest_answered = 0 }
+	option = {
+		name = fs_constituency_fraud.40.protest
+		trigger = { scope:fs_constituency_result_winner = { is_alive = yes } }
+		custom_tooltip = fs_constituency_protest_tt
+		fs_constituency_protest_result_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_protest_ai_weight } }
+	}
+	option = {
+		name = fs_constituency_fraud.40.accept
+		custom_tooltip = fs_constituency_accept_result_tt
+		fs_constituency_accept_result_effect = yes
+		ai_chance = { base = 0 modifier = { add = fs_constituency_accept_ai_weight } }
+	}
+}

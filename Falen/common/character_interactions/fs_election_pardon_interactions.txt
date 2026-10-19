@@ -1,0 +1,91 @@
+﻿fs_pardon_election_offender_interaction = {
+	category = interaction_category_religion
+	icon = scroll_scales
+	common_interaction = yes
+	use_diplomatic_range = no
+	desc = fs_pardon_election_offender_interaction_desc
+	notification_text = fs_pardon_election_offender_interaction_notification
+	auto_accept = yes
+	force_notification = yes
+	is_shown = {
+		scope:actor = { faith = faith:koreanism_faith has_title = title:k_koreanism this != scope:recipient }
+		scope:recipient = { fs_constituency_pardon_target_trigger = yes }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = { fs_koreanism_parliament_president_trigger = yes this != scope:recipient }
+		scope:recipient = { fs_constituency_pardon_target_trigger = yes }
+	}
+	on_accept = { fs_constituency_pardon_effect = { PRESIDENT = scope:actor TARGET = scope:recipient } }
+	ai_potential = { fs_koreanism_parliament_president_trigger = yes }
+	ai_targets = { ai_recipients = courtiers ai_recipients = vassals ai_recipients = subordinates ai_recipients = papabile ai_recipients = scripted_relations max = 5 }
+	ai_frequency = 12
+	ai_will_do = { base = 0 modifier = { add = fs_constituency_pardon_ai_weight } }
+}
+
+fs_request_election_pardon_interaction = {
+	category = interaction_category_religion
+	icon = scroll_scales
+	common_interaction = yes
+	use_diplomatic_range = no
+	desc = fs_request_election_pardon_interaction_desc
+	notification_text = fs_request_election_pardon_interaction_notification
+	popup_on_receive = yes
+	ai_min_reply_days = 1
+	ai_max_reply_days = 5
+	cooldown_against_recipient = { months = 12 }
+	is_shown = {
+		scope:actor = { fs_constituency_pardon_target_trigger = yes this != scope:recipient }
+		scope:recipient = { faith = faith:koreanism_faith has_title = title:k_koreanism }
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = { fs_constituency_pardon_target_trigger = yes this != scope:recipient }
+		scope:recipient = { fs_koreanism_parliament_president_trigger = yes }
+	}
+	on_accept = { fs_constituency_pardon_effect = { PRESIDENT = scope:recipient TARGET = scope:actor } }
+	on_decline = {
+		if = {
+			limit = {
+				scope:recipient = { fs_koreanism_parliament_president_trigger = yes }
+				scope:actor = { fs_constituency_pardon_target_trigger = yes }
+			}
+			scope:recipient = { fs_constituency_refuse_pardon_stress_effect = yes }
+			scope:actor = {
+				send_interface_toast = {
+					type = event_toast_effect_neutral
+					title = fs_constituency_pardon_refused_title
+					left_icon = scope:recipient
+					custom_tooltip = fs_constituency_pardon_refused_tt
+				}
+			}
+		}
+	}
+	ai_potential = { fs_constituency_pardon_target_trigger = yes }
+	ai_targets = { ai_recipients = head_of_faith }
+	ai_frequency = 12
+	ai_will_do = { base = 0 modifier = { add = fs_constituency_pardon_request_ai_weight } }
+	ai_accept = {
+		base = 0
+		modifier = { add = fs_constituency_pardon_accept_base desc = fs_constituency_pardon_base_reason }
+		opinion_modifier = { who = scope:recipient opinion_target = scope:actor multiplier = fs_constituency_pardon_opinion_factor desc = AI_OPINION_REASON }
+		modifier = {
+			scope:actor.rite = scope:recipient.rite
+			add = fs_constituency_pardon_same_rite_bonus
+			desc = fs_constituency_pardon_same_rite_reason
+		}
+		modifier = {
+			scope:recipient = { OR = { has_trait = compassionate has_trait = forgiving } }
+			add = fs_constituency_pardon_merciful_bonus
+			desc = fs_constituency_pardon_merciful_reason
+		}
+		modifier = {
+			scope:recipient = { OR = { has_trait = just has_trait = vengeful } }
+			add = fs_constituency_pardon_strict_penalty
+			desc = fs_constituency_pardon_strict_reason
+		}
+		modifier = {
+			scope:recipient = { OR = { has_relation_rival = scope:actor has_relation_nemesis = scope:actor } }
+			add = fs_constituency_pardon_rival_penalty
+			desc = fs_constituency_pardon_rival_reason
+		}
+	}
+}

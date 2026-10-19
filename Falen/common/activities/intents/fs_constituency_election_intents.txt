@@ -1,0 +1,20 @@
+﻿# Choosing observer is always valid, including for the president and incumbent MPs.
+fs_constituency_observer_intent = {
+	icon = intent_influence
+	auto_complete = yes
+	is_valid = {}
+	ai_will_do = { value = 25 }
+}
+
+# Selecting this intent is the candidacy application; there is no automatic nomination.
+fs_constituency_candidate_intent = {
+	icon = intent_influence
+	auto_complete = yes
+	is_valid = {
+		custom_tooltip = {
+			text = fs_constituency_candidate_tt
+			fs_constituency_can_choose_candidacy_trigger = yes
+		}
+	}
+	ai_will_do = { value = 100 }
+}

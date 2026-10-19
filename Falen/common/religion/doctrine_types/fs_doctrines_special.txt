@@ -1,6 +1,5 @@
 ﻿special_doctrine_terror_governing = {
 	doctrine_group_type = terror_governing
-	index = 0
 	parameters = {
 		other_culture_conversion_penalty_active
 	}
@@ -17,7 +16,6 @@
 }
 special_doctrine_path_of_saint = {
 	doctrine_group_type = path_of_saint
-	index = 0
 	special_parameters = {
 		hostility_levels = {
 			unrelated = evil
@@ -33,26 +31,32 @@ special_doctrine_path_of_saint = {
 }
 special_doctrine_hundred_days_of_reform = {
 	doctrine_group_type = hundred_days_of_reform
-	index = 0
 	parameters = {
 		same_faith_promote_culture_bonus_active
 	}
 }
 special_doctrine_is_koreanism_faith = {
 	doctrine_group_type = is_koreanism_faith
-	index = 0
+	
 	parameters = {
 		koreanism_syncretic_recipient
 		has_clerical_regions
+		immaterial_harmony_no_holy_orders
+		fs_election_fraud_illegal
 	}
-	#special_parameters = {
+	traits = {
+		sins = {
+			fs_election_offender = { weight = 40 scale = 1 }
+		}
+	}
+	special_parameters = {
+		heresy_threshold = 100
 	#	hostility_level_override = { tenet_koreanism_syncretism = astray }
 	#	parameter_opinion_override = { koreanism_syncretic_actor = 30 }
-	#}
+	}
 }
 special_doctrine_is_communism_faith = {
 	doctrine_group_type = is_communism_faith
-	index = 0
 	parameters = {
 		communism_syncretic_recipient
 	}
@@ -63,7 +67,6 @@ special_doctrine_is_communism_faith = {
 }
 special_doctrine_is_manchurian_faith = {
 	doctrine_group_type = is_manchurian_faith
-	index = 0
 	parameters = {
 		plain_faith_syncretic_recipient
 	}
@@ -74,7 +77,6 @@ special_doctrine_is_manchurian_faith = {
 }
 special_doctrine_is_tengri_faith = {
 	doctrine_group_type = is_tengri_faith
-	index = 0
 	parameters = {
 		plain_faith_syncretic_recipient
 	}

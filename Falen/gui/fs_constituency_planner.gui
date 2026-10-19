@@ -1,0 +1,108 @@
+# Use the existing special-option selection API with a bounded, scrollable list.
+types FSConstituencyPlannerTypes
+{
+	type fs_constituency_district_selection_widget = widget
+	{
+		size = { 100% 100% }
+		using = Activity_Planner_Widget
+		datacontext = "[ActivityPlanner.GetEditingOption]"
+
+		background = {
+			using = Background_Area_Dark
+			alpha = 0.5
+		}
+
+		widget = {
+			name = "fs_constituency_district_panel"
+			parentanchor = center
+			size = { 640 80% }
+			using = Window_Background
+			using = Window_Decoration
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				using = Window_Margins
+				spacing = 8
+
+				header_pattern = {
+					layoutpolicy_horizontal = expanding
+					blockoverride "header_text" {
+						text = "fs_constituency_district"
+					}
+					blockoverride "button_close" {
+						onclick = "[ActivityPlanner.Close]"
+					}
+				}
+
+				text_multi = {
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 560
+					text = "fs_constituency_district_selection_help"
+				}
+
+				# Only the list scrolls; the current selection and buttons stay visible.
+				scrollbox = {
+					name = "fs_constituency_district_list"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					scrollbarpolicy_vertical = as_needed
+
+					blockoverride "scrollbox_content" {
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 4
+							datamodel = "[ActiveActivityOption.GetCategory.GetOptions]"
+
+							item = {
+								button_standard_list = {
+									name = "fs_constituency_district_option"
+									layoutpolicy_horizontal = expanding
+									size = { 100% 44 }
+									visible = "[ActivityOption.IsShown( GetPlayer, ActivityPlanner.GetSelectedSpecialOption )]"
+									enabled = "[ActivityOption.IsValid( GetPlayer, ActivityPlanner.GetSelectedSpecialOption )]"
+									down = "[ObjectsEqual( ActiveActivityOption.GetOption, ActivityOption.Self )]"
+									text = "[ActivityOption.GetName]"
+									onclick = "[ActivityPlanner.SelectOption( ActivityOption.Self )]"
+									tooltip = "[ActivityOption.GetIsValidDesc( GetPlayer, ActivityPlanner.GetSelectedSpecialOption )]"
+									using = tooltip_ne
+								}
+							}
+						}
+					}
+				}
+
+				vbox = {
+					datacontext = "[ActivityPlanner.GetSelectedSpecialOption]"
+					layoutpolicy_horizontal = expanding
+					spacing = 8
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						text = "fs_constituency_selected_district"
+						default_format = "#high"
+					}
+
+					hbox = {
+						layoutpolicy_horizontal = expanding
+
+						button_standard = {
+							text = "ACTIVITY_PLANNER_QUIT"
+							onclick = "[ActivityPlanner.Close]"
+							shortcut = "close_window"
+						}
+
+						expand = {}
+
+						button_primary = {
+							text = "CONFIRM"
+							enabled = "[And(ActivityPlanner.CanProgressPlanningStage, ActivityOption.IsValid( GetPlayer, ActivityPlanner.GetSelectedSpecialOption ))]"
+							onclick = "[ActivityPlanner.ProgressPlanningStage]"
+						}
+					}
+				}
+			}
+		}
+	}
+}

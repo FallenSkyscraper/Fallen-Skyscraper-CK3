@@ -1,0 +1,495 @@
+﻿# Activity scope, creation only. Older already-running activities stay on old rules.
+fs_constituency_enable_fraud_rules_effect = {
+	if = {
+		limit = { NOT = { has_variable = fs_constituency_fraud_rules } }
+		set_variable = { name = fs_constituency_fraud_rules value = yes }
+		set_variable = { name = fs_constituency_public_fraud_count value = 0 }
+		set_variable = { name = fs_constituency_covered_fraud_count value = 0 }
+		scope:host.rite ?= { save_scope_as = fs_constituency_organizing_rite }
+		if = {
+			limit = { exists = scope:fs_constituency_organizing_rite }
+			set_variable = { name = fs_constituency_organizing_rite value = scope:fs_constituency_organizing_rite }
+		}
+	}
+}
+
+# Character scope. Arrival, passive pulses and roster freeze share this offer guard.
+fs_constituency_offer_integrity_choice_effect = {
+	if = {
+		limit = {
+			scope:activity = {
+				has_variable = fs_constituency_fraud_rules
+				fs_constituency_running_activity_trigger = yes
+				NOT = { has_variable = fs_constituency_integrity_locked }
+			}
+			has_activity_intent = fs_constituency_candidate_intent
+			fs_constituency_candidate_for_seat_trigger = { SEAT = scope:activity.var:fs_constituency_seat }
+			involved_activity = scope:activity
+			location = scope:activity.activity_location
+		}
+		save_scope_as = fs_constituency_integrity_candidate
+		if = {
+			limit = {
+				scope:activity = {
+					NOT = { is_target_in_variable_list = { name = fs_constituency_integrity_offered target = scope:fs_constituency_integrity_candidate } }
+				}
+			}
+			scope:activity = {
+				save_scope_as = fs_constituency_fraud_activity
+				add_to_variable_list = { name = fs_constituency_integrity_offered target = scope:fs_constituency_integrity_candidate }
+			}
+			trigger_event = fs_constituency_fraud.1
+		}
+	}
+}
+
+fs_constituency_choose_honest_effect = {
+	if = {
+		limit = { fs_constituency_integrity_choice_trigger = yes }
+		scope:fs_constituency_fraud_activity = {
+			add_to_variable_list = { name = fs_constituency_honest_candidates target = root }
+		}
+		fs_constituency_ethical_stress_effect = yes
+	}
+}
+
+fs_constituency_choose_fraud_effect = {
+	if = {
+		limit = { fs_constituency_integrity_choice_trigger = yes }
+		scope:fs_constituency_fraud_activity = {
+			add_to_variable_list = { name = fs_constituency_fraud_candidates target = root }
+		}
+		# A loss rather than a native affordability gate: negative piety is allowed.
+		add_piety = fs_constituency_fraud_piety_loss
+		fs_constituency_unethical_stress_effect = yes
+		if = { limit = { has_trait = zealous } stress_and_fulfillment_impact = { base = fs_constituency_moral_stress } }
+		if = { limit = { has_trait = cynical } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+	}
+}
+
+# Activity scope. All timers capture a round; no timer can change a later round.
+fs_constituency_start_fraud_round_effect = {
+	if = {
+		limit = { fs_constituency_fraud_round_open_trigger = yes }
+		clear_variable_list = fs_constituency_evidence
+		clear_variable_list = fs_constituency_case_observers
+		clear_variable_list = fs_constituency_case_suspects
+		clear_variable_list = fs_constituency_observer_done
+		clear_variable_list = fs_constituency_host_pending
+		clear_variable_list = fs_constituency_case_resolved
+		save_scope_as = fs_constituency_fraud_activity
+		save_scope_value_as = { name = fs_constituency_fraud_round value = var:fs_constituency_round }
+		if = {
+			limit = { var:fs_constituency_round = 1 }
+			scope:host = { trigger_event = { id = fs_constituency_fraud.2 days = fs_constituency_integrity_grace_days } }
+		}
+		else = { fs_constituency_award_fraud_bonuses_effect = yes }
+		scope:host = { trigger_event = { id = fs_constituency_fraud.3 days = fs_constituency_fraud_audit_days } }
+	}
+}
+
+# Activity scope. Called by the first-day timer, and defensively by round close.
+fs_constituency_lock_integrity_effect = {
+	if = {
+		limit = { fs_constituency_fraud_round_open_trigger = yes }
+		if = {
+			limit = { NOT = { has_variable = fs_constituency_integrity_locked } }
+			set_variable = { name = fs_constituency_integrity_locked value = yes }
+			every_in_list = {
+				variable = fs_constituency_candidates
+				limit = {
+					NOT = { scope:activity = { is_target_in_variable_list = { name = fs_constituency_fraud_candidates target = prev } } }
+					NOT = { scope:activity = { is_target_in_variable_list = { name = fs_constituency_honest_candidates target = prev } } }
+				}
+				save_scope_as = fs_constituency_integrity_candidate
+				scope:activity = { add_to_variable_list = { name = fs_constituency_honest_candidates target = scope:fs_constituency_integrity_candidate } }
+			}
+		}
+		fs_constituency_award_fraud_bonuses_effect = yes
+	}
+}
+
+# Character scope, numeric method snapshot. No public log exposes hidden cheating.
+fs_constituency_select_fraud_method_effect = {
+	if = {
+		limit = { scope:activity = { var:fs_constituency_round = 1 } }
+		random_list = {
+			0 = { modifier = { add = fs_constituency_fraud_variant_weight } save_scope_value_as = { name = fs_constituency_case_method value = 1 } }
+			0 = { modifier = { add = fs_constituency_fraud_variant_weight } save_scope_value_as = { name = fs_constituency_case_method value = 2 } }
+		}
+	}
+	else_if = {
+		limit = { scope:activity = { var:fs_constituency_round = 2 } }
+		save_scope_value_as = { name = fs_constituency_case_method value = 3 }
+	}
+	else = {
+		random_list = {
+			0 = { modifier = { add = fs_constituency_fraud_variant_weight } save_scope_value_as = { name = fs_constituency_case_method value = 4 } }
+			0 = { modifier = { add = fs_constituency_fraud_variant_weight } save_scope_value_as = { name = fs_constituency_case_method value = 5 } }
+		}
+	}
+}
+
+fs_constituency_award_fraud_bonuses_effect = {
+	if = {
+		limit = {
+			fs_constituency_fraud_round_open_trigger = yes
+			OR = { NOT = { has_variable = fs_constituency_bonus_round } var:fs_constituency_bonus_round < var:fs_constituency_round }
+		}
+		set_variable = { name = fs_constituency_bonus_round value = var:fs_constituency_round }
+		save_scope_as = fs_constituency_fraud_activity
+		save_scope_value_as = { name = fs_constituency_fraud_round value = var:fs_constituency_round }
+		every_in_list = {
+			variable = fs_constituency_candidates
+			limit = { fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity } }
+			if = {
+				limit = {
+					scope:activity = { var:fs_constituency_administration = flag:fs_constituency_biased }
+					rite = scope:activity.var:fs_constituency_organizing_rite
+				}
+				change_variable = { name = fs_constituency_score add = fs_constituency_bias_gain }
+			}
+			if = {
+				limit = { scope:activity = { is_target_in_variable_list = { name = fs_constituency_fraud_candidates target = prev } } }
+				change_variable = { name = fs_constituency_score add = fs_constituency_fraud_gain }
+				fs_constituency_select_fraud_method_effect = yes
+				set_variable = { name = fs_constituency_fraud_method value = scope:fs_constituency_case_method }
+				trigger_event = fs_constituency_fraud.10
+			}
+		}
+	}
+}
+
+# Activity scope. First find evidence independently for each unexposed cheater.
+fs_constituency_audit_fraud_effect = {
+	if = {
+		limit = {
+			fs_constituency_fraud_round_open_trigger = yes
+			OR = { NOT = { has_variable = fs_constituency_audited_round } var:fs_constituency_audited_round < var:fs_constituency_round }
+		}
+		set_variable = { name = fs_constituency_audited_round value = var:fs_constituency_round }
+		every_in_list = {
+			variable = fs_constituency_fraud_candidates
+			limit = {
+				fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity }
+				NOT = { scope:activity = { is_target_in_variable_list = { name = fs_constituency_public_offenders target = prev } } }
+			}
+			save_scope_as = fs_constituency_evidence_candidate
+			random_list = {
+				0 = {
+					modifier = { add = fs_constituency_evidence_chance_value }
+					scope:activity = { add_to_variable_list = { name = fs_constituency_evidence target = scope:fs_constituency_evidence_candidate } }
+				}
+				0 = { modifier = { add = fs_constituency_evidence_failure_value } }
+			}
+		}
+		# Allocate real cases first. A limited monitor pool is meaningful oversight.
+		every_attending_character = {
+			limit = { fs_constituency_fraud_observer_trigger = yes }
+			fs_constituency_assign_fraud_case_effect = yes
+		}
+	}
+}
+
+# Character scope. Clear previous loop scopes before attempting an empty random pick.
+fs_constituency_assign_fraud_case_effect = {
+	clear_saved_scope = fs_constituency_case_suspect
+	save_scope_value_as = { name = fs_constituency_case_real value = 0 }
+	save_scope_value_as = { name = fs_constituency_case_method value = 0 }
+	save_scope_as = fs_constituency_case_observer
+	scope:activity = {
+		save_scope_as = fs_constituency_case_activity
+		save_scope_value_as = { name = fs_constituency_case_round value = var:fs_constituency_round }
+		random_in_list = {
+			variable = fs_constituency_evidence
+			limit = {
+				fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity }
+				NOT = { scope:activity = { is_target_in_variable_list = { name = fs_constituency_case_suspects target = prev } } }
+			}
+			save_scope_as = fs_constituency_case_suspect
+			save_scope_value_as = { name = fs_constituency_case_real value = 1 }
+			save_scope_value_as = { name = fs_constituency_case_method value = var:fs_constituency_fraud_method }
+		}
+	}
+	if = {
+		limit = { NOT = { exists = scope:fs_constituency_case_suspect } }
+		random_list = {
+			0 = {
+				modifier = { add = fs_constituency_false_suspicion_chance }
+				scope:activity = {
+					random_in_list = {
+						variable = fs_constituency_candidates
+						limit = {
+							fs_constituency_registered_candidate_trigger = { ACTIVITY = scope:activity }
+							NOT = { scope:activity = { is_target_in_variable_list = { name = fs_constituency_fraud_candidates target = prev } } }
+							NOT = { scope:activity = { is_target_in_variable_list = { name = fs_constituency_case_suspects target = prev } } }
+						}
+						save_scope_as = fs_constituency_case_suspect
+						fs_constituency_select_fraud_method_effect = yes
+					}
+				}
+			}
+			0 = { modifier = { add = fs_constituency_false_suspicion_failure_value } }
+		}
+	}
+	if = {
+		limit = { exists = scope:fs_constituency_case_suspect }
+		scope:activity = {
+			add_to_variable_list = { name = fs_constituency_case_suspects target = scope:fs_constituency_case_suspect }
+			add_to_variable_list = { name = fs_constituency_case_observers target = scope:fs_constituency_case_observer }
+		}
+		trigger_event = fs_constituency_fraud.20
+	}
+}
+
+fs_constituency_ignore_case_effect = {
+	if = {
+		limit = { fs_constituency_current_case_trigger = yes }
+		scope:fs_constituency_case_activity = {
+			add_to_variable_list = { name = fs_constituency_observer_done target = scope:fs_constituency_case_observer }
+			add_to_variable_list = { name = fs_constituency_case_resolved target = scope:fs_constituency_case_suspect }
+		}
+		fs_constituency_ignore_stress_effect = yes
+	}
+}
+
+fs_constituency_investigate_case_effect = {
+	if = {
+		limit = { fs_constituency_current_case_trigger = yes }
+		scope:fs_constituency_case_activity = {
+			add_to_variable_list = { name = fs_constituency_observer_done target = scope:fs_constituency_case_observer }
+		}
+		fs_constituency_investigate_stress_effect = yes
+		random_list = {
+			0 = {
+				modifier = { add = fs_constituency_investigation_chance_value }
+				if = {
+					limit = { scope:fs_constituency_case_real = 1 }
+					save_scope_value_as = { name = fs_constituency_case_outcome value = 1 }
+					fs_constituency_expose_fraud_effect = yes
+				}
+				else = {
+					save_scope_value_as = { name = fs_constituency_case_outcome value = 3 }
+					scope:fs_constituency_case_activity = { add_to_variable_list = { name = fs_constituency_case_resolved target = scope:fs_constituency_case_suspect } }
+				}
+			}
+			0 = {
+				modifier = { add = fs_constituency_investigation_failure_value }
+				if = {
+					limit = { scope:fs_constituency_case_real = 1 }
+					save_scope_value_as = { name = fs_constituency_case_outcome value = 2 }
+				}
+				else = {
+					save_scope_value_as = { name = fs_constituency_case_outcome value = 4 }
+					add_prestige = fs_constituency_false_report_prestige
+					add_piety = fs_constituency_false_report_piety
+				}
+				scope:fs_constituency_case_activity = { add_to_variable_list = { name = fs_constituency_case_resolved target = scope:fs_constituency_case_suspect } }
+			}
+		}
+		trigger_event = fs_constituency_fraud.21
+	}
+}
+
+# Character scope: the monitor has proved the case and publicly raised it.
+fs_constituency_expose_fraud_effect = {
+	add_piety = fs_constituency_fraud_report_piety
+	scope:fs_constituency_case_activity = {
+		add_to_variable_list = { name = fs_constituency_public_offenders target = scope:fs_constituency_case_suspect }
+		change_variable = { name = fs_constituency_public_fraud_count add = 1 }
+		add_activity_log_entry = {
+			key = fs_constituency_fraud_exposed
+			character = scope:fs_constituency_case_suspect
+			target = scope:fs_constituency_case_observer
+			location = scope:activity.activity_location
+			score = 100
+			tags = { activity }
+			show_in_conclusion = yes
+		}
+		if = {
+			limit = {
+				var:fs_constituency_administration = flag:fs_constituency_biased
+				scope:fs_constituency_case_suspect = { rite = scope:activity.var:fs_constituency_organizing_rite }
+			}
+			add_to_variable_list = { name = fs_constituency_host_pending target = scope:fs_constituency_case_suspect }
+			scope:activity.activity_host = { trigger_event = fs_constituency_fraud.30 }
+		}
+		else = { fs_constituency_punish_suspect_effect = yes }
+	}
+}
+
+# Activity scope. Resolve before invoking title/attendance callbacks. Conviction
+# remains enforceable if a proved offender leaves while a host reply is pending.
+fs_constituency_punish_suspect_effect = {
+	if = {
+		limit = {
+			is_target_in_variable_list = { name = fs_constituency_public_offenders target = scope:fs_constituency_case_suspect }
+			NOT = { is_target_in_variable_list = { name = fs_constituency_case_resolved target = scope:fs_constituency_case_suspect } }
+		}
+		add_to_variable_list = { name = fs_constituency_case_resolved target = scope:fs_constituency_case_suspect }
+		fs_constituency_ensure_fraud_law_effect = yes
+		scope:fs_constituency_case_suspect = {
+			if = {
+				limit = { is_alive = yes }
+				add_trait = fs_election_offender
+				add_prestige_level = fs_constituency_offender_level_loss
+				add_piety_level = fs_constituency_offender_level_loss
+				if = {
+					limit = { var:fs_constituency_candidate_activity = scope:activity }
+					set_variable = { name = fs_constituency_disqualified value = yes }
+					set_variable = { name = fs_constituency_fraud_disqualified value = yes }
+				}
+				if = {
+					limit = { involved_activity = scope:activity this != scope:activity.activity_host }
+					remove_from_activity = scope:activity
+				}
+				send_interface_toast = {
+					type = event_toast_effect_neutral
+					title = fs_constituency_fraud_conviction_title
+					left_icon = scope:fs_constituency_case_suspect
+					custom_tooltip = fs_constituency_fraud_conviction_tt
+				}
+			}
+		}
+		add_activity_log_entry = {
+			key = fs_constituency_fraud_punished
+			character = scope:fs_constituency_case_suspect
+			location = scope:activity.activity_location
+			score = 100
+			tags = { activity }
+			show_in_conclusion = yes
+		}
+	}
+}
+
+fs_constituency_host_punish_case_effect = {
+	if = {
+		limit = { fs_constituency_current_host_case_trigger = yes }
+		fs_constituency_ethical_stress_effect = yes
+		scope:fs_constituency_case_activity = { fs_constituency_punish_suspect_effect = yes }
+	}
+}
+
+fs_constituency_host_cover_case_effect = {
+	if = {
+		limit = { fs_constituency_may_cover_case_trigger = yes }
+		scope:fs_constituency_case_activity = {
+			add_to_variable_list = { name = fs_constituency_case_resolved target = scope:fs_constituency_case_suspect }
+			change_variable = { name = fs_constituency_covered_fraud_count add = 1 }
+			add_activity_log_entry = {
+				key = fs_constituency_fraud_covered
+				character = scope:fs_constituency_case_suspect
+				target = scope:activity.activity_host
+				location = scope:activity.activity_location
+				score = 100
+				tags = { activity }
+				show_in_conclusion = yes
+			}
+		}
+		fs_constituency_unethical_stress_effect = yes
+	}
+}
+
+# Activity scope. Close every pending report before the original scoring/finalizer.
+# Missing monitor replies mean silence; missing host replies cannot defer justice.
+fs_constituency_close_fraud_round_effect = {
+	if = {
+		limit = { fs_constituency_fraud_round_open_trigger = yes }
+		fs_constituency_lock_integrity_effect = yes
+		every_in_list = {
+			variable = fs_constituency_host_pending
+			save_scope_as = fs_constituency_case_suspect
+			scope:activity = { fs_constituency_punish_suspect_effect = yes }
+		}
+		set_variable = { name = fs_constituency_fraud_closed_round value = var:fs_constituency_round }
+	}
+}
+
+# Immutable scandal snapshots are retained for the native activity conclusion.
+fs_constituency_cleanup_fraud_effect = {
+	clear_variable_list = fs_constituency_integrity_offered
+	clear_variable_list = fs_constituency_honest_candidates
+	clear_variable_list = fs_constituency_fraud_candidates
+	clear_variable_list = fs_constituency_evidence
+	clear_variable_list = fs_constituency_case_observers
+	clear_variable_list = fs_constituency_case_suspects
+	clear_variable_list = fs_constituency_observer_done
+	clear_variable_list = fs_constituency_host_pending
+	clear_variable_list = fs_constituency_case_resolved
+}
+
+# Character scope, called inside the result-recipient guard before activity cleanup.
+fs_constituency_capture_fraud_result_effect = {
+	save_scope_value_as = { name = fs_constituency_result_fraud_count value = 0 }
+	save_scope_value_as = { name = fs_constituency_result_covered_count value = 0 }
+	save_scope_value_as = { name = fs_constituency_protest_allowed value = 0 }
+	save_scope_value_as = { name = fs_constituency_protest_answered value = 0 }
+	scope:activity = {
+		if = {
+			limit = { has_variable = fs_constituency_public_fraud_count }
+			save_scope_value_as = { name = fs_constituency_result_fraud_count value = var:fs_constituency_public_fraud_count }
+			save_scope_value_as = { name = fs_constituency_result_covered_count value = var:fs_constituency_covered_fraud_count }
+		}
+	}
+	if = {
+		limit = {
+			scope:fs_constituency_result_fraud_count > 0
+			exists = scope:fs_constituency_result_winner
+			this != scope:fs_constituency_result_winner
+			rite != scope:fs_constituency_result_winner.rite
+		}
+		save_scope_value_as = { name = fs_constituency_protest_allowed value = 1 }
+		# A character event survives the native activity's one-day AI-only lifetime.
+		trigger_event = { id = fs_constituency_fraud.40 days = fs_constituency_protest_delay_days }
+	}
+}
+
+# Event-local acknowledgement guards do not overwrite another election's receipts.
+# Neither branch accesses the ended activity or any live candidate state.
+fs_constituency_protest_result_effect = {
+	if = {
+		limit = {
+			is_alive = yes
+			scope:fs_constituency_protest_allowed = 1
+			scope:fs_constituency_protest_answered = 0
+			scope:fs_constituency_result_winner = { is_alive = yes }
+		}
+		save_scope_value_as = { name = fs_constituency_protest_answered value = 1 }
+		scope:fs_constituency_result_winner = {
+			add_prestige = fs_constituency_protest_prestige
+			stress_and_fulfillment_impact = { base = fs_constituency_protest_stress }
+		}
+		stress_and_fulfillment_impact = { base = fs_constituency_protest_stress }
+		if = { limit = { OR = { has_trait = craven has_trait = humble } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+		if = { limit = { OR = { has_trait = arrogant has_trait = zealous } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+	}
+}
+
+fs_constituency_accept_result_effect = {
+	if = {
+		limit = { is_alive = yes scope:fs_constituency_protest_allowed = 1 scope:fs_constituency_protest_answered = 0 }
+		save_scope_value_as = { name = fs_constituency_protest_answered value = 1 }
+		if = { limit = { OR = { has_trait = ambitious has_trait = vengeful } } stress_and_fulfillment_impact = { base = fs_constituency_minor_stress } }
+		if = { limit = { OR = { has_trait = content has_trait = forgiving } } stress_and_fulfillment_impact = { base = fs_constituency_stress_relief } }
+	}
+}
+
+# Explicit authority and target parameters make grants and petitions share one path.
+fs_constituency_pardon_effect = {
+	if = {
+		limit = {
+			$PRESIDENT$ = { fs_koreanism_parliament_president_trigger = yes this != $TARGET$ }
+			$TARGET$ = { fs_constituency_pardon_target_trigger = yes }
+		}
+		$TARGET$ = { remove_trait = fs_election_offender }
+		$PRESIDENT$ = { fs_constituency_pardon_stress_effect = yes }
+		$TARGET$ = {
+			send_interface_toast = {
+				type = event_toast_effect_neutral
+				title = fs_constituency_pardon_granted_title
+				left_icon = $PRESIDENT$
+				custom_tooltip = fs_constituency_pardon_granted_tt
+			}
+		}
+	}
+}
