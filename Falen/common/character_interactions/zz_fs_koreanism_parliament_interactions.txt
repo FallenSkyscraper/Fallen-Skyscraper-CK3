@@ -44,7 +44,7 @@ fs_appoint_parliament_member_interaction = {
 		}
 		custom_tooltip = {
 			text = fs_parliament_vacancy_tt
-			scope:actor = { fs_koreanism_has_parliament_vacancy_trigger = yes }
+			scope:actor = { fs_koreanism_has_proportional_vacancy_trigger = yes }
 		}
 	}
 	has_valid_target_showing_failures_only = {
@@ -72,7 +72,7 @@ fs_appoint_parliament_member_interaction = {
 	}
 	ai_potential = {
 		fs_koreanism_parliament_president_trigger = yes
-		fs_koreanism_has_parliament_vacancy_trigger = yes
+		fs_koreanism_has_proportional_vacancy_trigger = yes
 	}
 	ai_targets = {
 		ai_recipients = courtiers
@@ -126,6 +126,10 @@ fs_dismiss_parliament_member_interaction = {
 		}
 	}
 	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = fs_parliament_dismissal_disabled_tt
+			fs_koreanism_parliament_dismissal_enabled_trigger = yes
+		}
 		scope:actor = { fs_koreanism_parliament_president_trigger = yes }
 		scope:recipient = {
 			is_alive = yes
@@ -136,6 +140,7 @@ fs_dismiss_parliament_member_interaction = {
 	on_accept = {
 		if = {
 			limit = {
+				fs_koreanism_parliament_dismissal_enabled_trigger = yes
 				scope:actor = { fs_koreanism_parliament_president_trigger = yes }
 				scope:recipient = { NOT = { has_title = title:k_koreanism } }
 			}
@@ -151,7 +156,10 @@ fs_dismiss_parliament_member_interaction = {
 			}
 		}
 	}
-	ai_potential = { fs_koreanism_parliament_president_trigger = yes }
+	ai_potential = {
+		fs_koreanism_parliament_dismissal_enabled_trigger = yes
+		fs_koreanism_parliament_president_trigger = yes
+	}
 	ai_targets = {
 		ai_recipients = papabile
 		ai_recipients = subordinates

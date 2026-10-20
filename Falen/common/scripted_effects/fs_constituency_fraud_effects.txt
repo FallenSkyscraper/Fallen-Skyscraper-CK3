@@ -327,7 +327,6 @@ fs_constituency_punish_suspect_effect = {
 			NOT = { is_target_in_variable_list = { name = fs_constituency_case_resolved target = scope:fs_constituency_case_suspect } }
 		}
 		add_to_variable_list = { name = fs_constituency_case_resolved target = scope:fs_constituency_case_suspect }
-		fs_constituency_ensure_fraud_law_effect = yes
 		scope:fs_constituency_case_suspect = {
 			if = {
 				limit = { is_alive = yes }

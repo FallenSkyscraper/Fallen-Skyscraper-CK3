@@ -57,15 +57,18 @@ fs_koreanism_constituency_parliament_seat_trigger = {
 	NOT = { fs_koreanism_proportional_parliament_seat_trigger = yes }
 }
 
-# Vacancies remain vacancies while reserved, but appointments must skip them.
+# Only unreserved proportional vacancies can be filled by appointment or petition.
 fs_koreanism_appointable_parliament_seat_trigger = {
+	fs_koreanism_proportional_parliament_seat_trigger = yes
 	fs_koreanism_vacant_parliament_seat_trigger = yes
 	NOT = { exists = var:fs_constituency_election_activity }
 }
 
+# Constituency elections check their own vacancies independently of appointments.
 fs_constituency_open_seat_trigger = {
 	fs_koreanism_constituency_parliament_seat_trigger = yes
-	fs_koreanism_appointable_parliament_seat_trigger = yes
+	fs_koreanism_vacant_parliament_seat_trigger = yes
+	NOT = { exists = var:fs_constituency_election_activity }
 }
 
 # Character scope. Lay candidates and all Koreanism rites are eligible.
@@ -85,7 +88,7 @@ fs_koreanism_parliament_candidate_trigger = {
 	}
 }
 
-# Character scope. Only the current president may appoint or dismiss members.
+# Character scope. Only the current president has parliamentary authority.
 fs_koreanism_parliament_president_trigger = {
 	faith = faith:koreanism_faith
 	has_title = title:k_koreanism
@@ -98,11 +101,17 @@ fs_koreanism_parliament_president_trigger = {
 	}
 }
 
-fs_koreanism_has_parliament_vacancy_trigger = {
+# Character scope. Constituency vacancies never enable appointments or petitions.
+fs_koreanism_has_proportional_vacancy_trigger = {
 	any_in_global_list = {
 		variable = fs_koreanism_parliament_seats
 		fs_koreanism_appointable_parliament_seat_trigger = yes
 	}
+}
+
+# Temporary policy gate; keep involuntary vacancies and election cleanup independent.
+fs_koreanism_parliament_dismissal_enabled_trigger = {
+	always = no
 }
 
 # Interaction scope. Requests are made by the candidate to the current president.
@@ -119,6 +128,6 @@ fs_koreanism_parliament_request_valid_trigger = {
 	}
 	custom_tooltip = {
 		text = fs_parliament_vacancy_tt
-		scope:actor = { fs_koreanism_has_parliament_vacancy_trigger = yes }
+		scope:actor = { fs_koreanism_has_proportional_vacancy_trigger = yes }
 	}
 }
