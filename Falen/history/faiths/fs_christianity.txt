@@ -1,0 +1,296 @@
+﻿catholic = {
+    1054.7.16 = {
+        created = yes
+        main_rite = roman_rite
+
+        rites = {
+            roman_rite = {
+                tenet_setup = {
+                    dlc_feature = { by_god_alone }
+                    tenets = {
+                        tenet_apostolic_succession
+                        tenet_communion
+                        tenet_peace_of_god
+                    }
+                }
+            }
+        }
+    }
+
+    1066.1.1 = {
+        permitted = {
+            tenet_communion
+            tenet_vows_of_poverty
+            tenet_communal_identity
+            tenet_adaptive
+            tenet_dulia
+            tenet_peace_of_god
+            tenet_transubstantiation
+            tenet_ora_et_labora
+            tenet_hyperdulia
+            tenet_original_sin
+            tenet_miles_christi
+            tenet_love_thy_neighbour
+            tenet_divine_liturgy
+            tenet_anachoresis
+            tenet_mortification_of_the_flesh
+            tenet_confession
+            tenet_philanthropia
+            tenet_asceticism
+            tenet_be_fruitful_and_multiply
+            tenet_celestial_hierarchy
+            tenet_acts_of_apostles
+        }
+
+        prohibited = {
+            tenet_simony
+            tenet_monophysitism
+            tenet_miaphysitism
+            tenet_adoptionism
+            tenet_polyamory
+            tenet_natural_primitivism
+            tenet_pentarchy
+            tenet_gnosticism
+        }
+
+        known = {
+            tenet_aniconism
+            tenet_legalism
+            tenet_religious_legal_pronouncements
+            tenet_literalism
+            tenet_sanctity_of_nature
+            tenet_ritual_celebrations
+            tenet_esotericism
+            tenet_purgatory
+            tenet_hesychasm
+        }
+    }
+
+    1178.1.1 = {
+
+        rites = {
+            roman_rite = {
+                tenet_setup = {
+                    dlc_feature = { by_god_alone }
+                    tenets = {
+                        tenet_apostolic_succession
+                        tenet_dulia
+                        tenet_confession
+                    }
+                }
+            }
+        }
+
+        permitted = {
+            tenet_scholasticism
+            tenet_armed_pilgrimages
+            tenet_purgatory
+            tenet_mendicant_preachers
+        }
+
+        prohibited = {
+            tenet_consolamentum
+        }
+    }
+	
+	1517.10.31 = {
+		prohibited = {
+			tenet_protestantism
+		}
+	}
+	2444.1.1 = {
+		known = {
+			tenet_prosperity_theology
+		}
+	}
+}
+
+orthodox = {
+    1054.7.16 = {
+        created = yes
+        main_rite = byzantine_rite
+        religious_head = k_orthodox
+    }
+
+    1066.1.1 = {
+        permitted = {
+            tenet_communion
+            tenet_communal_identity
+            tenet_asceticism
+            tenet_adaptive
+            tenet_sanctity_of_nature
+            tenet_philanthropia
+            tenet_anachoresis
+            tenet_dulia
+            tenet_peace_of_god
+            tenet_transubstantiation
+            tenet_ora_et_labora
+            tenet_hyperdulia
+            tenet_apostolic_succession
+            tenet_confession
+            tenet_original_sin
+            tenet_miles_christi
+            tenet_love_thy_neighbour
+            tenet_hesychasm
+            tenet_mortification_of_the_flesh
+            tenet_holy_myron
+            tenet_armed_pilgrimages
+            tenet_be_fruitful_and_multiply
+            tenet_vows_of_poverty
+        }
+
+        prohibited = {
+            tenet_simony
+            tenet_monophysitism
+            tenet_miaphysitism
+            tenet_adoptionism
+            tenet_polyamory
+            tenet_gnosticism
+            tenet_natural_primitivism
+        }
+
+        known = {
+            tenet_aniconism
+            tenet_legalism
+            tenet_religious_legal_pronouncements
+            tenet_literalism
+            tenet_ritual_celebrations
+            tenet_purgatory
+            tenet_acts_of_apostles
+            tenet_esotericism
+        }
+    }
+
+    1178.1.1 = {
+        prohibited = {
+            tenet_consolamentum
+        }
+    }
+	2444.1.1 = {
+		known = {
+			tenet_prosperity_theology
+		}
+	}
+}
+
+protestant = {
+    1517.10.31 = {
+        permitted = {
+            tenet_vows_of_poverty
+            tenet_mendicant_preachers
+            tenet_communal_identity
+			tenet_protestantism
+			tenet_ora_et_labora
+			tenet_acts_of_apostles
+			tenet_be_fruitful_and_multiply
+            tenet_love_thy_neighbour
+            tenet_aniconism
+            tenet_literalism
+            tenet_esotericism
+            tenet_armed_pilgrimages
+            tenet_philanthropia
+            tenet_simony
+        }
+
+        prohibited = {
+            tenet_purgatory
+            tenet_apostolic_succession
+			tenet_gnosticism
+			tenet_monophysitism
+            tenet_miaphysitism
+            tenet_adoptionism
+            tenet_polyamory
+            tenet_natural_primitivism
+            tenet_transubstantiation
+        }
+
+        known = {
+            tenet_legalism
+            tenet_religious_legal_pronouncements
+            tenet_sanctity_of_nature
+            tenet_ritual_celebrations
+            tenet_consolamentum
+			tenet_confession
+            tenet_dulia
+            tenet_communion
+            tenet_adaptive
+            tenet_peace_of_god
+            tenet_hyperdulia
+            tenet_original_sin
+            tenet_miles_christi
+            tenet_divine_liturgy
+            tenet_anachoresis
+            tenet_asceticism
+            tenet_celestial_hierarchy
+            tenet_pentarchy
+            tenet_hesychasm
+            tenet_scholasticism
+            tenet_holy_myron
+			tenet_mortification_of_the_flesh
+        }
+    }
+	2444.1.1 = {
+		permitted = {
+			tenet_prosperity_theology
+		}
+	}
+}
+imperial_church = {
+	2356.1.1 = {
+		permitted = {
+			tenet_legalism
+			tenet_dulia
+			tenet_esotericism
+			tenet_religious_legal_pronouncements
+			tenet_ritual_celebrations
+			tenet_communal_identity
+			tenet_apostolic_succession
+			tenet_protestantism
+			tenet_acts_of_apostles
+			tenet_be_fruitful_and_multiply
+			tenet_celestial_hierarchy
+            tenet_love_thy_neighbour
+			tenet_philanthropia
+		}
+		prohibited = {
+            tenet_monophysitism
+            tenet_miaphysitism
+            tenet_adoptionism
+            tenet_polyamory
+            tenet_natural_primitivism
+            tenet_pentarchy
+            tenet_gnosticism
+        }
+		known = {
+            tenet_simony
+			tenet_sanctity_of_nature
+			tenet_confession
+			tenet_righteous_army
+			tenet_unrelenting_faith
+			tenet_inquiry_into_knowledge
+			tenet_prosperity_theology
+			tenet_communion
+			tenet_vows_of_poverty
+			tenet_adaptive
+			tenet_peace_of_god
+			tenet_transubstantiation
+			tenet_ora_et_labora
+			tenet_hyperdulia
+			tenet_original_sin
+			tenet_miles_christi
+			tenet_divine_liturgy
+			tenet_anachoresis
+			tenet_asceticism
+			tenet_aniconism
+			tenet_literalism
+			tenet_purgatory
+			tenet_hesychasm
+			tenet_scholasticism
+			tenet_armed_pilgrimages
+			tenet_mendicant_preachers
+			tenet_consolamentum
+			tenet_holy_myron
+			tenet_mortification_of_the_flesh
+		}
+	}
+}
