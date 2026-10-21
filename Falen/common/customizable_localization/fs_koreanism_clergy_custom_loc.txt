@@ -1,0 +1,95 @@
+# Reuse the Korean offices when council titles bypass clerical-region flavorization.
+FSKoreanismClergyTitle = {
+	type = character
+
+	text = {
+		trigger = {
+			is_female = yes
+			OR = {
+				has_title = title:d_et_seoul
+				has_title = title:d_et_sejong
+				has_title = title:d_et_busan
+				has_title = title:d_et_incheon
+				has_title = title:d_et_daegu
+				has_title = title:d_et_daejeon
+				has_title = title:d_et_ulsan
+				has_title = title:d_et_gwangju
+			}
+		}
+		localization_key = clerical_region_duke_female_koreanism_city
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_title = title:d_et_seoul
+				has_title = title:d_et_sejong
+				has_title = title:d_et_busan
+				has_title = title:d_et_incheon
+				has_title = title:d_et_daegu
+				has_title = title:d_et_daejeon
+				has_title = title:d_et_ulsan
+				has_title = title:d_et_gwangju
+			}
+		}
+		localization_key = clerical_region_duke_male_koreanism_city
+	}
+
+	text = {
+		trigger = {
+			is_female = yes
+			OR = {
+				has_title = title:d_et_gyeonggi
+				has_title = title:d_et_gangwon
+				has_title = title:d_et_chungnam
+				has_title = title:d_et_chungbuk
+				has_title = title:d_et_jeonnam
+				has_title = title:d_et_jeonbuk
+				has_title = title:d_et_gyeongnam
+				has_title = title:d_et_gyeongbuk
+				has_title = title:d_et_jeju
+			}
+		}
+		localization_key = clerical_region_duke_female_koreanism_province
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_title = title:d_et_gyeonggi
+				has_title = title:d_et_gangwon
+				has_title = title:d_et_chungnam
+				has_title = title:d_et_chungbuk
+				has_title = title:d_et_jeonnam
+				has_title = title:d_et_jeonbuk
+				has_title = title:d_et_gyeongnam
+				has_title = title:d_et_gyeongbuk
+				has_title = title:d_et_jeju
+			}
+		}
+		localization_key = clerical_region_duke_male_koreanism_province
+	}
+
+	text = {
+		trigger = {
+			is_female = yes
+			any_held_title = {
+				tier = tier_duchy
+				has_clerical_region = yes
+			}
+		}
+		localization_key = clerical_region_duke_female_koreanism
+	}
+	text = {
+		trigger = {
+			any_held_title = {
+				tier = tier_duchy
+				has_clerical_region = yes
+			}
+		}
+		localization_key = clerical_region_duke_male_koreanism
+	}
+
+	text = {
+		localization_key = koreanism_bishop
+		fallback = yes
+	}
+}
