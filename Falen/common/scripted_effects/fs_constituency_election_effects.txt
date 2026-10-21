@@ -406,6 +406,11 @@ fs_constituency_finalize_effect = {
 						SEAT = scope:activity.var:fs_constituency_seat
 						ACTIVITY = scope:activity
 					}
+					send_interface_toast = {
+						title = activity_intent_complete_toast
+						left_icon = scope:fs_constituency_winner
+						complete_activity_intent = yes
+					}
 				}
 				if = {
 					limit = { var:fs_constituency_seat = { holder = scope:fs_constituency_winner } }

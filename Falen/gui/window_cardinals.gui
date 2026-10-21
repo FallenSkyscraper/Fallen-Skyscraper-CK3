@@ -1,0 +1,1497 @@
+﻿window = {
+	name = "cardinals_window"
+	datacontext = "[GetVariableSystem]"
+	datacontext = "[CardinalsWindow.GetFaith]"
+
+	parentanchor = top|right
+	allow_outside = yes
+	movable = no
+	layer = windows_layer
+
+	using = Window_Size_MainTab
+
+	state = {
+		name = on_create
+		trigger_on_create = yes
+
+		on_start = "[GetVariableSystem.Set( 'bookmark_college', 'true' )]"
+		on_start = "[GetVariableSystem.Clear( 'bookmark_succession' )]"
+		on_start = "[GetVariableSystem.Set( 'fs_parliament_tab', 'candidates' )]"
+	}
+
+	state = {
+		name = _show
+		next = refresh_bookmark_tabs
+		on_start = "[GetVariableSystem.Set( 'fs_parliament_tab', 'candidates' )]"
+
+		using = Animation_FadeIn_Quick
+		using = Sound_WindowShow_Standard
+		using = Window_Position_MainTab
+	}
+
+	state = {
+		name = _hide
+		on_start = "[GetScriptedGui( 'fs_parliament_clear_members_gui' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		using = Animation_FadeOut_Quick
+		using = Sound_WindowHide_Standard
+		using = Window_Position_MainTab_Hide
+	}
+
+	state = {
+		name = refresh_bookmark_tabs
+		on_start = "[GetVariableSystem.Set( 'bookmark_college', 'true' )]"
+		on_start = "[GetVariableSystem.Set( 'bookmark_succession', 'true' )]"
+		on_start = "[GetVariableSystem.ClearIf( 'bookmark_college', Not( CardinalsWindow.IsActiveTab( 'bookmark_college' ) ) )]"
+		on_start = "[GetVariableSystem.ClearIf( 'bookmark_succession', Not( CardinalsWindow.IsActiveTab( 'bookmark_succession' ) ) )]"
+	}
+
+	margin_widget = {
+		size = { 100% 100% }
+		margin_top = 30
+		margin_bottom = 25
+		margin_right = 13
+
+		widget = {
+			size = { 100% 100% }
+
+			### WINDOW CONTENT
+			vbox = {
+				using = Window_Margins
+
+				header_pattern = {
+					layoutpolicy_horizontal = expanding
+
+					blockoverride "header_text"
+					{
+						text = "CARDINALS_VIEW_TITLE"
+					}
+
+					blockoverride "button_close"
+					{
+						onclick = "[CardinalsWindow.Close]"
+					}
+				}
+
+				hbox = {
+					name = "fs_parliament_tabs"
+					layoutpolicy_horizontal = expanding
+					margin_bottom = 10
+
+					button_tab = {
+						name = "fs_parliament_candidates_tab"
+						onclick = "[GetVariableSystem.Set( 'fs_parliament_tab', 'candidates' )]"
+						down = "[GetVariableSystem.HasValue( 'fs_parliament_tab', 'candidates' )]"
+						alwaystransparent = "[GetVariableSystem.HasValue( 'fs_parliament_tab', 'candidates' )]"
+
+						blockoverride "tab_label"
+						{
+							text = "FS_PARLIAMENT_TAB_CANDIDATES"
+						}
+					}
+
+					button_tab = {
+						name = "fs_parliament_seats_tab"
+						onclick = "[GetScriptedGui( 'fs_parliament_refresh_members_gui' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						onclick = "[GetVariableSystem.Set( 'fs_parliament_tab', 'seats' )]"
+						down = "[GetVariableSystem.HasValue( 'fs_parliament_tab', 'seats' )]"
+
+						blockoverride "tab_label"
+						{
+							text = "FS_PARLIAMENT_TAB_SEATS"
+						}
+					}
+
+					button_tab = {
+						name = "fs_parliament_legislation_tab"
+						onclick = "[GetVariableSystem.Set( 'fs_parliament_tab', 'legislation' )]"
+						down = "[GetVariableSystem.HasValue( 'fs_parliament_tab', 'legislation' )]"
+						alwaystransparent = "[GetVariableSystem.HasValue( 'fs_parliament_tab', 'legislation' )]"
+
+						blockoverride "tab_label"
+						{
+							text = "FS_PARLIAMENT_TAB_LEGISLATION"
+						}
+					}
+				}
+
+				### CARDINALS MAIN CONTENTS / BODY
+				vbox_cardinals_college_body = {
+					visible = "[And( GetVariableSystem.Exists( 'bookmark_college' ), GetVariableSystem.HasValue( 'fs_parliament_tab', 'candidates' ) )]"
+				}
+
+				vbox_parliament_seats = {
+					visible = "[GetVariableSystem.HasValue( 'fs_parliament_tab', 'seats' )]"
+				}
+
+				vbox_parliament_legislation = {
+					visible = "[GetVariableSystem.HasValue( 'fs_parliament_tab', 'legislation' )]"
+				}
+
+				hbox = {
+					datacontext = "[Faith.GetCollegeElectionTitle.GetHolder]"
+					visible = "[And3( GetVariableSystem.HasValue( 'fs_parliament_tab', 'candidates' ), Character.IsPlayerInteractionShown( 'request_clerical_elector_title_interaction' ), Character.IsValid )]"
+					layoutpolicy_horizontal = expanding
+					margin = { 0 10 }
+
+					button_standard = {
+						name = "request_clerical_elector_title_interaction"
+						min_width = 350
+						margin = { 30 0 }
+
+						onclick = "[Character.OpenPlayerInteraction( PdxGuiWidget.GetName )]"
+						enabled = "[Character.IsPlayerInteractionValid( PdxGuiWidget.GetName )]"
+						tooltip = "[Character.GetPlayerInteractionTooltip( PdxGuiWidget.GetName )]"
+
+						text = "request_clerical_elector_title_interaction"
+
+						button_icon = {
+							parentanchor = vcenter
+							position = { 5 0 }
+							size = { 25 25 }
+							alwaystransparent = yes
+
+							texture = "gfx/interface/icons/flat_icons/college_of_cardinals.dds"
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+types CardinalWindow
+{
+	type widget_cardinal_stained_glass = widget
+	{
+		size = { 100% 100% }
+
+		icon = {
+			size = { 100% 100% }
+
+			block "stained_glass_texture" {
+				texture = "gfx/interface/window_college_of_cardinals/arched_stained_glass_blue.dds"
+			}
+		}
+
+		icon = {
+			size = { 100% 100% }
+			visible = "[ObjectsEqual( CardinalCandidateItem.Self, CardinalVoterCharacterList.GetListOwner )]"
+
+			block "stained_glass_glow_texture" {
+				texture = "gfx/interface/window_college_of_cardinals/arched_stained_glass_blue_glow.dds"
+			}
+
+			state = {
+				name = _show
+				using = Animation_FadeIn_Quick
+			}
+
+			state = {
+				name = _hide
+				using = Animation_FadeOut_Quick
+			}
+		}
+	}
+
+	type widget_cardinal_candidate_item = widget
+	{
+		datacontext = "[CardinalsWindow.GetCardinalVoterList]"
+		datacontext = "[CardinalCandidateItem.GetCardinal]"
+		datacontext = "[CardinalItem.GetCharacter]"
+		datacontext = "[Faith.GetCollegeElectionTitle]"
+		visible = "[Character.IsValid]"
+		size = { 187 286 }
+
+		allow_outside = yes
+
+		icon = {
+			parentanchor = top|hcenter
+			position = { 0 5 }
+			size = { 176 244 }
+
+			widget_cardinal_stained_glass = {
+				visible = "[EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_populist' )]"
+
+				blockoverride "stained_glass_texture" {
+					texture = "gfx/interface/window_college_of_cardinals/arched_stained_glass_green.dds"
+				}
+				blockoverride "stained_glass_glow_texture" {
+					texture = "gfx/interface/window_college_of_cardinals/arched_stained_glass_green_glow.dds"
+				}
+			}
+
+			widget_cardinal_stained_glass = {
+				visible = "[EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_powerful' )]"
+
+				blockoverride "stained_glass_texture" {
+					texture = "gfx/interface/window_college_of_cardinals/arched_stained_glass_red.dds"
+				}
+				blockoverride "stained_glass_glow_texture" {
+					texture = "gfx/interface/window_college_of_cardinals/arched_stained_glass_red_glow.dds"
+				}
+			}
+
+			widget_cardinal_stained_glass = {
+				visible = "[EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_pious' )]"
+			}
+		}
+
+		portrait_torso = {
+			visible = "[Character.IsValid]"
+			position = { 0 5 }
+			size = { 176 244 }
+			parentanchor = top|hcenter
+
+			allow_outside = yes
+			scissor = yes
+
+			blockoverride "extra_info" {
+				vbox_cardinal_papabile_scores = {}
+			}
+
+			blockoverride "schism_stance" {
+				widget_schism_stance = {}
+			}
+
+			blockoverride "portrait_mask"
+			{
+				mask = "gfx/interface/window_college_of_cardinals/arched_frame_portrait_mask.dds"
+			}
+
+			blockoverride "portrait_status_icons"
+			{
+				portrait_status_icons = {
+					parentanchor = bottom|right
+					position = { -20 -56 }
+					scale = 0.85
+
+					background = {
+						using = Background_Area_Dark
+						margin = { 2 3 }
+						alpha = 0.8
+					}
+				}
+			}
+
+			blockoverride "coa" {}
+
+			blockoverride "opinion_box"
+			{
+				portrait_opinion = {
+					parentanchor = bottom|hcenter
+					position = { 0 -56 }
+				}
+			}
+		}
+
+		icon = {
+			parentanchor = top|hcenter
+			position = { 0 5 }
+			size = { 176 244 }
+			texture = "gfx/interface/window_college_of_cardinals/arched_frame.dds"
+		}
+
+		text_cardinal_candidate_papabile_score = {}
+
+		text_cardinal_candidate_papabile_score = {
+			visible = "[EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_populist' )]"
+			blockoverride "papabile_text" {
+				text = "CARDINALS_VIEW_CANDIDATE_PAPABILE_SCORE_POPULIST"
+			}
+
+			blockoverride "papabile_breakdown" {
+				datacontext = "[GuiScope.SetRoot( Character.MakeScope ).GetScriptValueBreakdown( 'pam_papal_populist_priority_value' )]"
+			}
+			blockoverride "papabile_tooltip_header" {
+				text = "CARDINALS_VIEW_PAPABILE_SCORE_POPULIST_TT"
+			}
+		}
+
+		text_cardinal_candidate_papabile_score = {
+			visible = "[EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_pious' )]"
+			blockoverride "papabile_text" {
+				text = "CARDINALS_VIEW_CANDIDATE_PAPABILE_SCORE_PIOUS"
+			}
+
+			blockoverride "papabile_breakdown" {
+				datacontext = "[GuiScope.SetRoot( Character.MakeScope ).GetScriptValueBreakdown( 'pam_papal_pious_priority_value' )]"
+			}
+			blockoverride "papabile_tooltip_header" {
+				text = "CARDINALS_VIEW_PAPABILE_SCORE_PIOUS_TT"
+			}
+		}
+
+		### Supported candidate banner
+		widget = {
+			name = "supported_candidate_banner"
+			visible = "[And( Title.IsPlayerElector, EqualTo_uint32( Title.GetPlayerNominee.GetID, Character.GetID ) )]"
+			parentanchor = top|right
+			position = { -15 0 }
+			size = { 44 68 }
+
+			tooltip = "CARDINALS_VIEW_SUPPORTED_CANDIDATE_TT"
+
+			state = {
+				name = _show
+				using = Animation_FadeIn_Quick
+				position = { -15 14 }
+			}
+
+			state = {
+				name = _hide
+				using = Animation_FadeOut_Quick
+				position = { -15 0 }
+			}
+
+			icon = {
+				parentanchor = center
+				size = { 44 68 }
+				texture = "gfx/interface/window_college_of_cardinals/supported_candidate_banner.dds"
+			}
+
+			icon_flat_standard = {
+				parentanchor = center
+				position = { 2 4 }
+				size = { 30 30 }
+				texture = "gfx/interface/icons/flat_icons/election_vote_strength.dds"
+			}
+		}
+
+		vbox = {
+			layoutpolicy_vertical = expanding
+
+			expand = {}
+
+			vbox = {
+				datacontext = "[Character.GetFaith]"
+				datacontext = "[Character.GetRite]"
+				layoutpolicy_horizontal = expanding
+
+				text_label_center = {
+					text = "[Character.GetShortUINameNoTooltip|U]"
+					default_format = "#High"
+					max_width = 140
+				}
+
+				### Candidate archetype (which character_sets group they were selected as top candidate of)
+				text_label_center = {
+					text = "[CardinalCandidateItem.GetArchetypeName]"
+					default_format = "#I;underline"
+					max_width = 140
+					align = nobaseline
+
+					tooltip = "CARDINALS_VIEW_CANDIDATE_ARCHETYPE_TT"
+				}
+			}
+
+			button_tab = {
+				onclick = "[CardinalsWindow.OnClickCardinalCandidate( CardinalCandidateItem.Self )]"
+				down = "[ObjectsEqual( CardinalCandidateItem.Self, CardinalVoterCharacterList.GetListOwner )]"
+
+				blockoverride "tab_label"
+				{
+					text = "CARDINALS_VIEW_VOTER_BUTTON"
+					max_width = 140
+				}
+
+				blockoverride "extra_info"
+				{
+					text_single = {
+						text = "[CardinalCandidateItem.GetSupporterCount]"
+						align = nobaseline
+						default_format = "#low"
+						margin_top = 3
+					}
+				}
+			}
+		}
+	}
+
+	type widget_cardinal_voter_item = widget
+	{
+		datacontext = "[CharacterListItem.GetCharacter]"
+		datacontext = "[CardinalsWindow.GetCardinalVoterList]"
+
+		visible = "[Character.IsValid]"
+		size = { 530 110 }
+
+		background = {
+			using = Background_Area_Border_Solid
+			alpha = 0.5
+		}
+
+		background = {
+			using = Background_Frame
+		}
+
+		hbox = {
+			margin_right = 6
+			margin_left = 10
+			spacing = 8
+
+			portrait_head_small = {
+				background = {
+					visible = "[GetScriptedGui( 'pam_is_papabile_populist' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+					fittype = centercrop
+					margin_top = -9
+					margin_bottom = -10
+					texture = "gfx/interface/window_college_of_cardinals/arched_stained_glass_green.dds"
+				}
+
+				background = {
+					visible = "[GetScriptedGui( 'pam_is_papabile_powerful' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+					fittype = centercrop
+					margin_top = -9
+					margin_bottom = -10
+					texture = "gfx/interface/window_college_of_cardinals/arched_stained_glass_red.dds"
+				}
+
+				background = {
+					visible = "[GetScriptedGui( 'pam_is_papabile_pious' ).IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+					fittype = centercrop
+					margin_top = -9
+					margin_bottom = -10
+					texture = "gfx/interface/window_college_of_cardinals/arched_stained_glass_blue.dds"
+				}
+			}
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				expand = {}
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					spacing = 5
+
+					text_single = {
+						text = "[Character.GetShortUINameNoTooltip|U]"
+						max_width = 280
+						align = nobaseline
+						using = Font_Size_Medium
+					}
+					expand = {}
+				}
+
+				hbox = {
+					margin_top = 4
+					layoutpolicy_horizontal = expanding
+					spacing = 5
+
+					hbox = {
+						hbox_election_vote_reason = {
+							margin_right = 10
+							datacontext = "[CardinalVoterCharacterList.GetElectorFromCharacter( Character.Self )]"
+							visible = "[Not( Character.IsLocalPlayer )]"
+
+							blockoverride "vote_value_number" {
+								text_single = {
+									visible = "[Not( SuccessionElectionElector.GetTitle.GetPlayerNominee.IsValid )]"
+									text = "[SuccessionElectionElector.GetElectorCandidate.GetScore]"
+									align = nobaseline
+									min_width = 30
+								}
+
+								text_single = {
+									visible = "[SuccessionElectionElector.GetTitle.GetPlayerNominee.IsValid]"
+									text = "[SuccessionElectionElector.GetScoreDiff|+]"
+									align = nobaseline
+									min_width = 35
+								}
+							}
+							using = tooltip_ws
+
+							divider_light = {
+								size = { 3 30 }
+							}
+						}
+
+						hbox = {
+							block "cardinal_interactions" {}
+
+							button_round_interaction = {
+								name = "increase_papabile_score_interaction"
+
+								blockoverride "icon" {}
+
+								button_icon = {
+									alwaystransparent = yes
+									parentanchor = center
+									size = { 25 25 }
+									texture = "gfx/interface/icons/flat_icons/clerical_score.dds"
+								}
+							}
+
+							button_round_interaction = {
+								name = "influence_papal_vote_interaction"
+
+								blockoverride "icon" {}
+								button_icon = {
+									alwaystransparent = yes
+									parentanchor = center
+									size = { 25 25 }
+									texture = "gfx/interface/icons/flat_icons/influence_college_vote.dds"
+								}
+							}
+
+							button_round_interaction = {
+								name = "give_cardinal_order_interaction"
+
+								blockoverride "icon" {}
+
+								button_icon = {
+									alwaystransparent = yes
+									parentanchor = center
+									size = { 25 25 }
+									texture = "gfx/interface/icons/flat_icons/challenge_status.dds"
+								}
+							}
+						}
+					}
+
+					expand = {}
+				}
+
+				expand = {}
+			}
+
+			vbox = {
+				margin_right = 4
+				hbox_cardinal_voter_papabile_score = {
+					blockoverride "papabile_header" {
+						text = "CARDINALS_VIEW_PAPABILE_SCORE_POPULIST_HEADER"
+						alpha = "[Select_float( EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_populist' ), '(float)1.0', '(float)0.5' )]"
+					}
+					blockoverride "papabile_breakdown" {
+						datacontext = "[GuiScope.SetRoot( Character.MakeScope ).GetScriptValueBreakdown( 'pam_papal_populist_priority_value' )]"
+					}
+					blockoverride "papabile_tooltip_header" {
+						text = "CARDINALS_VIEW_PAPABILE_SCORE_POPULIST_TT"
+					}
+					blockoverride "papabile_value" {
+						text = "CARDINALS_VIEW_PAPABILE_SCORE_POPULIST_VALUE"
+						alpha = "[Select_float( EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_populist' ), '(float)1.0', '(float)0.5' )]"
+					}
+					blockoverride "icon_alpha" {
+						alpha = "[Select_float( EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_populist' ), '(float)1.0', '(float)0.5' )]"
+					}
+					blockoverride "active_papabile_visible" {
+						visible = "[EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_populist' )]"
+					}
+					blockoverride "active_papabile_color" {
+						using = Color_Green
+					}
+				}
+				hbox_cardinal_voter_papabile_score = {}
+
+				hbox_cardinal_voter_papabile_score = {
+					blockoverride "papabile_header" {
+						text = "CARDINALS_VIEW_PAPABILE_SCORE_PIOUS_HEADER"
+						alpha = "[Select_float( EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_pious' ), '(float)1.0', '(float)0.5' )]"
+					}
+					blockoverride "papabile_breakdown" {
+						datacontext = "[GuiScope.SetRoot( Character.MakeScope ).GetScriptValueBreakdown( 'pam_papal_pious_priority_value' )]"
+					}
+					blockoverride "papabile_tooltip_header" {
+						text = "CARDINALS_VIEW_PAPABILE_SCORE_PIOUS_TT"
+					}
+					blockoverride "papabile_value" {
+						text = "CARDINALS_VIEW_PAPABILE_SCORE_PIOUS_VALUE"
+						alpha = "[Select_float( EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_pious' ), '(float)1.0', '(float)0.5' )]"
+					}
+					blockoverride "icon_alpha" {
+						alpha = "[Select_float( EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_pious' ), '(float)1.0', '(float)0.5' )]"
+					}
+					blockoverride "active_papabile_visible" {
+						visible = "[EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_pious' )]"
+					}
+					blockoverride "active_papabile_color" {
+						using = Color_Blue
+					}
+				}
+			}
+		}
+	}
+
+	type widget_cardinal_tenet_popularity = widget {
+		size = { 25 50 }
+		parentanchor = top|right
+		position = { 6 -2 }
+
+		vbox = {
+			container_tenet_popularity = {
+				blockoverride "text_popularity" {
+					visible = no
+				}
+				blockoverride "margin_popularity_bg" {}
+			}
+			expand = {}
+		}
+	}
+
+	type text_cardinal_candidate_papabile_score = text_single {
+		visible = "[EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_powerful' )]"
+		alpha = "[Select_float( EqualTo_string( CardinalCandidateItem.GetKey, CardinalVoterCharacterList.GetListOwner.GetKey ), '(float)1.0', '(float)0.5' )]"
+		parentanchor = top|hcenter
+		position = { 0 32 }
+		block "papabile_text" {
+			text = "CARDINALS_VIEW_CANDIDATE_PAPABILE_SCORE"
+		}
+
+		margin = { 8 0 }
+		align = center|nobaseline
+
+		using = tooltip_ws
+
+		background = {
+			margin = { 24 4 }
+			using = Background_Area_Dark
+			modify_texture = {
+				texture = "gfx/interface/component_masks/mask_fade_horizontal_middle.dds"
+				blend_mode = alphamultiply
+				mirror = vertical
+			}
+		}
+
+		tooltipwidget = {
+			widget_value_breakdown_tooltip = {
+				block "papabile_breakdown" {
+					datacontext = "[GuiScope.SetRoot( Character.MakeScope ).GetScriptValueBreakdown( 'pam_papal_powerful_priority_value' )]"
+				}
+				blockoverride "header_text"
+				{
+					block "papabile_tooltip_header" {
+						text = "CARDINALS_VIEW_PAPABILE_SCORE_POWERFUL_TT"
+					}
+				}
+			}
+		}
+	}
+
+	type hbox_cardinal_voter_papabile_score = hbox {
+		layoutpolicy_horizontal = expanding
+		margin = { 12 2 }
+		spacing = 4
+		using = tooltip_ws
+
+		background = {
+			using = Background_Area
+			using = Mask_Rough_Edges
+		}
+
+		background = {
+			block "active_papabile_visible" {
+				visible = "[EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_powerful' )]"
+			}
+			using = Background_Area
+			using = Mask_Rough_Edges
+			block "active_papabile_color" {
+				using = Color_Red
+			}
+			alpha = 0.2
+
+			modify_texture = {
+				texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
+				blend_mode = alphamultiply
+			}
+		}
+
+		text_single = {
+			min_width = 76
+			margin_right = 0
+			block "papabile_header" {
+				text = "CARDINALS_VIEW_PAPABILE_SCORE_POWERFUL_HEADER"
+				alpha = "[Select_float( EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_powerful' ), '(float)1.0', '(float)0.5' )]"
+			}
+			align = nobaseline
+		}
+		expand = {}
+
+		hbox = {
+			spacing = 4
+			tooltipwidget = {
+				widget_value_breakdown_tooltip = {
+					block "papabile_breakdown" {
+						datacontext = "[GuiScope.SetRoot( Character.MakeScope ).GetScriptValueBreakdown( 'pam_papal_powerful_priority_value' )]"
+					}
+					blockoverride "header_text"
+					{
+						block "papabile_tooltip_header" {
+							text = "CARDINALS_VIEW_PAPABILE_SCORE_POWERFUL_TT"
+						}
+					}
+				}
+			}
+
+			icon = {
+				size = { 25 25 }
+				block "icon_alpha" {
+					alpha = "[Select_float( EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_powerful' ), '(float)1.0', '(float)0.5' )]"
+				}
+				texture = "gfx/interface/icons/clerical_score.dds"
+			}
+
+			text_single = {
+				min_width = 30
+				block "papabile_value" {
+					text = "CARDINALS_VIEW_PAPABILE_SCORE_POWERFUL_VALUE"
+					alpha = "[Select_float( EqualTo_string( CardinalVoterCharacterList.GetListOwner.GetKey, 'theocratic_elective_powerful' ), '(float)1.0', '(float)0.5' )]"
+				}
+				align = nobaseline
+			}
+		}
+	}
+
+	type hbox_cardinal_papabile_score = hbox {
+		spacing = 15
+
+		text_single = {
+			min_width = 35
+			max_width = 35
+			block "papabile_value" {
+				text = "[GetPlayer.MakeScope.ScriptValue( 'pam_papal_powerful_priority_value' )|0]"
+			}
+			default_format = "#L;V"
+			align = nobaseline|right
+			using = tooltip_ws
+		}
+
+		text_single = {
+			min_width = 180
+			max_width = 275
+
+			block "papabile_text" {
+				text = "theocratic_elective_powerful"
+				tooltip = "theocratic_elective_powerful_desc"
+			}
+			align = nobaseline
+		}
+	}
+
+	type vbox_cardinal_papabile_scores = vbox {
+		layoutpolicy_horizontal = expanding
+		margin_top = 15
+		spacing = 2
+
+		hbox = {
+			margin_left = 12
+			layoutpolicy_horizontal = expanding
+			spacing = 10
+
+			icon = {
+				size = { 25 25 }
+				texture = "gfx/interface/icons/clerical_score.dds"
+			}
+
+			text_label_left = {
+				text = "[papabile_scores|E]"
+			}
+
+			expand = {}
+		}
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+
+			background = {
+				using = Background_Area
+				margin = { 15 0 }
+			}
+
+			vbox = {
+				margin = { 10 12 }
+
+				hbox_cardinal_papabile_score = {
+					blockoverride "papabile_value" {
+						text = "[Character.MakeScope.ScriptValue( 'pam_papal_powerful_priority_value' )|0]"
+
+						tooltipwidget = {
+							widget_value_breakdown_tooltip = {
+								datacontext = "[GuiScope.SetRoot( Character.MakeScope ).GetScriptValueBreakdown( 'pam_papal_powerful_priority_value' )]"
+								blockoverride "header_text"
+								{
+									text = "CARDINALS_VIEW_PAPABILE_SCORE_POWERFUL_TT"
+								}
+							}
+						}
+					}
+				}
+
+				hbox_cardinal_papabile_score = {
+					blockoverride "papabile_text" {
+						text = "theocratic_elective_pious"
+						tooltip = "theocratic_elective_pious_desc"
+					}
+					blockoverride "papabile_value" {
+						text = "[Character.MakeScope.ScriptValue( 'pam_papal_pious_priority_value' )|0]"
+
+						tooltipwidget = {
+							widget_value_breakdown_tooltip = {
+								datacontext = "[GuiScope.SetRoot( Character.MakeScope ).GetScriptValueBreakdown( 'pam_papal_pious_priority_value' )]"
+								blockoverride "header_text"
+								{
+									text = "CARDINALS_VIEW_PAPABILE_SCORE_PIOUS_TT"
+								}
+							}
+						}
+					}
+				}
+
+				hbox_cardinal_papabile_score = {
+					blockoverride "papabile_text" {
+						text = "theocratic_elective_populist"
+						tooltip = "theocratic_elective_populist_desc"
+					}
+					blockoverride "papabile_value" {
+						text = "[Character.MakeScope.ScriptValue( 'pam_papal_populist_priority_value' )|0]"
+
+						tooltipwidget = {
+							widget_value_breakdown_tooltip = {
+								datacontext = "[GuiScope.SetRoot( Character.MakeScope ).GetScriptValueBreakdown( 'pam_papal_populist_priority_value' )]"
+								blockoverride "header_text"
+								{
+									text = "CARDINALS_VIEW_PAPABILE_SCORE_POPULIST_TT"
+								}
+							}
+						}
+					}
+				}
+			}
+
+			expand = {}
+		}
+	}
+
+	type vbox_cardinals_college_body = vbox
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+
+		### Head of Faith
+		widget = {
+			datacontext = "[Faith.GetCollegeElectionTitle]"
+			datacontext = "[Title.GetHolder]"
+			size = { 558 140 }
+
+			background = {
+				layoutpolicy_horizontal = expanding
+				texture = "gfx/interface/illustrations/interior/church.dds"
+				fittype = centercrop
+				using = Mask_Rough_Edges
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
+					blend_mode = alphamultiply
+				}
+			}
+
+			widget_faith_character_tiny = {
+				datacontext = "[Faith.GetMainRite]"
+				parentanchor = left
+				position = { 10 0 }
+				size = { 190 120 }
+
+				blockoverride "text" {
+					text = "[SelectLocalization( Character.IsValid, 'CARDINALS_VIEW_HEAD_OF_PAPACY', 'CARDINALS_VIEW_HEAD_OF_PAPACY_VACANT' )]"
+				}
+
+				blockoverride "text_layoutpolicy" {}
+
+				blockoverride "head_of_faith" {
+					widget = {
+						visible = "[Not( Character.IsValid )]"
+						size = { 100% 100% }
+						using = head_of_faith_widget_background
+					}
+				}
+
+				blockoverride "interactions_before_portrait" {
+					vbox = {
+						layoutpolicy_vertical = expanding
+						spacing = 5
+
+						button_interactions_religion = {
+							glow = {
+								color = { 0 0 0 0.5 }
+								glow_radius = 8
+							}
+						}
+
+						button_round_interaction = {
+							name = "request_clerical_elector_title_interaction"
+
+							blockoverride "icon" {}
+
+							button_icon = {
+								alwaystransparent = yes
+								parentanchor = center
+								size = { 25 25 }
+								texture = "gfx/interface/icons/flat_icons/college_of_cardinals.dds"
+							}
+						}
+
+						button_round_interaction = {
+							name = "request_court_chaplain_cardinalate_interaction"
+
+							blockoverride "show_interaction" {
+								visible = "[And3( Character.IsPlayerInteractionShown( PdxGuiWidget.GetName ), Character.IsValid, Not( Character.IsPlayerInteractionShown( 'request_clerical_elector_title_interaction' ) ) )]"
+							}
+
+							blockoverride "icon" {}
+
+							button_icon = {
+								alwaystransparent = yes
+								parentanchor = center
+								size = { 25 25 }
+								texture = "gfx/interface/icons/flat_icons/college_of_cardinals.dds"
+							}
+						}
+
+						expand = {}
+					}
+				}
+
+				blockoverride "interactions_visibility" {
+					visible = no
+				}
+			}
+
+			text_multi = {
+				parentanchor = top|left
+				text = "CARDINALS_VIEW_COLLEGE_DESCRIPTION"
+				size = { 300 100 }
+				position = { 170 12 }
+				default_format = "#TUT"
+				align = left|nobaseline
+				
+				background = {
+					using = Background_Area_Dark
+					margin = { 40 10 }
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_middle.dds"
+						blend_mode = alphamultiply
+					}
+				}
+			}
+
+			button_situation_banner = {
+				datacontext = "[GetSituation( 'the_christian_church' )]"
+				visible = "[Situation.IsValid]"
+				parentanchor = top|right
+				position = { -5 5 }
+				size = { 70 70 }
+			}
+		}
+
+		widget = {
+			size = { 558 5 }
+
+			icon = {
+				parentanchor = hcenter
+				size = { 610 22 }
+				position = { 0 -4 }
+				texture = "gfx/interface/component_decoration/decoration_frame_bottom_thin.dds"
+				spriteType = Corneredtiled
+				spriteborder = { 60 0 }
+				texture_density = 2
+			}
+		}
+
+		### Candidates
+		hbox = {
+			layoutpolicy_horizontal = expanding
+
+			background = {
+				using = Background_Area_ExtraDark
+				margin_bottom = -36
+				alpha = 0.9
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
+					blend_mode = alphamultiply
+				}
+			}
+
+			hbox = {
+				datamodel = "[CardinalsWindow.GetCardinalCandidates]"
+
+				item = {
+					widget_cardinal_candidate_item = {
+						visible = "[And( Character.IsValid, EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_populist' ) )]"
+					}
+				}
+			}
+
+			hbox = {
+				datamodel = "[CardinalsWindow.GetCardinalCandidates]"
+
+				item = {
+					widget_cardinal_candidate_item = {
+						visible = "[And( Character.IsValid, EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_powerful' ) )]"
+					}
+				}
+			}
+
+			hbox = {
+				datamodel = "[CardinalsWindow.GetCardinalCandidates]"
+
+				item = {
+					widget_cardinal_candidate_item = {
+						visible = "[And( Character.IsValid, EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_pious' ) )]"
+					}
+				}
+			}
+
+			hbox = {
+				datamodel = "[CardinalsWindow.GetCardinalCandidates]"
+
+				item = {
+					widget_cardinal_candidate_item = {
+						visible = "[And( Character.IsValid, Not( Or3( EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_populist' ), EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_powerful' ), EqualTo_string( CardinalCandidateItem.GetKey, 'theocratic_elective_pious' ) ) ) )]"
+					}
+				}
+			}
+		}
+
+		hbox = {
+			datacontext = "[CardinalsWindow.GetCardinalVoterList]"
+			datacontext = "[CardinalVoterCharacterList.GetListOwner]"
+			datacontext = "[CardinalCandidateItem.GetCardinal]"
+			datacontext = "[CardinalItem.GetCharacter]"
+			datacontext = "[Faith.GetCollegeElectionTitle]"
+			datacontext = "[Faith.GetMainRite]"
+			layoutpolicy_horizontal = expanding
+			margin = { 10 10 }
+
+			widget = {
+				visible = "[CardinalCandidateItem.WillSwapTenets]"
+				size = { 140 70 }
+
+				container_tenet_item_small = {
+					scale = 0.8
+					datacontext = "[CardinalCandidateItem.GetSwappedOutTenet]"
+					parentanchor = left
+
+					using = tooltip_ws
+					tooltip_parentanchor = left
+
+					blockoverride "tenet_size" {
+						size = { 95% 95% }
+					}
+
+					widget_cardinal_tenet_popularity = {}
+				}
+
+				icon_flat_standard_ash = {
+					parentanchor = center
+					size = { 15 30 }
+					texture = "gfx/interface/icons/flat_icons/transfer_right.dds"
+				}
+
+				container_tenet_item_small = {
+					scale = 0.8
+					datacontext = "[CardinalCandidateItem.GetPreferredTenet]"
+					parentanchor = right
+
+					using = tooltip_ws
+					tooltip_parentanchor = left
+
+					blockoverride "tenet_size" {
+						size = { 95% 95% }
+					}
+
+					widget_cardinal_tenet_popularity = {}
+				}
+			}
+
+			widget = {
+				visible = "[Not( CardinalCandidateItem.WillSwapTenets )]"
+				size = { 50 70 }
+
+				button_rite_icon = {
+					parentanchor = center
+					size = { 55 55 }
+				}
+			}
+
+			vbox = {
+				datacontext = "[CardinalCandidateItem.GetCardinal]"
+				datacontext = "[CardinalItem.GetCharacter]"
+				visible = "[And( Not( Character.IsLocalPlayer ), CardinalCandidateItem.WillSwapTenets )]"
+				layoutpolicy_vertical = expanding
+
+				text_multi = {
+					text = "CARDINALS_VIEW_WILL_CHANGE_TENET"
+					align = nobaseline
+					autoresize = yes
+					default_format = "#weak"
+					max_width = 330
+
+					margin_left = 15
+				}
+			}
+
+			text_multi = {
+				datacontext = "[CardinalCandidateItem.GetCardinal]"
+				datacontext = "[CardinalItem.GetCharacter]"
+				visible = "[Character.IsLocalPlayer]"
+
+				text = "CARDINALS_VIEW_YOU_WILL_CHANGE_RITE"
+				align = nobaseline
+				autoresize = yes
+				default_format = "#weak"
+				max_width = 430
+
+				margin_left = 15
+			}
+
+			spacer = {
+				visible = "[AIWatchWindowsEnabled]"
+				size = { 15 0 }
+			}
+			debug_square = {
+				visible = "[AIWatchWindowsEnabled]"
+				size = { 30 30 }
+				tooltip = "CARDINALS_VIEW_DEBUG_CANDIDATE"
+			}
+
+			expand = {}
+
+			button_round = {
+				name = "cast_vote_button"
+				visible = "[NotEqualTo_uint32( Title.GetPlayerNominee.GetID, Character.GetID )]"
+				size = { 50 50 }
+
+				enabled = "[Title.IsPlayerElector]"
+				onclick = "[PdxGuiTriggerAllAnimations('add_candidate')]"
+
+				tooltip = "[SelectLocalization( Title.IsPlayerElector, 'CARDINALS_VIEW_CAST_VOTE_TT', 'CARDINALS_VIEW_NOT_ELECTOR_TT' )]"
+
+				state = {
+					name = _mouse_click
+					delay = 0.15
+					on_finish = "[Title.OnPlayerNominatesSuccessor( Character.Self )]"
+				}
+
+				button_election_vote = {
+					alwaystransparent = yes
+					parentanchor = center
+					size = { 30 30 }
+				}
+			}
+
+			widget = {
+				visible = "[And( Title.IsPlayerElector, EqualTo_uint32( Title.GetPlayerNominee.GetID, Character.GetID ) )]"
+				size = { 50 50 }
+
+				icon_flat_standard = {
+					parentanchor = center
+					size = { 40 40 }
+
+					texture = "gfx/interface/icons/flat_icons/election_vote_strength.dds"
+
+					tooltip = "CARDINALS_VIEW_SUPPORTED_CANDIDATE_TT"
+				}
+			}
+
+		}
+
+		text_multi = {
+			datacontext = "[CardinalsWindow.GetCardinalVoterList]"
+			datacontext = "[CardinalVoterCharacterList.GetListOwner]"
+			datacontext = "[CardinalCandidateItem.GetCardinal]"
+			datacontext = "[CardinalItem.GetCharacter]"
+			layoutpolicy_horizontal = expanding
+
+			visible = "[Not( ObjectsEqual( Character.GetRite, Character.GetFaith.GetMainRite ) )]"
+			text = "cardinals_view_candidate_different_rite"
+		}
+
+		vbox = {
+			datacontext = "[CardinalsWindow.GetCardinalVoterList]"
+			datacontext = "[CardinalVoterCharacterList.GetListOwner.GetCardinal]"
+			datacontext = "[CardinalItem.GetCharacter]"
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			spacing = 5
+
+			### Cardinals
+			vbox_character_list = {
+				datacontext = "[CardinalsWindow.GetCardinalVoterCharacters]"
+				datacontext = "[CardinalsWindow.GetCardinalVoterList]"
+
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				blockoverride "character_count" {}
+
+				blockoverride "sort_buttons"{}
+
+				blockoverride "skill_sort_buttons" {}
+
+				blockoverride "scrollbox_empty_visibility"
+				{
+					visible = "[Not( CharacterSelectionList.HasItems )]"
+					layoutpolicy_vertical = expanding
+					text = "CARDINALS_VIEW_VOTER_MISSING"
+				}
+
+				blockoverride "scrollbox_margins" {
+					margin = { 0 15 }
+					margin_left = 10
+					margin_right = 20
+				}
+
+				blockoverride "container_implementation"
+				{
+					fixedgridbox = {
+						name = "characters_grid"
+						datamodel = "[CharacterSelectionList.GetList]"
+						visible = "[HasDlcFeature( 'by_god_alone' )]"
+						addcolumn = 530
+						addrow = 114
+
+						item = {
+							widget_cardinal_voter_item = {}
+						}
+					}
+
+					fixedgridbox = {
+						datamodel = "[CharacterSelectionList.GetList]"
+						visible = "[Not( HasDlcFeature( 'by_god_alone' ) )]"
+						addcolumn = 530
+						addrow = 114
+
+						item = {
+							widget_cardinal_voter_item = {
+								blockoverride "cardinal_interactions" {
+									visible = no
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	type vbox_parliament_seats = vbox
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		spacing = 15
+
+		text_label_center = {
+			text = "FS_PARLIAMENT_SEATS_TITLE"
+			default_format = "#high"
+		}
+
+		text_label_center = {
+			text = "FS_PARLIAMENT_SEATS_TOTAL"
+		}
+
+		widget = {
+			name = "fs_parliament_seat_distribution_bar"
+			layoutpolicy_horizontal = expanding
+			size = { 0 36 }
+			visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_total_seats_value' ), '(CFixedPoint)0' )]"
+			tooltip = "FS_PARLIAMENT_SEATS_DISTRIBUTION_TT"
+			using = tooltip_below
+
+			hbox = {
+				size = { 100% 100% }
+
+				widget = {
+					name = "fs_parliament_authoritarian_segment"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					layoutstretchfactor_horizontal = "[FixedPointToInt( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_authoritarian_seats_value' ) )]"
+					visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_authoritarian_seats_value' ), '(CFixedPoint)0' )]"
+					alwaystransparent = yes
+
+					background = {
+						texture = "gfx/interface/colors/white.dds"
+						color = { 0 0.066667 1 1 }
+					}
+				}
+
+				widget = {
+					name = "fs_parliament_populist_segment"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					layoutstretchfactor_horizontal = "[FixedPointToInt( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_populist_seats_value' ) )]"
+					visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_populist_seats_value' ), '(CFixedPoint)0' )]"
+					alwaystransparent = yes
+
+					background = {
+						texture = "gfx/interface/colors/white.dds"
+						color = { 0.419608 0.639216 1 1 }
+					}
+				}
+
+				widget = {
+					name = "fs_parliament_other_segment"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					layoutstretchfactor_horizontal = "[FixedPointToInt( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_other_seats_value' ) )]"
+					visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_other_seats_value' ), '(CFixedPoint)0' )]"
+					alwaystransparent = yes
+
+					background = {
+						texture = "gfx/interface/colors/white.dds"
+						color = { 0.35 0.35 0.38 1 }
+					}
+				}
+
+				widget = {
+					name = "fs_parliament_vacant_segment"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					layoutstretchfactor_horizontal = "[FixedPointToInt( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_vacant_seats_value' ) )]"
+					visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_vacant_seats_value' ), '(CFixedPoint)0' )]"
+					alwaystransparent = yes
+
+					background = {
+						texture = "gfx/interface/colors/white.dds"
+						color = { 0 0 0 1 }
+					}
+				}
+			}
+		}
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+
+			hbox = {
+				spacing = 6
+
+				icon = {
+					size = { 14 14 }
+					texture = "gfx/interface/colors/white.dds"
+					color = { 0 0.066667 1 1 }
+				}
+				text_single = {
+					text = "FS_PARLIAMENT_SEATS_AUTHORITARIAN"
+				}
+			}
+
+			expand = {}
+
+			hbox = {
+				spacing = 6
+
+				icon = {
+					size = { 14 14 }
+					texture = "gfx/interface/colors/white.dds"
+					color = { 0.419608 0.639216 1 1 }
+				}
+				text_single = {
+					text = "FS_PARLIAMENT_SEATS_POPULIST"
+				}
+			}
+
+			expand = {}
+
+			hbox = {
+				spacing = 6
+				visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_other_seats_value' ), '(CFixedPoint)0' )]"
+
+				icon = {
+					size = { 14 14 }
+					texture = "gfx/interface/colors/white.dds"
+					color = { 0.35 0.35 0.38 1 }
+				}
+				text_single = {
+					text = "FS_PARLIAMENT_SEATS_OTHER"
+				}
+			}
+
+			expand = {}
+
+			hbox = {
+				spacing = 6
+				visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_vacant_seats_value' ), '(CFixedPoint)0' )]"
+
+				icon = {
+					size = { 14 14 }
+					texture = "gfx/interface/colors/white.dds"
+					color = { 0 0 0 1 }
+				}
+				text_single = {
+					text = "FS_PARLIAMENT_SEATS_VACANT"
+				}
+			}
+		}
+
+		text_label_center = {
+			visible = "[EqualTo_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_total_seats_value' ), '(CFixedPoint)0' )]"
+			text = "FS_PARLIAMENT_SEATS_EMPTY"
+		}
+
+		text_label_center = {
+			text = "FS_PARLIAMENT_MEMBERS_TITLE"
+			default_format = "#high"
+		}
+
+		text_label_center = {
+			visible = "[Not( DataModelHasItems( GetPlayer.MakeScope.GetList( 'fs_parliament_ui_seats' ) ) )]"
+			text = "FS_PARLIAMENT_MEMBERS_EMPTY"
+		}
+
+		fixedgridbox = {
+			name = "fs_parliament_members_gridbox"
+			size = { 540 580 }
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = fixed
+			layoutanchor = topleft
+			visible = "[DataModelHasItems( GetPlayer.MakeScope.GetList( 'fs_parliament_ui_seats' ) )]"
+			datamodel = "[GetPlayer.MakeScope.GetList( 'fs_parliament_ui_seats' )]"
+			flipdirection = yes
+			datamodel_wrap = 6
+			maxhorizontalslots = 6
+			maxverticalslots = 5
+			addcolumn = 90
+			addrow = 116
+			setitemsizefromcell = yes
+			item = {
+				widget = {
+					datacontext = "[Scope.Title]"
+					datacontext = "[Title.GetHolder]"
+					size = { 90 116 }
+					tooltip = "FS_PARLIAMENT_MEMBER_TT"
+					using = tooltip_below
+					portrait_head_small = {
+						parentanchor = top|hcenter
+						widgetanchor = top|hcenter
+						position = { 0 9 }
+						scale = 0.9
+						blockoverride "opinion_box" {}
+					}
+
+					text_single = {
+						parentanchor = bottom|hcenter
+						widgetanchor = bottom|hcenter
+						position = { 0 -2 }
+						size = { 82 22 }
+						autoresize = no
+						text = "[Title.GetHolder.GetShortUINameNoTooltip]"
+						max_width = 82
+						elide = right
+						align = center|nobaseline
+						using = Font_Size_Small
+					}
+				}
+			}
+		}
+		
+		expand = {}
+	}
+	
+	type vbox_parliament_legislation = vbox
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+	}
+}

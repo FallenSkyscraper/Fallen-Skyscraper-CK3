@@ -1,0 +1,53 @@
+# Count permanent parliamentary seats, including vacancies, rather than characters.
+fs_parliament_total_seats_value = {
+	value = 0
+	every_in_global_list = {
+		variable = fs_koreanism_parliament_seats
+		limit = { fs_koreanism_parliament_seat_trigger = yes }
+		add = 1
+	}
+}
+
+# The current seat holder's rite determines the political bloc.
+fs_parliament_authoritarian_seats_value = {
+	value = 0
+	every_in_global_list = {
+		variable = fs_koreanism_parliament_seats
+		limit = {
+			fs_koreanism_parliament_seat_trigger = yes
+			exists = holder
+			holder ?= { rite = rite:authoritarianism }
+		}
+		add = 1
+	}
+}
+
+fs_parliament_populist_seats_value = {
+	value = 0
+	every_in_global_list = {
+		variable = fs_koreanism_parliament_seats
+		limit = {
+			fs_koreanism_parliament_seat_trigger = yes
+			exists = holder
+			holder ?= { rite = rite:populism }
+		}
+		add = 1
+	}
+}
+
+fs_parliament_vacant_seats_value = {
+	value = 0
+	every_in_global_list = {
+		variable = fs_koreanism_parliament_seats
+		limit = { fs_koreanism_vacant_parliament_seat_trigger = yes }
+		add = 1
+	}
+}
+
+fs_parliament_other_seats_value = {
+	value = fs_parliament_total_seats_value
+	subtract = fs_parliament_authoritarian_seats_value
+	subtract = fs_parliament_populist_seats_value
+	subtract = fs_parliament_vacant_seats_value
+	min = 0
+}

@@ -1,0 +1,25 @@
+# Build a compact list before layout so vacant seats do not leave grid holes.
+fs_parliament_refresh_members_gui = {
+	scope = character
+	effect = {
+		clear_variable_list = fs_parliament_ui_seats
+		every_in_global_list = {
+			variable = fs_koreanism_parliament_seats
+			limit = {
+				fs_koreanism_parliament_seat_trigger = yes
+				exists = holder
+			}
+			root = {
+				add_to_variable_list = {
+					name = fs_parliament_ui_seats
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+fs_parliament_clear_members_gui = {
+	scope = character
+	effect = { clear_variable_list = fs_parliament_ui_seats }
+}

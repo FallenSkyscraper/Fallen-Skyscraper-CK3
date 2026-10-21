@@ -2,7 +2,7 @@
 widget = {
 	name = "fs_constituency_progress"
 	datacontext = "[ActivityWindow.GetActivity]"
-	visible = "[Not(Activity.MakeScope.Var('fs_constituency_resolved').IsSet)]"
+	visible = "[And(EqualTo_string(Activity.GetType.GetKey, 'activity_fs_constituency_election'), Not(Activity.MakeScope.Var('fs_constituency_resolved').IsSet))]"
 	size = { 270 76 }
 	vbox = {
 		layoutpolicy_horizontal = expanding

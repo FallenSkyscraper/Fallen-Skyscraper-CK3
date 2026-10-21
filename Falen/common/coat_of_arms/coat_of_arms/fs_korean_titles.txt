@@ -1,0 +1,206 @@
+﻿@smCastleX = 0.27
+@smCastleY = 0.23
+@smLysX = 0.23
+@smLysY = 0.26
+@smCross = 0.22
+
+k_koreanism = {
+	pattern = "pattern_solid.dds"
+	color1 = "blue_light"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_president_symbol.dds"
+		color1 = "yellow_light"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 0.65 } }
+	}
+}
+
+d_et_seoul = k_seoul
+d_et_gyeonggi = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_et_gangwon = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_gangwon_mountains.dds"
+		color1 = "green_light"
+		instance = { position = { 0.5 0.65 } scale = { 1.0 1.0 } }
+	}
+	colored_emblem = {
+		texture = "ce_gangwon_sun.dds"
+		color1 = "yellow_light"
+		color2 = "red"
+		instance = { position = { 0.5 0.3 } scale = { 0.8 0.8 } }
+	}
+}
+d_et_chungbuk = k_chungcheong
+d_et_chungnam = k_gonghong
+d_et_jeonbuk = k_jeonju
+d_et_jeonnam = {
+	pattern = "pattern_solid.dds"
+	color1 = "yellow"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_jeonnam.dds"
+		color1 = "blue_light"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_et_gyeongbuk = {
+	pattern = "pattern_solid.dds"
+	color1 = "blue_light"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_gyeongbuk.dds"
+		color1 = "yellow_light"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_et_gyeongnam = {
+	pattern = "pattern_solid.dds"
+	color1 = "blue_light"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_gyeongnam.dds"
+		color1 = "yellow_light"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_et_gwangju = k_gwangju
+d_et_daegu = d_daegu
+d_et_busan = k_busan
+d_et_incheon = k_incheon
+d_et_sejong = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_et_ulsan = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_et_daejeon = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_et_jeju = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+
+d_cd_prop_1 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_cd_prop_2 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_cd_prop_3 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_cd_prop_4 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_cd_prop_5 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_cd_prop_6 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}
+d_cd_prop_7 = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "korea_government.dds"
+		color1 = "blue"
+		color2 = "red"
+		instance = { position = { 0.5 0.5 } scale = { 1.0 1.0 } }
+	}
+}

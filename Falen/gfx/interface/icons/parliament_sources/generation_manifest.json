@@ -1,0 +1,32 @@
+{
+  "generator": "Built-in image_gen",
+  "reference": "User-provided Korean National Assembly member badge",
+  "master": {
+    "source": "parliament_badge_master.png",
+    "prompt": "Use case: stylized-concept. Asset type: production Crusader Kings III grand-strategy game UI icon, one master asset. Input image 1 is the user's existing Korean National Assembly member badge, an identity reference, not a photo to preserve. Create a NEW beautifully hand-painted CK3-style icon of exactly this badge: compact circular dark burgundy backing with fine antique gold outer rim, raised gold five-petal Korean mugunghwa/hibiscus rosette with simplified carved leaf-and-petal relief, round warm ivory enamel center, the TWO Hangul characters '국회' in dark ink centered horizontally and written correctly and clearly (국 then 회; no other text). Preserve the badge silhouette and recognizable gold-flower / ivory-center design from the reference. Style: the tactile painted metalwork and heraldic UI objects of Crusader Kings III, richly shaded antique gold, restrained aged finish, painterly controlled brushwork, bold readable simplified silhouette suitable for 64-120 pixel use; not a glossy photograph or modern vector logo. Front view, centered, symmetrical, orthographic with subtle relief; one cohesive isolated object with crisp alpha edges. Warm upper-left highlights, darker lower-right bevels, no cast shadow outside the silhouette. Composition square, badge occupies about 85% of the canvas, generous equal transparent margins. GENUINELY TRANSPARENT background, no checkerboard painted into the image, no scenery, no lettering outside the two specified Hangul characters, no red cardinal hat, no crown, no extra symbols, no watermark."
+  },
+  "variants": [
+    {
+      "source": "parliament_interaction.png",
+      "prompt": "Use case: style-transfer. Asset type: Crusader Kings III character interaction icon. Image1 is the master Korean National Assembly badge to preserve; image2 is ONLY the native game's hand-painted icon rendering style reference. Make one isolated new badge icon, not a person. Keep master identity exactly: round burgundy backing, gold rim and five broad gold hibiscus petals, ivory circular center, exactly two bold dark Hangul characters '국회' (국 then 회). Adapt rendering to the native interaction icon's restrained matte painted illustration: simplified broad brush shading, thin charcoal edge, muted antique ochre metal, warm ivory, dull wine-red backing, clear dark lower edge and upper-left highlight; much less reflective and less microtexture than image1. Front view with slight sculpted relief, strong compact silhouette readable at120px, centered with about12% transparent padding. No hats, people, extra objects, scenery, drop shadow, lettering except '국회', or watermark. Genuine transparent background."
+    },
+    {
+      "source": "parliament_hud.png",
+      "prompt": "Use case: style-transfer. Asset type: 90x90 source scalable CK3 HUD main-tab emblem. Image1 is the new National Assembly badge identity; image2 is the old HUD icon and is the ONLY style reference. Replace the old cardinal-hat subject with the round National Assembly badge from image1. Preserve its five hibiscus petals around a central circular disk, circular outer rim, and exactly the two Hangul characters '국회' centered horizontally. Render the entire badge in the OLD HUD icon style: very simplified, flat dusty terracotta / muted salmon pink fills, dark charcoal outlines, two or three quiet painted cel-shaded tones, no gold, no ivory, no burgundy multicolor treatment. Use dark recessed '국회' strokes in the salmon center. Thick bold shapes readable at45px with clean round silhouette. Square canvas; icon centered, full badge visible with about12% transparent margin. Do NOT include the old hat, tassels, face or character. No scene, no cast shadow, no extra text, no watermark. Genuinely transparent background."
+    },
+    {
+      "source": "parliament_flat.png",
+      "prompt": "Use case: style-transfer. Asset type: CK3 flat 60x60 interface button glyph, scalable source. Image1 supplies the National Assembly badge identity; image2 is ONLY the native black flat-icon style reference. Create one pure BLACK monochrome icon on genuine TRANSPARENCY: an outer circular badge rim enclosing five simplified broad hibiscus petals and an open central circular medallion, with the two Hangul characters '국회' (국 then 회) as thick black strokes inside the central negative-space disk. Match the original flat icon's solid black silhouette with clean transparent cutouts. Bold, simple, legible geometry appropriate for25-60px display; no bevel, no gradients, no gray, no white or colored fills, no texture, no glow, no shadow. Transparent negative space between rim/petals/center and between glyph strokes. Front view, symmetrical, centered square with about12% margin. Preserve distinctive flower-badge shape from image1. No cardinal hat, face, tassels, extra text, background rectangle or watermark."
+    }
+  ],
+  "purpose": "CK3 parliament, government, HUD, interaction, flat button and map icons; native DDS sizes and mip chains preserved.",
+  "outputs": [
+    { "source": "parliament_badge_master.png", "texture": "gfx/interface/icons/icon_college_of_cardinals.dds", "size": 120, "mip_levels": 1 },
+    { "source": "parliament_badge_master.png", "texture": "gfx/interface/icons/government_types/koreanism_government.dds", "size": 70, "mip_levels": 7 },
+    { "source": "parliament_interaction.png", "texture": "gfx/interface/icons/character_interactions/cardinal.dds", "size": 120, "mip_levels": 1 },
+    { "source": "parliament_flat.png", "texture": "gfx/interface/icons/flat_icons/college_of_cardinals.dds", "size": 60, "mip_levels": 1 },
+    { "source": "parliament_hud.png", "texture": "gfx/interface/skinned/hud_maintab/maintab_parliament.dds", "size": 90, "mip_levels": 7 },
+    { "source": "parliament_hud.png", "texture": "gfx/interface/icons/cardinal_ruler_map_icon.dds", "size": 60, "mip_levels": 6 }
+  ],
+  "preview": "parliament_icons_preview.png"
+}

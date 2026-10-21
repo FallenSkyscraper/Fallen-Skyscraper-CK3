@@ -1,10 +1,26 @@
 ﻿### Clerical Regions ###
-clerical_region_duchy_koreanism = { # 도
+clerical_region_duchy_koreanism = { # 시(기본)
 	type = title
 	tier = duchy
 	priority = 40
 
 	religion = { koreanism_religion }
+
+	flavourization_rules = { 
+		target_character = yes
+		top_liege = no
+		only_holder = yes
+	}
+
+	special_title = clerical_region
+}
+clerical_region_duchy_koreanism_province = { # 도
+	type = title
+	tier = duchy
+	priority = 101
+
+	religion = { koreanism_religion }
+	titles = { d_et_gyeonggi d_et_gangwon d_et_chungnam d_et_chungbuk d_et_jeonnam d_et_jeonbuk d_et_gyeongnam d_et_gyeongbuk }
 
 	flavourization_rules = { 
 		target_character = yes
@@ -79,7 +95,7 @@ clerical_region_duchy_state = { # 특별자치도
 
 	special_title = clerical_region
 }
-clerical_region_duke_male_koreanism = { # 도당위원장
+clerical_region_duke_male_koreanism = { # 지역위원장
 	type = character
 	gender = male
 	special = clerical_region_holder
@@ -98,6 +114,32 @@ clerical_region_duke_female_koreanism = {
 	tier = duchy
 	priority = 40
 	religions = { koreanism_religion }
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+clerical_region_duke_male_koreanism_province = { # 도당위원장
+	type = character
+	gender = male
+	special = clerical_region_holder
+	tier = duchy
+	priority = 50
+	religions = { koreanism_religion }
+	titles = { d_et_gyeonggi d_et_gangwon d_et_chungnam d_et_chungbuk d_et_jeonnam d_et_jeonbuk d_et_gyeongnam d_et_gyeongbuk d_jeju }
+	flavourization_rules = {
+		top_liege = no
+		spouse_takes_title = no
+	}
+}
+clerical_region_duke_female_koreanism_province = {
+	type = character
+	gender = female
+	special = clerical_region_holder
+	tier = duchy
+	priority = 50
+	religions = { koreanism_religion }
+	titles = { d_et_gyeonggi d_et_gangwon d_et_chungnam d_et_chungbuk d_et_jeonnam d_et_jeonbuk d_et_gyeongnam d_et_gyeongbuk d_jeju }
 	flavourization_rules = {
 		top_liege = no
 		spouse_takes_title = no

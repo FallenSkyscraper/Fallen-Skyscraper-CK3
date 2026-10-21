@@ -23,7 +23,16 @@ maritime = {
 	parent = government
 	alias = { maritime_government maritime_i }
 }
-
+seoul_gov = {
+	texture = "gfx/interface/icons/government_types/seoul_government.dds"
+	parent = government
+	alias = { seoul_government seoul_gov_i }
+}
+koreanism = {
+	texture = "gfx/interface/icons/college_of_cardinals.dds"
+	parent = government
+	alias = { koreanism_government koreanism_parliament_i }
+}
 tech = {
 	parent = county_development
 	texture = "gfx/interface/icons/message_feed/technology.dds"

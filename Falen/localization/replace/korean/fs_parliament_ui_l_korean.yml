@@ -24,6 +24,20 @@
 
  # Parliament window, president header, candidate types and voting tooltips
  # Vanilla source: localization/korean/gui/cardinals_window_l_korean.yml
+ FS_PARLIAMENT_TAB_CANDIDATES: "대선"
+ FS_PARLIAMENT_TAB_SEATS: "의석 분포"
+ FS_PARLIAMENT_TAB_LEGISLATION: "법률 및 의안"
+ FS_PARLIAMENT_SEATS_TITLE: "국회 세력 분포"
+ FS_PARLIAMENT_SEATS_TOTAL: "전체 [GetPlayer.MakeScope.ScriptValue( 'fs_parliament_total_seats_value' )|0]석"
+ FS_PARLIAMENT_SEATS_AUTHORITARIAN: "$authoritarianism$: [GetPlayer.MakeScope.ScriptValue( 'fs_parliament_authoritarian_seats_value' )|0]석"
+ FS_PARLIAMENT_SEATS_POPULIST: "$populism$: [GetPlayer.MakeScope.ScriptValue( 'fs_parliament_populist_seats_value' )|0]석"
+ FS_PARLIAMENT_SEATS_OTHER: "기타: [GetPlayer.MakeScope.ScriptValue( 'fs_parliament_other_seats_value' )|0]석"
+ FS_PARLIAMENT_SEATS_VACANT: "공석: [GetPlayer.MakeScope.ScriptValue( 'fs_parliament_vacant_seats_value' )|0]석"
+ FS_PARLIAMENT_SEATS_DISTRIBUTION_TT: "#T 의석 분포#!\n의석을 보유한 의원의 소속에 따라 표시합니다.\n회색 영역은 기타 소속, 검은색 영역은 공석입니다."
+ FS_PARLIAMENT_SEATS_EMPTY: "표시할 의석이 없습니다."
+ FS_PARLIAMENT_MEMBERS_TITLE: "현직 의원"
+ FS_PARLIAMENT_MEMBERS_EMPTY: "재직 중인 의원이 없습니다."
+ FS_PARLIAMENT_MEMBER_TT: "#T [Character.GetShortUINameNoTooltip]#!\n[Title.GetNameNoTooltip]\n[Character.GetRite.GetName]"
  CARDINALS_VIEW_TITLE: "[college_of_cardinals]"
  CARDINALS_VIEW_HEAD_OF_FAITH: "$koreanism_religious_head_title$"
  CARDINALS_VIEW_HEAD_OF_RITE: "$koreanism_religious_head_title$"

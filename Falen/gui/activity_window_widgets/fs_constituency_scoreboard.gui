@@ -2,13 +2,13 @@
 widget = {
 	name = "fs_constituency_scoreboard"
 	datacontext = "[ActivityWindow.GetActivity]"
-	visible = "[And(Not(Activity.MakeScope.Var('fs_constituency_resolved').IsSet), Not(GetVariableSystem.Exists('fs_constituency_scoreboard_hidden')))]"
+	visible = "[And3(EqualTo_string(Activity.GetType.GetKey, 'activity_fs_constituency_election'), Not(Activity.MakeScope.Var('fs_constituency_resolved').IsSet), Not(GetVariableSystem.Exists('fs_constituency_scoreboard_hidden')))]"
 	size = { 250 560 }
 
 	state = {
 		name = _show
 		trigger_on_create = yes
-		trigger_when = "[And(Not(GetVariableSystem.Exists('fs_constituency_scoreboard_hidden')), DataModelHasItems(ActivityWindow.GetCurrentPhaseGuestSubset('fs_constituency_contestants')))]"
+		trigger_when = "[And(And3(EqualTo_string(Activity.GetType.GetKey, 'activity_fs_constituency_election'), Not(Activity.MakeScope.Var('fs_constituency_resolved').IsSet), Not(GetVariableSystem.Exists('fs_constituency_scoreboard_hidden'))), DataModelHasItems(ActivityWindow.GetCurrentPhaseGuestSubset('fs_constituency_contestants')))]"
 		on_start = "[ActivityWindow.SetAllPhasesGuestSubsetSortingDescending('fs_constituency_contestants', 'fs_constituency_scoreboard_sort_value')]"
 	}
 	vbox = {

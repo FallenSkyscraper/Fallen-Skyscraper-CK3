@@ -445,11 +445,11 @@ widget = {
 					widget_hud_main_tab = {
 						name = "hud_college_of_cardinals_button_tutorial_uses_this"
 						datacontext = "[GetPlayer.GetFaith]"
-						visible = "[And3( Faith.HasParameterByKey( 'has_clerical_electors' ), Faith.GetCollegeElectionTitle.HasElectionType( 'theocratic_elective' ), Or( GetPlayer.GetGovernment.IsType( 'koreanism_government' ), And( Faith.HasDoctrineByKey( 'special_doctrine_is_koreanism_faith' ) ) ) )]"
+						visible = "[And3( Faith.HasParameterByKey( 'has_clerical_electors' ), Faith.GetCollegeElectionTitle.HasElectionType( 'theocratic_elective' ), Or( GetPlayer.GetGovernment.IsType( 'koreanism_government' ), Faith.HasDoctrineByKey( 'special_doctrine_is_koreanism_faith' ) ) )]"
 
 						blockoverride "maintab_button"
 						{
-							texture = "gfx/interface/skinned/hud_maintab/maintab_college_of_cardinals.dds"
+							texture = "gfx/interface/skinned/hud_maintab/maintab_parliament.dds"
 
 							onclick = "[ToggleGameView( 'cardinals_window' )]"
 							down = "[IsGameViewOpen('cardinals_window')]"
