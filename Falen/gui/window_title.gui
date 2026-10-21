@@ -2596,7 +2596,7 @@ types Title
 				}
 
 				hbox = {
-					visible = "[And3( Not( TitleViewWindow.ShowAppointment ), ObjectsEqual( Title.GetHolder, GetTitleByKey( 'k_papal_state' ).GetHolder ), ObjectsEqual( GetPlayer.GetRite, Title.GetHolder.GetRite ) )]"
+					visible = "[And3( Not( TitleViewWindow.ShowAppointment ), ObjectsEqual( Title.GetHolder, GetTitleByKey( 'k_koreanism' ).GetHolder ), ObjectsEqual( GetPlayer.GetRite, Title.GetHolder.GetRite ) )]"
 
 					margin_top = 10
 					margin_right = 5

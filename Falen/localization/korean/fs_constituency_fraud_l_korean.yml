@@ -5,7 +5,7 @@
  fs_constituency_ordinary: "없음"
  fs_constituency_ordinary_desc: "기본 진행 요원과 기존 절차로 선거 의례를 치릅니다. 추가 비용과 특별한 감시·교파 보정은 없습니다."
  fs_constituency_fair: "공정한 선거 운영"
- fs_constituency_fair_desc: "명부를 대조할 공직자를 늘리고 투표함의 봉인과 집계 기록을 점검합니다. 대한민국 헌법 앞에서 국민의 선택을 온전히 보존하기 위한 투자입니다.\n\n부정행위의 증거 발견 확률이 #P +[EmptyScope.ScriptValue('fs_constituency_fair_detection_bonus')|0]#!%p 증가합니다."
+ fs_constituency_fair_desc: "명부를 대조할 공직자를 늘리고 투표함의 봉인과 집계 기록을 점검합니다. 대한민국 헌법 앞에서 국민의 선택을 온전히 보존하기 위한 투자입니다.\n\n부정행위의 증거 발견 확률이 #P +[EmptyScope.ScriptValue('fs_constituency_fair_detection_bonus')|0]#!%p 증가합니다. 강화된 감시는 후보들의 부정선거 시도를 억제합니다."
  fs_constituency_biased: "편향적 선거 운영"
  fs_constituency_biased_desc: "의례의 진행 요원을 개최 측 교파에 우호적인 공직자들로 채웁니다. 누구의 연설을 더 돋보이게 할지, 어떤 명부와 투표함을 면밀히 살필지에 교파의 이해가 스며듭니다.\n\n 개최 당시 개최자의 교파와 같은 후보는 단계마다 지지 점수 +[EmptyScope.ScriptValue('fs_constituency_bias_gain')|0], 증거 발견 확률 [EmptyScope.ScriptValue('fs_constituency_biased_detection_penalty')|0]%p를 적용받습니다. 해당 후보의 부정이 공개되면 개최자가 처벌을 묵인할 수 있습니다."
  fs_constituency_offender_cannot_run_tt: "대통령에게 사면받지 않은 선거범은 지역구 국회의원 선거에 출마할 수 없습니다."

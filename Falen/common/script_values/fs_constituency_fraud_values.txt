@@ -28,6 +28,7 @@ fs_constituency_protest_stress = 10
 fs_constituency_protest_delay_days = 1
 fs_constituency_ai_trait_multiplier = 2
 fs_constituency_ai_min_weight = 1
+fs_constituency_fair_fraud_ai_multiplier = 0.1
 fs_constituency_minor_stress = 10
 fs_constituency_moral_stress = 20
 fs_constituency_stress_relief = -5
@@ -272,6 +273,13 @@ fs_constituency_honest_ai_weight = {
 fs_constituency_fraud_ai_weight = {
 	value = 20
 	multiply = fs_constituency_fraud_ai_factor
+	if = {
+		limit = {
+			exists = scope:fs_constituency_fraud_activity
+			scope:fs_constituency_fraud_activity = { var:fs_constituency_administration = flag:fs_constituency_fair }
+		}
+		multiply = fs_constituency_fair_fraud_ai_multiplier
+	}
 	min = fs_constituency_ai_min_weight
 }
 
