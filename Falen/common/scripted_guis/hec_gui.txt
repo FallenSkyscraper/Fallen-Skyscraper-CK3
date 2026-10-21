@@ -14,6 +14,14 @@
 		}
 		else = {
 			set_variable = hec_gui_toggle
+			if = {
+				limit = { has_variable = prk_gui_toggle }
+				remove_variable = prk_gui_toggle
+			}
+			if = {
+				limit = { has_variable = party_gui_toggle }
+				remove_variable = party_gui_toggle
+			}
 		}
 	}
 }

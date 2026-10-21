@@ -487,7 +487,21 @@ widget = {
 							onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 						}
 					}
-					
+					widget_hud_main_tab = {
+						datacontext = "[GetScriptedGui('party_gui_toggle')]"
+						visible = "[GetScriptedGui('party_gui_abc').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+						allow_outside = yes
+						name = "tab_party"
+						tooltip = "PARTY_BUTTON"
+						down = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+						blockoverride "maintab_button"
+						{
+							texture = "gfx/interface/skinned/hud_maintab/maintab_parties.dds"
+							onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						}
+					}
 				}
 
 				widget = {
