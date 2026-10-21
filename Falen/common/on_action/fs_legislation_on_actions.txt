@@ -1,0 +1,75 @@
+﻿# Append named callbacks without replacing the existing office/government hooks.
+on_game_start = { on_actions = { fs_legislation_game_start } }
+on_game_start_after_lobby = { on_actions = { fs_legislation_game_start } }
+
+fs_legislation_game_start = {
+	effect = {
+		title:k_koreanism = {
+			fs_legislation_initialize_effect = yes
+			fs_legislation_sync_president_effect = yes
+			fs_legislation_refresh_electorate_effect = yes
+		}
+	}
+}
+
+on_title_gain = { on_actions = { fs_legislation_office_changed } }
+on_title_lost = { on_actions = { fs_legislation_office_changed } }
+# Destruction exposes scope:landed_title, unlike gain/loss's scope:title.
+on_title_destroyed = { on_actions = { fs_legislation_office_destroyed } }
+
+fs_legislation_office_destroyed = {
+	trigger = {
+		exists = scope:landed_title
+		scope:landed_title = {
+			OR = { this = title:k_koreanism fs_koreanism_parliament_seat_trigger = yes }
+		}
+	}
+	effect = {
+		title:k_koreanism = {
+			fs_legislation_initialize_effect = yes
+			fs_legislation_sync_president_effect = yes
+			fs_legislation_refresh_electorate_effect = yes
+		}
+	}
+}
+
+fs_legislation_office_changed = {
+	trigger = {
+		exists = scope:title
+		scope:title = {
+			OR = { this = title:k_koreanism fs_koreanism_parliament_seat_trigger = yes }
+		}
+	}
+	effect = {
+		title:k_koreanism = {
+			fs_legislation_initialize_effect = yes
+			fs_legislation_sync_president_effect = yes
+			fs_legislation_refresh_electorate_effect = yes
+		}
+	}
+}
+
+fs_legislation_timeout = {
+	trigger = {
+		this = title:k_koreanism
+		fs_legislation_active_trigger = yes
+		var:fs_legislation_serial = scope:fs_legislation_timer_serial
+		var:fs_legislation_phase_number = scope:fs_legislation_timer_phase
+		fs_legislation_days_left_value <= 0
+	}
+	effect = { fs_legislation_advance_effect = yes }
+}
+
+fs_legislation_heartbeat = {
+	effect = {
+		if = {
+			limit = { NOT = { var:fs_legislation_last_tick = current_date } }
+			set_variable = { name = fs_legislation_last_tick value = current_date }
+			fs_legislation_sync_president_effect = yes
+			fs_legislation_refresh_electorate_effect = yes
+			fs_legislation_advance_effect = yes
+			fs_legislation_ai_daily_effect = yes
+		}
+		trigger_event = { on_action = fs_legislation_heartbeat days = 1 }
+	}
+}

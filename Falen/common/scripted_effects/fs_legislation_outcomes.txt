@@ -1,0 +1,165 @@
+﻿# Title scope. Keep an active emergency modifier on the current president only.
+# Called after office transfers and by the parliamentary maintenance on_action.
+fs_legislation_sync_president_effect = {
+	if = {
+		limit = { this = title:k_koreanism }
+		if = {
+			limit = {
+				has_variable = fs_legislation_martial_president
+				OR = {
+					NOT = { has_variable = fs_legislation_martial_law }
+					NOT = { exists = holder }
+					NOT = { var:fs_legislation_martial_president = holder }
+					var:fs_legislation_martial_president ?= { NOT = { faith = faith:koreanism_faith } }
+				}
+			}
+			var:fs_legislation_martial_president ?= {
+				remove_character_modifier = fs_legislation_martial_law_modifier
+			}
+			remove_variable = fs_legislation_martial_president
+		}
+		if = {
+			limit = {
+				has_variable = fs_legislation_martial_law
+				exists = holder
+				holder ?= {
+					is_alive = yes
+					faith = faith:koreanism_faith
+				}
+			}
+			set_variable = { name = fs_legislation_martial_president value = holder }
+			holder = {
+				if = {
+					limit = { NOT = { has_character_modifier = fs_legislation_martial_law_modifier } }
+					add_character_modifier = { modifier = fs_legislation_martial_law_modifier }
+				}
+			}
+		}
+	}
+}
+
+# Character scope. This executive action cannot enact laws or change any doctrine.
+fs_legislation_declare_martial_law_effect = {
+	if = {
+		limit = { fs_legislation_martial_declaration_valid_trigger = yes }
+		title:k_koreanism = {
+			set_variable = fs_legislation_martial_law
+			fs_legislation_sync_president_effect = yes
+		}
+	}
+}
+
+# Title scope. Only an approved parliamentary resolution may lift the emergency.
+fs_legislation_lift_martial_law_effect = {
+	if = {
+		limit = {
+			this = title:k_koreanism
+			has_variable = fs_legislation_enactment_authorized
+			var:fs_legislation_kind = flag:lift_martial_law
+			has_variable = fs_legislation_martial_law
+		}
+		remove_variable = fs_legislation_martial_law
+		fs_legislation_sync_president_effect = yes
+		set_variable = fs_legislation_outcome_applied
+		set_variable = { name = fs_legislation_result value = flag:martial_law_lifted }
+	}
+}
+
+# Title scope. The core opens the authorization gate only after the required vote
+# and any presidential reconsideration. Each call consumes it, including failed outcomes.
+fs_legislation_execute_outcome_effect = {
+	if = {
+		limit = {
+			this = title:k_koreanism
+			has_variable = fs_legislation_enactment_authorized
+		}
+		remove_variable = fs_legislation_outcome_applied
+		remove_variable = fs_legislation_failure_reason
+		set_variable = { name = fs_legislation_result value = flag:lapsed }
+		if = {
+			limit = {
+				var:fs_legislation_kind = flag:law
+				exists = var:fs_legislation_doctrine
+				exists = holder
+				fs_legislation_doctrine_change_needed_trigger = { DOCTRINE = var:fs_legislation_doctrine }
+			}
+			var:fs_legislation_doctrine = { save_scope_as = doctrine }
+			if = {
+				limit = { holder = { fs_legislation_doctrine_change_valid_trigger = yes } }
+				faith:koreanism_faith = {
+					if = {
+						limit = { NOT = { has_doctrine = scope:doctrine } }
+						change_doctrine = scope:doctrine
+					}
+					every_faith_rite = {
+						limit = { NOT = { rite_has_doctrine = scope:doctrine } }
+						change_rite_doctrine = scope:doctrine
+					}
+				}
+				set_variable = fs_legislation_outcome_applied
+				set_variable = { name = fs_legislation_result value = flag:enacted }
+			}
+		}
+		else_if = {
+			limit = {
+				var:fs_legislation_kind = flag:impeachment
+				exists = var:fs_legislation_target
+				holder = var:fs_legislation_target
+			}
+			# Impeachment removes the president from every held title. Native succession
+			# elects the next president and handles the other offices independently.
+			var:fs_legislation_target = { depose = yes }
+			fs_legislation_sync_president_effect = yes
+			if = {
+				limit = {
+					exists = holder
+					NOT = { holder = var:fs_legislation_target }
+					var:fs_legislation_target = { NOT = { has_title = title:k_koreanism } }
+				}
+				set_variable = fs_legislation_outcome_applied
+				set_variable = { name = fs_legislation_result value = flag:impeached }
+			}
+			else = {
+				set_variable = { name = fs_legislation_failure_reason value = flag:deposition_failed }
+			}
+		}
+		else_if = {
+			limit = { var:fs_legislation_kind = flag:lift_martial_law }
+			fs_legislation_lift_martial_law_effect = yes
+		}
+		else_if = {
+			limit = {
+				var:fs_legislation_kind = flag:censure
+				exists = var:fs_legislation_target
+				var:fs_legislation_target = { fs_legislation_outcome_member_trigger = yes }
+			}
+			var:fs_legislation_target = {
+				add_character_modifier = { modifier = fs_legislation_censure_modifier years = 1 }
+			}
+			set_variable = fs_legislation_outcome_applied
+			set_variable = { name = fs_legislation_result value = flag:censured }
+		}
+		else_if = {
+			limit = {
+				var:fs_legislation_kind = flag:expulsion
+				exists = var:fs_legislation_target
+				var:fs_legislation_target = { fs_legislation_outcome_member_trigger = yes }
+			}
+			var:fs_legislation_target = {
+				every_held_title = {
+					limit = { fs_koreanism_parliament_seat_trigger = yes }
+					save_scope_as = fs_legislation_expulsion_seat
+					holder = {
+						fs_vacate_koreanism_parliament_seat_effect = { SEAT = scope:fs_legislation_expulsion_seat }
+					}
+				}
+			}
+			if = {
+				limit = { var:fs_legislation_target = { NOT = { fs_legislation_outcome_member_trigger = yes } } }
+				set_variable = fs_legislation_outcome_applied
+				set_variable = { name = fs_legislation_result value = flag:expelled }
+			}
+		}
+		remove_variable = fs_legislation_enactment_authorized
+	}
+}

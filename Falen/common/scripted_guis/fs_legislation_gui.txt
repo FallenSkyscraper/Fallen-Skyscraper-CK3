@@ -1,0 +1,325 @@
+﻿# All actions execute as the player; the presidential title owns persistent state.
+
+fs_legislation_member_capacity_gui = {
+	scope = character
+	is_shown = { fs_legislation_voting_capacity_trigger = yes }
+}
+
+fs_legislation_lobby_stage_gui = {
+	scope = character
+	is_shown = {
+		title:k_koreanism = {
+			OR = {
+				var:fs_legislation_stage = flag:debate
+				var:fs_legislation_stage = flag:vote
+				var:fs_legislation_stage = flag:revote
+			}
+		}
+	}
+}
+
+fs_legislation_refresh_gui = {
+	scope = character
+	effect = {
+		title:k_koreanism = {
+			fs_legislation_initialize_effect = yes
+			fs_legislation_refresh_electorate_effect = yes
+		}
+	}
+}
+
+fs_legislation_participant_gui = {
+	scope = character
+	is_shown = { fs_legislation_participant_trigger = yes }
+}
+
+fs_legislation_president_gui = {
+	scope = character
+	is_shown = { has_title = title:k_koreanism }
+}
+
+fs_legislation_ballot_stage_gui = {
+	scope = character
+	is_shown = {
+		title:k_koreanism = {
+			OR = {
+				var:fs_legislation_stage = flag:vote
+				var:fs_legislation_stage = flag:revote
+			}
+		}
+	}
+}
+
+fs_legislation_pending_doctrine_gui = {
+	scope = character
+	saved_scopes = { doctrine }
+	is_shown = {
+		title:k_koreanism = {
+			exists = var:fs_legislation_doctrine
+			var:fs_legislation_doctrine = scope:doctrine
+		}
+	}
+}
+
+fs_legislation_has_ballot_gui = {
+	scope = character
+	is_shown = { fs_legislation_has_ballot_trigger = yes }
+}
+
+fs_legislation_propose_law_gui = {
+	scope = character
+	saved_scopes = { doctrine }
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_LAW_REQUIREMENTS_TT
+			fs_legislation_can_propose_trigger = yes
+			fs_legislation_doctrine_change_valid_trigger = yes
+			title:k_koreanism = { fs_legislation_doctrine_change_needed_trigger = { DOCTRINE = scope:doctrine } }
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_can_propose_trigger = yes
+				fs_legislation_doctrine_change_valid_trigger = yes
+				title:k_koreanism = { fs_legislation_doctrine_change_needed_trigger = { DOCTRINE = scope:doctrine } }
+			}
+			fs_legislation_propose_law_effect = yes
+		}
+	}
+}
+
+fs_legislation_propose_impeachment_gui = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_IMPEACHMENT_REQUIREMENTS_TT
+			fs_legislation_can_propose_trigger = yes
+			NOT = { has_title = title:k_koreanism }
+			title:k_koreanism = { exists = holder }
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_can_propose_trigger = yes
+				NOT = { has_title = title:k_koreanism }
+				title:k_koreanism = { exists = holder }
+			}
+			fs_legislation_propose_impeachment_effect = yes
+		}
+	}
+}
+
+fs_legislation_propose_lift_martial_law_gui = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_LIFT_MARTIAL_REQUIREMENTS_TT
+			fs_legislation_can_propose_trigger = yes
+			title:k_koreanism = { has_variable = fs_legislation_martial_law }
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_can_propose_trigger = yes
+				title:k_koreanism = { has_variable = fs_legislation_martial_law }
+			}
+			fs_legislation_propose_lift_martial_law_effect = yes
+		}
+	}
+}
+
+fs_legislation_propose_censure_gui = {
+	scope = character
+	saved_scopes = { target }
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_MEMBER_MOTION_REQUIREMENTS_TT
+			fs_legislation_can_propose_trigger = yes
+			this != scope:target
+			scope:target = { fs_legislation_member_trigger = yes }
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_can_propose_trigger = yes
+				this != scope:target
+				scope:target = { fs_legislation_member_trigger = yes }
+			}
+			fs_legislation_propose_censure_effect = yes
+		}
+	}
+}
+
+fs_legislation_propose_expulsion_gui = {
+	scope = character
+	saved_scopes = { target }
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_MEMBER_MOTION_REQUIREMENTS_TT
+			fs_legislation_can_propose_trigger = yes
+			this != scope:target
+			scope:target = { fs_legislation_member_trigger = yes }
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_can_propose_trigger = yes
+				this != scope:target
+				scope:target = { fs_legislation_member_trigger = yes }
+			}
+			fs_legislation_propose_expulsion_effect = yes
+		}
+	}
+}
+
+fs_legislation_vote_yes_gui = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_BALLOT_REQUIREMENTS_TT
+			fs_legislation_can_vote_trigger = yes
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_can_vote_trigger = yes
+			}
+			fs_legislation_vote_yes_effect = yes
+		}
+	}
+}
+
+fs_legislation_vote_no_gui = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_BALLOT_REQUIREMENTS_TT
+			fs_legislation_can_vote_trigger = yes
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_can_vote_trigger = yes
+			}
+			fs_legislation_vote_no_effect = yes
+		}
+	}
+}
+
+fs_legislation_vote_abstain_gui = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_BALLOT_REQUIREMENTS_TT
+			fs_legislation_can_vote_trigger = yes
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_can_vote_trigger = yes
+			}
+			fs_legislation_vote_abstain_effect = yes
+		}
+	}
+}
+
+fs_legislation_lobby_yes_gui = {
+	scope = character
+	saved_scopes = { target }
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_LOBBY_REQUIREMENTS_TT
+			fs_legislation_lobby_valid_trigger = yes
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_lobby_valid_trigger = yes
+			}
+			fs_legislation_lobby_yes_effect = yes
+		}
+	}
+}
+
+fs_legislation_lobby_no_gui = {
+	scope = character
+	saved_scopes = { target }
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_LOBBY_REQUIREMENTS_TT
+			fs_legislation_lobby_valid_trigger = yes
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_lobby_valid_trigger = yes
+			}
+			fs_legislation_lobby_no_effect = yes
+		}
+	}
+}
+
+fs_legislation_promulgate_gui = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_PROMULGATE_REQUIREMENTS_TT
+			fs_legislation_promulgation_valid_trigger = yes
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_promulgation_valid_trigger = yes
+			}
+			fs_legislation_promulgate_effect = yes
+		}
+	}
+}
+
+fs_legislation_veto_gui = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_VETO_REQUIREMENTS_TT
+			fs_legislation_veto_valid_trigger = yes
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_veto_valid_trigger = yes
+			}
+			fs_legislation_veto_effect = yes
+		}
+	}
+}
+
+fs_legislation_declare_martial_law_gui = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_DECLARE_MARTIAL_REQUIREMENTS_TT
+			fs_legislation_martial_declaration_valid_trigger = yes
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				fs_legislation_martial_declaration_valid_trigger = yes
+			}
+			fs_legislation_declare_martial_law_effect = yes
+		}
+	}
+}
+

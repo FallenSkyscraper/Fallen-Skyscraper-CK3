@@ -1,0 +1,181 @@
+﻿fs_legislation_debate_days = 90
+fs_legislation_vote_days = 14
+fs_legislation_presidential_days = 30
+fs_legislation_lobby_cooldown_days = 7
+fs_legislation_ai_proposal_days = 30
+
+fs_legislation_days_left_value = {
+	value = 0
+	if = {
+		limit = { title:k_koreanism = { has_variable = fs_legislation_deadline } }
+		add = title:k_koreanism.var:fs_legislation_deadline
+		subtract = current_date
+		min = 0
+		ceiling = yes
+	}
+}
+
+# Rebuilt from the canonical seats on office callbacks, daily and before every action.
+# Eligibility is checked again here so a dead or outgoing member cannot retain a vote.
+fs_legislation_enrolled_value = {
+	value = 0
+	title:k_koreanism = {
+		every_in_list = {
+			variable = fs_legislation_voters
+			limit = { fs_legislation_member_trigger = yes }
+			add = 1
+		}
+	}
+}
+
+fs_legislation_yes_value = {
+	value = 0
+	title:k_koreanism = {
+		every_in_list = {
+			variable = fs_legislation_voters
+			limit = {
+				fs_legislation_member_trigger = yes
+				fs_legislation_voting_capacity_trigger = yes
+				any_held_title = {
+					fs_legislation_valid_ballot_seat_trigger = yes
+					has_variable = fs_legislation_ballot_cast
+					var:fs_legislation_ballot = 1
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+fs_legislation_no_value = {
+	value = 0
+	title:k_koreanism = {
+		every_in_list = {
+			variable = fs_legislation_voters
+			limit = {
+				fs_legislation_member_trigger = yes
+				fs_legislation_voting_capacity_trigger = yes
+				any_held_title = {
+					fs_legislation_valid_ballot_seat_trigger = yes
+					has_variable = fs_legislation_ballot_cast
+					var:fs_legislation_ballot = -1
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+fs_legislation_abstain_value = {
+	value = fs_legislation_enrolled_value
+	subtract = fs_legislation_yes_value
+	subtract = fs_legislation_no_value
+	min = 0
+}
+
+fs_legislation_threshold_value = {
+	value = fs_legislation_enrolled_value
+	if = {
+		limit = {
+			title:k_koreanism = {
+				OR = {
+					var:fs_legislation_stage = flag:revote
+					var:fs_legislation_kind = flag:impeachment
+					var:fs_legislation_kind = flag:expulsion
+				}
+			}
+		}
+		multiply = 2
+		divide = 3
+		ceiling = yes
+	}
+	else = {
+		divide = 2
+		floor = yes
+		add = 1
+	}
+}
+
+# Character scope. Zero is also used for a member who has not cast a ballot.
+fs_legislation_ballot_value = {
+	value = 0
+	if = {
+		limit = { fs_legislation_has_ballot_trigger = yes }
+		add = var:fs_legislation_ballot_seat.var:fs_legislation_ballot
+	}
+}
+
+fs_legislation_lobby_strength_value = {
+	value = 5
+	add = { value = diplomacy divide = 4 }
+	max = 20
+}
+
+# Character scope. Faction affinity, relationships, personality and persuasion are
+# separate terms; sharing a rite never forces a member to support a proposal.
+fs_legislation_support_score_value = {
+	value = 0
+	if = {
+		limit = { exists = title:k_koreanism.var:fs_legislation_proposer }
+		add = { value = "opinion(title:k_koreanism.var:fs_legislation_proposer)" divide = 4 }
+		if = { limit = { this = title:k_koreanism.var:fs_legislation_proposer } add = 25 }
+		if = { limit = { rite = title:k_koreanism.var:fs_legislation_proposer.rite } add = 10 }
+		else = { subtract = 5 }
+		if = { limit = { has_relation_friend = title:k_koreanism.var:fs_legislation_proposer } add = 15 }
+		if = { limit = { has_relation_best_friend = title:k_koreanism.var:fs_legislation_proposer } add = 20 }
+		if = { limit = { has_relation_rival = title:k_koreanism.var:fs_legislation_proposer } subtract = 25 }
+		if = { limit = { has_relation_nemesis = title:k_koreanism.var:fs_legislation_proposer } subtract = 40 }
+	}
+	if = {
+		limit = {
+			exists = title:k_koreanism.var:fs_legislation_target
+			NOT = { title:k_koreanism = { var:fs_legislation_kind = flag:law } }
+		}
+		add = { value = "opinion(title:k_koreanism.var:fs_legislation_target)" multiply = -0.4 }
+		if = { limit = { this = title:k_koreanism.var:fs_legislation_target } subtract = 100 }
+		if = { limit = { has_relation_friend = title:k_koreanism.var:fs_legislation_target } subtract = 25 }
+		if = { limit = { has_relation_rival = title:k_koreanism.var:fs_legislation_target } add = 25 }
+		if = { limit = { has_trait = compassionate } subtract = 10 }
+		if = { limit = { has_trait = wrathful } add = 10 }
+		if = { limit = { has_trait = ambitious } add = 10 }
+		if = { limit = { title:k_koreanism.var:fs_legislation_target = { has_trait = fs_election_offender } } add = 20 }
+	}
+	if = {
+		limit = {
+			title:k_koreanism = {
+				var:fs_legislation_kind = flag:law
+				OR = {
+					var:fs_legislation_doctrine = doctrine:religion_policy_ultranationalism
+					var:fs_legislation_doctrine = doctrine:religion_policy_state_atheism
+					var:fs_legislation_doctrine = doctrine:doctrine_pluralism_fundamentalist
+				}
+			}
+		}
+		if = { limit = { rite = rite:authoritarianism } add = 10 }
+		if = { limit = { rite = rite:populism } subtract = 10 }
+		if = { limit = { has_trait = zealous } add = 15 }
+		if = { limit = { has_trait = cynical } subtract = 15 }
+	}
+	if = {
+		limit = {
+			title:k_koreanism = {
+				var:fs_legislation_kind = flag:law
+				OR = {
+					var:fs_legislation_doctrine = doctrine:religion_policy_freedom_of_religion
+					var:fs_legislation_doctrine = doctrine:religion_policy_pluralism
+					var:fs_legislation_doctrine = doctrine:doctrine_pluralism_pluralistic
+				}
+			}
+		}
+		if = { limit = { rite = rite:populism } add = 10 }
+		if = { limit = { rite = rite:authoritarianism } subtract = 10 }
+		if = { limit = { has_trait = cynical } add = 15 }
+		if = { limit = { has_trait = zealous } subtract = 15 }
+	}
+	if = { limit = { has_trait = honest } add = 5 }
+	if = { limit = { has_trait = arbitrary } subtract = 5 }
+	if = {
+		limit = { var:fs_legislation_lobbying_serial = title:k_koreanism.var:fs_legislation_serial }
+		add = var:fs_legislation_lobbying_value
+	}
+}

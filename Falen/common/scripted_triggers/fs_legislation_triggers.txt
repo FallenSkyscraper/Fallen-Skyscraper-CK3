@@ -1,0 +1,98 @@
+﻿# Character scope. Office ownership, not government or a UI cache, grants membership.
+fs_legislation_member_trigger = {
+	is_alive = yes
+	NOT = { has_title = title:k_koreanism }
+	any_held_title = { fs_koreanism_parliament_seat_trigger = yes }
+}
+
+fs_legislation_participant_trigger = {
+	OR = {
+		fs_legislation_member_trigger = yes
+		fs_koreanism_parliament_president_trigger = yes
+	}
+}
+
+fs_legislation_voting_capacity_trigger = {
+	is_alive = yes
+	is_adult = yes
+	is_incapable = no
+	is_imprisoned = no
+}
+
+# Title scope. No stage means that the last result is available for inspection.
+fs_legislation_active_trigger = {
+	this = title:k_koreanism
+	has_variable = fs_legislation_stage
+}
+
+# Title scope. Each current holder has exactly one selected ballot seat.
+fs_legislation_valid_ballot_seat_trigger = {
+	fs_koreanism_parliament_seat_trigger = yes
+	exists = holder
+	holder = { fs_legislation_member_trigger = yes }
+	var:fs_legislation_ballot_serial = title:k_koreanism.var:fs_legislation_serial
+	var:fs_legislation_ballot_holder = holder
+	holder.var:fs_legislation_ballot_seat = this
+}
+
+fs_legislation_can_vote_trigger = {
+	fs_legislation_member_trigger = yes
+	fs_legislation_voting_capacity_trigger = yes
+	title:k_koreanism = {
+		OR = {
+			var:fs_legislation_stage = flag:vote
+			var:fs_legislation_stage = flag:revote
+		}
+		fs_legislation_days_left_value > 0
+	}
+	any_held_title = { fs_legislation_valid_ballot_seat_trigger = yes }
+}
+
+fs_legislation_can_propose_trigger = {
+	fs_legislation_participant_trigger = yes
+	fs_legislation_voting_capacity_trigger = yes
+	NOT = { title:k_koreanism = { fs_legislation_active_trigger = yes } }
+}
+
+fs_legislation_has_ballot_trigger = {
+	fs_legislation_member_trigger = yes
+	any_held_title = {
+		fs_legislation_valid_ballot_seat_trigger = yes
+		has_variable = fs_legislation_ballot_cast
+	}
+}
+
+# Character scope; scope:target is the member being persuaded.
+fs_legislation_lobby_valid_trigger = {
+	fs_legislation_participant_trigger = yes
+	fs_legislation_voting_capacity_trigger = yes
+	exists = scope:target
+	scope:target = {
+		fs_legislation_member_trigger = yes
+		fs_legislation_voting_capacity_trigger = yes
+	}
+	this != scope:target
+	NOT = { var:fs_legislation_lobby_cooldown = title:k_koreanism.var:fs_legislation_serial }
+	title:k_koreanism = {
+		OR = {
+			var:fs_legislation_stage = flag:debate
+			var:fs_legislation_stage = flag:vote
+			var:fs_legislation_stage = flag:revote
+		}
+		fs_legislation_days_left_value > 0
+	}
+}
+
+fs_legislation_promulgation_valid_trigger = {
+	fs_koreanism_parliament_president_trigger = yes
+	title:k_koreanism = {
+		var:fs_legislation_kind = flag:law
+		var:fs_legislation_stage = flag:presidential
+		fs_legislation_days_left_value > 0
+	}
+}
+
+fs_legislation_veto_valid_trigger = {
+	fs_legislation_promulgation_valid_trigger = yes
+	NOT = { title:k_koreanism = { has_variable = fs_legislation_reconsidered } }
+}

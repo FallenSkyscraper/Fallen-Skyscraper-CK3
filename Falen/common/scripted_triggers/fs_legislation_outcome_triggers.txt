@@ -1,0 +1,97 @@
+﻿# Doctrine scope. Parliament may change tolerance and religious policy, never party tenets.
+fs_legislation_allowed_doctrine_trigger = {
+	OR = {
+		this = doctrine:religion_policy_ultranationalism
+		this = doctrine:religion_policy_state_atheism
+		this = doctrine:religion_policy_laicite
+		this = doctrine:religion_policy_freedom_of_religion
+		this = doctrine:religion_policy_pluralism
+		this = doctrine:doctrine_pluralism_fundamentalist
+		this = doctrine:doctrine_pluralism_righteous
+		this = doctrine:doctrine_pluralism_pluralistic
+	}
+}
+
+# Rite scope. Evaluate the resulting policy/tolerance pair without changing either here.
+fs_legislation_rite_doctrine_compatible_trigger = {
+	trigger_if = {
+		limit = { $DOCTRINE$ = doctrine:religion_policy_ultranationalism }
+		rite_has_doctrine = doctrine_pluralism_fundamentalist
+	}
+	trigger_else_if = {
+		limit = { $DOCTRINE$ = doctrine:religion_policy_state_atheism }
+		NOT = { rite_has_doctrine = doctrine_pluralism_pluralistic }
+	}
+	trigger_else_if = {
+		limit = { $DOCTRINE$ = doctrine:religion_policy_freedom_of_religion }
+		NOT = { rite_has_doctrine = doctrine_pluralism_fundamentalist }
+	}
+	trigger_else_if = {
+		limit = { $DOCTRINE$ = doctrine:religion_policy_pluralism }
+		rite_has_doctrine = doctrine_pluralism_pluralistic
+	}
+	trigger_else_if = {
+		limit = { $DOCTRINE$ = doctrine:doctrine_pluralism_fundamentalist }
+		NOR = {
+			rite_has_doctrine = religion_policy_freedom_of_religion
+			rite_has_doctrine = religion_policy_pluralism
+		}
+	}
+	trigger_else_if = {
+		limit = { $DOCTRINE$ = doctrine:doctrine_pluralism_righteous }
+		NOR = {
+			rite_has_doctrine = religion_policy_ultranationalism
+			rite_has_doctrine = religion_policy_pluralism
+		}
+	}
+	trigger_else_if = {
+		limit = { $DOCTRINE$ = doctrine:doctrine_pluralism_pluralistic }
+		NOR = {
+			rite_has_doctrine = religion_policy_ultranationalism
+			rite_has_doctrine = religion_policy_state_atheism
+		}
+	}
+	trigger_else = {
+		$DOCTRINE$ = doctrine:religion_policy_laicite
+	}
+}
+
+# Character scope; scope:doctrine is supplied by the proposal or enactment caller.
+# Identity/no-op checks are separate so UI can explain incompatibility independently.
+fs_legislation_doctrine_change_valid_trigger = {
+	faith = faith:koreanism_faith
+	exists = scope:doctrine
+	scope:doctrine = { fs_legislation_allowed_doctrine_trigger = yes }
+	faith:koreanism_faith = {
+		NOT = {
+			any_faith_rite = {
+				NOT = {
+					fs_legislation_rite_doctrine_compatible_trigger = { DOCTRINE = scope:doctrine }
+				}
+			}
+		}
+	}
+}
+
+# Title scope. A law is meaningful if even one rite still needs the proposed doctrine.
+fs_legislation_doctrine_change_needed_trigger = {
+	this = title:k_koreanism
+	$DOCTRINE$ = { fs_legislation_allowed_doctrine_trigger = yes }
+	faith:koreanism_faith = {
+		OR = {
+			NOT = { has_doctrine = $DOCTRINE$ }
+			any_faith_rite = { NOT = { rite_has_doctrine = $DOCTRINE$ } }
+		}
+	}
+}
+
+# Character scope. Holding a permanent parliamentary title, not cardinal_flag, grants membership.
+fs_legislation_outcome_member_trigger = {
+	fs_legislation_member_trigger = yes
+}
+
+# Character scope. Emergency religious administration confers no power to arrest MPs.
+fs_legislation_martial_declaration_valid_trigger = {
+	fs_koreanism_parliament_president_trigger = yes
+	title:k_koreanism = { NOT = { has_variable = fs_legislation_martial_law } }
+}

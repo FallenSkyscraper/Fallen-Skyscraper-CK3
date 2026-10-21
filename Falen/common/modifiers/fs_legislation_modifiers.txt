@@ -1,0 +1,13 @@
+﻿# Initial balancing values: censure lasts one year and does not suspend an MP's vote.
+fs_legislation_censure_modifier = {
+	icon = prestige_negative
+	monthly_prestige = -0.25
+	same_faith_opinion = -5
+}
+
+# A small religious-administration benefit with a legitimacy cost; no secular policing powers.
+fs_legislation_martial_law_modifier = {
+	icon = piety_positive
+	monthly_piety = 0.25
+	same_faith_opinion = -5
+}

@@ -1,0 +1,524 @@
+﻿# Title scope throughout internal lifecycle effects. Public actions use character ROOT.
+fs_legislation_initialize_effect = {
+	if = {
+		limit = { NOT = { has_variable = fs_legislation_serial } }
+		set_variable = { name = fs_legislation_serial value = 0 }
+	}
+	if = {
+		limit = {
+			NOT = { any_in_global_list = { variable = fs_koreanism_parliament_seats always = yes } }
+		}
+		setup_cardinalate_list_effect = yes
+	}
+	if = {
+		limit = { NOT = { has_variable = fs_legislation_clock_started } }
+		set_variable = { name = fs_legislation_clock_started value = yes }
+		trigger_event = { on_action = fs_legislation_heartbeat days = 1 }
+	}
+}
+
+# Rebuild unique current members. A replacement receives a fresh ballot rather than
+# inheriting the previous owner's selection. Multiple held seats still grant one vote.
+fs_legislation_refresh_electorate_effect = {
+	every_in_list = {
+		variable = fs_legislation_voters
+		remove_variable = fs_legislation_preserved_ballot
+		if = {
+			limit = {
+				fs_legislation_member_trigger = yes
+				exists = var:fs_legislation_ballot_seat
+				var:fs_legislation_ballot_seat = {
+					var:fs_legislation_ballot_serial = title:k_koreanism.var:fs_legislation_serial
+					var:fs_legislation_ballot_holder = prev
+					has_variable = fs_legislation_ballot_cast
+				}
+			}
+			# Preserve this member's latest vote if their representative seat changes.
+			set_variable = { name = fs_legislation_preserved_ballot value = var:fs_legislation_ballot_seat.var:fs_legislation_ballot }
+		}
+		remove_variable = fs_legislation_ballot_seat
+	}
+	clear_variable_list = fs_legislation_voters
+	every_in_global_list = {
+		variable = fs_koreanism_parliament_seats
+		limit = {
+			fs_koreanism_parliament_seat_trigger = yes
+			exists = holder
+			holder = { fs_legislation_member_trigger = yes }
+		}
+		save_scope_as = fs_legislation_seat
+		holder = { save_scope_as = fs_legislation_elector }
+		title:k_koreanism = {
+			if = {
+				limit = {
+					NOT = { is_target_in_variable_list = { name = fs_legislation_voters target = scope:fs_legislation_elector } }
+				}
+				add_to_variable_list = { name = fs_legislation_voters target = scope:fs_legislation_elector }
+				scope:fs_legislation_elector = {
+					set_variable = { name = fs_legislation_ballot_seat value = scope:fs_legislation_seat }
+				}
+				scope:fs_legislation_seat = {
+					set_variable = { name = fs_legislation_ballot_serial value = title:k_koreanism.var:fs_legislation_serial }
+					set_variable = { name = fs_legislation_ballot_holder value = holder }
+					set_variable = { name = fs_legislation_ballot value = 0 }
+					remove_variable = fs_legislation_ballot_cast
+					if = {
+						limit = {
+							scope:fs_legislation_elector = { has_variable = fs_legislation_preserved_ballot }
+						}
+						set_variable = { name = fs_legislation_ballot value = scope:fs_legislation_elector.var:fs_legislation_preserved_ballot }
+						set_variable = { name = fs_legislation_ballot_cast value = yes }
+					}
+				}
+				scope:fs_legislation_elector = { remove_variable = fs_legislation_preserved_ballot }
+			}
+			else_if = {
+				limit = {
+					scope:fs_legislation_elector = {
+						NOT = { var:fs_legislation_ballot_seat = scope:fs_legislation_seat }
+					}
+				}
+				# Discard votes on another held seat so changing the representative
+				# cannot revive an older selection. Duplicate entries of this seat stay intact.
+				scope:fs_legislation_seat = {
+					set_variable = { name = fs_legislation_ballot value = 0 }
+					remove_variable = fs_legislation_ballot_cast
+				}
+			}
+		}
+	}
+	if = {
+		limit = { OR = { var:fs_legislation_stage = flag:vote var:fs_legislation_stage = flag:revote } }
+		every_in_list = {
+			variable = fs_legislation_voters
+			limit = { is_ai = yes NOT = { fs_legislation_has_ballot_trigger = yes } }
+			fs_legislation_cast_ai_ballot_effect = yes
+		}
+	}
+}
+
+# Only this internal effect may update an AI's public position after persuasion.
+# The refresh path calls it only for a fresh, uncast ballot; it never changes human votes.
+fs_legislation_cast_ai_ballot_effect = {
+	if = {
+		limit = {
+			is_ai = yes
+			fs_legislation_member_trigger = yes
+			fs_legislation_voting_capacity_trigger = yes
+			title:k_koreanism = { OR = { var:fs_legislation_stage = flag:vote var:fs_legislation_stage = flag:revote } }
+			any_held_title = { fs_legislation_valid_ballot_seat_trigger = yes }
+		}
+		if = {
+			limit = { fs_legislation_support_score_value > 5 }
+			var:fs_legislation_ballot_seat = { set_variable = { name = fs_legislation_ballot value = 1 } }
+		}
+		else_if = {
+			limit = { fs_legislation_support_score_value < -5 }
+			var:fs_legislation_ballot_seat = { set_variable = { name = fs_legislation_ballot value = -1 } }
+		}
+		else = { var:fs_legislation_ballot_seat = { set_variable = { name = fs_legislation_ballot value = 0 } } }
+		var:fs_legislation_ballot_seat = { set_variable = { name = fs_legislation_ballot_cast value = yes } }
+	}
+}
+
+# Capture immutable timer tokens. Absolute deadlines also protect against callbacks
+# from an older phase or proposal, including callbacks restored from a save.
+fs_legislation_schedule_phase_effect = {
+	set_variable = { name = fs_legislation_deadline value = { value = current_date add = $DAYS$ } }
+	save_scope_value_as = { name = fs_legislation_timer_serial value = var:fs_legislation_serial }
+	save_scope_value_as = { name = fs_legislation_timer_phase value = var:fs_legislation_phase_number }
+	trigger_event = { on_action = fs_legislation_timeout days = $DAYS$ }
+}
+
+fs_legislation_begin_effect = {
+	change_variable = { name = fs_legislation_serial add = 1 }
+	set_variable = { name = fs_legislation_kind value = flag:$KIND$ }
+	set_variable = { name = fs_legislation_proposer value = scope:fs_legislation_actor }
+	set_variable = { name = fs_legislation_stage value = flag:debate }
+	set_variable = { name = fs_legislation_phase_number value = 1 }
+	remove_variable = fs_legislation_reconsidered
+	remove_variable = fs_legislation_result
+	remove_variable = fs_legislation_outcome_applied
+	remove_variable = fs_legislation_enactment_authorized
+	remove_variable = fs_legislation_failure_reason
+	fs_legislation_refresh_electorate_effect = yes
+	fs_legislation_schedule_phase_effect = { DAYS = fs_legislation_debate_days }
+	fs_legislation_notify_effect = { MESSAGE = FS_LEGISLATION_NOTICE_PROPOSED }
+}
+
+fs_legislation_open_vote_effect = {
+	set_variable = { name = fs_legislation_stage value = flag:$STAGE$ }
+	set_variable = { name = fs_legislation_phase_number value = $PHASE$ }
+	# A reconsideration is a new ballot even though the proposal serial stays the same.
+	every_in_global_list = {
+		variable = fs_koreanism_parliament_seats
+		limit = { fs_koreanism_parliament_seat_trigger = yes }
+		set_variable = { name = fs_legislation_ballot value = 0 }
+		remove_variable = fs_legislation_ballot_cast
+	}
+	fs_legislation_schedule_phase_effect = { DAYS = fs_legislation_vote_days }
+	fs_legislation_refresh_electorate_effect = yes
+	if = {
+		limit = { var:fs_legislation_stage = flag:revote }
+		fs_legislation_notify_effect = { MESSAGE = FS_LEGISLATION_NOTICE_REVOTE }
+	}
+	else = { fs_legislation_notify_effect = { MESSAGE = FS_LEGISLATION_NOTICE_VOTE } }
+}
+
+fs_legislation_finish_effect = {
+	remove_variable = fs_legislation_stage
+	remove_variable = fs_legislation_phase_number
+	remove_variable = fs_legislation_deadline
+	remove_variable = fs_legislation_enactment_authorized
+	set_variable = { name = fs_legislation_ai_proposal_cooldown value = yes days = fs_legislation_ai_proposal_days }
+	# Keep the proposal payload, last counts and result for the history panel.
+	fs_legislation_notify_effect = { MESSAGE = FS_LEGISLATION_NOTICE_RESULT }
+}
+
+fs_legislation_enact_effect = {
+	set_variable = { name = fs_legislation_enactment_authorized value = yes }
+	remove_variable = fs_legislation_outcome_applied
+	fs_legislation_execute_outcome_effect = yes
+	if = {
+		limit = { NOT = { has_variable = fs_legislation_outcome_applied } }
+		set_variable = { name = fs_legislation_result value = flag:lapsed }
+	}
+	fs_legislation_finish_effect = yes
+}
+
+fs_legislation_close_vote_effect = {
+	fs_legislation_refresh_electorate_effect = yes
+	set_variable = { name = fs_legislation_last_enrolled value = fs_legislation_enrolled_value }
+	set_variable = { name = fs_legislation_last_yes value = fs_legislation_yes_value }
+	set_variable = { name = fs_legislation_last_no value = fs_legislation_no_value }
+	set_variable = { name = fs_legislation_last_abstain value = fs_legislation_abstain_value }
+	set_variable = { name = fs_legislation_last_threshold value = fs_legislation_threshold_value }
+	if = {
+		limit = {
+			fs_legislation_enrolled_value > 0
+			fs_legislation_yes_value >= fs_legislation_threshold_value
+		}
+		if = {
+			limit = { var:fs_legislation_kind = flag:law var:fs_legislation_stage = flag:vote }
+			set_variable = { name = fs_legislation_stage value = flag:presidential }
+			set_variable = { name = fs_legislation_phase_number value = 3 }
+			fs_legislation_schedule_phase_effect = { DAYS = fs_legislation_presidential_days }
+			fs_legislation_notify_effect = { MESSAGE = FS_LEGISLATION_NOTICE_PRESIDENTIAL }
+		}
+		else = { fs_legislation_enact_effect = yes }
+	}
+	else = {
+		set_variable = { name = fs_legislation_result value = flag:rejected }
+		fs_legislation_finish_effect = yes
+	}
+}
+
+# Idempotent advancement uses a saved absolute game date, never a decrementing UI clock.
+fs_legislation_advance_effect = {
+	if = {
+		limit = { fs_legislation_active_trigger = yes fs_legislation_days_left_value <= 0 }
+		if = {
+			limit = { var:fs_legislation_stage = flag:debate }
+			fs_legislation_open_vote_effect = { STAGE = vote PHASE = 2 }
+		}
+		else_if = {
+			limit = { OR = { var:fs_legislation_stage = flag:vote var:fs_legislation_stage = flag:revote } }
+			fs_legislation_close_vote_effect = yes
+		}
+		else_if = {
+			limit = { var:fs_legislation_stage = flag:presidential var:fs_legislation_kind = flag:law }
+			fs_legislation_enact_effect = yes
+		}
+	}
+}
+
+# Public proposal actions validate the character and payload before touching state.
+fs_legislation_propose_law_effect = {
+	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
+	if = {
+		limit = {
+			fs_legislation_can_propose_trigger = yes
+			fs_legislation_doctrine_change_valid_trigger = yes
+			title:k_koreanism = { fs_legislation_doctrine_change_needed_trigger = { DOCTRINE = scope:doctrine } }
+		}
+		save_scope_as = fs_legislation_actor
+		title:k_koreanism = {
+			set_variable = { name = fs_legislation_doctrine value = scope:doctrine }
+			remove_variable = fs_legislation_target
+			fs_legislation_begin_effect = { KIND = law }
+		}
+	}
+}
+
+fs_legislation_propose_impeachment_effect = {
+	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
+	if = {
+		limit = {
+			fs_legislation_can_propose_trigger = yes
+			exists = title:k_koreanism.holder
+			title:k_koreanism.holder = { is_alive = yes }
+			NOT = { has_title = title:k_koreanism }
+		}
+		save_scope_as = fs_legislation_actor
+		title:k_koreanism = {
+			set_variable = { name = fs_legislation_target value = holder }
+			remove_variable = fs_legislation_doctrine
+			fs_legislation_begin_effect = { KIND = impeachment }
+		}
+	}
+}
+
+fs_legislation_propose_lift_martial_law_effect = {
+	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
+	if = {
+		limit = { fs_legislation_can_propose_trigger = yes title:k_koreanism = { has_variable = fs_legislation_martial_law } }
+		save_scope_as = fs_legislation_actor
+		title:k_koreanism = {
+			remove_variable = fs_legislation_target
+			remove_variable = fs_legislation_doctrine
+			fs_legislation_begin_effect = { KIND = lift_martial_law }
+		}
+	}
+}
+
+fs_legislation_propose_member_motion_effect = {
+	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
+	if = {
+		limit = {
+			fs_legislation_can_propose_trigger = yes
+			exists = scope:target
+			scope:target = { fs_legislation_member_trigger = yes }
+			this != scope:target
+		}
+		save_scope_as = fs_legislation_actor
+		title:k_koreanism = {
+			set_variable = { name = fs_legislation_target value = scope:target }
+			remove_variable = fs_legislation_doctrine
+			fs_legislation_begin_effect = { KIND = $KIND$ }
+		}
+	}
+}
+
+fs_legislation_propose_censure_effect = { fs_legislation_propose_member_motion_effect = { KIND = censure } }
+fs_legislation_propose_expulsion_effect = { fs_legislation_propose_member_motion_effect = { KIND = expulsion } }
+
+fs_legislation_cast_vote_effect = {
+	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
+	if = {
+		limit = { fs_legislation_can_vote_trigger = yes }
+		var:fs_legislation_ballot_seat = {
+			set_variable = { name = fs_legislation_ballot value = $BALLOT$ }
+			set_variable = { name = fs_legislation_ballot_cast value = yes }
+		}
+	}
+}
+
+fs_legislation_vote_yes_effect = { fs_legislation_cast_vote_effect = { BALLOT = 1 } }
+fs_legislation_vote_no_effect = { fs_legislation_cast_vote_effect = { BALLOT = -1 } }
+fs_legislation_vote_abstain_effect = { fs_legislation_cast_vote_effect = { BALLOT = 0 } }
+
+fs_legislation_lobby_effect = {
+	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
+	if = {
+		limit = { fs_legislation_lobby_valid_trigger = yes }
+		save_scope_as = fs_legislation_lobbyist
+		set_variable = {
+			name = fs_legislation_lobby_cooldown
+			value = title:k_koreanism.var:fs_legislation_serial
+			days = fs_legislation_lobby_cooldown_days
+		}
+		scope:target = {
+			if = {
+				limit = { NOT = { var:fs_legislation_lobbying_serial = title:k_koreanism.var:fs_legislation_serial } }
+				set_variable = { name = fs_legislation_lobbying_serial value = title:k_koreanism.var:fs_legislation_serial }
+				set_variable = { name = fs_legislation_lobbying_value value = 0 }
+			}
+			set_variable = {
+				name = fs_legislation_lobbying_value
+				value = {
+					value = var:fs_legislation_lobbying_value
+					add = { value = scope:fs_legislation_lobbyist.fs_legislation_lobby_strength_value multiply = $DIRECTION$ }
+					min = -50
+					max = 50
+				}
+			}
+			if = { limit = { is_ai = yes } fs_legislation_cast_ai_ballot_effect = yes }
+		}
+	}
+}
+
+fs_legislation_lobby_yes_effect = { fs_legislation_lobby_effect = { DIRECTION = 1 } }
+fs_legislation_lobby_no_effect = { fs_legislation_lobby_effect = { DIRECTION = -1 } }
+
+fs_legislation_promulgate_effect = {
+	if = {
+		limit = { fs_legislation_promulgation_valid_trigger = yes }
+		title:k_koreanism = { fs_legislation_enact_effect = yes }
+	}
+}
+
+fs_legislation_veto_effect = {
+	if = {
+		limit = { fs_legislation_veto_valid_trigger = yes }
+		title:k_koreanism = {
+			set_variable = { name = fs_legislation_reconsidered value = yes }
+			fs_legislation_open_vote_effect = { STAGE = revote PHASE = 4 }
+		}
+	}
+}
+
+# The monthly opportunity chooses an individual actor and an individual target.
+# Both proposal checks and the later roll call remain independent of party affinity.
+fs_legislation_ai_proposal_effect = {
+	if = {
+		limit = { is_ai = yes fs_legislation_can_propose_trigger = yes }
+		random_list = {
+			70 = {
+				random_list = {
+					10 = { doctrine:religion_policy_ultranationalism = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
+					10 = { doctrine:religion_policy_state_atheism = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
+					10 = { doctrine:religion_policy_laicite = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
+					10 = { doctrine:religion_policy_freedom_of_religion = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
+					10 = { doctrine:religion_policy_pluralism = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
+					10 = { doctrine:doctrine_pluralism_fundamentalist = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
+					10 = { doctrine:doctrine_pluralism_righteous = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
+					10 = { doctrine:doctrine_pluralism_pluralistic = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
+				}
+			}
+			10 = {
+				trigger = {
+					fs_legislation_member_trigger = yes
+					exists = title:k_koreanism.holder
+					OR = {
+						has_relation_rival = title:k_koreanism.holder
+						opinion = { target = title:k_koreanism.holder value < -35 }
+						AND = { has_trait = just title:k_koreanism.holder = { has_trait = fs_election_offender } }
+					}
+				}
+				modifier = { factor = 1.5 NOT = { rite = title:k_koreanism.holder.rite } }
+				modifier = { factor = 1.5 has_trait = ambitious }
+				fs_legislation_propose_impeachment_effect = yes
+			}
+			10 = {
+				trigger = { title:k_koreanism = { has_variable = fs_legislation_martial_law } }
+				fs_legislation_propose_lift_martial_law_effect = yes
+			}
+			10 = {
+				save_scope_as = fs_legislation_ai_actor
+				title:k_koreanism = {
+					random_in_list = {
+						variable = fs_legislation_voters
+						limit = {
+							fs_legislation_member_trigger = yes
+							this != scope:fs_legislation_ai_actor
+							OR = {
+								has_relation_rival = scope:fs_legislation_ai_actor
+								opinion = { target = scope:fs_legislation_ai_actor value < -25 }
+							}
+						}
+						save_scope_as = target
+						scope:fs_legislation_ai_actor = {
+							random_list = {
+								75 = { fs_legislation_propose_censure_effect = yes }
+								25 = { fs_legislation_propose_expulsion_effect = yes }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+fs_legislation_ai_daily_effect = {
+	if = {
+		limit = { fs_legislation_active_trigger = yes }
+		if = {
+			limit = {
+				OR = { var:fs_legislation_stage = flag:debate var:fs_legislation_stage = flag:vote var:fs_legislation_stage = flag:revote }
+			}
+			random_in_list = {
+				variable = fs_legislation_voters
+				limit = {
+					is_ai = yes
+					fs_legislation_voting_capacity_trigger = yes
+					NOT = { var:fs_legislation_lobby_cooldown = title:k_koreanism.var:fs_legislation_serial }
+				}
+				save_scope_as = fs_legislation_ai_actor
+				title:k_koreanism = {
+					random_in_list = {
+						variable = fs_legislation_voters
+						limit = { this != scope:fs_legislation_ai_actor fs_legislation_voting_capacity_trigger = yes }
+						save_scope_as = target
+						scope:fs_legislation_ai_actor = {
+							if = { limit = { fs_legislation_support_score_value > 0 } fs_legislation_lobby_yes_effect = yes }
+							else = { fs_legislation_lobby_no_effect = yes }
+						}
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				var:fs_legislation_stage = flag:presidential
+				fs_legislation_days_left_value <= 23
+				holder ?= { is_ai = yes fs_legislation_promulgation_valid_trigger = yes }
+			}
+			holder = {
+				if = { limit = { fs_legislation_support_score_value < 0 fs_legislation_veto_valid_trigger = yes } fs_legislation_veto_effect = yes }
+				else = { fs_legislation_promulgate_effect = yes }
+			}
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_variable = fs_legislation_ai_proposal_cooldown } }
+		set_variable = { name = fs_legislation_ai_proposal_cooldown value = yes days = fs_legislation_ai_proposal_days }
+		random_list = {
+			50 = {
+				trigger = { exists = holder holder = { is_ai = yes fs_legislation_can_propose_trigger = yes } }
+				holder = { fs_legislation_ai_proposal_effect = yes }
+			}
+			50 = {
+				trigger = { any_in_list = { variable = fs_legislation_voters is_ai = yes fs_legislation_can_propose_trigger = yes } }
+				random_in_list = {
+					variable = fs_legislation_voters
+					limit = { is_ai = yes fs_legislation_can_propose_trigger = yes }
+					fs_legislation_ai_proposal_effect = yes
+				}
+			}
+		}
+	}
+}
+
+# Human members and the current human president each receive one actionable notice.
+fs_legislation_notify_effect = {
+	every_in_list = {
+		variable = fs_legislation_voters
+		limit = { is_ai = no is_alive = yes }
+		send_interface_toast = {
+			title = $MESSAGE$
+			left_icon = title:k_koreanism
+			custom_tooltip = FS_LEGISLATION_NOTICE_INSTRUCTION
+		}
+	}
+	holder ?= {
+		if = {
+			limit = { is_ai = no is_alive = yes }
+			save_scope_as = fs_legislation_notice_president
+			if = {
+				limit = {
+					NOT = {
+						title:k_koreanism = {
+							is_target_in_variable_list = { name = fs_legislation_voters target = scope:fs_legislation_notice_president }
+						}
+					}
+				}
+				send_interface_toast = {
+					title = $MESSAGE$
+					left_icon = title:k_koreanism
+					custom_tooltip = FS_LEGISLATION_NOTICE_INSTRUCTION
+				}
+			}
+		}
+	}
+}
