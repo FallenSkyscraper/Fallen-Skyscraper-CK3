@@ -490,16 +490,88 @@ fs_legislation_ai_daily_effect = {
 	}
 }
 
-# Human members and the current human president each receive one actionable notice.
-fs_legislation_notify_effect = {
-	every_in_list = {
-		variable = fs_legislation_voters
-		limit = { is_ai = no is_alive = yes }
+# Character scope. The body key is fixed before sending; only names and tallies
+# are read from saved scopes when displaying an old notification.
+fs_legislation_send_result_toast_effect = {
+	send_interface_toast = {
+		type = event_toast_text_neutral
+		title = $MESSAGE$
+		desc = fs_legislation_notice_$KIND$_$RESULT$
+		left_icon = title:k_koreanism
+	}
+}
+
+# Character scope. Each motion has one success outcome, rejection or lapse.
+fs_legislation_send_result_notice_effect = {
+	if = {
+		limit = { title:k_koreanism = { var:fs_legislation_result = flag:$SUCCESS$ } }
+		fs_legislation_send_result_toast_effect = { MESSAGE = $MESSAGE$ KIND = $KIND$ RESULT = $SUCCESS$ }
+	}
+	else_if = {
+		limit = { title:k_koreanism = { var:fs_legislation_result = flag:rejected } }
+		fs_legislation_send_result_toast_effect = { MESSAGE = $MESSAGE$ KIND = $KIND$ RESULT = rejected }
+	}
+	else = {
+		fs_legislation_send_result_toast_effect = { MESSAGE = $MESSAGE$ KIND = $KIND$ RESULT = lapsed }
+	}
+}
+
+fs_legislation_send_notice_effect = {
+	if = {
+		limit = {
+			title:k_koreanism = {
+				has_variable = fs_legislation_result
+				NOT = { fs_legislation_active_trigger = yes }
+			}
+		}
+		if = {
+			limit = { title:k_koreanism = { var:fs_legislation_kind = flag:impeachment } }
+			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = impeachment SUCCESS = impeached }
+		}
+		else_if = {
+			limit = { title:k_koreanism = { var:fs_legislation_kind = flag:lift_martial_law } }
+			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = lift_martial_law SUCCESS = martial_law_lifted }
+		}
+		else_if = {
+			limit = { title:k_koreanism = { var:fs_legislation_kind = flag:censure } }
+			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = censure SUCCESS = censured }
+		}
+		else_if = {
+			limit = { title:k_koreanism = { var:fs_legislation_kind = flag:expulsion } }
+			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = expulsion SUCCESS = expelled }
+		}
+		else = {
+			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = law SUCCESS = enacted }
+		}
+	}
+	else = {
 		send_interface_toast = {
 			title = $MESSAGE$
 			left_icon = title:k_koreanism
 			custom_tooltip = FS_LEGISLATION_NOTICE_INSTRUCTION
 		}
+	}
+}
+
+# Human members, the current president and the affected character receive one notice.
+fs_legislation_notify_effect = {
+	if = {
+		limit = {
+			has_variable = fs_legislation_result
+			NOT = { fs_legislation_active_trigger = yes }
+		}
+		# Saved values keep an old notification independent of the next motion.
+		save_scope_value_as = { name = fs_legislation_notice_enrolled value = var:fs_legislation_last_enrolled }
+		save_scope_value_as = { name = fs_legislation_notice_threshold value = var:fs_legislation_last_threshold }
+		save_scope_value_as = { name = fs_legislation_notice_yes value = var:fs_legislation_last_yes }
+		save_scope_value_as = { name = fs_legislation_notice_no value = var:fs_legislation_last_no }
+		save_scope_value_as = { name = fs_legislation_notice_abstain value = var:fs_legislation_last_abstain }
+		var:fs_legislation_target ?= { save_scope_as = fs_legislation_notice_target }
+	}
+	every_in_list = {
+		variable = fs_legislation_voters
+		limit = { is_ai = no is_alive = yes }
+		fs_legislation_send_notice_effect = { MESSAGE = $MESSAGE$ }
 	}
 	holder ?= {
 		if = {
@@ -513,11 +585,30 @@ fs_legislation_notify_effect = {
 						}
 					}
 				}
-				send_interface_toast = {
-					title = $MESSAGE$
-					left_icon = title:k_koreanism
-					custom_tooltip = FS_LEGISLATION_NOTICE_INSTRUCTION
+				fs_legislation_send_notice_effect = { MESSAGE = $MESSAGE$ }
+			}
+		}
+	}
+	if = {
+		limit = {
+			has_variable = fs_legislation_result
+			NOT = { fs_legislation_active_trigger = yes }
+			exists = var:fs_legislation_target
+		}
+		var:fs_legislation_target = {
+			if = {
+				limit = {
+					is_ai = no
+					is_alive = yes
+					NOT = { has_title = title:k_koreanism }
+					NOT = {
+						title:k_koreanism = {
+							is_target_in_variable_list = { name = fs_legislation_voters target = scope:fs_legislation_notice_target }
+						}
+					}
 				}
+				# A deposed president or expelled MP still receives their own result.
+				fs_legislation_send_notice_effect = { MESSAGE = $MESSAGE$ }
 			}
 		}
 	}
