@@ -10,6 +10,27 @@
 	1965.7.19 = {
 		death = yes
 	}
+	2100.1. = {
+		effect_even_if_dead = {
+			pam_canonize_saint_effect = {
+				CANONIZER = root 
+				CANDIDATE = root
+				CONSECRATION_PROVINCE = province:44
+				PRESET = yes
+			}
+			religion:koreanism_religion = {
+				every_faith = {
+					limit = {
+						main_rite = {
+							is_rite_enabled = yes
+						}
+						NOT = { has_saint_character = root }	
+					}
+					add_saint = { character = root }
+				}
+			}
+		}
+	}
 }
 president_kor_historical_2 = {
 	name = "Posun"

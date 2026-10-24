@@ -1801,7 +1801,7 @@ tgp_japan_soryo_eradicate_cb_transfer_effect = {
 					}
 					NOR = {
 						this = scope:loser.capital_county
-						this = scope:loser.capital_county.duchy
+						this = scope:loser.capital_county:duchy
 					}
 				}
 				is_landless_type_title = no
@@ -2267,14 +2267,16 @@ tgp_dynasty_house_name_setup_effect = {
 	dynasty:dynn_Sim_Cheongsong.dynasty_founder.house ?= { set_house_name = "dynn_Sim_Cheongsong" }
 	dynasty:dynn_Jang_Cheongsong.dynasty_founder.house ?= { set_house_name = "dynn_Jang_Cheongsong" }
 	dynasty:dynn_Song_Yeosan.dynasty_founder.house ?= { set_house_name = "dynn_Song_Yeosan" }
-	dynasty.dynn_Jeong_Hadong.dynasty_founder.house ?= { set_house_name = "dynn_Jeong_Hadong" }
-	dynasty.dynn_Hwang_Changwon.dynasty_founder.house ?= { set_house_name = "dynn_Hwang_Changwon" }
-	dynasty.dynn_Park_Suncheon.dynasty_founder.house ?= { set_house_name = "dynn_Bak_Suncheon" }
-	dynasty.dynn_Gong_Gimpo.dynasty_founder.house ?= { set_house_name = "dynn_Gong_Gimpo" }
-	dynasty.dynn_Sin_Yeongsan.dynasty_founder.house ?= { set_house_name = "dynn_Sin_Yeongsan" }
-	dynasty.dynn_Yi_Gwangju.dynasty_founder.house ?= { set_house_name = "dynn_Yi_Gwangju" }
-	dynasty.dynn_Chu_Chugye.dynasty_founder.house ?= { set_house_name = "dynn_Chu_Chugye" }
-	dynasty.dynn_Gong_Qufu.dynasty_founder.house ?= { set_house_name = "dynn_Gong_Qufu" }
+	dynasty:dynn_Jeong_Hadong.dynasty_founder.house ?= { set_house_name = "dynn_Jeong_Hadong" }
+	dynasty:dynn_Hwang_Changwon.dynasty_founder.house ?= { set_house_name = "dynn_Hwang_Changwon" }
+	dynasty:dynn_Park_Suncheon.dynasty_founder.house ?= { set_house_name = "dynn_Bak_Suncheon" }
+	dynasty:dynn_Gong_Gimpo.dynasty_founder.house ?= { set_house_name = "dynn_Gong_Gimpo" }
+	dynasty:dynn_Sin_Yeongsan.dynasty_founder.house ?= { set_house_name = "dynn_Sin_Yeongsan" }
+	dynasty:dynn_Yi_Gwangju.dynasty_founder.house ?= { set_house_name = "dynn_Yi_Gwangju" }
+	dynasty:dynn_Chu_Chugye.dynasty_founder.house ?= { set_house_name = "dynn_Chu_Chugye" }
+	dynasty:dynn_Gong_Qufu.dynasty_founder.house ?= { set_house_name = "dynn_Gong_Qufu" }
+	dynasty:dynn_Ji_Chungju.dynasty_founder.house ?= { set_house_name = "dynn_Ji_Chungju" }
+	dynasty:dynn_Yu_Gigye.dynasty_founder.house ?= { set_house_name = "dynn_Yu_Gigye" }
 	### 가상본관
 	dynasty:dynn_Jeong_Huanren.dynasty_founder.house ?= { set_house_name = "dynn_Jeong_Huanren" }
 	dynasty:dynn_Park_Benxi.dynasty_founder.house ?= { set_house_name = "dynn_Park_Benxi" }
@@ -2289,4 +2291,6 @@ tgp_dynasty_house_name_setup_effect = {
 	dynasty:dynn_In_Incheon.dynasty_founder.house ?= { set_house_name = "dynn_In_Incheon" }
 	dynasty:dynn_Yi_Anyang.dynasty_founder.house ?= { set_house_name = "dynn_Yi_Anyang" }
 	dynasty:dynn_Seong_Seongnam.dynasty_founder.house ?= { set_house_name = "dynn_Seong_Seongnam" }
+	dynasty:dynn_Choe_Naju.dynasty_founder.house ?= { set_house_name = "dynn_Choe_Naju" }
+	dynasty:dynn_Bam_Yeosu.dynasty_founder.house ?= { set_house_name = "dynn_Bam_Yeosu" }
 }
