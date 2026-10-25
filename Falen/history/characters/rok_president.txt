@@ -10,7 +10,7 @@
 	1965.7.19 = {
 		death = yes
 	}
-	2100.1. = {
+	2100.1.1 = {
 		effect_even_if_dead = {
 			pam_canonize_saint_effect = {
 				CANONIZER = root 
@@ -44,6 +44,27 @@ president_kor_historical_2 = {
 	1990.7.18 = {
 		death = yes
 	}
+	2100.1.1 = {
+		effect_even_if_dead = {
+			pam_canonize_saint_effect = {
+				CANONIZER = root 
+				CANDIDATE = root
+				CONSECRATION_PROVINCE = province:1387
+				PRESET = yes
+			}
+			religion:koreanism_religion = {
+				every_faith = {
+					limit = {
+						main_rite = {
+							is_rite_enabled = yes
+						}
+						NOT = { has_saint_character = root }	
+					}
+					add_saint = { character = root }
+				}
+			}
+		}
+	}
 }
 president_kor_historical_3 = {
 	name = "Chung-hee"
@@ -57,6 +78,27 @@ president_kor_historical_3 = {
 	1979.10.26 = {
 		death = yes # death_reason = murder
 	}
+	2100.1.1 = {
+		effect_even_if_dead = {
+			pam_canonize_saint_effect = {
+				CANONIZER = root 
+				CANDIDATE = root
+				CONSECRATION_PROVINCE = province:1143
+				PRESET = yes
+			}
+			religion:koreanism_religion = {
+				every_faith = {
+					limit = {
+						main_rite = {
+							is_rite_enabled = yes
+						}
+						NOT = { has_saint_character = root }	
+					}
+					add_saint = { character = root }
+				}
+			}
+		}
+	}
 }
 president_kor_historical_4 = {
 	name = "Kyu-hah"
@@ -69,6 +111,27 @@ president_kor_historical_4 = {
 	}
 	2006.10.22 = {
 		death = yes
+	}
+	2100.1.1 = {
+		effect_even_if_dead = {
+			pam_canonize_saint_effect = {
+				CANONIZER = root 
+				CANDIDATE = root
+				CONSECRATION_PROVINCE = province:2636
+				PRESET = yes
+			}
+			religion:koreanism_religion = {
+				every_faith = {
+					limit = {
+						main_rite = {
+							is_rite_enabled = yes
+						}
+						NOT = { has_saint_character = root }	
+					}
+					add_saint = { character = root }
+				}
+			}
+		}
 	}
 }
 president_kor_historical_5 = {
@@ -109,6 +172,27 @@ president_kor_historical_7 = {
 	2015.11.22 = {
 		death = yes
 	}
+	2100.1.1 = {
+		effect_even_if_dead = {
+			pam_canonize_saint_effect = {
+				CANONIZER = root 
+				CANDIDATE = root
+				CONSECRATION_PROVINCE = province:237
+				PRESET = yes
+			}
+			religion:koreanism_religion = {
+				every_faith = {
+					limit = {
+						main_rite = {
+							is_rite_enabled = yes
+						}
+						NOT = { has_saint_character = root }	
+					}
+					add_saint = { character = root }
+				}
+			}
+		}
+	}
 }
 president_kor_historical_8 = {
 	name = "Dae-jung"
@@ -121,6 +205,27 @@ president_kor_historical_8 = {
 	}
 	2009.8.18 = {
 		death = yes
+	}
+	2100.1.1 = {
+		effect_even_if_dead = {
+			pam_canonize_saint_effect = {
+				CANONIZER = root 
+				CANDIDATE = root
+				CONSECRATION_PROVINCE = province:211
+				PRESET = yes
+			}
+			religion:koreanism_religion = {
+				every_faith = {
+					limit = {
+						main_rite = {
+							is_rite_enabled = yes
+						}
+						NOT = { has_saint_character = root }	
+					}
+					add_saint = { character = root }
+				}
+			}
+		}
 	}
 }
 president_kor_historical_9 = {
@@ -135,6 +240,27 @@ president_kor_historical_9 = {
 	2009.5.23 = {
 		death = yes
 	}
+	2100.1.1 = {
+		effect_even_if_dead = {
+			pam_canonize_saint_effect = {
+				CANONIZER = root 
+				CANDIDATE = root
+				CONSECRATION_PROVINCE = province:769
+				PRESET = yes
+			}
+			religion:koreanism_religion = {
+				every_faith = {
+					limit = {
+						main_rite = {
+							is_rite_enabled = yes
+						}
+						NOT = { has_saint_character = root }	
+					}
+					add_saint = { character = root }
+				}
+			}
+		}
+	}
 }
 president_kor_historical_10 = {
 	name = "Myung-bak"
@@ -147,6 +273,25 @@ president_kor_historical_10 = {
 	}
 	2100.1.1 = {
 		death = yes
+		effect_even_if_dead = {
+			pam_canonize_saint_effect = {
+				CANONIZER = root 
+				CANDIDATE = root
+				CONSECRATION_PROVINCE = province:960
+				PRESET = yes
+			}
+			religion:koreanism_religion = {
+				every_faith = {
+					limit = {
+						main_rite = {
+							is_rite_enabled = yes
+						}
+						NOT = { has_saint_character = root }	
+					}
+					add_saint = { character = root }
+				}
+			}
+		}
 	}
 }
 president_kor_historical_11 = {
@@ -162,6 +307,25 @@ president_kor_historical_11 = {
 	}
 	2100.1.1 = {
 		death = yes
+		effect_even_if_dead = {
+			pam_canonize_saint_effect = {
+				CANONIZER = root 
+				CANDIDATE = root
+				CONSECRATION_PROVINCE = province:2610
+				PRESET = yes
+			}
+			religion:koreanism_religion = {
+				every_faith = {
+					limit = {
+						main_rite = {
+							is_rite_enabled = yes
+						}
+						NOT = { has_saint_character = root }	
+					}
+					add_saint = { character = root }
+				}
+			}
+		}
 	}
 }
 president_kor_historical_12 = {
@@ -175,5 +339,24 @@ president_kor_historical_12 = {
 	}
 	2100.1.1 = {
 		death = yes
+		effect_even_if_dead = {
+			pam_canonize_saint_effect = {
+				CANONIZER = root 
+				CANDIDATE = root
+				CONSECRATION_PROVINCE = province:797
+				PRESET = yes
+			}
+			religion:koreanism_religion = {
+				every_faith = {
+					limit = {
+						main_rite = {
+							is_rite_enabled = yes
+						}
+						NOT = { has_saint_character = root }	
+					}
+					add_saint = { character = root }
+				}
+			}
+		}
 	}
 }
