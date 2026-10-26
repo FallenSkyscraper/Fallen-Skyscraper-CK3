@@ -5,6 +5,8 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100134
+	trait = brave
+	trait = ambitious
 	1335.10.27 = {
 		birth = yes
 		give_nickname = nick_taejo
@@ -33,6 +35,10 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100101
+	trait = ambitious
+	trait = diligent
+	trait = just
+	trait = kinslayer_3
 	1367.6.13 = {
 		birth = yes
 	give_nickname = nick_taejong
@@ -47,6 +53,12 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100103
+	trait = education_learning_5
+	trait = intellect_good_3
+	trait = just
+	trait = diligent
+	trait = gluttnous
+	trait = erudite
 	1397.5.15 = {
 		birth = yes
 	give_nickname = nick_sejong_the_great
@@ -61,6 +73,8 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100104
+	trait = diligent
+	trait = brave
 	1414.11.15 = {
 		birth = yes
 	give_nickname = nick_munjong
@@ -89,6 +103,10 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100104
+	trait = kinslayer_3
+	trait = deceitful
+	trait = erudite
+	trait = shrewd
 	1417.11.2 = {
 		birth = yes
 	give_nickname = nick_sejo
@@ -187,6 +205,7 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100136
+	trait = paranoid
 	1552.11.26 = {
 		birth = yes
 	give_nickname = nick_seonjo
@@ -201,6 +220,10 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100114
+	trait = kinslayer_3 # 폐모살제
+	trait = lunatic_1
+	trait = paranoid
+	trait = architect
 	1575.6.4 = {
 		birth = yes
 	give_nickname = nick_gwanghaegun
@@ -215,6 +238,8 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100137
+	trait = kinslayer_2
+	trait = callous
 	1595.12.7 = {
 		birth = yes
 	give_nickname = nick_injo
@@ -276,7 +301,10 @@
 	give_nickname = nick_gyeongjong
 	}
 	1724.10.11 = {
-		death = yes
+		death = {
+			death_reason = death_poison # Gejang
+			killer = 100121
+		}
 	}
 }
 100121 = {
@@ -285,6 +313,8 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100119
+	trait = kinslayer_3 # 뒤주
+	trait = callous
 	1694.10.31 = {
 		birth = yes
 	give_nickname = nick_yeongjo
@@ -299,6 +329,7 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100141
+	trait = zealous
 	1752.10.28 = {
 		birth = yes
 	give_nickname = nick_jeongjo
@@ -341,12 +372,13 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100138
+	trait = drunkard
 	1831.7.25 = {
 		birth = yes
 	give_nickname = nick_cheoljong
 	}
 	1864.1.16 = {
-		death = yes
+		death = { death_reason = death_drinking_passive }
 	}
 }
 100126 = {
@@ -355,6 +387,8 @@
 	rite = daoxue
 	culture = old_korean
 	father = 100139
+	trait = ambitious
+	trait = arbitrary
 	1852.9.8 = {
 		birth = yes
 	give_nickname = nick_gojong
@@ -512,10 +546,13 @@
 	father = 100121
 	1735.2.13 = {
 		birth = yes
-	give_nickname = nick_crown_prince_sado
+		give_nickname = nick_crown_prince_sado
 	}
 	1762.7.12 = {
-		death = yes
+		death = {
+			death_reason = death_dungeon
+			killer = 100121
+		}
 	}
 }
 100142= {
