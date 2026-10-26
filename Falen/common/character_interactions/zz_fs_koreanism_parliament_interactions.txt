@@ -40,7 +40,7 @@ fs_appoint_parliament_member_interaction = {
 		scope:actor = { fs_koreanism_parliament_president_trigger = yes }
 		custom_tooltip = {
 			text = fs_parliament_candidate_tt
-			scope:recipient = { fs_koreanism_parliament_candidate_trigger = yes }
+			scope:recipient = { fs_koreanism_parliament_appointment_candidate_trigger = yes }
 		}
 		custom_tooltip = {
 			text = fs_parliament_vacancy_tt
@@ -61,7 +61,7 @@ fs_appoint_parliament_member_interaction = {
 		if = {
 			limit = {
 				scope:actor = { fs_koreanism_parliament_president_trigger = yes }
-				scope:recipient = { fs_koreanism_parliament_candidate_trigger = yes }
+				scope:recipient = { fs_koreanism_parliament_appointment_candidate_trigger = yes }
 				exists = scope:target
 				scope:target ?= { fs_koreanism_appointable_parliament_seat_trigger = yes }
 			}

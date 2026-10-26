@@ -55,6 +55,7 @@ fs_legislation_pending_doctrine_gui = {
 	saved_scopes = { doctrine }
 	is_shown = {
 		title:k_koreanism = {
+			fs_legislation_doctrine_law_trigger = yes
 			exists = var:fs_legislation_doctrine
 			var:fs_legislation_doctrine = scope:doctrine
 		}
@@ -323,3 +324,65 @@ fs_legislation_declare_martial_law_gui = {
 	}
 }
 
+# Read-only policy helpers also cover saves without an explicit initial policy.
+fs_legislation_dual_office_forbidden_gui = {
+	scope = character
+	is_shown = { fs_koreanism_parliament_dual_office_forbidden_trigger = yes }
+}
+
+fs_legislation_doctrine_law_gui = {
+	scope = character
+	is_shown = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes } }
+}
+
+fs_legislation_pending_dual_office_allowed_gui = {
+	scope = character
+	is_shown = {
+		title:k_koreanism = {
+			fs_legislation_dual_office_law_trigger = yes
+			var:fs_legislation_proposed_dual_office_policy = flag:allowed
+		}
+	}
+}
+
+fs_legislation_propose_dual_office_allowed_gui = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_DUAL_OFFICE_REQUIREMENTS_TT
+			fs_legislation_dual_office_proposal_valid_trigger = { POLICY = flag:allowed }
+		}
+	}
+	effect = {
+		if = {
+			limit = { fs_legislation_dual_office_proposal_valid_trigger = { POLICY = flag:allowed } }
+			fs_legislation_propose_dual_office_allowed_effect = yes
+		}
+	}
+}
+
+fs_legislation_pending_dual_office_forbidden_gui = {
+	scope = character
+	is_shown = {
+		title:k_koreanism = {
+			fs_legislation_dual_office_law_trigger = yes
+			var:fs_legislation_proposed_dual_office_policy = flag:forbidden
+		}
+	}
+}
+
+fs_legislation_propose_dual_office_forbidden_gui = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = FS_LEGISLATION_DUAL_OFFICE_REQUIREMENTS_TT
+			fs_legislation_dual_office_proposal_valid_trigger = { POLICY = flag:forbidden }
+		}
+	}
+	effect = {
+		if = {
+			limit = { fs_legislation_dual_office_proposal_valid_trigger = { POLICY = flag:forbidden } }
+			fs_legislation_propose_dual_office_forbidden_effect = yes
+		}
+	}
+}

@@ -474,6 +474,69 @@ protestant = {
 		WaterGodHerHim = CHARACTER_HERHIM_HIM
 	}
 }
+holy_spirit = {
+	main_rite = holy_spirit
+	faith_details = {
+		religion = christianity_religion
+		color = { 122 96 66 }
+		icon = holy_spirit
+		graphical_faith = "catholic_gfx"
+	}
+
+	origin = imperial_church
+
+	eminent_holy_sites = {
+
+	}
+
+	holy_sites = {
+
+	}
+
+	localization = { # Utilizes the 'West Christian' Saints, shared by Catholics and Orthodox
+		#FertilityGod
+		FertilityGodName = west_christian_fertility_god_name
+		FertilityGodNamePossessive = west_christian_fertility_god_name_possessive
+		FertilityGodSheHe = CHARACTER_SHEHE_SHE
+		FertilityGodHerHis = CHARACTER_HERHIS_HER
+		FertilityGodHerHim = CHARACTER_HERHIM_HER
+
+		#WealthGod
+		WealthGodName = west_christian_wealth_god_name
+		WealthGodNamePossessive = west_christian_wealth_god_name_possessive
+		WealthGodSheHe = CHARACTER_SHEHE_HE
+		WealthGodHerHis = CHARACTER_HERHIS_HIS
+		WealthGodHerHim = CHARACTER_HERHIM_HIM
+
+		#HouseholdGod
+		HouseholdGodName = west_christian_household_god_name
+		HouseholdGodNamePossessive = west_christian_household_god_name_possessive
+		HouseholdGodSheHe = CHARACTER_SHEHE_HE
+		HouseholdGodHerHis = CHARACTER_HERHIS_HIS
+		HouseholdGodHerHim = CHARACTER_HERHIM_HIM
+
+		#KnowledgeGod
+		KnowledgeGodName = west_christian_knowledge_god_name
+		KnowledgeGodNamePossessive = west_christian_knowledge_god_name_possessive
+		KnowledgeGodSheHe = CHARACTER_SHEHE_SHE
+		KnowledgeGodHerHis = CHARACTER_HERHIS_HER
+		KnowledgeGodHerHim = CHARACTER_HERHIM_HER
+
+		#WarGod
+		WarGodName = west_christian_war_god_name
+		WarGodNamePossessive = west_christian_war_god_name_possessive
+		WarGodSheHe = CHARACTER_SHEHE_HE
+		WarGodHerHis = CHARACTER_HERHIS_HIS
+		WarGodHerHim = CHARACTER_HERHIM_HIM
+
+		#WaterGod
+		WaterGodName = west_christian_water_god_name
+		WaterGodNamePossessive = west_christian_water_god_name_possessive
+		WaterGodSheHe = CHARACTER_SHEHE_HE
+		WaterGodHerHis = CHARACTER_HERHIS_HIS
+		WaterGodHerHim = CHARACTER_HERHIM_HIM
+	}
+}
 imperial_church = {
 	main_rite = jeonju_rite
 	faith_details = {
@@ -720,23 +783,23 @@ inmin_juche = {
 	}
 }
 
-haeseo_juche = {
-	main_rite = haeju_rite
-	faith_details = {
-		religion = juche_religion
-		color = { 229 156 162 }
-		icon = cat_Juche3
-		religious_head = e_north_korea
-	}
-	origin = juche_faith
-	eminent_holy_sites = {
-		pyongyang_default
-		hyesan_default_baekdusan
-	}
-	holy_sites = {
-		gaeseong_default
-	}
-}
+#haeseo_juche = {
+#	main_rite = haeju_rite
+#	faith_details = {
+#		religion = juche_religion
+#		color = { 229 156 162 }
+#		icon = cat_Juche3
+#		religious_head = e_north_korea
+#	}
+#	origin = juche_faith
+#	eminent_holy_sites = {
+#		pyongyang_default
+#		hyesan_default_baekdusan
+#	}
+#	holy_sites = {
+#		gaeseong_default
+#	}
+#}
 
 ### Communist ###
 marxism = { # Marxist-Leninist Branch

@@ -85,6 +85,30 @@ fs_legislation_doctrine_change_needed_trigger = {
 	}
 }
 
+# Title scope. Missing policy values retain the permissive pre-law behavior.
+# Comparing only the two supported flags also rejects malformed proposal payloads.
+fs_legislation_dual_office_policy_change_needed_trigger = {
+	this = title:k_koreanism
+	OR = {
+		AND = {
+			$POLICY$ = flag:allowed
+			fs_koreanism_parliament_dual_office_forbidden_trigger = yes
+		}
+		AND = {
+			$POLICY$ = flag:forbidden
+			NOT = { fs_koreanism_parliament_dual_office_forbidden_trigger = yes }
+		}
+	}
+}
+
+# Character scope. The GUI and public proposal effect share the same authority guard.
+fs_legislation_dual_office_proposal_valid_trigger = {
+	fs_legislation_can_propose_trigger = yes
+	title:k_koreanism = {
+		fs_legislation_dual_office_policy_change_needed_trigger = { POLICY = $POLICY$ }
+	}
+}
+
 # Character scope. Holding a permanent parliamentary title, not cardinal_flag, grants membership.
 fs_legislation_outcome_member_trigger = {
 	fs_legislation_member_trigger = yes

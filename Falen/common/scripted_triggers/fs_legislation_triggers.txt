@@ -25,6 +25,26 @@ fs_legislation_active_trigger = {
 	has_variable = fs_legislation_stage
 }
 
+# Title scope. Subject tags distinguish institutional law from doctrine payloads.
+fs_legislation_dual_office_law_trigger = {
+	this = title:k_koreanism
+	var:fs_legislation_kind = flag:law
+	var:fs_legislation_law_subject = flag:dual_office
+}
+
+# Old saves stored doctrine laws before subject tags were introduced.
+fs_legislation_doctrine_law_trigger = {
+	this = title:k_koreanism
+	var:fs_legislation_kind = flag:law
+	OR = {
+		var:fs_legislation_law_subject = flag:doctrine
+		AND = {
+			NOT = { has_variable = fs_legislation_law_subject }
+			exists = var:fs_legislation_doctrine
+		}
+	}
+}
+
 # Title scope. Each current holder has exactly one selected ballot seat.
 fs_legislation_valid_ballot_seat_trigger = {
 	fs_koreanism_parliament_seat_trigger = yes

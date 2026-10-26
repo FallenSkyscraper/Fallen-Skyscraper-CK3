@@ -119,7 +119,7 @@ fs_koreanism_parliament_request_valid_trigger = {
 	scope:puppet_or_actor = scope:actor
 	custom_tooltip = {
 		text = fs_parliament_candidate_tt
-		scope:actor = { fs_koreanism_parliament_candidate_trigger = yes }
+		scope:actor = { fs_koreanism_parliament_appointment_candidate_trigger = yes }
 	}
 	scope:recipient = { fs_koreanism_parliament_president_trigger = yes }
 	scope:actor = {
@@ -130,4 +130,45 @@ fs_koreanism_parliament_request_valid_trigger = {
 		text = fs_parliament_vacancy_tt
 		scope:actor = { fs_koreanism_has_proportional_vacancy_trigger = yes }
 	}
+}
+
+# Any scope. Older saves without an explicit policy retain the existing permission.
+fs_koreanism_parliament_dual_office_forbidden_trigger = {
+	title:k_koreanism = { var:fs_parliament_dual_office_policy = flag:forbidden }
+}
+
+# Character scope. Constitutional and Koreanism regional-office land is public property.
+# Other landed governments are covered, including clan, tribal and administrative rulers.
+fs_koreanism_parliament_secular_lord_trigger = {
+	is_landed = yes
+	NOR = {
+		has_government = koreanism_government
+		AND = {
+			faith = faith:koreanism_faith
+			any_held_title = { has_clerical_region = yes }
+		}
+	}
+}
+
+# Character scope. Elections keep the broader candidate trigger so lords may still stand.
+fs_koreanism_parliament_appointment_candidate_trigger = {
+	fs_koreanism_parliament_candidate_trigger = yes
+	custom_tooltip = {
+		text = fs_parliament_dual_office_appointment_allowed_tt
+		NAND = {
+			fs_koreanism_parliament_dual_office_forbidden_trigger = yes
+			fs_koreanism_parliament_secular_lord_trigger = yes
+		}
+	}
+}
+
+# Title scope. Exclude titles without claims, not offices barred only from buying claims.
+# Landless regional offices may receive explicit claims despite no_automatic_claims.
+fs_koreanism_parliament_entry_claimable_title_trigger = {
+	tier >= tier_county
+	is_head_of_faith = no
+	is_noble_family_title = no
+	is_mercenary_company = no
+	is_holy_order = no
+	NOT = { has_variable = adventurer_creation_reason }
 }

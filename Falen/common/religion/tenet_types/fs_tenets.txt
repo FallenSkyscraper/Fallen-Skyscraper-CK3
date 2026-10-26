@@ -340,7 +340,9 @@ tenet_communism_syncretism = { # 공산주의 포용주의
 			}
 		}
 	}
-
+	
+	divergence_multiplier = 1.5
+	
 	parameters = {
 		communism_syncretic_actor
 		unlock_voluntary_laampdom_faith
@@ -351,7 +353,9 @@ tenet_communism_syncretism = { # 공산주의 포용주의
 	}
 
 	traits = {
-		virtues = {}
+		virtues = {
+			peasant_leader = { weight = 15 scale = 1 }
+		}
 		sins = {}
 	}
 }

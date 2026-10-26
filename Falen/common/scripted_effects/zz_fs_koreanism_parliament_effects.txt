@@ -2,58 +2,109 @@
 fs_grant_koreanism_parliament_seat_effect = {
 	if = {
 		limit = {
-			fs_koreanism_parliament_candidate_trigger = yes
+			fs_koreanism_parliament_appointment_candidate_trigger = yes
 			exists = title:k_koreanism.holder
 			exists = $SEAT$
 			title:k_koreanism.holder ?= { fs_koreanism_parliament_president_trigger = yes }
 			$SEAT$ ?= { fs_koreanism_appointable_parliament_seat_trigger = yes }
 		}
-		fs_apply_koreanism_parliament_seat_effect = { SEAT = $SEAT$ }
+		fs_apply_koreanism_parliament_seat_effect = { SEAT = $SEAT$ ELECTED = no }
 	}
 }
 
-# Internal transfer shared by authorized appointments and elections.
-# Callers validate their own authority/reservation. Do not invoke directly from UI.
+# Character scope. Preserve the original primary heir before any government or title change.
+# Claims are granted on directly held, claimable titles, never on a vassal's domain.
+fs_protect_koreanism_parliament_entry_heir_effect = {
+	if = {
+		limit = {
+			is_landed = yes
+			exists = primary_heir
+			primary_heir = { is_alive = yes this != prev }
+		}
+		primary_heir = { save_scope_as = fs_parliament_previous_primary_heir }
+		every_held_title = {
+			limit = { fs_koreanism_parliament_entry_claimable_title_trigger = yes }
+			scope:fs_parliament_previous_primary_heir = { add_pressed_claim = prev }
+		}
+	}
+}
+
+# Internal transfer shared by authorized appointments and elections. ELECTED is yes/no.
+# Callers validate authority/reservation before entering. Only elections may abdicate a lord;
+# do not invoke directly from UI. Residence and activity are not rechecked after abdication.
 fs_apply_koreanism_parliament_seat_effect = {
 	if = {
 		limit = {
 			fs_koreanism_parliament_candidate_trigger = yes
 			exists = $SEAT$
 			$SEAT$ ?= { fs_koreanism_vacant_parliament_seat_trigger = yes }
+			OR = {
+				always = $ELECTED$
+				fs_koreanism_parliament_appointment_candidate_trigger = yes
+			}
 		}
 		save_scope_as = fs_parliament_recipient
-		save_scope_as = fs_parliament_government_base
-		# Elections do not depend on the president being available or consenting.
+		$SEAT$ = { save_scope_as = fs_parliament_seat }
+		fs_protect_koreanism_parliament_entry_heir_effect = yes
+		save_scope_value_as = { name = fs_parliament_entry_requires_abdication value = no }
 		if = {
-			limit = { exists = title:k_koreanism.holder }
-			title:k_koreanism.holder = { save_scope_as = fs_parliament_government_base }
+			limit = {
+				always = $ELECTED$
+				fs_koreanism_parliament_dual_office_forbidden_trigger = yes
+				fs_koreanism_parliament_secular_lord_trigger = yes
+			}
+			save_scope_value_as = { name = fs_parliament_entry_requires_abdication value = yes }
+			# Native deposition resolves each old title's succession, including partition.
+			# The saved winner preserves identity, not player control: native deposition
+			# may end a human ruler's game before the following parliamentary grant.
+			depose = yes
 		}
-		$SEAT$ = {
-			save_scope_as = fs_parliament_seat
+		scope:fs_parliament_recipient = {
 			if = {
 				limit = {
-					NOT = {
-						faith:koreanism_faith = {
-							any_clerical_elector_title = { this = scope:fs_parliament_seat }
-						}
+					fs_koreanism_parliament_candidate_trigger = yes
+					scope:fs_parliament_seat = { fs_koreanism_vacant_parliament_seat_trigger = yes }
+					OR = {
+						scope:fs_parliament_entry_requires_abdication = no
+						is_landed = no
 					}
 				}
-				add_clerical_elector = faith:koreanism_faith
+				save_scope_as = fs_parliament_government_base
+				# Elections do not depend on the president being available or consenting.
+				if = {
+					limit = { exists = title:k_koreanism.holder }
+					title:k_koreanism.holder = { save_scope_as = fs_parliament_government_base }
+				}
+				scope:fs_parliament_seat = {
+					if = {
+						limit = {
+							NOT = {
+								faith:koreanism_faith = {
+									any_clerical_elector_title = { this = scope:fs_parliament_seat }
+								}
+							}
+						}
+						add_clerical_elector = faith:koreanism_faith
+					}
+					create_title_and_vassal_change = {
+						type = granted
+						save_scope_as = fs_parliament_change
+						add_claim_on_loss = no
+					}
+					change_title_holder = {
+						holder = scope:fs_parliament_recipient
+						change = scope:fs_parliament_change
+						government_base = scope:fs_parliament_government_base
+					}
+					resolve_title_and_vassal_change = scope:fs_parliament_change
+				}
+				if = {
+					limit = { scope:fs_parliament_seat = { holder = scope:fs_parliament_recipient } }
+					add_character_flag = cardinal_flag
+					fs_ensure_koreanism_government_effect = yes
+				}
 			}
-			create_title_and_vassal_change = {
-				type = granted
-				save_scope_as = fs_parliament_change
-				add_claim_on_loss = no
-			}
-			change_title_holder = {
-				holder = scope:fs_parliament_recipient
-				change = scope:fs_parliament_change
-				government_base = scope:fs_parliament_government_base
-			}
-			resolve_title_and_vassal_change = scope:fs_parliament_change
 		}
-		add_character_flag = cardinal_flag
-		fs_ensure_koreanism_government_effect = yes
 	}
 }
 

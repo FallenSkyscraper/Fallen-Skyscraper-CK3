@@ -78,7 +78,18 @@ fs_legislation_execute_outcome_effect = {
 		set_variable = { name = fs_legislation_result value = flag:lapsed }
 		if = {
 			limit = {
-				var:fs_legislation_kind = flag:law
+				fs_legislation_dual_office_law_trigger = yes
+				has_variable = fs_legislation_proposed_dual_office_policy
+				fs_legislation_dual_office_policy_change_needed_trigger = { POLICY = var:fs_legislation_proposed_dual_office_policy }
+			}
+			# The law applies to future entries; current officeholders retain their titles.
+			set_variable = { name = fs_parliament_dual_office_policy value = var:fs_legislation_proposed_dual_office_policy }
+			set_variable = fs_legislation_outcome_applied
+			set_variable = { name = fs_legislation_result value = flag:enacted }
+		}
+		else_if = {
+			limit = {
+				fs_legislation_doctrine_law_trigger = yes
 				exists = var:fs_legislation_doctrine
 				exists = holder
 				fs_legislation_doctrine_change_needed_trigger = { DOCTRINE = var:fs_legislation_doctrine }

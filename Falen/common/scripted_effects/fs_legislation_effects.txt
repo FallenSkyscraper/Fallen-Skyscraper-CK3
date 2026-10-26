@@ -4,6 +4,11 @@ fs_legislation_initialize_effect = {
 		limit = { NOT = { has_variable = fs_legislation_serial } }
 		set_variable = { name = fs_legislation_serial value = 0 }
 	}
+	# Existing saves and new games both start permissive until parliament changes the law.
+	if = {
+		limit = { NOT = { has_variable = fs_parliament_dual_office_policy } }
+		set_variable = { name = fs_parliament_dual_office_policy value = flag:allowed }
+	}
 	if = {
 		limit = {
 			NOT = { any_in_global_list = { variable = fs_koreanism_parliament_seats always = yes } }
@@ -130,6 +135,14 @@ fs_legislation_schedule_phase_effect = {
 	trigger_event = { on_action = fs_legislation_timeout days = $DAYS$ }
 }
 
+# Clear a finished proposal only after its replacement has passed all public guards.
+fs_legislation_clear_proposal_payload_effect = {
+	remove_variable = fs_legislation_target
+	remove_variable = fs_legislation_doctrine
+	remove_variable = fs_legislation_law_subject
+	remove_variable = fs_legislation_proposed_dual_office_policy
+}
+
 fs_legislation_begin_effect = {
 	change_variable = { name = fs_legislation_serial add = 1 }
 	set_variable = { name = fs_legislation_kind value = flag:$KIND$ }
@@ -243,11 +256,35 @@ fs_legislation_propose_law_effect = {
 		}
 		save_scope_as = fs_legislation_actor
 		title:k_koreanism = {
+			fs_legislation_clear_proposal_payload_effect = yes
+			set_variable = { name = fs_legislation_law_subject value = flag:doctrine }
 			set_variable = { name = fs_legislation_doctrine value = scope:doctrine }
-			remove_variable = fs_legislation_target
 			fs_legislation_begin_effect = { KIND = law }
 		}
 	}
+}
+
+# Character scope. Institutional laws use the same debate, vote and presidential review.
+fs_legislation_propose_dual_office_effect = {
+	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
+	if = {
+		limit = { fs_legislation_dual_office_proposal_valid_trigger = { POLICY = $POLICY$ } }
+		save_scope_as = fs_legislation_actor
+		title:k_koreanism = {
+			fs_legislation_clear_proposal_payload_effect = yes
+			set_variable = { name = fs_legislation_law_subject value = flag:dual_office }
+			set_variable = { name = fs_legislation_proposed_dual_office_policy value = $POLICY$ }
+			fs_legislation_begin_effect = { KIND = law }
+		}
+	}
+}
+
+fs_legislation_propose_dual_office_allowed_effect = {
+	fs_legislation_propose_dual_office_effect = { POLICY = flag:allowed }
+}
+
+fs_legislation_propose_dual_office_forbidden_effect = {
+	fs_legislation_propose_dual_office_effect = { POLICY = flag:forbidden }
 }
 
 fs_legislation_propose_impeachment_effect = {
@@ -261,8 +298,8 @@ fs_legislation_propose_impeachment_effect = {
 		}
 		save_scope_as = fs_legislation_actor
 		title:k_koreanism = {
+			fs_legislation_clear_proposal_payload_effect = yes
 			set_variable = { name = fs_legislation_target value = holder }
-			remove_variable = fs_legislation_doctrine
 			fs_legislation_begin_effect = { KIND = impeachment }
 		}
 	}
@@ -274,8 +311,7 @@ fs_legislation_propose_lift_martial_law_effect = {
 		limit = { fs_legislation_can_propose_trigger = yes title:k_koreanism = { has_variable = fs_legislation_martial_law } }
 		save_scope_as = fs_legislation_actor
 		title:k_koreanism = {
-			remove_variable = fs_legislation_target
-			remove_variable = fs_legislation_doctrine
+			fs_legislation_clear_proposal_payload_effect = yes
 			fs_legislation_begin_effect = { KIND = lift_martial_law }
 		}
 	}
@@ -292,8 +328,8 @@ fs_legislation_propose_member_motion_effect = {
 		}
 		save_scope_as = fs_legislation_actor
 		title:k_koreanism = {
+			fs_legislation_clear_proposal_payload_effect = yes
 			set_variable = { name = fs_legislation_target value = scope:target }
-			remove_variable = fs_legislation_doctrine
 			fs_legislation_begin_effect = { KIND = $KIND$ }
 		}
 	}
@@ -383,6 +419,14 @@ fs_legislation_ai_proposal_effect = {
 					10 = { doctrine:doctrine_pluralism_fundamentalist = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
 					10 = { doctrine:doctrine_pluralism_righteous = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
 					10 = { doctrine:doctrine_pluralism_pluralistic = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
+					10 = {
+						trigger = { fs_legislation_dual_office_proposal_valid_trigger = { POLICY = flag:allowed } }
+						fs_legislation_propose_dual_office_allowed_effect = yes
+					}
+					10 = {
+						trigger = { fs_legislation_dual_office_proposal_valid_trigger = { POLICY = flag:forbidden } }
+						fs_legislation_propose_dual_office_forbidden_effect = yes
+					}
 				}
 			}
 			10 = {
@@ -539,6 +583,24 @@ fs_legislation_send_notice_effect = {
 		else_if = {
 			limit = { title:k_koreanism = { var:fs_legislation_kind = flag:expulsion } }
 			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = expulsion SUCCESS = expelled }
+		}
+		else_if = {
+			limit = {
+				title:k_koreanism = {
+					fs_legislation_dual_office_law_trigger = yes
+					var:fs_legislation_proposed_dual_office_policy = flag:allowed
+				}
+			}
+			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = dual_office_allowed SUCCESS = enacted }
+		}
+		else_if = {
+			limit = {
+				title:k_koreanism = {
+					fs_legislation_dual_office_law_trigger = yes
+					var:fs_legislation_proposed_dual_office_policy = flag:forbidden
+				}
+			}
+			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = dual_office_forbidden SUCCESS = enacted }
 		}
 		else = {
 			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = law SUCCESS = enacted }

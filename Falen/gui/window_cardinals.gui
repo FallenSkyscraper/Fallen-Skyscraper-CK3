@@ -1511,6 +1511,8 @@ types CardinalWindow
 
 					text_multi = { text = "FS_LEGISLATION_TITLE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
 					text_multi = { text = "FS_LEGISLATION_PROCEDURE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#weak" }
+					text_multi = { text = "FS_LEGISLATION_DUAL_OFFICE_CURRENT_ALLOWED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[Not( GetScriptedGui( 'fs_legislation_dual_office_forbidden_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" }
+					text_multi = { text = "FS_LEGISLATION_DUAL_OFFICE_CURRENT_FORBIDDEN" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_dual_office_forbidden_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" }
 					text_multi = { text = "FS_LEGISLATION_READ_ONLY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[Not( GetScriptedGui( 'fs_legislation_participant_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" default_format = "#weak" }
 					text_multi = { text = "FS_LEGISLATION_MARTIAL_ACTIVE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_martial_law' ).IsSet]" default_format = "#warning" }
 					button_standard = {
@@ -1530,7 +1532,9 @@ types CardinalWindow
 						spacing = 5
 						visible = "[GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_stage' ).IsSet]"
 						text_multi = { text = "FS_LEGISLATION_CURRENT" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
-						text_multi = { text = "FS_LEGISLATION_KIND_LAW" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_kind' ).GetFlagName, 'law' )]" default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_KIND_LAW" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_doctrine_law_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_KIND_DUAL_OFFICE_ALLOWED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_pending_dual_office_allowed_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_KIND_DUAL_OFFICE_FORBIDDEN" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_pending_dual_office_forbidden_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" default_format = "#high" }
 						text_multi = { text = "FS_LEGISLATION_KIND_IMPEACHMENT" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_kind' ).GetFlagName, 'impeachment' )]" default_format = "#high" }
 						text_multi = { text = "FS_LEGISLATION_KIND_LIFT_MARTIAL_LAW" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_kind' ).GetFlagName, 'lift_martial_law' )]" default_format = "#high" }
 						text_multi = { text = "FS_LEGISLATION_KIND_CENSURE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_kind' ).GetFlagName, 'censure' )]" default_format = "#high" }
@@ -1711,6 +1715,31 @@ types CardinalWindow
 								using = tooltip_se
 
 						} }
+						text_multi = { text = "FS_LEGISLATION_DUAL_OFFICE_TITLE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_DUAL_OFFICE_HINT" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#weak" }
+						hbox = {
+							spacing = 6
+							button_standard = {
+								name = "fs_legislation_propose_dual_office_allowed_button"
+								datacontext = "[GetScriptedGui( 'fs_legislation_propose_dual_office_allowed_gui' )]"
+								size = { 244 34 }
+								text = "FS_LEGISLATION_PROPOSE_DUAL_OFFICE_ALLOWED"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								using = tooltip_se
+							}
+							button_standard = {
+								name = "fs_legislation_propose_dual_office_forbidden_button"
+								datacontext = "[GetScriptedGui( 'fs_legislation_propose_dual_office_forbidden_gui' )]"
+								size = { 244 34 }
+								text = "FS_LEGISLATION_PROPOSE_DUAL_OFFICE_FORBIDDEN"
+								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+								using = tooltip_se
+							}
+						}
 						hbox = {
 							spacing = 6
 							button_standard = {
@@ -1743,7 +1772,9 @@ types CardinalWindow
 						spacing = 4
 						visible = "[GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).IsSet]"
 						text_multi = { text = "FS_LEGISLATION_LAST_RESULT" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
-						text_multi = { text = "FS_LEGISLATION_RESULT_ENACTED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'enacted' )]" }
+						text_multi = { text = "FS_LEGISLATION_RESULT_ENACTED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[And( ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'enacted' ), GetScriptedGui( 'fs_legislation_doctrine_law_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" }
+						text_multi = { text = "FS_LEGISLATION_RESULT_DUAL_OFFICE_ALLOWED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[And( ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'enacted' ), GetScriptedGui( 'fs_legislation_pending_dual_office_allowed_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" }
+						text_multi = { text = "FS_LEGISLATION_RESULT_DUAL_OFFICE_FORBIDDEN" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[And( ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'enacted' ), GetScriptedGui( 'fs_legislation_pending_dual_office_forbidden_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" }
 						text_multi = { text = "FS_LEGISLATION_RESULT_REJECTED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'rejected' )]" }
 						text_multi = { text = "FS_LEGISLATION_RESULT_IMPEACHED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'impeached' )]" }
 						text_multi = { text = "FS_LEGISLATION_RESULT_MARTIAL_LAW_LIFTED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'martial_law_lifted' )]" }

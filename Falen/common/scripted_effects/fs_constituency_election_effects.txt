@@ -342,7 +342,7 @@ fs_elect_koreanism_constituency_member_effect = {
 				var:fs_constituency_election_activity = $ACTIVITY$
 			}
 		}
-		fs_apply_koreanism_parliament_seat_effect = { SEAT = $SEAT$ }
+		fs_apply_koreanism_parliament_seat_effect = { SEAT = $SEAT$ ELECTED = yes }
 	}
 }
 
@@ -406,10 +406,13 @@ fs_constituency_finalize_effect = {
 						SEAT = scope:activity.var:fs_constituency_seat
 						ACTIVITY = scope:activity
 					}
-					send_interface_toast = {
-						title = activity_intent_complete_toast
-						left_icon = scope:fs_constituency_winner
-						complete_activity_intent = yes
+					if = {
+						limit = { scope:activity.var:fs_constituency_seat = { holder = scope:fs_constituency_winner } }
+						send_interface_toast = {
+							title = activity_intent_complete_toast
+							left_icon = scope:fs_constituency_winner
+							complete_activity_intent = yes
+						}
 					}
 				}
 				if = {

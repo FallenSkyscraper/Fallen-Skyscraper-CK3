@@ -9,16 +9,16 @@
 # Nightglow*											#
 # Orthodox: Hamheung Rite, Primorskiy Rite				#
 # Protestant: Presbyterianism, Lutheran, Anglican,		#
-# Methodist, Baptist, Holy Spirit, Minjung				#
+# Methodist, Baptist, Minjung							#
+# Holy Spirit*											#
 # Imperial Church: Imperial Church(Jeonju Rite), Holyist#
 # Muttahida*											#
 # Eternal Kingdom: Eternal Kingdom, Doom Completed		#
-# Koreanism: Old Koreanism, Populism, Authoritarianism	#
-# Seoulism*												#
-# Sixth Republic*										#
-# Juche: Paektu Rite, Kaema Rite						#
+# Koreanism: Old Koreanism, Populism, Authoritarianism, #
+# Jajuism(Sovereigntism)								#
+# Seoulism*	,Sixth Republic*							#
+# Juche: Paektu Rite, Kaema Rite, Haeju Rite			#
 # Inmin Juche*											#
-# Haeseo Juche: Haeju Rite								#
 # Marxism-Leninism: Anti-Revisionism, Internationalism, #
 # Reformism, Marxism-Leninism-Maoism, New Left			#
 # Maoism: Maoism, Socialism with Chinese characteristics#
@@ -279,16 +279,8 @@ hamheung_rite = {
 	icon = cat_orthodox1
 	tenets = {
 		tenet_pentarchy
-	}
-	tenet_selection_pair = {
-		requires_dlc_flag = by_god_alone
-		tenet = tenet_celestial_hierarchy
-		fallback_tenet = tenet_communion
-	}
-	tenet_selection_pair = {
-		requires_dlc_flag = by_god_alone
-		tenet = tenet_divine_liturgy
-		fallback_tenet = tenet_communal_identity
+		tenet_communal_identity
+		tenet_adaptive
 	}
 	doctrines = {
 		special_doctrine_is_eastern_christian_faith
@@ -556,16 +548,12 @@ old_koreanism = {
 	icon = koreanism
 	tenets = {
 		tenet_philosophy_of_hate
+		tenet_unrelenting_faith
 	}
 	tenet_selection_pair = {
 		requires_dlc_flag = all_under_heaven
 		tenet = tenet_filial_piety
 		fallback_tenet = tenet_communal_identity
-	}
-	tenet_selection_pair = {
-		requires_dlc_flag = all_under_heaven
-		tenet = tenet_pursuit_of_knowledge
-		fallback_tenet = tenet_literalism
 	}
 	doctrines = {
 		doctrine_no_head
@@ -585,7 +573,7 @@ old_koreanism = {
 		doctrine_clerical_function_taxation
 		doctrine_clerical_gender_either
 		doctrine_clerical_marriage_allowed
-		doctrine_clerical_succession_temporal_appointment
+		doctrine_clerical_succession_temporal_fixed_appointment
 		religion_policy_freedom_of_religion
 	}
 }
@@ -631,8 +619,8 @@ authoritarianism = {
 	}
 	doctrines = {
 		doctrine_spiritual_head
-		doctrine_gender_male_dominated
-		doctrine_pluralism_fundamentalist
+		doctrine_gender_equal
+		doctrine_pluralism_righteous
 		doctrine_theocracy_temporal
 		doctrine_monogamy
 		doctrine_divorce_approval
@@ -650,6 +638,42 @@ authoritarianism = {
 		doctrine_clerical_succession_temporal_fixed_appointment
 	}
 }
+jajuism = {
+	faith = koreanism_faith
+	color = { 0 17 255 }
+	icon = cat_taegeuk2
+	tenets = {
+		tenet_communal_identity
+		tenet_communism_syncretism
+		tenet_unrelenting_faith
+	}
+	doctrines = {
+		doctrine_spiritual_head
+		doctrine_gender_equal
+		doctrine_pluralism_pluralistic
+		doctrine_theocracy_temporal
+		doctrine_monogamy
+		doctrine_divorce_allowed
+		doctrine_bastardry_none
+		doctrine_consanguinity_restricted
+		doctrine_homosexuality_accepted
+		doctrine_adultery_men_shunned
+		doctrine_adultery_women_shunned
+		doctrine_kinslaying_close_kin_crime
+		doctrine_deviancy_shunned
+		doctrine_witchcraft_shunned
+		doctrine_clerical_function_alms_and_pacification
+		doctrine_clerical_gender_either
+		doctrine_clerical_marriage_allowed
+		doctrine_clerical_succession_temporal_fixed_appointment
+	}
+	localization = {
+		DevilName = jajuism_devil_name
+		DevilNamePossessive = jajuism_devil_name_possessive
+		NegativeAfterLife = jajuism_negative_afterlife
+		WitchGodName = jajuism_witchgodname_the_horned_god
+	}
+}
 seoulism = {
 	faith = seoulism
 	color = { 66 72 195 }
@@ -662,7 +686,7 @@ seoulism = {
 	doctrines = {
 		doctrine_no_head
 		doctrine_gender_equal
-		doctrine_pluralism_fundamentalist
+		doctrine_pluralism_righteous
 		doctrine_theocracy_lay_clergy
 		doctrine_monogamy
 		doctrine_divorce_allowed
@@ -803,7 +827,7 @@ inmin_juche = {
 	}
 }
 haeju_rite = {
-	faith = haeseo_juche
+	faith = juche_faith
 	color = { 229 156 162 }
 	icon = cat_Juche3
 	tenets = {

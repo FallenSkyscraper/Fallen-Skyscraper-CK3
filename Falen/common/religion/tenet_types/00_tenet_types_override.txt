@@ -1,0 +1,67 @@
+﻿# Pursuit of Power
+tenet_pursuit_of_power = {
+	icon = tenet_pursuit_of_power
+
+	piety_cost = {
+		if = {
+			limit = {
+				OR = {
+					rite_has_doctrine = pagan_hostility_doctrine
+					rite_religion_tag = hinduism_religion
+					rite_religion_tag = islam_religion
+				}
+			}
+			value = faith_tenet_cost_mid
+		}
+		else_if = {
+			limit = {
+				rite_religion_tag = judaism_religion
+
+			}
+			value = faith_tenet_cost_high
+		}
+		else = {
+			value = faith_tenet_cost_massive
+		}
+
+		# Multiplier for keeping same tenet
+		if = {
+			limit = { rite_has_tenet = tenet_pursuit_of_power }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		NOT = { has_trait = content }
+	}
+
+	parameters = {
+		conquest_cb_enabled
+		invasion_cb_enabled
+		sanctify_artifacts_regal
+	}
+
+	#divergence_multiplier = 5
+
+	character_modifier = {
+		title_creation_cost_mult = -0.5
+		tyranny_gain_mult = -0.5
+		direct_vassal_opinion = -10
+	}
+
+	personal_tenet_parameters = {
+		tenet_pursuit_of_power_war_victory_fulfillment
+		tenet_pursuit_of_power_become_conqueror
+	}
+
+	traits = {
+		virtues = { 
+			ambitious = { weight = 20 scale = 1 }
+			disloyal = { weight = 15 scale = 1 }
+		}
+		sins = { 
+			content = { weight = 20 scale = 1 }
+			loyal = { weight = 15 scale = 1 }
+		}
+	}
+}
