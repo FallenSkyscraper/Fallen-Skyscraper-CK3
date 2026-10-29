@@ -114,11 +114,11 @@ fs_legislation_cast_ai_ballot_effect = {
 			any_held_title = { fs_legislation_valid_ballot_seat_trigger = yes }
 		}
 		if = {
-			limit = { fs_legislation_support_score_value > 5 }
+			limit = { fs_legislation_support_score_value > fs_legislation_ai_ballot_threshold }
 			var:fs_legislation_ballot_seat = { set_variable = { name = fs_legislation_ballot value = 1 } }
 		}
 		else_if = {
-			limit = { fs_legislation_support_score_value < -5 }
+			limit = { fs_legislation_support_score_value < fs_legislation_ai_opposition_threshold_value }
 			var:fs_legislation_ballot_seat = { set_variable = { name = fs_legislation_ballot value = -1 } }
 		}
 		else = { var:fs_legislation_ballot_seat = { set_variable = { name = fs_legislation_ballot value = 0 } } }
@@ -184,6 +184,27 @@ fs_legislation_finish_effect = {
 	remove_variable = fs_legislation_deadline
 	remove_variable = fs_legislation_enactment_authorized
 	set_variable = { name = fs_legislation_ai_proposal_cooldown value = yes days = fs_legislation_ai_proposal_days }
+	# Locks apply after every law result, including rejection, and survive save/load on the title.
+	# They restrict AI only; neither human counterproposals nor procedural motions are blocked.
+	if = {
+		limit = { var:fs_legislation_kind = flag:law }
+		set_variable = { name = fs_legislation_ai_law_cooldown value = yes days = fs_legislation_ai_law_cooldown_days }
+		if = {
+			limit = { fs_legislation_dual_office_law_trigger = yes }
+			set_variable = { name = fs_legislation_ai_dual_office_cooldown value = yes days = fs_legislation_ai_institution_topic_cooldown_days }
+		}
+		else_if = {
+			limit = { fs_legislation_doctrine_law_trigger = yes exists = var:fs_legislation_doctrine }
+			if = {
+				limit = { var:fs_legislation_doctrine = { fs_legislation_religion_policy_doctrine_trigger = yes } }
+				set_variable = { name = fs_legislation_ai_religion_policy_cooldown value = yes days = fs_legislation_ai_doctrine_topic_cooldown_days }
+			}
+			else_if = {
+				limit = { var:fs_legislation_doctrine = { fs_legislation_tolerance_doctrine_trigger = yes } }
+				set_variable = { name = fs_legislation_ai_tolerance_cooldown value = yes days = fs_legislation_ai_doctrine_topic_cooldown_days }
+			}
+		}
+	}
 	# Keep the proposal payload, last counts and result for the history panel.
 	fs_legislation_notify_effect = { MESSAGE = FS_LEGISLATION_NOTICE_RESULT }
 }
@@ -250,10 +271,9 @@ fs_legislation_propose_law_effect = {
 	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
 	if = {
 		limit = {
-			fs_legislation_can_propose_trigger = yes
-			fs_legislation_doctrine_change_valid_trigger = yes
-			title:k_koreanism = { fs_legislation_doctrine_change_needed_trigger = { DOCTRINE = scope:doctrine } }
+			fs_legislation_doctrine_proposal_valid_trigger = yes
 		}
+		add_piety = { value = fs_legislation_law_piety_cost multiply = -1 }
 		save_scope_as = fs_legislation_actor
 		title:k_koreanism = {
 			fs_legislation_clear_proposal_payload_effect = yes
@@ -269,6 +289,7 @@ fs_legislation_propose_dual_office_effect = {
 	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
 	if = {
 		limit = { fs_legislation_dual_office_proposal_valid_trigger = { POLICY = $POLICY$ } }
+		add_piety = { value = fs_legislation_law_piety_cost multiply = -1 }
 		save_scope_as = fs_legislation_actor
 		title:k_koreanism = {
 			fs_legislation_clear_proposal_payload_effect = yes
@@ -403,32 +424,70 @@ fs_legislation_veto_effect = {
 	}
 }
 
-# The monthly opportunity chooses an individual actor and an individual target.
-# Both proposal checks and the later roll call remain independent of party affinity.
+# Six-month opportunities choose individual actors. Law candidates are filtered BEFORE selection:
+# valid payload, affordable cost + reserve, title/topic cooldowns and a material preference gain.
+# Relative agenda weights stay 70 laws / 10 impeachment / 10 emergency / 10 member motions.
+# Candidates within a law field share weight only AFTER passing the same substantive threshold.
+# If no law is eligible, the 70-weight branch does nothing rather than inflating punitive motions.
+# Numerical preferences and timing knobs live in fs_legislation_values.txt.
 fs_legislation_ai_proposal_effect = {
 	if = {
 		limit = { is_ai = yes fs_legislation_can_propose_trigger = yes }
 		random_list = {
 			70 = {
 				random_list = {
-					10 = { doctrine:religion_policy_ultranationalism = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
-					10 = { doctrine:religion_policy_state_atheism = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
-					10 = { doctrine:religion_policy_laicite = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
-					10 = { doctrine:religion_policy_freedom_of_religion = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
-					10 = { doctrine:religion_policy_pluralism = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
-					10 = { doctrine:doctrine_pluralism_fundamentalist = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
-					10 = { doctrine:doctrine_pluralism_righteous = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
-					10 = { doctrine:doctrine_pluralism_pluralistic = { save_scope_as = doctrine } fs_legislation_propose_law_effect = yes }
 					10 = {
-						trigger = { fs_legislation_dual_office_proposal_valid_trigger = { POLICY = flag:allowed } }
+						trigger = { fs_legislation_ai_doctrine_proposal_trigger = { DOCTRINE = doctrine:religion_policy_ultranationalism PREFERENCE = fs_legislation_ai_religion_policy_ultranationalism_preference_value THRESHOLD = fs_legislation_ai_religion_policy_proposal_threshold_value TOPIC_COOLDOWN = fs_legislation_ai_religion_policy_cooldown } }
+						doctrine:religion_policy_ultranationalism = { save_scope_as = doctrine }
+						fs_legislation_propose_law_effect = yes
+					}
+					10 = {
+						trigger = { fs_legislation_ai_doctrine_proposal_trigger = { DOCTRINE = doctrine:religion_policy_state_atheism PREFERENCE = fs_legislation_ai_religion_policy_state_atheism_preference_value THRESHOLD = fs_legislation_ai_religion_policy_proposal_threshold_value TOPIC_COOLDOWN = fs_legislation_ai_religion_policy_cooldown } }
+						doctrine:religion_policy_state_atheism = { save_scope_as = doctrine }
+						fs_legislation_propose_law_effect = yes
+					}
+					10 = {
+						trigger = { fs_legislation_ai_doctrine_proposal_trigger = { DOCTRINE = doctrine:religion_policy_laicite PREFERENCE = fs_legislation_ai_religion_policy_laicite_preference_value THRESHOLD = fs_legislation_ai_religion_policy_proposal_threshold_value TOPIC_COOLDOWN = fs_legislation_ai_religion_policy_cooldown } }
+						doctrine:religion_policy_laicite = { save_scope_as = doctrine }
+						fs_legislation_propose_law_effect = yes
+					}
+					10 = {
+						trigger = { fs_legislation_ai_doctrine_proposal_trigger = { DOCTRINE = doctrine:religion_policy_freedom_of_religion PREFERENCE = fs_legislation_ai_religion_policy_freedom_of_religion_preference_value THRESHOLD = fs_legislation_ai_religion_policy_proposal_threshold_value TOPIC_COOLDOWN = fs_legislation_ai_religion_policy_cooldown } }
+						doctrine:religion_policy_freedom_of_religion = { save_scope_as = doctrine }
+						fs_legislation_propose_law_effect = yes
+					}
+					10 = {
+						trigger = { fs_legislation_ai_doctrine_proposal_trigger = { DOCTRINE = doctrine:religion_policy_pluralism PREFERENCE = fs_legislation_ai_religion_policy_pluralism_preference_value THRESHOLD = fs_legislation_ai_religion_policy_proposal_threshold_value TOPIC_COOLDOWN = fs_legislation_ai_religion_policy_cooldown } }
+						doctrine:religion_policy_pluralism = { save_scope_as = doctrine }
+						fs_legislation_propose_law_effect = yes
+					}
+					10 = {
+						trigger = { fs_legislation_ai_doctrine_proposal_trigger = { DOCTRINE = doctrine:doctrine_pluralism_fundamentalist PREFERENCE = fs_legislation_ai_doctrine_pluralism_fundamentalist_preference_value THRESHOLD = fs_legislation_ai_tolerance_proposal_threshold_value TOPIC_COOLDOWN = fs_legislation_ai_tolerance_cooldown } }
+						doctrine:doctrine_pluralism_fundamentalist = { save_scope_as = doctrine }
+						fs_legislation_propose_law_effect = yes
+					}
+					10 = {
+						trigger = { fs_legislation_ai_doctrine_proposal_trigger = { DOCTRINE = doctrine:doctrine_pluralism_righteous PREFERENCE = fs_legislation_ai_doctrine_pluralism_righteous_preference_value THRESHOLD = fs_legislation_ai_tolerance_proposal_threshold_value TOPIC_COOLDOWN = fs_legislation_ai_tolerance_cooldown } }
+						doctrine:doctrine_pluralism_righteous = { save_scope_as = doctrine }
+						fs_legislation_propose_law_effect = yes
+					}
+					10 = {
+						trigger = { fs_legislation_ai_doctrine_proposal_trigger = { DOCTRINE = doctrine:doctrine_pluralism_pluralistic PREFERENCE = fs_legislation_ai_doctrine_pluralism_pluralistic_preference_value THRESHOLD = fs_legislation_ai_tolerance_proposal_threshold_value TOPIC_COOLDOWN = fs_legislation_ai_tolerance_cooldown } }
+						doctrine:doctrine_pluralism_pluralistic = { save_scope_as = doctrine }
+						fs_legislation_propose_law_effect = yes
+					}
+					10 = {
+						trigger = { fs_legislation_ai_dual_office_proposal_trigger = { POLICY = flag:allowed PREFERENCE = fs_legislation_ai_dual_office_allowed_preference_value } }
 						fs_legislation_propose_dual_office_allowed_effect = yes
 					}
 					10 = {
-						trigger = { fs_legislation_dual_office_proposal_valid_trigger = { POLICY = flag:forbidden } }
+						trigger = { fs_legislation_ai_dual_office_proposal_trigger = { POLICY = flag:forbidden PREFERENCE = fs_legislation_ai_dual_office_forbidden_preference_value } }
 						fs_legislation_propose_dual_office_forbidden_effect = yes
 					}
 				}
 			}
+			# Impeachment: rivalry, opinion below -35, or a just MP confronting an election offender.
+			# Different rite and ambition each multiply agenda weight by 1.5; neither alone permits it.
 			10 = {
 				trigger = {
 					fs_legislation_member_trigger = yes
@@ -443,10 +502,13 @@ fs_legislation_ai_proposal_effect = {
 				modifier = { factor = 1.5 has_trait = ambitious }
 				fs_legislation_propose_impeachment_effect = yes
 			}
+			# Emergency repeal is eligible only during an actual parliamentary emergency.
 			10 = {
 				trigger = { title:k_koreanism = { has_variable = fs_legislation_martial_law } }
 				fs_legislation_propose_lift_martial_law_effect = yes
 			}
+			# Member targets are filtered in target scope: rivalry or target opinion of actor below -25.
+			# Existing severity lottery: 75 censure / 25 expulsion; a random other member is never enough.
 			10 = {
 				save_scope_as = fs_legislation_ai_actor
 				title:k_koreanism = {
@@ -480,7 +542,10 @@ fs_legislation_ai_daily_effect = {
 		if = {
 			limit = {
 				OR = { var:fs_legislation_stage = flag:debate var:fs_legislation_stage = flag:vote var:fs_legislation_stage = flag:revote }
+				NOT = { has_variable = fs_legislation_ai_lobby_check_cooldown }
 			}
+			# One AI lobbying attempt per week. Neutral assessments do not campaign.
+			set_variable = { name = fs_legislation_ai_lobby_check_cooldown value = yes days = fs_legislation_ai_lobby_interval_days }
 			random_in_list = {
 				variable = fs_legislation_voters
 				limit = {
@@ -495,8 +560,8 @@ fs_legislation_ai_daily_effect = {
 						limit = { this != scope:fs_legislation_ai_actor fs_legislation_voting_capacity_trigger = yes }
 						save_scope_as = target
 						scope:fs_legislation_ai_actor = {
-							if = { limit = { fs_legislation_support_score_value > 0 } fs_legislation_lobby_yes_effect = yes }
-							else = { fs_legislation_lobby_no_effect = yes }
+							if = { limit = { fs_legislation_base_support_score_value > fs_legislation_ai_ballot_threshold } fs_legislation_lobby_yes_effect = yes }
+							else_if = { limit = { fs_legislation_base_support_score_value < fs_legislation_ai_opposition_threshold_value } fs_legislation_lobby_no_effect = yes }
 						}
 					}
 				}
@@ -508,6 +573,8 @@ fs_legislation_ai_daily_effect = {
 				fs_legislation_days_left_value <= 23
 				holder ?= { is_ai = yes fs_legislation_promulgation_valid_trigger = yes }
 			}
+			# After seven days of presidential review, a negative score causes the single veto;
+			# zero or positive support leads to promulgation. This uses the same policy assessment.
 			holder = {
 				if = { limit = { fs_legislation_support_score_value < 0 fs_legislation_veto_valid_trigger = yes } fs_legislation_veto_effect = yes }
 				else = { fs_legislation_promulgate_effect = yes }

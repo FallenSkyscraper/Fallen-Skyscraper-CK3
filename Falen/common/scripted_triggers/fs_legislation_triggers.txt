@@ -74,6 +74,34 @@ fs_legislation_can_propose_trigger = {
 	NOT = { title:k_koreanism = { fs_legislation_active_trigger = yes } }
 }
 
+# Character scope. Costs belong only to ordinary law amendments, not procedural motions.
+# Public effects call this guard too, preventing bypasses through non-GUI callers.
+fs_legislation_can_propose_law_trigger = {
+	fs_legislation_can_propose_trigger = yes
+	custom_tooltip = {
+		text = FS_LEGISLATION_LAW_PIETY_REQUIREMENTS_TT
+		piety >= fs_legislation_law_piety_cost
+	}
+}
+
+# Existing territorial interests survive government conversion; MP/local public offices alone do not count.
+fs_legislation_ai_has_territorial_interest_trigger = {
+	any_held_title = {
+		tier >= tier_county
+		is_landless_type_title = no
+		has_clerical_region = no
+		is_head_of_faith = no
+	}
+}
+
+# AI-only restrictions. Humans may respond immediately, including to an AI amendment.
+fs_legislation_ai_law_proposal_trigger = {
+	is_ai = yes
+	fs_legislation_can_propose_law_trigger = yes
+	piety >= fs_legislation_ai_law_minimum_piety_value
+	title:k_koreanism = { NOT = { has_variable = fs_legislation_ai_law_cooldown } }
+}
+
 fs_legislation_has_ballot_trigger = {
 	fs_legislation_member_trigger = yes
 	any_held_title = {

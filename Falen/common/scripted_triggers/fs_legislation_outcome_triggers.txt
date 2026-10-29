@@ -1,14 +1,27 @@
-﻿# Doctrine scope. Parliament may change tolerance and religious policy, never party tenets.
-fs_legislation_allowed_doctrine_trigger = {
+﻿# Doctrine scope. These categories also define independent AI topic cooldowns.
+fs_legislation_religion_policy_doctrine_trigger = {
 	OR = {
 		this = doctrine:religion_policy_ultranationalism
 		this = doctrine:religion_policy_state_atheism
 		this = doctrine:religion_policy_laicite
 		this = doctrine:religion_policy_freedom_of_religion
 		this = doctrine:religion_policy_pluralism
+	}
+}
+
+fs_legislation_tolerance_doctrine_trigger = {
+	OR = {
 		this = doctrine:doctrine_pluralism_fundamentalist
 		this = doctrine:doctrine_pluralism_righteous
 		this = doctrine:doctrine_pluralism_pluralistic
+	}
+}
+
+# Doctrine scope. Parliament may change these fields, never party tenets.
+fs_legislation_allowed_doctrine_trigger = {
+	OR = {
+		fs_legislation_religion_policy_doctrine_trigger = yes
+		fs_legislation_tolerance_doctrine_trigger = yes
 	}
 }
 
@@ -59,18 +72,49 @@ fs_legislation_rite_doctrine_compatible_trigger = {
 # Character scope; scope:doctrine is supplied by the proposal or enactment caller.
 # Identity/no-op checks are separate so UI can explain incompatibility independently.
 fs_legislation_doctrine_change_valid_trigger = {
-	faith = faith:koreanism_faith
 	exists = scope:doctrine
-	scope:doctrine = { fs_legislation_allowed_doctrine_trigger = yes }
+	fs_legislation_doctrine_candidate_valid_trigger = { DOCTRINE = scope:doctrine }
+}
+
+# Character scope. Shared by public validation and AI candidate filtering before selection.
+fs_legislation_doctrine_candidate_valid_trigger = {
+	faith = faith:koreanism_faith
+	$DOCTRINE$ = { fs_legislation_allowed_doctrine_trigger = yes }
 	faith:koreanism_faith = {
 		NOT = {
 			any_faith_rite = {
 				NOT = {
-					fs_legislation_rite_doctrine_compatible_trigger = { DOCTRINE = scope:doctrine }
+					fs_legislation_rite_doctrine_compatible_trigger = { DOCTRINE = $DOCTRINE$ }
 				}
 			}
 		}
 	}
+}
+
+# Character scope; the GUI and effects share costs and complete payload validation.
+fs_legislation_doctrine_proposal_valid_trigger = {
+	fs_legislation_can_propose_law_trigger = yes
+	fs_legislation_doctrine_change_valid_trigger = yes
+	title:k_koreanism = { fs_legislation_doctrine_change_needed_trigger = { DOCTRINE = scope:doctrine } }
+}
+
+# AI proposals need a 20-point improvement after the shared amendment resistance.
+# PREFERENCE/THRESHOLD are character script values from the central preference table.
+fs_legislation_ai_doctrine_proposal_trigger = {
+	fs_legislation_ai_law_proposal_trigger = yes
+	fs_legislation_doctrine_candidate_valid_trigger = { DOCTRINE = $DOCTRINE$ }
+	$PREFERENCE$ >= $THRESHOLD$
+	title:k_koreanism = {
+		NOT = { has_variable = $TOPIC_COOLDOWN$ }
+		fs_legislation_doctrine_change_needed_trigger = { DOCTRINE = $DOCTRINE$ }
+	}
+}
+
+fs_legislation_ai_dual_office_proposal_trigger = {
+	fs_legislation_ai_law_proposal_trigger = yes
+	fs_legislation_dual_office_proposal_valid_trigger = { POLICY = $POLICY$ }
+	$PREFERENCE$ >= fs_legislation_ai_dual_office_proposal_threshold_value
+	title:k_koreanism = { NOT = { has_variable = fs_legislation_ai_dual_office_cooldown } }
 }
 
 # Title scope. A law is meaningful if even one rite still needs the proposed doctrine.
@@ -103,7 +147,7 @@ fs_legislation_dual_office_policy_change_needed_trigger = {
 
 # Character scope. The GUI and public proposal effect share the same authority guard.
 fs_legislation_dual_office_proposal_valid_trigger = {
-	fs_legislation_can_propose_trigger = yes
+	fs_legislation_can_propose_law_trigger = yes
 	title:k_koreanism = {
 		fs_legislation_dual_office_policy_change_needed_trigger = { POLICY = $POLICY$ }
 	}

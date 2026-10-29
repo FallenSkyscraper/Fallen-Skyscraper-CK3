@@ -2,7 +2,32 @@
 fs_legislation_vote_days = 14
 fs_legislation_presidential_days = 30
 fs_legislation_lobby_cooldown_days = 7
-fs_legislation_ai_proposal_days = 30
+fs_legislation_law_piety_cost = 100
+fs_legislation_ai_proposal_days = 180
+# After ANY law concludes, AI waits two years; topic locks also cover rejected/lapsed laws.
+# Topic locks allow other future legal fields to be balanced independently.
+fs_legislation_ai_law_cooldown_days = 730
+fs_legislation_ai_doctrine_topic_cooldown_days = 1825
+fs_legislation_ai_institution_topic_cooldown_days = 1095
+# AI must retain 200 piety after paying and prefer a candidate by at least 20 points.
+fs_legislation_ai_piety_reserve = 200
+fs_legislation_ai_minimum_law_improvement = 20
+fs_legislation_ai_lobby_interval_days = 7
+fs_legislation_ai_ballot_threshold = 5
+fs_legislation_ai_opposition_threshold_value = { value = fs_legislation_ai_ballot_threshold multiply = -1 }
+# AI bias prefer to keep current law
+fs_legislation_ai_law_amendment_bias_value = -15
+# Proposals must overcome this resistance in addition to the minimum policy improvement.
+fs_legislation_ai_law_status_quo_bias = {
+	value = fs_legislation_ai_law_amendment_bias_value
+	multiply = -1
+}
+fs_legislation_ai_law_preference_multiplier = 2
+
+fs_legislation_ai_law_minimum_piety_value = {
+	value = fs_legislation_law_piety_cost
+	add = fs_legislation_ai_piety_reserve
+}
 
 fs_legislation_days_left_value = {
 	value = 0
@@ -111,69 +136,258 @@ fs_legislation_lobby_strength_value = {
 	max = 20
 }
 
-# Character scope. Faction affinity, relationships, personality and persuasion are
-# separate terms; sharing a rite never forces a member to support a proposal.
-fs_legislation_support_score_value = {
+# Preference scores combine base values, character traits and applicable title interests.
+# Amendment assessment compares the proposed policy score with the current policy score.
+# Ultranationalism: zeal and callousness increase preference; cynicism and compassion reduce it.
+fs_legislation_ai_religion_policy_ultranationalism_preference_value = {
+	value = -45
+	if = { limit = { has_trait = zealous } add = 20 }
+	if = { limit = { has_trait = cynical } subtract = 25 }
+	if = { limit = { has_trait = callous } add = 10 }
+	if = { limit = { has_trait = compassionate } subtract = 15 }
+}
+
+# State atheism: cynicism increases preference; zeal reduces it.
+fs_legislation_ai_religion_policy_state_atheism_preference_value = {
+	value = -25
+	if = { limit = { has_trait = cynical } add = 35 }
+	if = { limit = { has_trait = zealous } subtract = 40 }
+	if = { limit = { has_trait = callous } add = 5 }
+}
+
+# Secularism: a moderate default, favored by just and cynical characters.
+fs_legislation_ai_religion_policy_laicite_preference_value = {
+	value = 10
+	if = { limit = { has_trait = just } add = 15 }
+	if = { limit = { has_trait = cynical } add = 10 }
+	if = { limit = { has_trait = content } add = 5 }
+	if = { limit = { has_trait = zealous } subtract = 10 }
+}
+
+# Religious freedom: compassion and justice increase preference.
+fs_legislation_ai_religion_policy_freedom_of_religion_preference_value = {
+	value = 5
+	if = { limit = { has_trait = compassionate } add = 20 }
+	if = { limit = { has_trait = just } add = 10 }
+	if = { limit = { has_trait = cynical } add = 5 }
+	if = { limit = { has_trait = zealous } subtract = 10 }
+}
+
+# Religious pluralism: compassion, humility and trust increase preference; zeal reduces it.
+fs_legislation_ai_religion_policy_pluralism_preference_value = {
+	value = -15
+	if = { limit = { has_trait = compassionate } add = 20 }
+	if = { limit = { has_trait = humble } add = 10 }
+	if = { limit = { has_trait = trusting } add = 10 }
+	if = { limit = { has_trait = zealous } subtract = 25 }
+}
+
+# Fundamentalism: zeal increases preference; cynicism and compassion reduce it.
+fs_legislation_ai_doctrine_pluralism_fundamentalist_preference_value = {
+	value = -5
+	if = { limit = { has_trait = zealous } add = 35 }
+	if = { limit = { has_trait = cynical } subtract = 25 }
+	if = { limit = { has_trait = callous } add = 10 }
+	if = { limit = { has_trait = compassionate } subtract = 20 }
+}
+
+# Righteousness: justice and contentment increase preference.
+fs_legislation_ai_doctrine_pluralism_righteous_preference_value = {
+	value = 15
+	if = { limit = { has_trait = just } add = 10 }
+	if = { limit = { has_trait = content } add = 5 }
+}
+
+# Pluralistic tolerance: compassion, cynicism and humility increase preference; zeal reduces it.
+fs_legislation_ai_doctrine_pluralism_pluralistic_preference_value = {
+	value = -5
+	if = { limit = { has_trait = compassionate } add = 25 }
+	if = { limit = { has_trait = cynical } add = 15 }
+	if = { limit = { has_trait = humble } add = 10 }
+	if = { limit = { has_trait = zealous } subtract = 30 }
+}
+
+# Allow dual office: material interest and ambition; just characters favor separation.
+fs_legislation_ai_dual_office_allowed_preference_value = {
+	value = 0
+	if = { limit = { fs_legislation_ai_has_territorial_interest_trigger = yes } add = 45 }
+	if = { limit = { has_trait = ambitious } add = 20 }
+	if = { limit = { has_trait = greedy } add = 15 }
+	if = { limit = { has_trait = arbitrary } add = 10 }
+	if = { limit = { has_trait = just } subtract = 20 }
+	if = { limit = { has_trait = honest } subtract = 10 }
+}
+
+# Forbid dual office: just and honest; territorial interest and ambition resist separation.
+fs_legislation_ai_dual_office_forbidden_preference_value = {
+	value = 5
+	if = { limit = { fs_legislation_ai_has_territorial_interest_trigger = yes } subtract = 30 }
+	if = { limit = { has_trait = just } add = 35 }
+	if = { limit = { has_trait = honest } add = 15 }
+	if = { limit = { has_trait = content } add = 10 }
+	if = { limit = { has_trait = ambitious } subtract = 15 }
+	if = { limit = { has_trait = greedy } subtract = 15 }
+}
+
+# Character scope: compare with this member's actual rite before a church-wide amendment.
+fs_legislation_ai_current_religion_policy_preference_value = {
+	value = 0
+	if = { limit = { rite = { rite_has_doctrine = religion_policy_ultranationalism } } add = fs_legislation_ai_religion_policy_ultranationalism_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = religion_policy_state_atheism } } add = fs_legislation_ai_religion_policy_state_atheism_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = religion_policy_laicite } } add = fs_legislation_ai_religion_policy_laicite_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = religion_policy_freedom_of_religion } } add = fs_legislation_ai_religion_policy_freedom_of_religion_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = religion_policy_pluralism } } add = fs_legislation_ai_religion_policy_pluralism_preference_value }
+}
+
+fs_legislation_ai_religion_policy_proposal_threshold_value = {
+	value = fs_legislation_ai_current_religion_policy_preference_value
+	add = fs_legislation_ai_minimum_law_improvement
+	add = fs_legislation_ai_law_status_quo_bias
+}
+
+# Character scope: compare with this member's actual rite before a church-wide amendment.
+fs_legislation_ai_current_tolerance_preference_value = {
+	value = 0
+	if = { limit = { rite = { rite_has_doctrine = doctrine_pluralism_fundamentalist } } add = fs_legislation_ai_doctrine_pluralism_fundamentalist_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_pluralism_righteous } } add = fs_legislation_ai_doctrine_pluralism_righteous_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_pluralism_pluralistic } } add = fs_legislation_ai_doctrine_pluralism_pluralistic_preference_value }
+}
+
+fs_legislation_ai_tolerance_proposal_threshold_value = {
+	value = fs_legislation_ai_current_tolerance_preference_value
+	add = fs_legislation_ai_minimum_law_improvement
+	add = fs_legislation_ai_law_status_quo_bias
+}
+
+fs_legislation_ai_current_dual_office_preference_value = {
+	value = fs_legislation_ai_dual_office_allowed_preference_value
+	if = {
+		limit = { fs_koreanism_parliament_dual_office_forbidden_trigger = yes }
+		value = fs_legislation_ai_dual_office_forbidden_preference_value
+	}
+}
+
+fs_legislation_ai_dual_office_proposal_threshold_value = {
+	value = fs_legislation_ai_current_dual_office_preference_value
+	add = fs_legislation_ai_minimum_law_improvement
+	add = fs_legislation_ai_law_status_quo_bias
+}
+
+# Character scope. Ballots use the SAME absolute preference tables as proposals.
+# Positive means an improvement over the member's present law, negative a regression.
+fs_legislation_ai_pending_law_change_value = {
 	value = 0
 	if = {
-		limit = { exists = title:k_koreanism.var:fs_legislation_proposer }
-		add = { value = "opinion(title:k_koreanism.var:fs_legislation_proposer)" divide = 4 }
-		if = { limit = { this = title:k_koreanism.var:fs_legislation_proposer } add = 25 }
-		if = { limit = { rite = title:k_koreanism.var:fs_legislation_proposer.rite } add = 10 }
-		else = { subtract = 5 }
-		if = { limit = { has_relation_friend = title:k_koreanism.var:fs_legislation_proposer } add = 15 }
-		if = { limit = { has_relation_best_friend = title:k_koreanism.var:fs_legislation_proposer } add = 20 }
-		if = { limit = { has_relation_rival = title:k_koreanism.var:fs_legislation_proposer } subtract = 25 }
-		if = { limit = { has_relation_nemesis = title:k_koreanism.var:fs_legislation_proposer } subtract = 40 }
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:religion_policy_ultranationalism } }
+		add = fs_legislation_ai_religion_policy_ultranationalism_preference_value
+		subtract = fs_legislation_ai_current_religion_policy_preference_value
 	}
 	if = {
-		limit = {
-			exists = title:k_koreanism.var:fs_legislation_target
-			NOT = { title:k_koreanism = { var:fs_legislation_kind = flag:law } }
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:religion_policy_state_atheism } }
+		add = fs_legislation_ai_religion_policy_state_atheism_preference_value
+		subtract = fs_legislation_ai_current_religion_policy_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:religion_policy_laicite } }
+		add = fs_legislation_ai_religion_policy_laicite_preference_value
+		subtract = fs_legislation_ai_current_religion_policy_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:religion_policy_freedom_of_religion } }
+		add = fs_legislation_ai_religion_policy_freedom_of_religion_preference_value
+		subtract = fs_legislation_ai_current_religion_policy_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:religion_policy_pluralism } }
+		add = fs_legislation_ai_religion_policy_pluralism_preference_value
+		subtract = fs_legislation_ai_current_religion_policy_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_pluralism_fundamentalist } }
+		add = fs_legislation_ai_doctrine_pluralism_fundamentalist_preference_value
+		subtract = fs_legislation_ai_current_tolerance_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_pluralism_righteous } }
+		add = fs_legislation_ai_doctrine_pluralism_righteous_preference_value
+		subtract = fs_legislation_ai_current_tolerance_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_pluralism_pluralistic } }
+		add = fs_legislation_ai_doctrine_pluralism_pluralistic_preference_value
+		subtract = fs_legislation_ai_current_tolerance_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_dual_office_law_trigger = yes } }
+		if = {
+			limit = { title:k_koreanism = { var:fs_legislation_proposed_dual_office_policy = flag:allowed } }
+			add = fs_legislation_ai_dual_office_allowed_preference_value
 		}
-		add = { value = "opinion(title:k_koreanism.var:fs_legislation_target)" multiply = -0.4 }
-		if = { limit = { this = title:k_koreanism.var:fs_legislation_target } subtract = 100 }
-		if = { limit = { has_relation_friend = title:k_koreanism.var:fs_legislation_target } subtract = 25 }
-		if = { limit = { has_relation_rival = title:k_koreanism.var:fs_legislation_target } add = 25 }
-		if = { limit = { has_trait = compassionate } subtract = 10 }
-		if = { limit = { has_trait = wrathful } add = 10 }
-		if = { limit = { has_trait = ambitious } add = 10 }
-		if = { limit = { title:k_koreanism.var:fs_legislation_target = { has_trait = fs_election_offender } } add = 20 }
+		else_if = {
+			limit = { title:k_koreanism = { var:fs_legislation_proposed_dual_office_policy = flag:forbidden } }
+			add = fs_legislation_ai_dual_office_forbidden_preference_value
+		}
+		subtract = fs_legislation_ai_current_dual_office_preference_value
 	}
+}
+
+# Character scope. Unpersuaded assessment: laws prioritize policy over personal loyalty.
+# Law opinion contributes at most +/-10; social ties are deliberately below policy deltas.
+# Motions keep the existing personal/accountability model because their target is a person.
+# AI lobbying uses this value so accumulated persuasion cannot reverse its campaign direction.
+fs_legislation_base_support_score_value = {
+	value = 0
 	if = {
-		limit = {
-			title:k_koreanism = {
-				fs_legislation_doctrine_law_trigger = yes
-				OR = {
-					var:fs_legislation_doctrine = doctrine:religion_policy_ultranationalism
-					var:fs_legislation_doctrine = doctrine:religion_policy_state_atheism
-					var:fs_legislation_doctrine = doctrine:doctrine_pluralism_fundamentalist
-				}
+		limit = { title:k_koreanism = { var:fs_legislation_kind = flag:law } }
+		add = { value = fs_legislation_ai_pending_law_change_value multiply = fs_legislation_ai_law_preference_multiplier }
+		add = fs_legislation_ai_law_amendment_bias_value
+		if = {
+			limit = { exists = title:k_koreanism.var:fs_legislation_proposer }
+			add = { value = "opinion(title:k_koreanism.var:fs_legislation_proposer)" divide = 10 min = -10 max = 10 }
+			if = { limit = { this = title:k_koreanism.var:fs_legislation_proposer } add = 10 }
+			if = { limit = { has_relation_friend = title:k_koreanism.var:fs_legislation_proposer } add = 5 }
+			if = { limit = { has_relation_best_friend = title:k_koreanism.var:fs_legislation_proposer } add = 5 }
+			if = { limit = { has_relation_rival = title:k_koreanism.var:fs_legislation_proposer } subtract = 10 }
+			if = { limit = { has_relation_nemesis = title:k_koreanism.var:fs_legislation_proposer } subtract = 15 }
+		}
+		# Content and stubborn characters demand more than a marginal improvement.
+		if = { limit = { has_trait = content } subtract = 10 }
+		if = { limit = { has_trait = stubborn } subtract = 10 }
+	}
+	else = {
+		if = {
+			limit = { exists = title:k_koreanism.var:fs_legislation_proposer }
+			add = { value = "opinion(title:k_koreanism.var:fs_legislation_proposer)" divide = 4 }
+			if = { limit = { this = title:k_koreanism.var:fs_legislation_proposer } add = 25 }
+			if = { limit = { rite = title:k_koreanism.var:fs_legislation_proposer.rite } add = 10 }
+			else = { subtract = 5 }
+			if = { limit = { has_relation_friend = title:k_koreanism.var:fs_legislation_proposer } add = 15 }
+			if = { limit = { has_relation_best_friend = title:k_koreanism.var:fs_legislation_proposer } add = 20 }
+			if = { limit = { has_relation_rival = title:k_koreanism.var:fs_legislation_proposer } subtract = 25 }
+			if = { limit = { has_relation_nemesis = title:k_koreanism.var:fs_legislation_proposer } subtract = 40 }
+		}
+		if = {
+			limit = {
+				exists = title:k_koreanism.var:fs_legislation_target
+				NOT = { title:k_koreanism = { var:fs_legislation_kind = flag:law } }
 			}
+			add = { value = "opinion(title:k_koreanism.var:fs_legislation_target)" multiply = -0.4 }
+			if = { limit = { this = title:k_koreanism.var:fs_legislation_target } subtract = 100 }
+			if = { limit = { has_relation_friend = title:k_koreanism.var:fs_legislation_target } subtract = 25 }
+			if = { limit = { has_relation_rival = title:k_koreanism.var:fs_legislation_target } add = 25 }
+			if = { limit = { has_trait = compassionate } subtract = 10 }
+			if = { limit = { has_trait = wrathful } add = 10 }
+			if = { limit = { has_trait = ambitious } add = 10 }
+			if = { limit = { title:k_koreanism.var:fs_legislation_target = { has_trait = fs_election_offender } } add = 20 }
 		}
-		if = { limit = { rite = rite:authoritarianism } add = 10 }
-		if = { limit = { rite = rite:populism } subtract = 10 }
-		if = { limit = { has_trait = zealous } add = 15 }
-		if = { limit = { has_trait = cynical } subtract = 15 }
+		if = { limit = { has_trait = honest } add = 5 }
+		if = { limit = { has_trait = arbitrary } subtract = 5 }
 	}
-	if = {
-		limit = {
-			title:k_koreanism = {
-				fs_legislation_doctrine_law_trigger = yes
-				OR = {
-					var:fs_legislation_doctrine = doctrine:religion_policy_freedom_of_religion
-					var:fs_legislation_doctrine = doctrine:religion_policy_pluralism
-					var:fs_legislation_doctrine = doctrine:doctrine_pluralism_pluralistic
-				}
-			}
-		}
-		if = { limit = { rite = rite:populism } add = 10 }
-		if = { limit = { rite = rite:authoritarianism } subtract = 10 }
-		if = { limit = { has_trait = cynical } add = 15 }
-		if = { limit = { has_trait = zealous } subtract = 15 }
-	}
-	if = { limit = { has_trait = honest } add = 5 }
-	if = { limit = { has_trait = arbitrary } subtract = 5 }
+}
+
+# Final public score includes deliberate, bounded persuasion; AI ballots use +/-5.
+fs_legislation_support_score_value = {
+	value = fs_legislation_base_support_score_value
 	if = {
 		limit = { var:fs_legislation_lobbying_serial = title:k_koreanism.var:fs_legislation_serial }
 		add = var:fs_legislation_lobbying_value

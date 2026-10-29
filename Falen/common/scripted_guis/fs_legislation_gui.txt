@@ -73,17 +73,13 @@ fs_legislation_propose_law_gui = {
 	is_valid = {
 		custom_tooltip = {
 			text = FS_LEGISLATION_LAW_REQUIREMENTS_TT
-			fs_legislation_can_propose_trigger = yes
-			fs_legislation_doctrine_change_valid_trigger = yes
-			title:k_koreanism = { fs_legislation_doctrine_change_needed_trigger = { DOCTRINE = scope:doctrine } }
+			fs_legislation_doctrine_proposal_valid_trigger = yes
 		}
 	}
 	effect = {
 		if = {
 			limit = {
-				fs_legislation_can_propose_trigger = yes
-				fs_legislation_doctrine_change_valid_trigger = yes
-				title:k_koreanism = { fs_legislation_doctrine_change_needed_trigger = { DOCTRINE = scope:doctrine } }
+				fs_legislation_doctrine_proposal_valid_trigger = yes
 			}
 			fs_legislation_propose_law_effect = yes
 		}
