@@ -78,6 +78,51 @@ fs_legislation_execute_outcome_effect = {
 		set_variable = { name = fs_legislation_result value = flag:lapsed }
 		if = {
 			limit = {
+				fs_legislation_tenet_law_trigger = yes
+				exists = var:fs_legislation_tenet
+				exists = var:fs_legislation_proposer
+				exists = holder
+				holder = { faith = faith:koreanism_faith }
+				NOT = { faith:koreanism_faith = { has_variable = ecumenical_council_ongoing } }
+			}
+			var:fs_legislation_tenet = { save_scope_as = selected_item }
+			if = {
+				limit = {
+					var:fs_legislation_tenet_status = flag:permitted
+					var:fs_legislation_tenet = { fs_legislation_tenet_candidate_trigger = { ACTOR = title:k_koreanism.var:fs_legislation_proposer STATUS = permitted } }
+				}
+				holder = { fs_legislation_apply_tenet_permitted_effect = yes }
+				set_variable = fs_legislation_outcome_applied
+				set_variable = { name = fs_legislation_result value = flag:enacted }
+			}
+			else_if = {
+				limit = {
+					var:fs_legislation_tenet_status = flag:prohibited
+					var:fs_legislation_tenet = { fs_legislation_tenet_candidate_trigger = { ACTOR = title:k_koreanism.var:fs_legislation_proposer STATUS = prohibited } }
+				}
+				holder = { fs_legislation_apply_tenet_prohibited_effect = yes }
+				set_variable = fs_legislation_outcome_applied
+				set_variable = { name = fs_legislation_result value = flag:enacted }
+			}
+		}
+		else_if = {
+			limit = {
+				fs_legislation_heresy_motion_trigger = yes
+				exists = var:fs_legislation_rite
+				var:fs_legislation_rite = { fs_legislation_heresy_candidate_trigger = yes }
+				exists = holder
+				holder = { faith = faith:koreanism_faith }
+			}
+			var:fs_legislation_rite = { save_scope_as = selected_item }
+			holder = { fs_legislation_apply_heresy_effect = yes }
+			if = {
+				limit = { var:fs_legislation_rite = { NOT = { faith = faith:koreanism_faith } } }
+				set_variable = fs_legislation_outcome_applied
+				set_variable = { name = fs_legislation_result value = flag:heresy_declared }
+			}
+		}
+		else_if = {
+			limit = {
 				fs_legislation_dual_office_law_trigger = yes
 				has_variable = fs_legislation_proposed_dual_office_policy
 				fs_legislation_dual_office_policy_change_needed_trigger = { POLICY = var:fs_legislation_proposed_dual_office_policy }
@@ -172,5 +217,188 @@ fs_legislation_execute_outcome_effect = {
 			}
 		}
 		remove_variable = fs_legislation_enactment_authorized
+	}
+}
+
+# Character scope. Native sanctions run after parliamentary authorization.
+fs_legislation_apply_tenet_permitted_effect = {
+	if = {
+		limit = { faith = faith:koreanism_faith title:k_koreanism = { has_variable = fs_legislation_enactment_authorized } }
+		save_scope_as = pam_tenet_stance_issuer
+		save_scope_as = pam_tenet_stance_permit
+		scope:selected_item = { save_scope_as = pam_tenet_stance_tenet }
+		faith = {
+			set_tenet_status = {
+				tenet = scope:selected_item
+				status = permitted
+			}
+			change_fervor = {
+				value = significant_fervor_loss
+				desc = fervor_loss_pam_tenet_permitted
+			}
+			if = {
+				limit = { has_tenet_popularity_trigger = yes }
+				change_tenet_popularity = {
+					target = scope:selected_item
+					change = medium_tenet_popularity_gain
+				}
+			}
+			pam_faith_cleanup_forbidden_personal_tenet_secrets_effect = yes
+			every_faith_character = {
+				limit = {
+					is_ruler = yes
+					this != scope:pam_tenet_stance_issuer
+				}
+				trigger_event = { id = pam_decision_events.0011 days = 1 }
+			}
+		}
+	}
+}
+
+# Character scope. Native sanctions run after parliamentary authorization.
+fs_legislation_apply_tenet_prohibited_effect = {
+	if = {
+		limit = { faith = faith:koreanism_faith title:k_koreanism = { has_variable = fs_legislation_enactment_authorized } }
+		save_scope_as = pam_tenet_stance_issuer
+		save_scope_as = pam_tenet_stance_prohibit
+		scope:selected_item = { save_scope_as = pam_tenet_stance_tenet }
+		faith = {
+			set_tenet_status = {
+				tenet = scope:selected_item
+				status = prohibited
+			}
+			change_fervor = {
+				value = notable_fervor_value
+				desc = fervor_gain_pam_tenet_prohibited
+			}
+			if = {
+				limit = { has_tenet_popularity_trigger = yes }
+				change_tenet_popularity = {
+					target = scope:selected_item
+					change = major_tenet_popularity_loss
+				}
+			}
+			pam_faith_cleanup_forbidden_personal_tenet_secrets_effect = yes
+			pam_faith_grant_forbidden_personal_tenet_secrets_effect = { TENET = scope:selected_item }
+			every_faith_character = {
+				limit = {
+					is_ruler = yes
+					this != scope:pam_tenet_stance_issuer
+				}
+				trigger_event = { id = pam_decision_events.0011 days = 1 }
+			}
+		}
+	}
+}
+
+# Character scope. Native sanctions run after parliamentary authorization.
+fs_legislation_apply_heresy_effect = {
+	if = {
+		limit = { faith = faith:koreanism_faith title:k_koreanism = { has_variable = fs_legislation_enactment_authorized } }
+		save_scope_as = bull_issuer
+		scope:selected_item = { save_scope_as = heresy_rite }
+		fs_legislation_detach_rite_effect = yes
+		faith:koreanism_faith = {
+			every_faith_character = {
+				limit = {
+					is_ruler = yes
+					this != scope:bull_issuer
+				}
+				trigger_event = { id = pam_decision_events.0012 days = 1 }
+			}
+		}
+		if = {
+			limit = { exists = scope:heresy_rite }
+			hidden_effect = {
+				if = {
+					limit = {
+						scope:heresy_rite.faith.religious_head ?= {
+							NOT = { has_trait = heresiarch }
+						}
+					}
+					scope:heresy_rite.faith.religious_head = { add_trait = heresiarch }
+				}
+				else_if = {
+					limit = {
+						scope:heresy_rite.main_rite.head_of_rite ?= {
+							NOT = { has_trait = heresiarch }
+						}
+					}
+					scope:heresy_rite.main_rite.head_of_rite = { add_trait = heresiarch }
+				}
+				if = {
+					limit = {
+						scope:heresy_rite.faith = { has_doctrine = special_doctrine_ecumenical_christian }
+					}
+					scope:heresy_rite.faith = { remove_doctrine = special_doctrine_ecumenical_christian }
+				}
+				if = {
+					limit = {
+						scope:heresy_rite.faith = { has_doctrine = special_doctrine_ecumenical_miaphysite }
+					}
+					scope:heresy_rite.faith = { remove_doctrine = special_doctrine_ecumenical_miaphysite }
+				}
+			}
+		}
+	}
+}
+
+# Keep source-faith effects on Koreanism even when the president belongs to the excluded rite.
+fs_legislation_detach_rite_effect = {
+	if = {
+		limit = { faith = faith:koreanism_faith title:k_koreanism = { has_variable = fs_legislation_enactment_authorized } }
+		custom_tooltip = {
+			text = pam_declare_rite_heresy_effect_tt
+			detach_rite_to_new_faith = {
+				target = scope:heresy_rite
+			}
+		}
+		# Heresy rite types ship convert = no so they cannot be joined before the bull; branding has to flip it or nothing can convert in.
+		scope:heresy_rite = {
+			set_can_convert_to_rite = yes
+		}
+		faith:koreanism_faith = {
+			change_fervor = {
+				value = notable_fervor_value
+				desc = fervor_gain_pam_rite_declared_heresy
+			}
+			set_variable = {
+				name = rite_growth_recent_heresy
+				value = yes
+				days = rite_growth_heresy_cooldown_days
+			}
+		}
+		# The declaring faith repudiates the now-heretical rite, so its core tenets lose standing there.
+		if = {
+			limit = { faith:koreanism_faith = { has_tenet_popularity_trigger = yes } }
+			faith:koreanism_faith = { save_scope_as = heresy_declaring_faith }
+			scope:heresy_rite = {
+				every_rite_tenet = {
+					status = core
+					save_scope_as = heresy_rite_tenet
+					scope:heresy_declaring_faith = {
+						change_tenet_popularity = {
+							target = scope:heresy_rite_tenet
+							change = major_tenet_popularity_loss
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:heresy_rite
+				NOT = { scope:heresy_rite.faith = faith:koreanism_faith }
+			}
+			scope:heresy_rite.faith = {
+				every_faith_character = {
+					limit = {
+						is_ruler = yes
+						this != scope:bull_issuer
+					}
+					trigger_event = { id = pam_decision_events.0013 days = 1 }
+				}
+			}
+		}
 	}
 }

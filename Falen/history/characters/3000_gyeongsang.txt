@@ -270,108 +270,14 @@
 }
 #Andong
 
-3109 = {
-	name = "부영"
-	dynasty_house = house_Munjeong_Kim_Andong_New #안동 김씨
-	rite = toegye
-	culture = andong
-	2106.11.1 = { birth = yes }
-	2178.2.28 = { death = yes }
-}
-3110 = {
-	name = "사덕"
-	dynasty_house = house_Munjeong_Kim_Andong_New #안동 김씨
-	father = 3109
-	rite = toegye
-	culture = andong
-	2136.5.30 = { birth = yes }
-	2189.7.24 = { death = yes }
-}
-
-3111 = {
-	name = "taejun"
-	dynasty_house = house_Munjeong_Kim_Andong_New
-	father = 3110
-	rite = toegye
-	culture = andong
-	2157.10.11 = { birth = yes }
-	2220.06.18 = { death = yes }
-}
-
-3112 = {
-	name = "jaeseon"
-	dynasty_house = house_Munjeong_Kim_Andong_New
-	father = 3111
-	rite = toegye
-	culture = andong
-	2184.07.18 = { birth = yes }
-	2252.10.15 = { death = yes }
-}
-
-3113 = {
-	name = "museon"
-	dynasty_house = house_Munjeong_Kim_Andong_New
-	father = 3111
-	rite = toegye
-	culture = andong
-	2187.06.13 = { birth = yes }
-	2241.06.11 = {
-		death = yes 
-		#전사 추가 필요
-	}
-}
-
-3114 = {
-	name = "pyeongtaek"
-	dynasty_house = house_Munjeong_Kim_Andong_New
-	father = 3113
-	rite = toegye
-	culture = andong
-	2206.03.19 = { birth = yes }
-	2276.08.12 = { death = yes }
-}
-
-3115 = {
-	name = "euntaek"
-	dynasty_house = house_Munjeong_Kim_Andong_New
-	father = 3113
-	rite = jogye
-	culture = andong
-	2209.07.11 = { birth = yes }
-	2281.04.23 = { death = yes }
-}
-
-3116 = {
-	name = "jetaek"
-	dynasty_house = house_Munjeong_Kim_Andong_New
-	father = 3113
-	rite = toegye
-	culture = andong
-	2212.05.07 = { birth = yes }
-	2269.03.30 = { death = yes }
-}
-
-3117 = {
-	name = "jusik"
-	dynasty_house = house_Munjeong_Kim_Andong_New
-	father = 3116
-	rite = toegye
-	culture = andong
-	2230.08.30 = { birth = yes }
-	2278.04.21 = {
-		death = yes
-		#전사 추가 필요
-	}
-}
-
 3118 = {
 	name = "hwanu"
 	dynasty_house = house_Munjeong_Kim_Andong_New
-	father = 3117
+	father = andong_kim_new_m_16
 	rite = toegye
 	culture = andong
-	2258.04.05 = { birth = yes }
-	2303.05.22 = { death = yes }
+	2318.04.05 = { birth = yes }
+	2349.05.22 = { death = yes }
 }
 
 3119 = {
@@ -380,7 +286,7 @@
 	father = 3118
 	rite = toegye
 	culture = andong
-	2283.09.03 = { birth = yes }
+	2333.09.03 = { birth = yes }
 	2350.02.03 = { 
 		death = yes
 	#병사 추가 필요

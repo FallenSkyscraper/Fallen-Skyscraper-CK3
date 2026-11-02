@@ -107,6 +107,7 @@ fs_legislation_threshold_value = {
 					var:fs_legislation_stage = flag:revote
 					var:fs_legislation_kind = flag:impeachment
 					var:fs_legislation_kind = flag:expulsion
+					var:fs_legislation_kind = flag:heresy
 				}
 			}
 		}
@@ -340,6 +341,11 @@ fs_legislation_base_support_score_value = {
 	if = {
 		limit = { title:k_koreanism = { var:fs_legislation_kind = flag:law } }
 		add = { value = fs_legislation_ai_pending_law_change_value multiply = fs_legislation_ai_law_preference_multiplier }
+		if = {
+			limit = { title:k_koreanism = { fs_legislation_tenet_law_trigger = yes } }
+			if = { limit = { title:k_koreanism = { var:fs_legislation_tenet_status = flag:permitted } } add = fs_legislation_ai_tenet_support_value }
+			else_if = { limit = { title:k_koreanism = { var:fs_legislation_tenet_status = flag:prohibited } } subtract = fs_legislation_ai_tenet_support_value }
+		}
 		add = fs_legislation_ai_law_amendment_bias_value
 		if = {
 			limit = { exists = title:k_koreanism.var:fs_legislation_proposer }
@@ -380,6 +386,7 @@ fs_legislation_base_support_score_value = {
 			if = { limit = { has_trait = ambitious } add = 10 }
 			if = { limit = { title:k_koreanism.var:fs_legislation_target = { has_trait = fs_election_offender } } add = 20 }
 		}
+		if = { limit = { title:k_koreanism = { fs_legislation_heresy_motion_trigger = yes } } add = fs_legislation_ai_heresy_support_value }
 		if = { limit = { has_trait = honest } add = 5 }
 		if = { limit = { has_trait = arbitrary } subtract = 5 }
 	}
@@ -392,4 +399,24 @@ fs_legislation_support_score_value = {
 		limit = { var:fs_legislation_lobbying_serial = title:k_koreanism.var:fs_legislation_serial }
 		add = var:fs_legislation_lobbying_value
 	}
+}
+
+# Tenet ballots use actual personal tenets and the engine's desired/undesired lists.
+# Personal/core attachment adds 30; desired/undesired lists add +/-20 before the common law bias.
+fs_legislation_ai_tenet_support_value = {
+	value = 0
+	if = { limit = { has_personal_tenet = title:k_koreanism.var:fs_legislation_tenet } add = 6 }
+	if = { limit = { rite = { has_tenet_status = { tenet = title:k_koreanism.var:fs_legislation_tenet status = core } } } add = 6 }
+	if = { limit = { any_desired_tenet = { only_positive = yes threshold = 1 selection_count = 97 this = title:k_koreanism.var:fs_legislation_tenet } } add = 4 }
+	if = { limit = { any_undesired_tenet = { known_tenets = yes only_negative = yes threshold = -1 selection_count = 97 this = title:k_koreanism.var:fs_legislation_tenet } } subtract = 4 }
+	multiply = 5
+}
+
+# A legally eligible separation has baseline support; the targeted rite's members resist it.
+fs_legislation_ai_heresy_support_value = {
+	value = 0
+	if = { limit = { title:k_koreanism.var:fs_legislation_rite = { fs_legislation_heresy_candidate_trigger = yes } } add = 20 }
+	if = { limit = { rite = title:k_koreanism.var:fs_legislation_rite } subtract = 100 }
+	if = { limit = { has_trait = zealous } add = 15 }
+	if = { limit = { has_trait = cynical } subtract = 15 }
 }

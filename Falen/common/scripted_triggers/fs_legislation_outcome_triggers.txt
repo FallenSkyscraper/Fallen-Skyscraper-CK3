@@ -163,3 +163,108 @@ fs_legislation_martial_declaration_valid_trigger = {
 	fs_koreanism_parliament_president_trigger = yes
 	title:k_koreanism = { NOT = { has_variable = fs_legislation_martial_law } }
 }
+
+# Tenet scope. Protect both the proposer's core tenets and the main rite's core tenets.
+fs_legislation_tenet_candidate_trigger = {
+	save_temporary_scope_as = fs_legislation_candidate_tenet
+	exists = $ACTOR$
+	$ACTOR$ = { faith = faith:koreanism_faith }
+	$ACTOR$.rite = {
+		NOR = {
+			has_tenet_status = { tenet = scope:fs_legislation_candidate_tenet status = core }
+			has_tenet_status = { tenet = scope:fs_legislation_candidate_tenet status = $STATUS$ }
+		}
+	}
+	trigger_if = {
+		limit = { NOT = { $ACTOR$.rite = faith:koreanism_faith.main_rite } }
+		faith:koreanism_faith.main_rite = { NOT = { has_tenet_status = { tenet = scope:fs_legislation_candidate_tenet status = core } } }
+	}
+}
+
+# Character scope. The selected tenet must still be known and eligible at submission.
+fs_legislation_tenet_proposal_valid_trigger = {
+	fs_legislation_can_propose_law_trigger = yes
+	exists = $TENET$
+	save_temporary_scope_as = fs_legislation_tenet_proposer
+	$TENET$ = { fs_legislation_tenet_candidate_trigger = { ACTOR = scope:fs_legislation_tenet_proposer STATUS = $STATUS$ } }
+	any_character_tenet = { knowledge_filter = known this = $TENET$ }
+	NOT = { faith:koreanism_faith = { has_variable = ecumenical_council_ongoing } }
+}
+
+# Rite scope. Preserve the native main-rite, challenger and divergence restrictions.
+fs_legislation_heresy_candidate_trigger = {
+	faith = faith:koreanism_faith
+	pam_rite_can_be_declared_heresy_trigger = yes
+}
+
+fs_legislation_heresy_proposal_valid_trigger = {
+	fs_legislation_can_propose_trigger = yes
+	faith = faith:koreanism_faith
+	exists = $RITE$
+	$RITE$ = { fs_legislation_heresy_candidate_trigger = yes }
+}
+
+# Character scope. The draft is temporary; submission still uses public proposal guards.
+fs_legislation_draft_navigation_trigger = {
+	has_variable = fs_legislation_draft_open
+	fs_legislation_can_propose_trigger = yes
+}
+
+fs_legislation_draft_tenet_valid_trigger = {
+	trigger_if = {
+		limit = { var:fs_legislation_draft_kind = flag:tenet_permitted }
+		fs_legislation_tenet_proposal_valid_trigger = { TENET = $TENET$ STATUS = permitted }
+	}
+	trigger_else_if = {
+		limit = { var:fs_legislation_draft_kind = flag:tenet_prohibited }
+		fs_legislation_tenet_proposal_valid_trigger = { TENET = $TENET$ STATUS = prohibited }
+	}
+	trigger_else = { always = no }
+}
+
+fs_legislation_draft_valid_trigger = {
+	fs_legislation_draft_navigation_trigger = yes
+	var:fs_legislation_draft_step = flag:confirm
+	trigger_if = {
+		limit = { var:fs_legislation_draft_kind = flag:doctrine }
+		exists = var:fs_legislation_draft_doctrine
+		var:fs_legislation_draft_doctrine = { save_temporary_scope_as = doctrine }
+		fs_legislation_doctrine_proposal_valid_trigger = yes
+	}
+	trigger_else_if = {
+		limit = { var:fs_legislation_draft_kind = flag:dual_office }
+		OR = {
+			AND = { var:fs_legislation_draft_policy = flag:allowed fs_legislation_dual_office_proposal_valid_trigger = { POLICY = flag:allowed } }
+			AND = { var:fs_legislation_draft_policy = flag:forbidden fs_legislation_dual_office_proposal_valid_trigger = { POLICY = flag:forbidden } }
+		}
+	}
+	trigger_else_if = {
+		limit = { OR = { var:fs_legislation_draft_kind = flag:tenet_permitted var:fs_legislation_draft_kind = flag:tenet_prohibited } }
+		exists = var:fs_legislation_draft_tenet
+		var:fs_legislation_draft_tenet = { save_temporary_scope_as = fs_legislation_draft_selected_tenet }
+		fs_legislation_draft_tenet_valid_trigger = { TENET = scope:fs_legislation_draft_selected_tenet }
+	}
+	trigger_else_if = {
+		limit = { var:fs_legislation_draft_kind = flag:heresy }
+		exists = var:fs_legislation_draft_rite
+		var:fs_legislation_draft_rite = { save_temporary_scope_as = fs_legislation_draft_selected_rite }
+		fs_legislation_heresy_proposal_valid_trigger = { RITE = scope:fs_legislation_draft_selected_rite }
+	}
+	trigger_else_if = {
+		limit = { var:fs_legislation_draft_kind = flag:impeachment }
+		NOT = { has_title = title:k_koreanism }
+		exists = var:fs_legislation_draft_target
+		var:fs_legislation_draft_target = title:k_koreanism.holder
+	}
+	trigger_else_if = {
+		limit = { var:fs_legislation_draft_kind = flag:lift_martial_law }
+		title:k_koreanism = { has_variable = fs_legislation_martial_law }
+	}
+	trigger_else_if = {
+		limit = { OR = { var:fs_legislation_draft_kind = flag:censure var:fs_legislation_draft_kind = flag:expulsion } }
+		exists = var:fs_legislation_draft_target
+		this != var:fs_legislation_draft_target
+		var:fs_legislation_draft_target = { fs_legislation_member_trigger = yes }
+	}
+	trigger_else = { always = no }
+}

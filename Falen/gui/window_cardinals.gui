@@ -17,16 +17,12 @@
 		on_start = "[GetVariableSystem.Set( 'bookmark_college', 'true' )]"
 		on_start = "[GetVariableSystem.Clear( 'bookmark_succession' )]"
 		on_start = "[GetVariableSystem.Set( 'fs_parliament_tab', 'candidates' )]"
-		on_start = "[GetVariableSystem.Set( 'fs_legislation_category', 'ordinary' )]"
-		on_start = "[GetVariableSystem.Set( 'fs_legislation_subcategory', 'dual_office' )]"
 	}
 
 	state = {
 		name = _show
 		next = refresh_bookmark_tabs
 		on_start = "[GetVariableSystem.Set( 'fs_parliament_tab', 'candidates' )]"
-		on_start = "[GetVariableSystem.Set( 'fs_legislation_category', 'ordinary' )]"
-		on_start = "[GetVariableSystem.Set( 'fs_legislation_subcategory', 'dual_office' )]"
 
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
@@ -1536,6 +1532,11 @@ types CardinalWindow
 						spacing = 5
 						visible = "[GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_stage' ).IsSet]"
 						text_multi = { text = "FS_LEGISLATION_CURRENT" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_KIND_TENET_PERMITTED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_pending_tenet_permitted_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_KIND_TENET_PROHIBITED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_pending_tenet_prohibited_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_TENET_TARGET" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[Or( GetScriptedGui( 'fs_legislation_pending_tenet_permitted_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ), GetScriptedGui( 'fs_legislation_pending_tenet_prohibited_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_KIND_HERESY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_heresy_motion_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_RITE_TARGET" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_heresy_motion_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" default_format = "#high" }
 						text_multi = { text = "FS_LEGISLATION_KIND_LAW" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_doctrine_law_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" default_format = "#high" }
 						text_multi = { text = "FS_LEGISLATION_KIND_DUAL_OFFICE_ALLOWED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_pending_dual_office_allowed_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" default_format = "#high" }
 						text_multi = { text = "FS_LEGISLATION_KIND_DUAL_OFFICE_FORBIDDEN" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[GetScriptedGui( 'fs_legislation_pending_dual_office_forbidden_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" default_format = "#high" }
@@ -1627,230 +1628,16 @@ types CardinalWindow
 
 					vbox = {
 						layoutpolicy_horizontal = expanding
-						spacing = 6
 						visible = "[Not( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_stage' ).IsSet )]"
-						text_multi = { text = "FS_LEGISLATION_PROPOSE_TITLE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
-						text_multi = { text = "FS_LEGISLATION_LAW_HINT" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#weak" }
-						# UI-only category state never changes or persists a legislative payload.
-						hbox = {
-							spacing = 6
-							button_standard = {
-								name = "fs_legislation_select_ordinary_button"
-								size = { 244 34 }
-								text = "FS_LEGISLATION_CATEGORY_ORDINARY"
-								down = "[GetVariableSystem.HasValue( 'fs_legislation_category', 'ordinary' )]"
-								onclick = "[GetVariableSystem.Set( 'fs_legislation_category', 'ordinary' )]"
-								onclick = "[GetVariableSystem.Set( 'fs_legislation_subcategory', 'dual_office' )]"
-							}
-							button_standard = {
-								name = "fs_legislation_select_doctrine_button"
-								size = { 244 34 }
-								text = "FS_LEGISLATION_CATEGORY_DOCTRINE"
-								down = "[GetVariableSystem.HasValue( 'fs_legislation_category', 'doctrine' )]"
-								onclick = "[GetVariableSystem.Set( 'fs_legislation_category', 'doctrine' )]"
-								onclick = "[GetVariableSystem.Set( 'fs_legislation_subcategory', 'religion_policy' )]"
-							}
-						}
-						hbox = {
-							spacing = 6
-							visible = "[GetVariableSystem.HasValue( 'fs_legislation_category', 'ordinary' )]"
-							button_standard = {
-								name = "fs_legislation_select_dual_office_button"
-								size = { 244 34 }
-								text = "FS_LEGISLATION_SUBCATEGORY_DUAL_OFFICE"
-								down = "[GetVariableSystem.HasValue( 'fs_legislation_subcategory', 'dual_office' )]"
-								onclick = "[GetVariableSystem.Set( 'fs_legislation_subcategory', 'dual_office' )]"
-							}
-						}
-						hbox = {
-							spacing = 6
-							visible = "[GetVariableSystem.HasValue( 'fs_legislation_category', 'doctrine' )]"
-							button_standard = {
-								name = "fs_legislation_select_religion_policy_button"
-								size = { 244 34 }
-								text = "FS_LEGISLATION_SUBCATEGORY_RELIGION_POLICY"
-								down = "[GetVariableSystem.HasValue( 'fs_legislation_subcategory', 'religion_policy' )]"
-								onclick = "[GetVariableSystem.Set( 'fs_legislation_subcategory', 'religion_policy' )]"
-							}
-							button_standard = {
-								name = "fs_legislation_select_tolerance_button"
-								size = { 244 34 }
-								text = "FS_LEGISLATION_SUBCATEGORY_TOLERANCE"
-								down = "[GetVariableSystem.HasValue( 'fs_legislation_subcategory', 'tolerance' )]"
-								onclick = "[GetVariableSystem.Set( 'fs_legislation_subcategory', 'tolerance' )]"
-							}
-						}
-						text_multi = { text = "FS_LEGISLATION_LAW_COST" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#weak" }
-						vbox = {
-							layoutpolicy_horizontal = expanding
-							spacing = 6
-							visible = "[GetVariableSystem.HasValue( 'fs_legislation_subcategory', 'religion_policy' )]"
-							text_multi = { text = "FS_LEGISLATION_SUBCATEGORY_RELIGION_POLICY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
-							hbox = {
-								spacing = 6
-								button_standard = {
-									name = "fs_legislation_propose_religion_policy_ultranationalism_button"
-									datacontext = "[GetScriptedGui( 'fs_legislation_propose_law_gui' )]"
-									size = { 244 34 }
-									text = "religion_policy_ultranationalism_name"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_ultranationalism' ).MakeScope ).End )]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_ultranationalism' ).MakeScope ).End )]"
-									tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_ultranationalism' ).MakeScope ).End )]"
-									using = tooltip_se
-
-								}
-								button_standard = {
-									name = "fs_legislation_propose_religion_policy_state_atheism_button"
-									datacontext = "[GetScriptedGui( 'fs_legislation_propose_law_gui' )]"
-									size = { 244 34 }
-									text = "religion_policy_state_atheism_name"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_state_atheism' ).MakeScope ).End )]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_state_atheism' ).MakeScope ).End )]"
-									tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_state_atheism' ).MakeScope ).End )]"
-									using = tooltip_se
-
-								}
-							}
-							hbox = {
-								spacing = 6
-								button_standard = {
-									name = "fs_legislation_propose_religion_policy_laicite_button"
-									datacontext = "[GetScriptedGui( 'fs_legislation_propose_law_gui' )]"
-									size = { 244 34 }
-									text = "religion_policy_laicite_name"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_laicite' ).MakeScope ).End )]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_laicite' ).MakeScope ).End )]"
-									tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_laicite' ).MakeScope ).End )]"
-									using = tooltip_se
-
-								}
-								button_standard = {
-									name = "fs_legislation_propose_religion_policy_freedom_of_religion_button"
-									datacontext = "[GetScriptedGui( 'fs_legislation_propose_law_gui' )]"
-									size = { 244 34 }
-									text = "religion_policy_freedom_of_religion_name"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_freedom_of_religion' ).MakeScope ).End )]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_freedom_of_religion' ).MakeScope ).End )]"
-									tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_freedom_of_religion' ).MakeScope ).End )]"
-									using = tooltip_se
-
-								}
-							}
-							hbox = {
-								spacing = 6
-								button_standard = {
-									name = "fs_legislation_propose_religion_policy_pluralism_button"
-									datacontext = "[GetScriptedGui( 'fs_legislation_propose_law_gui' )]"
-									size = { 244 34 }
-									text = "religion_policy_pluralism_name"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_pluralism' ).MakeScope ).End )]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_pluralism' ).MakeScope ).End )]"
-									tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_pluralism' ).MakeScope ).End )]"
-									using = tooltip_se
-
-								}
-							}
-						}
-						vbox = {
-							layoutpolicy_horizontal = expanding
-							spacing = 6
-							visible = "[GetVariableSystem.HasValue( 'fs_legislation_subcategory', 'tolerance' )]"
-							text_multi = { text = "FS_LEGISLATION_SUBCATEGORY_TOLERANCE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
-							hbox = {
-								spacing = 6
-								button_standard = {
-									name = "fs_legislation_propose_doctrine_pluralism_fundamentalist_button"
-									datacontext = "[GetScriptedGui( 'fs_legislation_propose_law_gui' )]"
-									size = { 244 34 }
-									text = "doctrine_pluralism_fundamentalist_name"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_fundamentalist' ).MakeScope ).End )]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_fundamentalist' ).MakeScope ).End )]"
-									tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_fundamentalist' ).MakeScope ).End )]"
-									using = tooltip_se
-
-								}
-								button_standard = {
-									name = "fs_legislation_propose_doctrine_pluralism_righteous_button"
-									datacontext = "[GetScriptedGui( 'fs_legislation_propose_law_gui' )]"
-									size = { 244 34 }
-									text = "doctrine_pluralism_righteous_name"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_righteous' ).MakeScope ).End )]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_righteous' ).MakeScope ).End )]"
-									tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_righteous' ).MakeScope ).End )]"
-									using = tooltip_se
-
-								}
-							}
-							hbox = {
-								spacing = 6
-								button_standard = {
-									name = "fs_legislation_propose_doctrine_pluralism_pluralistic_button"
-									datacontext = "[GetScriptedGui( 'fs_legislation_propose_law_gui' )]"
-									size = { 244 34 }
-									text = "doctrine_pluralism_pluralistic_name"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_pluralistic' ).MakeScope ).End )]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_pluralistic' ).MakeScope ).End )]"
-									tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_pluralistic' ).MakeScope ).End )]"
-									using = tooltip_se
-
-								}
-							}
-						}
-						vbox = {
-							layoutpolicy_horizontal = expanding
-							spacing = 6
-							visible = "[GetVariableSystem.HasValue( 'fs_legislation_subcategory', 'dual_office' )]"
-							text_multi = { text = "FS_LEGISLATION_DUAL_OFFICE_TITLE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
-							text_multi = { text = "FS_LEGISLATION_DUAL_OFFICE_HINT" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#weak" }
-							hbox = {
-								spacing = 6
-								button_standard = {
-									name = "fs_legislation_propose_dual_office_allowed_button"
-									datacontext = "[GetScriptedGui( 'fs_legislation_propose_dual_office_allowed_gui' )]"
-									size = { 244 34 }
-									text = "FS_LEGISLATION_PROPOSE_DUAL_OFFICE_ALLOWED"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									using = tooltip_se
-								}
-								button_standard = {
-									name = "fs_legislation_propose_dual_office_forbidden_button"
-									datacontext = "[GetScriptedGui( 'fs_legislation_propose_dual_office_forbidden_gui' )]"
-									size = { 244 34 }
-									text = "FS_LEGISLATION_PROPOSE_DUAL_OFFICE_FORBIDDEN"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-									using = tooltip_se
-								}
-							}
-						}
-						text_multi = { text = "FS_LEGISLATION_PROCEDURAL_MOTIONS" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
-						hbox = {
-							spacing = 6
-							button_standard = {
-								name = "fs_legislation_propose_impeachment_gui"
-								datacontext = "[GetScriptedGui( 'fs_legislation_propose_impeachment_gui' )]"
-								size = { 244 34 }
-								text = "FS_LEGISLATION_PROPOSE_IMPEACHMENT"
-								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "FS_LEGISLATION_PROPOSE_IMPEACHMENT_TT"
-								using = tooltip_se
-
-							}
-							button_standard = {
-								name = "fs_legislation_propose_lift_martial_law_gui"
-								datacontext = "[GetScriptedGui( 'fs_legislation_propose_lift_martial_law_gui' )]"
-								size = { 244 34 }
-								text = "FS_LEGISLATION_PROPOSE_LIFT_MARTIAL"
-								enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-								using = tooltip_se
-
-							}
+						button_standard = {
+							name = "fs_legislation_open_proposal_button"
+							datacontext = "[GetScriptedGui( 'fs_legislation_open_proposal_gui' )]"
+							size = { 244 34 }
+							text = "FS_LEGISLATION_OPEN_PROPOSAL"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
 						}
 					}
 
@@ -1859,6 +1646,9 @@ types CardinalWindow
 						spacing = 4
 						visible = "[GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).IsSet]"
 						text_multi = { text = "FS_LEGISLATION_LAST_RESULT" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_RESULT_TENET_PERMITTED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[And( ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'enacted' ), GetScriptedGui( 'fs_legislation_pending_tenet_permitted_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" }
+						text_multi = { text = "FS_LEGISLATION_RESULT_TENET_PROHIBITED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[And( ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'enacted' ), GetScriptedGui( 'fs_legislation_pending_tenet_prohibited_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" }
+						text_multi = { text = "FS_LEGISLATION_RESULT_HERESY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'heresy_declared' )]" }
 						text_multi = { text = "FS_LEGISLATION_RESULT_ENACTED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[And( ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'enacted' ), GetScriptedGui( 'fs_legislation_doctrine_law_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" }
 						text_multi = { text = "FS_LEGISLATION_RESULT_DUAL_OFFICE_ALLOWED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[And( ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'enacted' ), GetScriptedGui( 'fs_legislation_pending_dual_office_allowed_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" }
 						text_multi = { text = "FS_LEGISLATION_RESULT_DUAL_OFFICE_FORBIDDEN" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[And( ObjectsEqual( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_result' ).GetFlagName, 'enacted' ), GetScriptedGui( 'fs_legislation_pending_dual_office_forbidden_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) )]" }
@@ -1954,32 +1744,6 @@ types CardinalWindow
 
 										}
 									}
-									hbox = {
-										spacing = 5
-										visible = "[Not( GetTitleByKey( 'k_koreanism' ).MakeScope.Var( 'fs_legislation_stage' ).IsSet )]"
-										button_standard = {
-											name = "fs_legislation_propose_censure_gui"
-											datacontext = "[GetScriptedGui( 'fs_legislation_propose_censure_gui' )]"
-											size = { 186 34 }
-											text = "FS_LEGISLATION_PROPOSE_CENSURE"
-											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'target', Character.MakeScope ).End )]"
-											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'target', Character.MakeScope ).End )]"
-											tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'target', Character.MakeScope ).End )]"
-											using = tooltip_se
-
-										}
-										button_standard = {
-											name = "fs_legislation_propose_expulsion_gui"
-											datacontext = "[GetScriptedGui( 'fs_legislation_propose_expulsion_gui' )]"
-											size = { 186 34 }
-											text = "FS_LEGISLATION_PROPOSE_EXPULSION"
-											enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'target', Character.MakeScope ).End )]"
-											onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'target', Character.MakeScope ).End )]"
-											tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'target', Character.MakeScope ).End )]"
-											using = tooltip_se
-
-										}
-									}
 								}
 							}
 						}
@@ -1987,6 +1751,507 @@ types CardinalWindow
 					text_multi = { text = "FS_LEGISLATION_NO_MEMBERS" layoutpolicy_horizontal = expanding autoresize = yes max_width = 496 visible = "[Not( DataModelHasItems( GetTitleByKey( 'k_koreanism' ).MakeScope.GetList( 'fs_legislation_voters' ) ) )]" }
 					expand = {}
 				}
+			}
+		}
+	}
+}
+
+# The proposal window stays open while only its stage panels change.
+window = {
+	name = "fs_legislation_proposal_window"
+	parentanchor = center
+	widgetanchor = center
+	size = { 680 730 }
+	layer = windows_layer
+	filter_mouse = all
+	alwaystransparent = no
+	movable = yes
+	using = Window_Background
+	using = Window_Decoration
+	visible = "[GetScriptedGui( 'fs_legislation_proposal_window_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+
+	state = {
+		name = _show
+		using = Animation_FadeIn_Quick
+		using = Sound_WindowShow_Standard
+	}
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+		using = Sound_WindowHide_Standard
+		on_start = "[GetScriptedGui( 'fs_legislation_close_proposal_gui' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+	}
+
+	vbox = {
+		ignoreinvisible = yes
+		size = { 100% 100% }
+		using = Window_Margins
+		spacing = 10
+		header_pattern = {
+			layoutpolicy_horizontal = expanding
+			blockoverride "header_text" { text = "FS_LEGISLATION_PROPOSE_TITLE" }
+			blockoverride "button_close" { onclick = "[GetScriptedGui( 'fs_legislation_close_proposal_gui' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" }
+		}
+		scrollarea = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			scrollbarpolicy_horizontal = always_off
+			scrollbarpolicy_vertical = as_needed
+			scrollbar_vertical = { using = Scrollbar_Vertical }
+			scrollwidget = {
+				vbox = {
+					ignoreinvisible = yes
+					using = Scrollbox_Margins
+					layoutpolicy_horizontal = expanding
+					spacing = 8
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_category_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'category' )]"
+						text_multi = { text = "FS_LEGISLATION_PICK_CATEGORY_DESC" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#weak" }
+						button_standard = {
+							name = "fs_legislation_choose_ordinary"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_ordinary_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_CATEGORY_ORDINARY"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_doctrine"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_doctrine_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_CATEGORY_DOCTRINE"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_motions"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_motions_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_PROCEDURAL_MOTIONS"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+					}
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_ordinary_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'ordinary' )]"
+						text_multi = { text = "FS_LEGISLATION_CATEGORY_ORDINARY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" }
+						button_standard = {
+							name = "fs_legislation_choose_dual_office"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_dual_office_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_SUBCATEGORY_DUAL_OFFICE"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+					}
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_doctrine_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'doctrine' )]"
+						text_multi = { text = "FS_LEGISLATION_CATEGORY_DOCTRINE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" }
+						button_standard = {
+							name = "fs_legislation_choose_religion_policy"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_religion_policy_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_SUBCATEGORY_RELIGION_POLICY"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_tolerance"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_tolerance_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_SUBCATEGORY_TOLERANCE"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_tenet_permitted"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_tenet_permitted_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_KIND_TENET_PERMITTED"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_tenet_prohibited"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_tenet_prohibited_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_KIND_TENET_PROHIBITED"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+					}
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_motions_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'motions' )]"
+						text_multi = { text = "FS_LEGISLATION_PROCEDURAL_MOTIONS" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" }
+						button_standard = {
+							name = "fs_legislation_choose_impeachment"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_impeachment_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_KIND_IMPEACHMENT_MENU"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_lift_martial_law"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_lift_martial_law_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_KIND_LIFT_MARTIAL_LAW"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_censure"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_censure_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_KIND_CENSURE_MENU"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_expulsion"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_expulsion_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_KIND_EXPULSION_MENU"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_heresy"
+							datacontext = "[GetScriptedGui( 'fs_legislation_draft_heresy_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_KIND_HERESY"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+					}
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_dual_office_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'dual_office' )]"
+						text_multi = { text = "FS_LEGISLATION_DUAL_OFFICE_TITLE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_PICK_LAW_DESC" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#weak" }
+						button_standard = {
+							name = "fs_legislation_choose_dual_office_allowed"
+							datacontext = "[GetScriptedGui( 'fs_legislation_select_dual_office_allowed_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_PROPOSE_DUAL_OFFICE_ALLOWED"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_dual_office_forbidden"
+							datacontext = "[GetScriptedGui( 'fs_legislation_select_dual_office_forbidden_gui' )]"
+							size = { 500 46 }
+							text = "FS_LEGISLATION_PROPOSE_DUAL_OFFICE_FORBIDDEN"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							using = tooltip_se
+						}
+					}
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_religion_policy_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'religion_policy' )]"
+						text_multi = { text = "FS_LEGISLATION_SUBCATEGORY_RELIGION_POLICY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_PICK_LAW_DESC" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#weak" }
+						button_standard = {
+							name = "fs_legislation_choose_religion_policy_ultranationalism"
+							datacontext = "[GetScriptedGui( 'fs_legislation_select_doctrine_gui' )]"
+							size = { 500 46 }
+							text = "religion_policy_ultranationalism_name"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_ultranationalism' ).MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_ultranationalism' ).MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_ultranationalism' ).MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_religion_policy_state_atheism"
+							datacontext = "[GetScriptedGui( 'fs_legislation_select_doctrine_gui' )]"
+							size = { 500 46 }
+							text = "religion_policy_state_atheism_name"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_state_atheism' ).MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_state_atheism' ).MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_state_atheism' ).MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_religion_policy_laicite"
+							datacontext = "[GetScriptedGui( 'fs_legislation_select_doctrine_gui' )]"
+							size = { 500 46 }
+							text = "religion_policy_laicite_name"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_laicite' ).MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_laicite' ).MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_laicite' ).MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_religion_policy_freedom_of_religion"
+							datacontext = "[GetScriptedGui( 'fs_legislation_select_doctrine_gui' )]"
+							size = { 500 46 }
+							text = "religion_policy_freedom_of_religion_name"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_freedom_of_religion' ).MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_freedom_of_religion' ).MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_freedom_of_religion' ).MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_religion_policy_pluralism"
+							datacontext = "[GetScriptedGui( 'fs_legislation_select_doctrine_gui' )]"
+							size = { 500 46 }
+							text = "religion_policy_pluralism_name"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_pluralism' ).MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_pluralism' ).MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_pluralism' ).MakeScope ).End )]"
+							using = tooltip_se
+						}
+					}
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_tolerance_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'tolerance' )]"
+						text_multi = { text = "FS_LEGISLATION_SUBCATEGORY_TOLERANCE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_PICK_LAW_DESC" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#weak" }
+						button_standard = {
+							name = "fs_legislation_choose_doctrine_pluralism_fundamentalist"
+							datacontext = "[GetScriptedGui( 'fs_legislation_select_doctrine_gui' )]"
+							size = { 500 46 }
+							text = "doctrine_pluralism_fundamentalist_name"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_fundamentalist' ).MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_fundamentalist' ).MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_fundamentalist' ).MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_doctrine_pluralism_righteous"
+							datacontext = "[GetScriptedGui( 'fs_legislation_select_doctrine_gui' )]"
+							size = { 500 46 }
+							text = "doctrine_pluralism_righteous_name"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_righteous' ).MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_righteous' ).MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_righteous' ).MakeScope ).End )]"
+							using = tooltip_se
+						}
+						button_standard = {
+							name = "fs_legislation_choose_doctrine_pluralism_pluralistic"
+							datacontext = "[GetScriptedGui( 'fs_legislation_select_doctrine_gui' )]"
+							size = { 500 46 }
+							text = "doctrine_pluralism_pluralistic_name"
+							enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_pluralistic' ).MakeScope ).End )]"
+							onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_pluralistic' ).MakeScope ).End )]"
+							tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_pluralistic' ).MakeScope ).End )]"
+							using = tooltip_se
+						}
+					}
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_tenet_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'tenet' )]"
+						text_multi = { text = "FS_LEGISLATION_KIND_TENET_PERMITTED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'tenet_permitted' )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_TENET_PROHIBITED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'tenet_prohibited' )]" }
+						text_multi = { text = "FS_LEGISLATION_PICK_TENET_DESC" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#weak" }
+						text_multi = { text = "FS_LEGISLATION_PICK_EMPTY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 visible = "[Not( DataModelHasItems( GetPlayer.MakeScope.GetList( 'fs_legislation_draft_tenets' ) ) )]" }
+						vbox = {
+							ignoreinvisible = yes
+							layoutpolicy_horizontal = expanding
+							spacing = 6
+							datamodel = "[GetPlayer.MakeScope.GetList( 'fs_legislation_draft_tenets' )]"
+							item = {
+								widget = {
+									datacontext = "[Scope.TenetType]"
+									size = { 500 46 }
+									button_standard = {
+										name = "fs_legislation_choose_tenettype"
+										datacontext = "[GetScriptedGui( 'fs_legislation_select_tenet_gui' )]"
+										size = { 500 46 }
+										text = "[TenetType.GetNameNoTooltip( GetPlayer.GetRite )]"
+										enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'tenet', TenetType.MakeScope ).End )]"
+										onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'tenet', TenetType.MakeScope ).End )]"
+										tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'tenet', TenetType.MakeScope ).End )]"
+										using = tooltip_se
+									}
+								}
+							}
+						}
+					}
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_member_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'member' )]"
+						text_multi = { text = "FS_LEGISLATION_KIND_CENSURE_MENU" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'censure' )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_EXPULSION_MENU" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'expulsion' )]" }
+						text_multi = { text = "FS_LEGISLATION_PICK_MEMBER_DESC" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#weak" }
+						text_multi = { text = "FS_LEGISLATION_PICK_EMPTY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 visible = "[Not( DataModelHasItems( GetPlayer.MakeScope.GetList( 'fs_legislation_draft_members' ) ) )]" }
+						vbox = {
+							ignoreinvisible = yes
+							layoutpolicy_horizontal = expanding
+							spacing = 6
+							datamodel = "[GetPlayer.MakeScope.GetList( 'fs_legislation_draft_members' )]"
+							item = {
+								widget = {
+									datacontext = "[Scope.GetCharacter]"
+									size = { 500 46 }
+									button_standard = {
+										name = "fs_legislation_choose_char"
+										datacontext = "[GetScriptedGui( 'fs_legislation_select_member_gui' )]"
+										size = { 500 46 }
+										text = "[Character.GetFirstNameNoTooltip]"
+										enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'target', Character.MakeScope ).End )]"
+										onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'target', Character.MakeScope ).End )]"
+										tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'target', Character.MakeScope ).End )]"
+										using = tooltip_se
+									}
+								}
+							}
+						}
+					}
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_rite_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'rite' )]"
+						text_multi = { text = "FS_LEGISLATION_KIND_HERESY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_PICK_HERESY_DESC" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#weak" }
+						text_multi = { text = "FS_LEGISLATION_PICK_EMPTY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 visible = "[Not( DataModelHasItems( GetPlayer.MakeScope.GetList( 'fs_legislation_draft_rites' ) ) )]" }
+						vbox = {
+							ignoreinvisible = yes
+							layoutpolicy_horizontal = expanding
+							spacing = 6
+							datamodel = "[GetPlayer.MakeScope.GetList( 'fs_legislation_draft_rites' )]"
+							item = {
+								widget = {
+									datacontext = "[Scope.Rite]"
+									size = { 500 46 }
+									button_standard = {
+										name = "fs_legislation_choose_rite"
+										datacontext = "[GetScriptedGui( 'fs_legislation_select_rite_gui' )]"
+										size = { 500 46 }
+										text = "[Rite.GetNameNoTooltip]"
+										enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rite', Rite.MakeScope ).End )]"
+										onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rite', Rite.MakeScope ).End )]"
+										tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rite', Rite.MakeScope ).End )]"
+										using = tooltip_se
+									}
+								}
+							}
+						}
+					}
+					vbox = {
+						ignoreinvisible = yes
+						name = "fs_legislation_proposal_confirm_panel"
+						layoutpolicy_horizontal = expanding
+						spacing = 8
+						visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'confirm' )]"
+						text_multi = { text = "FS_LEGISLATION_PICK_CONFIRM" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" }
+						text_multi = { text = "FS_LEGISLATION_KIND_LAW" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'doctrine' )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_TENET_PERMITTED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'tenet_permitted' )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_TENET_PROHIBITED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'tenet_prohibited' )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_IMPEACHMENT_MENU" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'impeachment' )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_LIFT_MARTIAL_LAW" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'lift_martial_law' )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_CENSURE_MENU" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'censure' )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_EXPULSION_MENU" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'expulsion' )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_HERESY" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'heresy' )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_DUAL_OFFICE_ALLOWED" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[And( ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'dual_office' ), ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_policy' ).GetFlagName, 'allowed' ) )]" }
+						text_multi = { text = "FS_LEGISLATION_KIND_DUAL_OFFICE_FORBIDDEN" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[And( ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_kind' ).GetFlagName, 'dual_office' ), ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_policy' ).GetFlagName, 'forbidden' ) )]" }
+						text_multi = { text = "religion_policy_ultranationalism_name" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetScriptedGui( 'fs_legislation_draft_doctrine_selected_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_ultranationalism' ).MakeScope ).End )]" }
+						text_multi = { text = "religion_policy_state_atheism_name" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetScriptedGui( 'fs_legislation_draft_doctrine_selected_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_state_atheism' ).MakeScope ).End )]" }
+						text_multi = { text = "religion_policy_laicite_name" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetScriptedGui( 'fs_legislation_draft_doctrine_selected_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_laicite' ).MakeScope ).End )]" }
+						text_multi = { text = "religion_policy_freedom_of_religion_name" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetScriptedGui( 'fs_legislation_draft_doctrine_selected_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_freedom_of_religion' ).MakeScope ).End )]" }
+						text_multi = { text = "religion_policy_pluralism_name" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetScriptedGui( 'fs_legislation_draft_doctrine_selected_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'religion_policy_pluralism' ).MakeScope ).End )]" }
+						text_multi = { text = "doctrine_pluralism_fundamentalist_name" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetScriptedGui( 'fs_legislation_draft_doctrine_selected_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_fundamentalist' ).MakeScope ).End )]" }
+						text_multi = { text = "doctrine_pluralism_righteous_name" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetScriptedGui( 'fs_legislation_draft_doctrine_selected_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_righteous' ).MakeScope ).End )]" }
+						text_multi = { text = "doctrine_pluralism_pluralistic_name" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetScriptedGui( 'fs_legislation_draft_doctrine_selected_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'doctrine', GetDoctrine( 'doctrine_pluralism_pluralistic' ).MakeScope ).End )]" }
+						text_multi = { text = "FS_LEGISLATION_DRAFT_TENET" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetPlayer.MakeScope.Var( 'fs_legislation_draft_tenet' ).IsSet]" }
+						text_multi = { text = "FS_LEGISLATION_DRAFT_RITE" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetPlayer.MakeScope.Var( 'fs_legislation_draft_rite' ).IsSet]" }
+						text_multi = { text = "FS_LEGISLATION_DRAFT_TARGET" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#high" visible = "[GetPlayer.MakeScope.Var( 'fs_legislation_draft_target' ).IsSet]" }
+						text_multi = { text = "FS_LEGISLATION_LAW_COST" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 visible = "[GetScriptedGui( 'fs_legislation_draft_law_gui' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" }
+						text_multi = { text = "FS_LEGISLATION_PICK_CONFIRM_DESC" layoutpolicy_horizontal = expanding autoresize = yes max_width = 500 default_format = "#weak" }
+					}
+				}
+			}
+		}
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			spacing = 8
+			button_standard = {
+				name = "fs_legislation_proposal_back"
+				size = { 130 36 }
+				text = "FS_LEGISLATION_PICK_BACK"
+				enabled = "[Not( ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'category' ) )]"
+				onclick = "[GetScriptedGui( 'fs_legislation_back_proposal_gui' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+			button_standard = {
+				name = "fs_legislation_proposal_cancel"
+				size = { 130 36 }
+				text = "CANCEL"
+				onclick = "[GetScriptedGui( 'fs_legislation_close_proposal_gui' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+			expand = {}
+			button_standard = {
+				name = "fs_legislation_proposal_submit"
+				datacontext = "[GetScriptedGui( 'fs_legislation_submit_proposal_gui' )]"
+				size = { 230 36 }
+				text = "FS_LEGISLATION_PICK_SUBMIT"
+				visible = "[ObjectsEqual( GetPlayer.MakeScope.Var( 'fs_legislation_draft_step' ).GetFlagName, 'confirm' )]"
+				enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				tooltip = "[ScriptedGui.IsValidTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				using = tooltip_se
 			}
 		}
 	}

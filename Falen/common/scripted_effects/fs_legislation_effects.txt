@@ -141,6 +141,9 @@ fs_legislation_clear_proposal_payload_effect = {
 	remove_variable = fs_legislation_doctrine
 	remove_variable = fs_legislation_law_subject
 	remove_variable = fs_legislation_proposed_dual_office_policy
+	remove_variable = fs_legislation_tenet
+	remove_variable = fs_legislation_tenet_status
+	remove_variable = fs_legislation_rite
 }
 
 fs_legislation_begin_effect = {
@@ -194,6 +197,10 @@ fs_legislation_finish_effect = {
 			set_variable = { name = fs_legislation_ai_dual_office_cooldown value = yes days = fs_legislation_ai_institution_topic_cooldown_days }
 		}
 		else_if = {
+			limit = { fs_legislation_tenet_law_trigger = yes }
+			set_variable = { name = fs_legislation_ai_tenet_cooldown value = yes days = fs_legislation_ai_doctrine_topic_cooldown_days }
+		}
+		else_if = {
 			limit = { fs_legislation_doctrine_law_trigger = yes exists = var:fs_legislation_doctrine }
 			if = {
 				limit = { var:fs_legislation_doctrine = { fs_legislation_religion_policy_doctrine_trigger = yes } }
@@ -204,6 +211,10 @@ fs_legislation_finish_effect = {
 				set_variable = { name = fs_legislation_ai_tolerance_cooldown value = yes days = fs_legislation_ai_doctrine_topic_cooldown_days }
 			}
 		}
+	}
+	if = {
+		limit = { fs_legislation_heresy_motion_trigger = yes }
+		set_variable = { name = fs_legislation_ai_heresy_cooldown value = yes days = fs_legislation_ai_doctrine_topic_cooldown_days }
 	}
 	# Keep the proposal payload, last counts and result for the history panel.
 	fs_legislation_notify_effect = { MESSAGE = FS_LEGISLATION_NOTICE_RESULT }
@@ -424,11 +435,11 @@ fs_legislation_veto_effect = {
 	}
 }
 
-# Six-month opportunities choose individual actors. Law candidates are filtered BEFORE selection:
-# valid payload, affordable cost + reserve, title/topic cooldowns and a material preference gain.
-# Relative agenda weights stay 70 laws / 10 impeachment / 10 emergency / 10 member motions.
-# Candidates within a law field share weight only AFTER passing the same substantive threshold.
-# If no law is eligible, the 70-weight branch does nothing rather than inflating punitive motions.
+# Six-month opportunities choose individual actors. Fixed law choices require compatible payloads,
+# cost plus reserve, title/topic cooldowns and a material preference gain.
+# Tenet choices use native desire lists; rite resolutions use native eligibility.
+# Agenda weights are 70 policy/rite agenda / 10 impeachment / 10 emergency / 10 member motions.
+# An empty policy/rite agenda does nothing rather than increasing the other agenda weights.
 # Numerical preferences and timing knobs live in fs_legislation_values.txt.
 fs_legislation_ai_proposal_effect = {
 	if = {
@@ -483,6 +494,32 @@ fs_legislation_ai_proposal_effect = {
 					10 = {
 						trigger = { fs_legislation_ai_dual_office_proposal_trigger = { POLICY = flag:forbidden PREFERENCE = fs_legislation_ai_dual_office_forbidden_preference_value } }
 						fs_legislation_propose_dual_office_forbidden_effect = yes
+					}
+					10 = {
+						trigger = {
+							fs_legislation_ai_law_proposal_trigger = yes
+							NOT = { title:k_koreanism = { has_variable = fs_legislation_ai_tenet_cooldown } }
+							save_temporary_scope_as = fs_legislation_ai_tenet_proposer
+							any_desired_tenet = { only_positive = yes threshold = 1 selection_count = 97 fs_legislation_tenet_candidate_trigger = { ACTOR = scope:fs_legislation_ai_tenet_proposer STATUS = permitted } }
+						}
+						fs_legislation_ai_propose_tenet_effect = { STATUS = permitted }
+					}
+					10 = {
+						trigger = {
+							fs_legislation_ai_law_proposal_trigger = yes
+							NOT = { title:k_koreanism = { has_variable = fs_legislation_ai_tenet_cooldown } }
+							save_temporary_scope_as = fs_legislation_ai_tenet_proposer
+							any_undesired_tenet = { known_tenets = yes only_negative = yes threshold = -1 selection_count = 97 fs_legislation_tenet_candidate_trigger = { ACTOR = scope:fs_legislation_ai_tenet_proposer STATUS = prohibited } }
+						}
+						fs_legislation_ai_propose_tenet_effect = { STATUS = prohibited }
+					}
+					10 = {
+						trigger = {
+							NOT = { title:k_koreanism = { has_variable = fs_legislation_ai_heresy_cooldown } }
+							save_temporary_scope_as = fs_legislation_ai_heresy_proposer
+							faith:koreanism_faith = { any_faith_rite = { fs_legislation_heresy_candidate_trigger = yes NOT = { this = scope:fs_legislation_ai_heresy_proposer.rite } } }
+						}
+						fs_legislation_ai_propose_heresy_effect = yes
 					}
 				}
 			}
@@ -636,6 +673,18 @@ fs_legislation_send_notice_effect = {
 			}
 		}
 		if = {
+			limit = { title:k_koreanism = { fs_legislation_heresy_motion_trigger = yes } }
+			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = heresy SUCCESS = heresy_declared }
+		}
+		else_if = {
+			limit = { title:k_koreanism = { fs_legislation_tenet_law_trigger = yes var:fs_legislation_tenet_status = flag:permitted } }
+			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = tenet_permitted SUCCESS = enacted }
+		}
+		else_if = {
+			limit = { title:k_koreanism = { fs_legislation_tenet_law_trigger = yes var:fs_legislation_tenet_status = flag:prohibited } }
+			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = tenet_prohibited SUCCESS = enacted }
+		}
+		else_if = {
 			limit = { title:k_koreanism = { var:fs_legislation_kind = flag:impeachment } }
 			fs_legislation_send_result_notice_effect = { MESSAGE = $MESSAGE$ KIND = impeachment SUCCESS = impeached }
 		}
@@ -696,6 +745,8 @@ fs_legislation_notify_effect = {
 		save_scope_value_as = { name = fs_legislation_notice_no value = var:fs_legislation_last_no }
 		save_scope_value_as = { name = fs_legislation_notice_abstain value = var:fs_legislation_last_abstain }
 		var:fs_legislation_target ?= { save_scope_as = fs_legislation_notice_target }
+		var:fs_legislation_tenet ?= { save_scope_as = fs_legislation_notice_tenet }
+		var:fs_legislation_rite ?= { save_scope_as = fs_legislation_notice_rite }
 	}
 	every_in_list = {
 		variable = fs_legislation_voters
@@ -740,5 +791,208 @@ fs_legislation_notify_effect = {
 				fs_legislation_send_notice_effect = { MESSAGE = $MESSAGE$ }
 			}
 		}
+	}
+}
+
+# Character scope. Proposal callers supply scope:tenet or scope:rite.
+fs_legislation_propose_tenet_effect = {
+	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
+	if = {
+		limit = { fs_legislation_tenet_proposal_valid_trigger = { TENET = scope:tenet STATUS = $STATUS$ } }
+		add_piety = { value = fs_legislation_law_piety_cost multiply = -1 }
+		save_scope_as = fs_legislation_actor
+		title:k_koreanism = {
+			fs_legislation_clear_proposal_payload_effect = yes
+			set_variable = { name = fs_legislation_law_subject value = flag:tenet_status }
+			set_variable = { name = fs_legislation_tenet value = scope:tenet }
+			set_variable = { name = fs_legislation_tenet_status value = flag:$STATUS$ }
+			fs_legislation_begin_effect = { KIND = law }
+		}
+	}
+}
+
+fs_legislation_propose_heresy_effect = {
+	title:k_koreanism = { fs_legislation_initialize_effect = yes fs_legislation_refresh_electorate_effect = yes }
+	if = {
+		limit = { fs_legislation_heresy_proposal_valid_trigger = { RITE = scope:rite } }
+		save_scope_as = fs_legislation_actor
+		title:k_koreanism = {
+			fs_legislation_clear_proposal_payload_effect = yes
+			set_variable = { name = fs_legislation_rite value = scope:rite }
+			fs_legislation_begin_effect = { KIND = heresy }
+		}
+	}
+}
+
+# Native desire lists choose candidates; the public effect rechecks all proposal guards.
+fs_legislation_ai_propose_tenet_effect = {
+	save_scope_as = fs_legislation_ai_tenet_proposer
+	if = {
+		limit = { flag:$STATUS$ = flag:permitted }
+		random_desired_tenet = {
+			only_positive = yes
+			threshold = 1
+			selection_count = 97
+			limit = { fs_legislation_tenet_candidate_trigger = { ACTOR = scope:fs_legislation_ai_tenet_proposer STATUS = permitted } }
+			save_scope_as = tenet
+			scope:fs_legislation_ai_tenet_proposer = { fs_legislation_propose_tenet_effect = { STATUS = permitted } }
+		}
+	}
+	else = {
+		random_undesired_tenet = {
+			known_tenets = yes
+			only_negative = yes
+			threshold = -1
+			selection_count = 97
+			limit = { fs_legislation_tenet_candidate_trigger = { ACTOR = scope:fs_legislation_ai_tenet_proposer STATUS = prohibited } }
+			save_scope_as = tenet
+			scope:fs_legislation_ai_tenet_proposer = { fs_legislation_propose_tenet_effect = { STATUS = prohibited } }
+		}
+	}
+}
+
+fs_legislation_ai_propose_heresy_effect = {
+	save_scope_as = fs_legislation_ai_heresy_proposer
+	faith:koreanism_faith = {
+		ordered_faith_rite = {
+			limit = { fs_legislation_heresy_candidate_trigger = yes NOT = { this = scope:fs_legislation_ai_heresy_proposer.rite } }
+			order_by = "divergence(faith.main_rite)"
+			position = 0
+			save_scope_as = rite
+			scope:fs_legislation_ai_heresy_proposer = { fs_legislation_propose_heresy_effect = yes }
+		}
+	}
+}
+
+# Character scope. Draft choices never change a bill or spend piety.
+fs_legislation_clear_draft_choice_effect = {
+	remove_variable = fs_legislation_draft_kind
+	remove_variable = fs_legislation_draft_doctrine
+	remove_variable = fs_legislation_draft_policy
+	remove_variable = fs_legislation_draft_tenet
+	remove_variable = fs_legislation_draft_rite
+	remove_variable = fs_legislation_draft_target
+	remove_variable = fs_legislation_draft_return_step
+	clear_variable_list = fs_legislation_draft_tenets
+	clear_variable_list = fs_legislation_draft_members
+	clear_variable_list = fs_legislation_draft_rites
+}
+
+fs_legislation_clear_draft_effect = {
+	fs_legislation_clear_draft_choice_effect = yes
+	remove_variable = fs_legislation_draft_open
+	remove_variable = fs_legislation_draft_step
+}
+
+fs_legislation_draft_step_effect = {
+	fs_legislation_clear_draft_choice_effect = yes
+	set_variable = { name = fs_legislation_draft_step value = flag:$STEP$ }
+}
+
+fs_legislation_draft_tenet_list_effect = {
+	fs_legislation_clear_draft_choice_effect = yes
+	set_variable = { name = fs_legislation_draft_kind value = flag:tenet_$STATUS$ }
+	set_variable = { name = fs_legislation_draft_step value = flag:tenet }
+	save_scope_as = fs_legislation_draft_actor
+	ordered_character_tenet = {
+		knowledge_filter = known
+		limit = { fs_legislation_tenet_candidate_trigger = { ACTOR = scope:fs_legislation_draft_actor STATUS = $STATUS$ } }
+		order_by = pam_raw_tenet_popularity_value
+		max = 200
+		check_range_bounds = no
+		scope:fs_legislation_draft_actor = { add_to_variable_list = { name = fs_legislation_draft_tenets target = prev } }
+	}
+}
+
+fs_legislation_draft_member_list_effect = {
+	fs_legislation_clear_draft_choice_effect = yes
+	set_variable = { name = fs_legislation_draft_kind value = flag:$KIND$ }
+	set_variable = { name = fs_legislation_draft_step value = flag:member }
+	save_scope_as = fs_legislation_draft_actor
+	title:k_koreanism = {
+		fs_legislation_refresh_electorate_effect = yes
+		every_in_list = {
+			variable = fs_legislation_voters
+			limit = { fs_legislation_member_trigger = yes this != scope:fs_legislation_draft_actor }
+			scope:fs_legislation_draft_actor = { add_to_variable_list = { name = fs_legislation_draft_members target = prev } }
+		}
+	}
+}
+
+fs_legislation_draft_rite_list_effect = {
+	fs_legislation_clear_draft_choice_effect = yes
+	set_variable = { name = fs_legislation_draft_kind value = flag:heresy }
+	set_variable = { name = fs_legislation_draft_step value = flag:rite }
+	save_scope_as = fs_legislation_draft_actor
+	faith:koreanism_faith = {
+		every_faith_rite = {
+			limit = { fs_legislation_heresy_candidate_trigger = yes }
+			scope:fs_legislation_draft_actor = { add_to_variable_list = { name = fs_legislation_draft_rites target = prev } }
+		}
+	}
+}
+
+fs_legislation_draft_back_effect = {
+	if = {
+		limit = { var:fs_legislation_draft_step = flag:confirm }
+		set_variable = { name = fs_legislation_draft_step value = var:fs_legislation_draft_return_step }
+	}
+	else_if = {
+		limit = { var:fs_legislation_draft_step = flag:dual_office }
+		fs_legislation_draft_step_effect = { STEP = ordinary }
+	}
+	else_if = {
+		limit = { OR = { var:fs_legislation_draft_step = flag:religion_policy var:fs_legislation_draft_step = flag:tolerance var:fs_legislation_draft_step = flag:tenet } }
+		fs_legislation_draft_step_effect = { STEP = doctrine }
+	}
+	else_if = {
+		limit = { OR = { var:fs_legislation_draft_step = flag:member var:fs_legislation_draft_step = flag:rite } }
+		fs_legislation_draft_step_effect = { STEP = motions }
+	}
+	else = { fs_legislation_draft_step_effect = { STEP = category } }
+}
+
+# Revalidate the completed draft, then call the same public effects used by AI.
+fs_legislation_submit_draft_effect = {
+	if = {
+		limit = { fs_legislation_draft_valid_trigger = yes }
+		if = {
+			limit = { var:fs_legislation_draft_kind = flag:doctrine }
+			var:fs_legislation_draft_doctrine = { save_scope_as = doctrine }
+			fs_legislation_propose_law_effect = yes
+		}
+		else_if = {
+			limit = { var:fs_legislation_draft_kind = flag:dual_office }
+			if = { limit = { var:fs_legislation_draft_policy = flag:allowed } fs_legislation_propose_dual_office_allowed_effect = yes }
+			else = { fs_legislation_propose_dual_office_forbidden_effect = yes }
+		}
+		else_if = {
+			limit = { var:fs_legislation_draft_kind = flag:tenet_permitted }
+			var:fs_legislation_draft_tenet = { save_scope_as = tenet }
+			fs_legislation_propose_tenet_effect = { STATUS = permitted }
+		}
+		else_if = {
+			limit = { var:fs_legislation_draft_kind = flag:tenet_prohibited }
+			var:fs_legislation_draft_tenet = { save_scope_as = tenet }
+			fs_legislation_propose_tenet_effect = { STATUS = prohibited }
+		}
+		else_if = {
+			limit = { var:fs_legislation_draft_kind = flag:heresy }
+			var:fs_legislation_draft_rite = { save_scope_as = rite }
+			fs_legislation_propose_heresy_effect = yes
+		}
+		else_if = { limit = { var:fs_legislation_draft_kind = flag:impeachment } fs_legislation_propose_impeachment_effect = yes }
+		else_if = { limit = { var:fs_legislation_draft_kind = flag:lift_martial_law } fs_legislation_propose_lift_martial_law_effect = yes }
+		else_if = {
+			limit = { var:fs_legislation_draft_kind = flag:censure }
+			var:fs_legislation_draft_target = { save_scope_as = target }
+			fs_legislation_propose_censure_effect = yes
+		}
+		else_if = {
+			limit = { var:fs_legislation_draft_kind = flag:expulsion }
+			var:fs_legislation_draft_target = { save_scope_as = target }
+			fs_legislation_propose_expulsion_effect = yes
+		}
+		fs_legislation_clear_draft_effect = yes
 	}
 }

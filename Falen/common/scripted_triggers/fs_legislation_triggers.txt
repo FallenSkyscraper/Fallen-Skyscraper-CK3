@@ -144,3 +144,15 @@ fs_legislation_veto_valid_trigger = {
 	fs_legislation_promulgation_valid_trigger = yes
 	NOT = { title:k_koreanism = { has_variable = fs_legislation_reconsidered } }
 }
+
+# Title scope. Tenet status changes are laws; rite exclusion is a resolution.
+fs_legislation_tenet_law_trigger = {
+	this = title:k_koreanism
+	var:fs_legislation_kind = flag:law
+	var:fs_legislation_law_subject = flag:tenet_status
+}
+
+fs_legislation_heresy_motion_trigger = {
+	this = title:k_koreanism
+	var:fs_legislation_kind = flag:heresy
+}
