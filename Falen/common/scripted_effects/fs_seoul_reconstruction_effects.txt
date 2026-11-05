@@ -1,0 +1,56 @@
+# County scope. This is startup state, not a reward ledger.
+fs_seoul_initialize_reconstruction_effect = {
+	set_variable = { name = fs_seoul_skyscraper_stage value = 0 }
+	add_county_modifier = fs_seoul_old_world_ruins_modifier
+	add_county_modifier = fs_seoul_development_restriction_modifier
+}
+
+# Great-project callbacks provide scope:province. Completed stages survive cancellation.
+fs_seoul_complete_clearance_effect = {
+	scope:province.county = {
+		remove_county_modifier = fs_seoul_old_world_ruins_modifier
+		hidden_effect = { set_variable = { name = fs_seoul_skyscraper_stage value = 1 } }
+	}
+	title:k_seoul.holder = {
+		change_influence = { value = fs_seoul_clearance_mayor_influence_value }
+	}
+}
+
+fs_seoul_complete_foundations_effect = {
+	scope:province.county = {
+		remove_county_modifier = fs_seoul_development_restriction_modifier
+		hidden_effect = { set_variable = { name = fs_seoul_skyscraper_stage value = 2 } }
+	}
+	title:k_seoul.holder = {
+		change_influence = { value = fs_seoul_foundations_mayor_influence_value }
+	}
+}
+
+fs_seoul_complete_design_effect = {
+	scope:province.county = {
+		hidden_effect = { set_variable = { name = fs_seoul_skyscraper_stage value = 3 } }
+	}
+	custom_tooltip = fs_seoul_skyscraper_restoration_unlocked_tt
+	title:k_seoul.holder = {
+		change_influence = { value = fs_seoul_design_mayor_influence_value }
+	}
+}
+
+fs_seoul_complete_restoration_effect = {
+	scope:province = {
+		add_building = seoul_metropolis_02
+		county = {
+			hidden_effect = { set_variable = { name = fs_seoul_skyscraper_stage value = 4 } }
+		}
+	}
+	title:k_seoul.holder = {
+		change_influence = { value = fs_seoul_restoration_mayor_influence_value }
+	}
+}
+
+fs_seoul_complete_university_effect = {
+	scope:province = { add_special_building = $BUILDING$ }
+	title:k_seoul.holder = {
+		change_influence = { value = $INFLUENCE$ }
+	}
+}

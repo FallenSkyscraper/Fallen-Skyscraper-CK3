@@ -1,0 +1,83 @@
+# Character scope. The office, rather than a particular starting character, owns access.
+fs_seoul_can_found_reconstruction_trigger = {
+	government_has_flag = government_is_seoul
+	has_title = title:k_seoul
+}
+
+fs_seoul_can_contribute_reconstruction_trigger = {
+	is_alive = yes
+	is_adult = yes
+	is_imprisoned = no
+	is_landed = yes
+	highest_held_title_tier >= tier_county
+	government_has_flag = government_is_seoul
+	OR = {
+		this = title:k_seoul.holder
+		is_vassal_or_below_of = title:k_seoul.holder
+	}
+}
+
+# Province scope. Ownership checks use the Seoul office even when it has an overlord.
+fs_seoul_reconstruction_location_trigger = {
+	geographical_region = fs_seoul_reconstruction_region
+	is_county_capital = yes
+	has_holding = yes
+	title:k_seoul.holder ?= { government_has_flag = government_is_seoul }
+	exists = title:k_seoul.holder
+	county.holder ?= {
+		OR = {
+			this = title:k_seoul.holder
+			is_vassal_or_below_of = title:k_seoul.holder
+		}
+	}
+	exists = county.holder
+}
+
+fs_seoul_skyscraper_stage_location_trigger = {
+	fs_seoul_reconstruction_location_trigger = yes
+	custom_tooltip = {
+		text = fs_seoul_reconstruction_stage_$STAGE$_tt
+		county = {
+			has_variable = fs_seoul_skyscraper_stage
+			var:fs_seoul_skyscraper_stage = $STAGE$
+		}
+	}
+	custom_tooltip = {
+		text = fs_seoul_no_other_skyscraper_project_tt
+		NOT = {
+			any_great_project_in_province = {
+				OR = {
+					great_project_type = fs_seoul_skyscraper_clearance
+					great_project_type = fs_seoul_skyscraper_foundations
+					great_project_type = fs_seoul_skyscraper_design
+					great_project_type = fs_seoul_skyscraper_restoration
+				}
+			}
+		}
+	}
+}
+
+fs_seoul_university_location_trigger = {
+	fs_seoul_reconstruction_location_trigger = yes
+	this = title:$BARONY$.title_province
+	custom_tooltip = {
+		text = fs_seoul_university_foundations_required_tt
+		county = {
+			has_variable = fs_seoul_skyscraper_stage
+			var:fs_seoul_skyscraper_stage >= 2
+			NOT = { has_county_modifier = fs_seoul_development_restriction_modifier }
+		}
+	}
+	NOT = { has_building_or_higher = $BUILDING$ }
+	NOT = {
+		any_great_project_in_province = { great_project_type = $PROJECT$ }
+	}
+}
+
+# Building construction scope. Other governments retain the original requirements.
+fs_seoul_university_direct_construction_allowed_trigger = {
+	custom_tooltip = {
+		text = fs_seoul_university_project_required_tt
+		scope:holder = { NOT = { government_has_flag = government_is_seoul } }
+	}
+}

@@ -1,0 +1,19 @@
+on_game_start_after_lobby = {
+	on_actions = { fs_seoul_reconstruction_game_start }
+}
+
+fs_seoul_reconstruction_game_start = {
+	effect = {
+		# Existing campaigns are not retroactively given citywide restrictions.
+		if = {
+			limit = { current_date = 2444.1.1 }
+			every_county = {
+				limit = {
+					title_province = { geographical_region = fs_seoul_reconstruction_region }
+					NOT = { has_variable = fs_seoul_skyscraper_stage }
+				}
+				fs_seoul_initialize_reconstruction_effect = yes
+			}
+		}
+	}
+}

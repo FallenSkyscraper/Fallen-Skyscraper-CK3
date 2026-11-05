@@ -1,0 +1,1211 @@
+# Seoul reconstruction uses native project and contribution completion callbacks.
+# Each funded contribution pays its own contributor; no separate reward tracking is needed.
+
+fs_seoul_skyscraper_clearance = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_skyscraper_clearance }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 0 }
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_skyscraper_clearance }
+		any_realm_province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 0 }
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 0 }
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_clearance_planning_cost_value }
+	construction_time = fs_seoul_clearance_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_clearance_effect = yes
+	}
+
+	project_contributions = {
+		ruins_survey = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_clearance_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_clearance_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		hazard_removal = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_clearance_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_clearance_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		debris_clearance = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_clearance_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_clearance_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
+
+fs_seoul_skyscraper_foundations = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_skyscraper_foundations }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 1 }
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_skyscraper_foundations }
+		any_realm_province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 1 }
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 1 }
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_foundations_planning_cost_value }
+	construction_time = fs_seoul_foundations_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_foundations_effect = yes
+	}
+
+	project_contributions = {
+		ground_survey = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_foundations_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_foundations_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		ground_reinforcement = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_foundations_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_foundations_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		infrastructure = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_foundations_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_foundations_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
+
+fs_seoul_skyscraper_design = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_skyscraper_design }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 2 }
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_skyscraper_design }
+		any_realm_province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 2 }
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 2 }
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_design_planning_cost_value }
+	construction_time = fs_seoul_design_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_design_effect = yes
+	}
+
+	project_contributions = {
+		old_blueprints = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_design_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_design_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		structural_design = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_design_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_design_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		construction_plan = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_design_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_design_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
+
+fs_seoul_skyscraper_restoration = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_skyscraper_restoration }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 3 }
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_skyscraper_restoration }
+		any_realm_province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 3 }
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_skyscraper_stage_location_trigger = { STAGE = 3 }
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_restoration_planning_cost_value }
+	construction_time = fs_seoul_restoration_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_restoration_effect = yes
+	}
+
+	project_contributions = {
+		structure = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_restoration_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_restoration_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		utilities = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_restoration_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_restoration_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		facade = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_restoration_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_restoration_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
+
+fs_seoul_restore_seoul_national_university = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_restore_seoul_national_university }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_50
+				BUILDING = seoul_national_university_02
+				PROJECT = fs_seoul_restore_seoul_national_university
+			}
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_restore_seoul_national_university }
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_50
+				BUILDING = seoul_national_university_02
+				PROJECT = fs_seoul_restore_seoul_national_university
+			}
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_50
+				BUILDING = seoul_national_university_02
+				PROJECT = fs_seoul_restore_seoul_national_university
+			}
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_national_university_planning_cost_value }
+	construction_time = fs_seoul_national_university_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_university_effect = {
+			BUILDING = seoul_national_university_02
+			INFLUENCE = fs_seoul_national_university_mayor_influence_value
+		}
+	}
+
+	project_contributions = {
+		humanities = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_national_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_national_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		social_sciences = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_national_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_national_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		natural_sciences = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_national_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_national_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		engineering_lower = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_national_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_national_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		engineering_upper = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_national_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_national_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		arts = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_national_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_national_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		law = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_national_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_national_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
+
+fs_seoul_restore_yonsei_university = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_restore_yonsei_university }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_26
+				BUILDING = yonsei_university
+				PROJECT = fs_seoul_restore_yonsei_university
+			}
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_restore_yonsei_university }
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_26
+				BUILDING = yonsei_university
+				PROJECT = fs_seoul_restore_yonsei_university
+			}
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_26
+				BUILDING = yonsei_university
+				PROJECT = fs_seoul_restore_yonsei_university
+			}
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_university_planning_cost_value }
+	construction_time = fs_seoul_university_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_university_effect = {
+			BUILDING = yonsei_university
+			INFLUENCE = fs_seoul_university_mayor_influence_value
+		}
+	}
+
+	project_contributions = {
+		lecture_halls = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		library = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		faculty = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
+
+fs_seoul_restore_korea_university = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_restore_korea_university }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_32
+				BUILDING = korea_university
+				PROJECT = fs_seoul_restore_korea_university
+			}
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_restore_korea_university }
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_32
+				BUILDING = korea_university
+				PROJECT = fs_seoul_restore_korea_university
+			}
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_32
+				BUILDING = korea_university
+				PROJECT = fs_seoul_restore_korea_university
+			}
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_university_planning_cost_value }
+	construction_time = fs_seoul_university_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_university_effect = {
+			BUILDING = korea_university
+			INFLUENCE = fs_seoul_university_mayor_influence_value
+		}
+	}
+
+	project_contributions = {
+		lecture_halls = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		library = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		faculty = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
+
+fs_seoul_restore_sungkyunkwan_university = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_restore_sungkyunkwan_university }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_28
+				BUILDING = sungkyunkwan_university
+				PROJECT = fs_seoul_restore_sungkyunkwan_university
+			}
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_restore_sungkyunkwan_university }
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_28
+				BUILDING = sungkyunkwan_university
+				PROJECT = fs_seoul_restore_sungkyunkwan_university
+			}
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_28
+				BUILDING = sungkyunkwan_university
+				PROJECT = fs_seoul_restore_sungkyunkwan_university
+			}
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_university_planning_cost_value }
+	construction_time = fs_seoul_university_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_university_effect = {
+			BUILDING = sungkyunkwan_university
+			INFLUENCE = fs_seoul_university_mayor_influence_value
+		}
+	}
+
+	project_contributions = {
+		lecture_halls = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		library = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		faculty = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
+
+fs_seoul_restore_sogang_university = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_restore_sogang_university }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_27
+				BUILDING = sogang_university
+				PROJECT = fs_seoul_restore_sogang_university
+			}
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_restore_sogang_university }
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_27
+				BUILDING = sogang_university
+				PROJECT = fs_seoul_restore_sogang_university
+			}
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_27
+				BUILDING = sogang_university
+				PROJECT = fs_seoul_restore_sogang_university
+			}
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_university_planning_cost_value }
+	construction_time = fs_seoul_university_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_university_effect = {
+			BUILDING = sogang_university
+			INFLUENCE = fs_seoul_university_mayor_influence_value
+		}
+	}
+
+	project_contributions = {
+		lecture_halls = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		library = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		faculty = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
+
+fs_seoul_restore_dongguk_university = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_restore_dongguk_university }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_29
+				BUILDING = dongguk_university
+				PROJECT = fs_seoul_restore_dongguk_university
+			}
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_restore_dongguk_university }
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_29
+				BUILDING = dongguk_university
+				PROJECT = fs_seoul_restore_dongguk_university
+			}
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_29
+				BUILDING = dongguk_university
+				PROJECT = fs_seoul_restore_dongguk_university
+			}
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_university_planning_cost_value }
+	construction_time = fs_seoul_university_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_university_effect = {
+			BUILDING = dongguk_university
+			INFLUENCE = fs_seoul_university_mayor_influence_value
+		}
+	}
+
+	project_contributions = {
+		lecture_halls = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		library = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		faculty = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
+
+fs_seoul_restore_kyunghee_university = {
+	icon = { reference = "gfx/interface/icons/great_projects/city_china.dds" }
+	illustration = { reference = "gfx/interface/illustrations/great_projects/asia_great_project_default.dds" }
+	name = { desc = great_project_type_fs_seoul_restore_kyunghee_university }
+	group = major_project
+	is_important = yes
+	target_title_tier = county
+	province_filter = geographical_region
+	province_filter_target = fs_seoul_reconstruction_region
+	owner = founder_primary_title_owner
+
+	is_shown = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_34
+				BUILDING = kyunghee_university
+				PROJECT = fs_seoul_restore_kyunghee_university
+			}
+		}
+	}
+	can_start_planning = {
+		fs_seoul_can_found_reconstruction_trigger = yes
+		is_adult = yes
+		is_imprisoned = no
+		NOT = { is_planning_great_project = fs_seoul_restore_kyunghee_university }
+		any_realm_province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_34
+				BUILDING = kyunghee_university
+				PROJECT = fs_seoul_restore_kyunghee_university
+			}
+		}
+	}
+	is_location_valid = {
+		scope:province = {
+			fs_seoul_university_location_trigger = {
+				BARONY = b_34
+				BUILDING = kyunghee_university
+				PROJECT = fs_seoul_restore_kyunghee_university
+			}
+		}
+	}
+	is_valid = {
+		scope:province = { fs_seoul_reconstruction_location_trigger = yes }
+	}
+	can_cancel = { fs_seoul_can_found_reconstruction_trigger = yes }
+
+	cost = { gold = fs_seoul_university_planning_cost_value }
+	construction_time = fs_seoul_university_construction_days_value
+	contributor_cooldown = fs_seoul_project_contributor_delay_days_value
+	allowed_contributor_filter = {
+		owner = yes
+		founder = yes
+		vassals = yes
+	}
+	on_complete = {
+		fs_seoul_complete_university_effect = {
+			BUILDING = kyunghee_university
+			INFLUENCE = fs_seoul_university_mayor_influence_value
+		}
+	}
+
+	project_contributions = {
+		lecture_halls = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		library = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+		faculty = {
+			contributor_is_valid = { fs_seoul_can_contribute_reconstruction_trigger = yes }
+			cost = { gold = fs_seoul_university_contribution_cost_value }
+			is_required = yes
+			contributor_cooldown = fs_seoul_individual_contribution_cooldown_days_value
+			on_contribution_funded = { great_project_notify_contribution = yes }
+			on_complete = {
+				change_influence = { value = fs_seoul_university_contributor_influence_value }
+			}
+			ai_check_interval = 3
+			ai_will_do = { value = 100 }
+		}
+	}
+
+	ai_target_quick_trigger = {
+		adult = yes
+		rank = kingdom
+		government_type = { seoul_government }
+	}
+	ai_check_interval = 1
+	ai_will_do = { value = 100 }
+}
