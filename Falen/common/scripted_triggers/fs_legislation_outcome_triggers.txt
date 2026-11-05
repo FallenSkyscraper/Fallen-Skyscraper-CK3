@@ -22,10 +22,11 @@ fs_legislation_allowed_doctrine_trigger = {
 	OR = {
 		fs_legislation_religion_policy_doctrine_trigger = yes
 		fs_legislation_tolerance_doctrine_trigger = yes
+		fs_legislation_family_doctrine_trigger = yes
 	}
 }
 
-# Rite scope. Evaluate the resulting policy/tolerance pair without changing either here.
+# Rite scope. Validate each proposed doctrine without changing the current law.
 fs_legislation_rite_doctrine_compatible_trigger = {
 	trigger_if = {
 		limit = { $DOCTRINE$ = doctrine:religion_policy_ultranationalism }
@@ -64,9 +65,11 @@ fs_legislation_rite_doctrine_compatible_trigger = {
 			rite_has_doctrine = religion_policy_state_atheism
 		}
 	}
-	trigger_else = {
-		$DOCTRINE$ = doctrine:religion_policy_laicite
+	trigger_else_if = {
+		limit = { $DOCTRINE$ = { fs_legislation_family_doctrine_trigger = yes } }
+		fs_legislation_rite_family_doctrine_compatible_trigger = { DOCTRINE = $DOCTRINE$ }
 	}
+	trigger_else = { $DOCTRINE$ = doctrine:religion_policy_laicite }
 }
 
 # Character scope; scope:doctrine is supplied by the proposal or enactment caller.
@@ -207,6 +210,7 @@ fs_legislation_heresy_proposal_valid_trigger = {
 # Character scope. The draft is temporary; submission still uses public proposal guards.
 fs_legislation_draft_navigation_trigger = {
 	has_variable = fs_legislation_draft_open
+	NOT = { var:fs_legislation_draft_mode = flag:edict }
 	fs_legislation_can_propose_trigger = yes
 }
 
@@ -267,4 +271,185 @@ fs_legislation_draft_valid_trigger = {
 		var:fs_legislation_draft_target = { fs_legislation_member_trigger = yes }
 	}
 	trigger_else = { always = no }
+}
+
+# Doctrine scope. Civil and family-law amendments use the existing native doctrine choices.
+fs_legislation_adultery_men_doctrine_trigger = {
+	OR = {
+		this = doctrine:doctrine_adultery_men_crime
+		this = doctrine:doctrine_adultery_men_shunned
+		this = doctrine:doctrine_adultery_men_accepted
+	}
+}
+
+fs_legislation_adultery_women_doctrine_trigger = {
+	OR = {
+		this = doctrine:doctrine_adultery_women_crime
+		this = doctrine:doctrine_adultery_women_shunned
+		this = doctrine:doctrine_adultery_women_accepted
+	}
+}
+
+fs_legislation_homosexuality_doctrine_trigger = {
+	OR = {
+		this = doctrine:doctrine_homosexuality_crime
+		this = doctrine:doctrine_homosexuality_shunned
+		this = doctrine:doctrine_homosexuality_accepted
+	}
+}
+
+fs_legislation_divorce_doctrine_trigger = {
+	OR = {
+		this = doctrine:doctrine_divorce_disallowed
+		this = doctrine:doctrine_divorce_approval
+		this = doctrine:doctrine_divorce_allowed
+	}
+}
+
+fs_legislation_witchcraft_doctrine_trigger = {
+	OR = {
+		this = doctrine:doctrine_witchcraft_crime
+		this = doctrine:doctrine_witchcraft_shunned
+		this = doctrine:doctrine_witchcraft_accepted
+		this = doctrine:doctrine_witchcraft_virtuous
+	}
+}
+
+fs_legislation_consanguinity_doctrine_trigger = {
+	OR = {
+		this = doctrine:doctrine_consanguinity_dynastic
+		this = doctrine:doctrine_consanguinity_restricted
+		this = doctrine:doctrine_consanguinity_cousins
+		this = doctrine:doctrine_consanguinity_aunt_nephew_and_uncle_niece
+		this = doctrine:doctrine_consanguinity_unrestricted
+	}
+}
+
+fs_legislation_family_doctrine_trigger = {
+	OR = {
+		fs_legislation_adultery_men_doctrine_trigger = yes
+		fs_legislation_adultery_women_doctrine_trigger = yes
+		fs_legislation_homosexuality_doctrine_trigger = yes
+		fs_legislation_divorce_doctrine_trigger = yes
+		fs_legislation_witchcraft_doctrine_trigger = yes
+		fs_legislation_consanguinity_doctrine_trigger = yes
+	}
+}
+
+# Rite scope. Preserve native can_pick restrictions against the rite's core tenets.
+fs_legislation_rite_family_doctrine_compatible_trigger = {
+	trigger_if = {
+		limit = {
+			OR = {
+				$DOCTRINE$ = doctrine:doctrine_homosexuality_crime
+				$DOCTRINE$ = doctrine:doctrine_adultery_men_crime
+				$DOCTRINE$ = doctrine:doctrine_adultery_women_crime
+				$DOCTRINE$ = doctrine:doctrine_witchcraft_crime
+			}
+		}
+		NOT = { has_tenet_status = { tenet = tenet:tenet_natural_primitivism status = core } }
+	}
+	trigger_if = {
+		limit = {
+			OR = {
+				$DOCTRINE$ = doctrine:doctrine_adultery_men_crime
+				$DOCTRINE$ = doctrine:doctrine_adultery_men_shunned
+				$DOCTRINE$ = doctrine:doctrine_adultery_women_crime
+				$DOCTRINE$ = doctrine:doctrine_adultery_women_shunned
+			}
+		}
+		NOT = { has_tenet_status = { tenet = tenet:tenet_polyamory status = core } }
+	}
+	trigger_if = {
+		limit = {
+			$DOCTRINE$ = { fs_legislation_consanguinity_doctrine_trigger = yes }
+			NOT = { $DOCTRINE$ = doctrine:doctrine_consanguinity_unrestricted }
+		}
+		NOT = { has_tenet_status = { tenet = tenet:tenet_divine_marriage status = core } }
+	}
+}
+
+# Character scope. Executive programs are independent of Parliament's current bill.
+fs_legislation_edict_authority_trigger = {
+	fs_koreanism_parliament_president_trigger = yes
+}
+
+fs_legislation_edict_valid_trigger = {
+	fs_legislation_edict_authority_trigger = yes
+	trigger_if = {
+		limit = { flag:$KIND$ = flag:economy }
+		custom_tooltip = { text = fs_legislation_edict_economy_active_tt fs_legislation_edict_economy_days_left_value <= 0 }
+		custom_tooltip = {
+			text = fs_legislation_edict_economy_cost_tt
+			fs_legislation_edict_economy_treasury_cost > 0
+			has_treasury = yes
+			treasury >= fs_legislation_edict_economy_treasury_cost
+		}
+		custom_tooltip = {
+			text = FS_LEGISLATION_EDICT_TARGETS_TT
+			faith:koreanism_faith = { num_county_followers >= 1 }
+		}
+	}
+	trigger_else_if = {
+		limit = { flag:$KIND$ = flag:welfare }
+		custom_tooltip = { text = fs_legislation_edict_welfare_active_tt fs_legislation_edict_welfare_days_left_value <= 0 }
+		custom_tooltip = {
+			text = fs_legislation_edict_welfare_cost_tt
+			fs_legislation_edict_welfare_treasury_cost > 0
+			has_treasury = yes
+			treasury >= fs_legislation_edict_welfare_treasury_cost
+		}
+		custom_tooltip = {
+			text = FS_LEGISLATION_EDICT_TARGETS_TT
+			faith:koreanism_faith = { num_county_followers >= 1 }
+		}
+	}
+	trigger_else_if = {
+		limit = { flag:$KIND$ = flag:military }
+		custom_tooltip = { text = fs_legislation_edict_military_active_tt fs_legislation_edict_military_days_left_value <= 0 }
+		custom_tooltip = {
+			text = fs_legislation_edict_military_cost_tt
+			fs_legislation_edict_military_piety_cost > 0
+			piety >= fs_legislation_edict_military_piety_cost
+		}
+		custom_tooltip = {
+			text = FS_LEGISLATION_EDICT_TARGETS_TT
+			faith:koreanism_faith = { any_faith_ruler = { is_alive = yes is_landed = yes } }
+		}
+	}
+	trigger_else = { always = no }
+}
+
+fs_legislation_edict_draft_navigation_trigger = {
+	has_variable = fs_legislation_draft_open
+	var:fs_legislation_draft_mode = flag:edict
+	fs_legislation_edict_authority_trigger = yes
+}
+
+fs_legislation_edict_draft_valid_trigger = {
+	fs_legislation_edict_draft_navigation_trigger = yes
+	var:fs_legislation_draft_step = flag:confirm
+	trigger_if = { limit = { var:fs_legislation_draft_kind = flag:edict_economy } fs_legislation_edict_valid_trigger = { KIND = economy } }
+	trigger_else_if = { limit = { var:fs_legislation_draft_kind = flag:edict_welfare } fs_legislation_edict_valid_trigger = { KIND = welfare } }
+	trigger_else_if = { limit = { var:fs_legislation_draft_kind = flag:edict_military } fs_legislation_edict_valid_trigger = { KIND = military } }
+	trigger_else = { always = no }
+}
+
+# AI keeps a budget reserve, checks every six months and never renews a running program.
+fs_legislation_ai_edict_valid_trigger = {
+	is_ai = yes
+	fs_legislation_edict_valid_trigger = { KIND = $KIND$ }
+	trigger_if = {
+		limit = { flag:$KIND$ = flag:economy }
+		treasury >= fs_legislation_ai_edict_economy_minimum_resource_value
+	}
+	trigger_else_if = {
+		limit = { flag:$KIND$ = flag:welfare }
+		treasury >= fs_legislation_ai_edict_welfare_minimum_resource_value
+	}
+	trigger_else_if = {
+		limit = { flag:$KIND$ = flag:military }
+		piety >= fs_legislation_ai_edict_military_minimum_resource_value
+		faith:koreanism_faith = { any_faith_ruler = { is_alive = yes is_landed = yes is_at_war = yes } }
+	}
 }

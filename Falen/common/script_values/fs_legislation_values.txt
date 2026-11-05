@@ -330,6 +330,111 @@ fs_legislation_ai_pending_law_change_value = {
 		}
 		subtract = fs_legislation_ai_current_dual_office_preference_value
 	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_adultery_men_crime } }
+		add = fs_legislation_ai_doctrine_adultery_men_crime_preference_value
+		subtract = fs_legislation_ai_current_adultery_men_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_adultery_men_shunned } }
+		add = fs_legislation_ai_doctrine_adultery_men_shunned_preference_value
+		subtract = fs_legislation_ai_current_adultery_men_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_adultery_men_accepted } }
+		add = fs_legislation_ai_doctrine_adultery_men_accepted_preference_value
+		subtract = fs_legislation_ai_current_adultery_men_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_adultery_women_crime } }
+		add = fs_legislation_ai_doctrine_adultery_women_crime_preference_value
+		subtract = fs_legislation_ai_current_adultery_women_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_adultery_women_shunned } }
+		add = fs_legislation_ai_doctrine_adultery_women_shunned_preference_value
+		subtract = fs_legislation_ai_current_adultery_women_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_adultery_women_accepted } }
+		add = fs_legislation_ai_doctrine_adultery_women_accepted_preference_value
+		subtract = fs_legislation_ai_current_adultery_women_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_homosexuality_crime } }
+		add = fs_legislation_ai_doctrine_homosexuality_crime_preference_value
+		subtract = fs_legislation_ai_current_homosexuality_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_homosexuality_shunned } }
+		add = fs_legislation_ai_doctrine_homosexuality_shunned_preference_value
+		subtract = fs_legislation_ai_current_homosexuality_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_homosexuality_accepted } }
+		add = fs_legislation_ai_doctrine_homosexuality_accepted_preference_value
+		subtract = fs_legislation_ai_current_homosexuality_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_divorce_disallowed } }
+		add = fs_legislation_ai_doctrine_divorce_disallowed_preference_value
+		subtract = fs_legislation_ai_current_divorce_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_divorce_approval } }
+		add = fs_legislation_ai_doctrine_divorce_approval_preference_value
+		subtract = fs_legislation_ai_current_divorce_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_divorce_allowed } }
+		add = fs_legislation_ai_doctrine_divorce_allowed_preference_value
+		subtract = fs_legislation_ai_current_divorce_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_witchcraft_crime } }
+		add = fs_legislation_ai_doctrine_witchcraft_crime_preference_value
+		subtract = fs_legislation_ai_current_witchcraft_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_witchcraft_shunned } }
+		add = fs_legislation_ai_doctrine_witchcraft_shunned_preference_value
+		subtract = fs_legislation_ai_current_witchcraft_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_witchcraft_accepted } }
+		add = fs_legislation_ai_doctrine_witchcraft_accepted_preference_value
+		subtract = fs_legislation_ai_current_witchcraft_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_witchcraft_virtuous } }
+		add = fs_legislation_ai_doctrine_witchcraft_virtuous_preference_value
+		subtract = fs_legislation_ai_current_witchcraft_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_consanguinity_dynastic } }
+		add = fs_legislation_ai_doctrine_consanguinity_dynastic_preference_value
+		subtract = fs_legislation_ai_current_consanguinity_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_consanguinity_restricted } }
+		add = fs_legislation_ai_doctrine_consanguinity_restricted_preference_value
+		subtract = fs_legislation_ai_current_consanguinity_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_consanguinity_cousins } }
+		add = fs_legislation_ai_doctrine_consanguinity_cousins_preference_value
+		subtract = fs_legislation_ai_current_consanguinity_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_consanguinity_aunt_nephew_and_uncle_niece } }
+		add = fs_legislation_ai_doctrine_consanguinity_aunt_nephew_and_uncle_niece_preference_value
+		subtract = fs_legislation_ai_current_consanguinity_preference_value
+	}
+	if = {
+		limit = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes var:fs_legislation_doctrine = doctrine:doctrine_consanguinity_unrestricted } }
+		add = fs_legislation_ai_doctrine_consanguinity_unrestricted_preference_value
+		subtract = fs_legislation_ai_current_consanguinity_preference_value
+	}
 }
 
 # Character scope. Unpersuaded assessment: laws prioritize policy over personal loyalty.
@@ -419,4 +524,293 @@ fs_legislation_ai_heresy_support_value = {
 	if = { limit = { rite = title:k_koreanism.var:fs_legislation_rite } subtract = 100 }
 	if = { limit = { has_trait = zealous } add = 15 }
 	if = { limit = { has_trait = cynical } subtract = 15 }
+}
+
+# Civil and family-law scores are compared with the member's actual current rite doctrine.
+# The shared amendment bias and minimum improvement apply after these option scores.
+# doctrine_adultery_men_crime: baseline -5; has_trait = chaste +25; has_trait = lustful -25; has_trait = compassionate -15; has_trait = adulterer is_female = no -35.
+fs_legislation_ai_doctrine_adultery_men_crime_preference_value = {
+	value = -5
+	if = { limit = { has_trait = chaste } add = 25 }
+	if = { limit = { has_trait = lustful } subtract = 25 }
+	if = { limit = { has_trait = compassionate } subtract = 15 }
+	if = { limit = { has_trait = adulterer is_female = no } subtract = 35 }
+}
+
+# doctrine_adultery_men_shunned: baseline 5; has_trait = honest +15; has_trait = lustful -10.
+fs_legislation_ai_doctrine_adultery_men_shunned_preference_value = {
+	value = 5
+	if = { limit = { has_trait = honest } add = 15 }
+	if = { limit = { has_trait = lustful } subtract = 10 }
+}
+
+# doctrine_adultery_men_accepted: baseline 0; has_trait = lustful +25; has_trait = chaste -15; has_trait = compassionate +15; has_trait = adulterer is_female = no +35.
+fs_legislation_ai_doctrine_adultery_men_accepted_preference_value = {
+	value = 0
+	if = { limit = { has_trait = lustful } add = 25 }
+	if = { limit = { has_trait = chaste } subtract = 15 }
+	if = { limit = { has_trait = compassionate } add = 15 }
+	if = { limit = { has_trait = adulterer is_female = no } add = 35 }
+}
+
+# doctrine_adultery_women_crime: baseline -5; has_trait = chaste +25; has_trait = lustful -25; has_trait = compassionate -15; has_trait = adulterer is_female = yes -35.
+fs_legislation_ai_doctrine_adultery_women_crime_preference_value = {
+	value = -5
+	if = { limit = { has_trait = chaste } add = 25 }
+	if = { limit = { has_trait = lustful } subtract = 25 }
+	if = { limit = { has_trait = compassionate } subtract = 15 }
+	if = { limit = { has_trait = adulterer is_female = yes } subtract = 35 }
+}
+
+# doctrine_adultery_women_shunned: baseline 5; has_trait = honest +15; has_trait = lustful -10.
+fs_legislation_ai_doctrine_adultery_women_shunned_preference_value = {
+	value = 5
+	if = { limit = { has_trait = honest } add = 15 }
+	if = { limit = { has_trait = lustful } subtract = 10 }
+}
+
+# doctrine_adultery_women_accepted: baseline 0; has_trait = lustful +25; has_trait = chaste -15; has_trait = compassionate +15; has_trait = adulterer is_female = yes +35.
+fs_legislation_ai_doctrine_adultery_women_accepted_preference_value = {
+	value = 0
+	if = { limit = { has_trait = lustful } add = 25 }
+	if = { limit = { has_trait = chaste } subtract = 15 }
+	if = { limit = { has_trait = compassionate } add = 15 }
+	if = { limit = { has_trait = adulterer is_female = yes } add = 35 }
+}
+
+# doctrine_homosexuality_crime: baseline -10; OR = { sexuality = homosexual sexuality = bisexual } -40; has_trait = callous +10; has_trait = compassionate -20.
+fs_legislation_ai_doctrine_homosexuality_crime_preference_value = {
+	value = -10
+	if = { limit = { OR = { sexuality = homosexual sexuality = bisexual } } subtract = 40 }
+	if = { limit = { has_trait = callous } add = 10 }
+	if = { limit = { has_trait = compassionate } subtract = 20 }
+}
+
+# doctrine_homosexuality_shunned: baseline 0; OR = { sexuality = homosexual sexuality = bisexual } -20.
+fs_legislation_ai_doctrine_homosexuality_shunned_preference_value = {
+	value = 0
+	if = { limit = { OR = { sexuality = homosexual sexuality = bisexual } } subtract = 20 }
+}
+
+# doctrine_homosexuality_accepted: baseline 5; OR = { sexuality = homosexual sexuality = bisexual } +40; has_trait = compassionate +20.
+fs_legislation_ai_doctrine_homosexuality_accepted_preference_value = {
+	value = 5
+	if = { limit = { OR = { sexuality = homosexual sexuality = bisexual } } add = 40 }
+	if = { limit = { has_trait = compassionate } add = 20 }
+}
+
+# doctrine_divorce_disallowed: baseline -10; has_trait = stubborn +20; has_trait = compassionate -15; has_trait = lustful -15.
+fs_legislation_ai_doctrine_divorce_disallowed_preference_value = {
+	value = -10
+	if = { limit = { has_trait = stubborn } add = 20 }
+	if = { limit = { has_trait = compassionate } subtract = 15 }
+	if = { limit = { has_trait = lustful } subtract = 15 }
+}
+
+# doctrine_divorce_approval: baseline 0; has_title = title:k_koreanism has_trait = greedy +20.
+fs_legislation_ai_doctrine_divorce_approval_preference_value = {
+	value = 0
+	if = { limit = { has_title = title:k_koreanism has_trait = greedy } add = 20 }
+}
+
+# doctrine_divorce_allowed: baseline 5; has_trait = compassionate +20; has_trait = lustful +15; has_trait = stubborn -10.
+fs_legislation_ai_doctrine_divorce_allowed_preference_value = {
+	value = 5
+	if = { limit = { has_trait = compassionate } add = 20 }
+	if = { limit = { has_trait = lustful } add = 15 }
+	if = { limit = { has_trait = stubborn } subtract = 10 }
+}
+
+# doctrine_witchcraft_crime: baseline -10; has_trait = witch -50; has_trait = compassionate -15; has_trait = callous +10.
+fs_legislation_ai_doctrine_witchcraft_crime_preference_value = {
+	value = -10
+	if = { limit = { has_trait = witch } subtract = 50 }
+	if = { limit = { has_trait = compassionate } subtract = 15 }
+	if = { limit = { has_trait = callous } add = 10 }
+}
+
+# doctrine_witchcraft_shunned: baseline 0; has_trait = witch -20.
+fs_legislation_ai_doctrine_witchcraft_shunned_preference_value = {
+	value = 0
+	if = { limit = { has_trait = witch } subtract = 20 }
+}
+
+# doctrine_witchcraft_accepted: baseline 5; has_trait = witch +30; has_trait = compassionate +15.
+fs_legislation_ai_doctrine_witchcraft_accepted_preference_value = {
+	value = 5
+	if = { limit = { has_trait = witch } add = 30 }
+	if = { limit = { has_trait = compassionate } add = 15 }
+}
+
+# doctrine_witchcraft_virtuous: baseline -5; has_trait = witch +60.
+fs_legislation_ai_doctrine_witchcraft_virtuous_preference_value = {
+	value = -5
+	if = { limit = { has_trait = witch } add = 60 }
+}
+
+# doctrine_consanguinity_dynastic: same baseline 10 and incestuous -35 as the close-kin ban.
+fs_legislation_ai_doctrine_consanguinity_dynastic_preference_value = {
+	value = fs_legislation_ai_doctrine_consanguinity_restricted_preference_value
+}
+
+# doctrine_consanguinity_restricted: baseline 10; has_trait = incestuous -35.
+fs_legislation_ai_doctrine_consanguinity_restricted_preference_value = {
+	value = 10
+	if = { limit = { has_trait = incestuous } subtract = 35 }
+}
+
+# doctrine_consanguinity_cousins: baseline 5; no trait adjustments.
+fs_legislation_ai_doctrine_consanguinity_cousins_preference_value = {
+	value = 5
+
+}
+
+# doctrine_consanguinity_aunt_nephew_and_uncle_niece: baseline -5; no trait adjustments.
+fs_legislation_ai_doctrine_consanguinity_aunt_nephew_and_uncle_niece_preference_value = {
+	value = -5
+
+}
+
+# doctrine_consanguinity_unrestricted: baseline -20; has_trait = incestuous +60.
+fs_legislation_ai_doctrine_consanguinity_unrestricted_preference_value = {
+	value = -20
+	if = { limit = { has_trait = incestuous } add = 60 }
+}
+
+fs_legislation_ai_current_adultery_men_preference_value = {
+	value = 0
+	if = { limit = { rite = { rite_has_doctrine = doctrine_adultery_men_crime } } add = fs_legislation_ai_doctrine_adultery_men_crime_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_adultery_men_shunned } } add = fs_legislation_ai_doctrine_adultery_men_shunned_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_adultery_men_accepted } } add = fs_legislation_ai_doctrine_adultery_men_accepted_preference_value }
+}
+
+fs_legislation_ai_adultery_men_proposal_threshold_value = {
+	value = fs_legislation_ai_current_adultery_men_preference_value
+	add = fs_legislation_ai_minimum_law_improvement
+	add = fs_legislation_ai_law_status_quo_bias
+}
+
+fs_legislation_ai_current_adultery_women_preference_value = {
+	value = 0
+	if = { limit = { rite = { rite_has_doctrine = doctrine_adultery_women_crime } } add = fs_legislation_ai_doctrine_adultery_women_crime_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_adultery_women_shunned } } add = fs_legislation_ai_doctrine_adultery_women_shunned_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_adultery_women_accepted } } add = fs_legislation_ai_doctrine_adultery_women_accepted_preference_value }
+}
+
+fs_legislation_ai_adultery_women_proposal_threshold_value = {
+	value = fs_legislation_ai_current_adultery_women_preference_value
+	add = fs_legislation_ai_minimum_law_improvement
+	add = fs_legislation_ai_law_status_quo_bias
+}
+
+fs_legislation_ai_current_homosexuality_preference_value = {
+	value = 0
+	if = { limit = { rite = { rite_has_doctrine = doctrine_homosexuality_crime } } add = fs_legislation_ai_doctrine_homosexuality_crime_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_homosexuality_shunned } } add = fs_legislation_ai_doctrine_homosexuality_shunned_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_homosexuality_accepted } } add = fs_legislation_ai_doctrine_homosexuality_accepted_preference_value }
+}
+
+fs_legislation_ai_homosexuality_proposal_threshold_value = {
+	value = fs_legislation_ai_current_homosexuality_preference_value
+	add = fs_legislation_ai_minimum_law_improvement
+	add = fs_legislation_ai_law_status_quo_bias
+}
+
+fs_legislation_ai_current_divorce_preference_value = {
+	value = 0
+	if = { limit = { rite = { rite_has_doctrine = doctrine_divorce_disallowed } } add = fs_legislation_ai_doctrine_divorce_disallowed_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_divorce_approval } } add = fs_legislation_ai_doctrine_divorce_approval_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_divorce_allowed } } add = fs_legislation_ai_doctrine_divorce_allowed_preference_value }
+}
+
+fs_legislation_ai_divorce_proposal_threshold_value = {
+	value = fs_legislation_ai_current_divorce_preference_value
+	add = fs_legislation_ai_minimum_law_improvement
+	add = fs_legislation_ai_law_status_quo_bias
+}
+
+fs_legislation_ai_current_witchcraft_preference_value = {
+	value = 0
+	if = { limit = { rite = { rite_has_doctrine = doctrine_witchcraft_crime } } add = fs_legislation_ai_doctrine_witchcraft_crime_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_witchcraft_shunned } } add = fs_legislation_ai_doctrine_witchcraft_shunned_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_witchcraft_accepted } } add = fs_legislation_ai_doctrine_witchcraft_accepted_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_witchcraft_virtuous } } add = fs_legislation_ai_doctrine_witchcraft_virtuous_preference_value }
+}
+
+fs_legislation_ai_witchcraft_proposal_threshold_value = {
+	value = fs_legislation_ai_current_witchcraft_preference_value
+	add = fs_legislation_ai_minimum_law_improvement
+	add = fs_legislation_ai_law_status_quo_bias
+}
+
+fs_legislation_ai_current_consanguinity_preference_value = {
+	value = 0
+	if = { limit = { rite = { rite_has_doctrine = doctrine_consanguinity_dynastic } } add = fs_legislation_ai_doctrine_consanguinity_dynastic_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_consanguinity_restricted } } add = fs_legislation_ai_doctrine_consanguinity_restricted_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_consanguinity_cousins } } add = fs_legislation_ai_doctrine_consanguinity_cousins_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_consanguinity_aunt_nephew_and_uncle_niece } } add = fs_legislation_ai_doctrine_consanguinity_aunt_nephew_and_uncle_niece_preference_value }
+	else_if = { limit = { rite = { rite_has_doctrine = doctrine_consanguinity_unrestricted } } add = fs_legislation_ai_doctrine_consanguinity_unrestricted_preference_value }
+}
+
+fs_legislation_ai_consanguinity_proposal_threshold_value = {
+	value = fs_legislation_ai_current_consanguinity_preference_value
+	add = fs_legislation_ai_minimum_law_improvement
+	add = fs_legislation_ai_law_status_quo_bias
+}
+
+# Edicts last five years. Funded programs use the government's native treasury.
+fs_legislation_edict_duration_days = 1825
+fs_legislation_edict_economy_treasury_cost = 500
+fs_legislation_edict_welfare_treasury_cost = 500
+fs_legislation_edict_military_piety_cost = 200
+fs_legislation_ai_edict_check_days = 180
+fs_legislation_ai_edict_treasury_reserve = 500
+fs_legislation_ai_edict_piety_reserve = 200
+
+fs_legislation_edict_economy_days_left_value = {
+	value = 0
+	if = {
+		limit = { title:k_koreanism = { has_variable = fs_presidential_edict_economy_deadline } }
+		add = title:k_koreanism.var:fs_presidential_edict_economy_deadline
+		subtract = current_date
+		min = 0
+		ceiling = yes
+	}
+}
+
+fs_legislation_ai_edict_economy_minimum_resource_value = {
+	value = fs_legislation_edict_economy_treasury_cost
+	add = fs_legislation_ai_edict_treasury_reserve
+}
+
+fs_legislation_edict_welfare_days_left_value = {
+	value = 0
+	if = {
+		limit = { title:k_koreanism = { has_variable = fs_presidential_edict_welfare_deadline } }
+		add = title:k_koreanism.var:fs_presidential_edict_welfare_deadline
+		subtract = current_date
+		min = 0
+		ceiling = yes
+	}
+}
+
+fs_legislation_ai_edict_welfare_minimum_resource_value = {
+	value = fs_legislation_edict_welfare_treasury_cost
+	add = fs_legislation_ai_edict_treasury_reserve
+}
+
+fs_legislation_edict_military_days_left_value = {
+	value = 0
+	if = {
+		limit = { title:k_koreanism = { has_variable = fs_presidential_edict_military_deadline } }
+		add = title:k_koreanism.var:fs_presidential_edict_military_deadline
+		subtract = current_date
+		min = 0
+		ceiling = yes
+	}
+}
+
+fs_legislation_ai_edict_military_minimum_resource_value = {
+	value = fs_legislation_edict_military_piety_cost
+	add = fs_legislation_ai_edict_piety_reserve
 }

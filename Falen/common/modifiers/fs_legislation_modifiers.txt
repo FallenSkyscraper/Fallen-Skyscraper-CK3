@@ -11,3 +11,22 @@ fs_legislation_martial_law_modifier = {
 	monthly_piety = 0.25
 	same_faith_opinion = -5
 }
+
+# Five-year, paid programs: county faith determines civil beneficiaries; ruler faith determines military beneficiaries.
+fs_presidential_edict_economy_modifier = {
+	icon = stewardship_positive
+	tax_mult = 0.10
+	development_growth_factor = 0.05
+}
+
+fs_presidential_edict_welfare_modifier = {
+	icon = diplomacy_positive
+	county_opinion_add = 10
+	monthly_county_control_growth_add = 0.10
+}
+
+fs_presidential_edict_military_modifier = {
+	icon = martial_positive
+	levy_size = 0.10
+	levy_reinforcement_rate = 0.10
+}

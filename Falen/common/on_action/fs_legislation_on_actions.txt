@@ -8,6 +8,12 @@ fs_legislation_game_start = {
 			fs_legislation_initialize_effect = yes
 			fs_legislation_sync_president_effect = yes
 			fs_legislation_refresh_electorate_effect = yes
+			# Discard retired recipient caches on game start.
+			clear_variable_list = fs_presidential_edict_economy_counties
+			clear_variable_list = fs_presidential_edict_welfare_counties
+			clear_variable_list = fs_presidential_edict_military_rulers
+			remove_variable = fs_presidential_edict_next_sync
+			remove_variable = fs_presidential_edict_authorized
 		}
 	}
 }
@@ -69,6 +75,7 @@ fs_legislation_heartbeat = {
 			fs_legislation_refresh_electorate_effect = yes
 			fs_legislation_advance_effect = yes
 			fs_legislation_ai_daily_effect = yes
+			fs_legislation_ai_edicts_effect = yes
 		}
 		trigger_event = { on_action = fs_legislation_heartbeat days = 1 }
 	}

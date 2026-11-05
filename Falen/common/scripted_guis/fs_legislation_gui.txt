@@ -597,6 +597,7 @@ fs_legislation_select_doctrine_gui = {
 			limit = { fs_legislation_draft_navigation_trigger = yes fs_legislation_doctrine_proposal_valid_trigger = yes }
 			set_variable = { name = fs_legislation_draft_doctrine value = scope:doctrine }
 			if = { limit = { scope:doctrine = { fs_legislation_religion_policy_doctrine_trigger = yes } } set_variable = { name = fs_legislation_draft_return_step value = flag:religion_policy } }
+			else_if = { limit = { scope:doctrine = { fs_legislation_family_doctrine_trigger = yes } } set_variable = { name = fs_legislation_draft_return_step value = flag:family_doctrine } }
 			else = { set_variable = { name = fs_legislation_draft_return_step value = flag:tolerance } }
 			set_variable = { name = fs_legislation_draft_kind value = flag:doctrine }
 			set_variable = { name = fs_legislation_draft_step value = flag:confirm }
@@ -675,7 +676,13 @@ fs_legislation_close_proposal_gui = {
 
 fs_legislation_proposal_window_gui = {
 	scope = character
-	is_shown = { has_variable = fs_legislation_draft_open fs_legislation_participant_trigger = yes NOT = { title:k_koreanism = { fs_legislation_active_trigger = yes } } }
+	is_shown = {
+		has_variable = fs_legislation_draft_open
+		OR = {
+			AND = { var:fs_legislation_draft_mode = flag:edict fs_legislation_edict_authority_trigger = yes }
+			AND = { NOT = { var:fs_legislation_draft_mode = flag:edict } fs_legislation_participant_trigger = yes NOT = { title:k_koreanism = { fs_legislation_active_trigger = yes } } }
+		}
+	}
 }
 
 fs_legislation_draft_law_gui = {
@@ -687,4 +694,138 @@ fs_legislation_draft_doctrine_selected_gui = {
 	scope = character
 	saved_scopes = { doctrine }
 	is_shown = { var:fs_legislation_draft_doctrine = scope:doctrine }
+}
+
+fs_legislation_draft_adultery_men_gui = {
+	scope = character
+	is_valid = { fs_legislation_draft_navigation_trigger = yes }
+	effect = {
+		if = {
+			limit = { fs_legislation_draft_navigation_trigger = yes }
+			fs_legislation_draft_family_list_effect = { FIELD = adultery_men }
+		}
+	}
+}
+
+fs_legislation_draft_adultery_women_gui = {
+	scope = character
+	is_valid = { fs_legislation_draft_navigation_trigger = yes }
+	effect = {
+		if = {
+			limit = { fs_legislation_draft_navigation_trigger = yes }
+			fs_legislation_draft_family_list_effect = { FIELD = adultery_women }
+		}
+	}
+}
+
+fs_legislation_draft_homosexuality_gui = {
+	scope = character
+	is_valid = { fs_legislation_draft_navigation_trigger = yes }
+	effect = {
+		if = {
+			limit = { fs_legislation_draft_navigation_trigger = yes }
+			fs_legislation_draft_family_list_effect = { FIELD = homosexuality }
+		}
+	}
+}
+
+fs_legislation_draft_divorce_gui = {
+	scope = character
+	is_valid = { fs_legislation_draft_navigation_trigger = yes }
+	effect = {
+		if = {
+			limit = { fs_legislation_draft_navigation_trigger = yes }
+			fs_legislation_draft_family_list_effect = { FIELD = divorce }
+		}
+	}
+}
+
+fs_legislation_draft_witchcraft_gui = {
+	scope = character
+	is_valid = { fs_legislation_draft_navigation_trigger = yes }
+	effect = {
+		if = {
+			limit = { fs_legislation_draft_navigation_trigger = yes }
+			fs_legislation_draft_family_list_effect = { FIELD = witchcraft }
+		}
+	}
+}
+
+fs_legislation_draft_consanguinity_gui = {
+	scope = character
+	is_valid = { fs_legislation_draft_navigation_trigger = yes }
+	effect = {
+		if = {
+			limit = { fs_legislation_draft_navigation_trigger = yes }
+			fs_legislation_draft_family_list_effect = { FIELD = consanguinity }
+		}
+	}
+}
+
+fs_legislation_family_law_gui = {
+	scope = character
+	is_shown = { title:k_koreanism = { fs_legislation_doctrine_law_trigger = yes exists = var:fs_legislation_doctrine var:fs_legislation_doctrine = { fs_legislation_family_doctrine_trigger = yes } } }
+}
+
+# Executive mode uses the same window while preserving the current legislative agenda.
+fs_legislation_open_edicts_gui = {
+	scope = character
+	is_valid = { fs_legislation_edict_authority_trigger = yes }
+	effect = {
+		if = {
+			limit = { fs_legislation_edict_authority_trigger = yes }
+			fs_legislation_clear_draft_effect = yes
+			set_variable = fs_legislation_draft_open
+			set_variable = { name = fs_legislation_draft_mode value = flag:edict }
+			set_variable = { name = fs_legislation_draft_step value = flag:edicts }
+		}
+	}
+}
+
+fs_legislation_select_edict_economy_gui = {
+	scope = character
+	is_valid = { fs_legislation_edict_draft_navigation_trigger = yes fs_legislation_edict_valid_trigger = { KIND = economy } }
+	effect = {
+		if = {
+			limit = { fs_legislation_edict_draft_navigation_trigger = yes fs_legislation_edict_valid_trigger = { KIND = economy } }
+			fs_legislation_clear_draft_choice_effect = yes
+			set_variable = { name = fs_legislation_draft_kind value = flag:edict_economy }
+			set_variable = { name = fs_legislation_draft_return_step value = flag:edicts }
+			set_variable = { name = fs_legislation_draft_step value = flag:confirm }
+		}
+	}
+}
+
+fs_legislation_select_edict_welfare_gui = {
+	scope = character
+	is_valid = { fs_legislation_edict_draft_navigation_trigger = yes fs_legislation_edict_valid_trigger = { KIND = welfare } }
+	effect = {
+		if = {
+			limit = { fs_legislation_edict_draft_navigation_trigger = yes fs_legislation_edict_valid_trigger = { KIND = welfare } }
+			fs_legislation_clear_draft_choice_effect = yes
+			set_variable = { name = fs_legislation_draft_kind value = flag:edict_welfare }
+			set_variable = { name = fs_legislation_draft_return_step value = flag:edicts }
+			set_variable = { name = fs_legislation_draft_step value = flag:confirm }
+		}
+	}
+}
+
+fs_legislation_select_edict_military_gui = {
+	scope = character
+	is_valid = { fs_legislation_edict_draft_navigation_trigger = yes fs_legislation_edict_valid_trigger = { KIND = military } }
+	effect = {
+		if = {
+			limit = { fs_legislation_edict_draft_navigation_trigger = yes fs_legislation_edict_valid_trigger = { KIND = military } }
+			fs_legislation_clear_draft_choice_effect = yes
+			set_variable = { name = fs_legislation_draft_kind value = flag:edict_military }
+			set_variable = { name = fs_legislation_draft_return_step value = flag:edicts }
+			set_variable = { name = fs_legislation_draft_step value = flag:confirm }
+		}
+	}
+}
+
+fs_legislation_issue_edict_gui = {
+	scope = character
+	is_valid = { fs_legislation_edict_draft_valid_trigger = yes }
+	effect = { fs_legislation_issue_draft_edict_effect = yes }
 }
