@@ -7066,7 +7066,7 @@ types HUD
 					widget = {
 						name = "influence"
 						datacontext = "[InGameTopbar.GetInfluenceItem]"
-						visible = "[GetPlayer.GetGovernment.HasMechanic( 'administrative' )]"
+						visible = "[Or( GetPlayer.GetGovernment.HasMechanic( 'administrative' ), GetPlayer.GetGovernment.IsType( 'seoul_government' ) )]"
 						size = { 112 70 }
 
 						widget = {

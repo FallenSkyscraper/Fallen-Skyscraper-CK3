@@ -1,0 +1,102 @@
+# Character scope. Use the current office holder even if Seoul has an overlord.
+fs_seoul_realm_ruler_trigger = {
+	is_alive = yes
+	is_landed = yes
+	highest_held_title_tier >= tier_county
+	government_has_flag = government_is_seoul
+	exists = title:k_seoul.holder
+	title:k_seoul.holder = { government_has_flag = government_is_seoul }
+	OR = {
+		this = title:k_seoul.holder
+		is_vassal_or_below_of = title:k_seoul.holder
+	}
+}
+
+fs_seoul_holds_multiple_counties_trigger = {
+	custom_tooltip = {
+		text = fs_seoul_district_order_multiple_counties_tt
+		any_held_title = {
+			count >= 2
+			tier = tier_county
+			is_landless_type_title = no
+		}
+	}
+}
+
+# CB scope. A mayor is eligible on either side of this war.
+fs_seoul_district_order_participants_trigger = {
+	custom_tooltip = {
+		text = fs_seoul_district_order_same_realm_tt
+		scope:attacker = { fs_seoul_realm_ruler_trigger = yes }
+		scope:defender = { fs_seoul_realm_ruler_trigger = yes }
+		scope:attacker != scope:defender
+	}
+	scope:defender = { fs_seoul_holds_multiple_counties_trigger = yes }
+}
+
+# Title scope. Capitals are deliberately eligible; vassal titles are not.
+fs_seoul_district_order_target_trigger = {
+	custom_tooltip = {
+		text = fs_seoul_district_order_target_tt
+		tier = tier_county
+		is_landless_type_title = no
+		holder = scope:defender
+	}
+}
+
+# Check the actual war target list, which also survives inheritance.
+fs_seoul_district_order_war_valid_trigger = {
+	fs_seoul_district_order_participants_trigger = yes
+	any_in_list = { list = target_titles count = 1 always = yes }
+	NOT = {
+		any_in_list = {
+			list = target_titles
+			NOT = { fs_seoul_district_order_target_trigger = yes }
+		}
+	}
+}
+
+# Interaction scope. This also supplies the acceptance-time government checks.
+fs_seoul_purchase_truce_participants_trigger = {
+	scope:actor = {
+		fs_seoul_realm_ruler_trigger = yes
+		NOT = { has_title = title:k_seoul }
+	}
+	scope:recipient = {
+		fs_seoul_realm_ruler_trigger = yes
+		NOT = { has_title = title:k_seoul }
+	}
+	scope:actor != scope:recipient
+	custom_tooltip = {
+		text = fs_seoul_purchase_truce_no_hierarchy_tt
+		scope:actor = { NOT = { is_vassal_or_below_of = scope:recipient } }
+		scope:recipient = { NOT = { is_vassal_or_below_of = scope:actor } }
+	}
+}
+
+fs_seoul_purchase_truce_valid_trigger = {
+	fs_seoul_purchase_truce_participants_trigger = yes
+	scope:actor = {
+		is_physically_able = yes
+		influence >= fs_seoul_purchase_truce_cost
+		custom_tooltip = {
+			text = fs_seoul_purchase_truce_at_war_tt
+			NOT = { is_at_war_with = scope:recipient }
+		}
+		custom_tooltip = {
+			text = fs_seoul_purchase_truce_allied_tt
+			NOT = { is_allied_to = scope:recipient }
+		}
+	}
+	scope:recipient = { is_physically_able = yes }
+	custom_tooltip = {
+		text = fs_seoul_purchase_truce_existing_truce_tt
+		scope:actor = { NOT = { any_truce_holder = { this = scope:recipient } } }
+		scope:recipient = { NOT = { any_truce_holder = { this = scope:actor } } }
+	}
+}
+
+fs_seoul_can_upgrade_house_aspiration_trigger = {
+	is_house_head = yes
+	government_has_flag = government_is_seoul
+}

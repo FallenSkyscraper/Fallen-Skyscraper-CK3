@@ -51,7 +51,10 @@ seoul_recovery_cb = {
 
 	on_victory_desc = seoul_recovery_cb_victory_desc
 	on_victory = {
-		scope:attacker = { show_pow_release_message_effect = yes }
+		scope:attacker = {
+			show_pow_release_message_effect = yes
+			change_influence = { value = 250 }
+		}
 		create_title_and_vassal_change = {
 			type = conquest
 			save_scope_as = change
@@ -65,18 +68,38 @@ seoul_recovery_cb = {
 			}
 		}
 		resolve_title_and_vassal_change = scope:change
+		# County conquest grants the attacker fame progress for each county.
+		every_in_list = {
+			list = target_titles
+			scope:attacker = { add_prestige_experience = minor_prestige_value }
+		}
+		modify_allies_of_participants_fame_values = {
+			WINNER = scope:attacker
+			FAME_BASE = minor_prestige_value
+			IS_RELIGIOUS_WAR = no
+			WINNER_ALLY_FAME_SCALE = 1
+			LOSER_ALLY_FAME_SCALE = 1
+		}
 		add_truce_attacker_victory_effect = yes
 	}
 
 	on_white_peace_desc = seoul_recovery_cb_white_peace_desc
 	on_white_peace = {
 		scope:attacker = { show_pow_release_message_effect = yes }
+		fs_seoul_war_white_peace_effect = { ALLY_PRESTIGE = minor_prestige_value }
 		add_truce_white_peace_effect = yes
 	}
 
 	on_defeat_desc = seoul_recovery_cb_defeat_desc
 	on_defeat = {
-		scope:attacker = { show_pow_release_message_effect = yes }
+		scope:attacker = {
+			show_pow_release_message_effect = yes
+			pay_short_term_gold_reparations_effect = { GOLD_VALUE = 2 }
+		}
+		fs_seoul_war_defeat_prestige_effect = {
+			ATTACKER_PRESTIGE_LOSS = medium_prestige_loss
+			ALLY_PRESTIGE = minor_prestige_value
+		}
 		add_truce_attacker_defeat_effect = yes
 	}
 
@@ -132,14 +155,27 @@ seoul_influence_dispute_cb = {
 		scope:attacker = {
 			show_pow_release_message_effect = yes
 			change_influence = { value = 100 }
+			add_prestige = major_prestige_gain
 		}
-		scope:defender = { change_influence = { value = -100 } }
+		scope:defender = {
+			change_influence = { value = -100 }
+			add_prestige = major_prestige_loss
+		}
+		# The native humiliation CB rewards allies without requiring target titles.
+		modify_allies_of_participants_fame_values = {
+			WINNER = scope:attacker
+			FAME_BASE = medium_prestige_value
+			IS_RELIGIOUS_WAR = no
+			WINNER_ALLY_FAME_SCALE = 1
+			LOSER_ALLY_FAME_SCALE = 1
+		}
 		add_truce_attacker_victory_effect = yes
 	}
 
 	on_white_peace_desc = seoul_influence_dispute_cb_white_peace_desc
 	on_white_peace = {
 		scope:attacker = { show_pow_release_message_effect = yes }
+		fs_seoul_war_white_peace_effect = { ALLY_PRESTIGE = medium_prestige_value }
 		add_truce_white_peace_effect = yes
 	}
 
@@ -150,6 +186,10 @@ seoul_influence_dispute_cb = {
 			change_influence = { value = -100 }
 		}
 		scope:defender = { change_influence = { value = 100 } }
+		fs_seoul_war_defeat_prestige_effect = {
+			ATTACKER_PRESTIGE_LOSS = major_prestige_loss
+			ALLY_PRESTIGE = medium_prestige_value
+		}
 		add_truce_attacker_defeat_effect = yes
 	}
 
@@ -167,4 +207,67 @@ seoul_influence_dispute_cb = {
 	max_attacker_score_from_battles = 150
 	max_defender_score_from_occupation = 150
 	max_attacker_score_from_occupation = 150
+}
+
+fs_seoul_restore_district_order_cb = {
+	group = fs_seoul_district_order
+	icon = de_jure_cb
+	combine_into_one = yes
+	should_show_war_goal_subview = yes
+	mutually_exclusive_titles = { always = yes }
+	allow_hostages = no
+
+	allowed_for_character = {
+		scope:attacker = { fs_seoul_realm_ruler_trigger = yes }
+	}
+	allowed_against_character = { fs_seoul_district_order_participants_trigger = yes }
+	target_titles = all
+	target_title_tier = county
+	valid_to_start = {
+		fs_seoul_district_order_participants_trigger = yes
+		scope:target = { fs_seoul_district_order_target_trigger = yes }
+	}
+	should_invalidate = { NOT = { fs_seoul_district_order_war_valid_trigger = yes } }
+
+	cost = { prestige = { value = fs_seoul_district_order_prestige_cost desc = CB_BASE_COST } }
+	on_declaration = { on_declared_war = yes }
+	on_invalidated_desc = fs_seoul_district_order_invalidated_desc
+	on_victory_desc = fs_seoul_district_order_victory_desc
+	on_victory = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+		fs_seoul_restore_district_order_victory_effect = yes
+		add_truce_attacker_victory_effect = yes
+	}
+	on_white_peace_desc = fs_seoul_district_order_white_peace_desc
+	on_white_peace = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+		fs_seoul_war_white_peace_effect = { ALLY_PRESTIGE = minor_prestige_value }
+		add_truce_white_peace_effect = yes
+	}
+	on_defeat_desc = fs_seoul_district_order_defeat_desc
+	on_defeat = {
+		scope:attacker = {
+			show_pow_release_message_effect = yes
+			pay_short_term_gold_reparations_effect = { GOLD_VALUE = 2 }
+		}
+		fs_seoul_war_defeat_prestige_effect = {
+			ATTACKER_PRESTIGE_LOSS = medium_prestige_loss
+			ALLY_PRESTIGE = minor_prestige_value
+		}
+		add_truce_attacker_defeat_effect = yes
+	}
+
+	transfer_behavior = transfer
+	on_primary_attacker_death = inherit
+	on_primary_defender_death = inherit
+	attacker_allies_inherit = yes
+	defender_allies_inherit = yes
+	ai_can_target_all_titles = { always = yes }
+	ai_score_mult = { value = 2 }
+	war_name = FS_SEOUL_DISTRICT_ORDER_WAR_NAME
+	war_name_base = FS_SEOUL_DISTRICT_ORDER_WAR_NAME_BASE
+	cb_name = FS_SEOUL_DISTRICT_ORDER_CB_NAME
+	interface_priority = 110
+	use_de_jure_wargoal_only = yes
+	attacker_wargoal_percentage = 0.95
 }

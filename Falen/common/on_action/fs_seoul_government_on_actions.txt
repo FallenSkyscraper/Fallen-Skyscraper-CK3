@@ -58,6 +58,17 @@ fs_seoul_government_game_start = {
 				add_title_law = seoul_acclamation_succession_law
 			}
 		}
+		# Apply Yongsan's starting contract after the government conversion.
+		title:c_yongsan.holder ?= {
+			if = {
+				limit = { has_subject_contract_group = feudal_vassal }
+				vassal_contract_set_obligation_level = {
+					type = religious_rights
+					level = 1
+				}
+				set_subject_contract_modification_blocked = no
+			}
+		}
 	}
 }
 

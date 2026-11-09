@@ -1,0 +1,38 @@
+# CB scope. Match county conquest white peace, with a caller-selected native
+# ally reward base (county conquest or humiliation).
+fs_seoul_war_white_peace_effect = {
+	scope:attacker = {
+		add_prestige = minor_prestige_loss
+		stress_and_fulfillment_impact = {
+			ambitious = medium_stress_impact_gain
+			arrogant = medium_stress_impact_gain
+		}
+	}
+	scope:defender = {
+		stress_and_fulfillment_impact = {
+			arrogant = medium_stress_impact_gain
+		}
+	}
+	modify_allies_of_participants_fame_values = {
+		WINNER = scope:attacker
+		FAME_BASE = $ALLY_PRESTIGE$
+		IS_RELIGIOUS_WAR = no
+		WINNER_ALLY_FAME_SCALE = 1
+		LOSER_ALLY_FAME_SCALE = 1
+	}
+}
+
+# CB scope. Keep reparations at the CB call sites: influence disputes do not pay.
+fs_seoul_war_defeat_prestige_effect = {
+	scope:attacker = { add_prestige = $ATTACKER_PRESTIGE_LOSS$ }
+	scope:defender = {
+		add_prestige_war_defender_effect = { PRESTIGE_VALUE = medium_prestige_value }
+	}
+	modify_allies_of_participants_fame_values = {
+		WINNER = scope:defender
+		FAME_BASE = $ALLY_PRESTIGE$
+		IS_RELIGIOUS_WAR = no
+		WINNER_ALLY_FAME_SCALE = 1
+		LOSER_ALLY_FAME_SCALE = 1
+	}
+}

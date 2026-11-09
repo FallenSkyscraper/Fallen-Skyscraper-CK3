@@ -218,3 +218,158 @@ seoul_influence_candidacy_interaction = {
 		custom_tooltip = seoul_influence_candidacy_success_tt
 	}
 }
+
+fs_seoul_purchase_truce_interaction = {
+	interface_priority = 30
+	category = interaction_category_diplomacy
+	common_interaction = yes
+	desc = fs_seoul_purchase_truce_interaction_desc
+	icon = icon_retreat
+	greeting = positive
+	notification_text = fs_seoul_purchase_truce_notification
+	popup_on_receive = yes
+	ai_maybe = yes
+	auto_accept = no
+
+	is_available = {
+		fs_seoul_realm_ruler_trigger = yes
+		NOT = { has_title = title:k_seoul }
+		trigger_if = {
+			limit = { is_ai = yes }
+			is_at_war = no
+			is_physically_able = yes
+			influence >= fs_seoul_purchase_truce_cost
+		}
+	}
+	is_shown = { fs_seoul_purchase_truce_participants_trigger = yes }
+	is_valid_showing_failures_only = { fs_seoul_purchase_truce_valid_trigger = yes }
+	on_accept = {
+		custom_tooltip = fs_seoul_purchase_truce_effects_tt
+		hidden_effect = { fs_seoul_purchase_truce_accept_effect = yes }
+	}
+	on_decline = {
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_neutral
+				title = fs_seoul_purchase_truce_declined
+				left_icon = scope:recipient
+			}
+		}
+	}
+
+	# Use the native medium-offer baseline and personality/strength judgments.
+	# Gold balance, selectable sums and struggle participation do not apply.
+	ai_accept = {
+		base = 0
+		modifier = {
+			add = 25
+			desc = fs_seoul_purchase_truce_influence_offer_reason
+		}
+		opinion_modifier = {
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 0.5
+			desc = AI_OPINION_REASON
+		}
+		modifier = {
+			add = { value = ai_greed multiply = 2 }
+			ai_greed >= 1
+			desc = AI_VALUE_MODIFIER_GREED
+		}
+		modifier = {
+			add = { value = ai_boldness multiply = -0.5 }
+			NOT = { ai_boldness = 0 }
+			desc = AI_VALUE_MODIFIER_BOLDNESS
+		}
+		modifier = {
+			add = -50
+			has_trait = ambitious
+			desc = PT_AI_LIKES_FREEDOM_TO_WAR_REASON
+		}
+		modifier = {
+			add = 25
+			faith = { has_doctrine_parameter = pacifist }
+			desc = PT_AI_IS_PACIFIST_FAITH
+		}
+		modifier = {
+			add = 25
+			culture = { has_cultural_parameter = reduced_cost_for_conversion_to_pacifist_faith }
+			desc = PT_AI_IS_PACIFIST_CULTURE
+		}
+		modifier = {
+			add = -30
+			scope:actor.max_military_strength <= scope:recipient.purchase_truce_interaction_recipient_far_weaker_value
+			desc = PT_AI_RECIPIENT_IS_MUCH_STRONGER
+		}
+		modifier = {
+			add = -10
+			scope:actor.max_military_strength > scope:recipient.purchase_truce_interaction_recipient_far_weaker_value
+			scope:actor.max_military_strength <= scope:recipient.purchase_truce_interaction_recipient_somewhat_weaker_value
+			desc = PT_AI_RECIPIENT_IS_SOMEWHAT_STRONGER
+		}
+		modifier = {
+			add = 10
+			scope:actor.max_military_strength > scope:recipient.purchase_truce_interaction_recipient_somewhat_weaker_value
+			scope:actor.max_military_strength <= scope:recipient.purchase_truce_interaction_recipient_somewhat_stronger_value
+			desc = PT_AI_RECIPIENT_IS_ROUGHLY_EQUAL
+		}
+		modifier = {
+			add = 25
+			scope:actor.max_military_strength > scope:recipient.purchase_truce_interaction_recipient_somewhat_stronger_value
+			scope:actor.max_military_strength <= scope:recipient.purchase_truce_interaction_recipient_far_stronger_value
+			desc = PT_AI_RECIPIENT_IS_SOMEWHAT_WEAKER
+		}
+		modifier = {
+			add = 50
+			scope:actor.max_military_strength > scope:recipient.purchase_truce_interaction_recipient_far_stronger_value
+			desc = PT_AI_RECIPIENT_IS_MUCH_WEAKER
+		}
+	}
+	ai_target_quick_trigger = { adult = yes }
+	ai_targets = { ai_recipients = peer_vassals max = 10 }
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 60
+		kingdom = 0
+		empire = 0
+		hegemony = 0
+	}
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 25
+			has_trait = craven
+			NOT = { has_trait = ambitious }
+		}
+		modifier = {
+			add = 25
+			ai_boldness <= very_high_negative_ai_value
+			NOT = { has_trait = ambitious }
+		}
+		modifier = { add = 25 faith = { has_doctrine_parameter = pacifist } }
+		modifier = { add = 25 culture = { has_cultural_parameter = reduced_cost_for_conversion_to_pacifist_faith } }
+		modifier = { add = -25 has_trait = ambitious }
+		modifier = { add = -25 has_trait = wrathful }
+		modifier = { add = -50 has_trait = arbitrary }
+		modifier = {
+			add = 50
+			scope:recipient.max_military_strength >= scope:actor.purchase_truce_interaction_recipient_somewhat_stronger_value
+		}
+		modifier = {
+			add = 50
+			scope:recipient.max_military_strength >= scope:actor.purchase_truce_interaction_recipient_far_stronger_value
+		}
+		modifier = {
+			factor = 0
+			scope:recipient = { NOT = { has_any_cb_on = scope:actor } }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				health <= poor_health
+				scope:recipient = { health <= poor_health }
+			}
+		}
+	}
+}

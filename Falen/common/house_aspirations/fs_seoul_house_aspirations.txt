@@ -5,6 +5,19 @@ seoul_autonomous_district_aspiration = {
 		house_head ?= { government_has_flag = government_is_seoul }
 	}
 	level = {
+		cost = { influence = house_aspiration_level_1_cost_value }
+		parameters = { no_aspect = yes }
+		ai_score = { value = 1 }
+		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
+	}
+	level = {
+		cost = { influence = house_aspiration_level_2_cost_value }
+		parameters = { no_aspect = yes }
+		ai_score = { value = 1 }
+		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
+	}
+	level = {
+		cost = { influence = house_aspiration_level_3_cost_value }
 		parameters = { no_aspect = yes }
 		ai_score = { value = 1 }
 	}
@@ -18,6 +31,19 @@ seoul_city_hall_aspiration = {
 		house_head ?= { government_has_flag = government_is_seoul }
 	}
 	level = {
+		cost = { influence = house_aspiration_level_1_cost_value }
+		parameters = { no_aspect = yes }
+		ai_score = { value = 1 }
+		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
+	}
+	level = {
+		cost = { influence = house_aspiration_level_2_cost_value }
+		parameters = { no_aspect = yes }
+		ai_score = { value = 1 }
+		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
+	}
+	level = {
+		cost = { influence = house_aspiration_level_3_cost_value }
 		parameters = { no_aspect = yes }
 		ai_score = { value = 1 }
 	}
@@ -31,6 +57,19 @@ seoul_independence_aspiration = {
 		house_head ?= { government_has_flag = government_is_seoul }
 	}
 	level = {
+		cost = { influence = house_aspiration_level_1_cost_value }
+		parameters = { no_aspect = yes }
+		ai_score = { value = 1 }
+		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
+	}
+	level = {
+		cost = { influence = house_aspiration_level_2_cost_value }
+		parameters = { no_aspect = yes }
+		ai_score = { value = 1 }
+		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
+	}
+	level = {
+		cost = { influence = house_aspiration_level_3_cost_value }
 		parameters = { no_aspect = yes }
 		ai_score = { value = 1 }
 	}
