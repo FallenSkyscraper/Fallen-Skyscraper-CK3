@@ -971,6 +971,7 @@ on_game_start_after_lobby = {
 			set_global_variable = { name = election_term value = 1 }
 			set_global_variable = { name = startup_settings value = yes }
 			set_global_variable = { name = imperial_authority value = 20.00 }
+			parties_initialization_effect = yes
 		}
 		### INITIAL BUDGET CALC, ONE MORE AFTER THE EVERY_RULER ASSIGNS PROVINCE TYPES ###
 		if = {

@@ -1,0 +1,66 @@
+﻿# 당 시스템에서 사용하는 효과들. AI로 수정할 때에도 여기 나온 코드 지침을 전부 준수할 것.
+# 창당, 해산, 입당, 탈당, 제명, 승급 등을 전부 스크립트 블록으로 묶어서 관리함.
+# 사용하는 변수 목록:
+# Global Variables: parties_list(list)
+# Party Variables(title scope): is_party_title(bool) party_type(string), party_specialization(string), party_members_list(list) party_treasury(num)
+# Member Variables(character scope): party_affiliation(title) party_rank(num) party_currency(num) party_contribution(num)
+# 게임 시작시 초기화
+parties_initialization_effect = { # scope: none
+	# Register Existing Parties
+	parties_registration_effect = { TITLE = title:k_cprf TYPE = flag:communist_party }
+	parties_registration_effect = { TITLE = title:d_liaoxi_rev TYPE = flag:communist_party }
+	# Setups
+}
+# 신당 생성
+parties_new_party_creation_effect = { # scope: none param: FOUNDER as party founder, TYPE as party type
+	create_dynamic_title = {
+		tier = duchy
+		name = COMMUNIST_PARTY # placeholder
+	}
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	scope:new_title = {
+		set_no_automatic_claims = yes
+		set_definitive_form = yes
+		set_can_be_named_after_dynasty = no
+		set_capital_county = $FOUNDER$.capital_county
+		set_landless_title = yes
+		change_title_holder = {
+			holder = $FOUNDER$
+			change = scope:change
+		}
+	}
+	resolve_title_and_vassal_change = scope:change
+	parties_registration_effect = { TITLE = scope:new_title TYPE = $TYPE$ }
+}
+# 당 등록
+parties_registration_effect = { # scope: none param: TITLE as party title, TYPE as party type
+	if = {
+		limit = {
+			NOT = { is_target_in_global_variable_list = { name = parties_list target = $TITLE$ } }
+			exists = $TITLE$
+		}
+		add_to_global_variable_list = { name = parties_list target = $TITLE$ }
+		$TITLE$ = {
+			set_variable = is_party_title
+			set_variable = { name = party_type value = $TYPE$ }
+			set_variable = { name = party_specialization value = flag:none }
+			set_variable = { name = party_treasury value = 0 }
+		}
+		$TITLE$.holder ?= {
+			add_to_party_member = { PARTY = $TITLE$ }
+			set_variable = { name = party_rank value = 4 }
+		}
+	}
+}
+# 당원 가입 효과
+add_to_party_member = { # scope: character param: PARTY as party title
+	set_variable = { name = party_affiliation value = $PARTY$ }
+	set_variable = { name = party_rank value = 1 }
+	set_variable = { name = party_currency = value = 0 }
+	set_variable = { name = party_contribution value = 0 }
+	$PARTY$ = { add_to_variable_list = { name = party_members_list target = prev } }
+}
