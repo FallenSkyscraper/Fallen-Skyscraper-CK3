@@ -1,0 +1,12 @@
+﻿GetPartyType = {
+	type = landed_title
+	text = {
+		trigger = { var:party_type ?= flag:communist_party }
+		localization_key = COMMUNIST_PARTY
+		fallback = yes
+	}
+	text = {
+		trigger = { var:party_type ?= flag:revolutionary_party }
+		localization_key = REVOLUTIONARY_PARTY
+	}
+}

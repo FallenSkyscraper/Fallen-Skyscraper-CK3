@@ -43,3 +43,12 @@ party_gui_abc = {
 		always = yes
 	}
 }
+is_partisan = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = should_have_party_affiliation
+			has_variable = party_affiliation
+		}
+	}
+}

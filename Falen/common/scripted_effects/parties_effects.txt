@@ -10,6 +10,41 @@ parties_initialization_effect = { # scope: none
 	parties_registration_effect = { TITLE = title:k_cprf TYPE = flag:communist_party }
 	parties_registration_effect = { TITLE = title:d_liaoxi_rev TYPE = flag:communist_party }
 	# Setups
+	title:k_cprf.holder ?= {
+		every_courtier = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+			}
+			add_to_party_member = { PARTY = title:k_cprf }
+		}
+		every_vassal_or_below = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+			}
+			add_to_party_member = { PARTY = title:k_cprf }
+		}
+	}
+	title:d_liaoxi_rev.holder ?= {
+		every_courtier = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+			}
+			add_to_party_member = { PARTY = title:d_liaoxi_rev }
+		}
+		every_vassal_or_below = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+			}
+			add_to_party_member = { PARTY = title:d_liaoxi_rev }
+		}
+	}
+	title:k_cprf = {
+		change_variable = { name = party_treasury add = 1000 }
+	}
 }
 # 신당 생성
 parties_new_party_creation_effect = { # scope: none param: FOUNDER as party founder, TYPE as party type
@@ -60,7 +95,7 @@ parties_registration_effect = { # scope: none param: TITLE as party title, TYPE 
 add_to_party_member = { # scope: character param: PARTY as party title
 	set_variable = { name = party_affiliation value = $PARTY$ }
 	set_variable = { name = party_rank value = 1 }
-	set_variable = { name = party_currency = value = 0 }
+	set_variable = { name = party_currency value = 0 }
 	set_variable = { name = party_contribution value = 0 }
 	$PARTY$ = { add_to_variable_list = { name = party_members_list target = prev } }
 }

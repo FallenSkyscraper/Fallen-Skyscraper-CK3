@@ -1,8 +1,8 @@
-window = {
+﻿window = {
 	name = "parties_window"
 	parentanchor = center
-	position = { 50 100 }
-	size = { 850 1000 }
+	position = { 50 30 }
+	size = { 1000 800 }
 	layer = windows_layer
 	filter_mouse = all
 	alwaystransparent = no
@@ -16,8 +16,6 @@ window = {
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
 		using = Window_Position_MainTab
-		
-		#on_start = "[GetScriptedGui('zz').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 	}
 	
 	state = {
@@ -25,46 +23,174 @@ window = {
 		using = Animation_FadeOut_Quick
 		using = Sound_WindowHide_Standard
 		using = Window_Position_MainTab_Hide
-	
 	}
 	widget = {
 		size = { 100% 100% }
 		using = Window_Margins
-		margin_top = -5
-		margin_bottom = 5
 
 		vbox = {
-			header_standard = {
-				using = Window_Margins
-				margin_bottom = 30
-				layoutpolicy_horizontal = expanding								
-				blockoverride "header_text"
-				{
-					text = "PARTIES_LIST"
-					margin = { -10 0 }
-					parentanchor = center
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			margin_left = 30
+			margin_right = 30
+			spacing = 12
+
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+				blockoverride "header_text" {
+					text = "PARTY_VIEW_TITLE"
 				}
-				blockoverride "button_close"
-				{
+				blockoverride "button_close" {
 					datacontext = "[GetScriptedGui('party_gui_close')]"
 					onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				}
 			}
+			
+			hbox = {
+				name = "parties_tabs"
+				layoutpolicy_horizontal = expanding
+				margin_bottom = 10
+
+				button_tab = {
+					name = "parties_overview_tab"
+					onclick = "[GetVariableSystem.Set( 'parties_tab', 'overview' )]"
+					down = "[GetVariableSystem.HasValue( 'parties_tab', 'overview' )]"
+					alwaystransparent = "[GetVariableSystem.HasValue( 'parties_tab', 'overview' )]"
+
+					blockoverride "tab_label"
+					{
+						text = "PARTY_TAB_OVERVIEW"
+					}
+				}
+
+				button_tab = {
+					name = "parties_my_party_tab"
+					enabled = "[GetScriptedGui('is_partisan').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					enabled = "[GetScriptedGui('is_partisan').IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Set( 'parties_tab', 'my_party' )]"
+					down = "[GetVariableSystem.HasValue( 'parties_tab', 'my_party' )]"
+					alwaystransparent = "[GetVariableSystem.HasValue( 'parties_tab', 'my_party' )]"
+
+					blockoverride "tab_label"
+					{
+						text = "PARTY_TAB_MY_PARTY"
+					}
+				}
+
+				button_tab = {
+					name = "parties_missions_tab"
+					enabled = "[GetScriptedGui('is_partisan').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					enabled = "[GetScriptedGui('is_partisan').IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Set( 'parties_tab', 'missions' )]"
+					down = "[GetVariableSystem.HasValue( 'parties_tab', 'missions' )]"
+					alwaystransparent = "[GetVariableSystem.HasValue( 'parties_tab', 'missions' )]"
+
+					blockoverride "tab_label"
+					{
+						text = "PARTY_TAB_MISSIONS"
+					}
+				}
+			}
+			
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin_left = 20
+				margin_right = 20
+				text_single_big = { text = "PARTY_LIST_HEADING" }
+				expand = {}
+				text_single = {
+					text = "PARTY_LIST_COUNT"
+					default_format = "#weak"
+				}
+			}
+
 			scrollarea = {
-				flowcontainer = {
-					ignoreinvisible = yes
-					direction = vertical
-					datamodel = "[GetGlobalList('parties_list')]"
-					item = {
-						flowcontainer = {
-							datacontext = "[Scope.Title]"
-							direction = horizontal
-							coa_title_small_crown = {
-								using = tooltip_ne
+				name = "party_list"
+				size = { 0 560 }
+				minimumsize = { 0 200 }
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				scrollbarpolicy_horizontal = always_off
+				scrollbarpolicy_vertical = as_needed
+				scrollbar_vertical = { using = Scrollbar_Vertical }
+
+				scrollwidget = {
+					vbox = {
+						using = Scrollbox_Margins
+						spacing = 10
+
+						widget = {
+							visible = "[IsDataModelEmpty(GetGlobalList('parties_list'))]"
+							layoutpolicy_horizontal = expanding
+							size = { 0 160 }
+							background = { using = Background_Area_Dark }
+							text_multi = {
+								parentanchor = center
+								text = "PARTY_LIST_EMPTY"
+								default_format = "#weak"
+								autoresize = yes
+								max_width = 500
+								align = center
 							}
-							vbox = {
-								portrait_head_small = { datacontext = "[Title.GetHolder]" }
-								text_single_big = { text = "[Title.GetNameNoTooltip]" }
+						}
+
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 10
+							datamodel = "[GetGlobalList('parties_list')]"
+							item = {
+								hbox = {
+									name = "party_row"
+									datacontext = "[Scope.Title]"
+									layoutpolicy_horizontal = expanding
+									size = { 0 126 }
+									margin = { 14 12 }
+									spacing = 18
+									background = { using = Background_Area_Dark }
+
+									widget = {
+										size = { 64 90 }
+										coa_title_small_crown = {
+											parentanchor = center
+											using = tooltip_ne
+										}
+									}
+
+									vbox = {
+										layoutpolicy_horizontal = expanding
+										spacing = 5
+										text_single_big = {
+											text = "[Title.GetNameNoTooltip]"
+											max_width = 470
+											autoresize = yes
+										}
+										text_single = {
+											visible = "[Title.GetHolder.IsValid]"
+											text = "PARTY_LEADER_NAME"
+											max_width = 470
+										}
+										text_single = {
+											visible = "[Not(Title.GetHolder.IsValid)]"
+											text = "PARTY_LEADER_VACANT"
+											default_format = "#weak"
+										}
+										hbox = {
+											spacing = 5
+											text_single = {
+												text = "PARTY_TYPE_Z"
+											}
+											text_single = {
+												text = "PARTY_MEMBER_COUNT"
+												default_format = "#weak"
+											}
+										}
+									}
+
+									portrait_head_small = {
+										datacontext = "[Scope.Title.GetHolder]"
+										visible = "[Character.IsValid]"
+									}
+								}
 							}
 						}
 					}
