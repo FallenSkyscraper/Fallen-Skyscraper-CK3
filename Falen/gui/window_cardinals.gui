@@ -1278,6 +1278,26 @@ types CardinalWindow
 		}
 	}
 
+	type widget_parliament_seat_segment = widget
+	{
+		scissor = yes
+		alwaystransparent = yes
+
+		widget = {
+			size = { 100% 100% }
+			allow_outside = yes
+			alwaystransparent = yes
+
+			background = {
+				spriteType = Corneredstretched
+				spriteborder = { 6 6 }
+				# Extend the end caps beyond the clip so adjacent segments meet without borders.
+				margin = { 6 0 }
+				block "segment_texture" {}
+			}
+		}
+	}
+
 	type vbox_parliament_seats = vbox
 	{
 		layoutpolicy_horizontal = expanding
@@ -1304,7 +1324,7 @@ types CardinalWindow
 			hbox = {
 				size = { 100% 100% }
 
-				widget = {
+				widget_parliament_seat_segment = {
 					name = "fs_parliament_authoritarian_segment"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
@@ -1312,13 +1332,12 @@ types CardinalWindow
 					visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_authoritarian_seats_value' ), '(CFixedPoint)0' )]"
 					alwaystransparent = yes
 
-					background = {
-						texture = "gfx/interface/colors/white.dds"
-						color = { 0 0.066667 1 1 }
+					blockoverride "segment_texture" {
+						texture = "gfx/interface/progressbars/progress_blue.dds"
 					}
 				}
 
-				widget = {
+				widget_parliament_seat_segment = {
 					name = "fs_parliament_populist_segment"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
@@ -1326,13 +1345,12 @@ types CardinalWindow
 					visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_populist_seats_value' ), '(CFixedPoint)0' )]"
 					alwaystransparent = yes
 
-					background = {
-						texture = "gfx/interface/colors/white.dds"
-						color = { 0.419608 0.639216 1 1 }
+					blockoverride "segment_texture" {
+						texture = "gfx/interface/progressbars/progress_standard.dds"
 					}
 				}
 
-				widget = {
+				widget_parliament_seat_segment = {
 					name = "fs_parliament_other_segment"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
@@ -1340,13 +1358,12 @@ types CardinalWindow
 					visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_other_seats_value' ), '(CFixedPoint)0' )]"
 					alwaystransparent = yes
 
-					background = {
-						texture = "gfx/interface/colors/white.dds"
-						color = { 0.35 0.35 0.38 1 }
+					blockoverride "segment_texture" {
+						texture = "gfx/interface/progressbars/progress_gray.dds"
 					}
 				}
 
-				widget = {
+				widget_parliament_seat_segment = {
 					name = "fs_parliament_vacant_segment"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
@@ -1354,11 +1371,19 @@ types CardinalWindow
 					visible = "[GreaterThan_CFixedPoint( GetPlayer.MakeScope.ScriptValue( 'fs_parliament_vacant_seats_value' ), '(CFixedPoint)0' )]"
 					alwaystransparent = yes
 
-					background = {
-						texture = "gfx/interface/colors/white.dds"
-						color = { 0 0 0 1 }
+					blockoverride "segment_texture" {
+						texture = "gfx/interface/progressbars/progress_black.dds"
 					}
 				}
+			}
+
+			icon = {
+				name = "fs_parliament_seat_distribution_frame"
+				size = { 100% 100% }
+				texture = "gfx/interface/progressbars/progress_frame_war.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 10 10 }
+				alwaystransparent = yes
 			}
 		}
 
@@ -1370,8 +1395,9 @@ types CardinalWindow
 
 				icon = {
 					size = { 14 14 }
-					texture = "gfx/interface/colors/white.dds"
-					color = { 0 0.066667 1 1 }
+					texture = "gfx/interface/progressbars/progress_blue.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 3 3 }
 				}
 				text_single = {
 					text = "FS_PARLIAMENT_SEATS_AUTHORITARIAN"
@@ -1385,8 +1411,9 @@ types CardinalWindow
 
 				icon = {
 					size = { 14 14 }
-					texture = "gfx/interface/colors/white.dds"
-					color = { 0.419608 0.639216 1 1 }
+					texture = "gfx/interface/progressbars/progress_standard.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 3 3 }
 				}
 				text_single = {
 					text = "FS_PARLIAMENT_SEATS_POPULIST"
@@ -1401,8 +1428,9 @@ types CardinalWindow
 
 				icon = {
 					size = { 14 14 }
-					texture = "gfx/interface/colors/white.dds"
-					color = { 0.35 0.35 0.38 1 }
+					texture = "gfx/interface/progressbars/progress_gray.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 3 3 }
 				}
 				text_single = {
 					text = "FS_PARLIAMENT_SEATS_OTHER"
@@ -1417,8 +1445,9 @@ types CardinalWindow
 
 				icon = {
 					size = { 14 14 }
-					texture = "gfx/interface/colors/white.dds"
-					color = { 0 0 0 1 }
+					texture = "gfx/interface/progressbars/progress_black.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 3 3 }
 				}
 				text_single = {
 					text = "FS_PARLIAMENT_SEATS_VACANT"

@@ -11,39 +11,33 @@ e_yalu = {
 	can_use_nomadic_naming = no
 
 	capital = c_dandung
+	k_southwest_prot = {
+		color = { 8 8 5 }
+		can_use_nomadic_naming = no
+		capital = c_jeongju
+	}
+	k_southeast_prot = {
+		color = { 58 58 5 }
+		can_use_nomadic_naming = no
+		capital = c_y_goseong
+	}
 }
 k_yalu_khanate = {
-		color = { 182 88 5 }
-		
-		
-		can_use_nomadic_naming = no
-		
-		capital = c_ganggye
+	color = { 182 88 5 }
+	can_use_nomadic_naming = no
+	capital = c_ganggye
 }
 k_sakju_khanate = {
-		color = { 18 88 5 }
+	color = { 18 88 5 }
 	can_use_nomadic_naming = no
-		
-		capital = c_sakju
+	capital = c_sakju
 }
 k_guseong_khanate = {
-		color = { 82 88 5 }
+	color = { 82 88 5 }
 	can_use_nomadic_naming = no
-		
-		capital = c_guseong
+	capital = c_guseong
 }
-k_southwest_prot = {
-		color = { 8 8 5 }
-	can_use_nomadic_naming = no
-		
-		capital = c_jeongju
-}
-k_southeast_prot = {
-		color = { 58 58 5 }
-	can_use_nomadic_naming = no
-		
-		capital = c_y_goseong
-}
+
 #######################
 
 e_northern_joseon = {
@@ -53,40 +47,37 @@ e_northern_joseon = {
 	can_use_nomadic_naming = no
 }
 k_sinuiju = {
-		color = { 58 58 5 }
+	color = { 58 58 5 }
 		
-		capital = c_sinuiju
+	capital = c_sinuiju
 	can_use_nomadic_naming = no
 }
 e_donghae = {
-		color = { 142 2 60 }
+	color = { 142 2 60 }
 		
-		capital = c_vladivostok
+	capital = c_vladivostok
 	can_use_nomadic_naming = no
 }
 k_rok_armed_forces = {
-		color = { 0 100 255 }
-		
-		definite_form = yes
-		
+	color = { 0 100 255 }
+	definite_form = yes
 	can_use_nomadic_naming = no
-		capital = c_jongno
+	capital = c_jongno
 }
 k_peoples_army = {
-		color = { 255 100 0 }
-		
-		definite_form = yes
-		
+	color = { 255 100 0 }
+	definite_form = yes
 	can_use_nomadic_naming = no
-		capital = c_pyongyang
+	capital = c_pyongyang
 }
 k_cprf = {
-		color = { 255 50 50 }
-		
-		definite_form = yes
-		
+	color = { 255 50 50 }
+	definite_form = yes
+	no_automatic_claims = yes
+	landless = yes
 	can_use_nomadic_naming = no
-		capital = c_usurisk
+	
+	capital = c_usurisk
 }
 k_sobornost = {
 		color = { 150 10 70}
@@ -117,7 +108,6 @@ k_namhae = {
 ########################
 k_our_motherland = {
 	color = { 102 201 10 }
-
 	definite_form = yes
 	can_use_nomadic_naming = no
 
@@ -127,6 +117,8 @@ k_our_motherland = {
 d_liaoxi_rev = {
 	color = { 200 0 0 }
 	definite_form = yes
+	no_automatic_claims = yes
+	landless = yes
 	can_use_nomadic_naming = no
 
 	capital = c_taihe

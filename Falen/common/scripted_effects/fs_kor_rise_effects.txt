@@ -28,7 +28,7 @@ spawn_kor_character_effect = {
 		save_scope_as = six_leader
     }
 	scope:six_leader = {
-	    add_charcter_flag = {
+	    add_character_flag = {
 		    flag = immune_to_disease
 			years = 15
 		}
@@ -97,9 +97,9 @@ form_six_republic_effect = {
 		text = "six republic title was not created"
 	}
 	
-	hidden_effct = { set_primary_title_to = title:e_six_republic }
+	hidden_effect = { set_primary_title_to = title:e_six_republic }
 	
-	evert_held_title = {
+	every_held_title = {
 	    limit = {
 		    tier = tier_empire
 			NOT = { this = title:e_six_republic }
