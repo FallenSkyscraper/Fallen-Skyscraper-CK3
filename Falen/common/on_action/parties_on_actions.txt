@@ -1,0 +1,13 @@
+﻿on_death = {
+	on_actions = { parties_on_death }
+}
+parties_on_death = {
+	trigger = {
+		has_variable = party_affiliation
+	}
+	effect = {
+		var:party_affiliation ?= {
+			remove_list_variable = { name = party_members_list target = root }
+		}
+	}
+}
