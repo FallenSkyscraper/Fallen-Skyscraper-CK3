@@ -93,9 +93,12 @@ parties_registration_effect = { # scope: none param: TITLE as party title, TYPE 
 }
 # 당원 가입 효과
 add_to_party_member = { # scope: character param: PARTY as party title
-	set_variable = { name = party_affiliation value = $PARTY$ }
-	set_variable = { name = party_rank value = 1 }
-	set_variable = { name = party_currency value = 0 }
-	set_variable = { name = party_contribution value = 0 }
-	$PARTY$ = { add_to_variable_list = { name = party_members_list target = prev } }
+	if = {
+		limit = { NOT = { has_variable = party_affiliation } }
+		set_variable = { name = party_affiliation value = $PARTY$ }
+		set_variable = { name = party_rank value = 1 }
+		set_variable = { name = party_currency value = 0 }
+		set_variable = { name = party_contribution value = 0 }
+		$PARTY$ = { add_to_variable_list = { name = party_members_list target = prev } }
+	}
 }

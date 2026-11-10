@@ -66,7 +66,7 @@
 				button_tab = {
 					name = "parties_my_party_tab"
 					enabled = "[GetScriptedGui('is_partisan').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					enabled = "[GetScriptedGui('is_partisan').IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					tooltip = "[GetScriptedGui('is_partisan').IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 					onclick = "[GetVariableSystem.Set( 'parties_tab', 'my_party' )]"
 					down = "[GetVariableSystem.HasValue( 'parties_tab', 'my_party' )]"
 					alwaystransparent = "[GetVariableSystem.HasValue( 'parties_tab', 'my_party' )]"
@@ -80,7 +80,7 @@
 				button_tab = {
 					name = "parties_missions_tab"
 					enabled = "[GetScriptedGui('is_partisan').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					enabled = "[GetScriptedGui('is_partisan').IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					tooltip = "[GetScriptedGui('is_partisan').IsValidTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 					onclick = "[GetVariableSystem.Set( 'parties_tab', 'missions' )]"
 					down = "[GetVariableSystem.HasValue( 'parties_tab', 'missions' )]"
 					alwaystransparent = "[GetVariableSystem.HasValue( 'parties_tab', 'missions' )]"
