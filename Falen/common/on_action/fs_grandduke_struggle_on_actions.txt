@@ -1,15 +1,19 @@
 # Northern rebellion and internal-war catalysts.
 on_war_started = {
+	on_actions = { grandduke_struggle_on_war_started }
+}
+grandduke_struggle_on_war_started = {
+	trigger = {
+		struggle:grandduke_struggle ?= {
+			is_struggle_phase = struggle_phase_grandduke_under_control
+		}
+		scope:defender.capital_province ?= {
+			geographical_region = custom_grandduke
+		}
+	}
 	effect = {
 		if = {
 			limit = {
-				exists = struggle:grandduke_struggle
-				struggle:grandduke_struggle = {
-					is_struggle_phase = struggle_phase_grandduke_under_control
-				}
-				scope:defender.capital_province ?= {
-					geographical_region = custom_grandduke
-				}
 				scope:war = { using_civil_war_cb_trigger = yes }
 			}
 			struggle:grandduke_struggle = {
@@ -21,14 +25,7 @@ on_war_started = {
 		}
 		else_if = {
 			limit = {
-				exists = struggle:grandduke_struggle
-				struggle:grandduke_struggle = {
-					is_struggle_phase = struggle_phase_grandduke_under_control
-				}
 				scope:attacker.capital_province ?= {
-					geographical_region = custom_grandduke
-				}
-				scope:defender.capital_province ?= {
 					geographical_region = custom_grandduke
 				}
 			}
@@ -44,22 +41,22 @@ on_war_started = {
 
 # Any title usurped inside the Northern region.
 on_title_gain_usurpation = {
+	on_actions = { grandduke_struggle_on_title_gain_usurpation }
+}
+grandduke_struggle_on_title_gain_usurpation = {
+	trigger = {
+		struggle:grandduke_struggle ?= {
+			is_struggle_phase = struggle_phase_grandduke_under_control
+		}
+		scope:title.title_province ?= {
+			geographical_region = custom_grandduke
+		}
+	}
 	effect = {
-		if = {
-			limit = {
-				exists = struggle:grandduke_struggle
-				struggle:grandduke_struggle = {
-					is_struggle_phase = struggle_phase_grandduke_under_control
-				}
-				scope:title.title_province ?= {
-					geographical_region = custom_grandduke
-				}
-			}
-			struggle:grandduke_struggle = {
-				activate_struggle_catalyst = {
-					catalyst = catalyst_grandduke_title_usurped
-					character = root
-				}
+		struggle:grandduke_struggle = {
+			activate_struggle_catalyst = {
+				catalyst = catalyst_grandduke_title_usurped
+				character = root
 			}
 		}
 	}
@@ -67,24 +64,24 @@ on_title_gain_usurpation = {
 
 # Murder of a landed Northern ruler.
 on_death = {
+	on_actions = { grandduke_struggle_on_death }
+}
+grandduke_struggle_on_death = {
+	trigger = {
+		struggle:grandduke_struggle ?= {
+			is_struggle_phase = struggle_phase_grandduke_under_control
+		}
+		exists = scope:killer
+		is_ruler = yes
+		capital_province ?= {
+			geographical_region = custom_grandduke
+		}
+	}
 	effect = {
-		if = {
-			limit = {
-				exists = struggle:grandduke_struggle
-				struggle:grandduke_struggle = {
-					is_struggle_phase = struggle_phase_grandduke_under_control
-				}
-				exists = scope:killer
-				is_ruler = yes
-				capital_province ?= {
-					geographical_region = custom_grandduke
-				}
-			}
-			struggle:grandduke_struggle = {
-				activate_struggle_catalyst = {
-					catalyst = catalyst_grandduke_ruler_murdered
-					character = root
-				}
+		struggle:grandduke_struggle = {
+			activate_struggle_catalyst = {
+				catalyst = catalyst_grandduke_ruler_murdered
+				character = root
 			}
 		}
 	}
