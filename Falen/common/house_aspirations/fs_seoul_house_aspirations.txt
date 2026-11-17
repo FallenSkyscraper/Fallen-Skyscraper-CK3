@@ -6,19 +6,40 @@ seoul_autonomous_district_aspiration = {
 	}
 	level = {
 		cost = { influence = house_aspiration_level_1_cost_value }
-		parameters = { no_aspect = yes }
+		any_house_member_modifier = {
+			diplomacy = 1
+			monthly_prestige_gain_mult = 0.05
+		}
+		parameters = {
+			aspiration_level_1 = yes
+		}
 		ai_score = { value = 1 }
 		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
 	}
 	level = {
 		cost = { influence = house_aspiration_level_2_cost_value }
-		parameters = { no_aspect = yes }
+		any_house_member_modifier = {
+			diplomacy = 1
+			diplomacy_per_influence_level = 1
+			monthly_prestige_gain_mult = 0.10
+		}
+		parameters = {
+			aspiration_level_2 = yes
+		}
 		ai_score = { value = 1 }
 		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
 	}
 	level = {
 		cost = { influence = house_aspiration_level_3_cost_value }
-		parameters = { no_aspect = yes }
+		any_house_member_modifier = {
+			diplomacy = 1
+			diplomacy_per_influence_level = 1
+			stewardship_per_influenc_level = 1
+			monthly_prestige_gain_mult = 0.15
+		}
+		parameters = {
+			aspiration_level_3 = yes
+		}
 		ai_score = { value = 1 }
 	}
 	cooldown = { years = 1 }
@@ -32,19 +53,40 @@ seoul_city_hall_aspiration = {
 	}
 	level = {
 		cost = { influence = house_aspiration_level_1_cost_value }
-		parameters = { no_aspect = yes }
+		any_house_member_modifier = {
+			stewardship = 1
+			monthly_renown_gain_mult = 0.05
+		}
+		parameters = {
+			aspiration_level_1 = yes
+		}
 		ai_score = { value = 1 }
 		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
 	}
 	level = {
 		cost = { influence = house_aspiration_level_2_cost_value }
-		parameters = { no_aspect = yes }
+		any_house_member_modifier = {
+			stewardship = 1
+			monthly_renown_gain_mult = 0.1
+		}
+		parameters = {
+			aspiration_level_2 = yes
+			seoul_mayer_score_bonus = yes
+		}
 		ai_score = { value = 1 }
 		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
 	}
 	level = {
 		cost = { influence = house_aspiration_level_3_cost_value }
-		parameters = { no_aspect = yes }
+		any_house_member_modifier = {
+			stewardship = 1
+			stewardship_per_influenc_level = 1
+			monthly_renown_gain_mult = 0.15
+		}
+		parameters = {
+			aspiration_level_3 = yes
+			seoul_mayer_score_bonus_big = yes
+		}
 		ai_score = { value = 1 }
 	}
 	cooldown = { years = 1 }
@@ -58,19 +100,40 @@ seoul_independence_aspiration = {
 	}
 	level = {
 		cost = { influence = house_aspiration_level_1_cost_value }
-		parameters = { no_aspect = yes }
+		any_house_member_modifier = {
+			intrigue = 1
+		}
+		parameters = {
+			aspiration_level_1 = yes
+			seoul_mayer_score_malus = yes
+		}
 		ai_score = { value = 1 }
 		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
 	}
 	level = {
 		cost = { influence = house_aspiration_level_2_cost_value }
-		parameters = { no_aspect = yes }
+		any_house_member_modifier = {
+			intrigue = 1
+		}
+		parameters = {
+			aspiration_level_2 = yes
+			seoul_mayer_score_malus_2 = yes
+		}
 		ai_score = { value = 1 }
 		can_upgrade = { fs_seoul_can_upgrade_house_aspiration_trigger = yes }
 	}
 	level = {
 		cost = { influence = house_aspiration_level_3_cost_value }
-		parameters = { no_aspect = yes }
+		any_house_member_modifier = {
+			intrigue = 1
+			owned_personal_scheme_success_chance_add = 5
+			owned_hostile_scheme_success_chance_add = 5
+			enemy_hostile_scheme_success_chance_add = -5
+		}
+		parameters = {
+			aspiration_level_3 = yes
+			seoul_mayer_score_malus_3 = yes
+		}
 		ai_score = { value = 1 }
 	}
 	cooldown = { years = 1 }
