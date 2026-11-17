@@ -50,3 +50,23 @@ GetPartyRankTooltip = {
 		localization_key = party_rank_4_tooltip
 	}
 }
+GetPartySpecialization = {
+	type = landed_title
+	text = {
+		trigger = { var:party_specialization = flag:none }
+		localization_key = party_specialization_none
+		fallback = yes
+	}
+	text = {
+		trigger = { var:party_specialization = flag:spec_organization }
+		localization_key = party_specialization_organization
+	}
+	text = {
+		trigger = { var:party_specialization = flag:spec_revolution }
+		localization_key = party_specialization_revolution
+	}
+	text = {
+		trigger = { var:party_specialization = flag:spec_govern }
+		localization_key = party_specialization_govern
+	}
+}

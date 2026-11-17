@@ -107,3 +107,9 @@ party_creation_can_submit_gui = {
 		parties_creation_type_is_valid_trigger = yes
 	}
 }
+is_party_leader = {
+	scope = character
+	is_valid = {
+		is_party_leader_trigger = yes
+	}
+}

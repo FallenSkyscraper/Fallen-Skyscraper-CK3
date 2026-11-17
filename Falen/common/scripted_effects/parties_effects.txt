@@ -139,3 +139,17 @@ leave_party_effect = { # scope: character
 	remove_variable = party_currency
 	remove_variable = party_contribution
 }
+# 일반 활동점수 소비 행동
+parties_use_party_currency_effect = { # scope: character param: VALUE
+	custom_tooltip = {
+		text = use_party_currency_tooltip # 활동점수 소비와 차감을 혼동하지 않도록 유의
+		change_variable = {
+			name = party_currency
+			subtract = $VALUE$
+		}
+		change_variable = {
+			name = party_contribution
+			add = $VALUE$
+		}
+	}
+}
