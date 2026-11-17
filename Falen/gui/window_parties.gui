@@ -16,6 +16,7 @@
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
 		using = Window_Position_MainTab
+		on_start = "[GetVariableSystem.Set('parties_tab', 'overview')]"
 	}
 	
 	state = {
@@ -91,105 +92,134 @@
 					}
 				}
 			}
-			
-			hbox = {
-				layoutpolicy_horizontal = expanding
-				margin_left = 20
-				margin_right = 20
-				text_single_big = { text = "PARTY_LIST_HEADING" }
-				expand = {}
-				text_single = {
-					text = "PARTY_LIST_COUNT"
-					default_format = "#weak"
-				}
+			vbox_parties_overview = {
+				visible = "[GetVariableSystem.HasValue( 'parties_tab', 'overview' )]"
 			}
+			vbox_parties_my_party = {
+				visible = "[And(GetVariableSystem.HasValue('parties_tab', 'my_party'), GetPlayer.MakeScope.Var('party_affiliation').Title.IsValid)]"
+			}
+			vbox_parties_missions = {
+				visible = "[GetVariableSystem.HasValue( 'parties_tab', 'missions' )]"
+			}
+			
+		}
+	}
+}
+types PartiesWindow {
+	type vbox_parties_overview = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		margin_left = 30
+		margin_right = 30
+		spacing = 12
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			margin_left = 20
+			margin_right = 20
+			text_single_big = { text = "PARTY_LIST_HEADING" }
+			expand = {}
+			text_single = {
+				text = "PARTY_LIST_COUNT"
+				default_format = "#weak"
+				margin_right = 20
+			}
+			button_primary = {
+				name = "party_creation_open_button"
+				size = { 110 42 }
+				margin_left = 16
+				text = "PARTY_CREATION_OPEN"
+				datacontext = "[GetScriptedGui('party_creation_open_gui')]"
+				visible = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			}
+		}
 
-			scrollarea = {
-				name = "party_list"
-				size = { 0 560 }
-				minimumsize = { 0 200 }
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				scrollbarpolicy_horizontal = always_off
-				scrollbarpolicy_vertical = as_needed
-				scrollbar_vertical = { using = Scrollbar_Vertical }
+		scrollarea = {
+			name = "party_list"
+			size = { 0 560 }
+			minimumsize = { 0 200 }
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			scrollbarpolicy_horizontal = always_off
+			scrollbarpolicy_vertical = as_needed
+			scrollbar_vertical = { using = Scrollbar_Vertical }
 
-				scrollwidget = {
-					vbox = {
-						using = Scrollbox_Margins
-						spacing = 10
+			scrollwidget = {
+				vbox = {
+					using = Scrollbox_Margins
+					spacing = 10
 
-						widget = {
-							visible = "[IsDataModelEmpty(GetGlobalList('parties_list'))]"
-							layoutpolicy_horizontal = expanding
-							size = { 0 160 }
-							background = { using = Background_Area_Dark }
-							text_multi = {
-								parentanchor = center
-								text = "PARTY_LIST_EMPTY"
-								default_format = "#weak"
-								autoresize = yes
-								max_width = 500
-								align = center
-							}
+					widget = {
+						visible = "[IsDataModelEmpty(GetGlobalList('parties_list'))]"
+						layoutpolicy_horizontal = expanding
+						size = { 0 160 }
+						background = { using = Background_Area_Dark }
+						text_multi = {
+							parentanchor = center
+							text = "PARTY_LIST_EMPTY"
+							default_format = "#weak"
+							autoresize = yes
+							max_width = 500
+							align = center
 						}
+					}
 
-						vbox = {
-							layoutpolicy_horizontal = expanding
-							spacing = 10
-							datamodel = "[GetGlobalList('parties_list')]"
-							item = {
-								hbox = {
-									name = "party_row"
-									datacontext = "[Scope.Title]"
-									layoutpolicy_horizontal = expanding
-									size = { 0 126 }
-									margin = { 14 12 }
-									spacing = 18
-									background = { using = Background_Area_Dark }
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						spacing = 10
+						datamodel = "[GetGlobalList('parties_list')]"
+						item = {
+							hbox = {
+								name = "party_row"
+								datacontext = "[Scope.Title]"
+								layoutpolicy_horizontal = expanding
+								size = { 0 126 }
+								margin = { 14 12 }
+								spacing = 18
+								background = { using = Background_Area_Dark }
 
-									widget = {
-										size = { 64 90 }
-										coa_title_small_crown = {
-											parentanchor = center
-											using = tooltip_ne
-										}
+								widget = {
+									size = { 64 90 }
+									coa_title_small_crown = {
+										parentanchor = center
+										using = tooltip_ne
 									}
+								}
 
-									vbox = {
-										layoutpolicy_horizontal = expanding
+								vbox = {
+									layoutpolicy_horizontal = expanding
+									spacing = 5
+									text_single_big = {
+										text = "[Title.GetNameNoTooltip]"
+										max_width = 470
+										autoresize = yes
+									}
+									text_single = {
+										visible = "[Title.GetHolder.IsValid]"
+										text = "PARTY_LEADER_NAME"
+										max_width = 470
+									}
+									text_single = {
+										visible = "[Not(Title.GetHolder.IsValid)]"
+										text = "PARTY_LEADER_VACANT"
+										default_format = "#weak"
+									}
+									hbox = {
 										spacing = 5
-										text_single_big = {
-											text = "[Title.GetNameNoTooltip]"
-											max_width = 470
-											autoresize = yes
+										text_single = {
+											text = "PARTY_TYPE_Z"
 										}
 										text_single = {
-											visible = "[Title.GetHolder.IsValid]"
-											text = "PARTY_LEADER_NAME"
-											max_width = 470
-										}
-										text_single = {
-											visible = "[Not(Title.GetHolder.IsValid)]"
-											text = "PARTY_LEADER_VACANT"
+											text = "PARTY_MEMBER_COUNT"
 											default_format = "#weak"
 										}
-										hbox = {
-											spacing = 5
-											text_single = {
-												text = "PARTY_TYPE_Z"
-											}
-											text_single = {
-												text = "PARTY_MEMBER_COUNT"
-												default_format = "#weak"
-											}
-										}
 									}
+								}
 
-									portrait_head_small = {
-										datacontext = "[Scope.Title.GetHolder]"
-										visible = "[Character.IsValid]"
-									}
+								portrait_head_small = {
+									datacontext = "[Scope.Title.GetHolder]"
+									visible = "[Character.IsValid]"
 								}
 							}
 						}
@@ -197,5 +227,221 @@
 				}
 			}
 		}
+	}
+	type vbox_parties_my_party = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		spacing = 12
+		datacontext = "[GetPlayer.MakeScope.Var('party_affiliation').Title]"
+		hbox = {
+			name = "party_information"
+			size = { 0 190 }
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = fixed
+			margin = { 14 12 }
+			spacing = 16
+			background = { using = Background_Area_Dark }
+			widget = {
+				size = { 100 130 }
+				coa_title_big_crown = { parentanchor = center }
+				margin_bottom = 15
+			}
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				spacing = 6
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					text_single_big = {
+						text = "[Title.GetNameNoTooltip]"
+						default_format = "#bold"
+						max_width = 410
+						align = left
+					}
+					text_single = {
+						text = "PARTY_TYPE_Z"
+						align = right
+					}
+				}
+				divider_light = { layoutpolicy_horizontal = expanding }
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					spacing = 8
+					text_single = { text = "PARTY_LEADER" default_format = "#V" }
+					portrait_head_small = {
+						size = { 72 80 }
+						datacontext = "[Title.GetHolder]"
+						visible = "[Character.IsValid]"
+					}
+					text_single = {
+						visible = "[Title.GetHolder.IsValid]"
+						text = "[Title.GetHolder.GetFullNameNoTooltip]"
+						default_format = "#V"
+						layoutpolicy_horizontal = expanding
+						max_width = 330
+					}
+					text_single = {
+						visible = "[Not(Title.GetHolder.IsValid)]"
+						text = "PARTY_LEADER_VACANT"
+						default_format = "#weak"
+					}
+				}
+				hbox = {
+					spacing = 12
+					text_single = { text = "PARTY_SPECIALIZATION" default_format = "#weak" }
+					text_single = { text = "PARTY_SPECIALIZATION_VALUE" }
+				}
+			}
+			divider_light = { layoutpolicy_vertical = expanding }
+			vbox = {
+				minimumsize = { 150 -1 }
+				maximumsize = { 150 -1 }
+				layoutpolicy_horizontal = fixed
+				spacing = 8
+				text_single = { text = "PARTY_TREASURY" default_format = "#weak" }
+				text_single_very_big = {
+					text = "@gold_icon![Title.MakeScope.Var('party_treasury').GetValue|0]"
+					layoutpolicy_horizontal = expanding
+					align = center
+					default_format = "#high"
+				}
+				divider_light = { layoutpolicy_horizontal = expanding }
+				text_single = { text = "PARTY_MEMBER_COUNT" }
+			}
+		}
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			spacing = 18
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				background = { using = Background_Area_Dark }
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin = { 12 10 }
+					text_single_big = { text = "PARTY_MEMBER_LIST" }
+					expand = {}
+					text_single = { text = "PARTY_MEMBER_COUNT" default_format = "#weak" }
+				}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin_left = 12
+					margin_right = 30
+					spacing = 10
+					widget = { size = { 56 0 } }
+					text_single = { text = "PARTY_MEMBER_NAME" layoutpolicy_horizontal = expanding default_format = "#weak" }
+					text_single = { text = "PARTY_RANK" min_width = 50 max_width = 50 align = center default_format = "#weak" }
+					text_single = { text = "PARTY_CONTRIBUTION" min_width = 88 max_width = 88 align = right default_format = "#weak" }
+				}
+				divider_light = { layoutpolicy_horizontal = expanding }
+				scrollarea = {
+					name = "party_member_list"
+					size = { 0 0 }
+					minimumsize = { 0 200 }
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					scrollbarpolicy_horizontal = always_off
+					scrollbarpolicy_vertical = as_needed
+					scrollbar_vertical = { using = Scrollbar_Vertical }
+					scrollwidget = {
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							margin_left = 12
+							margin_right = 30
+							margin_top = 6
+							margin_bottom = 6
+							spacing = 4
+							text_single = {
+								visible = "[IsDataModelEmpty(Title.MakeScope.GetList('party_members_list'))]"
+								text = "PARTY_MEMBERS_EMPTY"
+								default_format = "#weak"
+							}
+							vbox = {
+								layoutpolicy_horizontal = expanding
+								spacing = 4
+								datamodel = "[Title.MakeScope.GetList('party_members_list')]"
+								item = {
+									hbox = {
+										name = "party_member_row"
+										datacontext = "[Scope.Char]"
+										visible = "[Character.IsValid]"
+										size = { 0 68 }
+										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = fixed
+										spacing = 10
+										background = { using = Background_Area }
+										background = {
+											visible = "[ObjectsEqual(GetPlayer.Self, Character.Self)]"
+											using = Background_Area_Light
+											alpha = 0.25
+										}
+										portrait_event_tiny = { size = { 56 60 } }
+										text_single = { text = "[Character.GetShortUINameNoTooltip]" max_width = 280 layoutpolicy_horizontal = expanding }
+										text_single = { text = "[Character.Custom('GetPartyRank')]" min_width = 50 max_width = 50 align = center }
+										text_single = { text = "[Character.MakeScope.Var('party_contribution').GetValue|0]" min_width = 88 max_width = 88 align = right }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			vbox = {
+				name = "party_player_information"
+				datacontext = "[GetPlayer]"
+				minimumsize = { 260 -1 }
+				maximumsize = { 260 -1 }
+				layoutpolicy_horizontal = fixed
+				layoutpolicy_vertical = expanding
+				margin = { 14 12 }
+				spacing = 14
+				background = { using = Background_Area_Dark }
+				text_single_big = { text = "PARTY_MY_INFORMATION" }
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					spacing = 12
+					portrait_event_tiny = { size = { 70 84 } }
+					text_single_big = {
+						text = "[Character.GetFirstNameNoTooltip]"
+						max_width = 140
+						layoutpolicy_horizontal = expanding
+					}
+				}
+				divider_light = { layoutpolicy_horizontal = expanding }
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					text_single = { text = "PARTY_MY_RANK" default_format = "#weak" }
+					expand = {}
+					text_single = { text = "[Character.Custom('GetPartyRank')]" }
+				}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					text_single = { text = "PARTY_POSITION" default_format = "#weak" }
+					expand = {}
+					text_single = { text = "PARTY_POSITION_VALUE" }
+				}
+				divider_light = { layoutpolicy_horizontal = expanding }
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					text_single = { text = "PARTY_ACTIVITY_RESOURCE" default_format = "#weak" }
+					expand = {}
+					text_single = { text = "[Character.MakeScope.Var('party_currency').GetValue|0]" default_format = "#high" }
+				}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					text_single = { text = "PARTY_CONTRIBUTION" default_format = "#weak" }
+					expand = {}
+					text_single = { text = "[Character.MakeScope.Var('party_contribution').GetValue|0]" }
+				}
+				expand = {}
+			}
+		}
+	}
+	type vbox_parties_missions = vbox {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		margin_left = 30
+		margin_right = 30
+		spacing = 12
 	}
 }

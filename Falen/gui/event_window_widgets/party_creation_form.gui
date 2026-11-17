@@ -1,0 +1,292 @@
+﻿vbox = {
+	name = "party_creation_form"
+	layoutpolicy_horizontal = expanding
+	layoutpolicy_vertical = expanding
+	spacing = 18
+
+	header_pattern = {
+		layoutpolicy_horizontal = expanding
+		blockoverride "header_text" { text = "PARTY_CREATION_TITLE" }
+		blockoverride "button_close" {
+			datacontext_from_model = {
+				datamodel = "[EventWindowData.GetOptions]"
+				index = 1
+			}
+			onclick = "[EventOption.Select]"
+		}
+	}
+
+	text_single = {
+		text = "PARTY_CREATION_DESCRIPTION"
+		default_format = "#weak"
+		layoutpolicy_horizontal = expanding
+	}
+
+	hbox = {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		spacing = 24
+
+		vbox = {
+			size = { 510 0 }
+			minimumsize = { 510 -1 }
+			maximumsize = { 510 -1 }
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = expanding
+			spacing = 12
+
+			editbox_standard_with_label = {
+				layoutpolicy_horizontal = expanding
+				minimumsize = { 0 84 }
+				blockoverride "editbox_label" { text = "PARTY_CREATION_NAME_LABEL" }
+				blockoverride "editbox_properties" {
+					name = "enter_text"
+					focus_on_visible = yes
+					maxcharacters = 60
+					ontextedited = "[EventWindowWidgetEnterText.OnEdit]"
+				}
+			}
+
+			text_single = { text = "PARTY_CREATION_TYPE_LABEL" }
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				minimumsize = { 510 210 }
+				spacing = 18
+				button_group = {
+					name = "party_creation_communist_button"
+					button_ignore = none
+					datacontext = "[GetScriptedGui('party_creation_select_communist_gui')]"
+					onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					down = "[ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'communist_party')]"
+					widget = {
+						size = { 246 210 }
+						alwaystransparent = yes
+						background = {
+							texture = "gfx/interface/illustrations/loading_screens/council.dds"
+							fittype = centercrop
+							margin = { 5 5 }
+							alpha = 0.8
+						}
+						icon = {
+							size = { 100% 100% }
+							texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+							color = { 0 0 0 0.8 }
+							alwaystransparent = yes
+						}
+						highlight_icon = {
+							visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'communist_party')]"
+							size = { 100% 100% }
+							texture = "gfx/interface/buttons/button_standard_current.dds"
+							spriteType = Corneredtiled
+							spriteborder = { 32 18 }
+							alwaystransparent = yes
+						}
+						text_single_big = {
+							parentanchor = bottom|left
+							widgetanchor = bottom|left
+							position = { 16 -18 }
+							text = "COMMUNIST_PARTY"
+							alwaystransparent = yes
+						}
+						icon = {
+							visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'communist_party')]"
+							parentanchor = top|right
+							position = { -12 12 }
+							size = { 24 24 }
+							texture = "gfx/interface/icons/symbols/icon_check.dds"
+							alwaystransparent = yes
+						}
+					}
+				}
+
+				button_group = {
+					name = "party_creation_revolutionary_button"
+					button_ignore = none
+					datacontext = "[GetScriptedGui('party_creation_select_revolutionary_gui')]"
+					onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					down = "[ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'revolutionary_party')]"
+					widget = {
+						size = { 246 210 }
+						alwaystransparent = yes
+						background = {
+							texture = "gfx/interface/illustrations/terrain_types/ruined_city.dds"
+							fittype = centercrop
+							margin = { 5 5 }
+							alpha = 0.8
+						}
+						icon = {
+							size = { 100% 100% }
+							texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+							color = { 0 0 0 0.8 }
+							alwaystransparent = yes
+						}
+						highlight_icon = {
+							visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'revolutionary_party')]"
+							size = { 100% 100% }
+							texture = "gfx/interface/buttons/button_standard_current.dds"
+							spriteType = Corneredtiled
+							spriteborder = { 32 18 }
+							alwaystransparent = yes
+						}
+						text_single_big = {
+							parentanchor = bottom|left
+							widgetanchor = bottom|left
+							position = { 16 -18 }
+							text = "PARTY_CREATION_REVOLUTIONARY_TYPE"
+							alwaystransparent = yes
+						}
+						icon = {
+							visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'revolutionary_party')]"
+							parentanchor = top|right
+							position = { -12 12 }
+							size = { 24 24 }
+							texture = "gfx/interface/icons/symbols/icon_check.dds"
+							alwaystransparent = yes
+						}
+					}
+				}
+			}
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				spacing = 6
+				text_multi = {
+					name = "party_communist_desc"
+					visible = "[And(GetPlayer.MakeScope.Var('party_creation_type').IsSet, ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'communist_party'))]"
+					text = "communist_party_desc"
+					default_format = "#weak"
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 510
+				}
+				text_multi = {
+					name = "party_revolutionary_desc"
+					visible = "[And(GetPlayer.MakeScope.Var('party_creation_type').IsSet, ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'revolutionary_party'))]"
+					text = "revolutionary_party_desc"
+					default_format = "#weak"
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 510
+				}
+				text_multi = {
+					name = "party_creation_name_required"
+					visible = "[GetPlayer.MakeScope.Var('party_creation_name_error').IsSet]"
+					text = "PARTY_CREATION_NAME_REQUIRED"
+					default_format = "#X"
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 510
+				}
+				text_multi = {
+					name = "party_creation_type_required"
+					visible = "[Not(Or(ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'communist_party'), ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'revolutionary_party')))]"
+					text = "PARTY_CREATION_TYPE_REQUIRED"
+					default_format = "#X"
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 510
+				}
+				text_multi = {
+					name = "party_creation_requires_living_founder"
+					visible = "[Not(GetPlayer.IsAlive)]"
+					text = "PARTY_CREATION_REQUIRES_LIVING_FOUNDER"
+					default_format = "#X"
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 510
+				}
+				text_multi = {
+					name = "party_creation_requires_adult_founder"
+					visible = "[Not(GetPlayer.IsAdult)]"
+					text = "PARTY_CREATION_REQUIRES_ADULT_FOUNDER"
+					default_format = "#X"
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 510
+				}
+				text_multi = {
+					name = "party_creation_requires_no_party"
+					visible = "[GetPlayer.MakeScope.Var('party_affiliation').IsSet]"
+					text = "PARTY_CREATION_REQUIRES_NO_PARTY"
+					default_format = "#X"
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 510
+				}
+				text_multi = {
+					name = "party_creation_requires_county"
+					visible = "[Not(GetPlayer.GetCurrentLocation.GetCounty.GetTitle.IsValid)]"
+					text = "PARTY_CREATION_REQUIRES_COUNTY"
+					default_format = "#X"
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 510
+				}
+			}
+			expand = {}
+		}
+
+		divider_light = { layoutpolicy_vertical = expanding }
+
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			spacing = 12
+			text_single = { text = "PARTY_CREATION_COA_LABEL" }
+			widget = {
+				size = { 0 250 }
+				layoutpolicy_horizontal = expanding
+				datacontext = "[GetPlayer.GetCurrentLocation.GetCounty.GetTitle]"
+				visible = "[Title.IsValid]"
+				background = { using = Background_Area_Dark }
+				coat_of_arms_icon = {
+					parentanchor = center
+					size = { 192 192 }
+					coat_of_arms = "[Title.GetTitleCoA.GetTexture('(int32)230', '(int32)230')]"
+					coat_of_arms_slot = "[Title.GetTitleCoA.GetSlot('(int32)230', '(int32)230')]"
+					coat_of_arms_mask = "gfx/interface/coat_of_arms/title_mask.dds"
+					coat_of_arms_offset = "[DefaultCoATitleMaskOffset]"
+					coat_of_arms_scale = "[DefaultCoATitleMaskScale]"
+					coa_title_frame = { size = { 214 214 } }
+				}
+			}
+			text_single = {
+				visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'communist_party')]"
+				text = "COMMUNIST_PARTY"
+				default_format = "#weak"
+			}
+			text_single = {
+				visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'revolutionary_party')]"
+				text = "PARTY_CREATION_REVOLUTIONARY_TYPE"
+				default_format = "#weak"
+			}
+			text_multi = {
+				text = "PARTY_CREATION_COA_SOURCE"
+				default_format = "#weak"
+				autoresize = yes
+				max_width = 290
+			}
+		}
+	}
+
+	hbox = {
+		layoutpolicy_horizontal = expanding
+		spacing = 16
+		expand = {}
+		button_standard = {
+			name = "party_creation_cancel_button"
+			size = { 116 52 }
+			datacontext_from_model = { datamodel = "[EventWindowData.GetOptions]" index = 1 }
+			text = "PARTY_CREATION_CANCEL"
+			onclick = "[EventOption.Select]"
+		}
+		button_primary = {
+			name = "party_creation_submit_button"
+			size = { 180 52 }
+			datacontext_from_model = { datamodel = "[EventWindowData.GetOptions]" index = 0 }
+			text = "PARTY_CREATION_SUBMIT"
+			enabled = "[GetScriptedGui('party_creation_can_submit_gui').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			onclick = "[EventOption.Select]"
+		}
+	}
+}

@@ -11,3 +11,30 @@ parties_on_death = {
 		}
 	}
 }
+on_title_gain = {
+	on_actions = { parties_on_title_gain }
+}
+parties_on_title_gain = {
+	trigger = {
+		scope:title = { has_variable = is_party_title }
+	}
+	effect = {
+		if = {
+			limit = {
+				has_variable = party_affiliation
+				var:party_affiliation = scope:title
+			}
+			set_variable = { name = party_rank value = 4 }
+		}
+		else = {
+			if = {
+				limit = {
+					has_variable = party_affiliation
+				}
+				leave_party_effect = yes
+			}
+			add_to_party_member = { PARTY = scope:title }
+			set_variable = { name = party_rank value = 4 }
+		}
+	}
+}

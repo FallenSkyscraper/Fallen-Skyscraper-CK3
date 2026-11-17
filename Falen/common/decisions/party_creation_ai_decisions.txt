@@ -1,0 +1,23 @@
+﻿create_communist_party_ai_decision = {
+	picture = { reference = "gfx/interface/illustrations/loading_screens/council.dds" }
+	is_invisible = yes
+	is_shown = { is_ai = yes }
+	is_valid = { parties_can_create_trigger = yes }
+	effect = {
+		parties_new_party_creation_effect = { FOUNDER = root TYPE = flag:communist_party NAME = COMMUNIST_PARTY }
+	}
+	ai_check_interval = 0
+	ai_will_do = { base = 0 }
+}
+
+create_revolutionary_party_ai_decision = {
+	picture = { reference = "gfx/interface/illustrations/terrain_types/ruined_city.dds" }
+	is_invisible = yes
+	is_shown = { is_ai = yes }
+	is_valid = { parties_can_create_trigger = yes }
+	effect = {
+		parties_new_party_creation_effect = { FOUNDER = root TYPE = flag:revolutionary_party NAME = REVOLUTIONARY_PARTY }
+	}
+	ai_check_interval = 0
+	ai_will_do = { base = 0 }
+}

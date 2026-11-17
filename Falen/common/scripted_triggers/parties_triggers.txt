@@ -1,0 +1,24 @@
+﻿# 당 시스템에서 사용할 조건문.
+
+# 창당이 가능한지
+parties_can_create_trigger = { # scope: character
+	is_alive = yes
+	is_adult = yes
+	NOT = { has_variable = party_affiliation }
+	exists = location
+	exists = location.county
+}
+
+# 당 유형 검사
+parties_creation_type_is_valid_trigger = { # scope: player
+	has_variable = party_creation_type
+	OR = {
+		var:party_creation_type ?= flag:communist_party
+		var:party_creation_type ?= flag:revolutionary_party
+	}
+}
+
+is_party_leader_trigger = { # scope: character
+	has_variable = party_affiliation
+	var:party_affiliation.holder ?= this
+}

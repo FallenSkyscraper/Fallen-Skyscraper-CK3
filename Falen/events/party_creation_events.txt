@@ -1,0 +1,75 @@
+﻿namespace = party_creation
+
+party_creation.0001 = {
+	type = character_event
+	window = party_creation_window
+	title = PARTY_CREATION_TITLE
+	desc = PARTY_CREATION_DESCRIPTION
+	theme = default
+
+	trigger = {
+		is_ai = no
+		has_variable = party_creation_open
+	}
+
+	widget = {
+		gui = "party_creation_form"
+		container = "party_creation_content"
+		controller = {
+			type = text
+			data = {
+				key = party_creation_name
+				default = PARTY_CREATION_NAME_DEFAULT
+			}
+		}
+		setup_scope = { root = { save_scope_as = text_target } }
+	}
+
+	option = {
+		name = PARTY_CREATION_SUBMIT
+		save_scope_value_as = { name = party_creation_confirmed value = yes }
+		ai_chance = { base = 0 }
+	}
+
+	option = {
+		name = PARTY_CREATION_CANCEL
+		is_cancel_option = yes
+		save_scope_value_as = { name = party_creation_confirmed value = no }
+		ai_chance = { base = 0 }
+	}
+
+	# The native controller saves typed text before the event's after effects.
+	after = {
+		if = {
+			limit = {
+				scope:party_creation_confirmed = yes
+				is_ai = no
+				has_variable = party_creation_open
+			}
+			if = {
+				limit = {
+					parties_can_create_trigger = yes
+					parties_creation_type_is_valid_trigger = yes
+					# An untouched empty default sets this variable; custom text does not.
+					NOT = { has_variable = party_creation_name }
+				}
+				parties_new_party_creation_effect = {
+					FOUNDER = root
+					TYPE = root.var:party_creation_type
+					NAME = PARTY_CREATION_CUSTOM_NAME
+				}
+				parties_clear_creation_draft_effect = yes
+			}
+			else = {
+				if = {
+					limit = { has_variable = party_creation_name }
+					set_variable = party_creation_name_error
+				}
+				trigger_event = party_creation.0001
+			}
+		}
+		else = { parties_clear_creation_draft_effect = yes }
+	}
+
+	on_trigger_fail = { parties_clear_creation_draft_effect = yes }
+}

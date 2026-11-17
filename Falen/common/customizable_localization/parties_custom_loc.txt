@@ -10,3 +10,43 @@
 		localization_key = REVOLUTIONARY_PARTY
 	}
 }
+GetPartyRank = {
+	type = character
+	text = {
+		trigger = { var:party_rank ?= 1 }
+		localization_key = party_rank_1
+		fallback = yes
+	}
+	text = {
+		trigger = { var:party_rank ?= 2 }
+		localization_key = party_rank_2
+	}
+	text = {
+		trigger = { var:party_rank ?= 3 }
+		localization_key = party_rank_3
+	}
+	text = {
+		trigger = { var:party_rank ?= 4 }
+		localization_key = party_rank_4
+	}
+}
+GetPartyRankTooltip = {
+	type = character
+	text = {
+		trigger = { var:party_rank ?= 1 }
+		localization_key = party_rank_1_tooltip
+		fallback = yes
+	}
+	text = {
+		trigger = { var:party_rank ?= 2 }
+		localization_key = party_rank_2_tooltip
+	}
+	text = {
+		trigger = { var:party_rank ?= 3 }
+		localization_key = party_rank_3_tooltip
+	}
+	text = {
+		trigger = { var:party_rank ?= 4 }
+		localization_key = party_rank_4_tooltip
+	}
+}

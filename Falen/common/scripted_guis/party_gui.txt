@@ -1,4 +1,4 @@
-party_gui_toggle = {
+﻿party_gui_toggle = {
 	scope = character
 	
 	is_shown = {
@@ -50,5 +50,60 @@ is_partisan = {
 			text = should_have_party_affiliation
 			has_variable = party_affiliation
 		}
+	}
+}
+
+party_creation_open_gui = {
+	scope = character
+	is_shown = { is_ai = no }
+	is_valid = { NOT = { has_variable = party_creation_open } }
+	effect = {
+		if = {
+			limit = {
+				is_ai = no
+				NOT = { has_variable = party_creation_open }
+			}
+			parties_clear_creation_draft_effect = yes
+			set_variable = party_creation_open
+			trigger_event = party_creation.0001
+		}
+	}
+}
+
+party_creation_select_communist_gui = {
+	scope = character
+	is_valid = {
+		is_ai = no
+		has_variable = party_creation_open
+	}
+	effect = {
+		if = {
+			limit = { is_ai = no has_variable = party_creation_open }
+			set_variable = { name = party_creation_type value = flag:communist_party }
+		}
+	}
+}
+
+party_creation_select_revolutionary_gui = {
+	scope = character
+	is_valid = {
+		is_ai = no
+		has_variable = party_creation_open
+	}
+	effect = {
+		if = {
+			limit = { is_ai = no has_variable = party_creation_open }
+			set_variable = { name = party_creation_type value = flag:revolutionary_party }
+		}
+	}
+}
+
+party_creation_can_submit_gui = {
+	scope = character
+	is_valid = {
+		is_ai = no
+		has_variable = party_creation_open
+		parties_can_create_trigger = yes
+		parties_creation_type_is_valid_trigger = yes
 	}
 }

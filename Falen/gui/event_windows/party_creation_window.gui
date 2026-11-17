@@ -1,0 +1,31 @@
+﻿window = {
+	name = "party_creation_window"
+	parentanchor = center
+	widgetanchor = center
+	size = { 970 770 }
+	layer = events
+	filter_mouse = all
+	movable = yes
+	datacontext = "[EventWindow.AccessEventWindowData]"
+	enabled = "[EventWindow.IsOnTop]"
+	using = Window_Background
+	using = Window_Decoration
+
+	state = {
+		name = show
+		trigger_on_create = yes
+		using = Animation_FadeIn_Quick
+		using = Sound_WindowShow_Standard
+	}
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+		using = Sound_WindowHide_Standard
+	}
+
+	hbox = {
+		name = "party_creation_content"
+		size = { 100% 100% }
+		using = Window_Margins
+	}
+}

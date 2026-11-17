@@ -1,0 +1,40 @@
+﻿parties_pay_special_fee_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	selection_tooltip = parties_pay_special_fee_decision_tooltip
+	
+	decision_group_type = major
+	sort_order = -20
+	ai_check_interval = 12
+	cooldown = { years = 2 }
+	is_shown = {
+		has_variable = party_affiliation
+		is_alive = yes
+	}
+	effect = {
+		custom_tooltip = {
+			text = parties_paid_special_fee
+			var:party_affiliation = {
+				change_variable = {
+					name = party_treasury
+					add = 200
+				}
+			}
+			change_variable = {
+				name = party_contribution
+				add = 100
+			}
+			change_variable = {
+				name = party_currency
+				add = 100
+			}
+		}
+	}
+	cost = {
+		gold = 200
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

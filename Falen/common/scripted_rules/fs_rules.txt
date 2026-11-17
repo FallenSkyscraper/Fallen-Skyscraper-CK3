@@ -17,3 +17,11 @@ can_traverse_river = {
 		has_character_modifier = tech_navigation_modifier_10
 	}
 }
+can_destroy_title = {
+	scope:title = {
+		custom_tooltip = {
+			NOT = { has_variable = is_party_title }
+			text = cannot_destroy_party_title_manually
+		}
+	}
+}
