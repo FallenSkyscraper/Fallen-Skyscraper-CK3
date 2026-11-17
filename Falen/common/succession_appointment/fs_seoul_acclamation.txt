@@ -25,6 +25,46 @@ seoul_acclamation = {
 				limit = { has_trait = incapable }
 				add = { value = -1000 desc = seoul_acclamation_incapable_score }
 			}
+			if = {
+				limit = {
+					house ?= {
+						has_house_aspiration_parameter = seoul_mayor_score_bonus
+					}
+				}
+				add = { value = 20 desc = seoul_mayor_score_bonus }
+			}
+			if = {
+				limit = {
+					house ?= {
+						has_house_aspiration_parameter = seoul_mayor_score_bonus_big
+					}
+				}
+				add = { value = 40 desc = seoul_mayor_score_bonus_big }
+			}
+			if = {
+				limit = {
+					house ?= {
+						has_house_aspiration_parameter = seoul_mayor_score_malus
+					}
+				}
+				subtract = { value = 25 desc = seoul_mayor_score_malus }
+			}
+			if = {
+				limit = {
+					house ?= {
+						has_house_aspiration_parameter = seoul_mayor_score_malus_2
+					}
+				}
+				subtract = { value = 50 desc = seoul_mayor_score_malus_2 }
+			}
+			if = {
+				limit = {
+					house ?= {
+						has_house_aspiration_parameter = seoul_mayor_score_malus_3
+					}
+				}
+				subtract = { value = 100 desc = seoul_mayor_score_malus_3 }
+			}
 		}
 	}
 }
