@@ -718,7 +718,7 @@ has_lesser_building_trigger = {
 add_random_building_trigger = { 
 	building_$BUILDING$_requirement_terrain = yes # terrain fits building type
 	trigger_if = { # if all slots are full, this building type exists already
-		limit = { free_building_slots = 0 }
+		limit = { NOT = { any_built_regular_district = { free_building_slots > 0 } } }
 		has_building_or_higher = $BUILDING$_01
 		NOT = {
 			has_lesser_building_trigger = { COMPARE = $BUILDING$ }
@@ -1002,3 +1002,302 @@ building_breweries_requirement = {
 #		}
 #	}
 #}
+
+building_requirement_non_tribal = {
+	NOT = {
+		scope:holder ?= {
+			government_has_flag = government_is_tribal
+		}
+	}
+}
+
+pearl_fishing_banks_county_trigger = {
+	has_county_modifier = pearl_fishing_banks_modifier
+}
+
+walrus_ivory_county_trigger = {
+	has_county_modifier = walrus_ivory_modifier
+}
+
+naphta_county_trigger = {
+	has_county_modifier = naphta_modifier
+}
+
+mint_building_unlock_early_medieval_trigger = {
+	custom_description = {
+		text = mint_building_unlock_early_medieval_trigger_desc
+		culture = { has_innovation = innovation_currency_02 }
+	}
+}
+
+building_murex_fisheries_requirement_trigger = {
+	is_coastal = yes
+	geographical_region = mediteranean_coast
+}
+
+building_examination_hall_requirement = {
+	is_county_capital = yes
+
+	scope:holder = {
+		government_has_flag = government_has_merit
+	}
+}
+
+building_manor_tower_requirement = {
+	OR = {
+		has_holding_type = castle_holding
+		is_county_capital = yes
+	}
+}
+
+building_requirement_no_great_barracks_project = {
+	custom_tooltip = {
+		text = great_project_type_construct_great_barracks_reserves_slot
+		NOT = {
+			any_great_project_in_province = {
+				great_project_type = construct_great_barracks
+				OR = {
+					great_project_construction_phase_is = planned
+					great_project_construction_phase_is = in_progress
+				}
+			}
+		}
+	}
+}
+
+building_gunpowder_trigger = {
+	culture = {
+		OR = {
+			has_innovation = innovation_gunpowder
+			has_innovation = innovation_fire_medicine
+		}
+	}
+}
+
+can_have_duchy_capital_building_trigger = {
+	county.holder = {
+		trigger_if = {
+			limit = {
+				government_has_flag = government_is_republic
+			}
+			capital_county = prev.county
+			highest_held_title_tier >= tier_duchy
+		}
+		trigger_else = {
+			has_title = prev.duchy
+		}
+	}
+}
+
+building_requirement_meat_allowed = {
+	NOT = { culture = { has_cultural_parameter = vegetarianism_no_meat_buildings } }
+	NOT = { rite = { rite_has_parameter = meat_forbidden } }
+}
+
+building_requirement_winter_region = {
+	NOR = {
+		terrain = desert
+		terrain = oasis
+		terrain = drylands
+		terrain = desert_mountains
+	}
+	OR = {
+		geographical_region = world_europe_north
+		geographical_region = world_europe_west
+		geographical_region = world_europe_east
+		geographical_region = world_steppe
+		geographical_region = world_tibet
+		geographical_region = world_asia_china
+		geographical_region = world_asia_japan
+		geographical_region = world_asia_sakhalin_hokkaido
+		geographical_region = world_asia_korea
+		geographical_region = world_asia_north_east
+	}
+}
+
+building_requirement_pasta_region = {
+	OR = {
+		geographical_region = world_africa_north
+		geographical_region = world_europe_south_italy
+	}
+}
+
+building_farmed_tribal_trigger = {
+	culture = { has_innovation = innovation_crop_rotation }
+}
+
+building_farmed_early_medieval_trigger = {
+	culture = { has_innovation = innovation_heavy_plow }
+}
+
+building_farmed_high_medieval_trigger = {
+	culture = { has_innovation = innovation_windmills }
+}
+
+building_farmed_late_medieval_trigger = {
+	culture = { has_innovation = innovation_putting_out_system }
+}
+
+building_artisanal_early_medieval_trigger = {
+	culture = { has_innovation = innovation_craft_ordinances }
+}
+
+building_artisanal_high_medieval_trigger = {
+	culture = { has_innovation = innovation_windmills }
+}
+
+building_artisanal_late_medieval_trigger = {
+	culture = { has_innovation = innovation_putting_out_system }
+}
+
+building_forest_early_medieval_trigger = {
+	culture = { has_innovation = innovation_coppicing }
+}
+
+building_forest_high_medieval_trigger = {
+	culture = { has_innovation = innovation_windmills }
+}
+
+building_forest_late_medieval_trigger = {
+	culture = { has_innovation = innovation_putting_out_system }
+}
+
+building_mineral_early_medieval_trigger = {
+	culture = { has_innovation = innovation_prospecting }
+}
+
+building_mineral_high_medieval_trigger = {
+	culture = { has_innovation = innovation_windmills }
+}
+
+building_mineral_late_medieval_trigger = {
+	culture = { has_innovation = innovation_deep_mining }
+}
+
+building_maritime_early_medieval_trigger = {
+	culture = { has_innovation = innovation_armilary_sphere }
+}
+
+building_maritime_high_medieval_trigger = {
+	culture = { has_innovation = innovation_merchant_law }
+}
+
+building_maritime_late_medieval_trigger = {
+	culture = { has_innovation = innovation_pilot_books }
+}
+
+building_rural_early_medieval_trigger = {
+	culture = { has_innovation = innovation_manorialism }
+}
+
+building_rural_high_medieval_trigger = {
+	culture = { has_innovation = innovation_land_grants }
+}
+
+building_rural_late_medieval_trigger = {
+	culture = { has_innovation = innovation_agronomy }
+}
+
+building_communal_early_medieval_trigger = {
+	culture = { has_innovation = innovation_prosperity_02 }
+}
+
+building_urban_high_medieval_trigger = {
+	culture = { has_innovation = innovation_prosperity_03 }
+}
+
+building_masonry_late_medieval_trigger = {
+	culture = { has_innovation = innovation_bricks }
+}
+
+building_commerce_early_medieval_trigger = {
+	culture = { has_innovation = innovation_currency_02 }
+}
+
+building_commerce_high_medieval_trigger = {
+	culture = { has_innovation = innovation_merchant_law }
+}
+
+building_commerce_late_medieval_trigger = {
+	culture = { has_innovation = innovation_currency_04 }
+}
+
+building_administrative_early_medieval_trigger = {
+	culture = { has_innovation = innovation_baliffs }
+}
+
+building_administrative_high_medieval_trigger = {
+	culture = { has_innovation = innovation_divine_right }
+}
+
+building_administrative_late_medieval_trigger = {
+	culture = { has_innovation = innovation_court_officials }
+}
+
+building_religious_early_medieval_trigger = {
+	culture = { has_innovation = innovation_monasticism }
+}
+
+building_stonework_high_medieval_trigger = {
+	culture = { has_innovation = innovation_vaulting }
+}
+
+building_fortification_tribal_trigger = {
+	culture = { has_innovation = innovation_motte }
+}
+
+building_fortification_early_medieval_trigger = {
+	culture = { has_innovation = innovation_battlements }
+}
+
+building_fortification_high_medieval_trigger = {
+	culture = { has_innovation = innovation_hoardings }
+}
+
+building_fortification_late_medieval_trigger = {
+	culture = { has_innovation = innovation_machicolations }
+}
+
+building_recruitment_tribal_trigger = {
+	culture = { has_innovation = innovation_barracks }
+}
+
+building_recruitment_early_medieval_trigger = {
+	culture = { has_innovation = innovation_house_soldiers }
+}
+
+building_recruitment_late_medieval_trigger = {
+	culture = { has_innovation = innovation_standing_armies }
+}
+
+building_courtly_tribal_trigger = {
+	culture = { has_innovation = innovation_plenary_assemblies }
+}
+
+building_courtly_early_medieval_trigger = {
+	culture = { has_innovation = innovation_royal_prerogative }
+}
+
+building_courtly_late_medieval_trigger = {
+	culture = { has_innovation = innovation_ermine_cloaks }
+}
+
+building_settlement_tribal_trigger = {
+	culture = { has_innovation = innovation_city_planning }
+}
+
+building_holding_early_medieval_trigger = {
+	culture = { has_cultural_era_or_later = culture_era_early_medieval }
+}
+
+building_holding_high_medieval_trigger = {
+	culture = { has_cultural_era_or_later = culture_era_high_medieval }
+}
+
+building_holding_late_medieval_trigger = {
+	culture = { has_cultural_era_or_later = culture_era_late_medieval }
+}
+
+building_monument_tribal_trigger = {
+	culture = { has_innovation = innovation_prosperity_01 }
+}

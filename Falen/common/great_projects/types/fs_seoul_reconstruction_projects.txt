@@ -1,4 +1,4 @@
-# Seoul reconstruction uses native project and contribution completion callbacks.
+﻿# Seoul reconstruction uses native project and contribution completion callbacks.
 # Each funded contribution pays its own contributor; no separate reward tracking is needed.
 
 fs_seoul_skyscraper_clearance = {
@@ -480,6 +480,7 @@ fs_seoul_restore_seoul_national_university = {
 	on_complete = {
 		fs_seoul_complete_university_effect = {
 			BUILDING = seoul_national_university_02
+			DISTRICT = seoul_national_university_01_district
 			INFLUENCE = fs_seoul_national_university_mayor_influence_value
 		}
 	}
@@ -660,6 +661,7 @@ fs_seoul_restore_yonsei_university = {
 	on_complete = {
 		fs_seoul_complete_university_effect = {
 			BUILDING = yonsei_university
+			DISTRICT = yonsei_university_district
 			INFLUENCE = fs_seoul_university_mayor_influence_value
 		}
 	}
@@ -780,6 +782,7 @@ fs_seoul_restore_korea_university = {
 	on_complete = {
 		fs_seoul_complete_university_effect = {
 			BUILDING = korea_university
+			DISTRICT = korea_university_district
 			INFLUENCE = fs_seoul_university_mayor_influence_value
 		}
 	}
@@ -900,6 +903,7 @@ fs_seoul_restore_sungkyunkwan_university = {
 	on_complete = {
 		fs_seoul_complete_university_effect = {
 			BUILDING = sungkyunkwan_university
+			DISTRICT = sungkyunkwan_university_district
 			INFLUENCE = fs_seoul_university_mayor_influence_value
 		}
 	}
@@ -1020,6 +1024,7 @@ fs_seoul_restore_sogang_university = {
 	on_complete = {
 		fs_seoul_complete_university_effect = {
 			BUILDING = sogang_university
+			DISTRICT = sogang_university_district
 			INFLUENCE = fs_seoul_university_mayor_influence_value
 		}
 	}
@@ -1140,6 +1145,7 @@ fs_seoul_restore_dongguk_university = {
 	on_complete = {
 		fs_seoul_complete_university_effect = {
 			BUILDING = dongguk_university
+			DISTRICT = dongguk_university_district
 			INFLUENCE = fs_seoul_university_mayor_influence_value
 		}
 	}
@@ -1260,6 +1266,7 @@ fs_seoul_restore_kyunghee_university = {
 	on_complete = {
 		fs_seoul_complete_university_effect = {
 			BUILDING = kyunghee_university
+			DISTRICT = kyunghee_university_district
 			INFLUENCE = fs_seoul_university_mayor_influence_value
 		}
 	}

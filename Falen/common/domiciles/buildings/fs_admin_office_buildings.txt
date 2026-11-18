@@ -48,12 +48,12 @@ admin_office_main_01 = {
 		domicile_monthly_piety_add = @admin_office_domicile_monthly_piety_add_main_01
 		domicile_monthly_prestige_add = @admin_office_domicile_monthly_prestige_add_2
 		domicile_external_slots_capacity_add = @admin_office_domicile_external_slots_capacity_add
-		monthly_county_control_growth_factor = @admin_office_monthly_county_control_growth_factor_3
+		monthly_control_change_when_below_baseline_mult = @admin_office_monthly_county_control_growth_factor_3
 	}
 
 	province_modifier = {
-		development_growth = @admin_office_development_growth
-		tax_mult = @admin_office_tax_mult
+		prosperity_growth = @admin_office_development_growth
+		all_tax_mult = @admin_office_tax_mult
 	}
 
 	ai_value = {
@@ -117,7 +117,7 @@ admin_office_main_02 = {
 		domicile_monthly_gold_add = @admin_office_main_domicile_monthly_gold_add_2
 		domicile_monthly_piety_add = @admin_office_domicile_monthly_piety_add_main_02
 		domicile_monthly_prestige_add = @admin_office_domicile_monthly_prestige_add_2
-		monthly_county_control_growth_factor = @admin_office_monthly_county_control_growth_factor_3
+		monthly_control_change_when_below_baseline_mult = @admin_office_monthly_county_control_growth_factor_3
 		clergy_opinion = @admin_office_clergy_opinion
 		monthly_piety_gain_mult = @admin_office_monthly_piety_gain_mult_main_02
 		piety_level_impact_mult = @admin_office_piety_level_impact_mult_main
@@ -128,9 +128,9 @@ admin_office_main_02 = {
 	province_modifier = {
 		church_holding_build_speed = @admin_office_church_holding_build_speed
 		church_holding_build_gold_cost = @admin_office_church_holding_build_gold_cost
-		development_growth = @admin_office_development_growth
-		monthly_income = @admin_office_monthly_income
-		tax_mult = @admin_office_tax_mult
+		prosperity_growth = @admin_office_development_growth
+		monthly_generic_tax = @admin_office_monthly_income
+		all_tax_mult = @admin_office_tax_mult
 	}
 
 	ai_value = {
@@ -198,7 +198,7 @@ admin_office_main_03 = {
 		domicile_monthly_gold_add = @admin_office_main_domicile_monthly_gold_add_2
 		domicile_monthly_piety_add = @admin_office_domicile_monthly_piety_add_main_03
 		domicile_monthly_prestige_add = @admin_office_domicile_monthly_prestige_add_2
-		monthly_county_control_growth_factor = @admin_office_monthly_county_control_growth_factor_3
+		monthly_control_change_when_below_baseline_mult = @admin_office_monthly_county_control_growth_factor_3
 		clergy_opinion = @admin_office_clergy_opinion
 		monthly_piety_gain_mult = @admin_office_monthly_piety_gain_mult_main_03
 		learning_per_piety_level = @admin_office_learning_per_piety_level_main
@@ -208,10 +208,10 @@ admin_office_main_03 = {
 	province_modifier = {
 		church_holding_build_speed = @admin_office_church_holding_build_speed
 		church_holding_build_gold_cost = @admin_office_church_holding_build_gold_cost
-		development_growth = @admin_office_development_growth
-		development_growth_factor = @admin_office_development_growth_factor_main
-		monthly_income = @admin_office_monthly_income
-		tax_mult = @admin_office_tax_mult
+		prosperity_growth = @admin_office_development_growth
+		prosperity_growth_factor = @admin_office_development_growth_factor_main
+		monthly_generic_tax = @admin_office_monthly_income
+		all_tax_mult = @admin_office_tax_mult
 		fort_level = good_building_fort_level_tier_1
 	}
 	ai_value = {
@@ -278,7 +278,7 @@ admin_office_main_04 = {
 		domicile_monthly_gold_add = @admin_office_main_domicile_monthly_gold_add_2
 		domicile_monthly_piety_add = @admin_office_domicile_monthly_piety_add_main_04
 		domicile_monthly_prestige_add = @admin_office_domicile_monthly_prestige_add_main_04
-		monthly_county_control_growth_factor = @admin_office_monthly_county_control_growth_factor_3
+		monthly_control_change_when_below_baseline_mult = @admin_office_monthly_county_control_growth_factor_3
 		clergy_opinion = @admin_office_clergy_opinion
 		piety_level_impact_mult = @admin_office_piety_level_impact_mult_main
 		monthly_treasury_from_vassals_mult = @admin_office_treasury_from_vassals_mult_main
@@ -290,10 +290,10 @@ admin_office_main_04 = {
 	province_modifier = {
 		church_holding_build_speed = @admin_office_church_holding_build_speed
 		church_holding_build_gold_cost = @admin_office_church_holding_build_gold_cost
-		development_growth = @admin_office_development_growth
-		development_growth_factor = @admin_office_development_growth_factor_main
-		monthly_income = @admin_office_monthly_income
-		tax_mult = @admin_office_tax_mult_main_04
+		prosperity_growth = @admin_office_development_growth
+		prosperity_growth_factor = @admin_office_development_growth_factor_main
+		monthly_generic_tax = @admin_office_monthly_income
+		all_tax_mult = @admin_office_tax_mult_main_04
 	}
 
 	ai_value = {

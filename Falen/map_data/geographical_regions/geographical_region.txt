@@ -9,10 +9,6 @@
 #	regions = { }, a region can also include other regions, however the subregions needs to be declared before the parent region.
 #		E.g. If the region world_europe contains the region world_europe_west then world_europe_west needs to be declared as a region before (i.e. higher up in this file) world_europe.
 
-# Regions provide the following modifiers:
-# key + _development_growth
-# key + _development_growth_factor
-# This requires "generate_modifiers = yes" in the region
 
 ###########################################################################
 # World Regions
@@ -331,7 +327,6 @@ material_hsb_seashell = {
 
 
 world_persian_empire = {
-	generate_modifiers = yes
 }
 custom_eastern_baltic = {}
 custom_frisia = {}
@@ -406,7 +401,6 @@ custom_greater_armenia = {}
 custom_normandy_and_adjacent = {}
 
 custom_ireland = {
-	generate_modifiers = yes
 }
 
 custom_k_epirus = {
@@ -454,7 +448,6 @@ custom_polabia = {}
 custom_beth_nahrain = {}
 
 custom_carthaginian_empire = {
-	generate_modifiers = yes
 }
 
 custom_carthage = {}
@@ -466,7 +459,6 @@ custom_mauretania = {}
 custom_carthago_nova = {}
 
 custom_cumbria = {
-	generate_modifiers = yes
 }
 
 ###########################################################################
@@ -531,13 +523,11 @@ graphical_east_asia = {
 ###############################
 
 world_innovation_elephants = {
-	generate_modifiers = yes
 	regions = {
 	}
 }
 
 world_innovation_camels = {
-	generate_modifiers = yes
 	regions = { }
 }
 
@@ -1396,7 +1386,6 @@ custom_ep3_restore_rome_eastern_empire = {
 }
 
 black_sea_coast_region = {
-	generate_modifiers = yes
 }
 
 #Seasonal regions

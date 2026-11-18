@@ -8,7 +8,7 @@ fs_missionaries.1 = {
 	override_background = {
 		trigger = {
 			location = {
-				county.development_level >= 10
+				county.prosperity_level >= 10
 				has_holding = yes
 			}
 		}
@@ -18,7 +18,7 @@ fs_missionaries.1 = {
 		trigger = {
 			location = {
 				OR = {
-					county.development_level < 10
+					county.prosperity_level < 10
 					has_holding = no
 				}
 			}
@@ -44,7 +44,7 @@ fs_missionaries.1 = {
 				}
 				modifier = {
 					add = {
-						subtract = scope:location.county.county_opinion
+						subtract = scope:location.county.popular_opinion
 					}
 				}
 				modifier = {
@@ -73,7 +73,7 @@ fs_missionaries.1 = {
 				}
 				modifier = {
 					add = {
-						subtract = scope:location.county.county_opinion
+						subtract = scope:location.county.popular_opinion
 						divide = 2
 					}
 				}
@@ -122,7 +122,7 @@ fs_missionaries.1 = {
 					min = -49
 				}
 				modifier = {
-					add = scope:location.county.county_opinion
+					add = scope:location.county.popular_opinion
 				}
 				modifier = {
 					add = {

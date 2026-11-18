@@ -6072,11 +6072,40 @@ fund_inspiration.1031 = {
 				set_artifact_description = artifact_dedication_written_h
 			}
 		}
+		if = {
+			limit = {
+				has_royal_court = no
+				government_has_flag = government_is_merchant
+				scope:newly_created_artifact = { artifact_slot_type = book }
+			}
+			scope:newly_created_artifact = {
+				reforge_artifact = { type = library_item }
+			}
+		}
 	}
 
 	option = {
 		name = fund_inspiration.1031.a
 		custom_tooltip = create_artifact_book_tooltip
+	}
+
+	option = {
+		name = fund_inspiration.1001.c
+		trigger = {
+			government_has_flag = government_is_merchant
+			NOT = {
+				scope:newly_created_artifact = { artifact_slot_type = library }
+			}
+		}
+		scope:newly_created_artifact = {
+			custom_tooltip = {
+				text = reforge_artifact_library_item_tt
+				reforge_artifact = { type = library_item }
+			}
+		}
+	}
+
+	after = {
 		if = { #If you wrote about your soulmate they'll love it!
 			limit = {
 				exists = scope:portrait_2_soulmate
@@ -6111,9 +6140,6 @@ fund_inspiration.1031 = {
 				trigger_event = fund_inspiration.1033
 			}
 		}
-	}
-
-	after = {
 		inspiration_completion_effect = yes
 	}
 }
@@ -6352,6 +6378,17 @@ fund_inspiration.1041 = {
 	option = {
 		name = fund_inspiration.1001.a
 		custom_tooltip = create_artifact_tapestry_tooltip
+	}
+
+	option = {
+		name = fund_inspiration.1001.c
+		trigger = { government_has_flag = government_is_merchant }
+		scope:newly_created_artifact = {
+			custom_tooltip = {
+				text = reforge_artifact_curio_tt
+				reforge_artifact = { type = curio }
+			}
+		}
 	}
 
 	after = {
@@ -7166,6 +7203,17 @@ fund_inspiration.1061 = {
 		name = fund_inspiration.1001.a
 		custom_tooltip = create_artifact_artisan_tooltip
 	}
+
+	option = {
+		name = fund_inspiration.1001.c
+		trigger = { government_has_flag = government_is_merchant }
+		scope:newly_created_artifact = {
+			custom_tooltip = {
+				text = reforge_artifact_curio_tt
+				reforge_artifact = { type = curio }
+			}
+		}
+	}
 }
 
 # Smith artifact
@@ -7423,12 +7471,67 @@ fund_inspiration.1071 = {
 				set_artifact_description = artifact_motto_inscribed
 			}
 		}
+		if = {
+			limit = {
+				has_royal_court = no
+				government_has_flag = government_is_merchant
+				scope:newly_created_artifact = {
+					OR = {
+						artifact_slot_type = throne
+						artifact_slot_type = wall_big
+						artifact_slot_type = wall_small
+						artifact_slot_type = sculpture
+						artifact_slot_type = pedestal
+					}
+				}
+			}
+			scope:newly_created_artifact = {
+				reforge_artifact = { type = curio }
+			}
+		}
 	}
 
 	#
 	option = {
 		name = fund_inspiration.1001.a
+		trigger = {
+			NOT = {
+				has_character_flag = waiting_for_a_crown
+				can_host_activity = activity_coronation
+			}
+		}
 		custom_tooltip = create_artifact_smith_tooltip
+	}
+
+	option = {
+		name = fund_inspiration.1001.b
+		trigger = {
+			has_ach_dlc_trigger = yes
+			has_character_flag = waiting_for_a_crown
+		}
+		remove_character_flag = waiting_for_a_crown
+
+		custom_tooltip = create_artifact_smith_tooltip
+	}
+
+	option = {
+		name = fund_inspiration.1001.c
+		trigger = {
+			NOT = {
+				has_character_flag = waiting_for_a_crown
+				can_host_activity = activity_coronation
+			}
+			government_has_flag = government_is_merchant
+			NOT = {
+				scope:newly_created_artifact = { artifact_slot_type = curio }
+			}
+		}
+		scope:newly_created_artifact = {
+			custom_tooltip = {
+				text = reforge_artifact_curio_tt
+				reforge_artifact = { type = curio }
+			}
+		}
 	}
 }
 
@@ -12083,7 +12186,6 @@ fund_inspiration.2120 = {
 				has_trait = chaste
 				is_consort_of = root
 				has_relation_lover = root
-				has_relation_soulmate = root
 				is_close_family_of = root
 				has_any_bad_relationship_with_character_trigger = { CHARACTER = root }
 			}
@@ -14138,14 +14240,14 @@ fund_inspiration.3014 = {
 		}
 	}
 
-	#Development
+	#Prosperity
 	option = {
 		name = fund_inspiration.3014.b
 		custom_tooltip = fund_inspiration.3014.b.tt
 		scope:inspiration_owner = {
 			set_variable = {
 				name = book_topic_category
-				value = flag:stewardship_development
+				value = flag:stewardship_prosperity
 			}
 		}
 	}
@@ -15738,6 +15840,9 @@ fund_inspiration.6102 = {
 					factor = root.learning
 				}
 				wound_treatment_results_effect = { TREATMENT = safe OUTCOME = success }
+				scope:tiny_sculpture_trinket = {
+					set_owner = root
+				}
 				hidden_effect = {
 					send_interface_toast = {
 						left_icon = root
@@ -15745,9 +15850,6 @@ fund_inspiration.6102 = {
 
 						show_as_tooltip = {
 							wound_treatment_results_effect = { TREATMENT = safe OUTCOME = success }
-						}
-						scope:tiny_sculpture_trinket = {
-							set_owner = root
 						}
 					}
 				}
@@ -20221,7 +20323,6 @@ fund_inspiration.7001 = {
 				primary_spouse = {
 					NOR = {
 						has_relation_rival = root
-						has_relation_nemesis = root
 					}
 				}
 			}

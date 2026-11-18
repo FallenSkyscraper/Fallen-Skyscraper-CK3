@@ -1,3 +1,26 @@
+﻿# Character scope. Initialize native republican family titles after the lobby.
+fs_initialize_native_republic_effect = {
+	if = {
+		limit = {
+			government_has_flag = government_is_republic
+			highest_held_title_tier >= tier_county
+			NOT = { any_held_title = { is_noble_family_title = yes } }
+		}
+		save_scope_as = republican_founder
+		create_dynamic_title = {
+			name = NEW_PATRICIAN_TITLE_NAME
+			tier = county
+			type = title_type_merchant_family
+			holder = scope:republican_founder
+			article = DEFAULT_TITLE_NAME_ARTICLE
+			save_scope_as = new_patrician_title
+		}
+		scope:new_patrician_title ?= {
+			add_title_law = noble_family_succession_law
+		}
+	}
+}
+
 fs_initialize_culture_effect = {
 	if = { limit = { has_cultural_parameter = heritage_group_korean } set_variable = { name = heritage_group value = 1 } }
 	else_if = { limit = { has_cultural_parameter = heritage_group_japanese } set_variable = { name = heritage_group value = 2 } }
@@ -925,13 +948,13 @@ tech_urbanization_init = {
 	}
 	every_county = {
 		limit = {
-			development_level > 15
+			prosperity_level > 15
 		}
 		set_variable = { name = tech_urbanization value = 4.0 }
 	}
 	every_county = {
 		limit = {
-			development_level > 25
+			prosperity_level > 25
 		}
 		set_variable = { name = tech_urbanization value = 5.0 }
 	}

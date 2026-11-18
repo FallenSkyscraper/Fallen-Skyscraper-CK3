@@ -1,15 +1,23 @@
 ﻿#k_geonggi  ##경기남부
 ##d_suwon   ###################################k는 왕국 d는 공작 c는 백작 b는 남작
-### c_suwon 
+### c_suwon
 
 84={#Suwon
 	culture = suwon
 	rite = mechanism
 	holding = castle_holding
 	1798.1.1 = {
-        special_building_slot = hwaseong_fortress
-        special_building = hwaseong_fortress
-		buildings = { castle_02 }
+        special_district_slot = hwaseong_fortress_district
+        districts = {
+			district = {
+				type = castle_holding_district
+				level = 2
+			}
+			district = {
+				type = hwaseong_fortress_district
+				level = 1
+			}
+        }
     }
 }
 
@@ -24,9 +32,9 @@
 	holding = castle_holding
 }
 
-### c_g_namyang   
- 
- 
+### c_g_namyang
+
+
 1414={#Namyang
 	culture = suwon
 	rite = mechanism
@@ -49,7 +57,7 @@
 }
 
 
-### c_hyangnam   
+### c_hyangnam
 
 
 1410={#Hyangnam
@@ -72,7 +80,7 @@
 }
 
 
-### c_g_osan   
+### c_g_osan
 
 
 1420={#Osan
@@ -93,7 +101,7 @@
 	holding = none
 }
 
-## d_ansan 
+## d_ansan
 
 
 ### c_ansan
@@ -113,7 +121,7 @@
 	holding = city_holding
 }
 
-### c_anyang  
+### c_anyang
 
 70={#Anyang
 	culture = suwon
@@ -141,10 +149,10 @@
 76 = { #Uiwang
 	holding = city_holding
 }
-  
+
 
 ##d_seongnam  ######################
-### c_seongnam   
+### c_seongnam
 
 52={#Seongnam
 	culture = icheon
@@ -198,11 +206,11 @@
 1530 = {#Toechon
 	holding = none
 }
- 
- 
+
+
 ##d_pyeongtaek  ######################
 
-### c_pyeongtaek   
+### c_pyeongtaek
 
 
 1402={#Pyeongtaek
@@ -225,7 +233,7 @@
 }
 
 
-### c_anjung   
+### c_anjung
 
 
 1407={#Anjung
@@ -251,9 +259,9 @@
 
 
 ##d_yongin  ######################
-### c_yongin   
- 
- 
+### c_yongin
+
+
 1519={#Yongin
 	culture = suwon
 	rite = mechanism
@@ -279,9 +287,9 @@
 
 
 
-### c_giheung   
- 
- 
+### c_giheung
+
+
 1521={#Giheung
 	culture = suwon
 	rite = mechanism
@@ -302,7 +310,7 @@
 }
 
 
-### c_g_icheon  
+### c_g_icheon
 
 1536={#Icheon
 	culture = icheon
@@ -328,7 +336,7 @@
 
 
 
-### c_janghowon  
+### c_janghowon
 
 1551={#Janghowon
 	culture = icheon
@@ -348,14 +356,14 @@
 1541 = {#Daewol
 	holding = none
 }
- 
- 
- 
+
+
+
 
 ##d_anseong  ######################
-### c_anseong   
- 
- 
+### c_anseong
+
+
 1504={#Anseong
 	culture = suwon
 	rite = mechanism
@@ -371,8 +379,8 @@
 1500 = {#Miyang
 	holding = none
 }
- 
-### c_yangseong    
+
+### c_yangseong
 1506={#Yangseong
 	culture = suwon
 	rite = mechanism
@@ -385,11 +393,11 @@
 2676 = { #Gongdo
 	holding = castle_holding
 }
- 
- 
-### c_juksan   
- 
- 
+
+
+### c_juksan
+
+
 1511={#Juksan
 	culture = suwon
 	rite = mechanism
@@ -402,11 +410,11 @@
 1509 = { #Samjuk
 	holding = none
 }
- 
- 
-### c_geumgwang   
- 
- 
+
+
+### c_geumgwang
+
+
 1503={#Geumgwang
 	culture = suwon
 	rite = mechanism
@@ -419,13 +427,13 @@
 1507 = { #Gosam
 	holding = city_holding
 }
-  
-  
+
+
 
 ##d_yeoju  ######################
-### c_yeoju   
- 
- 
+### c_yeoju
+
+
 1546={#Yeoju
 	culture = icheon
 	rite = populism
@@ -447,11 +455,11 @@
 1540 = {#Ganam
 	holding = none
 }
-      
-	  
-### c_neungseo   
- 
- 
+
+
+### c_neungseo
+
+
 1552={#Neungseo
 	culture = icheon
 	rite = populism
@@ -466,15 +474,15 @@
 }
 1556 = {#Geumsa
 	holding = none
-}	  
+}
 250 = {#Sanbuk
 	holding = none
-}	  
+}
 
 
-### c_yangpyeong   
- 
- 
+### c_yangpyeong
+
+
 1562={#Yangpyeong
 	culture = icheon
 	rite = populism
@@ -489,12 +497,12 @@
 }
 251 = {#Gaegun
 	holding = none
-}	  
- 
- 
-### c_jipyeong   
- 
- 
+}
+
+
+### c_jipyeong
+
+
 1559={#Jipyeong
 	culture = icheon
 	rite = populism
@@ -509,14 +517,14 @@
 }
 1560 = {#Danwol
 	holding = none
-}	  
+}
 1561 = {#Yongmun
 	holding = city_holding
-}	  
+}
 
-### c_yangseo   
- 
- 
+### c_yangseo
+
+
 1566={#Yangseo
 	culture = icheon
 	rite = populism

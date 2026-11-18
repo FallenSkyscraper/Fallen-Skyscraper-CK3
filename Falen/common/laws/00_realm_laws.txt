@@ -3,6 +3,8 @@
 @nomadic_authority_cooldown_years = 5
 @military_authority_cooldown_years = 10
 @seoul_authority_cooldown_years = 10
+@company_size_cooldown_years = 5
+@company_purpose_cooldown_years = 5
 @church_authority_cooldown_years = 20
 @imperial_bureaucracy_cooldown_years_1 = 10
 @imperial_bureaucracy_cooldown_years_2 = 20
@@ -19,6 +21,14 @@
 @mandala_decree_piety_cost = 1000
 @mandala_decree_prestige_cost = 500
 
+@company_purpose_prestige_cost = 500
+@company_size_prestige_cost = 300
+@company_purpose_ai_will_do_malus_t3 = -30
+@company_purpose_ai_will_do_malus_t2 = -20
+@company_purpose_ai_will_do_malus_t1 = -10
+@company_purpose_ai_will_do_bonus_t1 = 10
+@company_purpose_ai_will_do_bonus_t2 = 20
+@company_purpose_ai_will_do_bonus_t3 = 30
 
 crown_authority_0 = {
 	law_group_type = crown_authority
@@ -26,9 +36,9 @@ crown_authority_0 = {
 
 	modifier = {
 		belligerent_opinion = -10
-		barons_and_minor_landholders_opinion = 20
-		glory_hound_opinion = 10
-		parochial_opinion = 10
+		barons_and_minor_landholders_opinion = 10
+		glory_hound_opinion = 5
+		parochial_opinion = 5
 		courtly_opinion = 5
 	}
 	flag = uses_crown_authority
@@ -47,7 +57,12 @@ crown_authority_0 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
 }
+
 
 crown_authority_1 = {
 	law_group_type = crown_authority
@@ -121,6 +136,10 @@ crown_authority_1 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = crown_authority_0 }
@@ -128,6 +147,7 @@ crown_authority_1 = {
 		}
 	}
 }
+
 
 crown_authority_2 = {
 	law_group_type = crown_authority
@@ -207,6 +227,10 @@ crown_authority_2 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = crown_authority_1 }
@@ -214,6 +238,7 @@ crown_authority_2 = {
 		}
 	}
 }
+
 
 crown_authority_3 = {
 	law_group_type = crown_authority
@@ -283,6 +308,10 @@ crown_authority_3 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
 }
 
 
@@ -291,10 +320,11 @@ tribal_authority_0 = {
 	index = 0
 
 	modifier = {
-		glory_hound_opinion = 10
-		parochial_opinion = 10
+		glory_hound_opinion = 5
+		parochial_opinion = 5
 		courtly_opinion = 5
 		belligerent_opinion = -15
+		character_capital_popular_opinion_add = 20
 	}
 	flag = uses_tribal_authority
 	flag = imprisonment_toggle_enable
@@ -307,7 +337,12 @@ tribal_authority_0 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
 }
+
 
 tribal_authority_1 = {
 	law_group_type = tribal_authority
@@ -319,6 +354,7 @@ tribal_authority_1 = {
 		courtly_opinion = -5
 		minority_opinion = -10
 		belligerent_opinion = 5
+		character_capital_popular_opinion_add = -10
 	}
 	flag = can_have_tributaries
 	flag = can_change_succession_laws
@@ -373,6 +409,10 @@ tribal_authority_1 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = tribal_authority_0 }
@@ -380,6 +420,7 @@ tribal_authority_1 = {
 		}
 	}
 }
+
 
 tribal_authority_2 = {
 	law_group_type = tribal_authority
@@ -392,6 +433,7 @@ tribal_authority_2 = {
 		zealot_opinion = -10
 		minority_opinion = -10
 		belligerent_opinion = 15
+		character_capital_popular_opinion_add = -10
 	}
 	flag = title_revocation_allowed
 	flag = vassal_retraction_allowed
@@ -404,7 +446,7 @@ tribal_authority_2 = {
 			limit = {
 				NOT = {
 					culture = {
-						has_cultural_parameter = forming_confederations_is_easier
+						has_cultural_parameter = confederation_tribal_authority
 					}
 				}
 			}
@@ -461,6 +503,10 @@ tribal_authority_2 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = tribal_authority_1 }
@@ -480,6 +526,7 @@ tribal_authority_3 = {
 		zealot_opinion = -20
 		minority_opinion = -30
 		belligerent_opinion = 20
+		character_capital_popular_opinion_add = -10
 	}
 	flag = max_authority_level
 	flag = authority_level_3
@@ -492,7 +539,7 @@ tribal_authority_3 = {
 			limit = {
 				NOT = {
 					culture = {
-						has_cultural_parameter = forming_confederations_is_easier
+						has_cultural_parameter = confederation_tribal_authority
 					}
 				}
 			}
@@ -530,6 +577,10 @@ tribal_authority_3 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = tribal_authority_2 }
@@ -559,6 +610,7 @@ church_authority_0 = {
 		remove_law_related_modifiers_effect = yes
 	}
 }
+
 
 church_authority_1 = {
 	law_group_type = church_authority
@@ -637,6 +689,7 @@ church_authority_1 = {
 		}
 	}
 }
+
 
 church_authority_2 = {
 	law_group_type = church_authority
@@ -721,6 +774,7 @@ church_authority_2 = {
 		}
 	}
 }
+
 
 church_authority_3 = {
 	law_group_type = church_authority
@@ -828,8 +882,13 @@ camp_purpose_wanderers = {
 		}
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = { value = 0 }
 }
+
 
 camp_purpose_mercenaries = {
 	law_group_type = camp_purpose
@@ -868,7 +927,7 @@ camp_purpose_mercenaries = {
 	modifier = {
 		men_at_arms_cap = 1
 		embarkation_cost_mult = -0.5
-		knight_limit = 8
+		knight_limit = 4
 	}
 
 	on_pass = {
@@ -882,6 +941,10 @@ camp_purpose_mercenaries = {
 		local_arbitration_boon_set_purpose_effect = {
 			MODIFIER = landless_local_arbitration_mercenaries_modifier
 		}
+	}
+
+	requires_approve = {
+		always = no
 	}
 
 	ai_will_do = {
@@ -951,6 +1014,7 @@ camp_purpose_mercenaries = {
 	}
 }
 
+
 camp_purpose_scholars = {
 	law_group_type = camp_purpose
 	index = 2
@@ -1002,6 +1066,10 @@ camp_purpose_scholars = {
 		local_arbitration_boon_set_purpose_effect = {
 			MODIFIER = landless_local_arbitration_scholars_modifier
 		}
+	}
+
+	requires_approve = {
+		always = no
 	}
 
 	ai_will_do = {
@@ -1073,6 +1141,7 @@ camp_purpose_scholars = {
 	}
 }
 
+
 camp_purpose_explorers = {
 	law_group_type = camp_purpose
 	index = 3
@@ -1100,7 +1169,22 @@ camp_purpose_explorers = {
 	flag = unlocks_camp_fire_local_hangers_on
 	flag = unlocks_camp_perimeter_extra_watch
 
-	can_keep = { realm_law_use_camp_purpose = yes }
+	potential = {
+		has_ep3_dlc_trigger = yes
+	}
+
+	can_keep = {
+		realm_law_use_camp_purpose = yes
+		has_ep3_dlc_trigger = yes
+	}
+
+	can_have = {
+		has_ep3_dlc_trigger = yes
+	}
+
+	can_pass = {
+		has_ep3_dlc_trigger = yes
+	}
 
 	pass_cost = {
 		prestige = {
@@ -1124,6 +1208,10 @@ camp_purpose_explorers = {
 		local_arbitration_boon_set_purpose_effect = {
 			MODIFIER = landless_local_arbitration_explorers_modifier
 		}
+	}
+
+	requires_approve = {
+		always = no
 	}
 
 	ai_will_do = {
@@ -1200,6 +1288,7 @@ camp_purpose_explorers = {
 	}
 }
 
+
 camp_purpose_brigands = {
 	law_group_type = camp_purpose
 	index = 4
@@ -1224,7 +1313,22 @@ camp_purpose_brigands = {
 	flag = unlocks_camp_fire_juicy_rumors
 	flag = unlocks_proving_grounds_the_stick_game
 
-	can_keep = { realm_law_use_camp_purpose = yes }
+	potential = {
+		has_ep3_dlc_trigger = yes
+	}
+
+	can_keep = {
+		realm_law_use_camp_purpose = yes
+		has_ep3_dlc_trigger = yes
+	}
+
+	can_have = {
+		has_ep3_dlc_trigger = yes
+	}
+
+	can_pass = {
+		has_ep3_dlc_trigger = yes
+	}
 
 	pass_cost = {
 		prestige = {
@@ -1253,6 +1357,10 @@ camp_purpose_brigands = {
 	modifier = {
 		embarkation_cost_mult = -0.5
 		knight_limit = 3
+	}
+
+	requires_approve = {
+		always = no
 	}
 
 	ai_will_do = {
@@ -1358,6 +1466,7 @@ camp_purpose_brigands = {
 	}
 }
 
+
 camp_purpose_legitimists = {
 	law_group_type = camp_purpose
 	index = 5
@@ -1379,9 +1488,22 @@ camp_purpose_legitimists = {
 	flag = unlocks_proving_grounds_bodyguard_drills
 	flag = unlocks_proving_grounds_lockwagon
 
+	potential = {
+		has_ep3_dlc_trigger = yes
+	}
+
 	can_keep = {
 		realm_law_use_camp_purpose = yes
+		has_ep3_dlc_trigger = yes
 		ep3_can_have_legitimists_camp_purpose_trigger = yes
+	}
+
+	can_have = {
+		has_ep3_dlc_trigger = yes
+	}
+
+	can_pass = {
+		has_ep3_dlc_trigger = yes
 	}
 
 	pass_cost = {
@@ -1411,6 +1533,10 @@ camp_purpose_legitimists = {
 	modifier = {
 		men_at_arms_cap = 1
 		knight_limit = 8
+	}
+
+	requires_approve = {
+		always = no
 	}
 
 	ai_will_do = {
@@ -1477,7 +1603,7 @@ imperial_bureaucracy_0 = {
 
 	modifier = {
 		belligerent_opinion = -10
-		barons_and_minor_landholders_opinion = 20
+		barons_and_minor_landholders_opinion = 10
 		glory_hound_opinion = 10
 		parochial_opinion = 10
 		courtly_opinion = 5
@@ -1513,7 +1639,13 @@ imperial_bureaucracy_0 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
+
 }
+
 
 imperial_bureaucracy_1 = {
 	law_group_type = imperial_bureaucracy
@@ -1602,6 +1734,10 @@ imperial_bureaucracy_1 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = imperial_bureaucracy_0 }
@@ -1609,6 +1745,7 @@ imperial_bureaucracy_1 = {
 		}
 	}
 }
+
 
 imperial_bureaucracy_2 = {
 	law_group_type = imperial_bureaucracy
@@ -1622,7 +1759,6 @@ imperial_bureaucracy_2 = {
 		courtly_opinion = -5
 		zealot_opinion = -10
 		minority_opinion = -10
-		republic_government_tax_contribution_add = 0.05
 		vassal_limit = 100
 	}
 	flag = vassal_refusal_is_treason
@@ -1699,6 +1835,10 @@ imperial_bureaucracy_2 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = imperial_bureaucracy_1 }
@@ -1706,6 +1846,7 @@ imperial_bureaucracy_2 = {
 		}
 	}
 }
+
 
 imperial_bureaucracy_3 = {
 	law_group_type = imperial_bureaucracy
@@ -1719,7 +1860,6 @@ imperial_bureaucracy_3 = {
 		courtly_opinion = -10
 		zealot_opinion = -20
 		minority_opinion = -30
-		republic_government_tax_contribution_add = 0.05
 		vassal_limit = 200
 	}
 	flag = vassal_all_wars_banned_permanent
@@ -1785,6 +1925,10 @@ imperial_bureaucracy_3 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
 }
 
 
@@ -1822,7 +1966,12 @@ nomadic_authority_1 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
 }
+
 
 nomadic_authority_2 = {
 	law_group_type = nomadic_authority
@@ -1902,6 +2051,10 @@ nomadic_authority_2 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = nomadic_authority_1 }
@@ -1909,6 +2062,7 @@ nomadic_authority_2 = {
 		}
 	}
 }
+
 
 nomadic_authority_3 = {
 	law_group_type = nomadic_authority
@@ -1939,7 +2093,7 @@ nomadic_authority_3 = {
 			limit = {
 				NOT = {
 					culture = {
-						has_cultural_parameter = forming_confederations_is_easier
+						has_cultural_parameter = confederation_tribal_authority
 					}
 				}
 			}
@@ -1998,6 +2152,10 @@ nomadic_authority_3 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = nomadic_authority_2 }
@@ -2005,6 +2163,7 @@ nomadic_authority_3 = {
 		}
 	}
 }
+
 
 nomadic_authority_4 = {
 	law_group_type = nomadic_authority
@@ -2033,7 +2192,7 @@ nomadic_authority_4 = {
 			limit = {
 				NOT = {
 					culture = {
-						has_cultural_parameter = forming_confederations_is_easier
+						has_cultural_parameter = confederation_tribal_authority
 					}
 				}
 			}
@@ -2092,6 +2251,10 @@ nomadic_authority_4 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = nomadic_authority_3 }
@@ -2099,6 +2262,7 @@ nomadic_authority_4 = {
 		}
 	}
 }
+
 
 nomadic_authority_5 = {
 	law_group_type = nomadic_authority
@@ -2127,7 +2291,7 @@ nomadic_authority_5 = {
 			limit = {
 				NOT = {
 					culture = {
-						has_cultural_parameter = forming_confederations_is_easier
+						has_cultural_parameter = confederation_tribal_authority
 					}
 				}
 			}
@@ -2199,6 +2363,10 @@ nomadic_authority_5 = {
 		play_sound_effect = "event:/DLC/CE2/UI/Notifications/ce2_ui_notifications_nomadicAuthority_wolf"
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = nomadic_authority_4 }
@@ -2222,7 +2390,6 @@ celestial_bureaucracy_0 = {
 		minority_opinion = 10
 
 		celestial_government_tax_contribution_add = 0.05
-		republic_government_tax_contribution_add = 0.05
 	}
 	flag = uses_celestial_bureaucracy
 	flag = titles_cannot_leave_realm_on_succession # Hardcoded flag
@@ -2255,7 +2422,12 @@ celestial_bureaucracy_0 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
 }
+
 
 celestial_bureaucracy_1 = {
 	law_group_type = celestial_bureaucracy
@@ -2271,7 +2443,6 @@ celestial_bureaucracy_1 = {
 		minority_opinion = -15
 
 		celestial_government_tax_contribution_add = 0.05
-		republic_government_tax_contribution_add = 0.05
 	}
 	flag = uses_celestial_bureaucracy
 	flag = title_revocation_allowed
@@ -2348,6 +2519,10 @@ celestial_bureaucracy_1 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = celestial_bureaucracy_0 }
@@ -2355,6 +2530,7 @@ celestial_bureaucracy_1 = {
 		}
 	}
 }
+
 
 celestial_bureaucracy_2 = {
 	law_group_type = celestial_bureaucracy
@@ -2370,7 +2546,6 @@ celestial_bureaucracy_2 = {
 		minority_opinion = -15
 
 		celestial_government_tax_contribution_add = 0.10
-		republic_government_tax_contribution_add = 0.10
 	}
 	flag = uses_celestial_bureaucracy
 	flag = vassal_refusal_is_treason
@@ -2447,6 +2622,10 @@ celestial_bureaucracy_2 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = celestial_bureaucracy_1 }
@@ -2454,6 +2633,7 @@ celestial_bureaucracy_2 = {
 		}
 	}
 }
+
 
 celestial_bureaucracy_3 = {
 	law_group_type = celestial_bureaucracy
@@ -2469,7 +2649,6 @@ celestial_bureaucracy_3 = {
 		minority_opinion = -20
 
 		celestial_government_tax_contribution_add = 0.10
-		republic_government_tax_contribution_add = 0.10
 	}
 	flag = uses_celestial_bureaucracy
 	flag = vassal_all_wars_banned_permanent
@@ -2546,6 +2725,10 @@ celestial_bureaucracy_3 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
 }
 
 
@@ -2571,10 +2754,15 @@ mandala_decree_none = {
 	on_pass = {
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		value = 0
 	}
 }
+
 
 mandala_decree_prosperity = {
 	law_group_type = mandala_decree
@@ -2583,7 +2771,7 @@ mandala_decree_prosperity = {
 	modifier = {
 		men_at_arms_maintenance = 0.25
 		levy_size = -0.25
-		tributary_opinion = 15
+		tributary_opinion = 10
 	}
 	#Standard laws
 	flag = can_have_tributaries
@@ -2623,6 +2811,10 @@ mandala_decree_prosperity = {
 		}
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		value = 1
 		#Traits
@@ -2641,6 +2833,7 @@ mandala_decree_prosperity = {
 	}
 }
 
+
 mandala_decree_expansion = {
 	law_group_type = mandala_decree
 	index = 2
@@ -2648,7 +2841,7 @@ mandala_decree_expansion = {
 	modifier = {
 		vassal_levy_contribution_mult = 0.25
 		independent_ruler_opinion = -25
-		tributary_opinion = 25
+		tributary_opinion = 15
 	}
 	#Standard laws
 	flag = can_have_tributaries
@@ -2688,6 +2881,10 @@ mandala_decree_expansion = {
 		}
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		value = 1
 		#Traits
@@ -2705,6 +2902,7 @@ mandala_decree_expansion = {
 		}
 	}
 }
+
 
 mandala_decree_reverence = {
 	law_group_type = mandala_decree
@@ -2751,6 +2949,10 @@ mandala_decree_reverence = {
 		}
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		value = 1
 		#Traits
@@ -2776,7 +2978,7 @@ meritocratic_bureaucracy_0 = {
 
 	modifier = {
 		belligerent_opinion = -10
-		barons_and_minor_landholders_opinion = 20
+		barons_and_minor_landholders_opinion = 10
 		glory_hound_opinion = 10
 		parochial_opinion = 10
 		courtly_opinion = 5
@@ -2812,7 +3014,12 @@ meritocratic_bureaucracy_0 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
 }
+
 
 meritocratic_bureaucracy_1 = {
 	law_group_type = meritocratic_bureaucracy
@@ -2903,6 +3110,10 @@ meritocratic_bureaucracy_1 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = meritocratic_bureaucracy_0 }
@@ -2910,6 +3121,7 @@ meritocratic_bureaucracy_1 = {
 		}
 	}
 }
+
 
 meritocratic_bureaucracy_2 = {
 	law_group_type = meritocratic_bureaucracy
@@ -2925,7 +3137,6 @@ meritocratic_bureaucracy_2 = {
 		minority_opinion = -10
 		meritocratic_government_tax_contribution_add = 0.05
 		steppe_admin_government_tax_contribution_add = 0.05
-		republic_government_tax_contribution_add = 0.05
 	}
 	flag = uses_meritocratic_bureaucracy
 	flag = vassal_refusal_is_treason
@@ -3013,6 +3224,10 @@ meritocratic_bureaucracy_2 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = meritocratic_bureaucracy_1 }
@@ -3020,6 +3235,7 @@ meritocratic_bureaucracy_2 = {
 		}
 	}
 }
+
 
 meritocratic_bureaucracy_3 = {
 	law_group_type = meritocratic_bureaucracy
@@ -3035,7 +3251,6 @@ meritocratic_bureaucracy_3 = {
 		minority_opinion = -30
 		meritocratic_government_tax_contribution_add = 0.1
 		steppe_admin_government_tax_contribution_add = 0.1
-		republic_government_tax_contribution_add = 0.05
 	}
 	flag = uses_meritocratic_bureaucracy
 	flag = vassal_all_wars_banned_permanent
@@ -3101,6 +3316,10 @@ meritocratic_bureaucracy_3 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
 }
 
 
@@ -3110,7 +3329,7 @@ japanese_bureaucracy_0 = {
 
 	modifier = {
 		belligerent_opinion = -10
-		barons_and_minor_landholders_opinion = 20
+		barons_and_minor_landholders_opinion = 10
 		glory_hound_opinion = 10
 		parochial_opinion = 10
 		courtly_opinion = 5
@@ -3146,7 +3365,12 @@ japanese_bureaucracy_0 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
+
+	requires_approve = {
+		always = no
+	}
 }
+
 
 japanese_bureaucracy_1 = {
 	law_group_type = japanese_bureaucracy
@@ -3235,6 +3459,10 @@ japanese_bureaucracy_1 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = japanese_bureaucracy_0 }
@@ -3242,6 +3470,7 @@ japanese_bureaucracy_1 = {
 		}
 	}
 }
+
 
 japanese_bureaucracy_2 = {
 	law_group_type = japanese_bureaucracy
@@ -3257,7 +3486,6 @@ japanese_bureaucracy_2 = {
 		minority_opinion = -10
 		vassal_tax_contribution_mult = 0.1
 		vassal_levy_contribution_mult = 0.1
-		republic_government_tax_contribution_add = 0.05
 	}
 	flag = uses_japanese_bureaucracy
 	flag = vassal_refusal_is_treason
@@ -3346,6 +3574,10 @@ japanese_bureaucracy_2 = {
 		remove_law_related_modifiers_effect = yes
 	}
 
+	requires_approve = {
+		always = no
+	}
+
 	ai_will_do = {
 		if = {
 			limit = { has_realm_law = japanese_bureaucracy_1 }
@@ -3353,6 +3585,7 @@ japanese_bureaucracy_2 = {
 		}
 	}
 }
+
 
 japanese_bureaucracy_3 = {
 	law_group_type = japanese_bureaucracy
@@ -3368,7 +3601,6 @@ japanese_bureaucracy_3 = {
 		minority_opinion = -30
 		vassal_tax_contribution_mult = 0.15
 		vassal_levy_contribution_mult = 0.15
-		republic_government_tax_contribution_add = 0.05
 	}
 	flag = uses_japanese_bureaucracy
 	flag = max_authority_level
@@ -3435,125 +3667,429 @@ japanese_bureaucracy_3 = {
 		# Remove modifiers.
 		remove_law_related_modifiers_effect = yes
 	}
-}
 
-uncrowned = {
-	law_group_type = crowned_laws
-	index = 0
-
-	can_keep = {
-		coronation_trigger = yes
-		NOT = {
-			has_game_rule = coronation_laws_off
-		}
-	}
-	can_have = {
-		coronation_trigger = yes
-		NOT = {
-			has_game_rule = coronation_laws_off
-		}
-	}
-	modifier = {
-		vassal_opinion = -10
-		legitimacy_gain_mult = -0.25
-		monthly_legitimacy_add = -2.5
-		ai_war_chance = -100
-	}
-	can_pass = {
-		custom_tooltip = {
-			text = can_only_be_lost_through_losing_titles
-			NOR = {
-				has_realm_law = crowned_king
-				has_realm_law = crowned_emperor
-			}
-		}
-	}
-	potential = {
-		coronation_trigger = yes
-		NOT = {
-			has_game_rule = coronation_laws_off
-		}
-	}
-}
-
-crowned_king = {
-	law_group_type = crowned_laws
-	index = 1
-
-	can_keep = {
-		coronation_trigger = yes
-		NOT = {
-			has_game_rule = coronation_laws_off
-		}
-	}
-	can_have = {
-		coronation_trigger = yes
-		NOT = {
-			has_game_rule = coronation_laws_off
-		}
-	}
-	modifier = {
-		courtly_opinion = 5
-		barons_and_minor_landholders_opinion = 5
-	}
-	can_pass = {
-		# If you have a worse Coronation law, we will tell the player they can gain this with a Coronation
-		custom_tooltip = {
-			text = can_only_be_passed_through_coronation
-			NOT = { has_realm_law = uncrowned }
-		}
-		# If you have a better Coronation law, we will tell the player this is pointless for them
-		custom_tooltip = {
-			text = already_better_coronation
-			NOT = { has_realm_law = crowned_emperor }
-		}
-	}
-	potential = {
-		coronation_trigger = yes
-		NOT = {
-			has_game_rule = coronation_laws_off
-		}
-	}
-}
-
-crowned_emperor = {
-	law_group_type = crowned_laws
-	index = 2
-
-	can_keep = {
-		coronation_trigger = yes
-		NOT = {
-			has_game_rule = coronation_laws_off
-		}
-	}
-	can_have = {
-		coronation_trigger = yes
-		NOT = {
-			has_game_rule = coronation_laws_off
-		}
-	}
-	modifier = {
-		courtly_opinion = 10
-		barons_and_minor_landholders_opinion = 10
-		zealot_opinion = 5
-	}
-	can_pass = {
-		# If you have a worse Coronation law, we will tell the player they can gain this with a Coronation
-		custom_tooltip = {
-			text = can_only_be_passed_through_coronation
-			NOR = {
-				has_realm_law = uncrowned
-				has_realm_law = crowned_king
-			}
-		}
-	}
-	should_start_with = {
+	requires_approve = {
 		always = no
 	}
-	potential = {
-		coronation_trigger = yes
-		NOT = {
-			has_game_rule = coronation_laws_off
+}
+
+
+company_size_small = {
+	law_group_type = company_size
+	index = 0
+
+	pass_phrase = company_size_pass_phrase
+	confirmation_title = company_size_confirmation_title
+	confirmation_button_text = company_size_confirmation_button_text
+
+	can_pass = {
+		NOR = {
+			has_realm_law = company_size_medium
+			has_realm_law = company_size_large
+			has_realm_law = company_size_huge
+		}
+	}
+
+	can_keep = { realm_law_use_company_purpose = yes }
+
+	modifier = {
+	}
+
+	on_pass = {
+		# Remove modifiers.
+		remove_law_related_modifiers_effect = yes
+	}
+
+	requires_approve = { always = no }
+}
+
+
+company_size_medium = {
+	law_group_type = company_size
+	index = 1
+
+	pass_phrase = company_size_pass_phrase
+	confirmation_title = company_size_confirmation_title
+	confirmation_button_text = company_size_confirmation_button_text
+
+	can_pass = {
+		has_realm_law = company_size_small
+		custom_description = {
+			subject = root
+			text = "has_company_size_cooldown"
+			NAND = {
+				has_variable = company_size_cooldown
+				NOT = {
+					culture = { has_innovation = innovation_all_things }
+				}
+			}
+		}
+		domicile ?= {
+			domicile_uses_acumen = yes
+			acumen >= define:NDomicile|MERCHANT_ACUMEN_LEVEL_2_THRESHOLD
+		}
+	}
+
+	can_keep = { realm_law_use_company_purpose = yes }
+
+	pass_cost = {
+		prestige = {
+			if = {
+				limit = {
+					is_ai = no
+					has_realm_law = company_size_small
+				}
+				add = @company_size_prestige_cost
+			}
+		}
+	}
+
+	modifier = {
+		trade_competitiveness_add = 20
+		trade_route_length_add = 4
+		monthly_dynasty_prestige = 0.25
+	}
+
+	on_pass = {
+		set_variable = {
+			name = company_size_cooldown
+			years = @company_size_cooldown_years
+		}
+		# Remove modifiers.
+		remove_law_related_modifiers_effect = yes
+		play_sound_effect = "event:/DLC/EP5/SFX/Stingers/ep5_mx_sting_company_size_increase"
+	}
+
+	requires_approve = { always = no }
+
+	ai_will_do = {
+		if = {
+			limit = { has_realm_law = company_size_small }
+			value = 1
+		}
+	}
+}
+
+
+company_size_large = {
+	law_group_type = company_size
+	index = 2
+
+	pass_phrase = company_size_pass_phrase
+	confirmation_title = company_size_confirmation_title
+	confirmation_button_text = company_size_confirmation_button_text
+
+	can_pass = {
+		has_realm_law = company_size_medium
+		custom_description = {
+			subject = root
+			text = "has_company_size_cooldown"
+			NAND = {
+				has_variable = company_size_cooldown
+				NOT = {
+					culture = { has_innovation = innovation_all_things }
+				}
+			}
+		}
+		domicile ?= {
+			domicile_uses_acumen = yes
+			acumen >= define:NDomicile|MERCHANT_ACUMEN_LEVEL_3_THRESHOLD
+		}
+	}
+
+	can_keep = { realm_law_use_company_purpose = yes }
+
+	pass_cost = {
+		prestige = {
+			if = {
+				limit = {
+					is_ai = no
+					has_realm_law = company_size_medium
+				}
+				add = @company_size_prestige_cost
+			}
+		}
+	}
+
+	modifier = {
+		trade_competitiveness_add = 30
+		trade_route_length_add = 8
+		monthly_dynasty_prestige = 0.5
+	}
+
+	on_pass = {
+		set_variable = {
+			name = company_size_cooldown
+			years = @company_size_cooldown_years
+		}
+		# Remove modifiers.
+		remove_law_related_modifiers_effect = yes
+		play_sound_effect = "event:/DLC/EP5/SFX/Stingers/ep5_mx_sting_company_size_increase"
+	}
+
+	requires_approve = { always = no }
+
+	ai_will_do = {
+		if = {
+			limit = { has_realm_law = company_size_medium }
+			value = 1
+		}
+	}
+}
+
+
+company_size_huge = {
+	law_group_type = company_size
+	index = 3
+
+	pass_phrase = company_size_pass_phrase
+	confirmation_title = company_size_confirmation_title
+	confirmation_button_text = company_size_confirmation_button_text
+
+	can_pass = {
+		has_realm_law = company_size_large
+		custom_description = {
+			subject = root
+			text = "has_company_size_cooldown"
+			NAND = {
+				has_variable = company_size_cooldown
+				NOT = {
+					culture = { has_innovation = innovation_all_things }
+				}
+			}
+		}
+		domicile ?= {
+			domicile_uses_acumen = yes
+			acumen >= define:NDomicile|MERCHANT_ACUMEN_LEVEL_4_THRESHOLD
+		}
+	}
+
+	can_keep = { realm_law_use_company_purpose = yes }
+
+	pass_cost = {
+		prestige = {
+			if = {
+				limit = {
+					is_ai = no
+					has_realm_law = company_size_large
+				}
+				add = @company_size_prestige_cost
+			}
+		}
+	}
+
+	modifier = {
+		trade_competitiveness_add = 40
+		trade_route_length_add = 10
+		monthly_dynasty_prestige = 0.75
+	}
+
+	on_pass = {
+		set_variable = {
+			name = company_size_cooldown
+			years = @company_size_cooldown_years
+		}
+		# Remove modifiers.
+		remove_law_related_modifiers_effect = yes
+		play_sound_effect = "event:/DLC/EP5/SFX/Stingers/ep5_mx_sting_company_size_increase"
+	}
+
+	requires_approve = { always = no }
+
+	ai_will_do = {
+		if = {
+			limit = { has_realm_law = company_size_large }
+			value = 1
+		}
+	}
+}
+
+
+company_purpose_family = {
+	law_group_type = company_purpose
+	index = 0
+
+	pass_phrase = company_purpose_pass_phrase
+	confirmation_title = company_purpose_pass_phrase
+	confirmation_button_text = company_purpose_confirmation_button_text
+
+	flag = uses_company_purpose
+	flag = can_change_succession_laws
+	flag = can_change_purpose_for_free
+
+	can_keep = { realm_law_use_company_purpose = yes }
+
+	can_pass = {
+		custom_description = {
+			subject = root
+			text = has_company_purpose_cooldown
+			NOT = { has_variable = company_purpose_cooldown }
+		}
+		custom_tooltip = {
+			text = company_purpose_child_blocker_tt
+			is_adult = yes
+		}
+	}
+
+	pass_cost = {
+		prestige = {
+			if = {
+				limit = {
+					NOR = {
+						has_realm_law_flag = can_change_purpose_for_free
+						has_character_flag = free_starting_merchant_purpose_change
+					}
+				}
+				value = @company_purpose_prestige_cost
+			}
+		}
+	}
+
+	modifier = {
+		close_relative_opinion = 10
+		suzerain_opinion = 30
+		trade_expertise_growth_mult = 0.1
+	}
+
+	on_pass = {
+		set_variable = {
+			name = company_purpose_cooldown
+			years = @company_purpose_cooldown_years
+		}
+		remove_character_flag = free_starting_merchant_purpose_change
+		# Remove modifiers.
+		remove_law_related_modifiers_effect = yes
+		merchant_company_law_purpose_effect = yes
+	}
+
+	requires_approve = {
+		always = no
+	}
+
+	ai_will_do = { value = 0 }
+}
+
+
+company_purpose_artisan = {
+	law_group_type = company_purpose
+	index = 1
+
+	pass_phrase = company_purpose_pass_phrase
+	confirmation_title = company_purpose_pass_phrase
+	confirmation_button_text = company_purpose_confirmation_button_text
+
+	flag = uses_company_purpose
+	flag = can_change_succession_laws
+	flag = learning_company_purpose
+
+	can_keep = { realm_law_use_company_purpose = yes }
+
+	can_pass = {
+		custom_description = {
+			subject = root
+			text = has_company_purpose_cooldown
+			NOT = { has_variable = company_purpose_cooldown }
+		}
+		custom_tooltip = {
+			text = company_purpose_child_blocker_tt
+			is_adult = yes
+		}
+	}
+
+	pass_cost = {
+		prestige = {
+			if = {
+				limit = {
+					NOR = {
+						has_realm_law_flag = can_change_purpose_for_free
+						has_character_flag = free_starting_merchant_purpose_change
+					}
+				}
+				value = @company_purpose_prestige_cost
+			}
+		}
+	}
+
+	modifier = {
+		trait_track_artisan_xp_gain_mult = 0.15
+		trade_category_luxury_items_xp_gain_mult = 0.2
+		trade_category_books_xp_gain_mult = 0.2
+		trade_category_fabrics_xp_gain_mult = 0.2
+		trade_category_clothes_xp_gain_mult = 0.2
+		trade_category_dyes_xp_gain_mult = 0.2
+		trade_category_alum_xp_gain_mult = 0.2
+		trade_category_stone_xp_gain_mult = 0.2
+		domicile_build_gold_cost = -0.2
+	}
+
+	on_pass = {
+		set_variable = {
+			name = company_purpose_cooldown
+			years = @company_purpose_cooldown_years
+		}
+		remove_character_flag = free_starting_merchant_purpose_change
+		# Remove modifiers.
+		remove_law_related_modifiers_effect = yes
+		merchant_company_law_purpose_effect = yes
+	}
+
+	requires_approve = {
+		always = no
+	}
+
+	ai_will_do = {
+		# If we've picked a purpose, don't change it.
+		if = {
+			limit = {
+				NOT = { has_realm_law = company_purpose_artisan }
+			}
+			value = 0
+		}
+		else = {
+			# Traits.
+			## Education
+			if = {
+				limit = { has_trait = education_learning }
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			## Culture
+			if = {
+				limit = {
+					culture = { has_cultural_tradition = tradition_artisans }
+				}
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			## Personality
+			### Calm
+			if = {
+				limit = { has_trait = calm }
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			### Diligent
+			if = {
+				limit = { has_trait = diligent }
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			### Eccentric
+			if = {
+				limit = { has_trait = eccentric }
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			### Patient
+			if = {
+				limit = { has_trait = patient }
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			### Impatient
+			if = {
+				limit = { has_trait = impatient }
+				add = @company_purpose_ai_will_do_malus_t3
+			}
+			### Shy
+			if = {
+				limit = { has_trait = shy }
+				add = @company_purpose_ai_will_do_bonus_t1
+			}
 		}
 	}
 }
@@ -3753,7 +4289,7 @@ military_authority_2 = {
 
 	modifier = {
 		monthly_war_income_mult = 0.1
-		monthly_county_control_growth_add = 0.1
+		monthly_control_change_when_below_baseline_add = 0.1
 	}
 
 	can_keep = { realm_law_use_military_authority = yes }
@@ -3825,8 +4361,8 @@ slavery_authority_0 = {
 	modifier = {
 		monthly_income_mult = 0.4
 		levy_size = 0
-		development_growth_factor = 0.4
-		county_opinion_add = 0
+		prosperity_growth_factor = 0.4
+		popular_opinion_add = 0
 	}
 	can_pass = {
 		always = no
@@ -3851,8 +4387,8 @@ slavery_authority_1 = {
 	modifier = {
 		monthly_income_mult = 0.2
 		levy_size = -0.1
-		development_growth_factor = 0.2
-		county_opinion_add = -10
+		prosperity_growth_factor = 0.2
+		popular_opinion_add = -10
 	}
 	flag = title_revocation_allowed
 	flag = vassal_retraction_allowed
@@ -3876,8 +4412,8 @@ slavery_authority_2 = {
 	modifier = {
 		monthly_income_mult = 0
 		levy_size = -0.2
-		development_growth_factor = -0.2
-		county_opinion_add = -20
+		prosperity_growth_factor = -0.2
+		popular_opinion_add = -20
 	}
 	flag = title_revocation_allowed
 	flag = vassal_retraction_allowed
@@ -3900,8 +4436,8 @@ slavery_authority_3 = {
 	modifier = {
 		monthly_income_mult = -0.2
 		levy_size = -0.4
-		development_growth_factor = -0.4
-		county_opinion_add = -40
+		prosperity_growth_factor = -0.4
+		popular_opinion_add = -40
 	}
 	can_keep = { realm_law_use_slavery_authority = yes }
 	can_pass = {
@@ -3925,8 +4461,8 @@ communism_authority_0 = {
 		build_prestige_cost = -0.3
 		build_speed = -0.3
 		holding_build_speed = -0.3
-		county_opinion_add = 20
-		development_growth_factor = 0.15
+		popular_opinion_add = 20
+		prosperity_growth_factor = 0.15
 		domain_limit = -1
 		domain_tax_mult = -0.1
 		republic_government_vassal_opinion = 10
@@ -3942,7 +4478,7 @@ communism_authority_1 = {
 
 	modifier = {
 		direct_vassal_opinion = 15
-		county_opinion_add = 10
+		popular_opinion_add = 10
 		republic_government_vassal_opinion = 5
 		vassal_tax_mult = 0.5
 		vassal_levy_contribution_mult = 0.5
@@ -4254,4 +4790,279 @@ seoul_authority_3 = {
 		remove_law_related_modifiers_effect = yes
 	}
 	ai_will_do = { value = 1 }
+}
+
+
+company_purpose_creditor = {
+	law_group_type = company_purpose
+	index = 2
+
+	pass_phrase = company_purpose_pass_phrase
+	confirmation_title = company_purpose_pass_phrase
+	confirmation_button_text = company_purpose_confirmation_button_text
+
+	flag = uses_company_purpose
+	flag = can_change_succession_laws
+	flag = intrigue_company_purpose
+	flag = unlock_military_merchant_patron_requests
+
+	# Seize Land CB
+	flag = unlock_seize_realm_county_cb
+
+	can_keep = { realm_law_use_company_purpose = yes }
+
+	can_pass = {
+		custom_description = {
+			subject = root
+			text = has_company_purpose_cooldown
+			NOT = { has_variable = company_purpose_cooldown }
+		}
+		custom_tooltip = {
+			text = company_purpose_child_blocker_tt
+			is_adult = yes
+		}
+	}
+
+	pass_cost = {
+		prestige = {
+			if = {
+				limit = {
+					NOR = {
+						has_realm_law_flag = can_change_purpose_for_free
+						has_character_flag = free_starting_merchant_purpose_change
+					}
+				}
+				value = @company_purpose_prestige_cost
+			}
+		}
+	}
+
+	modifier = {
+		trade_category_precious_metals_xp_gain_mult = 0.2
+		trade_category_jewelry_materials_xp_gain_mult = 0.2
+		trade_category_base_metals_xp_gain_mult = 0.2
+		trade_category_cereals_xp_gain_mult = 0.2
+		trade_category_meat_xp_gain_mult = 0.2
+		trade_category_carpentry_supplies_xp_gain_mult = 0.2
+		trait_track_creditor_xp_gain_mult = 0.15
+	}
+
+	on_pass = {
+		set_variable = {
+			name = company_purpose_cooldown
+			years = @company_purpose_cooldown_years
+		}
+		remove_character_flag = free_starting_merchant_purpose_change
+		# Remove modifiers.
+		remove_law_related_modifiers_effect = yes
+		merchant_company_law_purpose_effect = yes
+	}
+
+	requires_approve = {
+		always = no
+	}
+
+	ai_will_do = {
+		# If we've picked a purpose, don't change it.
+		if = {
+			limit = {
+				NOT = { has_realm_law = company_purpose_creditor }
+			}
+			value = 0
+		}
+		else = {
+			# Traits.
+			## Education
+			if = {
+				limit = { has_trait = education_intrigue }
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			## Personality.
+			### Deceitful.
+			if = {
+				limit = { has_trait = deceitful }
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			### Honest.
+			if = {
+				limit = { has_trait = honest }
+				add = @company_purpose_ai_will_do_malus_t3
+			}
+			### Arbitrary.
+			if = {
+				limit = { has_trait = arbitrary }
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			### Just,
+			if = {
+				limit = { has_trait = just }
+				add = @company_purpose_ai_will_do_malus_t3
+			}
+			### Generous.
+			if = {
+				limit = { has_trait = generous }
+				add = @company_purpose_ai_will_do_malus_t2
+			}
+			### Arrogant.
+			if = {
+				limit = { has_trait = arrogant }
+				add = @company_purpose_ai_will_do_bonus_t2
+			}
+			### Wrathful.
+			if = {
+				limit = { has_trait = wrathful }
+				add = @company_purpose_ai_will_do_bonus_t1
+			}
+			### Callous.
+			if = {
+				limit = { has_trait = callous }
+				add = @company_purpose_ai_will_do_bonus_t2
+			}
+			### Compassionate.
+			if = {
+				limit = { has_trait = compassionate }
+				add = @company_purpose_ai_will_do_malus_t2
+			}
+		}
+	}
+}
+
+
+company_purpose_caravaneer = {
+	law_group_type = company_purpose
+	index = 3
+
+	pass_phrase = company_purpose_pass_phrase
+	confirmation_title = company_purpose_pass_phrase
+	confirmation_button_text = company_purpose_confirmation_button_text
+
+	flag = uses_company_purpose
+	flag = can_change_succession_laws
+	flag = diplomacy_company_purpose
+
+	can_keep = { realm_law_use_company_purpose = yes }
+
+	can_pass = {
+		custom_description = {
+			subject = root
+			text = has_company_purpose_cooldown
+			NOT = { has_variable = company_purpose_cooldown }
+		}
+		custom_tooltip = {
+			text = company_purpose_child_blocker_tt
+			is_adult = yes
+		}
+	}
+
+	pass_cost = {
+		prestige = {
+			if = {
+				limit = {
+					NOR = {
+						has_realm_law_flag = can_change_purpose_for_free
+						has_character_flag = free_starting_merchant_purpose_change
+					}
+				}
+				value = @company_purpose_prestige_cost
+			}
+		}
+	}
+
+	on_pass = {
+		set_variable = {
+			name = company_purpose_cooldown
+			years = @company_purpose_cooldown_years
+		}
+		remove_character_flag = free_starting_merchant_purpose_change
+		# Remove modifiers.
+		remove_law_related_modifiers_effect = yes
+		merchant_company_law_purpose_effect = yes
+	}
+
+	modifier = {
+		trade_category_luxury_consumption_xp_gain_mult = 0.2
+		trade_category_incense_xp_gain_mult = 0.2
+		trade_category_medicaments_xp_gain_mult = 0.2
+		trade_category_comforts_xp_gain_mult = 0.2
+		trade_category_alcohol_xp_gain_mult = 0.2
+		trade_category_salt_xp_gain_mult = 0.2
+		trade_category_beasts_of_burden_xp_gain_mult = 0.2
+		trait_track_caravaneer_xp_gain_mult = 0.15
+		ignore_negative_culture_opinion = yes
+		ignore_negative_opinion_of_culture = yes
+	}
+
+	requires_approve = {
+		always = no
+	}
+
+	ai_will_do = {
+		# If we've picked a purpose, don't change it.
+		if = {
+			limit = {
+				NOT = { has_realm_law = company_purpose_caravaneer }
+			}
+			value = 0
+		}
+		else = {
+			# Traits.
+			## Education
+			if = {
+				limit = { has_trait = education_diplomacy }
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			if = {
+				limit = { has_trait = education_stewardship }
+				add = @company_purpose_ai_will_do_bonus_t2
+			}
+			## Cultures
+			if = {
+				limit = {
+					culture = { has_cultural_tradition = tradition_caravaneers }
+				}
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			## Personality
+			### Lazy
+			if = {
+				limit = { has_trait = lazy }
+				add = @company_purpose_ai_will_do_malus_t2
+			}
+			### Athletic
+			if = {
+				limit = { has_trait = athletic }
+				add = @company_purpose_ai_will_do_bonus_t3
+			}
+			### Brave
+			if = {
+				limit = { has_trait = brave }
+				add = @company_purpose_ai_will_do_bonus_t2
+			}
+			### Craven
+			if = {
+				limit = { has_trait = craven }
+				add = @company_purpose_ai_will_do_malus_t2
+			}
+			### Stubborn
+			if = {
+				limit = { has_trait = stubborn }
+				add = @company_purpose_ai_will_do_bonus_t1
+			}
+			### Fickle
+			if = {
+				limit = { has_trait = fickle }
+				add = @company_purpose_ai_will_do_bonus_t2
+			}
+			### Humble
+			if = {
+				limit = { has_trait = humble }
+				add = @company_purpose_ai_will_do_bonus_t2
+			}
+			### Arrogant
+			if = {
+				limit = { has_trait = arrogant }
+				add = @company_purpose_ai_will_do_malus_t2
+			}
+		}
+	}
 }

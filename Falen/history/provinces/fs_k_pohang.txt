@@ -12,12 +12,17 @@
 }
 964 = {	#daesong
 	holding = castle_holding
-	
+
 	2400.1.1 = {
-		special_building_slot = POSTECH
+		special_district_slot = POSTECH_district
 	}
 	2500.1.1 = {
-		special_building = POSTECH
+		districts = {
+			district = {
+				type = POSTECH_district
+				level = 1
+			}
+		}
 	}
 }
 961 = {	#yeonil
@@ -25,7 +30,7 @@
 }
 
 
-###c_gigye 
+###c_gigye
 955={#gigye 표선
 	culture = pohang
 	rite = steeler
@@ -42,7 +47,7 @@
 	holding = none
 }
 
-###c_guryongpo 
+###c_guryongpo
 968={#guryongpo
 	culture = pohang
 	rite = steeler
@@ -59,7 +64,7 @@
 	holding = city_holding
 }
 
-###c_heunghae  
+###c_heunghae
 962={#yeongil
 	culture = pohang
 	rite = steeler
@@ -76,7 +81,7 @@
 	holding = none
 }
 
-###c_gampo 
+###c_gampo
 183={# gampo
 	culture = pohang
 	rite = steeler
@@ -88,7 +93,7 @@
 919 = {	#yangnam
 	holding = church_holding
 }
- 
+
 
 
 
@@ -113,7 +118,7 @@
 	holding = church_holding
 }
 
-###c_yeongdeok 
+###c_yeongdeok
 
 1189={#yeongdeok
 	culture = pohang
@@ -133,7 +138,7 @@
 1190 = {	#jipung
 	holding = none
 }
-###c_yeonghae 
+###c_yeonghae
 
 1192={#yeonghae
 	culture = pohang
@@ -150,7 +155,7 @@
 1193 = {	#changsu
 	holding = none
 }
-###c_pyeonghae 
+###c_pyeonghae
 
 1201={#pyeonghae
 	culture = pohang
@@ -188,9 +193,9 @@
 873 = {	#taehwa
 	holding = city_holding
 }
- 
 
-###c_eonyang 
+
+###c_eonyang
 
 864={#eonyang
 	culture = gyeongju
@@ -213,7 +218,7 @@
 861 = {	#samnam
 	holding = none
 }
-###c_ulju 
+###c_ulju
 
 252={#onsan
 	culture = pohang

@@ -1,4 +1,4 @@
-fs_county_struggle_cb = {
+﻿fs_county_struggle_cb = {
 	group = struggle
 	icon = struggle
 	combine_into_one = yes
@@ -150,7 +150,7 @@ fs_county_struggle_cb = {
 			list = target_titles
 			custom_tooltip = CONQUEST_CB_TITLE
 
-			struggle_cb_title_transfer = yes
+			conquest_cb_title_transfer = { RELIGIOUS_WAR = no }
 		}
 		every_in_list = {
 			list = vassals_taken

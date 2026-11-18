@@ -83,7 +83,7 @@ tenet_righteous_army = {
 		ghw_no_hof_conversion_buffs_active
 	}
 	character_modifier = {
-		#different_faith_county_opinion_mult = 1
+		#different_faith_popular_opinion_mult = 1
 	}
 	name = {
 		first_valid = {
@@ -133,7 +133,7 @@ tenet_inquiry_into_knowledge = { #격물치지
 	character_modifier = {
 		learning = 1
 		stewardship = -1
-		development_growth_factor = 0.15
+		prosperity_growth_factor = 0.15
 	}
 	traits = {
 		virtues = {
@@ -151,7 +151,7 @@ tenet_inquiry_into_knowledge = { #격물치지
 tenet_protracted_warfare = { # 지구전
 	icon = core_tenet_shadyfigure
 	piety_cost = {
-	
+
 		value = faith_tenet_cost_mid
 
 		# Multiplier for keeping same tenet
@@ -186,7 +186,7 @@ tenet_protracted_warfare = { # 지구전
 tenet_world_revolution = { # 세계혁명
 	icon = core_tenet_revolution
 	piety_cost = {
-	
+
 		if = {
 			limit = {
 				rite_religion_tag = communism_religion
@@ -213,7 +213,7 @@ tenet_world_revolution = { # 세계혁명
 		clergy_can_fight
 		unlock_voluntary_laampdom_faith
 	}
-	
+
 	personal_tenet_modifier = {
 		martial_per_piety_level = 1
 	}
@@ -221,7 +221,7 @@ tenet_world_revolution = { # 세계혁명
 tenet_diamat = { # 변증법적 유물론
 	icon = tenet_literalism
 	piety_cost = {
-	
+
 		if = {
 			limit = {
 				rite_religion_tag = communism_religion
@@ -259,13 +259,13 @@ tenet_diamat = { # 변증법적 유물론
 			erudite = { weight = 30 scale = 1 }
 		}
 	}
-	
+
 	character_modifier = {
 		learning = 1
 		stewardship = 1
 		monthly_piety_gain = -0.1
 	}
-	
+
 	personal_tenet_modifier = {
 		monthly_learning_lifestyle_xp_gain_mult = 0.1
 		stewardship_per_piety_level = 1
@@ -282,9 +282,9 @@ tenet_new_world = { #신천
 			multiply = faith_unchanged_doctrine_cost_mult
 		}
 	}
-	
+
 	is_shown = { always = no }
-	
+
 	can_pick = {
 		custom_description = {
 			NOT = { flag:tenet_adaptive = { is_in_list = selected_tenets } }
@@ -340,9 +340,9 @@ tenet_communism_syncretism = { # 공산주의 포용주의
 			}
 		}
 	}
-	
+
 	divergence_multiplier = 1.5
-	
+
 	parameters = {
 		communism_syncretic_actor
 		unlock_voluntary_laampdom_faith
@@ -362,7 +362,7 @@ tenet_communism_syncretism = { # 공산주의 포용주의
 
 tenet_plain_faith_syncretism = { # 초원 신앙 포용주의
 	icon = core_tenet_sword
-	
+
 	piety_cost = {
 		if = {
 			limit = {
@@ -440,7 +440,7 @@ tenet_populism = { #민중주의
 	character_modifier = {
 		dread_baseline_add = -20
 		monthly_county_control_change_factor = -0.1
-		county_opinion_add = 25
+		popular_opinion_add = 25
 	}
 	traits = {
 		virtues = {
@@ -453,7 +453,7 @@ tenet_populism = { #민중주의
 		}
 	}
 	personal_tenet_modifier = {
-		county_opinion_add = 25
+		popular_opinion_add = 25
 	}
 }
 
@@ -480,7 +480,7 @@ tenet_authoritarianism = {
 	character_modifier = {
 		dread_baseline_add = 5
 		monthly_county_control_change_factor = 0.05
-		county_opinion_add = -15
+		popular_opinion_add = -15
 	}
 	traits = {
 		virtues = {
@@ -494,7 +494,7 @@ tenet_authoritarianism = {
 	}
 	personal_tenet_modifier = {
 		dread_baseline_add = 10
-		county_opinion_add = -10
+		popular_opinion_add = -10
 	}
 }
 tenet_mixed = {
@@ -781,7 +781,7 @@ tenet_philosophy_of_hate = {
 	}
 
 	traits = {
-		virtues = { 
+		virtues = {
 			callous = { weight = 30 scale = 1 }
 			brave = { weight = 30 scale = 1 }
 		}

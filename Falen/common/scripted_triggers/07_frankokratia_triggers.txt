@@ -139,3 +139,35 @@ ep3_orthodox_faith_trigger = {
 		religion = religion:orthodox_religion
 	}
 }
+
+ep3_frankokratia_byz_vassal_joins_new_kingdom_trigger = {
+	is_in_list = byz_vassals
+	highest_held_title_tier <= tier_duchy
+	#Only the openly disloyal refuse
+	OR = {
+		has_trait = loyal
+		NOR = {
+			has_trait = disloyal
+			has_trait = ambitious
+			AND = {
+				ai_boldness >= medium_positive_ai_value
+				ai_honor <= medium_negative_ai_value
+			}
+		}
+	}
+	capital_county = {
+		save_temporary_scope_as = prime_title
+		kingdom.holder ?= {
+			is_in_list = byz_vassals
+		}
+	}
+	has_same_government = scope:prime_title.kingdom.holder
+	#One of their counties borders the king's realm
+	any_sub_realm_county = {
+		any_neighboring_county = {
+			holder = {
+				target_is_same_character_or_above = scope:prime_title.kingdom.holder
+			}
+		}
+	}
+}

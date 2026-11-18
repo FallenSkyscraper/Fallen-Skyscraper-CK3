@@ -41,7 +41,7 @@ innovation_genealogy = {
 	icon = @majesty_03
 
 	unlock_law = high_partition_succession_law
-	unlock_law = single_heir_dynasty_house	
+	unlock_law = single_heir_dynasty_house
 
 	flag = global_regular
 	flag = early_medieval_era_regular
@@ -67,7 +67,7 @@ innovation_local_government = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
 	icon = @nobility_04
-	
+
 	character_modifier = {
 		title_creation_cost_mult = -0.2
 	}
@@ -109,10 +109,10 @@ innovation_seodang = {
 	icon = @seodang
 
 	custom = unlock_early_medieval_economic_buildings
-	
+
 	character_modifier = {
-		development_growth_factor = 0.05
-		county_opinion_add = 10
+		prosperity_growth_factor = 0.05
+		popular_opinion_add = 10
 	}
 
 	flag = global_regular
@@ -136,7 +136,7 @@ innovation_royalty = {
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
 	icon = @nobility_01
-	
+
 	custom = unlock_coinage_rights_contract
 
 	character_modifier = {

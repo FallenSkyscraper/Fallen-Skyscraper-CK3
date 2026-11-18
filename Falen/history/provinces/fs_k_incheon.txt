@@ -1,4 +1,4 @@
-﻿#k_incheon 
+﻿#k_incheon
 ## d_incheon  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_incheon
 
@@ -24,13 +24,16 @@
 
 64={#Cheongra
 	holding = church_holding
-	
+
 	2400.1.1 = {
-	    buildings = {
-		    Incheon_Port_00
-		}
+	    districts = {
+			district = {
+				type = Incheon_Port_00_district
+				level = 1
+			}
+	    }
 	}
-} 
+}
 
 #d_bupyeong
 
@@ -43,7 +46,7 @@
 61={#Gyeyang
 	holding = castle_holding
 }
-### c_bucheon 
+### c_bucheon
 
 62={#Bucheon
 	culture = incheon
@@ -65,10 +68,10 @@
 1445 = {	#Songhae
 	holding = none
 }
- 
- 
 
-###c_yangsa 
+
+
+###c_yangsa
 
 77={#Yangsa
 	culture = incheon
@@ -78,13 +81,13 @@
 
 1444 = {	#Hajeom
 	holding = none
-} 
+}
 
 1441={#Naega
 	holding = church_holding
 }
- 
-###c_buleun 
+
+###c_buleun
 
 1440={#Buleun
 	culture = incheon
@@ -95,8 +98,8 @@
 1442 = {	#Seonwon
 	holding = none
 }
- 
-###c_hwado 
+
+###c_hwado
 
 1437={#Hwado
 	culture = incheon
@@ -109,7 +112,7 @@
 }
 1439 = {	#Yangdo
 	holding = none
-}  
+}
 ###c_seokmo
 
 78={#Seokmo
@@ -121,7 +124,7 @@
 2498={#Seodo
 	holding = none
 }
-###c_gyodong 
+###c_gyodong
 
 79={#Gyodong
 	culture = incheon
@@ -146,14 +149,14 @@
 	holding = none
 }
 
-###c_bukdo 
+###c_bukdo
 
 2499={#Bukdo
 	culture = incheon
 	rite = presbyterianism
 	holding = castle_holding
 }
- 
+
 ###c_daebu
 
 3808={#대부도
@@ -167,7 +170,7 @@
 2504={#풍도
 	holding = church_holding
 }
-###c_deokjeok 
+###c_deokjeok
 
 2501={#Deokjeok
 	culture = incheon
@@ -175,9 +178,9 @@
 	holding = city_holding
 }
 
- 
- 
-###c_jawol 
+
+
+###c_jawol
 
 2502={#Jawol
 	culture = incheon
@@ -185,8 +188,8 @@
 	holding = castle_holding
 }
 
- 
- 
+
+
 
 ##d_gimpo  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_gimpo
@@ -207,9 +210,9 @@
 1432 = { #Yangchon
 	holding = none
 }
- 
 
-###c_tongjin 
+
+###c_tongjin
 
 1435={#Tongjin
 	culture = incheon
@@ -225,5 +228,5 @@
 1436 = { #Haseong
 	holding = city_holding
 }
- 
-  
+
+

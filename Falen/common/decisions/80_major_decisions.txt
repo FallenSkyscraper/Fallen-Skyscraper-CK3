@@ -332,7 +332,20 @@ convert_whole_realm_to_feudalism_decision = {
 		}
 		prestige_level >= 2
 		capital_province.county = {
-			development_level >= convert_to_feudalism_development_requirement
+			trigger_if = {
+				limit = {
+					holder = {
+						any_neighboring_top_liege_realm_owner = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+				}
+				prosperity_level >= 5
+			}
+			trigger_else = { prosperity_level >= 10 }
 		}
 
 		custom_description = { #You need to have 70% of all (non-regional/unique) tribal innovations!
@@ -1999,7 +2012,7 @@ expand_duchy_decision = {
 				}
 				scope:barony.duchy = {
 					ordered_de_jure_county = {
-						order_by = development_level
+						order_by = prosperity_level
 						limit = { NOT = { this = scope:barony.county } }
 						save_scope_as = new_duchy_capital
 					}

@@ -166,3 +166,24 @@ tgp_dynasty_house_name_setup_effect = {
 	dynasty:dynn_Seok_Daedong.dynasty_founder.house ?= { set_house_name = "dynn_Seok_Daedong" }
 	dynasty:dynn_An_Anju.dynasty_founder.house ?= { set_house_name = "dynn_An_Anju" }
 }
+tgp_pass_all_exams_effect = {
+	add_character_flag = passed_provincial_exam
+	add_character_modifier = {
+		modifier = tgp_passed_provincial_exam_modifier
+	}
+	add_character_flag = passed_metropolitan_exam
+	add_character_modifier = {
+		modifier = tgp_passed_metropolitan_exam_modifier
+	}
+	add_character_flag = passed_palace_exam
+	add_character_modifier = {
+		modifier = tgp_passed_palace_exam_modifier
+	}
+}
+
+tgp_pass_provincial_exam_effect = {
+	add_character_flag = passed_provincial_exam
+	add_character_modifier = {
+		modifier = tgp_passed_provincial_exam_modifier
+	}
+}

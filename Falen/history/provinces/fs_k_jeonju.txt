@@ -1,4 +1,4 @@
-﻿#k_jeonju 
+﻿#k_jeonju
 ##d_jeonju  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_jeonju
 
@@ -9,21 +9,38 @@
 	#holding = metropolis_holding
 	holding = castle_holding
 	1392.1.1 = {
-		special_building_slot = gyeonggijeon
-		special_building = gyeonggijeon
+		special_district_slot = gyeonggijeon_district
+		districts = {
+			district = {
+				type = gyeonggijeon_district
+				level = 1
+			}
+		}
 	}
 	2400.1.1 = {
-		buildings = {
-			castle_02
+		districts = {
+			district = {
+				type = castle_holding_district
+				level = 2
+			}
+			district = {
+				type = gyeonggijeon_district
+				level = 1
+			}
 		}
 	}
 }
 
 119 = {	#Deokjin
 	holding = city_holding
-	
+
 	2400.1.1 = {
-		special_building = generic_university
+		districts = {
+			district = {
+				type = generic_university_district
+				level = 1
+			}
+		}
 	}
 }
 1045 = {	#Iseo
@@ -36,8 +53,8 @@
 	holding = castle_holding
 }
 
-###c_wanju 
-1078={#Bongdong  
+###c_wanju
+1078={#Bongdong
 	culture = jeonju
 	rite = jeonju_rite
 	holding = castle_holding
@@ -53,7 +70,7 @@
 	holding = church_holding
 }
 
-###c_gosan 
+###c_gosan
 1080={#Gosan
 	culture = jeonju
 	rite = jeonju_rite
@@ -74,7 +91,7 @@
 1081 = {	#Dongsang
 	holding = none
 }
- 
+
 
 ##d_jinan  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_jinan
@@ -97,7 +114,7 @@
 	holding = none
 }
 
-###c_jucheon 
+###c_jucheon
 
 1089={#Jucheon
 	culture = muju
@@ -120,7 +137,7 @@
 1090 = {	#Yongdam
 	holding = none
 }
-###c_muju 
+###c_muju
 
 1098={#Muju
 	culture = muju
@@ -143,7 +160,7 @@
 151 = {	#Mupung
 	holding = none
 }
-###c_janggye 
+###c_janggye
 
 1011={#Janggye
 	culture = muju
@@ -160,7 +177,7 @@
 1010 = {	#Gyebuk
 	holding = none
 }
-###c_jangsu 
+###c_jangsu
 
 1008={#Jangsu
 	culture = muju
@@ -174,8 +191,8 @@
 1006 = {	#Sanseo
 	holding = none
 }
- 
-  
+
+
 
 ##d_namwon  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_namwon
@@ -208,8 +225,8 @@
 683 = {	#Sandong
 	holding = none
 }
-  
-###c_unbong 
+
+###c_unbong
 
 685={#Unbong
 	culture = namwon
@@ -226,7 +243,7 @@
 142 = {	#Ayeong
 	holding = church_holding
 }
-###c_geumji 
+###c_geumji
 
 673={#Geumji
 	culture = namwon
@@ -249,9 +266,9 @@
 677 = {	#Suji
 	holding = church_holding
 }
-###c_ulju 
- 
- 
+###c_ulju
+
+
 
 
 ##d_imsil  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
@@ -273,9 +290,9 @@
 }
  997 = {	#Samgye
 	holding = church_holding
-} 
+}
 
-###c_unam 
+###c_unam
 
 1000={#Unam
 	culture = jeonju
@@ -305,7 +322,7 @@
 	holding = none
 }
 ##d_sunchang
-###c_sunchang 
+###c_sunchang
 
 668={#Sunchang
 	culture = namwon
@@ -340,20 +357,20 @@
 	holding = church_holding
 }
 
-###c_gurim 
+###c_gurim
 
 664={#Gurim
 	culture = namwon
 	rite = jeonju_rite
 	holding = castle_holding
 }
-  
+
 662 = {	#Bokheung
 	holding = none
 }
 663 = {	#Ssangchi
 	holding = none
 }
-  
- 
-  
+
+
+

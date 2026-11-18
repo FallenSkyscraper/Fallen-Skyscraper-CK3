@@ -66,6 +66,19 @@ coa_feudal_trigger = {
 	government_has_flag = government_is_feudal
 }
 
+coa_merchant_trigger = {
+	OR = {
+		AND = {
+			exists = root
+			government_has_flag = government_is_merchant
+		}
+		scope:title ?= {
+			exists = holder
+			holder = { government_has_flag = government_is_merchant }
+		}
+	}
+}
+
 coa_french_trigger = {
 	scope:culture = { has_coa_gfx = french_coa_gfx }
 }

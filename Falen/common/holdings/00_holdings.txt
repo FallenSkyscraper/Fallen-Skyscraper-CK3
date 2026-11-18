@@ -1,195 +1,183 @@
-﻿castle_holding = {
-	primary_building = castle_01
-	buildings = {
-		capital_bureau_01
-		
-		hospices_01
-		curtain_walls_01
-		watchtowers_01
-		outposts_01
-		hill_forts_01
-		ramparts_01
-		farm_estates_01
-		cereal_fields_01
-		paddy_fields_01
-		pastures_01
-		peat_quarries_01
-		hill_farms_01
-		logging_camps_01
-		plantations_01
-		quarries_01
-		orchards_01
-		elephant_pens_01
-		hunting_grounds_01
-		regimental_grounds_01
-		barracks_01
-		military_camps_01
-		camel_farms_01
-		stables_01
-		smiths_01
-		hillside_grazing_01
-		warrior_lodges_01
-		horse_pastures_01
-		windmills_01
-		watermills_01
-		caravanserai_01
-		workshops_01
-		wind_furnace_01
-		powder_magazine_01
-		common_tradeport_01
-		hall_of_heroes_01
-		special_sicilian_parliament_01
-		special_greenhouse_01
-		qanats_01
-		murex_farm_01
-		waterworks_01
-		spice_plantation_01
-		oath_warriors_building_01
-		oath_faithful_building_01
-		oath_poor_building_01
-		monastic_schools_01 # only for the monastic_schools_allowed_in_every_holding_type faith tenet
+﻿#Ordering here is also ordering in the game.
+#Every District that is locked by another district must appear above that district.
+#Keep Color Groups Together
+
+castle_holding = {
+	primary_district = castle_holding_district
+
+	districts = {
+		household_district
+
+		#Rural (shows at top when unlocked)
+		manor_houses_district
+		religious_community_district
+
+		#Economy
+		market_district
+		guild_district
+		port_district
+
+		#Urban
+		entertainment_district
+		patrician_district
+		temple_district
+
+		#Fortifications/Control
+		walls_district
+		border_forts_district
+
+		#Rural / Urban entry (these two unlock all above, so the ones that are unlocked will show above the other unlocking district - you do not want to build both)
+		villages_district
+		urban_housing_district
+
+
+		#Military
+		military_district
+
+		#Civic/Capital
+		bureaucratic_district
 	}
 }
 
 tribal_holding = {
-	primary_building = tribe_01
+	primary_district = tribal_holding_district
 
-	buildings = {
-		palisades_01
-		war_camps_01
-		longhouses_01
-		market_villages_01
-		
-		idjang_forts_01
-		wantilan_01
-		kora_kora_yards_01
-		water_temples_01
-		stilted_granaries_01
-		
-		hillside_grazing_01
-		warrior_lodges_01
-		horse_pastures_01
+	districts = {
+		port_district
+		tribal_economy_prestige_district
+		tribal_military_district
+		tribal_wanua_district
+	}
 
-		common_tradeport_01 # only for trade_ports_enabled_for_tribals culture parameter
-
-		oath_warriors_building_01
-		oath_faithful_building_01
-		oath_poor_building_01
-		
-		monastic_schools_01 # only for the monastic_schools_allowed_in_every_holding_type faith tenet
+	parameters = {
+		no_sprawl
 	}
 }
 
 city_holding = {
-	primary_building = city_01
-	buildings = {
-		hospices_01
-		outposts_01
-		farm_estates_01
-		cereal_fields_01
-		paddy_fields_01
-		pastures_01
-		peat_quarries_01
-		hill_farms_01
-		logging_camps_01
-		plantations_01
-		quarries_01
-		orchards_01
-		elephant_pens_01
-		hunting_grounds_01
-		regimental_grounds_01
-		barracks_01
-		military_camps_01
-		camel_farms_01
-		stables_01
-		smiths_01
-		hillside_grazing_01
-		warrior_lodges_01
-		horse_pastures_01
-		windmills_01
-		watermills_01
-		caravanserai_01
-		workshops_01
-		wind_furnace_01
-
-		guild_halls_01
-
-		common_tradeport_01
-		qanats_01
-		murex_farm_01
-		waterworks_01
-		spice_plantation_01
-
-		breweries_01
-
-		oath_warriors_building_01
-		oath_faithful_building_01
-		oath_poor_building_01
-		
-		monastic_schools_01 # only for the monastic_schools_allowed_in_every_holding_type faith tenet
-	}
+	primary_district = city_holding_district
 
 	can_be_inherited = yes
+
+	districts = {
+		household_district
+		
+		#Rural (shows at top when unlocked)
+		manor_houses_district
+		religious_community_district
+
+		#Economy
+		market_district
+		guild_district
+		port_district
+
+		#Urban
+		entertainment_district
+		patrician_district
+		temple_district
+
+		#Fortifications/Control
+		walls_district
+		border_forts_district
+
+		#Rural / Urban entry (these two unlock all above, so the ones that are unlocked will show above the other unlocking district - you do not want to build both)
+		villages_district
+		urban_housing_district
+
+		#Military
+		military_district
+
+		#Civic/Capital
+		bureaucratic_district
+		
+	}
 }
 
 church_holding = {
-	primary_building = temple_01
-	buildings = {
-		hospices_01
-		scriptorium_01
-		outposts_01
-		farm_estates_01
-		cereal_fields_01
-		paddy_fields_01
-		pastures_01
-		peat_quarries_01
-		hill_farms_01
-		logging_camps_01
-		plantations_01
-		quarries_01
-		orchards_01
-		elephant_pens_01
-		hunting_grounds_01
-		regimental_grounds_01
-		barracks_01
-		military_camps_01
-		camel_farms_01
-		stables_01
-		smiths_01
-		hillside_grazing_01
-		warrior_lodges_01
-		horse_pastures_01
-		windmills_01
-		watermills_01
-		caravanserai_01
-		workshops_01
-		wind_furnace_01
-		
-		monastic_schools_01
-		megalith_01
-		
-		common_tradeport_01
-		hall_of_heroes_01
-		qanats_01
-		waterworks_01
-
-		breweries_01
-
-		oath_warriors_building_01
-		oath_faithful_building_01
-		oath_poor_building_01
-	}
+	primary_district = temple_holding_district
 
 	can_be_inherited = yes
+
+	districts = {
+		#Rural (shows at top when unlocked)
+		manor_houses_district
+		religious_community_district
+
+		#Economy
+		market_district
+		guild_district
+		port_district
+
+		#Urban
+		entertainment_district
+		patrician_district
+		temple_district
+
+		#Fortifications/Control
+		walls_district
+		border_forts_district
+
+		#Rural / Urban entry (these two unlock all above, so the ones that are unlocked will show above the other unlocking district - you do not want to build both)
+		villages_district
+		urban_housing_district
+
+		#Military
+		military_district
+
+		#Civic/Capital
+		bureaucratic_district
+	}
+}
+
+temple_citadel_holding = {
+	primary_district = temple_citadel_holding_district
+
+	can_be_inherited = yes
+
+	districts = {
+		household_district
+
+		#Religious
+		mandala_district
+
+		#Rural (shows at top when unlocked)
+		manor_houses_district
+		religious_community_district
+
+		#Economy
+		market_district
+		guild_district
+		port_district
+
+		#Urban
+		entertainment_district
+		patrician_district
+		temple_district
+
+		#Fortifications/Control
+		walls_district
+		border_forts_district
+
+		#Rural / Urban entry (these two unlock all above, so the ones that are unlocked will show above the other unlocking district - you do not want to build both)
+		villages_district
+		urban_housing_district
+
+		#Military
+		military_district
+
+		#Civic/Capital
+		bureaucratic_district
+	}
 }
 
 nomad_holding = {
-	primary_building = nomadic_camp_01
+	primary_district = nomad_holding_district
 	counts_toward_domain_limit_if_disabled = no
 	can_be_inherited = yes
 	required_heir_government_types = { nomad_government }
 
 	parameters = {
+		no_sprawl
 		no_buildings
 		no_levies
 		county_fertility
@@ -197,7 +185,7 @@ nomad_holding = {
 }
 
 herder_holding = {
-	primary_building = herder_camp_01
+	primary_district = herder_holding_district
 	counts_toward_domain_limit_if_disabled = no
 	can_be_inherited = yes
 	required_heir_government_types = {
@@ -206,78 +194,48 @@ herder_holding = {
 	}
 	
 	parameters = {
+		no_sprawl
 		no_buildings
 		no_levies
 		county_fertility
 	}
 }
 
-temple_citadel_holding = {
-	primary_building = temple_citadel_01
-	buildings = {
-		citadel_shrine_01
-		sacred_pool_01
-		vihara_halls_01
-		waterworks_01
-		spice_plantation_01
-
-		capital_bureau_01
-		
-		scriptorium_01
-		monastic_schools_01
-		megalith_01
-
-		hospices_01
-		farm_estates_01
-		cereal_fields_01
-		paddy_fields_01
-		pastures_01
-		peat_quarries_01
-		hill_farms_01
-		logging_camps_01
-		plantations_01
-		quarries_01
-		orchards_01
-		elephant_pens_01
-		regimental_grounds_01
-		barracks_01
-		military_camps_01
-		camel_farms_01
-		stables_01
-		smiths_01
-		hillside_grazing_01
-		warrior_lodges_01
-		horse_pastures_01
-		windmills_01
-		watermills_01
-		caravanserai_01
-		workshops_01
-		wind_furnace_01
-		powder_magazine_01
-		
-		common_tradeport_01
-		hall_of_heroes_01
-		qanats_01
-
-		breweries_01
-
-		oath_warriors_building_01
-		oath_faithful_building_01
-		oath_poor_building_01
-	}
+metropolis_holding = {
+	primary_district = fs_metropolis_holding_district
 
 	can_be_inherited = yes
-}
 
-metropolis_holding = {
-	primary_building = city_01
-	buildings = {
-		common_tradeport_01
-		qanats_01
-		guild_halls_01
-		farm_estates_01
-		pastures_01
-		hill_farms_01
-		capital_bureau_01
+	districts = {
+		household_district
+		
+		#Rural (shows at top when unlocked)
+		manor_houses_district
+		religious_community_district
+
+		#Economy
+		market_district
+		guild_district
+		port_district
+
+		#Urban
+		entertainment_district
+		patrician_district
+		temple_district
+
+		#Fortifications/Control
+		walls_district
+		border_forts_district
+
+		#Rural / Urban entry (these two unlock all above, so the ones that are unlocked will show above the other unlocking district - you do not want to build both)
+		villages_district
+		urban_housing_district
+
+		#Military
+		military_district
+
+		#Civic/Capital
+		bureaucratic_district
+
 	}
 }

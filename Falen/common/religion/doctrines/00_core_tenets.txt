@@ -96,7 +96,7 @@ doctrine_core_tenets = {
 		is_shown = {
 			OR = {
 				religion_tag = christianity_religion
-				religion_tag = islam_religion 
+				religion_tag = islam_religion
 			}
 		}
 
@@ -387,7 +387,7 @@ doctrine_core_tenets = {
 				}
 			}
 		}
-		
+
 		can_pick = {
 			custom_description = {
 				text = incompatible_tenet_sacrificial_ceremonies_trigger
@@ -412,7 +412,7 @@ doctrine_core_tenets = {
 					trigger = {
 						religion_tag = zoroastrianism_religion
 					}
-					desc = tenet_divine_marriage_xwedodah 
+					desc = tenet_divine_marriage_xwedodah
 				}
 				desc = tenet_divine_marriage_name
 			}
@@ -688,7 +688,7 @@ doctrine_core_tenets = {
 			virtues = { calm }
 			sins = { wrathful }
 		}
-		
+
 		character_modifier = {
 			domain_limit = 1
 			ai_war_chance = -0.25
@@ -782,7 +782,7 @@ doctrine_core_tenets = {
 			prowess = 4
 			tolerance_advantage_mod = 2
 		}
-		
+
 		parameters = {
 			clergy_can_fight = yes
 		}
@@ -791,7 +791,7 @@ doctrine_core_tenets = {
 			first_valid = {
 				triggered_desc = {
 					trigger = {
-						OR = { 
+						OR = {
 							has_doctrine = doctrine_heretic_branch_zandik
 							has_doctrine = tenet_pastoral_isolation
 						}
@@ -806,7 +806,7 @@ doctrine_core_tenets = {
 			first_valid = {
 				triggered_desc = {
 					trigger = {
-						OR = { 
+						OR = {
 							has_doctrine = doctrine_heretic_branch_zandik
 							has_doctrine = tenet_pastoral_isolation
 						}
@@ -900,7 +900,7 @@ doctrine_core_tenets = {
 		}
 
 		character_modifier = {
-			development_growth_factor = -0.1
+			prosperity_growth_factor = -0.1
 			different_faith_liege_opinion = 10
 			opinion_of_different_faith_liege = 10
 		}
@@ -1013,7 +1013,7 @@ doctrine_core_tenets = {
 					}
 					# ... or cannibal-HoF thinks you need to chill the hell out whilst they eat this dude.
 					AND = {
-						religious_head.faith = { has_doctrine = tenet_ritual_cannibalism }						
+						religious_head.faith = { has_doctrine = tenet_ritual_cannibalism }
 						NOT = {
 							doctrine:tenet_ritual_cannibalism = { is_in_list = selected_doctrines }
 						}
@@ -1138,7 +1138,7 @@ doctrine_core_tenets = {
 		}
 
 		character_modifier = {
-			different_faith_county_opinion_mult = -0.25
+			different_faith_popular_opinion_mult = -0.25
 			different_faith_liege_opinion = 15
 			opinion_of_different_faith_liege = 15
 		}
@@ -1288,7 +1288,7 @@ doctrine_core_tenets = {
 				round = yes
 			}
 		}
-		
+
 		is_shown = {
 			NOT = { has_doctrine = tenet_diamat }
 		}
@@ -1633,14 +1633,14 @@ doctrine_core_tenets = {
 			}
 		}
 
-		
+
 
 		parameters = {
 			meditation_mechanics_active = yes
 			unlock_voluntary_laampdom_faith = yes
 		}
 
-		#name = { #FP3 - Removed and saved for posterity. Zurvanism would fit a future hypotetical "Fatalism" tenet, but Asceticism isn't a good fit, per beta input. Ola's note. 
+		#name = { #FP3 - Removed and saved for posterity. Zurvanism would fit a future hypotetical "Fatalism" tenet, but Asceticism isn't a good fit, per beta input. Ola's note.
 		#	first_valid = {
 		#		triggered_desc = {
 		#			trigger = {
@@ -1750,7 +1750,7 @@ doctrine_core_tenets = {
 				}
 			}
 		}
-		
+
 		parameters = {
 			reincarnation_resistance_to_conversion = yes
 			holy_wars_forbidden = yes
@@ -1762,7 +1762,7 @@ doctrine_core_tenets = {
 			virtues = { calm }
 			sins = { wrathful }
 		}
-		
+
 		character_modifier = {
 			domain_limit = 1
 			ai_war_chance = -0.25
@@ -1927,7 +1927,7 @@ doctrine_core_tenets = {
 				triggered_desc = {
 					trigger = {
 						OR = {
-							religion_tag = islam_religion 
+							religion_tag = islam_religion
 							religion_tag = zoroastrianism_religion
 						}
 					}
@@ -1942,7 +1942,7 @@ doctrine_core_tenets = {
 				triggered_desc = {
 					trigger = {
 						OR = {
-							religion_tag = islam_religion 
+							religion_tag = islam_religion
 							religion_tag = zoroastrianism_religion
 						}
 					}
@@ -2159,11 +2159,11 @@ doctrine_core_tenets = {
 		}
 
 		traits = {
-			virtues = { 
-				lifestyle_mystic = { 
-					scale = 5 
-					weight = 2 
-				} 
+			virtues = {
+				lifestyle_mystic = {
+					scale = 5
+					weight = 2
+				}
 			}
 		}
 	}
@@ -2292,7 +2292,7 @@ doctrine_core_tenets = {
 			jungle_advantage = 5
 			jungle_attrition_mult = -0.25
 			build_gold_cost = 0.1
-			county_opinion_add = 5
+			popular_opinion_add = 5
 		}
 	}
 
@@ -2317,7 +2317,7 @@ doctrine_core_tenets = {
 					religion_tag = hinduism_religion
 					this = faith:saura #If you're into Saurism
 				}
-				
+
 			}
 		}
 
@@ -2385,7 +2385,7 @@ doctrine_core_tenets = {
 			great_holy_wars_active_if_reformed = yes
 			clergy_can_fight = yes
 		}
-		
+
 		character_modifier = {
 			ai_war_chance = 0.5
 			ai_war_cooldown = -0.25
@@ -2409,7 +2409,7 @@ doctrine_core_tenets = {
 		piety_cost = {
 			# If you've already got human sacrifice, this is a nice and easy jump.
 			if = {
-				limit = { 
+				limit = {
 					has_doctrine = tenet_human_sacrifice
 				}
 				value = faith_tenet_cost_low
@@ -2594,7 +2594,7 @@ doctrine_core_tenets = {
 		character_modifier = {
 			monthly_influence = 0.5
 			ignore_opinion_of_different_faith = yes
-			different_faith_county_opinion_mult = -0.1
+			different_faith_popular_opinion_mult = -0.1
 			levy_reinforcement_rate_same_faith = 0.25
 			faith_conversion_piety_cost_mult = -0.15
 			# TODO_CD_EP3: Uncomment when this no longer causes startup errors (TIT-53560)
@@ -2676,7 +2676,7 @@ doctrine_core_tenets = {
 	}
 
 	tenet_unreformed_syncretism = {
-		icon = core_tenet_unreformed_syncretism 
+		icon = core_tenet_unreformed_syncretism
 		piety_cost = {
 			if = {
 				limit = { doctrine:doctrine_pluralism_pluralistic = {is_in_list = selected_doctrines} }
@@ -3135,7 +3135,7 @@ doctrine_core_tenets = {
 				multiply = faith_unchanged_doctrine_cost_mult
 			}
 		}
-		
+
 		can_pick = {
 			custom_description = {
 				text = incompatible_tenet_communion_trigger
@@ -3205,7 +3205,7 @@ doctrine_core_tenets = {
 			no_unfaithfulness_penalty_active = yes
 		}
 	}
-	
+
 	tenet_sacrificial_ceremonies = {
 		icon = core_tenet_human_sacrifice
 
@@ -3231,7 +3231,7 @@ doctrine_core_tenets = {
 			else = {
 				value = faith_tenet_cost_massive
 			}
-			
+
 			#We already practice sacrificial ceremonies
 			if = {
 				limit = { has_doctrine = tenet_sacrificial_ceremonies }
@@ -3281,7 +3281,7 @@ doctrine_core_tenets = {
 			ai_war_cooldown = -0.5
 		}
 	}
-	
+
 	tenet_megaliths = {
 		icon = core_tenet_megaliths
 
@@ -3307,7 +3307,7 @@ doctrine_core_tenets = {
 			else = {
 				value = faith_tenet_cost_high
 			}
-			
+
 			#We already practice megaliths
 			if = {
 				limit = { has_doctrine = tenet_megaliths }
@@ -3316,11 +3316,11 @@ doctrine_core_tenets = {
 		}
 
 		is_shown = {
-			
+
 		}
 
 		can_pick = {
-			
+
 		}
 
 		parameters = {
@@ -3328,7 +3328,7 @@ doctrine_core_tenets = {
 		}
 
 		character_modifier = {
-			hills_development_growth_factor = 0.15
+			hills_prosperity_growth_factor = 0.15
 			hills_tax_mult = 0.1
 			hills_levy_size = 0.3
 			hills_advantage = 5
@@ -3336,7 +3336,7 @@ doctrine_core_tenets = {
 	}
 
 	#############################
-	# FP3 Tenets 		#        
+	# FP3 Tenets 		#
 	#############################
 
 	tenet_fp3_fedayeen = {
@@ -3372,7 +3372,7 @@ doctrine_core_tenets = {
 					doctrine:tenet_unrelenting_faith = { is_in_list = selected_doctrines }
 					doctrine:tenet_consolamentum = { is_in_list = selected_doctrines }
 					doctrine:tenet_armed_pilgrimages = { is_in_list = selected_doctrines }
-					doctrine:tenet_struggle_submission = { is_in_list = selected_doctrines } 
+					doctrine:tenet_struggle_submission = { is_in_list = selected_doctrines }
 					doctrine:tenet_pursuit_of_power = { is_in_list = selected_doctrines }
 				}
 			}
@@ -3408,7 +3408,7 @@ doctrine_core_tenets = {
 		}
 
 		parameters = {
-			master_assassin_court_position_unlocked = yes 
+			master_assassin_court_position_unlocked = yes
 			death_is_glory = yes
 			sanctioned_assassinations = yes
 			unlock_voluntary_laampdom_faith = yes
@@ -3438,15 +3438,15 @@ doctrine_core_tenets = {
 				limit = {
 					OR = {
 						has_doctrine = tenet_mendicant_preachers
-						has_doctrine = tenet_gnosticism 
-						religion_tag = christianity_religion 
+						has_doctrine = tenet_gnosticism
+						religion_tag = christianity_religion
 						religion_tag = zoroastrianism_religion
 					}
 				}
 				value = faith_tenet_cost_mid
 			}
 			else = {
-				value = faith_tenet_cost_high 
+				value = faith_tenet_cost_high
 			}
 
 			#Multiplier for keeping same tenet
@@ -3464,17 +3464,17 @@ doctrine_core_tenets = {
 		character_modifier = {
 			monthly_county_control_growth_factor = -0.2
 			build_gold_cost = -0.1
-			county_opinion_add = 10 
+			popular_opinion_add = 10
 		}
 
 		traits = {
-			virtues = { peasant_leader = 2 } #because communism! 
+			virtues = { peasant_leader = 2 } #because communism!
 			sins = { arrogant }
 		}
 	}
-	
+
 	######FALLEN SKYSCRAPER#####
-	
+
 	tenet_protestantism = {
 		icon = core_tenet_bigbook
 		piety_cost = {
@@ -3547,15 +3547,15 @@ doctrine_core_tenets = {
 				NOT = { doctrine:tenet_dharmic_pacifism = { is_in_list = selected_doctrines } }
 			}
 		}
-	
+
 		parameters = {
 			tenet_adaptive_conversion_resistance = yes
 			great_holy_wars_active = yes
 			ghw_no_hof_conversion_buffs_active = yes
-		#	
+		#
 		}
 		character_modifier = {
-			#different_faith_county_opinion_mult = 1
+			#different_faith_popular_opinion_mult = 1
 		}
 		name = {
 			first_valid = {
@@ -3597,7 +3597,7 @@ doctrine_core_tenets = {
 		character_modifier = {
 			learning = 1
 			stewardship = -1
-			development_growth_factor = 0.15
+			prosperity_growth_factor = 0.15
 		}
 		traits = {
 			virtues = { diligent }
@@ -3607,7 +3607,7 @@ doctrine_core_tenets = {
 	tenet_protracted_warfare = { # 지구전
 		icon = core_tenet_shadyfigure
 		piety_cost = {
-		
+
 			value = faith_tenet_cost_mid
 
 			# Multiplier for keeping same tenet
@@ -3626,7 +3626,7 @@ doctrine_core_tenets = {
 			hostile_county_attrition = -0.1
 			monthly_county_control_change_factor = 0.05
 			clergy_can_fight = yes
-			
+
 			unlock_voluntary_laampdom_faith = yes
 		}
 		traits = {
@@ -3636,7 +3636,7 @@ doctrine_core_tenets = {
 	tenet_world_revolution = { # 세계혁명
 		icon = core_tenet_revolution
 		piety_cost = {
-		
+
 			if = {
 				limit = {
 					religion_tag = communism_religion
@@ -3661,14 +3661,14 @@ doctrine_core_tenets = {
 		parameters = {
 			great_holy_wars_active = yes
 			clergy_can_fight = yes
-			
+
 			unlock_voluntary_laampdom_faith = yes
 		}
 	}
 	tenet_diamat = { # 변증법적 유물론
 		icon = core_tenet_literalism
 		piety_cost = {
-		
+
 			if = {
 				limit = {
 					religion_tag = communism_religion
@@ -3704,7 +3704,7 @@ doctrine_core_tenets = {
 				scholar
 			}
 		}
-		
+
 		character_modifier = {
 			monthly_learning_lifestyle_xp_gain_mult = 0.1
 			learning = 1
@@ -3752,9 +3752,9 @@ doctrine_core_tenets = {
 				multiply = faith_unchanged_doctrine_cost_mult
 			}
 		}
-		
+
 		is_shown = { religion_tag = new_world_religion }
-		
+
 		can_pick = {
 			custom_description = {
 				NOT = { doctrine:doctrine_tenet_adaptive = { is_in_list = selected_doctrines } }
@@ -3815,7 +3815,7 @@ doctrine_core_tenets = {
 			hostility_override_special_doctrine_is_communism_faith = 1
 			communism_syncretic_actor_opinion_active = yes
 			opinion_of_communism_syncretic_recipient_opinion_active = 30 #Sync this to syncretic_mutual_opinion_bonus_value
-			
+
 			unlock_voluntary_laampdom_faith = yes
 		}
 
@@ -3827,7 +3827,7 @@ doctrine_core_tenets = {
 
 	tenet_plain_faith_syncretism = { # 초원 신앙 포용주의
 		icon = core_tenet_sword
-		
+
 		piety_cost = {
 			if = {
 				limit = {
@@ -3893,13 +3893,13 @@ doctrine_core_tenets = {
 		parameters = {
 			hostility_override_tenet_populism = 1
 			hostility_override_tenet_authoritism = 3
-			
+
 			unlock_voluntary_laampdom_faith = yes
 		}
 		character_modifier = {
 			dread_baseline_add = -20
 			monthly_county_control_change_factor = -0.1
-			county_opinion_add = 50
+			popular_opinion_add = 50
 		}
 		traits = {
 			virtues = { just compassionate }
@@ -3930,7 +3930,7 @@ doctrine_core_tenets = {
 		character_modifier = {
 			dread_baseline_add = 10
 			monthly_county_control_change_factor = 0.05
-			county_opinion_add = -25
+			popular_opinion_add = -25
 		}
 		traits = {
 			virtues = { arbitrary sadistic }
@@ -4209,7 +4209,7 @@ doctrine_core_tenets = {
 			sins = { humble }
 		}
 	}
-	
+
 	tenet_monster_of_the_old_world = {
 		# 옛 시대의 흉물
 		piety_cost = {

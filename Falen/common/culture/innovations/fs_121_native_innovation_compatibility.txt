@@ -1,0 +1,936 @@
+﻿# Native innovations required by the 1.21 district and building databases.
+# Existing Fallen Skyscraper innovations and cultural era dates take precedence.
+
+# common/culture/innovations/00_early_medieval_innovations.txt
+innovation_battlements = {
+	skill = stewardship
+	group = culture_group_military
+	culture_era = culture_era_early_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_fortifications.dds"
+
+	custom = unlock_early_medieval_fortification_buildings
+	
+	custom = unlock_fortification_rights_contract
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_early_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_blast_furnaces = {
+	skill = learning
+	group = culture_group_civic
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_dragon_kiln.dds"
+
+	county_modifier = {
+		trade_good_iron_production_mult = 0.2
+		mining_tax_mult = 0.025
+	}
+
+	custom = unlock_blast_furnace_building
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_early_medieval_innovations.txt
+innovation_burhs = { # Stone Forts in-game
+	skill = stewardship
+	group = culture_group_military
+	culture_era = culture_era_early_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_civil_construction_02.dds"
+
+	# Suki (柵)
+	asset = {
+		trigger = {
+			has_cultural_pillar = heritage_japonic
+		}
+		icon = "gfx/interface/icons/culture_innovations/innovation_civil_construction_02.dds"
+		name = innovation_burhs_japan
+	}
+
+	# Wu Bi/Wū Bì (塢壁)
+	asset = {
+		trigger = {
+			has_cultural_pillar = heritage_chinese
+		}
+		icon = "gfx/interface/icons/culture_innovations/innovation_civil_construction_02.dds"
+		name = innovation_burhs_chinese
+	}
+
+	# Burhs
+	asset = {
+		trigger = {
+			has_cultural_pillar = heritage_west_germanic
+		}
+		icon = "gfx/interface/icons/culture_innovations/innovation_civil_construction_02.dds"
+		name = innovation_burhs_anglo_saxon
+	}
+
+	# Castra
+	asset = {
+		trigger = {
+			has_cultural_pillar = heritage_latin
+		}
+		icon = "gfx/interface/icons/culture_innovations/innovation_civil_construction_02.dds"
+		name = innovation_burhs_latin
+	}
+
+	custom = unlock_early_medieval_military_buildings
+	
+	character_modifier = {
+		levy_size = 0.05
+	}
+
+	parameters = {
+		stone_forts = yes
+	}
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_early_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_tribal_innovations.txt
+innovation_carpet_weaving = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_tribal
+	region = world_innovation_carpets
+	icon = "gfx/interface/icons/culture_innovations/gdp_innovation_persian_weaver.dds"
+
+	custom = unlock_carpet_weaving_buildings
+
+	county_modifier = {
+		artisan_tax_mult = 0.05
+		trade_good_textiles_production_mult = 0.15
+	}
+
+	flag = global_regional
+	flag = tribal_era_regional
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_castle_baileys = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_levy_building.dds"
+
+	custom = unlock_high_medieval_military_buildings
+
+	character_modifier = {
+		levy_reinforcement_rate = 0.15
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_tribal_innovations.txt
+innovation_city_planning = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_tribal
+	icon = "gfx/interface/icons/culture_innovations/innovation_civil_construction_02.dds"
+
+	custom = unlock_city_planning_holdings
+
+	character_modifier = {
+		herd_capacity_mult = 0.05
+		urban_housing_district_district_build_gold_cost = -0.05
+	}
+
+	county_modifier = {
+		urban_tax_mult = 0.015
+	}
+
+	flag = global_regular
+	flag = tribal_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+}
+
+# common/culture/innovations/00_late_medieval_innovations.txt
+innovation_court_officials = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_late_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_nobility_02.dds"
+
+	character_modifier = {
+		domain_limit = 1
+		tax_slot_add = 1
+	}
+
+	county_modifier = {
+		civic_tax_mult = 0.025
+	}
+
+	custom = more_courtly
+	custom = unlock_court_officials_buildings
+
+	flag = global_regular
+	flag = late_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_late_medieval_innovations.txt
+innovation_cranes = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_late_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_civil_construction_01.dds"
+
+	character_modifier = {
+		build_speed = -0.15
+	}
+
+	county_modifier = {
+		trade_good_stone_production_mult = 0.25
+	}
+
+	flag = global_regular
+	flag = late_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_tribal_innovations.txt
+innovation_crop_rotation = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_tribal
+	icon = "gfx/interface/icons/culture_innovations/innovation_farm.dds"
+
+	custom = unlock_tribal_economic_buildings
+
+	character_modifier = {
+		county_fertility_growth_mult = 0.05
+	}
+
+	county_modifier = {
+		trade_category_cereals_production_mult = 0.1
+	}
+
+	flag = global_regular
+	flag = tribal_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_currency_03 = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_majesty_02.dds"
+	custom = unlock_currency_03_buildings
+
+	character_modifier = {
+		prosperity_growth_factor = 0.05
+	}
+
+	county_modifier = {
+		commerce_tax_mult = 0.025
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_glassmaking = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/gdp_innovation_wine.dds"
+
+	county_modifier = {
+		trade_good_glass_production_mult = 0.2
+	}
+
+	custom = unlocks_glassmakers_guild
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+
+	ai_weight_for_fascination = {
+		value = 50
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_guilds = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/gdp_innovation_persian_weaver.dds"
+
+	custom = unlock_high_medieval_economic_buildings
+	county_modifier = {
+		artisan_tax_mult = 0.05
+		trade_category_guild_goods_production_mult = 0.25
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_late_medieval_innovations.txt
+innovation_gunpowder = {
+	skill = learning
+	group = culture_group_military
+	culture_era = culture_era_late_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_bombards.dds"
+
+	parameters = {
+		unlock_late_medieval_gunpowder_units = yes
+		unlock_powder_magazines = yes
+	}
+
+	asset = {
+		trigger = {
+			OR = {
+				has_cultural_pillar = heritage_chinese
+				has_cultural_pillar = heritage_japonic
+				has_cultural_pillar = heritage_korean
+			}
+		}
+		icon = "gfx/interface/icons/culture_innovations/innovation_auh_cannon.dds"
+	}
+
+	custom = unlock_siege_maa_fourth_level
+	custom = unlock_gunpowder_buildings
+
+	flag = global_regular
+	flag = late_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_heraldry = {
+	skill = diplomacy
+	group = culture_group_civic
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_heraldry.dds"
+
+	unlock_law = high_partition_succession_law
+	unlock_law = single_heir_dynasty_house
+	custom = more_courtly
+	custom = unlock_heraldry_buildings
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_hoardings = {
+	skill = stewardship
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_fortifications.dds"
+
+	custom = unlock_high_medieval_fortification_buildings
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_knighthood = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_knighthood.dds"	
+
+	character_modifier = {
+		accolades = 1
+		glory_hound_opinion = 5
+		knight_effectiveness_mult = 0.2
+		accolade_glory_gain_mult = 0.1
+	}
+	custom = students_of_knighthood
+	custom = more_glory_hounds
+	custom = unlock_knighthood_buildings
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_early_medieval_innovations.txt
+innovation_manorialism = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_early_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_fortifications.dds"
+
+	custom = unlock_manorial_buildings
+	custom = more_parochial
+	
+	character_modifier = {
+		villages_district_district_build_speed = -0.1
+	}
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_early_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_men_at_arms = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_maa_02.dds"
+	custom = unlock_men_at_arms_buildings
+
+	character_modifier = {
+		men_at_arms_cap = 1
+		men_at_arms_limit = 4
+		men_at_arms_title_limit = 1
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_tribal_innovations.txt
+innovation_motte = { # Earthworks in-game
+	skill = stewardship
+	group = culture_group_military
+	culture_era = culture_era_tribal
+	icon = "gfx/interface/icons/culture_innovations/innovation_fortifications.dds"
+
+	asset = {
+		trigger = {
+			OR = {
+				has_cultural_pillar = heritage_frankish
+				has_cultural_pillar = heritage_central_germanic
+				has_cultural_pillar = heritage_west_germanic
+				has_cultural_pillar = heritage_north_germanic
+				has_cultural_pillar = heritage_iberian
+				has_cultural_pillar = heritage_brythonic
+				has_cultural_pillar = heritage_goidelic
+				has_cultural_pillar = heritage_latin
+				has_cultural_pillar = heritage_west_slavic
+			}
+		}
+		icon = "gfx/interface/icons/culture_innovations/innovation_fortifications.dds"
+		name = innovation_motte_actual_motte
+	}
+
+	asset = {
+		trigger = {
+			has_cultural_pillar = heritage_chinese
+		}
+		icon = "gfx/interface/icons/culture_innovations/innovation_fortifications.dds"
+		name = innovation_motte_chinese
+	}
+
+	custom = unlock_tribal_fortification_buildings
+
+	parameters = {
+		nomad_motte_innovation_bonus = yes
+	}
+
+	flag = global_regular
+	flag = tribal_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+}
+
+# common/culture/innovations/00_late_medieval_innovations.txt
+innovation_noblesse_oblige = {
+	skill = diplomacy
+	group = culture_group_civic
+	culture_era = culture_era_late_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_nobility_03.dds"
+	custom = unlock_noblesse_oblige_buildings
+
+	character_modifier = {
+		courtly_opinion = 5
+		parochial_opinion = 5
+		fellow_vassal_opinion = 5
+		accolade_glory_gain_mult = 0.1
+	}
+
+	flag = global_regular
+	flag = late_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_tribal_innovations.txt
+innovation_plenary_assemblies = {
+	skill = diplomacy
+	group = culture_group_civic
+	culture_era = culture_era_tribal
+	icon = "gfx/interface/icons/culture_innovations/innovation_plenary_assemblies.dds"
+
+	unlock_law = crown_authority_1
+
+	custom = unlock_plenary_assemblies_building
+
+	character_modifier = {
+		vassal_herd_contribution_mult = 0.02
+	}
+
+	flag = global_regular
+	flag = tribal_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+}
+
+# common/culture/innovations/00_tribal_innovations.txt
+innovation_prosperity_01 = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_tribal
+	icon = "gfx/interface/icons/culture_innovations/innovation_civil_construction_01.dds"
+
+	custom = reduce_develop_county_penalty_01
+	custom = unlock_prosperity_01_buildings
+
+	character_modifier = {
+		county_fertility_growth_mult = 0.05
+	}
+
+	province_modifier = {
+		monthly_province_size_change_when_below_baseline_mult = 0.1
+	}
+
+	flag = global_regular
+	flag = tribal_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+}
+
+# common/culture/innovations/00_early_medieval_innovations.txt
+innovation_prosperity_02 = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_early_medieval
+	icon = "gfx/interface/icons/culture_innovations/gdp_innovation_merchant_deal.dds"
+
+	custom = reduce_develop_county_penalty_02
+	custom = unlock_prosperity_02_buildings
+
+	county_modifier = {
+		urban_tax_mult = 0.025
+	}
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_early_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_prosperity_03 = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_civil_construction_02.dds"
+
+	custom = reduce_develop_county_penalty_03
+	custom = unlock_high_medieval_urban_buildings
+
+	province_modifier = {
+		monthly_province_size_change_when_below_baseline_mult = 0.1
+	}
+
+	county_modifier = {
+		urban_tax_mult = 0.1
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_late_medieval_innovations.txt
+innovation_prosperity_04 = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_late_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_misc_inventions.dds"
+
+	custom = reduce_develop_county_penalty_04
+	custom = more_parochial
+	custom = unlock_prosperity_04_buildings
+
+	flag = global_regular
+	flag = late_medieval_era_regular
+
+	character_modifier = {
+		trade_competitiveness_add = 5
+	}
+
+	county_modifier = {
+		trade_good_books_paper_production_mult = 0.25
+	}
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_late_medieval_innovations.txt
+innovation_royal_armory = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_late_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_levy_building.dds"
+
+	custom = unlock_late_medieval_military_buildings
+
+	character_modifier = {
+		levy_reinforcement_rate = 0.15
+	}
+
+	flag = global_regular
+	flag = late_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_late_medieval_innovations.txt
+innovation_sappers = {
+	skill = martial
+	group = culture_group_military
+	culture_era = culture_era_late_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_sappers.dds"
+
+	character_modifier = {
+		siege_phase_time = -0.1
+	}
+
+	flag = global_regular
+	flag = late_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_late_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_scutage = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_leadership_02.dds"
+
+	custom = unlock_scutage_contract
+	
+	character_modifier = {
+		republic_government_tax_contribution_mult = 0.05
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+# common/culture/innovations/00_tribal_innovations.txt
+innovation_wootz_steel = {
+	skill = learning
+	group = culture_group_civic
+	culture_era = culture_era_tribal
+	region = world_india_deccan
+	icon = "gfx/interface/icons/culture_innovations/innovation_weapons_and_armor_01.dds"
+
+	character_modifier = {
+		prowess = 1
+	}
+	custom = unlock_wind_furnaces
+
+	flag = global_regional
+	flag = tribal_era_regional
+	
+	ai_weight_for_fascination = {
+		value = 100
+	}
+}
+
+# common/culture/innovations/00_high_medieval_innovations.txt
+innovation_windmills = {
+	skill = stewardship
+	group = culture_group_civic
+	culture_era = culture_era_high_medieval
+	icon = "gfx/interface/icons/culture_innovations/innovation_windmills.dds"
+
+	custom = unlock_windmills_buildings
+
+	character_modifier = {
+		county_fertility_growth_mult = 0.05
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+	
+	ai_weight_for_fascination = {
+		value = 100
+		if = {
+			limit = {
+				NOT = {
+					has_cultural_era_or_later = culture_era_high_medieval
+				}
+			}
+			multiply = 0
+		}
+	}
+}

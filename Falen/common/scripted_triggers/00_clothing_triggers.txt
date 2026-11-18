@@ -27,7 +27,8 @@
 natural_primitivism_supports_naturism_trigger = {
 	exists = this
 	OR = {
-		should_be_naked_trigger = yes
+		has_character_modifier = diplomacy_majesty_4090_no_raiment_modifier
+		has_character_flag = is_naked
 		rite = { rite_has_parameter = naked_adherents_active }
 		rite = { rite_has_parameter = naked_priests_active }
 		culture = { has_cultural_parameter = naked_culture_active }
@@ -286,13 +287,7 @@ portrait_wear_helmet_trigger = { # Different from Armor, as (crowned) Kings and 
 	exists = this
 	trigger_if = {
 		limit = { exists = involved_activity }
-		involved_activity = {
-			NOR = {
-				has_activity_type = activity_hunt
-				has_activity_type = activity_pilgrimage
-				has_activity_type = activity_roaming
-			}
-		}
+		involved_activity = { has_activity_type = activity_tournament }
 	}
 	is_incapable = no
 	is_imprisoned = no
@@ -554,6 +549,24 @@ asian_variants = {
 	}
 }
 
+# East and Southeast Asian wardrobes have no curly or afro hair styles of their own
+portrait_east_asian_hair_fallback_trigger = {
+	OR = {
+		portrait_chinese_clothing_trigger = yes
+		portrait_japanese_clothing_trigger = yes
+		portrait_southeast_asian_clothing_trigger = yes
+	}
+	NOT = { portrait_papuan_clothing_trigger = yes }
+}
+
+# Diasporic characters in a landless court dress like the culture where the court's domicile is located
+# Without a domicile they keep their own fashion
+portrait_dresses_like_domicile_locals_trigger = {
+	$CULTURE_SCOPE$ ?= { has_cultural_parameter = dresses_like_domicile_locals }
+	court_owner ?= { is_landless_ruler = yes }
+	exists = court_owner.domicile.domicile_location.culture
+}
+
 portrait_shared_clothing_contents_trigger = {
 	trigger_if = {
 		limit = { exists = top_liege.var:adopted_cultural_style }
@@ -564,6 +577,12 @@ portrait_shared_clothing_contents_trigger = {
 		var:adopted_cultural_style = flag:$CULTURE_FLAG$
 		has_variable = years_as_varangian
 		is_landed = no
+	}
+	trigger_else_if = {
+		limit = {
+			portrait_dresses_like_domicile_locals_trigger = { CULTURE_SCOPE = $CULTURE_SCOPE$ }
+		}
+		court_owner.domicile.domicile_location.culture = { has_clothing_gfx = $CULTURE_FLAG$_clothing_gfx }
 	}
 	trigger_else = {
 		$CULTURE_SCOPE$ ?= { has_clothing_gfx = $CULTURE_FLAG$_clothing_gfx }
@@ -1504,7 +1523,7 @@ portrait_dali_clothing_spouse_trigger = {
 	}
 }
 
-portrait_uyghur_clothing_trigger = { #UYGHR DYNASTY
+portrait_uyghur_clothing_trigger = { #UYGHUR DYNASTY
 	#has_cp9_dlc_trigger = yes
 	portrait_shared_clothing_contents_trigger = {
 		CULTURE_SCOPE = culture
@@ -1549,6 +1568,38 @@ portrait_jurchen_clothing_spouse_trigger = {
 	portrait_shared_clothing_contents_trigger = {
 		CULTURE_SCOPE = culture
 		CULTURE_FLAG = jurchen
+	}
+}
+
+portrait_sogdian_clothing_trigger = { #TANGUT DYNASTY
+	#has_cp9_dlc_trigger = yes
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = sogdian
+	}
+}
+
+portrait_sogdian_clothing_spouse_trigger = {
+	#has_cp9_dlc_trigger = yes
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = sogdian
+	}
+}
+
+### GDP ###
+
+portrait_italian_clothing_trigger = {
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = italian
+	}
+}
+
+portrait_italian_clothing_spouse_trigger = {
+	portrait_shared_clothing_contents_trigger = {
+		CULTURE_SCOPE = culture
+		CULTURE_FLAG = italian
 	}
 }
 
@@ -1737,6 +1788,10 @@ portrait_commoner_trigger = {
 			has_realm_law = camp_purpose_scholars
 		}
 		government_has_flag = government_is_herder
+		AND = { # Merchants
+			government_has_flag = government_is_merchant
+			company_size_large_or_huge_trigger = no
+		}
 	}
 	NOR = {
 		portrait_high_nobles_trigger = {
@@ -1755,27 +1810,35 @@ portrait_commoner_trigger = {
 	trigger_if = {
 		limit = { exists = this } # To check if this is an actual character
 		NOR = {
-			primary_spouse ?= { # You have a spouse that is higher than baron, unless Legitimists
+			primary_spouse ?= { # You have a spouse that is higher than baron, unless Legitimists or large Merchant
 				AND = {
 					highest_held_title_tier > tier_barony
-					NAND = {
+					NAND = { # Adventurers
 						government_has_flag = government_is_landless_adventurer
 						has_realm_law = camp_purpose_legitimists
 					}
+					NAND = { # Merchants
+						government_has_flag = government_is_merchant
+						company_size_large_or_huge_trigger = no
+					}
 				}
 			}
-			AND = { # You cannot be the courtier of a Legitimist Adventurer
+			AND = {
 				is_ruler = no
-				government_has_flag = government_is_landless_adventurer
-				liege ?= {
-					has_realm_law = camp_purpose_legitimists
+				OR = {
+					AND = { # You cannot be the courtier of a Legitimist Adventurer
+						government_has_flag = government_is_landless_adventurer
+						liege ?= { has_realm_law = camp_purpose_legitimists }
+					}
+					AND = { # You cannot be the courtier of a larger Merchant company
+						government_has_flag = government_is_merchant
+						liege ?= { company_size_large_or_huge_trigger = yes }
+					}
 				}
 			}
 			has_no_particular_noble_roots_trigger = no # You cannot have noble roots
 			AND = { # Members of Council
-				liege ?= {
-					highest_held_title_tier >= tier_duchy
-				}
+				liege ?= { highest_held_title_tier >= tier_duchy }
 				OR = {
 					has_council_position = councillor_chancellor
 					has_council_position = councillor_steward
@@ -1810,6 +1873,10 @@ portrait_commoner_no_mayors_trigger = {
 			has_realm_law = camp_purpose_scholars
 		}
 		government_has_flag = government_is_herder
+		AND = { # Merchants
+			government_has_flag = government_is_merchant
+			company_size_large_or_huge_trigger = no
+		}
 	}
 	trigger_if = {
 		limit = { exists = this } # To check if this is an actual character
@@ -1818,9 +1885,13 @@ portrait_commoner_no_mayors_trigger = {
 			primary_spouse ?= {
 				AND = {
 					highest_held_title_tier > tier_county
-					NAND = {
+					NAND = { # Adventurers
 						government_has_flag = government_is_landless_adventurer
 						has_realm_law = camp_purpose_legitimists
+					}
+					NAND = { # Merchants
+						government_has_flag = government_is_merchant
+						company_size_large_or_huge_trigger = yes
 					}
 				}
 			}
@@ -1831,7 +1902,7 @@ portrait_commoner_no_mayors_trigger = {
 				has_dlc_feature = royal_court
 			}
 			court_owner = {
-			amenity_level = { target = court_fashion value < 4 }
+				amenity_level = { target = court_fashion value < 4 }
 			}
 		}
 	}
@@ -1856,9 +1927,13 @@ portrait_low_nobles_trigger = {
 						NOT = { government_has_flag = government_is_japan_feudal } # Japanese bushi class always wear low/war nobility clothing
 					}
 				}
-				trigger_if = {
+				trigger_if = { # Adventurers
 					limit = { government_has_flag = government_is_landless_adventurer }
-					has_realm_law = camp_purpose_legitimists
+					has_realm_law = camp_purpose_legitimists # Legitimists wear
+				}
+				trigger_if = { # Merchants
+					limit = { government_has_flag = government_is_merchant }
+					company_size_large_or_huge_trigger = yes
 				}
 			}
 		}
@@ -1879,9 +1954,7 @@ portrait_low_nobles_trigger = {
 				portrait_$CULTURE_INPUT$_clothing_trigger = yes
 			}
 			AND = { # Members of Council
-				liege ?= {
-					highest_held_title_tier >= tier_duchy
-				}
+				liege ?= { highest_held_title_tier >= tier_duchy }
 				OR = {
 					has_council_position = councillor_chancellor
 					has_council_position = councillor_steward
@@ -1890,9 +1963,7 @@ portrait_low_nobles_trigger = {
 			}
 			AND = { # Courtiers
 				highest_held_title_tier < tier_county
-				court_owner ?= {
-					highest_held_title_tier > tier_duchy
-				}
+				court_owner ?= { highest_held_title_tier > tier_duchy }
 				portrait_$CULTURE_INPUT$_clothing_trigger = yes
 			}
 			portrait_mayor_trigger = { # Mayors
@@ -1910,9 +1981,17 @@ portrait_low_nobles_trigger = {
 				}
 				portrait_$CULTURE_INPUT$_clothing_trigger = yes
 			}
+			AND = { # Merchants
+				government_has_flag = government_is_merchant
+				OR = {
+					company_size_large_or_huge_trigger = yes
+					liege ?= { company_size_large_or_huge_trigger = yes }
+				}
+				portrait_$CULTURE_INPUT$_clothing_trigger = yes
+			}
 			AND = {
 				is_ruler = yes
-				highest_held_title_tier <= tier_county
+				highest_held_title_tier < tier_duchy
 				# Japanese bushi class always wear low/war nobility clothing
 				trigger_if = {
 					limit = { government_has_flag = government_is_japan_feudal }
@@ -1920,6 +1999,7 @@ portrait_low_nobles_trigger = {
 				}
 				NOR = {
 					government_has_flag = government_is_herder
+					government_has_flag = government_is_merchant # handled above
 					AND = {
 						government_has_flag = government_is_republic
 						primary_title.tier > tier_barony
@@ -1941,7 +2021,7 @@ portrait_low_nobles_trigger = {
 					OR = {
 						highest_held_title_tier = tier_county
 						government_has_flag = government_is_mercenary
-						AND = {
+						AND = { # Adventurers
 							government_has_flag = government_is_landless_adventurer
 							NOT = { has_realm_law = camp_purpose_legitimists }
 						}
@@ -1959,6 +2039,10 @@ portrait_low_nobles_trigger = {
 						AND = {
 							is_ruler = yes
 							government_has_flag = government_is_theocracy
+						}
+						AND = { # Merchants
+							government_has_flag = government_is_merchant
+							company_size_large_or_huge_trigger = no
 						}
 					}
 					portrait_$CULTURE_INPUT$_clothing_spouse_trigger = yes
@@ -2016,6 +2100,10 @@ portrait_high_nobles_trigger = {
 						is_ruler = no
 						government_has_flag = government_is_landless_adventurer
 						liege ?= {  has_realm_law = camp_purpose_legitimists }
+					}
+					AND = { # Merchants
+						government_has_flag = government_is_merchant
+						exists = liege.primary_title.var:merchant_company_creditor_capstone_unlocked
 					}
 				}
 				NOR = { # Blocked for mercenaries and adventurers
@@ -2474,6 +2562,10 @@ portrait_imperial_trigger = {
 		scope:highest_held_title_tier >= tier_empire
 		portrait_$CULTURE_INPUT$_clothing_trigger = yes
 	}
+	trigger_if = {
+		limit = { is_alive = no }
+		tgp_primary_title_is_ministry = no
+	}
 }
 
 portrait_imperial_clothing_trigger = {
@@ -2631,6 +2723,17 @@ portrait_war_nobles_helmet_trigger = {
 	OR = {
 		has_character_flag = need_military_outfit
 		portrait_wear_helmet_trigger = yes
+		AND = { # For lower ranking characters like mercenary captains etc.
+				OR = {
+					portrait_commoner_armor_trigger = {
+						CULTURE_INPUT = $CULTURE_INPUT$
+					}
+					portrait_low_nobles_armor_trigger = {
+						CULTURE_INPUT = $CULTURE_INPUT$
+					}
+				}
+			portrait_wear_armor_trigger = yes
+		}
 	}
 	portrait_$CULTURE_INPUT$_clothing_trigger = yes
 	NOR = {
@@ -2832,6 +2935,7 @@ portrait_sickness_trigger = {
 	}
 	NOT = { has_dead_character_flag = ignore_sickness_clothes }
 	portrait_ep2_wedding_clothes_trigger = no
+	NOT = { exists = involved_activity }
 }
 
 
@@ -2852,6 +2956,57 @@ portrait_mayor_headgear_trigger = {
 	highest_held_title_tier < tier_county
 	government_has_flag = government_is_republic
 	portrait_$CULTURE_INPUT$_clothing_trigger = yes
+}
+
+portrait_gdp_county_republican_trigger = {
+	exists = this
+	highest_held_title_tier >= tier_county
+	government_has_flag = government_is_republic
+	portrait_$CULTURE_INPUT$_clothing_trigger = yes
+	portrait_doge_trigger = no
+}
+
+portrait_gdp_barony_republican_trigger = {
+	exists = this
+	highest_held_title_tier <= tier_barony
+	OR = {
+		government_has_flag = government_is_republic
+		liege ?= { government_has_flag = government_is_republic }
+	}
+	portrait_$CULTURE_INPUT$_clothing_trigger = yes
+	portrait_doge_trigger = no
+}
+
+portrait_doge_trigger = {
+	trigger_if = {
+		limit = { exists = this }
+		government_has_flag = government_is_republic
+		primary_title.tier >= tier_duchy
+	}
+	portrait_italian_clothing_trigger = yes
+}
+
+portrait_gdp_wealthy_merchant_trigger = {
+	exists = this
+	highest_held_title_tier >= tier_county
+	government_has_flag = government_is_merchant
+	company_size_large_or_huge_trigger = yes
+	portrait_$CULTURE_INPUT$_clothing_trigger = yes
+}
+
+portrait_gdp_merchant_trigger = {
+	exists = this
+	highest_held_title_tier <= tier_county
+	portrait_merchant_or_merchant_courtier_trigger = yes
+	company_size_large_or_huge_trigger = no
+	portrait_$CULTURE_INPUT$_clothing_trigger = yes
+}
+
+portrait_merchant_or_merchant_courtier_trigger = {
+	OR = {
+		government_has_flag = government_is_merchant
+		liege ?= { government_has_flag = government_is_merchant }
+	}
 }
 
 portrait_jester_trigger = {
@@ -3447,6 +3602,27 @@ portrait_ep2_mena_travel_cloak_trigger = {
 			current_travel_plan = {
 				travel_plan_activity = {
 					has_activity_type = activity_pilgrimage
+				}
+			}
+		}
+	}
+}
+
+portrait_travelling_not_at_activity_trigger = {
+	is_travelling = yes
+	NOT = {
+		involved_activity ?= { activity_location = root.location }
+	}
+}
+
+portrait_hunting_or_travelling_trigger = {
+	OR = {
+		involved_activity ?= { has_activity_type = activity_hunt }
+		AND = {
+			portrait_travelling_not_at_activity_trigger = yes
+			NOT = {
+				current_travel_plan ?= {
+					travel_plan_activity ?= { has_activity_type = activity_pilgrimage }
 				}
 			}
 		}

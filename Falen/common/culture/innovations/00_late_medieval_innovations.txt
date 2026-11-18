@@ -44,7 +44,7 @@ innovation_levee_en_masse = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
 	icon = @maa_02
-	
+
 	character_modifier = {
 		levy_size = 0.25
 	}
@@ -59,7 +59,7 @@ innovation_natural_rights = {
 	icon = @natural_rights
 
 	character_modifier = {
-		county_opinion_add = 30
+		popular_opinion_add = 30
 	}
 
 	flag = global_regular
@@ -70,7 +70,7 @@ innovation_public_school = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
 	icon = @public_school
-	
+
 	custom = fast_conversion
 
 	flag = global_regular
@@ -81,7 +81,7 @@ innovation_constitution = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
 	icon = @administration_3
-	
+
 	character_modifier = {
 		monthly_county_control_change_add = 0.2
 		monthly_county_control_change_factor = 0.2
@@ -95,12 +95,12 @@ innovation_nationalism = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
 	icon =  @nationalism
-	
+
 	character_modifier = {
 		same_culture_opinion = 15
 		opinion_of_same_culture = 15
 	}
-	
+
 	flag = global_regular
 	flag = late_medieval_era_regular
 }
@@ -109,7 +109,7 @@ innovation_official = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
 	icon = @nobility_04
-		
+
 	character_modifier = {
 		domain_limit = 1
 	}
@@ -122,7 +122,7 @@ innovation_press = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
 	icon = @press
-	
+
 	character_modifier = {
 		tyranny_gain_mult = -0.3
 	}
@@ -135,7 +135,7 @@ innovation_assembly = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
 	icon = @assembly
-	
+
 	character_modifier = {
 		vassal_tax_mult = 0.2
 	}
@@ -145,7 +145,7 @@ innovation_social_welfare = {
 	group = culture_group_civic
 	culture_era = culture_era_late_medieval
 	icon = @administration_3
-	
+
 	character_modifier = {
 		general_opinion = 5
 	}

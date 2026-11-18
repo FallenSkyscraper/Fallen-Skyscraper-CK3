@@ -114,12 +114,12 @@ joson_election.1 = {
 			every_held_title = {
 				limit = {
 					tier = tier_county
-					development_level > 0
+					prosperity_level > 0
 				}
 				prev = {
 					change_variable = {
 						name = fs_prk_election_voting_power
-						add = prev.development_level
+						add = prev.prosperity_level
 					}
 				}
 			}

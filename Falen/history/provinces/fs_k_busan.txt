@@ -1,4 +1,4 @@
-﻿#k_busan 
+﻿#k_busan
 ##d_busan  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_busan
 
@@ -7,8 +7,11 @@
 	rite = populism
 	holding = city_holding
 	2400.1.1 = {
-		buildings = {
-			Busan_Port_00
+		districts = {
+			district = {
+				type = Busan_Port_00_district
+				level = 1
+			}
 		}
 	}
 }
@@ -31,8 +34,8 @@
 782 = { #Daeyeon(Namgu)
 	holding = church_holding
 }
- 
- 
+
+
 ### c_westernbusan
 777 = {#Gupo(Bukgu)
 	culture = busan
@@ -48,7 +51,7 @@
 774 = {#Gangseo
 	holding = church_holding
 }
- 
+
 ### c_dongrae
 785={#Dongrae
 	culture = busan
@@ -58,19 +61,24 @@
 
 784 = {#Yeonje
 	holding = none
-} 
+}
 786 = {#Geumjeong
 	holding = church_holding
-	
+
 	2400.1.1 = {
-		special_building_slot = pusan_national_university
+		special_district_slot = pusan_national_university_district
 	}
 	2500.1.1 = {
-		special_building = pusan_national_university
+		districts = {
+			district = {
+				type = pusan_national_university_district
+				level = 1
+			}
+		}
 	}
-} 
-  
-  
+}
+
+
 ### c_gijang
 788={#Gijang
 	culture = busan
@@ -80,16 +88,16 @@
 
 789 = {#Cheolma
 	holding = church_holding
-} 
+}
 790 = {#Ilgwang
 	holding = none
-}  
+}
 791 = {#Jeonggwan
 	holding = none
-} 
+}
 178 = {#Jangan
 	holding = none
-} 
+}
 
 
 ##d_gimhae  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
@@ -102,7 +110,7 @@
 
 770 = {#Juchon
 	holding = church_holding
-} 
+}
 762 = {#Jangyu
 	holding = city_holding
 }
@@ -116,11 +124,11 @@
 
 773 = {#Sangdong
 	holding = church_holding
-} 
+}
 772 = {#Saengrim
 	holding = none
-}  
- 
+}
+
 
 ### c_jinyeong
 769={#Jinyeong
@@ -131,9 +139,9 @@
 
 771 = {#Hanrim
 	holding = none
-} 
+}
 764 = {#Jinrye
 	holding = church_holding
-}  
- 
-  
+}
+
+

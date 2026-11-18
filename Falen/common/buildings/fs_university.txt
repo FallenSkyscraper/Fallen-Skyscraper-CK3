@@ -12,12 +12,18 @@ seoul_national_university_01 = {
 	type_icon = "seoul_national_university.dds"
 	
 	can_construct_potential = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
+
+			}
+		}
 	}
 	
-	cost_gold = 400
+	cost = { gold = 400 }
 
 	province_modifier = {
-		monthly_income = 0.5
+		monthly_generic_tax = 0.5
 		travel_danger = 15 # Gwanak Mountain
 		hostile_raid_time = 1
 		stationed_maa_toughness_mult = normal_maa_toughness_tier_2
@@ -38,16 +44,13 @@ seoul_national_university_01 = {
 		culture_likely_to_fortify_modifier = yes
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
 
 	show_disabled = yes
 
 	next_building = seoul_national_university_02
-	
-	type = special
-
 	flag = travel_point_of_interest_martial # fortress
 }
 
@@ -69,11 +72,20 @@ seoul_national_university_02 = {
 	type_icon = "seoul_national_university.dds"
 
 	can_construct_potential = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		building_requirement_tribal = no
 		building_university_requirement = yes
+
+			}
+		}
 	}
 	
 	can_construct = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		fs_seoul_university_direct_construction_allowed_trigger = yes
 		scope:holder = {
 			highest_held_title_tier >= tier_duchy
@@ -81,7 +93,10 @@ seoul_national_university_02 = {
 			learning >= 25
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
+		}
+
+			}
 		}
 	}
 	
@@ -103,7 +118,7 @@ seoul_national_university_02 = {
 		}
 	}
 	
-	cost_gold = 5000
+	cost = { gold = 5000 }
 
 	character_modifier = {
 		learning = 2
@@ -115,25 +130,22 @@ seoul_national_university_02 = {
 		monthly_dynasty_prestige = 0.25
 	}
 	province_modifier = {
-		monthly_income = 3
+		monthly_generic_tax = 3
 		fort_level = good_building_fort_level_tier_1
 	}
 	county_modifier = {
-		tax_mult = 0.1
-		development_growth_factor = 0.25
-		development_growth = 0.1
+		all_tax_mult = 0.1
+		prosperity_growth_factor = 0.25
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -156,11 +168,20 @@ yonsei_university = {
 	type_icon = "icon_building_university.dds"
 
 	can_construct_potential = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		building_requirement_tribal = no
 		building_university_requirement = yes
+
+			}
+		}
 	}
 	
 	can_construct = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		fs_seoul_university_direct_construction_allowed_trigger = yes
 		scope:holder = {
 			highest_held_title_tier >= tier_duchy
@@ -168,7 +189,10 @@ yonsei_university = {
 			religion = religion:protestant_religion
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
+		}
+
+			}
 		}
 	}
 	
@@ -190,7 +214,7 @@ yonsei_university = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -200,20 +224,17 @@ yonsei_university = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -236,11 +257,20 @@ dongguk_university = {
 	type_icon = "icon_building_university.dds"
 
 	can_construct_potential = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		building_requirement_tribal = no
 		building_university_requirement = yes
+
+			}
+		}
 	}
 	
 	can_construct = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		fs_seoul_university_direct_construction_allowed_trigger = yes
 		scope:holder = {
 			highest_held_title_tier >= tier_duchy
@@ -248,7 +278,10 @@ dongguk_university = {
 			religion = religion:buddhism_religion
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
+		}
+
+			}
 		}
 	}
 	
@@ -270,7 +303,7 @@ dongguk_university = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -280,20 +313,17 @@ dongguk_university = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -316,11 +346,20 @@ sogang_university = {
 	type_icon = "icon_building_university.dds"
 
 	can_construct_potential = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		building_requirement_tribal = no
 		building_university_requirement = yes
+
+			}
+		}
 	}
 	
 	can_construct = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		fs_seoul_university_direct_construction_allowed_trigger = yes
 		scope:holder = {
 			highest_held_title_tier >= tier_duchy
@@ -328,7 +367,10 @@ sogang_university = {
 			religion = religion:christianity_religion
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
+		}
+
+			}
 		}
 	}
 	
@@ -350,7 +392,7 @@ sogang_university = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -360,20 +402,17 @@ sogang_university = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -396,11 +435,20 @@ sungkyunkwan_university = {
 	type_icon = "sungkyunkwan_university.dds"
 
 	can_construct_potential = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		building_requirement_tribal = no
 		building_university_requirement = yes
+
+			}
+		}
 	}
 	
 	can_construct = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		fs_seoul_university_direct_construction_allowed_trigger = yes
 		scope:holder = {
 			highest_held_title_tier >= tier_duchy
@@ -408,7 +456,10 @@ sungkyunkwan_university = {
 			religion = religion:confucianism_religion
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
+		}
+
+			}
 		}
 	}
 	
@@ -430,7 +481,7 @@ sungkyunkwan_university = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -440,20 +491,17 @@ sungkyunkwan_university = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -476,11 +524,20 @@ korea_university = {
 	type_icon = "icon_building_university.dds"
 
 	can_construct_potential = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		building_requirement_tribal = no
 		building_university_requirement = yes
+
+			}
+		}
 	}
 	
 	can_construct = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		fs_seoul_university_direct_construction_allowed_trigger = yes
 		scope:holder = {
 			highest_held_title_tier >= tier_duchy
@@ -488,7 +545,10 @@ korea_university = {
 			religion = religion:cheondo_religion
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
+		}
+
+			}
 		}
 	}
 	
@@ -510,7 +570,7 @@ korea_university = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -520,20 +580,17 @@ korea_university = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -556,18 +613,30 @@ kyunghee_university = {
 	type_icon = "icon_building_university.dds"
 
 	can_construct_potential = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		building_requirement_tribal = no
 		building_university_requirement = yes
+
+			}
+		}
 	}
 	
 	can_construct = {
+		OR = {
+			has_variable = fs_seoul_project_building_installation
+			AND = {
 		fs_seoul_university_direct_construction_allowed_trigger = yes
 		scope:holder = {
 			highest_held_title_tier >= tier_duchy
 			prestige_level >= 4
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
+		}
+
+			}
 		}
 	}
 	
@@ -589,7 +658,7 @@ kyunghee_university = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -599,20 +668,17 @@ kyunghee_university = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -647,7 +713,7 @@ kyungpook_national_university = {
 			prestige_level >= 4
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
 		}
 	}
 	
@@ -669,7 +735,7 @@ kyungpook_national_university = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -679,20 +745,17 @@ kyungpook_national_university = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -725,7 +788,7 @@ pusan_national_university = {
 			prestige_level >= 4
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
 		}
 	}
 	
@@ -747,7 +810,7 @@ pusan_national_university = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -757,20 +820,17 @@ pusan_national_university = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -803,7 +863,7 @@ POSTECH = {
 			prestige_level >= 4
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
 		}
 	}
 	
@@ -825,7 +885,7 @@ POSTECH = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -835,20 +895,17 @@ POSTECH = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -881,7 +938,7 @@ andong_taehak = {
 			prestige_level >= 4
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
 		}
 	}
 	
@@ -903,7 +960,7 @@ andong_taehak = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -913,20 +970,17 @@ andong_taehak = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -959,7 +1013,7 @@ gyeongsang_university = {
 			prestige_level >= 4
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
 		}
 	}
 	
@@ -981,7 +1035,7 @@ gyeongsang_university = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -991,20 +1045,17 @@ gyeongsang_university = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -1039,7 +1090,7 @@ KAIST = {
 			prestige_level >= 4
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
 		}
 	}
 	
@@ -1061,7 +1112,7 @@ KAIST = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -1071,20 +1122,17 @@ KAIST = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -1117,7 +1165,7 @@ chungbuk_university = {
 			prestige_level >= 4
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
 		}
 	}
 	
@@ -1139,7 +1187,7 @@ chungbuk_university = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -1149,20 +1197,17 @@ chungbuk_university = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.1
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.1
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 

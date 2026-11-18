@@ -47,7 +47,7 @@ revolutionary_adventurer_war = {
 							levies = {
 								value = {
 									value = 100
-									multiply = prev.development_level
+									multiply = prev.prosperity_level
 								}
 							}
 							location = prev.title_province
@@ -66,7 +66,7 @@ revolutionary_adventurer_war = {
 							name = communards
 							levies = {
 								value = 50
-								multiply = prev.development_level
+								multiply = prev.prosperity_level
 							}
 							location = prev.title_province
 							inheritable = yes

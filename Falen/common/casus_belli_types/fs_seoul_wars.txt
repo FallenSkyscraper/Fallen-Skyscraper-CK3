@@ -1,4 +1,4 @@
-seoul_recovery_cb = {
+﻿seoul_recovery_cb = {
 	group = seoul_recovery
 	icon = de_jure_cb
 	combine_into_one = yes
@@ -23,7 +23,7 @@ seoul_recovery_cb = {
 	valid_to_start = {
 		scope:target = {
 			tier = tier_county
-			holder = { target_is_same_character_or_below = scope:defender }
+			holder = { target_is_same_character_or_above = scope:defender }
 			title:k_seoul = {
 				any_de_jure_county = { this = scope:target }
 			}
@@ -36,7 +36,7 @@ seoul_recovery_cb = {
 			scope:attacker.top_liege = scope:defender.top_liege
 			scope:target = {
 				OR = {
-					NOT = { holder = { target_is_same_character_or_below = scope:defender } }
+					NOT = { holder = { target_is_same_character_or_above = scope:defender } }
 					title:k_seoul = {
 						NOT = { any_de_jure_county = { this = scope:target } }
 					}

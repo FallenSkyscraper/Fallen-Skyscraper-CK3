@@ -24,12 +24,17 @@
 	culture = cheongju
 	rite = authoritarianism
 	holding = castle_holding
-	
+
 	2400.1.1 = {
-		special_building_slot = chungbuk_university
+		special_district_slot = chungbuk_university_district
 	}
 	2500.1.1 = {
-		special_building = chungbuk_university
+		districts = {
+			district = {
+				type = chungbuk_university_district
+				level = 1
+			}
+		}
 	}
 }
 2596 = {	# Hyeondo

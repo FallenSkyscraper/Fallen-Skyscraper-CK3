@@ -1,4 +1,4 @@
-﻿#k_iksan 
+﻿#k_iksan
 ##d_iksan  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_iksan
 
@@ -8,7 +8,12 @@
 	rite = jeonju_rite
 	holding = city_holding
 	2300.1.1 = {
-		special_building = holy_site_cathedral_01
+		districts = {
+			district = {
+				type = holy_site_cathedral_01_district
+				level = 1
+			}
+		}
 	}
 }
 68 = {	#Okya
@@ -37,13 +42,18 @@
 	rite = jeonju_rite
 	holding = castle_holding
 	640.1.1 = {
-		special_building_slot = maitreya_temple
-		special_building = maitreya_temple
+		special_district_slot = maitreya_temple_district
+		districts = {
+			district = {
+				type = maitreya_temple_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_yeosan 
-1062={#Yeosan  
+###c_yeosan
+1062={#Yeosan
 	culture = jeonju
 	rite = jeonju_rite
 	holding = castle_holding
@@ -87,10 +97,10 @@
 	holding = city_holding
 }
 
- 
- 
- 
- 
+
+
+
+
 
 ##d_gunsan  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_gunsan
@@ -128,7 +138,7 @@
 	holding = none
 }
 
-###c_impi 
+###c_impi
 
 1056={#Impi
 	culture = saemangeum
@@ -150,9 +160,9 @@
 }
 1053 = {	#Daeya
 	holding = none
-}  
- 
-  
+}
+
+
 
 ##d_gimje  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_gimje
@@ -165,8 +175,13 @@
 1034 = {	#Buryang
 	holding = castle_holding
 	330.1.1 = {
-		special_building_slot = byeokkolje
-		special_building = byeokkolje
+		special_district_slot = byeokkolje_district
+		districts = {
+			district = {
+				type = byeokkolje_district
+				level = 1
+			}
+		}
 	}
 }
 1037 = {	#Baeksan
@@ -193,7 +208,7 @@
 	holding = none
 }
 
-###c_mangyeong 
+###c_mangyeong
 1035 = {	#Mangyeong
 	culture = jeonju
 	rite = holyist
@@ -206,7 +221,7 @@
 	holding = none
 }
 
-###c_baekgu 
+###c_baekgu
 
 120={#Baekgu
 	culture = jeonju
@@ -217,8 +232,8 @@
 1043 = {	#Yongji
 	holding = none
 }
- 
-###c_jinbong 
+
+###c_jinbong
 
 1030={#Jinbong
 	culture = saemangeum
@@ -233,9 +248,9 @@
 1031 = {	#Gwanghwal
 	holding = none
 }
- 
- 
- 
+
+
+
 
 
 ##d_gochang  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
@@ -253,7 +268,7 @@
 	holding = none
 }
 
-###c_buan 
+###c_buan
 
 629 = {	#Heungdeok
 	culture = saemangeum
@@ -270,7 +285,7 @@
 	holding = none
 }
 
-###c_daesan 
+###c_daesan
 
 617={#Daesan
 	culture = saemangeum
@@ -305,26 +320,26 @@
 }
 
 ##d_buan
-###c_buan 
+###c_buan
 
 978={#Buan
 	culture = saemangeum
 	rite = holyist
 	holding = castle_holding
 }
-  
+
 977 = {	#Dongjeon
 	holding = none
 }
 975 = {	#Gyehwa
 	holding = none
 }
-  
+
 976 = {	#Haengan
 	holding = none
-} 
+}
 
-###c_byeonsan 
+###c_byeonsan
 
 969={#Byeonsan
 	culture = saemangeum
@@ -338,7 +353,7 @@
 972 = {	#Haseo
 	holding = none
 }
-  
+
 973 = {	#Sangseo
 	holding = none
 }
@@ -355,7 +370,7 @@
 }
 121 = {	#Julpo
 	holding = city_holding
-}   
+}
 
 
 
@@ -398,11 +413,11 @@
 }
 983 = {	#Yeongwon
 	holding = none
-} 
+}
 986 = {	#Ipyeong
 	holding = city_holding
-} 
-###c_taein 
+}
+###c_taein
 
 992={#Taein
 	culture = jeonju
@@ -425,10 +440,10 @@
 }
 123 = {	#Sannae
 	holding = church_holding
-}  
+}
 991 = {	#Chilbo
 	culture = jeonju
 	rite = holyist
 	holding = castle_holding
-}   
+}
 

@@ -1,16 +1,21 @@
-﻿#k_jinju 
-##d_jinju  ###################################k는 왕국 d는 공작 c는 백작 b는 남작 
-###c_jinju 
-813 = {	#Jinju  
+﻿#k_jinju
+##d_jinju  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
+###c_jinju
+813 = {	#Jinju
 	culture = jinju
 	rite = lutheran
 	holding = castle_holding
-	
+
 	2400.1.1 = {
-		special_building_slot = gyeongsang_university
+		special_district_slot = gyeongsang_university_district
 	}
 	2500.1.1 = {
-		special_building = gyeongsang_university
+		districts = {
+			district = {
+				type = gyeongsang_university_district
+				level = 1
+			}
+		}
 	}
 }
 809 = {	#Naedong
@@ -29,7 +34,7 @@
 	holding = none
 }
 
-###c_daepyeong 
+###c_daepyeong
 808 = {	#Daepyeong
 	culture = jinju
 	rite = lutheran
@@ -43,7 +48,7 @@
 	holding = none
 }
 
-###c_jiphyeon 
+###c_jiphyeon
 814 = {	#Jiphhyeon
 	culture = jinju
 	rite = lutheran
@@ -57,7 +62,7 @@
 	holding = none
 }
 
-###c_jinseong 
+###c_jinseong
 819 = {	# Jinseong
 	culture = jinju
 	rite = lutheran
@@ -75,7 +80,7 @@
 156 = {	#Ibanseong
 	holding = none
 }
- 
+
 ##d_sacheon  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ###c_sacheon
 734 = {	#Sacheon
@@ -91,7 +96,7 @@
 	holding = none
 }
 
-###c_gonyang 
+###c_gonyang
 731 = {	#Gonyang
 	culture = jinju
 	rite = lutheran
@@ -104,8 +109,8 @@
 730 = {	#Seopo
 	holding = none
 }
- 
-###c_samcheonpo 
+
+###c_samcheonpo
 148 = {	#Samcheonpo
 	culture = jinju
 	rite = lutheran
@@ -118,7 +123,7 @@
 737 = {	#yonghyeon
 	holding = none
 }
-###c_samsan 
+###c_samsan
 741 = {	#Samsan
 	culture = jinju
 	rite = authoritarianism
@@ -134,7 +139,7 @@
 739 = {	#Cheokbeonjeong
 	holding = none
 }
- 
+
 ###c_goseong
 749 = {	#Goseong
 	culture = jinju
@@ -174,4 +179,4 @@
 742 = {	#Yeonghyeon
 	holding = none
 }
- 
+

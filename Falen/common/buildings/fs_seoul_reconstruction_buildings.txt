@@ -1,19 +1,19 @@
-# Ordinary building-chain upgrade: universities keep their special-building slot.
+﻿# Ordinary building-chain upgrade: universities keep their special-building slot.
 seoul_metropolis_02 = {
 	type_icon = "icon_building_guild_halls.dds"
-	can_construct_potential = { always = no }
+	can_construct_potential = { has_variable = fs_seoul_project_building_installation }
 	show_disabled = yes
 
 	levy = 100
 	province_modifier = {
-		monthly_income = 7
+		monthly_generic_tax = 7
 		fort_level = 2
 		garrison_size = 0.5
 		travel_danger = -20
 	}
 	county_modifier = {
-		development_growth_factor = 0.25
-		tax_mult = 0.1
+		prosperity_growth_factor = 0.25
+		all_tax_mult = 0.1
 		hostile_raid_time = 0.5
 		levy_size = 0.3
 	}

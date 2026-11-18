@@ -3,11 +3,11 @@ Incheon_Port_00 = {
 type_icon = "icon_building_incheon_port.dds"
 
     province_modifier = {
-        monthly_income = 1
-        monthly_income_mult = 0.05
+        monthly_generic_tax = 1
+        all_tax_mult = 0.05
     }
     county_modifier = {
-        development_growth_factor = 0.05
+        prosperity_growth_factor = 0.05
     }
 
     next_building = Incheon_Port_01
@@ -23,15 +23,15 @@ Incheon_Port_01 = {
         
 }
 
-    cost_gold = 800
+    cost = { gold = 800 }
 
     province_modifier = {
-        monthly_income = 4
-        monthly_income_mult = 0.12
+        monthly_generic_tax = 4
+        all_tax_mult = 0.12
     }
 
     county_modifier = {
-        development_growth_factor = 0.1
+        prosperity_growth_factor = 0.1
     }
     next_building = Incheon_Port_02
 
@@ -44,15 +44,15 @@ Incheon_Port_02 = {
         
 }
 
-    cost_gold = 1000
+    cost = { gold = 1000 }
 
     province_modifier = {
-        monthly_income = 6
-        monthly_income_mult = 0.25
+        monthly_generic_tax = 6
+        all_tax_mult = 0.25
     }
 
     county_modifier = {
-        development_growth_factor = 0.25
+        prosperity_growth_factor = 0.25
     }
 
 }
@@ -62,11 +62,11 @@ Busan_Port_00 = {
 type_icon = "icon_building_Busan_port.dds"
 
     province_modifier = {
-        monthly_income = 1
-        monthly_income_mult = 0.05
+        monthly_generic_tax = 1
+        all_tax_mult = 0.05
     }
     county_modifier = {
-        development_growth_factor = 0.05
+        prosperity_growth_factor = 0.05
     }
 
     next_building = Busan_Port_01
@@ -82,15 +82,15 @@ Busan_Port_01 = {
         
 }
 
-    cost_gold = 800
+    cost = { gold = 800 }
 
     province_modifier = {
-        monthly_income = 4
-        monthly_income_mult = 0.12
+        monthly_generic_tax = 4
+        all_tax_mult = 0.12
     }
 
     county_modifier = {
-        development_growth_factor = 0.1
+        prosperity_growth_factor = 0.1
     }
     next_building = Busan_Port_02
 
@@ -103,15 +103,15 @@ Busan_Port_02 = {
         
 }
 
-    cost_gold = 1000
+    cost = { gold = 1000 }
 
     province_modifier = {
-        monthly_income = 6
-        monthly_income_mult = 0.25
+        monthly_generic_tax = 6
+        all_tax_mult = 0.25
     }
 
     county_modifier = {
-        development_growth_factor = 0.25
+        prosperity_growth_factor = 0.25
     }
 
 }
@@ -138,7 +138,7 @@ hwaseong_fortress = {
 	can_construct_potential = {
 	}
 	
-	cost_gold = 300
+	cost = { gold = 300 }
 	
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -147,7 +147,7 @@ hwaseong_fortress = {
 	}
 
 	province_modifier = {
-		monthly_income = 3
+		monthly_generic_tax = 3
 		garrison_size = 0.2
 		fort_level = 4
 		travel_danger = -10
@@ -157,12 +157,9 @@ hwaseong_fortress = {
 		base = 100
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_martial
 }
 
@@ -179,34 +176,31 @@ mokpo_grand_market = {
 	}
 	show_disabled = yes
 	
-	cost_gold = expensive_building_tier_5_cost
+	cost = { gold = expensive_building_tier_5_cost }
 	
 	duchy_capital_county_modifier = {
-		county_opinion_add = 10
-		development_growth_factor = 0.3
+		popular_opinion_add = 10
+		prosperity_growth_factor = 0.3
 	}
 	county_modifier = {
-		development_growth = 0.25
+		prosperity_growth = 0.25
 		levy_reinforcement_rate_same_faith = 0.25
 		levy_size = 0.25
 	}
 	province_modifier = {
-		monthly_income = 9
+		monthly_generic_tax = 9
 	}
 	character_modifier = {
 		martial = 1
 		stewardship_per_prestige_level = 1
-		monthly_income_mult = 0.15
+		all_tax_mult = 0.15
 		monthly_prestige = 0.25
 	}
-	
-	type = duchy_capital
-	
 	ai_value = {
 		base = 100
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
 	
@@ -231,7 +225,6 @@ type_icon = "icon_building_Presidential_Palace_of_joseon.dds"
 Kumsusan_Palace_of_the_Sun = {
 type_icon = "icon_building_Kumsusan_Palace_of_the_Sun.dds"
 
-    next_building = Presidential_Palace_of_joseon
 }
 #경복궁(종로)
 Gyeongbokgung_Palace = {
@@ -271,7 +264,7 @@ seoul_central_mosque = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		monthly_piety = 0.5
@@ -285,14 +278,14 @@ seoul_central_mosque = {
 	}
 	
 	county_modifier = {
-		tax_mult = 0.2
-		development_growth_factor = 0.3
-		development_growth = 0.1
+		all_tax_mult = 0.2
+		prosperity_growth_factor = 0.3
+		prosperity_growth = 0.1
 		levy_size = 0.3
 	}
 	
 	province_modifier = {
-		monthly_income = 3
+		monthly_generic_tax = 3
 		fort_level = 2
 	}
 	
@@ -300,12 +293,9 @@ seoul_central_mosque = {
 		base = 100
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_religious
 }
 
@@ -337,7 +327,7 @@ gyeonggijeon = {
 		building_requirement_tribal = no
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		monthly_piety = 0.5
@@ -348,14 +338,14 @@ gyeonggijeon = {
 	}
 	
 	county_modifier = {
-		tax_mult = 0.15
-		development_growth_factor = 0.2
-		development_growth = 0.1
+		all_tax_mult = 0.15
+		prosperity_growth_factor = 0.2
+		prosperity_growth = 0.1
 		levy_size = 0.25
 	}
 	
 	province_modifier = {
-		monthly_income = 5
+		monthly_generic_tax = 5
 		fort_level = 1
 	}
 	
@@ -363,12 +353,9 @@ gyeonggijeon = {
 		base = 100
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_religious
 
 }
@@ -403,7 +390,7 @@ dosan_academy = {
 			religion = religion:confucianism_religion
 		}
 		county = {
-			development_level >= 30
+			prosperity_level >= 30
 		}
 	}
 	
@@ -425,7 +412,7 @@ dosan_academy = {
 		}
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		learning_per_prestige_level = 1
@@ -434,8 +421,8 @@ dosan_academy = {
 	}
 	
 	county_modifier = {
-		development_growth_factor = 0.1
-		development_growth = 0.05
+		prosperity_growth_factor = 0.1
+		prosperity_growth = 0.05
 	}
 	
 	county_holder_character_modifier = {
@@ -448,19 +435,16 @@ dosan_academy = {
 	}
 	
 	province_modifier = {
-		monthly_income = 1.5
+		monthly_generic_tax = 1.5
 	}
 	
 	ai_value = {
 		base = 8
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_learning
 }
 
@@ -579,34 +563,31 @@ byeokkolje = {
 		building_requirement_tribal = no
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		monthly_county_control_change_factor = 0.15
-		monthly_income_mult = 0.05
+		all_tax_mult = 0.05
 	}
 	
 	county_modifier = {
-		tax_mult = 0.25
-		development_growth_factor = 0.4
-		development_growth = 0.05
+		all_tax_mult = 0.25
+		prosperity_growth_factor = 0.4
+		prosperity_growth = 0.05
 		levy_size = 0.25
 	}
 	
 	province_modifier = {
-		monthly_income = 3
+		monthly_generic_tax = 3
 	}
 	
 	ai_value = {
 		base = 100
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_economic_minor
 }
 
@@ -617,7 +598,7 @@ maitreya_temple = {
 		building_requirement_tribal = no
 	}
 	
-	cost_gold = 1000
+	cost = { gold = 1000 }
 
 	character_modifier = {
 		monthly_piety = 0.5
@@ -626,22 +607,19 @@ maitreya_temple = {
 	}
 	
 	county_modifier = {
-		monthly_income_mult = 0.15
+		all_tax_mult = 0.15
 	}
 	
 	province_modifier = {
-		monthly_income = 0.5
+		monthly_generic_tax = 0.5
 	}
 	
 	ai_value = {
 		base = 100
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = special
-
 	flag = travel_point_of_interest_religious
 }

@@ -1,4 +1,4 @@
-﻿#k_daegu 
+﻿#k_daegu
 ##d_daegu  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_daegu
 174 = { # Daegu
@@ -18,10 +18,15 @@
 929 = { # Chilseong(Buk-gu)
 	holding = church_holding
 	2400.1.1 = {
-		special_building_slot = kyungpook_national_university
+		special_district_slot = kyungpook_national_university_district
 	}
 	2500.1.1 = {
-		special_building = kyungpook_national_university
+		districts = {
+			district = {
+				type = kyungpook_national_university_district
+				level = 1
+			}
+		}
 	}
 }
 ### c_haean
@@ -77,10 +82,10 @@
 }
 2611 = {#Nongong
 	holding = church_holding
-}   
+}
 2608 = {#Guji
 	holding = none
-} 
+}
 
 ##d_seongju  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_seongju
@@ -92,16 +97,16 @@
 
 1134 = {#Chojeon
 	holding = church_holding
-} 
+}
 168 = {#Wolhang
 	holding = none
-}  
+}
 1133 = {#Seonnam
 	holding = none
-} 
+}
 1131 = {#Yongam
 	holding = none
-} 
+}
 
 
 ### c_byeokjin
@@ -113,16 +118,16 @@
 
 1128 = {#Suryun
 	holding = none
-} 
+}
 1130 = {#Daega
 	holding = church_holding
-}  
+}
 1127 = {#Gacheon
 	holding = none
-} 
+}
 1126 = {#Geumsu
 	holding = none
-} 
+}
 
 
 ### c_goryeong
@@ -134,15 +139,15 @@
 
 890 = {#Deokgok
 	holding = none
-} 
+}
 888 = {#Ssangrim
 	holding = church_holding
-}  
+}
 892 = {#Ugok
 	holding = none
-} 
- 
- 
+}
+
+
 
 ### c_seongsan
 894={#Seongsan
@@ -153,14 +158,14 @@
 
 891 = {#Unsu
 	holding = church_holding
-} 
+}
 170 = {#Dasan
 	holding = none
-}  
+}
 893 = {#Gaejin
 	holding = none
-} 
-  
+}
+
 ##d_chilgok  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_chilgok
 932 = {#Chilgok (Bukgu)

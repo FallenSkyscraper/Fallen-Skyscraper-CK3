@@ -5,7 +5,7 @@ salt_farm_00 = {
 
     construction_time = 300
 
-    cost_gold = 125
+    cost = { gold = 125 }
 
     can_construct_potential = {
         scope:holder.culture = {
@@ -14,11 +14,11 @@ salt_farm_00 = {
     }
 
     province_modifier = {
-        monthly_income = 3
+        monthly_generic_tax = 3
     }
 
     county_modifier = {
-        county_opinion_add = -5
+        popular_opinion_add = -5
     }
 
 }
@@ -40,17 +40,17 @@ seoul_metropolis_01 = {
     can_construct_showing_failures_only = {
         building_requirement_tribal = no
     }
-	cost_gold = 2000
+	cost = { gold = 2000 }
 	
 	levy = 100
 	province_modifier = {
-		monthly_income = 5
+		monthly_generic_tax = 5
 		fort_level = 2
 		garrison_size = 0.5
 		travel_danger = -20
 	}
 	county_modifier = {
-		development_growth_factor = -0.1
+		prosperity_growth_factor = -0.1
 		hostile_raid_time = 0.5
 		levy_size = 0.3
 	}
@@ -59,7 +59,7 @@ seoul_metropolis_01 = {
 		base = 100
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
 	
@@ -88,17 +88,17 @@ hanyang_city_01 = {
 		}
 	}
 	
-	cost_gold = 1500
+	cost = { gold = 1500 }
 	
 	duchy_capital_county_modifier = {
 		levy_size = 0.15
-		tax_mult = 0.15
+		all_tax_mult = 0.15
 	}
 	county_modifier = {
 		defender_holding_advantage = 5
-		development_growth_factor = 0.15
-		tax_mult = 0.15
-		county_opinion_add = 5
+		prosperity_growth_factor = 0.15
+		all_tax_mult = 0.15
+		popular_opinion_add = 5
 		hostile_raid_time = 0.5
 		travel_danger = -20
 	}
@@ -113,12 +113,9 @@ hanyang_city_01 = {
 		culture_likely_to_fortify_modifier = yes
 		modifier = { # Fill all building slots before going for special buildings
 			factor = 0
-			free_building_slots > 0
+			free_district_slots > 0
 		}
 	}
-	
-	type = duchy_capital
-	
 	flag = duchy_building
 	flag = travel_point_of_interest_martial
 }

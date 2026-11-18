@@ -276,44 +276,6 @@ base_tax_collector_aptitude_score = {
 			desc = fp3_inspired_tax_collector
 		}
 	}
-	# Opinion of liege
-	add = {
-		desc = opinion_of_liege
-		value = {
-			if = {
-				limit = {
-					save_temporary_opinion_value_as = { name = target_opinion target = liege }
-				}
-			}
-			if = {
-				limit = {
-					scope:target_opinion >= very_high_positive_opinion
-				}
-				add = 20
-			}
-			else_if = {
-				limit = {
-					scope:target_opinion >= high_positive_opinion
-				}
-				add = 15
-			}
-			else_if = {
-				limit = {
-					scope:target_opinion >= medium_positive_opinion
-				}
-				add = 10
-			}
-			else_if = {
-				limit = {
-					scope:target_opinion >= low_positive_opinion
-				}
-				add = 5
-			}
-			else = {
-				add = 0
-			}
-		}
-	}
 
 	# Cultural Tradition
 	if = {
@@ -348,6 +310,46 @@ base_tax_collector_aptitude_score = {
 
 tax_collector_aptitude_score = {
 	value = base_tax_collector_aptitude_score
+
+	# Bureaucratic District
+	if = {
+		limit = {
+			liege.capital_province ?= {
+				has_building_or_higher = diwan_al_zimam_1
+			}
+		}
+		add = {
+			value = 0
+			if = {
+				limit = {
+					liege.capital_province = { has_building_or_higher = diwan_al_zimam_5 }
+				}
+				add = bureaucratic_tax_collector_aptitude_tier_5
+			}
+			else_if = {
+				limit = {
+					liege.capital_province = { has_building_or_higher = diwan_al_zimam_4 }
+				}
+				add = bureaucratic_tax_collector_aptitude_tier_4
+			}
+			else_if = {
+				limit = {
+					liege.capital_province = { has_building_or_higher = diwan_al_zimam_3 }
+				}
+				add = bureaucratic_tax_collector_aptitude_tier_3
+			}
+			else_if = {
+				limit = {
+					liege.capital_province = { has_building_or_higher = diwan_al_zimam_2 }
+				}
+				add = bureaucratic_tax_collector_aptitude_tier_2
+			}
+			else = {
+				add = bureaucratic_tax_collector_aptitude_tier_1
+			}
+			desc = diwan_al_zimam_tax_collector_aptitude_desc
+		}
+	}
 
 	# Viziers
 	if = {

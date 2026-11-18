@@ -755,7 +755,7 @@ doctrine_pluralism = {
 		}
 		parameters = {
 			hostility_towards_us_mult = 2
-			
+
 			pluralism_fundamentalist_proselytization_bonus = yes
 			pluralism_fundamentalist_faction_join_chance = yes
 			pluralism_fundamentalist_vulnerable_to_heresy = yes
@@ -807,7 +807,7 @@ doctrine_pluralism = {
 			pluralism_pluralistic_faction_join_chance = yes
 			pluralism_pluralistic_resistant_to_heresy = yes
 			pluralism_pluralistic_holy_wars_preserve_vassals = yes
-			
+
 		}
 	}
 }
@@ -826,7 +826,7 @@ doctrine_theocracy = {
 				multiply = faith_changed_doctrine_cost_mult_two_step
 			}
 		}
-		
+
 		can_pick = {
 			custom_description = {
 				text = incompatible_doctrine_theocracy_temporal_trigger
@@ -938,7 +938,7 @@ doctrine_clerical_function = {
 	}
 	doctrine_clerical_function_alms_and_pacification = {
 		clergy_modifier = {
-			county_opinion_add_even_if_baron = 10
+			popular_opinion_add_even_if_baron = 10
 			domain_tax_mult_even_if_baron = -0.05
 		}
 		piety_cost = {
@@ -1031,7 +1031,7 @@ doctrine_clerical_marriage = {
 				multiply = faith_changed_doctrine_cost_mult_two_step
 			}
 		}
-		
+
 		parameters = {
 			clergy_can_marry = yes
 		}
@@ -1120,7 +1120,7 @@ doctrine_clerical_succession = {
 						}
 					}
 					multiply = faith_changed_doctrine_cost_mult_two_step
-				}	
+				}
 			}
 			# Round up to the nearest multiple of 25
 			divide = 25
@@ -1133,7 +1133,7 @@ doctrine_clerical_succession = {
 				text = incompatible_doctrine_spiritual_appointment_temporal_trigger
 				NOT = { doctrine:doctrine_temporal_head = { is_in_list = selected_doctrines } }
 			}
-		}		
+		}
 
 		parameters = {
 			clerical_appointment_head_of_faith = yes

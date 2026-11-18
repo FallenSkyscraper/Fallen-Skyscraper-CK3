@@ -55,7 +55,7 @@ is_communism_faith = {
 	is_available_on_create = {
 		has_doctrine = special_doctrine_is_communism_faith
 	}
-	
+
 	special_doctrine_is_communism_faith = {
 		parameters = {
 			hostility_override_tenet_communism_syncretism = 1
@@ -86,7 +86,7 @@ is_tengri_faith = {
 	is_available_on_create = {
 		has_doctrine = special_doctrine_is_tengri_faith
 	}
-	
+
 	special_doctrine_is_tengri_faith = {
 		parameters = {
 			hostility_override_tenet_plain_faith_syncretism = 2
@@ -223,7 +223,7 @@ the_pantheon = {
 		}
 		character_modifier = {
 			learning_per_piety_level = 1
-			county_opinion_add = 15
+			popular_opinion_add = 15
 			tyranny_gain_mult = 0.3
 			faith_creation_piety_cost_mult = -0.25
 			monthly_piety_gain_mult = -0.15
@@ -265,7 +265,7 @@ the_pantheon = {
 			}
 		}
 		character_modifier = {
-			development_growth_factor = 0.2
+			prosperity_growth_factor = 0.2
 			health = 0.1
 			life_expectancy = 2
 			martial = -2

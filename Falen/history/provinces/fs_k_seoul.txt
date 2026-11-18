@@ -1,4 +1,4 @@
-﻿#k_seoul 
+﻿#k_seoul
 ##d_seoul  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_jongno
 
@@ -6,234 +6,396 @@
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
-	
+
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 	2400.1.1 = {
-		special_building_slot = sungkyunkwan_university
-		duchy_capital_building = hanyang_city_01
+		special_district_slot = sungkyunkwan_university_district
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+			district = {
+				type = hanyang_city_01_district
+				level = 1
+			}
+		}
 	}
 	2500.1.1 = {
-		special_building = sungkyunkwan_university
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+			district = {
+				type = sungkyunkwan_university_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_junggu 
+###c_junggu
 29 = {	#junggu
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
-	
+
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 	2400.1.1 = {
-		special_building_slot = dongguk_university
+		special_district_slot = dongguk_university_district
 	}
 	2500.1.1 = {
-		special_building = dongguk_university
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+			district = {
+				type = dongguk_university_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_yongsan 
+###c_yongsan
 30 = {	#yongsan
 	culture = kuriyn
 	rite = muttahida
 	holding = castle_holding
 	1976.5.21 = {
-		special_building_slot = seoul_central_mosque
-		special_building = seoul_central_mosque
+		special_district_slot = seoul_central_mosque_district
+		districts = {
+			district = {
+				type = seoul_central_mosque_district
+				level = 1
+			}
+		}
 	}
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+			district = {
+				type = seoul_central_mosque_district
+				level = 1
+			}
+		}
 	}
 }
 
 ##d_mapo ###################################
-###c_mapo 
+###c_mapo
 
 27={#mapo
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
-	
+
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 	2400.1.1 = {
-		special_building_slot = sogang_university 
+		special_district_slot = sogang_university_district
 	}
 	2500.1.1 = {
-		special_building = sogang_university 
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+			district = {
+				type = sogang_university_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_west_gate  
+###c_west_gate
 26 = {	#c_west_gate
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
-	
+
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 	2400.1.1 = {
-		special_building_slot = yonsei_university
+		special_district_slot = yonsei_university_district
 	}
 	2500.1.1 = {
-		special_building = yonsei_university
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+			district = {
+				type = yonsei_university_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_eunpyeong  
+###c_eunpyeong
 25 = {	#c_eunpyeong
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
 ##d_northeast ###################################
-###c_seongbuk 
+###c_seongbuk
 
 32={#c_seongbuk
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
-	
+
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 		2400.1.1 = {
-			special_building_slot = korea_university
+			special_district_slot = korea_university_district
 		}
 		2500.1.1 = {
-			special_building = korea_university
+			districts = {
+				district = {
+					type = seoul_metropolis_01_district
+					level = 1
+				}
+				district = {
+					type = korea_university_district
+					level = 1
+				}
+			}
 		}
 }
 
-###c_gangbuk   
-33 = {	#c_gangbuk 
+###c_gangbuk
+33 = {	#c_gangbuk
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
-	
+
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_dobong   
-35 = {	#c_dobong 
+###c_dobong
+35 = {	#c_dobong
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
-###c_nowon 
-36 = {	#c_nowon 
+###c_nowon
+36 = {	#c_nowon
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
 
 ##d_fareast ###################################
 
-###c_seongdong 
+###c_seongdong
 
 31={#c_seongdong
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_east_gate    
-34 = {	#c_east_gate  
+###c_east_gate
+34 = {	#c_east_gate
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
-	
+
 	2400.1.1 = {
-		special_building_slot = kyunghee_university
+		special_district_slot = kyunghee_university_district
 	}
 	2500.1.1 = {
-		special_building = kyunghee_university
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+			district = {
+				type = kyunghee_university_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_jungnang    
-37 = {	#c_jungnang  
+###c_jungnang
+37 = {	#c_jungnang
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
-###c_gwangjin  
-38 = {	#c_gwangjin  
+###c_gwangjin
+38 = {	#c_gwangjin
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
 ##d_gangnam  ###################################
 
-###c_gangnam 
+###c_gangnam
 
 42={#c_gangnam
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_gangdong      
-40 = {	#c_gangdong   
+###c_gangdong
+40 = {	#c_gangdong
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_songpa     
-41 = {	#c_songpa   
+###c_songpa
+41 = {	#c_songpa
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
-###c_seocho   
-43 = {	#c_seocho   
+###c_seocho
+43 = {	#c_seocho
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
@@ -241,79 +403,133 @@
 ##d_yongdungpo   ###################################
 
 
-###c_dongjak  
+###c_dongjak
 
-44={#c_dongjak 
+44={#c_dongjak
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_yeongdeungpo       
-45 = {	#c_yeongdeungpo    
+###c_yeongdeungpo
+45 = {	#c_yeongdeungpo
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_gangseo      
-46 = {	#c_gangseo    
+###c_gangseo
+46 = {	#c_gangseo
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
-###c_yangcheon    
-47 = {	#c_yangcheon    
+###c_yangcheon
+47 = {	#c_yangcheon
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
 
-###c_guro        
-48 = {	#c_guro     
+###c_guro
+48 = {	#c_guro
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
 
-###c_geumcheon       
-49 = {	#c_geumcheon     
+###c_geumcheon
+49 = {	#c_geumcheon
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+		}
 	}
 }
-###c_gwanak     
-50 = {	#c_gwanak     
+###c_gwanak
+50 = {	#c_gwanak
 	culture = seoul
 	rite = seoulism
 	holding = castle_holding
-	
+
 	1975.1.1 = {
-		special_building = seoul_national_university_01
+		special_district_slot = seoul_national_university_01_district
+		districts = {
+			district = {
+				type = seoul_national_university_01_district
+				level = 1
+			}
+		}
 	}
 	2000.1.1 = {
-		buildings = { seoul_metropolis_01 }
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+			district = {
+				type = seoul_national_university_01_district
+				level = 1
+			}
+		}
 	}
 	2500.1.1 = {
-		special_building = seoul_national_university_02
+		districts = {
+			district = {
+				type = seoul_metropolis_01_district
+				level = 1
+			}
+			district = {
+				type = seoul_national_university_01_district
+				level = 2
+			}
+		}
 	}
 }

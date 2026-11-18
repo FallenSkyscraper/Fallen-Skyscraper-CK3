@@ -109,13 +109,28 @@ GetRoom = {
 		trigger = {
 			trigger_if = {
 				limit = { is_ruler = yes }
-				has_government = landless_adventurer_government
+				OR = {
+					has_government = landless_adventurer_government
+					has_government = nomad_government
+					has_government = herder_government
+				}
 			}
 			trigger_else = {
-				liege ?= { has_government = landless_adventurer_government }
+				liege ?= {
+					OR = {
+						has_government = landless_adventurer_government
+						has_government = nomad_government
+						has_government = herder_government
+					}
+				}
 			}
 		}
 		localization_key = tent
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = hall
+		fallback = yes
 	}
 	text = {
 		trigger = { always = no }
@@ -137,10 +152,20 @@ GetCourtyard = {
 		trigger = {
 			trigger_if = {
 				limit = { is_ruler = yes }
-				has_government = landless_adventurer_government
+				OR = {
+					has_government = landless_adventurer_government
+					has_government = nomad_government
+					has_government = herder_government
+				}
 			}
 			trigger_else = {
-				liege ?= { has_government = landless_adventurer_government }
+				liege ?= {
+					OR = {
+						has_government = landless_adventurer_government
+						has_government = nomad_government
+						has_government = herder_government
+					}
+				}
 			}
 		}
 		localization_key = camp
@@ -170,6 +195,18 @@ GetCourt = {
 		localization_key = camp
 	}
 	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = company
+	}
+	text = {
 		trigger = { always = no }
 		localization_key = court
 		fallback = yes
@@ -192,10 +229,39 @@ GetCourtConcept = {
 		localization_key = CAMP
 	}
 	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = COMPANY
+	}
+	text = {
 		trigger = { always = no }
 		localization_key = COURT_CONCEPT
 		fallback = yes
 	}
+}
+
+GetCourtPositionOrAssociate = {
+	type = character
+
+	text = {
+		trigger = {
+			has_government = merchant_government
+		}
+		localization_key = ASSOCIATE_DEPUTY
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = COURTIER_COUNCILLOR
+		fallback = yes
+	}
+
 }
 
 GetCourtierGendered = {
@@ -217,14 +283,34 @@ GetCourtierGendered = {
 	}
 	text = {
 		trigger = {
-			liege ?= { is_landless_adventurer = no }
+			liege ?= { has_government = merchant_government }
+			is_female = yes
+		}
+		localization_key = associate_female
+	}
+	text = {
+		trigger = {
+			liege ?= { has_government = merchant_government }
+			is_male = yes
+		}
+		localization_key = associate_male
+	}
+	text = {
+		trigger = {
+			liege ?= {
+				is_landless_adventurer = no
+				NOT = { has_government = merchant_government }
+			}
 			is_female = yes
 		}
 		localization_key = relation_courtier_female
 	}
 	text = {
 		trigger = {
-			liege ?= { is_landless_adventurer = no }
+			liege ?= {
+				is_landless_adventurer = no
+				NOT = { has_government = merchant_government }
+			}
 			is_male = yes
 		}
 		localization_key = relation_courtier_male
@@ -245,6 +331,18 @@ GetCourtier = {
 			}
 		}
 		localization_key = follower
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = associate
 	}
 	text = {
 		trigger = { always = no }
@@ -275,6 +373,18 @@ GetCourtierConcept = {
 		localization_key = FOLLOWER
 	}
 	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = ASSOCIATE
+	}
+	text = {
 		trigger = { always = no }
 		localization_key = COURTIER
 		fallback = yes
@@ -293,7 +403,12 @@ GetSubject = {
 	text = {
 		trigger = {
 			trigger_if = {
-				limit = { is_ruler = yes }
+				limit = {
+					OR = {
+						is_ruler = yes
+						is_alive = no
+					}
+				}
 				has_government = landless_adventurer_government
 			}
 			trigger_else = {
@@ -301,6 +416,23 @@ GetSubject = {
 			}
 		}
 		localization_key = follower
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = {
+					OR = {
+						is_ruler = yes
+						is_alive = no
+					}
+				}
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = associate
 	}
 	text = {
 		trigger = { always = no }
@@ -319,30 +451,68 @@ GetSuccessionHeirMotion = {
 	type = character
 
 	text = {
-		trigger = {
-			trigger_if = {
-				limit = { is_ruler = yes }
-				OR = {
-					has_government = landless_adventurer_government
-					AND = {
-						OR = {
-							any_held_title = { is_noble_family_title = yes }
-							government_has_mechanic = administrative
-						}
-						is_independent_ruler = no
-					}
-					tgp_is_ceremonial_regent_trigger = yes
-				}
-			}
-			trigger_else = {
-				liege ?= { has_government = landless_adventurer_government }
-			}
-		}
+		trigger = { successor_is_not_a_traditional_feudal_esque_ruler_trigger = yes }
 		localization_key = succession_heir_leader
 	}
 	text = {
 		trigger = { always = no }
 		localization_key = succession_heir_throne
+		fallback = yes
+	}
+}
+
+GetSuccessionRulerNoun = {
+	type = character
+
+	text = {
+		trigger = { successor_is_not_a_traditional_feudal_esque_ruler_trigger = yes }
+		localization_key = succession_ruler_title
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = succession_ruler_noun
+		fallback = yes
+	}
+}
+
+GetSuccessionFewRulers = {
+	type = character
+
+	text = {
+		trigger = { successor_is_not_a_traditional_feudal_esque_ruler_trigger = yes }
+		localization_key = succession_few_others
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = succession_few_rulers
+		fallback = yes
+	}
+}
+
+GetSuccessionShyCouncil = {
+	type = character
+
+	text = {
+		trigger = { government_has_flag = government_is_merchant }
+		localization_key = succession_shy_associates
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = succession_shy_council
+		fallback = yes
+	}
+}
+
+GetSuccessionTrustingCouncil = {
+	type = character
+
+	text = {
+		trigger = { government_has_flag = government_is_merchant }
+		localization_key = succession_trusting_associates
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = succession_trusting_council
 		fallback = yes
 	}
 }
@@ -354,7 +524,10 @@ GetDungeon = {
 		trigger = {
 			trigger_if = {
 				limit = { is_ruler = yes }
-				has_government = landless_adventurer_government
+				OR = {
+					has_government = landless_adventurer_government
+					has_government = merchant_government
+				}
 			}
 			trigger_else = {
 				liege ?= { has_government = landless_adventurer_government }
@@ -382,10 +555,18 @@ GetDungeonConcept = {
 		trigger = {
 			trigger_if = {
 				limit = { is_ruler = yes }
-				has_government = landless_adventurer_government
+				OR = {
+					has_government = landless_adventurer_government
+					has_government = merchant_government
+				}
 			}
 			trigger_else = {
-				liege ?= { has_government = landless_adventurer_government }
+				liege ?= {
+					OR = {
+						has_government = landless_adventurer_government
+						has_government = merchant_government
+					}
+				}
 			}
 		}
 		localization_key = STOCKADE_CONCEPT
@@ -417,6 +598,18 @@ GetRealmOrDomicile = {
 			}
 		}
 		localization_key = game_concept_camp
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = game_concept_company
 	}
 	text = {
 		trigger = {
@@ -480,10 +673,18 @@ GetRealmOrDomicileTooltip = {
 		trigger = {
 			trigger_if = {
 				limit = { is_ruler = yes }
-				is_landless_administrative = yes
+				OR = {
+					is_landless_administrative = yes
+					is_landless_republic = yes
+				}
 			}
 			trigger_else = {
-				liege ?= { is_landless_administrative = yes }
+				liege ?= {
+					OR = {
+						is_landless_administrative = yes
+						is_landless_republic = yes
+					}
+				}
 			}
 		}
 		localization_key = NOBLE_FAMILY
@@ -559,6 +760,18 @@ GetRealmOrDomicileTooltip = {
 		localization_key = VASSAL_TOOLTIP
 	}
 	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = MERCHANT
+	}
+	text = {
 		trigger = { always = no }
 		localization_key = REALM_TOOLTIP
 		fallback = yes
@@ -605,8 +818,90 @@ GetRealmOrDomicileConcept = {
 		localization_key = GOVERNORSHIP
 	}
 	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = COMPANY
+	}
+	text = {
 		trigger = { always = no }
 		localization_key = activity_filter_realm
+		fallback = yes
+	}
+}
+
+GetCourtOrDomicileArtifactConcept = {
+	type = character
+
+	text = {
+		trigger = {
+			domicile ?= { is_domicile_type = merchant_company }
+		}
+		localization_key = DOMICILE_ARTIFACT
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = COURT_ARTIFACT
+		fallback = yes
+	}
+}
+
+GetCourtOrDomicileArtifactConceptPlural = {
+	type = character
+	parent = GetCourtOrDomicileArtifactConcept
+	suffix = "_PLURAL"
+}
+
+GetCourtOrDomicileArtifactNoConcept = {
+	type = character
+
+	text = {
+		trigger = {
+			domicile ?= { is_domicile_type = merchant_company }
+		}
+		localization_key = game_concept_domicile_artifact
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = game_concept_court_artifact
+		fallback = yes
+	}
+}
+
+GetCourtOrDomicileArtifactNoConceptPlural = {
+	type = character
+
+	text = {
+		trigger = {
+			domicile ?= { is_domicile_type = merchant_company }
+		}
+		localization_key = game_concept_domicile_artifacts
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = game_concept_court_artifacts
+		fallback = yes
+	}
+}
+
+GetCourtOrDomicileArtifactNoRoyalCourtTabDesc = {
+	type = character
+
+	text = {
+		trigger = {
+			domicile ?= { is_domicile_type = merchant_company }
+		}
+		localization_key = CHARACTER_WITHOUT_ROYAL_COURT_COURT_ARTIFACT_TAB_merchant
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = CHARACTER_WITHOUT_ROYAL_COURT_COURT_ARTIFACT_TAB_court
 		fallback = yes
 	}
 }
@@ -615,8 +910,28 @@ GetCourtPosition = {
 	type = character
 
 	text = {
-		trigger = { is_landed = no }
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = landless_adventurer_government
+			}
+			trigger_else = {
+				liege ?= { has_government = landless_adventurer_government }
+			}
+		}
 		localization_key = game_concept_officer
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = game_concept_deputy
 	}
 	text = {
 		trigger = { always = no }
@@ -629,8 +944,28 @@ GetCourtPositionPlural = {
 	type = character
 
 	text = {
-		trigger = { is_landed = no }
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = landless_adventurer_government
+			}
+			trigger_else = {
+				liege ?= { has_government = landless_adventurer_government }
+			}
+		}
 		localization_key = game_concept_officers
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = game_concept_deputies
 	}
 	text = {
 		trigger = { always = no }
@@ -639,12 +974,66 @@ GetCourtPositionPlural = {
 	}
 }
 
+GetCourtPositionConcept = {
+	type = character
+
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = landless_adventurer_government
+			}
+			trigger_else = {
+				liege ?= { has_government = landless_adventurer_government }
+			}
+		}
+		localization_key = OFFICER
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = DEPUTY
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = COURT_POSITION
+		fallback = yes
+	}
+}
+
 GetCourtPositionConceptPlural = {
 	type = character
 
 	text = {
-		trigger = { is_landed = no }
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = landless_adventurer_government
+			}
+			trigger_else = {
+				liege ?= { has_government = landless_adventurer_government }
+			}
+		}
 		localization_key = OFFICER_PLURAL
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = DEPUTY_PLURAL
 	}
 	text = {
 		trigger = { always = no }
@@ -657,8 +1046,28 @@ GetCourtOrOfficerPositionConceptPlural = {
 	type = character
 
 	text = {
-		trigger = { is_landed = no }
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = landless_adventurer_government
+			}
+			trigger_else = {
+				liege ?= { has_government = landless_adventurer_government }
+			}
+		}
 		localization_key = officer_positions
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = deputy_positions
 	}
 	text = {
 		trigger = { always = no }
@@ -667,12 +1076,66 @@ GetCourtOrOfficerPositionConceptPlural = {
 	}
 }
 
+GetGrantCourtPositionName = {
+	type = character
+
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = landless_adventurer_government
+			}
+			trigger_else = {
+				liege ?= { has_government = landless_adventurer_government }
+			}
+		}
+		localization_key = grant_court_position_officer
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = grant_court_position_deputy
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = grant_court_position_court
+		fallback = yes
+	}
+}
+
 GetCourtOwnerConcept = {
 	type = character
 
 	text = {
-		trigger = { is_landed = no }
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = landless_adventurer_government
+			}
+			trigger_else = {
+				liege ?= { has_government = landless_adventurer_government }
+			}
+		}
 		localization_key = ADVENTURER
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = MERCHANT
 	}
 	text = {
 		trigger = { always = no }
@@ -685,7 +1148,12 @@ GetCourtOwner = {
 	type = character
 
 	text = {
-		trigger = { has_government = landless_adventurer_government }
+		trigger = {
+			OR = {
+				has_government = landless_adventurer_government
+				has_government = merchant_government
+			}
+		}
 		localization_key = court_owner_adventurer
 	}
 	text = {
@@ -709,6 +1177,18 @@ GetValidKnightsHeader = {
 			}
 		}
 		localization_key = KNIGHTS_SUBHEADER_LANDLESS_ADVENTURER
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = KNIGHTS_SUBHEADER_MERCHANT
 	}
 	text = {
 		trigger = { always = no }
@@ -797,6 +1277,12 @@ GetServants = {
 		localization_key = followers_adventurer
 	}
 	text = {
+		trigger = {
+			has_government = merchant_government
+		}
+		localization_key = associates_company
+	}
+	text = {
 		trigger = { always = no }
 		localization_key = servants_desc_regular
 		fallback = yes
@@ -811,6 +1297,12 @@ GetFollowerOrVassal = {
 			has_government = landless_adventurer_government
 		}
 		localization_key = follower
+	}
+	text = {
+		trigger = {
+			has_government = merchant_government
+		}
+		localization_key = associate
 	}
 	text = {
 		trigger = { always = no }
@@ -1350,6 +1842,24 @@ GetGovernmentIcon = {
 		}
 		localization_key = steppe_admin_icon_concept
 	}
+	text = { # Merchant
+		trigger = {
+			trigger_if = {
+				limit = { is_alive = no }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				trigger_if = {
+					limit = { is_ruler = yes }
+					has_government = merchant_government
+				}
+				trigger_else = {
+					liege ?= { has_government = merchant_government }
+				}
+			}
+		}
+		localization_key = merchant_icon_concept
+	}
 	text = { # Feudal
 		trigger = { always = no }
 		localization_key = feudal_icon_concept
@@ -1504,6 +2014,12 @@ GetGovernmentTypeIcon = {
 		}
 		localization_key = steppe_admin_icon_concept
 	}
+	text = { # Merchant
+		trigger = {
+			government_type_has_flag = government_is_merchant
+		}
+		localization_key = merchant_icon_concept
+	}
 	text = { # Feudal
 		trigger = { always = no }
 		localization_key = feudal_icon_concept
@@ -1533,5 +2049,39 @@ GetTribalFeudal = {
 
 	text = {
 		localization_key = feudal_government
+	}
+}
+
+GetCourtButton = {
+	type = character
+
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = landless_adventurer_government
+			}
+			trigger_else = {
+				liege ?= { has_government = landless_adventurer_government }
+			}
+		}
+		localization_key = camp_followers
+	}
+	text = {
+		trigger = {
+			trigger_if = {
+				limit = { is_ruler = yes }
+				has_government = merchant_government
+			}
+			trigger_else = {
+				liege ?= { has_government = merchant_government }
+			}
+		}
+		localization_key = company_associates
+	}
+	text = {
+		trigger = { always = no }
+		localization_key = courtier_plural
+		fallback = yes
 	}
 }

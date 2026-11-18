@@ -1,4 +1,4 @@
-﻿ #k_daejeon 
+﻿ #k_daejeon
 ##d_daejeon  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_daejeon
 
@@ -8,36 +8,41 @@
 	holding = castle_holding
 }
 
-###c_daedeok 
+###c_daedeok
 111 = {	#Daedeok
 	culture = daejeon
 	rite = mechanism
 	holding = castle_holding
-	
-	
-	
+
+
+
 }
 2651={#Hoedeok
 	holding = church_holding
 }
 
-###c_yuseong 
+###c_yuseong
 2636 = {	#Yuseong
 	culture = daejeon
 	rite = mechanism
 	holding = castle_holding
-	
+
 	1970.1.1 = {
-		special_building_slot = KAIST # 충남대(였던것)
-		special_building = KAIST
+		special_district_slot = KAIST_district # 충남대(였던것)
+		districts = {
+			district = {
+				type = KAIST_district
+				level = 1
+			}
+		}
 	}
 }
 
 2637={#Jinjam
 	holding = city_holding
 }
- 
-###c_jinsan 
+
+###c_jinsan
 
 1162={#Jinsan
 	culture = muju
@@ -46,17 +51,17 @@
 }
 1165 = {#Chubu
 	holding = city_holding
-} 
+}
 1163 = {#Boksu
 	holding = none
-}  
+}
 1166 = {#Dudu
 	holding = none
-}  
+}
 1164 = {#Geumseong
 	holding = none
-} 
-###c_geumsan 
+}
+###c_geumsan
 
 1161={#Geumsan
 	culture = muju
@@ -65,17 +70,17 @@
 }
 1158 = {#Hageum
 	holding = city_holding
-} 
+}
 1159 = {#Chohyeon
 	holding = none
-}  
+}
 1160 = {#Buri
 	holding = none
-}  
+}
 117 = {#Jewon
 	holding = none
-} 
- 
+}
+
 
 ##d_cheongnam  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_okcheon
@@ -86,16 +91,16 @@
 }
 2642 = {#Ibaek
 	holding = none
-} 
+}
 2639 = {#Dongpyeong
 	holding = city_holding
-}  
+}
 2640 = {#Iwon
 	holding = none
-}  
+}
 2511 = {#Dongi
 	holding = none
-} 
+}
 ### c_cheongsan
 2515={#Cheongsan
 	culture = sangju
@@ -104,13 +109,13 @@
 }
 2512 = {#Allae
 	holding = city_holding
-} 
+}
 2513 = {#Allam
 	holding = none
-}  
+}
 2514 = {#Cheongseong
 	holding = church_holding
-}  
+}
 ### c_yeongdong
 1106={#Yeongdong
 	culture = sangju
@@ -119,16 +124,16 @@
 }
 1102 = {#Yangsan
 	holding = none
-} 
+}
 1101 = {#Haksan
 	holding = none
-}  
+}
 1100 = {#Yonghwa
 	holding = none
-}  
+}
  1103 = {#Yanggang
 	holding = none
-}  
+}
 1104 = {#Simcheon
 	holding = city_holding
 }
@@ -140,14 +145,14 @@
 }
 1105 = {#Yongsan
 	holding = none
-} 
+}
 152 = {#Chupungryeong
 	holding = none
-}  
+}
 1109 = {#Maegok
 	holding = none
-}  
+}
  2654 = {#Sangchon
 	holding = city_holding
-}  
- 
+}
+

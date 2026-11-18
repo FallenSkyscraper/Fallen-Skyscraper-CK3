@@ -1,4 +1,4 @@
-# County scope. This is startup state, not a reward ledger.
+﻿# County scope. This is startup state, not a reward ledger.
 fs_seoul_initialize_reconstruction_effect = {
 	set_variable = { name = fs_seoul_skyscraper_stage value = 0 }
 	add_county_modifier = fs_seoul_old_world_ruins_modifier
@@ -38,7 +38,12 @@ fs_seoul_complete_design_effect = {
 
 fs_seoul_complete_restoration_effect = {
 	scope:province = {
-		add_building = seoul_metropolis_02
+		set_variable = { name = fs_seoul_project_building_installation value = yes }
+		every_built_regular_district = {
+			limit = { district_type = district_type:seoul_metropolis_01_district }
+			add_building = seoul_metropolis_02
+		}
+		remove_variable = fs_seoul_project_building_installation
 		county = {
 			hidden_effect = { set_variable = { name = fs_seoul_skyscraper_stage value = 4 } }
 		}
@@ -49,7 +54,12 @@ fs_seoul_complete_restoration_effect = {
 }
 
 fs_seoul_complete_university_effect = {
-	scope:province = { add_special_building = $BUILDING$ }
+	scope:province = {
+		set_variable = { name = fs_seoul_project_building_installation value = yes }
+		add_special_district = $DISTRICT$
+		special_district = { add_building = $BUILDING$ }
+		remove_variable = fs_seoul_project_building_installation
+	}
 	title:k_seoul.holder = {
 		change_influence = { value = $INFLUENCE$ }
 	}

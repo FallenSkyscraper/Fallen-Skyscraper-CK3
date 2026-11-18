@@ -291,9 +291,9 @@ fp3_yearly_events = {
 
 pam_christian_yearly_events = {
 	trigger = {
-		pam_secular_faith_clergy_ok_actor_trigger = yes
 		religion = religion:christianity_religion
 		NOT = { has_character_flag = recently_got_pam_christian_event }
+		pam_secular_faith_clergy_ok_actor_trigger = yes
 	}
 	weight_multiplier = {
 		base = 1

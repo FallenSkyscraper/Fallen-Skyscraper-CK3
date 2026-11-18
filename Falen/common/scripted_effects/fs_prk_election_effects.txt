@@ -146,12 +146,12 @@ fs_prk_refresh_election_overview_ui_effect = {
 			every_held_title = {
 				limit = {
 					tier = tier_county
-					development_level > 0
+					prosperity_level > 0
 				}
 				scope:fs_prk_ui_elector = {
 					change_variable = {
 						name = fs_prk_ui_electoral_votes
-						add = prev.development_level
+						add = prev.prosperity_level
 					}
 				}
 			}

@@ -292,7 +292,7 @@ fs_fp2_struggle.0900 = { # Hostility
 		    }
 		    triggered_desc = {
 		        trigger = {
-					government = government:secular_republic_government
+					has_government = secular_republic_government
 					NOT = {
 						religion = religion:communism_religion
 					}
@@ -310,7 +310,7 @@ fs_fp2_struggle.0900 = { # Hostility
 	immediate = {
 		# Add all involved rulers to a list, for ping event
 		play_music_cue = "mx_Struggle_ending_hostility"
-		fp2_stuggle_ending_involved_list_effect = yes
+		fp2_struggle_ending_involved_list_effect = yes
 		give_nickname = nick_the_juche_conquistador
 		dynasty = { add_dynasty_prestige = 10000 }
 		title:e_northern_joeseon = {
@@ -588,7 +588,7 @@ fs_fp2_struggle.0901 = { # Compromise
 			value = yes
 		}
 		# Add all involved rulers to a list, for ping event
-		fp2_stuggle_ending_involved_list_effect = yes
+		fp2_struggle_ending_involved_list_effect = yes
 	}
 
 	# Ok
@@ -729,7 +729,7 @@ fs_fp2_struggle_2.0902 = { # Conciliation
 			value = yes
 		}
 		# Add all involved rulers to a list, for ping event
-		fp2_stuggle_ending_involved_list_effect = yes
+		fp2_struggle_ending_involved_list_effect = yes
 
 		# Add all involved cultures with counties to a list, for marriage and holy war checks
 		fp2_struggle_ending_culture_list_effect = yes

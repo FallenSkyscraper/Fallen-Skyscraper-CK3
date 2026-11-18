@@ -1,4 +1,4 @@
-e_yalu = {
+﻿e_yalu = {
 	2423.6.15 = {
 		holder = 9008
 		government = nomad_government
@@ -20,7 +20,7 @@ e_yalu = {
 d_dandung = {
 	2423.6.15 = {
 		holder = 9008
-		change_development_level = 2
+		change_prosperity_level = 2
 	}
 }
 c_dandung = {
@@ -28,14 +28,14 @@ c_dandung = {
 		holder = 9008
 	}
 	2444.1.1 = {
-		change_development_level = 17
+		change_prosperity_level = 17
 	}
 }
 k_liaodong = {
 	2425.1.1 = {
 		holder = 9012
 		liege = e_yalu
-		government = nomad_government 
+		government = nomad_government
 		effect = {
 			if = {
 				limit = {
@@ -50,7 +50,7 @@ k_liaodong = {
 	}
 }
 d_xiuyan = {
-	2444.1.1 = { change_development_level = 1 }
+	2444.1.1 = { change_prosperity_level = 1 }
 }
 
 k_balhae = {
@@ -77,19 +77,19 @@ d_dalian = {
 	2435.1.1 = {
 		holder = 6054
 		liege = e_yalu
-		change_development_level = 14
+		change_prosperity_level = 14
 	}
 }
 c_port_arthur = {
-	2444.1.1 = { holder = 6054 change_development_level = 16 }
+	2444.1.1 = { holder = 6054 change_prosperity_level = 16 }
 }
 c_dalian = {
-	2444.1.1 = { holder = 6054 change_development_level = 18 } 
+	2444.1.1 = { holder = 6054 change_prosperity_level = 18 }
 }
 d_changhai = {
 	2430.1.1 = {
 		holder = 9150
-		change_development_level = 3
+		change_prosperity_level = 3
 	}
 }
 
@@ -97,7 +97,7 @@ d_faanchian = {
 	2430.1.1 = {
 		holder = 9131
 		liege = e_yalu
-		change_development_level = 5
+		change_prosperity_level = 5
 	}
 	2442.5.3 = { liege = k_balhae }
 }
@@ -105,7 +105,7 @@ d_wafangdian = {
 	2430.1.1 = {
 		holder = 9130
 		liege = e_yalu
-		change_development_level = 5
+		change_prosperity_level = 5
 	}
 	2442.5.3 = { liege = k_balhae }
 }
@@ -113,7 +113,7 @@ d_zhuanghe = {
 	2430.1.1 = {
 		holder = 9132
 		liege = e_yalu
-		change_development_level = 1
+		change_prosperity_level = 1
 		government = nomad_government
 	}
 	2442.5.3 = { liege = k_liaodong } # 시간은 임의배당
@@ -122,7 +122,7 @@ c_jinzhou = {
 	2430.1.1 = {
 		holder = 9141
 		liege = e_yalu
-		change_development_level = 10
+		change_prosperity_level = 10
 	}
 	2442.5.3 = { liege = k_balhae }
 }
@@ -130,7 +130,7 @@ c_pulandian = {
 	2430.1.1 = {
 		holder = 9143
 		liege = e_yalu
-		change_development_level = 8
+		change_prosperity_level = 8
 	}
 	2442.5.3 = { liege = k_balhae }
 }
@@ -138,7 +138,7 @@ c_yuantai = {
 	2420.1.1 = {
 		holder = 9145
 		liege = e_liao
-		change_development_level = 3
+		change_prosperity_level = 3
 	}
 	2425.1.1 = { liege = e_yalu }
 	2442.5.3 = { liege = k_balhae }
@@ -147,7 +147,7 @@ c_anbo = {
 	2420.1.1 = {
 		holder = 9145
 		liege = e_liao
-		change_development_level = 3
+		change_prosperity_level = 3
 	}
 	2425.1.1 = { liege = e_yalu }
 	2442.5.3 = { liege = k_balhae }
@@ -156,7 +156,7 @@ c_xingtai = {
 	2420.1.1 = {
 		holder = 9145
 		liege = e_liao
-		change_development_level = 4
+		change_prosperity_level = 4
 	}
 	2425.1.1 = { liege = e_yalu }
 	2442.1.1 = {
@@ -168,7 +168,7 @@ c_paotai = {
 	2430.1.1 = {
 		holder = 9147
 		liege = e_yalu
-		change_development_level = 10
+		change_prosperity_level = 10
 	}
 	2442.5.3 = { liege = k_balhae }
 }
@@ -176,7 +176,7 @@ c_shianjian = {
 	2420.1.1 = {
 		holder = 9148
 		liege = e_liao
-		change_development_level = 7
+		change_prosperity_level = 7
 	}
 	2425.1.1 = { liege = e_yalu }
 	2439.5.5 = { holder = 9149 }
@@ -186,7 +186,7 @@ c_yongyu = {
 	2420.1.1 = {
 		holder = 9148
 		liege = e_liao
-		change_development_level = 8
+		change_prosperity_level = 8
 	}
 	2425.1.1 = { liege = e_yalu }
 	2439.5.5 = { holder = 9149 }

@@ -147,7 +147,7 @@ fs_organize_the_counterrevolutionaries = {
 		}
 		any_sub_realm_county = {
 			count >= 1
-			county_opinion >= 25
+			popular_opinion >= 25
 		}
 	}
 	cost = {
@@ -157,7 +157,7 @@ fs_organize_the_counterrevolutionaries = {
 		add_character_flag = organized_counterrevolutionaries
 		every_sub_realm_county = {
 			limit = {
-				county_opinion >= 25
+				popular_opinion >= 25
 			}
 			root = {
 				spawn_army = {
@@ -165,7 +165,7 @@ fs_organize_the_counterrevolutionaries = {
 					levies = {
 						value = {
 							value = 200
-							multiply = prev.development_level
+							multiply = prev.prosperity_level
 						}
 					}
 					location = prev.title_province

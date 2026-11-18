@@ -1,0 +1,523 @@
+﻿# Existing custom building chains retain their slot category.
+# History-only regular districts cannot be constructed in other provinces.
+
+salt_farm_00_district = {
+	primary_building = salt_farm_00
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+seoul_metropolis_01_district = {
+	primary_building = seoul_metropolis_01
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+hanyang_city_01_district = {
+	primary_building = hanyang_city_01
+	type = duchy_capital
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+seoul_national_university_01_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:50
+		}
+	}
+	primary_building = seoul_national_university_01
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+yonsei_university_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:26
+		}
+	}
+	primary_building = yonsei_university
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+dongguk_university_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:29
+		}
+	}
+	primary_building = dongguk_university
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+sogang_university_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:27
+		}
+	}
+	primary_building = sogang_university
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+sungkyunkwan_university_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:28
+		}
+	}
+	primary_building = sungkyunkwan_university
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+korea_university_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:32
+		}
+	}
+	primary_building = korea_university
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+kyunghee_university_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:34
+		}
+	}
+	primary_building = kyunghee_university
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+kyungpook_national_university_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:929
+		}
+	}
+	primary_building = kyungpook_national_university
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+pusan_national_university_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:786
+		}
+	}
+	primary_building = pusan_national_university
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+POSTECH_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:964
+		}
+	}
+	primary_building = POSTECH
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+andong_taehak_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:1347
+		}
+	}
+	primary_building = andong_taehak
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+gyeongsang_university_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:813
+		}
+	}
+	primary_building = gyeongsang_university
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+KAIST_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:2636
+		}
+	}
+	primary_building = KAIST
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+chungbuk_university_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:2605
+		}
+	}
+	primary_building = chungbuk_university
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+Incheon_Port_00_district = {
+	primary_building = Incheon_Port_00
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Busan_Port_00_district = {
+	primary_building = Busan_Port_00
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+jangjin_bunker_district = {
+	primary_building = jangjin_bunker
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+six_republic_bunker_district = {
+	primary_building = six_republic_bunker
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+hwaseong_fortress_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:84
+		}
+	}
+	primary_building = hwaseong_fortress
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+mokpo_grand_market_district = {
+	primary_building = mokpo_grand_market
+	type = duchy_capital
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+Sinan_Salt_Farm_district = {
+	primary_building = Sinan_Salt_Farm
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Gyeongbokgung_Palace_district = {
+	primary_building = Gyeongbokgung_Palace
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+The_National_Assembly_Building_district = {
+	primary_building = The_National_Assembly_Building
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Namsan_Seoul_Tower_district = {
+	primary_building = Namsan_Seoul_Tower
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+seoul_central_mosque_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:30
+		}
+	}
+	primary_building = seoul_central_mosque
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+nuclear_test_site_district = {
+	primary_building = nuclear_test_site
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+POSCO_district = {
+	primary_building = POSCO
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Bullet_Men_district = {
+	primary_building = Bullet_Men
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+gyeonggijeon_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:1046
+		}
+	}
+	primary_building = gyeonggijeon
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+dosan_academy_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:1351
+		}
+	}
+	primary_building = dosan_academy
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+Everland_district = {
+	primary_building = Everland
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Dangun_Tomb_district = {
+	primary_building = Dangun_Tomb
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+EXPO_YEOSU_district = {
+	primary_building = EXPO_YEOSU
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+The_Suncheonman_National_Garden_district = {
+	primary_building = The_Suncheonman_National_Garden
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+central_square_district = {
+	primary_building = central_square
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Mukden_Palace_district = {
+	primary_building = Mukden_Palace
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+LOTTE_WORLD_TOWER_district = {
+	primary_building = LOTTE_WORLD_TOWER
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+the_Imperial_Palace_of_Manchukuo_district = {
+	primary_building = the_Imperial_Palace_of_Manchukuo
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+tomb_of_the_general_district = {
+	primary_building = tomb_of_the_general
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Panmunjeom_district = {
+	primary_building = Panmunjeom
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Koryo_Songgyungwan_district = {
+	primary_building = Koryo_Songgyungwan
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Cheong_Wa_Dae_district = {
+	primary_building = Cheong_Wa_Dae
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Heunginjimun_Gate_district = {
+	primary_building = Heunginjimun_Gate
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Donuimun_district = {
+	primary_building = Donuimun
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Sungnyemun_district = {
+	primary_building = Sungnyemun
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Hydrangea_Temple_district = {
+	primary_building = Hydrangea_Temple
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Gyeongbuk_Palace_district = {
+	primary_building = Gyeongbuk_Palace
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+Gyesan_Cathedral_district = {
+	primary_building = Gyesan_Cathedral
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}
+
+byeokkolje_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:1034
+		}
+	}
+	primary_building = byeokkolje
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+maitreya_temple_district = {
+	can_construct_potential = {
+		OR = {
+			this = province:1063
+		}
+	}
+	primary_building = maitreya_temple
+	type = special
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+}
+
+fs_metropolis_holding_district = {
+	primary_building = fs_metropolis_city_01
+	
+	#East Asia
+	background = {
+		trigger = {
+			culture ?= { has_graphical_east_asia_culture_group_trigger = yes }
+		}
+		reference = "gfx/interface/illustrations/event_scenes/tgp_alley_day_asia.dds"
+	}
+
+	#India
+	background = {
+		trigger = {
+			culture ?= { has_graphical_india_culture_group_trigger = yes }
+		}
+		reference = "gfx/interface/illustrations/event_scenes/gdp_artisans_street_india.dds"
+	}
+
+	#MENA
+	background = {
+		trigger = {
+			OR = {
+				culture ?= { has_graphical_mena_culture_group_trigger = yes }
+				culture ?= { has_graphical_iranian_culture_group_trigger = yes }
+				culture ?= { has_graphical_african_culture_group_trigger = yes }
+			}
+		}
+		reference = "gfx/interface/illustrations/event_scenes/market_east.dds"
+	}
+
+	#Mediterranean
+	background = {
+		trigger = {
+			culture ?= { has_graphical_mediterranean_culture_group_trigger = yes }
+		}
+		reference = "gfx/interface/illustrations/event_scenes/ep3_medi_market.dds"
+	}
+
+	#Steppe
+	background = {
+		trigger = {
+			culture ?= { has_graphical_steppe_culture_group_trigger = yes }
+		}
+		reference = "gfx/interface/illustrations/event_scenes/market_tribal.dds"
+	}
+
+	#Fallback
+	background = {
+		reference = "gfx/interface/illustrations/event_scenes/alley_day.dds"
+	}
+
+	type = holding
+	buildings = {
+		oath_faithful_building_01
+		city_town_market_1
+		city_town_watch_1
+		city_magistrate_1
+		city_council_hall_1
+		oath_warriors_building_01
+		oath_poor_building_01
+		city_local_shrine_1
+	}
+}
+
+Presidential_Palace_of_joseon_district = {
+	primary_building = Presidential_Palace_of_joseon
+	type = regular
+	background = { reference = "gfx/interface/illustrations/holding_types/city_western.dds" }
+	can_construct_potential = { always = no }
+}

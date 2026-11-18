@@ -1,4 +1,4 @@
-﻿#k_sinan 
+﻿#k_sinan
 ##d_sinan  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
 ### c_sinan
 
@@ -20,22 +20,30 @@
 208 = { #Anjwa
 	holding = none
 }
-###c_mokpo 
+###c_mokpo
 542 = {	#Mokpo
 	culture = sinan
 	rite = presbyterianism
 	holding = castle_holding
 	2300.1.1 = {
-		duchy_capital_building = mokpo_grand_market
+		districts = {
+			district = {
+				type = mokpo_grand_market_district
+				level = 1
+			}
+		}
 	}
 	2400.1.1 = {
-		buildings = {
-			castle_03
+		districts = {
+			district = {
+				type = castle_holding_district
+				level = 3
+			}
 		}
 	}
 }
 
-###c_jido 
+###c_jido
 194 = {	#Jido
 	culture = sinan
 	rite = presbyterianism
@@ -53,7 +61,7 @@
 3815 = { # Maehwa
 	holding = none
 }
- ###c_bigeum 
+ ###c_bigeum
 209 = {	#Bigeum
 	culture = sinan
 	rite = presbyterianism
@@ -62,8 +70,8 @@
 210 = {#Docho
 	holding = none
 }
- 
-###c_haui 
+
+###c_haui
 211 = {	#Haui
 	culture = sinan
 	rite = presbyterianism
@@ -86,8 +94,8 @@
 	holding = castle_holding
 }
 ##d_jindo
- 
-###c_jindo 
+
+###c_jindo
 472 = {	#Jindo
 	culture = sinan
 	rite = presbyterianism
@@ -103,7 +111,7 @@
 	holding = none
 }
 
-###c_gogun 
+###c_gogun
 474 = {	#Gogun
 	culture = sinan
 	rite = presbyterianism
@@ -115,5 +123,5 @@
 471 = { #imhoe
 	holding = none
 }
- 
-    
+
+

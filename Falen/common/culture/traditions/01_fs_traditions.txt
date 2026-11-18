@@ -6,7 +6,7 @@
 		1 = mediterranean
 		4 = ship.dds
 	}
-	
+
 	is_shown = {
 		OR ={
 			this = culture:incheon
@@ -23,7 +23,7 @@
 			}
 		}
 	}
-	
+
 	parameters = {
 	    wanderers_gain_extra_economic_skills = yes
 		more_likely_to_leave_court = yes
@@ -38,7 +38,7 @@
 		republic_government_vassal_opinion = 10
 		embarkation_cost_mult = -0.15
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -77,11 +77,11 @@
 					desc = coastal_percentage_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
@@ -151,7 +151,7 @@ tradition_legacy_of_city_union = {
 		}
 		NOT = { has_cultural_tradition = tradition_parochialism }
 	}
-	
+
 	parameters = {
 		can_make_republican_vassals = yes
 		city_buildings_more_powerful = yes
@@ -163,7 +163,7 @@ tradition_legacy_of_city_union = {
 		city_holding_holding_build_gold_cost = -0.05
 		republic_government_vassal_opinion = -10
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -203,11 +203,11 @@ tradition_legacy_of_city_union = {
 					desc = 90_percent_cities_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
@@ -250,7 +250,7 @@ tradition_sinocentrism = {
 		1 = mediterranean
 		4 = noble.dds
 	}
-	
+
 	parameters = {
 		courtiers_less_likely_to_leave_same_culture_court = yes
 		harder_to_hybridize = yes
@@ -266,7 +266,7 @@ tradition_sinocentrism = {
 	county_modifier = {
 		monthly_county_control_change_add = 0.5
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -307,11 +307,11 @@ tradition_sinocentrism = {
 					desc = non_tolerated_cultures_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
@@ -339,19 +339,19 @@ tradition_korean_succession = {
 		1 = western
 		4 = king.dds
 	}
-	
+
 	is_shown = {
 		scope:character = {
 			has_religion = religion:koreanism_religion
 		}
 	}
-	
+
 	can_pick = {
 		scope:character = {
 			government_has_flag = government_is_feudal
 		}
 	}
-	
+
 	parameters = {
 		peasant_and_populist_factions_less_common = yes
 		cheaper_to_change_laws = yes
@@ -363,7 +363,7 @@ tradition_korean_succession = {
 		long_reign_bonus_mult = 0.25
 		tyranny_loss_mult = -0.75
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -401,11 +401,11 @@ tradition_korean_succession = {
 					desc = king_with_vassals_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
@@ -427,7 +427,7 @@ tradition_legacy_of_north_joseon = {
 		1 = mediterranean
 		4 = king.dds
 	}
-	
+
 	parameters = {
 		peasant_and_populist_factions_less_common = yes
 		expensive_convert_to_local_culture = yes
@@ -450,7 +450,7 @@ tradition_legacy_of_north_joseon = {
 	can_pick = {
 		has_trait = paektu
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -486,12 +486,12 @@ tradition_legacy_of_north_joseon = {
 					desc = has_other_cultures_in_council_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
-	ai_will_do = { 
+
+	ai_will_do = {
 		value = 100
 		if = {
 			limit = {
@@ -522,7 +522,7 @@ tradition_legacy_of_north_joseon = {
 		if = {
 			limit = {
 				scope:character = {
-					has_trait = paektu 
+					has_trait = paektu
 				}
 			}
 			multiply = 10
@@ -538,28 +538,28 @@ tradition_federation = {
 		1 = indian
 		4 = crown.dds
 	}
-	
+
 	is_shown = {
 		has_cultural_pillar = heritage_suwon
 	}
-		
-	
+
+
 	can_pick = {
 		scope:character = {
 			government_has_flag = government_is_feudal
 		}
 	}
-	
+
 	parameters = {
 		unlock_maa_national_guard = yes
 	}
 	character_modifier = {
-		development_growth_factor = 0.15
+		prosperity_growth_factor = 0.15
 		tyranny_gain_mult = 0.5
 		opinion_of_liege = -10
 		dread_baseline_add = -10
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -569,7 +569,7 @@ tradition_federation = {
 			}
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 25
 		if = {
@@ -591,15 +591,15 @@ tradition_jakun_gusa = {
 		1 = western
 		4 = viking.dds
 	}
-	
+
 	is_shown = {
 		has_cultural_pillar = heritage_manchu
 	}
-	
+
 	parameters = {
 		unlock_maa_jakun_gusa = yes
 	}
-	
+
 	cost = {
 		prestige = {
 			# Base cost.
@@ -635,11 +635,11 @@ tradition_jakun_gusa = {
 					desc = coastal_percentage_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
@@ -668,22 +668,22 @@ tradition_peoples_army = {
 		1 = mena
 		4 = soldiers3.dds
 	}
-	
+
 	parameters = {
 		unlock_maa_peoples_army = yes
 	}
-	
-	
+
+
 	is_shown = {
 		scope:character = {
 			has_religion = religion:juche_religion
 		}
 	}
-	
+
 	character_modifier = {
 		knight_limit = +1
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -693,8 +693,8 @@ tradition_peoples_army = {
 			}
 		}
 	}
-	
-	ai_will_do = { 
+
+	ai_will_do = {
 		value = 0
 	}
 }
@@ -707,7 +707,7 @@ tradition_seoul = {
 		1 = mena
 		4 = crown.dds
 	}
-	
+
 	is_shown = {
 		OR ={
 			this = culture:seoul
@@ -724,13 +724,13 @@ tradition_seoul = {
 			}
 		}
 	}
-	
+
 	parameters = {
-	   development_growth_factor = 0.2
+	   prosperity_growth_factor = 0.2
 	   unlock_maa_seoul_bike = yes
 		courtiers_less_likely_to_leave_same_culture_court = yes
 		harder_to_hybridize = yes
-		less_likely_to_culture_convert = yes	   
+		less_likely_to_culture_convert = yes
 	}
 	culture_modifier = {
 		cultural_acceptance_gain_mult = -0.9
@@ -745,7 +745,7 @@ tradition_seoul = {
 		ai_war_chance = -0.5
 		ai_war_cooldown = 5
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -755,7 +755,7 @@ tradition_seoul = {
 			}
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 	}
@@ -769,14 +769,14 @@ tradition_talchum = {
 		1 = mediterranean
 		4 = musician.dds
 	}
-	
+
 	parameters = {
 		guardians_can_transfer_commander_traits = yes
 		gregarious_trait_gives_bonuses = yes
 		characters_are_better_court_musicians = yes # Also hooked in to increase the Feast opinion bonus
 		unlock_maa_hahoe_warrior = yes
 	}
-	
+
 	is_shown = {
 		OR ={
 			this = culture:andong
@@ -793,7 +793,7 @@ tradition_talchum = {
 			}
 		}
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -813,11 +813,11 @@ tradition_talchum = {
 					desc = not_bellicose_communal_or_egalitatrian_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = { # Generally good & flavorful
 		value = 100
 	}
@@ -835,16 +835,16 @@ tradition_paengbaesu = {
 		1 = mediterranean
 		4 = battle.dds
 	}
-	
+
 	character_modifier = {
 		heavy_infantry_toughness_mult = 0.1
 		hard_casualty_modifier = 0.1
 	}
-	
+
 	parameters = {
 		unlock_maa_paengbaesu = yes
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -855,7 +855,7 @@ tradition_paengbaesu = {
 			if = {
 				limit = {
 					NOT = {
-						scope:character = {	
+						scope:character = {
 							number_maa_soldiers_of_base_type = {
 								type = heavy_infantry
 								value >= 500
@@ -868,11 +868,11 @@ tradition_paengbaesu = {
 					desc = culture_head_heavy_inf_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 	}
@@ -886,11 +886,11 @@ tradition_maritime_imperialist = {
 		1 = mediterranean
 		4 = swords.dds
 	}
-	
+
 	is_shown = {
 		has_cultural_pillar = heritage_honam
 	}
-	
+
 	can_pick = {
 		custom_description = {
 			text = percentage_of_culture_on_coast_desc
@@ -902,7 +902,7 @@ tradition_maritime_imperialist = {
 			}
 		}
 	}
-	
+
 	parameters = {
 		culture_can_raid_at_sea_even_if_feudal = yes
 		can_travel_along_rivers = yes
@@ -910,12 +910,12 @@ tradition_maritime_imperialist = {
 		unlock_voluntary_laampdom = yes
 		much_more_likely_to_be_laamps = yes
 	}
-	
+
 	character_modifier = {
 		embarkation_cost_mult = -0.15
 		max_loot_mult = 0.15
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -952,11 +952,11 @@ tradition_maritime_imperialist = {
 					desc = high_coastal_percentage_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 	}
@@ -992,7 +992,7 @@ tradition_citizen_army = {
 	province_modifier = {
 		garrison_size = 0.15
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -1002,7 +1002,7 @@ tradition_citizen_army = {
 			}
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 	}
@@ -1032,7 +1032,7 @@ tradition_rightous_army = {
 	province_modifier = {
 		garrison_size = 0.25
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -1042,7 +1042,7 @@ tradition_rightous_army = {
 			}
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 	}
@@ -1056,12 +1056,12 @@ tradition_defend_our_home = {
 		1 = mena
 		4 = soldiers3.dds
 	}
-	
+
 	parameters = {
 		unlock_maa_freikorps = yes
 	}
-	
-	
+
+
 	is_shown = {
 		OR ={
 			this = culture:pyongyang
@@ -1080,7 +1080,7 @@ tradition_defend_our_home = {
 		men_at_arms_maintenance = -0.15
 		defender_advantage = 5
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -1090,7 +1090,7 @@ tradition_defend_our_home = {
 			}
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 0
 	}
@@ -1104,14 +1104,14 @@ tradition_foreign_legion = {
 		1 = mena
 		4 = swords.dds
 	}
-	
+
 	is_shown = {
 		has_cultural_pillar = heritage_gwandong
 		NOT = {
 			has_cultural_tradition = tradition_sword_for_hire
 		}
 	}
-	
+
 	parameters = {
 		wanderers_gain_extra_combat_skills = yes
 		mercenary_courtiers_gain_extra_skills = yes
@@ -1126,7 +1126,7 @@ tradition_foreign_legion = {
 	character_modifier = {
 		same_culture_mercenary_hire_cost_mult = -0.15
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -1173,11 +1173,11 @@ tradition_foreign_legion = {
 					desc = rulers_with_martial_edu_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 	}
@@ -1216,7 +1216,7 @@ tradition_gwanbuk_mountain_skirmishing = {
 			}
 		}
 	}
-	
+
 	parameters = {
 		unlock_maa_citizen_skirmishers = yes
 		rough_terrain_expert_trait_more_common = yes
@@ -1233,7 +1233,7 @@ tradition_gwanbuk_mountain_skirmishing = {
 		mountains_travel_danger = mountains_high_danger_reduction
 		hills_travel_danger = hills_high_danger_reduction
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -1272,7 +1272,7 @@ tradition_gwanbuk_mountain_skirmishing = {
 					desc = mountain_percentage_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
@@ -1308,7 +1308,7 @@ tradition_hwarangdo = {
 		1 = mena
 		4 = bow.dds
 	}
-	
+
 	is_shown = {
 		OR ={
 			this = culture:gyeongju
@@ -1317,7 +1317,7 @@ tradition_hwarangdo = {
 			}
 		}
 	}
-	
+
 	parameters = {
 		unlock_maa_hwarang = yes
 		hunting_archery_building_bonuses = yes
@@ -1328,7 +1328,7 @@ tradition_hwarangdo = {
 	character_modifier = {
 		defender_advantage = 5
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -1352,7 +1352,7 @@ tradition_hwarangdo = {
 					desc = culture_head_archers_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
@@ -1370,7 +1370,7 @@ tradition_laicite = {
 		1 = mena
 		4 = diplomat.dds
 	}
-	
+
 	is_shown = {
 		OR ={
 			this = culture:yeongbyeon
@@ -1391,16 +1391,16 @@ tradition_laicite = {
 			}
 		}
 	}
-	
+
 	parameters = {
 		less_likely_to_force_conversion = yes
 		unlock_maa_vanguard = yes
 	}
 	character_modifier = {
 		different_faith_opinion = 10
-		different_faith_county_opinion_mult = -0.25
+		different_faith_popular_opinion_mult = -0.25
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -1444,7 +1444,7 @@ tradition_laicite = {
 					desc = five_accepted_cultures_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
@@ -1471,14 +1471,14 @@ tradition_cheongdam = {
 		1 = mediterranean
 		4 = quill.dds
 	}
-	
+
 	parameters = {
 		poet_trait_gives_bonuses = yes
 		poet_trait_more_common = yes
 		characters_are_better_court_poets = yes
 		unlock_maa_sinuigun = yes
 	}
-	
+
 	character_modifier = {
 		light_cavalry_screen_mult = 0.1
 		siege_weapon_siege_value_mult = -0.2
@@ -1486,7 +1486,7 @@ tradition_cheongdam = {
 		hard_casualty_modifier = -0.1
 		advantage = -2
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -1535,9 +1535,9 @@ tradition_cheongdam = {
 			}
 			multiply = tradition_replacement_cost_if_relevant
 		}
-		
+
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
@@ -1558,7 +1558,7 @@ tradition_romanticism = {
 		1 = indian
 		4 = knight.dds
 	}
-	
+
 	is_shown = {
 		OR ={
 			this = culture:gwangju
@@ -1588,7 +1588,7 @@ tradition_romanticism = {
 		knight_limit = 2
 		negate_prowess_penalty_add = 5 # Wounded knights fight better!
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -1625,11 +1625,11 @@ tradition_romanticism = {
 					desc = knights_with_prowess_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = { value = 100 }
 }
 
@@ -1641,7 +1641,7 @@ tradition_taekwondo = {
 		1 = mena
 		4 = viking.dds
 	}
-	
+
 	is_shown = {
 		NOR = {
 			has_cultural_tradition = tradition_warrior_culture
@@ -1658,7 +1658,7 @@ tradition_taekwondo = {
 	can_pick = {
 		culture_not_pacifistic_trigger = yes
 	}
-	
+
 	parameters = {
 		unlock_maa_taekwondo = yes
 		strong_traits_more_valued = yes
@@ -1673,7 +1673,7 @@ tradition_taekwondo = {
 		prowess = 2
 		ai_boldness = 25
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -1706,7 +1706,7 @@ tradition_taekwondo = {
 								count >= 3
 								culture = prev
 								primary_title.tier >= tier_county
-								OR = {	
+								OR = {
 									has_trait = strong
 									has_trait = physique_good
 								}
@@ -1722,7 +1722,7 @@ tradition_taekwondo = {
 					desc = strong_rulers_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
@@ -1748,19 +1748,19 @@ tradition_inquisitor = {
 		1 = indian
 		4 = speech.dds
 	}
-	
+
 	is_shown = {
 		OR ={
 			this = culture:chaoxian
 			any_parent_culture_or_above = {
-				this = culture:chaoxian 
+				this = culture:chaoxian
 			}
 		}
 		NOT = {
 			has_cultural_tradition = tradition_zealous_people
 		}
 	}
-	
+
 	parameters = {
 		#unlock_maa_inquisitor = yes
 		zealous_trait_more_common = yes
@@ -1818,7 +1818,7 @@ tradition_inquisitor = {
 					desc = rulers_with_zealous_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
@@ -1879,7 +1879,7 @@ tradition_mudflat = {
 			}
 		}
 	}
-	
+
 	parameters = {
 		unlock_maa_mudflater = yes
 		coastal_agriculture_building_bonuses = yes
@@ -1890,14 +1890,14 @@ tradition_mudflat = {
 	character_modifier = {
 		skirmishers_damage_mult = 0.05
 		skirmishers_screen_mult = 0.1
-		
+
 		wetlands_advantage = 5
 		wetlands_travel_danger = wetlands_high_danger_reduction
 		floodplains_travel_danger = floodplains_high_danger_reduction
 		coastal_sea_travel_danger = low_sea_danger_reduction
 	}
 	county_modifier = {
-		wetlands_development_growth_factor = 0.15
+		wetlands_prosperity_growth_factor = 0.15
 	}
 	province_modifier = {
 		wetlands_construction_gold_cost = -0.10
@@ -1942,11 +1942,11 @@ tradition_mudflat = {
 					desc = coastal_percentage_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 		if = {
@@ -1988,7 +1988,7 @@ tradition_nubian_warrior_queens = {
 		1 = mediterranean
 		4 = crown.dds
 	}
-	
+
 	is_shown = {
 		any_parent_culture_or_above = {
 			OR = {
@@ -2012,7 +2012,7 @@ tradition_nubian_warrior_queens = {
 		unlock_voluntary_laampdom = yes
 		much_more_likely_to_be_laamps = yes
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -2063,11 +2063,11 @@ tradition_nubian_warrior_queens = {
 					desc = three_gender_rulers_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
-	
+
 	ai_will_do = { value = 100 }
 }
 
@@ -2079,7 +2079,7 @@ tradition_marine_corps = {
 		1 = mena
 		4 = soldiers.dds
 	}
-	
+
 	is_shown = {
 		OR ={
 			this = culture:pohang
@@ -2093,7 +2093,7 @@ tradition_marine_corps = {
 				has_cultural_tradition = tradition_martial_admiration
 		}
 	}
-	
+
 	parameters = {
 		unlock_maa_marine_corps = yes
 		can_use_sparring_duel = yes
@@ -2107,7 +2107,7 @@ tradition_marine_corps = {
 		knight_limit = 2
 		negate_prowess_penalty_add = 5
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -2144,7 +2144,7 @@ tradition_marine_corps = {
 					desc = knights_with_prowess_desc
 				}
 			}
-			
+
 			multiply = tradition_replacement_cost_if_relevant
 		}
 	}
@@ -2160,7 +2160,7 @@ tradition_heritage_of_usa = {
 		1 = western
 		4 = soldiers.dds
 	}
-	
+
 	is_shown = {
 		OR ={
 			this = culture:american
@@ -2177,7 +2177,7 @@ tradition_heritage_of_usa = {
 			}
 		}
 	}
-	
+
 	parameters = {
 		unlock_maa_usfk = yes
 		courtiers_less_likely_to_leave_same_culture_court = yes
@@ -2192,7 +2192,7 @@ tradition_heritage_of_usa = {
 	province_modifier = {
 		levy_size = -0.5
 	}
-	
+
 	cost = {
 		prestige = {
 			add = {
@@ -2202,7 +2202,7 @@ tradition_heritage_of_usa = {
 			}
 		}
 	}
-	
+
 	ai_will_do = {
 		value = 100
 	}
