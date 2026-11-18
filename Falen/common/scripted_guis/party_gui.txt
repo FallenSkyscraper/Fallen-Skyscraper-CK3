@@ -103,10 +103,16 @@ party_creation_can_submit_gui = {
 	is_valid = {
 		is_ai = no
 		has_variable = party_creation_open
-		parties_can_create_trigger = yes
 		parties_creation_type_is_valid_trigger = yes
+		parties_can_create_type_trigger = { TYPE = var:party_creation_type }
 	}
 }
+
+party_creation_has_public_communist_faith_gui = {
+	scope = character
+	is_valid = { parties_has_public_communist_faith_trigger = yes }
+}
+
 is_party_leader = {
 	scope = character
 	is_valid = {

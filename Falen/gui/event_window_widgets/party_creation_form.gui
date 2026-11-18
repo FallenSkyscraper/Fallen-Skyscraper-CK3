@@ -188,6 +188,15 @@
 					max_width = 510
 				}
 				text_multi = {
+					name = "party_creation_requires_public_communism"
+					visible = "[And(ObjectsEqual(GetPlayer.MakeScope.Var('party_creation_type').GetFlagName, 'communist_party'), Not(GetScriptedGui('party_creation_has_public_communist_faith_gui').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+					text = "PARTY_CREATION_REQUIRES_PUBLIC_COMMUNISM"
+					default_format = "#X"
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 510
+				}
+				text_multi = {
 					name = "party_creation_requires_living_founder"
 					visible = "[Not(GetPlayer.IsAlive)]"
 					text = "PARTY_CREATION_REQUIRES_LIVING_FOUNDER"

@@ -57,7 +57,7 @@ parties_clear_creation_draft_effect = {
 # 신당 생성
 parties_new_party_creation_effect = { # scope: none; FOUNDER: character, TYPE: party type, NAME: localization key
 	if = {
-		limit = { $FOUNDER$ = { parties_can_create_trigger = yes } }
+		limit = { $FOUNDER$ = { parties_can_create_type_trigger = { TYPE = $TYPE$ } } }
 		$FOUNDER$ = {
 			save_scope_as = party_founder
 			location.county = { save_scope_as = party_creation_county }

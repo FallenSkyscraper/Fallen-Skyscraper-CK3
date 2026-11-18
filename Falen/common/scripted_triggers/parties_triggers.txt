@@ -9,6 +9,22 @@ parties_can_create_trigger = { # scope: character
 	exists = location.county
 }
 
+# Only the character's public faith qualifies.
+parties_has_public_communist_faith_trigger = { # scope: character
+	faith = { religion = religion:communism_religion }
+}
+
+parties_can_create_type_trigger = { # scope: character; TYPE: party type
+	parties_can_create_trigger = yes
+	OR = {
+		$TYPE$ = flag:revolutionary_party
+		AND = {
+			$TYPE$ = flag:communist_party
+			parties_has_public_communist_faith_trigger = yes
+		}
+	}
+}
+
 # 당 유형 검사
 parties_creation_type_is_valid_trigger = { # scope: player
 	has_variable = party_creation_type
@@ -21,4 +37,13 @@ parties_creation_type_is_valid_trigger = { # scope: player
 is_party_leader_trigger = { # scope: character
 	has_variable = party_affiliation
 	var:party_affiliation.holder ?= this
+}
+
+parties_can_leave_trigger = { # scope: character
+	is_alive = yes
+	has_variable = party_affiliation
+	exists = var:party_affiliation
+	var:party_affiliation = { has_variable = is_party_title }
+	is_target_in_global_variable_list = { name = parties_list target = var:party_affiliation }
+	NOT = { is_party_leader_trigger = yes }
 }

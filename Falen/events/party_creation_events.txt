@@ -48,8 +48,8 @@ party_creation.0001 = {
 			}
 			if = {
 				limit = {
-					parties_can_create_trigger = yes
 					parties_creation_type_is_valid_trigger = yes
+					parties_can_create_type_trigger = { TYPE = var:party_creation_type }
 					# An untouched empty default sets this variable; custom text does not.
 					NOT = { has_variable = party_creation_name }
 				}

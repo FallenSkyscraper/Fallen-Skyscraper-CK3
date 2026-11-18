@@ -2,7 +2,7 @@
 	picture = { reference = "gfx/interface/illustrations/loading_screens/council.dds" }
 	is_invisible = yes
 	is_shown = { is_ai = yes }
-	is_valid = { parties_can_create_trigger = yes }
+	is_valid = { parties_can_create_type_trigger = { TYPE = flag:communist_party } }
 	effect = {
 		parties_new_party_creation_effect = { FOUNDER = root TYPE = flag:communist_party NAME = COMMUNIST_PARTY }
 	}

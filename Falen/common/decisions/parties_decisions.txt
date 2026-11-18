@@ -38,3 +38,16 @@
 		base = 0
 	}
 }
+
+parties_leave_party_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	}
+	selection_tooltip = parties_leave_party_decision_tooltip
+	confirm_text = parties_leave_party_decision_confirm
+	ai_check_interval = 0
+	is_shown = { parties_can_leave_trigger = yes }
+	is_valid = { parties_can_leave_trigger = yes }
+	effect = { leave_party_effect = yes }
+	ai_will_do = { base = 0 }
+}
