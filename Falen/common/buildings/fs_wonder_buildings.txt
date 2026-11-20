@@ -147,7 +147,9 @@ hwaseong_fortress = {
 	}
 
 	province_modifier = {
-		monthly_generic_tax = 3
+		monthly_urban_tax = 0.75
+		monthly_civic_tax = 0.65
+		monthly_commerce_tax = 1.2
 		garrison_size = 0.2
 		fort_level = 4
 		travel_danger = -10
@@ -188,7 +190,8 @@ mokpo_grand_market = {
 		levy_size = 0.25
 	}
 	province_modifier = {
-		monthly_generic_tax = 9
+		monthly_maritime_tax = 3
+		monthly_commerce_tax = 3
 	}
 	character_modifier = {
 		martial = 1
@@ -278,14 +281,14 @@ seoul_central_mosque = {
 	}
 	
 	county_modifier = {
-		all_tax_mult = 0.2
+		religious_tax_mult = 0.2
 		prosperity_growth_factor = 0.3
 		prosperity_growth = 0.1
 		levy_size = 0.3
 	}
 	
 	province_modifier = {
-		monthly_generic_tax = 3
+		monthly_religious_tax = 3
 		fort_level = 2
 	}
 	
@@ -338,14 +341,14 @@ gyeonggijeon = {
 	}
 	
 	county_modifier = {
-		all_tax_mult = 0.15
+		civic_tax_mult = 0.05
 		prosperity_growth_factor = 0.2
 		prosperity_growth = 0.1
 		levy_size = 0.25
 	}
 	
 	province_modifier = {
-		monthly_generic_tax = 5
+		monthly_civic_tax = 1.5
 		fort_level = 1
 	}
 	
@@ -435,7 +438,7 @@ dosan_academy = {
 	}
 	
 	province_modifier = {
-		monthly_generic_tax = 1.5
+		monthly_religious_tax = 1
 	}
 	
 	ai_value = {
@@ -567,18 +570,18 @@ byeokkolje = {
 
 	character_modifier = {
 		monthly_county_control_change_factor = 0.15
-		all_tax_mult = 0.05
+		agricultural_tax_mult = 0.05
 	}
 	
 	county_modifier = {
-		all_tax_mult = 0.25
+		agricultural_tax_mult = 0.25
 		prosperity_growth_factor = 0.4
 		prosperity_growth = 0.05
 		levy_size = 0.25
 	}
 	
 	province_modifier = {
-		monthly_generic_tax = 3
+		monthly_agricultural_tax = 3
 	}
 	
 	ai_value = {
@@ -607,11 +610,11 @@ maitreya_temple = {
 	}
 	
 	county_modifier = {
-		all_tax_mult = 0.15
+		religious_tax_mult = 0.15
 	}
 	
 	province_modifier = {
-		monthly_generic_tax = 0.5
+		monthly_religious_tax = 0.5
 	}
 	
 	ai_value = {
