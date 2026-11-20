@@ -6,7 +6,9 @@
 	culture = andong
 	rite = toegye
 	holding = castle_holding
-
+	
+	province_size = 4
+	
 	2400.1.1 = {
 		special_district_slot = andong_taehak_district
 	}
@@ -21,8 +23,16 @@
 
 	districts = {
 		district = {
-			type = rice_district
-			level = 1
+			type = hemp_district
+			level = 8
+		}
+		district = {
+			type = bureaucratic_district
+			level = 3
+		}
+		district = {
+			type = household_district
+			level = 3
 		}
 	}
 }
@@ -48,8 +58,8 @@
 
 	districts = {
 		district = {
-			type = stone_district
-			level = 1
+			type = hemp_district
+			level = 8
 		}
 	}
 }
@@ -78,8 +88,8 @@
 
 	districts = {
 		district = {
-			type = cattle_district
-			level = 1
+			type = hemp_district
+			level = 8
 		}
 	}
 }
@@ -101,7 +111,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 5
 		}
 	}
 }

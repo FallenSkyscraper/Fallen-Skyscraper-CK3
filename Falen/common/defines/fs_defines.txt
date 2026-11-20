@@ -46,9 +46,9 @@ NGovernment = {
 }
 
 NProvince = {
-	BASE_SUPPLY_LIMIT = 2000					# The unmodified base supply limit of a province
-	BARONY_BUILDING_SLOTS = 2
-	COUNTY_BUILDING_SLOTS = 3
+	BASE_SUPPLY_LIMIT = 1500					# The unmodified base supply limit of a province
+	BARONY_DISTRICT_SLOTS = 2					# Base number of regular district slots for non-capital baronies
+	COUNTY_DISTRICT_SLOTS = 3					# Base number of regular district slots for county capitals
 	SUPPLY_PER_PROSPERITY = 150				# Each prosperity level adds this much to the supply limit
 	MAX_BUILDINGS = 7 							# Maximum number of building slots that a province can have
 }

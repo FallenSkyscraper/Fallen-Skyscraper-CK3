@@ -8,6 +8,7 @@
 	rite = jeonju_rite
 	#holding = metropolis_holding
 	holding = castle_holding
+	province_size = 8
 	1392.1.1 = {
 		special_district_slot = gyeonggijeon_district
 		districts = {
@@ -31,6 +32,10 @@
 				type = rice_district
 				level = 3
 			}
+			district = {
+				type = household_district
+				level = 4
+			}
 		}
 	}
 
@@ -38,12 +43,16 @@
 
 119 = {	#Deokjin
 	holding = city_holding
-
+	province_size = 5
 	2400.1.1 = {
 		districts = {
 			district = {
 				type = generic_university_district
 				level = 1
+			}
+			district = {
+				type = household_district
+				level = 2
 			}
 		}
 	}
@@ -67,7 +76,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }
