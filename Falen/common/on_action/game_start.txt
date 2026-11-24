@@ -265,25 +265,6 @@ on_game_start = {
 		every_religion_global = {
 			limit = {
 				OR = {
-					this = religion:hinduism_religion
-				}
-			}
-			every_faith = {
-				every_holy_site = {
-					limit = {
-						title_province = {
-							has_special_district_slot = no
-						}
-					}
-					title_province = {
-						add_special_district_slot = holy_site_indian_grand_temple_01_district
-					}
-				}
-			}
-		}
-		every_religion_global = {
-			limit = {
-				OR = {
 					this = religion:pagan_religion
 					this = religion:naturalism_religion
 				}
