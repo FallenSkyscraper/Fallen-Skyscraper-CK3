@@ -146,22 +146,8 @@ k_busan = {
 		change_prosperity_level = 10
 	}
 	2441.2.10 = {
-		government = oligarchic_republic_government
-		succession_laws = {
-			feudal_elective_succession_law
-		}
+		government = republic_government
 		holder = 3001
-		effect = {
-			if = {
-				limit = {
-					exists = holder
-					has_dlc_feature = royal_court
-				}
-				holder = {
-					set_court_type = court_administrative
-				}
-			}
-		}
 	}
 }
 

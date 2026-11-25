@@ -3,8 +3,9 @@ Incheon_Port_00 = {
 type_icon = "icon_building_incheon_port.dds"
 
     province_modifier = {
-        monthly_generic_tax = 1
-        all_tax_mult = 0.05
+        monthly_maritime_tax = 1
+        maritime_tax_mult = 0.05
+		province_size_baseline_add = 50
     }
     county_modifier = {
         prosperity_growth_factor = 0.05
@@ -19,15 +20,13 @@ type_icon = "icon_building_incheon_port.dds"
 Incheon_Port_01 = {
     construction_time = 2000
 
-    can_construct_potential = {
-        
-}
+    can_construct_potential = {}
 
     cost = { gold = 800 }
 
     province_modifier = {
-        monthly_generic_tax = 4
-        all_tax_mult = 0.12
+        monthly_maritime_tax = 3
+        maritime_tax_mult = 0.1
     }
 
     county_modifier = {
@@ -40,15 +39,13 @@ Incheon_Port_01 = {
 Incheon_Port_02 = {
     construction_time = 3000
 
-    can_construct_potential = {
-        
-}
+    can_construct_potential = {}
 
     cost = { gold = 1000 }
 
     province_modifier = {
-        monthly_generic_tax = 6
-        all_tax_mult = 0.25
+        monthly_generic_tax = 5
+        maritime_tax_mult = 0.2
     }
 
     county_modifier = {
@@ -78,9 +75,7 @@ type_icon = "icon_building_Busan_port.dds"
 Busan_Port_01 = {
     construction_time = 2000
 
-    can_construct_potential = {
-        
-}
+    can_construct_potential = {}
 
     cost = { gold = 800 }
 
@@ -99,9 +94,7 @@ Busan_Port_01 = {
 Busan_Port_02 = {
     construction_time = 3000
 
-    can_construct_potential = {
-        
-}
+    can_construct_potential = {}
 
     cost = { gold = 1000 }
 
@@ -153,6 +146,7 @@ hwaseong_fortress = {
 		garrison_size = 0.2
 		fort_level = 4
 		travel_danger = -10
+		province_size_baseline_add = 150
 	}
 	
 	ai_value = {
@@ -192,6 +186,7 @@ mokpo_grand_market = {
 	province_modifier = {
 		monthly_maritime_tax = 3
 		monthly_commerce_tax = 3
+		province_size_baseline_add = 300
 	}
 	character_modifier = {
 		martial = 1
@@ -290,6 +285,7 @@ seoul_central_mosque = {
 	province_modifier = {
 		monthly_religious_tax = 3
 		fort_level = 2
+		province_size_baseline_add = 150
 	}
 	
 	ai_value = {
@@ -350,6 +346,7 @@ gyeonggijeon = {
 	province_modifier = {
 		monthly_civic_tax = 1.5
 		fort_level = 1
+		province_size_baseline_add = 100
 	}
 	
 	ai_value = {
@@ -439,6 +436,7 @@ dosan_academy = {
 	
 	province_modifier = {
 		monthly_religious_tax = 1
+		province_size_baseline_add = 50
 	}
 	
 	ai_value = {
