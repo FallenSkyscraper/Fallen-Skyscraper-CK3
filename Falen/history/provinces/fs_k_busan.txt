@@ -33,12 +33,30 @@
 				type = port_district
 				level = 3
 			}
+			district = {
+				type = guild_district
+				level = 3
+			}
 		}
 	}
 }
-781={#Dongpyeong
+781={#Dongpyeong - Bujeon
 	holding = city_holding
 	province_size = 4
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+		district = {
+			type = guild_district
+			level = 2
+		}
+		district = {
+			type = entertainment_district
+			level = 3
+		}
+	}
 }
 763 = {#Yeongdo
 	holding = church_holding

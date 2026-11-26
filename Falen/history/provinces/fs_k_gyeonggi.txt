@@ -20,15 +20,32 @@
 			}
         }
     }
-
-	districts = {
-		district = {
-			type = rice_district
-			level = 1
-		}
-		district = {
-			type = urban_housing_district
-			level = 1
+	2444.1.1 = {
+		districts = {
+			district = {
+				type = castle_holding_district
+				level = 2
+			}
+			district = {
+				type = hwaseong_fortress_district
+				level = 1
+			}
+			district = {
+				type = rice_district
+				level = 3
+			}
+			district = {
+				type = urban_housing_district
+				level = 2
+			}
+			district = {
+				type = bureaucratic_district
+				level = 2
+			}
+			district = {
+				type = walls_district
+				level = 3
+			}
 		}
 	}
 }
@@ -286,7 +303,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 4
 		}
 		district = {
 			type = urban_housing_district
@@ -326,7 +343,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -355,7 +372,7 @@
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -365,6 +382,13 @@
 }
 1528 = { #Namhansanseong
 	holding = castle_holding
+	province_size = 2
+	districts = {
+		district = {
+			type = castle_holding_district
+			level = 2
+		}
+	}
 }
 1530 = {#Toechon
 	holding = none
@@ -384,7 +408,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -397,6 +421,7 @@
 }
 1403 = {#Godeok
 	holding = city_holding
+	province_size = 2
 }
 1400 = {#Paengseong
 	holding = castle_holding
@@ -414,7 +439,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -443,11 +468,11 @@
 	culture = suwon
 	rite = mechanism
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -482,7 +507,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 		district = {
 			type = urban_housing_district
@@ -522,7 +547,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 7
 		}
 	}
 }
@@ -555,7 +580,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 2
+			level = 4
 		}
 	}
 }
@@ -588,7 +613,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 5
 		}
 	}
 }
@@ -612,7 +637,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -636,7 +661,7 @@
 	districts = {
 		district = {
 			type = forestry_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -660,7 +685,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -686,7 +711,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 6
 		}
 	}
 }
@@ -719,7 +744,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -749,7 +774,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -776,7 +801,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -805,7 +830,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }

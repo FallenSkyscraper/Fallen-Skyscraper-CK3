@@ -22,6 +22,7 @@ fs_initialize_starting_merchants_effect = {
 fs_initialize_starting_merchant_effect = {
 	add_character_flag = fs_starting_merchant_initialized
 	save_temporary_scope_as = fs_starting_merchant
+	fs_initialize_starting_merchant_capacity_effect = yes
 	if = {
 		limit = { gold > 0 }
 		remove_short_term_gold = gold
@@ -95,6 +96,90 @@ fs_initialize_starting_merchant_effect = {
 		limit = { is_ai = yes }
 		set_starting_company_size_effect = yes
 		set_starting_company_acumen_effect = yes
+	}
+}
+
+# Character scope: established companies start with enough storage to carry bulk goods.
+fs_initialize_starting_merchant_capacity_effect = {
+	domicile ?= {
+		if = {
+			limit = { is_domicile_type = merchant_company }
+			fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_main_01 }
+			fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_main_02 }
+			fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_building_warehouse_01 }
+			fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_building_warehouse_02 }
+			fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storage_room_01 }
+			fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storage_room_02 }
+			fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storehouse_01 }
+			fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storehouse_02 }
+
+			# Large companies need bulk-storage infrastructure even outside the three largest cities.
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							has_realm_law = company_size_large
+							has_realm_law = company_size_huge
+						}
+					}
+				}
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_main_03 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_main_04 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_main_05 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_building_warehouse_03 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_building_warehouse_04 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_building_warehouse_05_goods }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storage_room_03 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storage_room_04 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storage_room_05 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storage_room_06 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storehouse_03 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storehouse_04 }
+				fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storehouse_05 }
+			}
+			# Seoul spans several duchies; Busan and Daegu each have a city duchy.
+			else_if = {
+				limit = {
+					OR = {
+						domicile_location.county.kingdom = title:k_seoul
+						domicile_location.county.duchy = title:d_busan
+						domicile_location.county.duchy = title:d_daegu
+					}
+				}
+				if = {
+					limit = {
+						owner = {
+							has_realm_law = company_size_medium
+						}
+					}
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_main_03 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_main_04 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_building_warehouse_03 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_building_warehouse_04 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storage_room_03 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storage_room_04 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storage_room_05 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storehouse_03 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storehouse_04 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storehouse_05 }
+				}
+				else = {
+					# Small companies keep their size and the corresponding main-building limit.
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_building_warehouse_03 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storage_room_03 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storehouse_03 }
+					fs_upgrade_starting_merchant_building_effect = { BUILDING = merchant_company_storehouse_04 }
+				}
+			}
+		}
+	}
+}
+
+# Domicile scope: preserve any existing upgrade beyond the starting minimum.
+fs_upgrade_starting_merchant_building_effect = {
+	if = {
+		limit = { NOT = { has_domicile_building_or_higher = $BUILDING$ } }
+		add_domicile_building = $BUILDING$
 	}
 }
 

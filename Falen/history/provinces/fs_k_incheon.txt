@@ -14,12 +14,28 @@
 			level = 4
 		}
 		district = {
+			type = castle_holding_district
+			level = 2
+		}
+		district = {
 			type = urban_housing_district
 			level = 3
 		}
 		district = {
 			type = port_district
 			level = 3
+		}
+		district = {
+			type = patrician_district
+			level = 3
+		}
+		district = {
+			type = market_district
+			level = 2
+		}
+		district = {	
+			type = guild_district
+			level = 1
 		}
 	}
 }
@@ -41,14 +57,14 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
 		}
 	}
 }
 
 64={#Cheongra
 	holding = church_holding
-
+	province_size = 2
 	2400.1.1 = {
 	    districts = {
 			district = {
@@ -70,7 +86,11 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
+		}
+		district = {
+			type = urban_housing_district
+			level = 3
 		}
 	}
 }
@@ -88,7 +108,15 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
+		}
+		district = {
+			type = urban_housing_district
+			level = 3
+		}
+		district = {
+			type = border_forts_district
+			level = 3
 		}
 	}
 }
@@ -106,7 +134,11 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
+		}
+		district = {
+			type = walls_district
+			level = 2
 		}
 	}
 }
@@ -127,7 +159,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -150,7 +182,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -169,13 +201,17 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 4
+		}
+		district = {
+			type = walls_district
+			level = 3
 		}
 	}
 }
 
 1438 = {	#Gilsang
-	holding = none
+	holding = church_holding
 }
 1439 = {	#Yangdo
 	holding = none
@@ -190,13 +226,13 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
 		}
 	}
 }
 
 2498={#Seodo
-	holding = none
+	holding = church_holding
 }
 ###c_gyodong
 
@@ -208,7 +244,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -223,7 +259,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -247,7 +283,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -262,7 +298,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -282,7 +318,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -299,7 +335,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -313,25 +349,26 @@
 	culture = incheon
 	rite = methodism
 	holding = castle_holding
-
+	province_size = 3
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
 1427={#Geomdan
-	holding = castle_holding
+	holding = city_holding
+	province_size = 3
 }
 1430 = { #Gochon
-	holding = none
+	holding = city_holding
 }
 1434 = { #Unyang
 	holding = none
 }
 1432 = { #Yangchon
-	holding = none
+	holding = church_holding
 }
 
 
@@ -345,7 +382,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }

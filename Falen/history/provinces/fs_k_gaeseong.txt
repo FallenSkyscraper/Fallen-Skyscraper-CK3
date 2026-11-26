@@ -10,7 +10,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 		district = {
 			type = urban_housing_district
@@ -21,6 +21,7 @@
 
 1577 = {#Byeolnae
 	holding = city_holding
+	province_size = 2
 }
 1575 = { #Jinjeop
 	holding = church_holding
@@ -31,7 +32,8 @@
 }
 
 55 = { #Toegyewon
-	holding = none
+	holding = church_holding
+	province_size = 2
 }
 
 ### c_yangju    
@@ -44,7 +46,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 2
 		}
 		district = {
 			type = urban_housing_district
@@ -76,11 +78,11 @@
 	culture = gapyeong
 	rite = eternal_kingdom
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -90,6 +92,13 @@
 }
 39 = { #Guri
 	holding = city_holding
+	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 
 ### c_maseok
@@ -98,17 +107,18 @@
 	culture = gapyeong
 	rite = eternal_kingdom
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }
 
 1569 = { # 덕소
 	holding = city_holding
+	province_size = 2
 }
 
 1568 = { #Joan
@@ -129,7 +139,7 @@
 	districts = {
 		district = {
 			type = stone_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -152,7 +162,7 @@
 	districts = {
 		district = {
 			type = stone_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -172,11 +182,15 @@
 	culture = gaeseong
 	rite = populism
 	holding = castle_holding
-
+	province_size = 3
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
+		}
+		district = {
+			type = urban_housing_district
+			level = 2
 		}
 	}
 }
@@ -186,6 +200,7 @@
 }
 58 = { # 일산
 	holding = castle_holding
+	province_size = 3
 }
 90 = { # 능곡
 	holding = none
@@ -195,6 +210,7 @@
 }
 92 = { # 대화
 	holding = city_holding
+	province_size = 2
 }
  
  ### c_paju     
@@ -203,11 +219,11 @@
 	culture = gaeseong
 	rite = naturalism
 	holding = tribal_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -232,16 +248,17 @@
 	culture = gaeseong
 	rite = populism
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }
 93 = { # 운정
 	holding = city_holding
+	province_size = 2
 }
   ### c_munsan      
 
@@ -249,11 +266,11 @@
 	culture = gaeseong
 	rite = naturalism
 	holding = tribal_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -282,7 +299,7 @@
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -307,7 +324,7 @@
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -329,7 +346,7 @@
 	districts = {
 		district = {
 			type = forestry_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -351,7 +368,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -367,11 +384,11 @@
 	culture =  gapyeong
 	rite = doom_completion
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -469,7 +486,31 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
+		}
+		district = {
+			type = urban_housing_district
+			level = 3
+		}
+		district = {
+			type = bureaucratic_district
+			level = 2
+		}
+		district = {
+			type = market_district
+			level = 2
+		}
+		district = {
+			type = patrician_district
+			level = 3
+		}
+		district = {
+			type = walls_district
+			level = 3
+		}
+		district = {
+			type = castle_holding_district
+			level = 3
 		}
 	}
 }
@@ -497,7 +538,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -519,7 +560,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -541,7 +582,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
