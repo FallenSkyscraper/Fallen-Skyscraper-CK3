@@ -42,6 +42,10 @@
 			type = urban_housing_district
 			level = 1
 		}
+		district = {
+			type = walls_district
+			level = 2
+		}
 	}
 }
 
@@ -49,13 +53,31 @@
 	holding = church_holding
 }
 1346 = {	#Seohu
-	holding = none
+	holding = church_holding
 }
 1348  = { #Bukhu(Ongcheon)
 	holding = city_holding
+	province_size = 2
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 1
+		}
+		district = {
+			type = market_district
+			level = 1
+		}
+	}
 }
 1349 = { #Waryong
 	holding = church_holding
+	province_size = 2
+	districts = {
+		district = {
+			type = villages_district
+			level = 1
+		}
+	}
 }
 
 ###c_yean
@@ -63,11 +85,23 @@
 	culture = andong
 	rite = toegye
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = hemp_district
 			level = 8
+		}
+		district = {
+			type = villages_district
+			level = 3
+		}
+		district = {
+			type = walls_district
+			level = 2
+		}
+		district = {
+			type = guild_district
+			level = 1
 		}
 	}
 }
@@ -77,12 +111,33 @@
 }
 1351 = {	#Dosan
 	holding = church_holding
+	province_size = 2
 	special_district_slot = dosan_academy_district
 	1570.1.1 = {
 		districts = {
 			district = {
 				type = dosan_academy_district
 				level = 1
+			}
+		}
+	}
+	2444.1.1 = {
+		districts = {
+			district = {
+				type = dosan_academy_district
+				level = 1
+			}
+			district = {
+				type = villages_district
+				level = 2
+			}
+			district = {
+				type = manor_houses_district
+				level = 3
+			}
+			district = {
+				type = religious_community_district
+				level = 2
 			}
 		}
 	}
@@ -98,6 +153,10 @@
 		district = {
 			type = hemp_district
 			level = 8
+		}
+		district = {
+			type = villages_district
+			level = 2
 		}
 	}
 }
@@ -115,11 +174,19 @@
 	culture = andong
 	rite = toegye
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = rice_district
 			level = 5
+		}
+		district = {
+			type = urban_housing_district
+			level = 1
+		}
+		district = {
+			type = market_district
+			level = 2
 		}
 	}
 }
@@ -131,7 +198,18 @@
 	holding = none
 }
 1339  = { #Pungcheon
+	province_size = 2
 	holding = city_holding
+	districts = {
+		district = {
+			type = villages_district
+			level = 2
+		}
+		district = {
+			type = manor_houses_district
+			level = 3
+		}
+	}
 }
 
 ##d_cheongsong  ###################################k는 왕국 d는 공작 c는 백작 b는 남작
@@ -144,6 +222,14 @@
 	districts = {
 		district = {
 			type = honey_district
+			level = 3
+		}
+		district = {
+			type = villages_district
+			level = 2
+		}
+		district = {
+			type = border_forts_district
 			level = 1
 		}
 	}
@@ -151,12 +237,33 @@
 
 1183 = {	#Juwangsan
 	holding = church_holding
+	districts = {
+		district = {
+			type = villages_district
+			level = 1
+		}
+		district = {
+			type = religious_community_district
+			level = 1
+		}
+	}
 }
 1184 = {	#Pacheon
 	holding = none
 }
 191 = {	#Jinbo
 	holding = city_holding
+	province_size = 2
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 1
+		}
+		district = {
+			type = guild_district
+			level = 1
+		}
+	}
 }
 
 
@@ -170,7 +277,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -195,6 +302,10 @@
 	districts = {
 		district = {
 			type = honey_district
+			level = 3
+		}
+		district = {
+			type = villages_district
 			level = 1
 		}
 	}
@@ -219,7 +330,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -235,10 +346,18 @@
 	culture = andong
 	rite = toegye
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = honey_district
+			level = 4
+		}
+		district = {
+			type = urban_housing_district
+			level = 1
+		}
+		district = {
+			type = guild_district
 			level = 1
 		}
 	}
@@ -267,7 +386,7 @@
 	districts = {
 		district = {
 			type = stone_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -289,7 +408,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -311,7 +430,7 @@
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -337,7 +456,7 @@
 	districts = {
 		district = {
 			type = stone_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -357,10 +476,18 @@
 	culture = andong
 	rite = toegye
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = honey_district
+			level = 5
+		}
+		district = {
+			type = urban_housing_district
+			level = 1
+		}
+		district = {
+			type = market_district
 			level = 1
 		}
 	}
@@ -387,7 +514,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -415,7 +542,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -440,7 +567,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -465,7 +592,7 @@
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 2
 		}
 	}
 }
