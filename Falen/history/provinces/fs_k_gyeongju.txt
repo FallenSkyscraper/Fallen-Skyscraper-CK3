@@ -286,7 +286,7 @@
 	culture = busan
 	rite = bailian
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = rice_district
@@ -300,7 +300,7 @@
 	culture = busan
 	rite = bailian
 	holding = castle_holding
-
+	province_size = 3
 	districts = {
 		district = {
 			type = rice_district
@@ -309,14 +309,15 @@
 	}
 }
 792 = {	# Gasan
-	holding = none
+	holding = city_holding
 }
 793 = {	# Mulgeum
-	holding = church_holding
+	holding = city_holding
+	province_size = 3
 }
 
 794 = {	# Wondong
-	holding = city_holding
+	holding = church_holding
 }
 ###c_yangbuk
 796 = {	# Sangbuk

@@ -1,0 +1,1463 @@
+# Personal surnames remain on dynasties; founding houses carry the lineage names.
+fs_initialize_starting_merchant_names_effect = {
+	dynasty:dynn_fs_merchant_aprok.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_aprok" }
+	dynasty:dynn_fs_merchant_suyang.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_suyang" }
+	dynasty:dynn_fs_merchant_seongcheon.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_seongcheon" }
+	dynasty:dynn_fs_merchant_songdowon.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_songdowon" }
+	dynasty:dynn_fs_merchant_duman.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_duman" }
+	dynasty:dynn_fs_merchant_baekmu.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_baekmu" }
+	dynasty:dynn_fs_merchant_daesong.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_daesong" }
+	dynasty:dynn_fs_merchant_bomhyanggi.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_bomhyanggi" }
+	dynasty:dynn_fs_merchant_chollima.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_chollima" }
+	dynasty:dynn_fs_merchant_kimchaek.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_kimchaek" }
+	dynasty:dynn_fs_merchant_taedonggang.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_taedonggang" }
+	dynasty:dynn_fs_merchant_golden_triangle.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_golden_triangle" }
+	dynasty:dynn_fs_merchant_haeran.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_haeran" }
+	dynasty:dynn_fs_merchant_seotap.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_seotap" }
+	dynasty:dynn_fs_merchant_nh_anseong.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_nh_anseong" }
+	dynasty:dynn_fs_merchant_nh_yesan.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_nh_yesan" }
+	dynasty:dynn_fs_merchant_nh_gimje.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_nh_gimje" }
+	dynasty:dynn_fs_merchant_nh_sangju.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_nh_sangju" }
+	dynasty:dynn_fs_merchant_nh_jaeryeong.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_nh_jaeryeong" }
+	dynasty:dynn_fs_merchant_nh_hamju.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_nh_hamju" }
+	dynasty:dynn_fs_merchant_tamna.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_tamna" }
+	dynasty:dynn_fs_merchant_chagan_tergen.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_chagan_tergen" }
+	dynasty:dynn_fs_merchant_golden_horn.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_golden_horn" }
+	dynasty:dynn_fs_merchant_ussuri.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_ussuri" }
+	dynasty:dynn_fs_merchant_samsung.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_samsung" }
+	dynasty:dynn_fs_merchant_hyundai.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_hyundai" }
+	dynasty:dynn_fs_merchant_samsung_yeonhwa_kim.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_samsung_yeonhwa_kim" }
+	dynasty:dynn_fs_merchant_samsung_wonsik_jeong.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_samsung_wonsik_jeong" }
+	dynasty:dynn_fs_merchant_hyundai_yeonsu_im.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_hyundai_yeonsu_im" }
+	dynasty:dynn_fs_merchant_sk.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_sk" }
+	dynasty:dynn_fs_merchant_lucky.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_lucky" }
+	dynasty:dynn_fs_merchant_goldstar.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_goldstar" }
+	dynasty:dynn_fs_merchant_lotte.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_lotte" }
+	dynasty:dynn_fs_merchant_hanwha.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_hanwha" }
+	dynasty:dynn_fs_merchant_hanjin.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_hanjin" }
+	dynasty:dynn_fs_merchant_doosan.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_doosan" }
+	dynasty:dynn_fs_merchant_kumho.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_kumho" }
+	dynasty:dynn_fs_merchant_dongwon.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_dongwon" }
+	dynasty:dynn_fs_merchant_chosun.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_chosun" }
+	dynasty:dynn_fs_merchant_joongang.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_joongang" }
+	dynasty:dynn_fs_merchant_donga.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_donga" }
+	dynasty:dynn_fs_merchant_dongwha.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_dongwha" }
+	dynasty:dynn_fs_merchant_ssangyong.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_ssangyong" }
+	dynasty:dynn_fs_merchant_harim.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_harim" }
+	dynasty:dynn_fs_merchant_taeyoung.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_taeyoung" }
+	dynasty:dynn_fs_merchant_aekyung.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_aekyung" }
+	dynasty:dynn_fs_merchant_orion.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_orion" }
+	dynasty:dynn_fs_merchant_youngpoong.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_youngpoong" }
+	dynasty:dynn_fs_merchant_kyobo.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_kyobo" }
+	dynasty:dynn_fs_merchant_jinro.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_jinro" }
+	dynasty:dynn_fs_merchant_poongsan.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_poongsan" }
+	dynasty:dynn_fs_merchant_woongjin.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_woongjin" }
+	dynasty:dynn_fs_merchant_hwasung.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_hwasung" }
+	dynasty:dynn_fs_merchant_maeil.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_maeil" }
+	dynasty:dynn_fs_merchant_namyang.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_namyang" }
+	dynasty:dynn_fs_merchant_samyang.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_samyang" }
+	dynasty:dynn_fs_merchant_dongkuk.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_dongkuk" }
+	dynasty:dynn_fs_merchant_kb.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_kb" }
+	dynasty:dynn_fs_merchant_shinhan.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_shinhan" }
+	dynasty:dynn_fs_merchant_woori.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_woori" }
+	dynasty:dynn_fs_merchant_haitai.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_haitai" }
+	dynasty:dynn_fs_merchant_kia.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_kia" }
+	dynasty:dynn_fs_merchant_daewoo_bupyeong.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_daewoo_bupyeong" }
+	dynasty:dynn_fs_merchant_kukje.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_kukje" }
+	dynasty:dynn_fs_merchant_posco_pohang.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_posco_pohang" }
+	dynasty:dynn_fs_merchant_daewoo_okpo.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_daewoo_okpo" }
+	dynasty:dynn_fs_merchant_posco_gwangyang.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_posco_gwangyang" }
+	dynasty:dynn_fs_merchant_lotte_han.dynasty_founder.house ?= { set_house_name = "fs_merchant_dynasty_lotte_han" }
+}
+
+# Precise business premises and the courts of the starting merchant houses.
+fs_initialize_starting_merchant_locations_effect = {
+	title:c_fs_merchant_aprok_sinuiju.holder ?= {
+		set_location = province:320
+		domicile ?= { move_domicile = province:320 }
+	}
+	title:c_fs_merchant_suyang_haeju.holder ?= {
+		set_location = province:283
+		domicile ?= { move_domicile = province:283 }
+	}
+	title:c_fs_merchant_seongcheon_hamheung.holder ?= {
+		set_location = province:340
+		domicile ?= { move_domicile = province:340 }
+	}
+	title:c_fs_merchant_songdowon_wonsan.holder ?= {
+		set_location = province:1900
+		domicile ?= { move_domicile = province:1900 }
+	}
+	title:c_fs_merchant_duman_cheongjin.holder ?= {
+		set_location = province:2680
+		domicile ?= { move_domicile = province:2680 }
+	}
+	title:c_fs_merchant_baekmu_hyesan.holder ?= {
+		set_location = province:2311
+		domicile ?= { move_domicile = province:2311 }
+	}
+	title:c_fs_merchant_daesong_pyongyang.holder ?= {
+		set_location = province:303
+		domicile ?= { move_domicile = province:303 }
+	}
+	title:c_fs_merchant_bomhyanggi_sinuiju.holder ?= {
+		set_location = province:320
+		domicile ?= { move_domicile = province:320 }
+	}
+	title:c_fs_merchant_chollima_kangso.holder ?= {
+		set_location = province:2064
+		domicile ?= { move_domicile = province:2064 }
+	}
+	title:c_fs_merchant_kimchaek_cheongjin.holder ?= {
+		set_location = province:2680
+		domicile ?= { move_domicile = province:2680 }
+	}
+	title:c_fs_merchant_taedonggang_pyongyang.holder ?= {
+		set_location = province:4016
+		domicile ?= { move_domicile = province:4016 }
+	}
+	title:c_fs_merchant_golden_triangle_najin.holder ?= {
+		set_location = province:361
+		domicile ?= { move_domicile = province:361 }
+	}
+	title:c_fs_merchant_haeran_yanji.holder ?= {
+		set_location = province:3166
+		domicile ?= { move_domicile = province:3166 }
+	}
+	title:c_fs_merchant_haeran_longjing.holder ?= {
+		set_location = province:3160
+		domicile ?= { move_domicile = province:3160 }
+	}
+	title:c_fs_merchant_haeran_tumen.holder ?= {
+		set_location = province:3170
+		domicile ?= { move_domicile = province:3170 }
+	}
+	title:c_fs_merchant_haeran_hunchun.holder ?= {
+		set_location = province:3184
+		domicile ?= { move_domicile = province:3184 }
+	}
+	title:c_fs_merchant_seotap_shenyang.holder ?= {
+		set_location = province:3137
+		domicile ?= { move_domicile = province:3137 }
+	}
+	title:c_fs_merchant_aprok_liaoyang.holder ?= {
+		set_location = province:3029
+		domicile ?= { move_domicile = province:3029 }
+	}
+	title:c_fs_merchant_seotap_dalian.holder ?= {
+		set_location = province:2808
+		domicile ?= { move_domicile = province:2808 }
+	}
+	title:c_fs_merchant_seotap_changchun.holder ?= {
+		set_location = province:3410
+		domicile ?= { move_domicile = province:3410 }
+	}
+	title:c_fs_merchant_seotap_jirin.holder ?= {
+		set_location = province:3607
+		domicile ?= { move_domicile = province:3607 }
+	}
+	title:c_fs_merchant_haeran_harbin.holder ?= {
+		set_location = province:3591
+		domicile ?= { move_domicile = province:3591 }
+	}
+	title:c_fs_merchant_aprok_dandung.holder ?= {
+		set_location = province:2946
+		domicile ?= { move_domicile = province:2946 }
+	}
+	title:c_fs_merchant_aprok_kuandian.holder ?= {
+		set_location = province:2911
+		domicile ?= { move_domicile = province:2911 }
+	}
+	title:c_fs_merchant_nh_anseong.holder ?= {
+		set_location = province:1504
+		domicile ?= { move_domicile = province:1504 }
+	}
+	title:c_fs_merchant_nh_yesan.holder ?= {
+		set_location = province:2550
+		domicile ?= { move_domicile = province:2550 }
+	}
+	title:c_fs_merchant_nh_gimje.holder ?= {
+		set_location = province:1036
+		domicile ?= { move_domicile = province:1036 }
+	}
+	title:c_fs_merchant_nh_sangju.holder ?= {
+		set_location = province:1284
+		domicile ?= { move_domicile = province:1284 }
+	}
+	title:c_fs_merchant_nh_jaeryeong.holder ?= {
+		set_location = province:1846
+		domicile ?= { move_domicile = province:1846 }
+	}
+	title:c_fs_merchant_nh_hamju.holder ?= {
+		set_location = province:2243
+		domicile ?= { move_domicile = province:2243 }
+	}
+	title:c_fs_merchant_tamna_jeju.holder ?= {
+		set_location = province:460
+		domicile ?= { move_domicile = province:460 }
+	}
+	title:c_fs_merchant_chagan_gorlos.holder ?= {
+		set_location = province:3539
+		domicile ?= { move_domicile = province:3539 }
+	}
+	title:c_fs_merchant_golden_horn_vladivostok.holder ?= {
+		set_location = province:2802
+		domicile ?= { move_domicile = province:2802 }
+	}
+	title:c_fs_merchant_ussuri_bank.holder ?= {
+		set_location = province:2710
+		domicile ?= { move_domicile = province:2710 }
+	}
+	title:c_fs_merchant_samsung_daegu.holder ?= {
+		set_location = province:174
+		domicile ?= { move_domicile = province:174 }
+	}
+	title:c_fs_merchant_samsung_suwon.holder ?= {
+		set_location = province:84
+		domicile ?= { move_domicile = province:84 }
+	}
+	title:c_fs_merchant_samsung_seoul.holder ?= {
+		set_location = province:29
+		domicile ?= { move_domicile = province:29 }
+	}
+	title:c_fs_merchant_samsung_geoje.holder ?= {
+		set_location = province:719
+		domicile ?= { move_domicile = province:719 }
+	}
+	title:c_fs_merchant_samsung_cj_busan.holder ?= {
+		set_location = province:779
+		domicile ?= { move_domicile = province:779 }
+	}
+	title:c_fs_merchant_samsung_shinsegae_seoul.holder ?= {
+		set_location = province:29
+		domicile ?= { move_domicile = province:29 }
+	}
+	title:c_fs_merchant_samsung_electronics_gumi.holder ?= {
+		set_location = province:1143
+		domicile ?= { move_domicile = province:1143 }
+	}
+	title:c_fs_merchant_samsung_giheung.holder ?= {
+		set_location = province:1521
+		domicile ?= { move_domicile = province:1521 }
+	}
+	title:c_fs_merchant_samsung_pyeongtaek.holder ?= {
+		set_location = province:1402
+		domicile ?= { move_domicile = province:1402 }
+	}
+	title:c_fs_merchant_samsung_cj_incheon.holder ?= {
+		set_location = province:65
+		domicile ?= { move_domicile = province:65 }
+	}
+	title:c_fs_merchant_samsung_textiles_gumi.holder ?= {
+		set_location = province:1143
+		domicile ?= { move_domicile = province:1143 }
+	}
+	title:c_fs_merchant_hyundai_construction.holder ?= {
+		set_location = province:28
+		domicile ?= { move_domicile = province:28 }
+	}
+	title:c_fs_merchant_hyundai_motor.holder ?= {
+		set_location = province:874
+		domicile ?= { move_domicile = province:874 }
+	}
+	title:c_fs_merchant_hyundai_heavy.holder ?= {
+		set_location = province:181
+		domicile ?= { move_domicile = province:181 }
+	}
+	title:c_fs_merchant_hyundai_department.holder ?= {
+		set_location = province:42
+		domicile ?= { move_domicile = province:42 }
+	}
+	title:c_fs_merchant_hyundai_marine.holder ?= {
+		set_location = province:28
+		domicile ?= { move_domicile = province:28 }
+	}
+	title:c_fs_merchant_hyundai_halla.holder ?= {
+		set_location = province:70
+		domicile ?= { move_domicile = province:70 }
+	}
+	title:c_fs_merchant_hyundai_kcc.holder ?= {
+		set_location = province:1046
+		domicile ?= { move_domicile = province:1046 }
+	}
+	title:c_fs_merchant_hyundai_seosan.holder ?= {
+		set_location = province:2561
+		domicile ?= { move_domicile = province:2561 }
+	}
+	title:c_fs_merchant_hyundai_asan.holder ?= {
+		set_location = province:1386
+		domicile ?= { move_domicile = province:1386 }
+	}
+	title:c_fs_merchant_hyundai_jeonju.holder ?= {
+		set_location = province:1046
+		domicile ?= { move_domicile = province:1046 }
+	}
+	title:c_fs_merchant_hyundai_steel_dangjin.holder ?= {
+		set_location = province:2577
+		domicile ?= { move_domicile = province:2577 }
+	}
+	title:c_fs_merchant_sk_suwon.holder ?= {
+		set_location = province:84
+		domicile ?= { move_domicile = province:84 }
+	}
+	title:c_fs_merchant_lucky_cheongju.holder ?= {
+		set_location = province:1362
+		domicile ?= { move_domicile = province:1362 }
+	}
+	title:c_fs_merchant_goldstar_yeosu.holder ?= {
+		set_location = province:632
+		domicile ?= { move_domicile = province:632 }
+	}
+	title:c_fs_merchant_lotte_busan.holder ?= {
+		set_location = province:779
+		domicile ?= { move_domicile = province:779 }
+	}
+	title:c_fs_merchant_nongshim_anyang.holder ?= {
+		set_location = province:70
+		domicile ?= { move_domicile = province:70 }
+	}
+	title:c_fs_merchant_hanwha_incheon.holder ?= {
+		set_location = province:65
+		domicile ?= { move_domicile = province:65 }
+	}
+	title:c_fs_merchant_hanjin_incheon.holder ?= {
+		set_location = province:65
+		domicile ?= { move_domicile = province:65 }
+	}
+	title:c_fs_merchant_doosan_changwon.holder ?= {
+		set_location = province:759
+		domicile ?= { move_domicile = province:759 }
+	}
+	title:c_fs_merchant_kumho_gwangju.holder ?= {
+		set_location = province:564
+		domicile ?= { move_domicile = province:564 }
+	}
+	title:c_fs_merchant_dongwon_changwon.holder ?= {
+		set_location = province:759
+		domicile ?= { move_domicile = province:759 }
+	}
+	title:c_fs_merchant_chosun_seoul.holder ?= {
+		set_location = province:29
+		domicile ?= { move_domicile = province:29 }
+	}
+	title:c_fs_merchant_joongang_sangam.holder ?= {
+		set_location = province:27
+		domicile ?= { move_domicile = province:27 }
+	}
+	title:c_fs_merchant_donga_seoul.holder ?= {
+		set_location = province:28
+		domicile ?= { move_domicile = province:28 }
+	}
+	title:c_fs_merchant_dongwha_chungju.holder ?= {
+		set_location = province:1475
+		domicile ?= { move_domicile = province:1475 }
+	}
+	title:c_fs_merchant_ssangyong_yeongwol.holder ?= {
+		set_location = province:1269
+		domicile ?= { move_domicile = province:1269 }
+	}
+	title:c_fs_merchant_harim_iksan.holder ?= {
+		set_location = province:1059
+		domicile ?= { move_domicile = province:1059 }
+	}
+	title:c_fs_merchant_taeyoung_yeouido.holder ?= {
+		set_location = province:45
+		domicile ?= { move_domicile = province:45 }
+	}
+	title:c_fs_merchant_aekyung_cheongyang.holder ?= {
+		set_location = province:2524
+		domicile ?= { move_domicile = province:2524 }
+	}
+	title:c_fs_merchant_orion_iksan.holder ?= {
+		set_location = province:1059
+		domicile ?= { move_domicile = province:1059 }
+	}
+	title:c_fs_merchant_youngpoong_seokpo.holder ?= {
+		set_location = province:244
+		domicile ?= { move_domicile = province:244 }
+	}
+	title:c_fs_merchant_kyobo_seoul.holder ?= {
+		set_location = province:28
+		domicile ?= { move_domicile = province:28 }
+	}
+	title:c_fs_merchant_jinro_icheon.holder ?= {
+		set_location = province:1536
+		domicile ?= { move_domicile = province:1536 }
+	}
+	title:c_fs_merchant_poongsan_angang.holder ?= {
+		set_location = province:924
+		domicile ?= { move_domicile = province:924 }
+	}
+	title:c_fs_merchant_woongjin_gyoha.holder ?= {
+		set_location = province:88
+		domicile ?= { move_domicile = province:88 }
+	}
+	title:c_fs_merchant_hwasung_suseong.holder ?= {
+		set_location = province:930
+		domicile ?= { move_domicile = province:930 }
+	}
+	title:c_fs_merchant_maeil_jinwi.holder ?= {
+		set_location = province:1514
+		domicile ?= { move_domicile = province:1514 }
+	}
+	title:c_fs_merchant_namyang_mokcheon.holder ?= {
+		set_location = province:1398
+		domicile ?= { move_domicile = province:1398 }
+	}
+	title:c_fs_merchant_samyang_wonju.holder ?= {
+		set_location = province:1467
+		domicile ?= { move_domicile = province:1467 }
+	}
+	title:c_fs_merchant_dongkuk_incheon.holder ?= {
+		set_location = province:65
+		domicile ?= { move_domicile = province:65 }
+	}
+	title:c_fs_merchant_kb_yeouido.holder ?= {
+		set_location = province:45
+		domicile ?= { move_domicile = province:45 }
+	}
+	title:c_fs_merchant_shinhan_seoul.holder ?= {
+		set_location = province:29
+		domicile ?= { move_domicile = province:29 }
+	}
+	title:c_fs_merchant_woori_seoul.holder ?= {
+		set_location = province:29
+		domicile ?= { move_domicile = province:29 }
+	}
+	title:c_fs_merchant_haitai_gwangju.holder ?= {
+		set_location = province:564
+		domicile ?= { move_domicile = province:564 }
+	}
+	title:c_fs_merchant_kia_gwangju.holder ?= {
+		set_location = province:564
+		domicile ?= { move_domicile = province:564 }
+	}
+	title:c_fs_merchant_daewoo_bupyeong.holder ?= {
+		set_location = province:63
+		domicile ?= { move_domicile = province:63 }
+	}
+	title:c_fs_merchant_kukje_busan.holder ?= {
+		set_location = province:779
+		domicile ?= { move_domicile = province:779 }
+	}
+	title:c_fs_merchant_posco_pohang.holder ?= {
+		set_location = province:963
+		domicile ?= { move_domicile = province:963 }
+	}
+	title:c_fs_merchant_lotte_jamsil.holder ?= {
+		set_location = province:41
+		domicile ?= { move_domicile = province:41 }
+	}
+	title:c_fs_merchant_daewoo_okpo.holder ?= {
+		set_location = province:725
+		domicile ?= { move_domicile = province:725 }
+	}
+	title:c_fs_merchant_posco_gwangyang.holder ?= {
+		set_location = province:656
+		domicile ?= { move_domicile = province:656 }
+	}
+}
+
+fs_initialize_starting_merchant_links_effect = {
+	character:fs_merchant_suyang_yunhwa ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_nh_jaeryeong.holder }
+			set_employer = title:c_fs_merchant_nh_jaeryeong.holder
+			set_location = province:1846
+		}
+	}
+	character:fs_merchant_lucky_hyewon ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_sk_suwon.holder }
+			set_employer = title:c_fs_merchant_sk_suwon.holder
+			set_location = province:84
+		}
+	}
+	character:fs_merchant_goldstar_mingyu ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_lucky_cheongju.holder }
+			set_employer = title:c_fs_merchant_lucky_cheongju.holder
+			set_location = province:1362
+		}
+	}
+	character:fs_merchant_hanjin_seongwon ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hanwha_incheon.holder }
+			set_employer = title:c_fs_merchant_hanwha_incheon.holder
+			set_location = province:65
+		}
+	}
+	character:fs_merchant_dongwon_jeongheon ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_kumho_gwangju.holder }
+			set_employer = title:c_fs_merchant_kumho_gwangju.holder
+			set_location = province:564
+		}
+	}
+	character:fs_merchant_poongsan_hyejin ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_posco_pohang.holder }
+			set_employer = title:c_fs_merchant_posco_pohang.holder
+			set_location = province:963
+		}
+	}
+	character:fs_merchant_lotte_mijeong ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_lotte_busan.holder }
+			set_employer = title:c_fs_merchant_lotte_busan.holder
+			set_location = province:779
+		}
+	}
+	character:fs_merchant_aprok_sinuiju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_aprok_sinuiju.holder }
+			set_employer = title:c_fs_merchant_aprok_sinuiju.holder
+			set_location = province:320
+		}
+	}
+	character:fs_merchant_suyang_haeju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_suyang_haeju.holder }
+			set_employer = title:c_fs_merchant_suyang_haeju.holder
+			set_location = province:283
+		}
+	}
+	character:fs_merchant_seongcheon_hamheung_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_seongcheon_hamheung.holder }
+			set_employer = title:c_fs_merchant_seongcheon_hamheung.holder
+			set_location = province:340
+		}
+	}
+	character:fs_merchant_songdowon_wonsan_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_songdowon_wonsan.holder }
+			set_employer = title:c_fs_merchant_songdowon_wonsan.holder
+			set_location = province:1900
+		}
+	}
+	character:fs_merchant_duman_cheongjin_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_duman_cheongjin.holder }
+			set_employer = title:c_fs_merchant_duman_cheongjin.holder
+			set_location = province:2680
+		}
+	}
+	character:fs_merchant_baekmu_hyesan_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_baekmu_hyesan.holder }
+			set_employer = title:c_fs_merchant_baekmu_hyesan.holder
+			set_location = province:2311
+		}
+	}
+	character:fs_merchant_daesong_pyongyang_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_daesong_pyongyang.holder }
+			set_employer = title:c_fs_merchant_daesong_pyongyang.holder
+			set_location = province:303
+		}
+	}
+	character:fs_merchant_bomhyanggi_sinuiju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_bomhyanggi_sinuiju.holder }
+			set_employer = title:c_fs_merchant_bomhyanggi_sinuiju.holder
+			set_location = province:320
+		}
+	}
+	character:fs_merchant_chollima_kangso_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_chollima_kangso.holder }
+			set_employer = title:c_fs_merchant_chollima_kangso.holder
+			set_location = province:2064
+		}
+	}
+	character:fs_merchant_kimchaek_cheongjin_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_kimchaek_cheongjin.holder }
+			set_employer = title:c_fs_merchant_kimchaek_cheongjin.holder
+			set_location = province:2680
+		}
+	}
+	character:fs_merchant_taedonggang_pyongyang_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_taedonggang_pyongyang.holder }
+			set_employer = title:c_fs_merchant_taedonggang_pyongyang.holder
+			set_location = province:4016
+		}
+	}
+	character:fs_merchant_golden_triangle_najin_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_golden_triangle_najin.holder }
+			set_employer = title:c_fs_merchant_golden_triangle_najin.holder
+			set_location = province:361
+		}
+	}
+	character:fs_merchant_haeran_yanji_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_haeran_yanji.holder }
+			set_employer = title:c_fs_merchant_haeran_yanji.holder
+			set_location = province:3166
+		}
+	}
+	character:fs_merchant_haeran_longjing_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_haeran_longjing.holder }
+			set_employer = title:c_fs_merchant_haeran_longjing.holder
+			set_location = province:3160
+		}
+	}
+	character:fs_merchant_haeran_tumen_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_haeran_tumen.holder }
+			set_employer = title:c_fs_merchant_haeran_tumen.holder
+			set_location = province:3170
+		}
+	}
+	character:fs_merchant_haeran_hunchun_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_haeran_hunchun.holder }
+			set_employer = title:c_fs_merchant_haeran_hunchun.holder
+			set_location = province:3184
+		}
+	}
+	character:fs_merchant_seotap_shenyang_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_seotap_shenyang.holder }
+			set_employer = title:c_fs_merchant_seotap_shenyang.holder
+			set_location = province:3137
+		}
+	}
+	character:fs_merchant_aprok_liaoyang_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_aprok_liaoyang.holder }
+			set_employer = title:c_fs_merchant_aprok_liaoyang.holder
+			set_location = province:3029
+		}
+	}
+	character:fs_merchant_seotap_dalian_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_seotap_dalian.holder }
+			set_employer = title:c_fs_merchant_seotap_dalian.holder
+			set_location = province:2808
+		}
+	}
+	character:fs_merchant_seotap_changchun_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_seotap_changchun.holder }
+			set_employer = title:c_fs_merchant_seotap_changchun.holder
+			set_location = province:3410
+		}
+	}
+	character:fs_merchant_seotap_jirin_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_seotap_jirin.holder }
+			set_employer = title:c_fs_merchant_seotap_jirin.holder
+			set_location = province:3607
+		}
+	}
+	character:fs_merchant_haeran_harbin_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_haeran_harbin.holder }
+			set_employer = title:c_fs_merchant_haeran_harbin.holder
+			set_location = province:3591
+		}
+	}
+	character:fs_merchant_aprok_dandung_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_aprok_dandung.holder }
+			set_employer = title:c_fs_merchant_aprok_dandung.holder
+			set_location = province:2946
+		}
+	}
+	character:fs_merchant_aprok_kuandian_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_aprok_kuandian.holder }
+			set_employer = title:c_fs_merchant_aprok_kuandian.holder
+			set_location = province:2911
+		}
+	}
+	character:fs_merchant_nh_anseong_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_nh_anseong.holder }
+			set_employer = title:c_fs_merchant_nh_anseong.holder
+			set_location = province:1504
+		}
+	}
+	character:fs_merchant_nh_yesan_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_nh_yesan.holder }
+			set_employer = title:c_fs_merchant_nh_yesan.holder
+			set_location = province:2550
+		}
+	}
+	character:fs_merchant_nh_gimje_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_nh_gimje.holder }
+			set_employer = title:c_fs_merchant_nh_gimje.holder
+			set_location = province:1036
+		}
+	}
+	character:fs_merchant_nh_sangju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_nh_sangju.holder }
+			set_employer = title:c_fs_merchant_nh_sangju.holder
+			set_location = province:1284
+		}
+	}
+	character:fs_merchant_nh_jaeryeong_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_nh_jaeryeong.holder }
+			set_employer = title:c_fs_merchant_nh_jaeryeong.holder
+			set_location = province:1846
+		}
+	}
+	character:fs_merchant_nh_hamju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_nh_hamju.holder }
+			set_employer = title:c_fs_merchant_nh_hamju.holder
+			set_location = province:2243
+		}
+	}
+	character:fs_merchant_tamna_jeju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_tamna_jeju.holder }
+			set_employer = title:c_fs_merchant_tamna_jeju.holder
+			set_location = province:460
+		}
+	}
+	character:fs_merchant_chagan_gorlos_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_chagan_gorlos.holder }
+			set_employer = title:c_fs_merchant_chagan_gorlos.holder
+			set_location = province:3539
+		}
+	}
+	character:fs_merchant_golden_horn_vladivostok_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_golden_horn_vladivostok.holder }
+			set_employer = title:c_fs_merchant_golden_horn_vladivostok.holder
+			set_location = province:2802
+		}
+	}
+	character:fs_merchant_ussuri_bank_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_ussuri_bank.holder }
+			set_employer = title:c_fs_merchant_ussuri_bank.holder
+			set_location = province:2710
+		}
+	}
+	character:fs_merchant_samsung_daegu_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_daegu.holder }
+			set_employer = title:c_fs_merchant_samsung_daegu.holder
+			set_location = province:174
+		}
+	}
+	character:fs_merchant_samsung_suwon_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_suwon.holder }
+			set_employer = title:c_fs_merchant_samsung_suwon.holder
+			set_location = province:84
+		}
+	}
+	character:fs_merchant_samsung_seoul_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_seoul.holder }
+			set_employer = title:c_fs_merchant_samsung_seoul.holder
+			set_location = province:29
+		}
+	}
+	character:fs_merchant_samsung_geoje_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_geoje.holder }
+			set_employer = title:c_fs_merchant_samsung_geoje.holder
+			set_location = province:719
+		}
+	}
+	character:fs_merchant_samsung_cj_busan_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_cj_busan.holder }
+			set_employer = title:c_fs_merchant_samsung_cj_busan.holder
+			set_location = province:779
+		}
+	}
+	character:fs_merchant_samsung_shinsegae_seoul_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_shinsegae_seoul.holder }
+			set_employer = title:c_fs_merchant_samsung_shinsegae_seoul.holder
+			set_location = province:29
+		}
+	}
+	character:fs_merchant_samsung_electronics_gumi_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_electronics_gumi.holder }
+			set_employer = title:c_fs_merchant_samsung_electronics_gumi.holder
+			set_location = province:1143
+		}
+	}
+	character:fs_merchant_samsung_giheung_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_giheung.holder }
+			set_employer = title:c_fs_merchant_samsung_giheung.holder
+			set_location = province:1521
+		}
+	}
+	character:fs_merchant_samsung_pyeongtaek_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_pyeongtaek.holder }
+			set_employer = title:c_fs_merchant_samsung_pyeongtaek.holder
+			set_location = province:1402
+		}
+	}
+	character:fs_merchant_samsung_cj_incheon_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_cj_incheon.holder }
+			set_employer = title:c_fs_merchant_samsung_cj_incheon.holder
+			set_location = province:65
+		}
+	}
+	character:fs_merchant_samsung_textiles_gumi_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samsung_textiles_gumi.holder }
+			set_employer = title:c_fs_merchant_samsung_textiles_gumi.holder
+			set_location = province:1143
+		}
+	}
+	character:fs_merchant_hyundai_construction_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_construction.holder }
+			set_employer = title:c_fs_merchant_hyundai_construction.holder
+			set_location = province:28
+		}
+	}
+	character:fs_merchant_hyundai_motor_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_motor.holder }
+			set_employer = title:c_fs_merchant_hyundai_motor.holder
+			set_location = province:874
+		}
+	}
+	character:fs_merchant_hyundai_heavy_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_heavy.holder }
+			set_employer = title:c_fs_merchant_hyundai_heavy.holder
+			set_location = province:181
+		}
+	}
+	character:fs_merchant_hyundai_department_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_department.holder }
+			set_employer = title:c_fs_merchant_hyundai_department.holder
+			set_location = province:42
+		}
+	}
+	character:fs_merchant_hyundai_marine_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_marine.holder }
+			set_employer = title:c_fs_merchant_hyundai_marine.holder
+			set_location = province:28
+		}
+	}
+	character:fs_merchant_hyundai_halla_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_halla.holder }
+			set_employer = title:c_fs_merchant_hyundai_halla.holder
+			set_location = province:70
+		}
+	}
+	character:fs_merchant_hyundai_kcc_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_kcc.holder }
+			set_employer = title:c_fs_merchant_hyundai_kcc.holder
+			set_location = province:1046
+		}
+	}
+	character:fs_merchant_hyundai_seosan_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_seosan.holder }
+			set_employer = title:c_fs_merchant_hyundai_seosan.holder
+			set_location = province:2561
+		}
+	}
+	character:fs_merchant_hyundai_asan_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_asan.holder }
+			set_employer = title:c_fs_merchant_hyundai_asan.holder
+			set_location = province:1386
+		}
+	}
+	character:fs_merchant_hyundai_jeonju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_jeonju.holder }
+			set_employer = title:c_fs_merchant_hyundai_jeonju.holder
+			set_location = province:1046
+		}
+	}
+	character:fs_merchant_hyundai_steel_dangjin_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hyundai_steel_dangjin.holder }
+			set_employer = title:c_fs_merchant_hyundai_steel_dangjin.holder
+			set_location = province:2577
+		}
+	}
+	character:fs_merchant_sk_suwon_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_sk_suwon.holder }
+			set_employer = title:c_fs_merchant_sk_suwon.holder
+			set_location = province:84
+		}
+	}
+	character:fs_merchant_lucky_cheongju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_lucky_cheongju.holder }
+			set_employer = title:c_fs_merchant_lucky_cheongju.holder
+			set_location = province:1362
+		}
+	}
+	character:fs_merchant_goldstar_yeosu_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_goldstar_yeosu.holder }
+			set_employer = title:c_fs_merchant_goldstar_yeosu.holder
+			set_location = province:632
+		}
+	}
+	character:fs_merchant_lotte_busan_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_lotte_busan.holder }
+			set_employer = title:c_fs_merchant_lotte_busan.holder
+			set_location = province:779
+		}
+	}
+	character:fs_merchant_nongshim_anyang_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_nongshim_anyang.holder }
+			set_employer = title:c_fs_merchant_nongshim_anyang.holder
+			set_location = province:70
+		}
+	}
+	character:fs_merchant_hanwha_incheon_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hanwha_incheon.holder }
+			set_employer = title:c_fs_merchant_hanwha_incheon.holder
+			set_location = province:65
+		}
+	}
+	character:fs_merchant_hanjin_incheon_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hanjin_incheon.holder }
+			set_employer = title:c_fs_merchant_hanjin_incheon.holder
+			set_location = province:65
+		}
+	}
+	character:fs_merchant_doosan_changwon_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_doosan_changwon.holder }
+			set_employer = title:c_fs_merchant_doosan_changwon.holder
+			set_location = province:759
+		}
+	}
+	character:fs_merchant_kumho_gwangju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_kumho_gwangju.holder }
+			set_employer = title:c_fs_merchant_kumho_gwangju.holder
+			set_location = province:564
+		}
+	}
+	character:fs_merchant_dongwon_changwon_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_dongwon_changwon.holder }
+			set_employer = title:c_fs_merchant_dongwon_changwon.holder
+			set_location = province:759
+		}
+	}
+	character:fs_merchant_chosun_seoul_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_chosun_seoul.holder }
+			set_employer = title:c_fs_merchant_chosun_seoul.holder
+			set_location = province:29
+		}
+	}
+	character:fs_merchant_joongang_sangam_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_joongang_sangam.holder }
+			set_employer = title:c_fs_merchant_joongang_sangam.holder
+			set_location = province:27
+		}
+	}
+	character:fs_merchant_donga_seoul_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_donga_seoul.holder }
+			set_employer = title:c_fs_merchant_donga_seoul.holder
+			set_location = province:28
+		}
+	}
+	character:fs_merchant_dongwha_chungju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_dongwha_chungju.holder }
+			set_employer = title:c_fs_merchant_dongwha_chungju.holder
+			set_location = province:1475
+		}
+	}
+	character:fs_merchant_ssangyong_yeongwol_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_ssangyong_yeongwol.holder }
+			set_employer = title:c_fs_merchant_ssangyong_yeongwol.holder
+			set_location = province:1269
+		}
+	}
+	character:fs_merchant_harim_iksan_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_harim_iksan.holder }
+			set_employer = title:c_fs_merchant_harim_iksan.holder
+			set_location = province:1059
+		}
+	}
+	character:fs_merchant_taeyoung_yeouido_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_taeyoung_yeouido.holder }
+			set_employer = title:c_fs_merchant_taeyoung_yeouido.holder
+			set_location = province:45
+		}
+	}
+	character:fs_merchant_aekyung_cheongyang_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_aekyung_cheongyang.holder }
+			set_employer = title:c_fs_merchant_aekyung_cheongyang.holder
+			set_location = province:2524
+		}
+	}
+	character:fs_merchant_orion_iksan_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_orion_iksan.holder }
+			set_employer = title:c_fs_merchant_orion_iksan.holder
+			set_location = province:1059
+		}
+	}
+	character:fs_merchant_youngpoong_seokpo_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_youngpoong_seokpo.holder }
+			set_employer = title:c_fs_merchant_youngpoong_seokpo.holder
+			set_location = province:244
+		}
+	}
+	character:fs_merchant_kyobo_seoul_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_kyobo_seoul.holder }
+			set_employer = title:c_fs_merchant_kyobo_seoul.holder
+			set_location = province:28
+		}
+	}
+	character:fs_merchant_jinro_icheon_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_jinro_icheon.holder }
+			set_employer = title:c_fs_merchant_jinro_icheon.holder
+			set_location = province:1536
+		}
+	}
+	character:fs_merchant_poongsan_angang_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_poongsan_angang.holder }
+			set_employer = title:c_fs_merchant_poongsan_angang.holder
+			set_location = province:924
+		}
+	}
+	character:fs_merchant_woongjin_gyoha_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_woongjin_gyoha.holder }
+			set_employer = title:c_fs_merchant_woongjin_gyoha.holder
+			set_location = province:88
+		}
+	}
+	character:fs_merchant_hwasung_suseong_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_hwasung_suseong.holder }
+			set_employer = title:c_fs_merchant_hwasung_suseong.holder
+			set_location = province:930
+		}
+	}
+	character:fs_merchant_maeil_jinwi_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_maeil_jinwi.holder }
+			set_employer = title:c_fs_merchant_maeil_jinwi.holder
+			set_location = province:1514
+		}
+	}
+	character:fs_merchant_namyang_mokcheon_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_namyang_mokcheon.holder }
+			set_employer = title:c_fs_merchant_namyang_mokcheon.holder
+			set_location = province:1398
+		}
+	}
+	character:fs_merchant_samyang_wonju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_samyang_wonju.holder }
+			set_employer = title:c_fs_merchant_samyang_wonju.holder
+			set_location = province:1467
+		}
+	}
+	character:fs_merchant_dongkuk_incheon_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_dongkuk_incheon.holder }
+			set_employer = title:c_fs_merchant_dongkuk_incheon.holder
+			set_location = province:65
+		}
+	}
+	character:fs_merchant_kb_yeouido_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_kb_yeouido.holder }
+			set_employer = title:c_fs_merchant_kb_yeouido.holder
+			set_location = province:45
+		}
+	}
+	character:fs_merchant_shinhan_seoul_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_shinhan_seoul.holder }
+			set_employer = title:c_fs_merchant_shinhan_seoul.holder
+			set_location = province:29
+		}
+	}
+	character:fs_merchant_woori_seoul_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_woori_seoul.holder }
+			set_employer = title:c_fs_merchant_woori_seoul.holder
+			set_location = province:29
+		}
+	}
+	character:fs_merchant_haitai_gwangju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_haitai_gwangju.holder }
+			set_employer = title:c_fs_merchant_haitai_gwangju.holder
+			set_location = province:564
+		}
+	}
+	character:fs_merchant_kia_gwangju_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_kia_gwangju.holder }
+			set_employer = title:c_fs_merchant_kia_gwangju.holder
+			set_location = province:564
+		}
+	}
+	character:fs_merchant_daewoo_bupyeong_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_daewoo_bupyeong.holder }
+			set_employer = title:c_fs_merchant_daewoo_bupyeong.holder
+			set_location = province:63
+		}
+	}
+	character:fs_merchant_kukje_busan_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_kukje_busan.holder }
+			set_employer = title:c_fs_merchant_kukje_busan.holder
+			set_location = province:779
+		}
+	}
+	character:fs_merchant_posco_pohang_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_posco_pohang.holder }
+			set_employer = title:c_fs_merchant_posco_pohang.holder
+			set_location = province:963
+		}
+	}
+	character:fs_merchant_lotte_jamsil_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_lotte_jamsil.holder }
+			set_employer = title:c_fs_merchant_lotte_jamsil.holder
+			set_location = province:41
+		}
+	}
+	character:fs_merchant_daewoo_okpo_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_daewoo_okpo.holder }
+			set_employer = title:c_fs_merchant_daewoo_okpo.holder
+			set_location = province:725
+		}
+	}
+	character:fs_merchant_posco_gwangyang_heir ?= {
+		if = {
+			limit = { is_alive = yes is_ruler = no exists = title:c_fs_merchant_posco_gwangyang.holder }
+			set_employer = title:c_fs_merchant_posco_gwangyang.holder
+			set_location = province:656
+		}
+	}
+	title:c_fs_merchant_haeran_yanji.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_haeran_longjing.holder NOT = { this = title:c_fs_merchant_haeran_longjing.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_haeran_longjing.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_haeran_longjing.holder
+			}
+		}
+	}
+	title:c_fs_merchant_haeran_yanji.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_haeran_tumen.holder NOT = { this = title:c_fs_merchant_haeran_tumen.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_haeran_tumen.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_haeran_tumen.holder
+			}
+		}
+	}
+	title:c_fs_merchant_haeran_yanji.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_haeran_hunchun.holder NOT = { this = title:c_fs_merchant_haeran_hunchun.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_haeran_hunchun.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_haeran_hunchun.holder
+			}
+		}
+	}
+	title:c_fs_merchant_aprok_kuandian.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_aprok_liaoyang.holder NOT = { this = title:c_fs_merchant_aprok_liaoyang.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_aprok_liaoyang.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_aprok_liaoyang.holder
+			}
+		}
+	}
+	title:c_fs_merchant_seotap_shenyang.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_seotap_dalian.holder NOT = { this = title:c_fs_merchant_seotap_dalian.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_seotap_dalian.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_seotap_dalian.holder
+			}
+		}
+	}
+	title:c_fs_merchant_seotap_shenyang.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_seotap_changchun.holder NOT = { this = title:c_fs_merchant_seotap_changchun.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_seotap_changchun.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_seotap_changchun.holder
+			}
+		}
+	}
+	title:c_fs_merchant_seotap_changchun.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_seotap_jirin.holder NOT = { this = title:c_fs_merchant_seotap_jirin.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_seotap_jirin.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_seotap_jirin.holder
+			}
+		}
+	}
+	title:c_fs_merchant_haeran_yanji.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_haeran_harbin.holder NOT = { this = title:c_fs_merchant_haeran_harbin.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_haeran_harbin.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_haeran_harbin.holder
+			}
+		}
+	}
+	title:c_fs_merchant_aprok_sinuiju.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_aprok_dandung.holder NOT = { this = title:c_fs_merchant_aprok_dandung.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_aprok_dandung.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_aprok_dandung.holder
+			}
+		}
+	}
+	title:c_fs_merchant_aprok_sinuiju.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_aprok_kuandian.holder NOT = { this = title:c_fs_merchant_aprok_kuandian.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_aprok_kuandian.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_aprok_kuandian.holder
+			}
+		}
+	}
+	title:c_fs_merchant_samsung_suwon.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_samsung_electronics_gumi.holder NOT = { this = title:c_fs_merchant_samsung_electronics_gumi.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_samsung_electronics_gumi.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_samsung_electronics_gumi.holder
+			}
+		}
+	}
+	title:c_fs_merchant_samsung_suwon.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_samsung_giheung.holder NOT = { this = title:c_fs_merchant_samsung_giheung.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_samsung_giheung.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_samsung_giheung.holder
+			}
+		}
+	}
+	title:c_fs_merchant_samsung_suwon.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_samsung_pyeongtaek.holder NOT = { this = title:c_fs_merchant_samsung_pyeongtaek.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_samsung_pyeongtaek.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_samsung_pyeongtaek.holder
+			}
+		}
+	}
+	title:c_fs_merchant_samsung_cj_busan.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_samsung_cj_incheon.holder NOT = { this = title:c_fs_merchant_samsung_cj_incheon.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_samsung_cj_incheon.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_samsung_cj_incheon.holder
+			}
+		}
+	}
+	title:c_fs_merchant_samsung_daegu.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_samsung_textiles_gumi.holder NOT = { this = title:c_fs_merchant_samsung_textiles_gumi.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_samsung_textiles_gumi.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_samsung_textiles_gumi.holder
+			}
+		}
+	}
+	title:c_fs_merchant_hyundai_construction.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_hyundai_seosan.holder NOT = { this = title:c_fs_merchant_hyundai_seosan.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_hyundai_seosan.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_hyundai_seosan.holder
+			}
+		}
+	}
+	title:c_fs_merchant_hyundai_motor.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_hyundai_asan.holder NOT = { this = title:c_fs_merchant_hyundai_asan.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_hyundai_asan.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_hyundai_asan.holder
+			}
+		}
+	}
+	title:c_fs_merchant_hyundai_motor.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_hyundai_jeonju.holder NOT = { this = title:c_fs_merchant_hyundai_jeonju.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_hyundai_jeonju.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_hyundai_jeonju.holder
+			}
+		}
+	}
+	title:c_fs_merchant_hyundai_motor.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_hyundai_steel_dangjin.holder NOT = { this = title:c_fs_merchant_hyundai_steel_dangjin.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_hyundai_steel_dangjin.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_hyundai_steel_dangjin.holder
+			}
+		}
+	}
+	title:c_fs_merchant_lotte_busan.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_lotte_jamsil.holder NOT = { this = title:c_fs_merchant_lotte_jamsil.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_lotte_jamsil.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_lotte_jamsil.holder
+			}
+		}
+	}
+	title:c_fs_merchant_suyang_haeju.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_nh_jaeryeong.holder NOT = { this = title:c_fs_merchant_nh_jaeryeong.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_nh_jaeryeong.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_nh_jaeryeong.holder
+			}
+		}
+	}
+	title:c_fs_merchant_sk_suwon.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_lucky_cheongju.holder NOT = { this = title:c_fs_merchant_lucky_cheongju.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_lucky_cheongju.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_lucky_cheongju.holder
+			}
+		}
+	}
+	title:c_fs_merchant_lucky_cheongju.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_goldstar_yeosu.holder NOT = { this = title:c_fs_merchant_goldstar_yeosu.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_goldstar_yeosu.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_goldstar_yeosu.holder
+			}
+		}
+	}
+	title:c_fs_merchant_hanwha_incheon.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_hanjin_incheon.holder NOT = { this = title:c_fs_merchant_hanjin_incheon.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_hanjin_incheon.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_hanjin_incheon.holder
+			}
+		}
+	}
+	title:c_fs_merchant_kumho_gwangju.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_dongwon_changwon.holder NOT = { this = title:c_fs_merchant_dongwon_changwon.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_dongwon_changwon.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_dongwon_changwon.holder
+			}
+		}
+	}
+	title:c_fs_merchant_posco_pohang.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_poongsan_angang.holder NOT = { this = title:c_fs_merchant_poongsan_angang.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_poongsan_angang.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_poongsan_angang.holder
+			}
+		}
+	}
+	title:c_fs_merchant_daewoo_bupyeong.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_daewoo_okpo.holder NOT = { this = title:c_fs_merchant_daewoo_okpo.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_daewoo_okpo.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_daewoo_okpo.holder
+			}
+		}
+	}
+	title:c_fs_merchant_posco_pohang.holder ?= {
+		if = {
+			limit = { exists = title:c_fs_merchant_posco_gwangyang.holder NOT = { this = title:c_fs_merchant_posco_gwangyang.holder } }
+			create_alliance = {
+				target = title:c_fs_merchant_posco_gwangyang.holder
+				allied_through_owner = this
+				allied_through_target = title:c_fs_merchant_posco_gwangyang.holder
+			}
+		}
+	}
+}

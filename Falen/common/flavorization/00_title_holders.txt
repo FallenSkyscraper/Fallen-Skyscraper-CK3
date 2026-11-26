@@ -8656,6 +8656,50 @@ spouse_estate_holder_female = {
 	}
 }
 
+spouse_theocracy_female = {
+	type = character
+	gender = female
+	special = domicile
+    domicile_type = ecclesiastical_domicile
+	priority = 26
+	governments = { theocracy_government ecclesiastical_government }
+
+	flavourization_rules = {
+		top_liege = no
+	}
+}
+
+spouse_theocracy_male = {
+	type = character
+	gender = male
+	special = domicile
+    domicile_type = ecclesiastical_domicile
+	priority = 26
+	governments = { theocracy_government ecclesiastical_government }
+
+	flavourization_rules = {
+		top_liege = no
+	}
+}
+
+spouse_company_holder_male = {
+	type = character
+	gender = male
+	special = domicile
+    domicile_type = merchant_company
+	priority = 10
+	governments = { merchant_government }
+}
+
+spouse_company_holder_female = {
+	type = character
+	gender = female
+	special = domicile
+    domicile_type = merchant_company
+	priority = 10
+	governments = { merchant_government }
+}
+
 lady_in_shadows = {
 	type = character
 	gender = female
@@ -8930,5 +8974,27 @@ county_herder = {
 	governments = { herder_government }
 	flavourization_rules = {
 		ignore_top_liege_government = yes
+	}
+}
+
+landless_merchant_male = {
+	type = character
+	gender = male
+	special = domicile
+	domicile_type = merchant_company
+	priority = 12
+	flavourization_rules = {
+		spouse_takes_title = no
+	}
+}
+
+landless_merchant_female = {
+	type = character
+	gender = female
+	special = domicile
+	domicile_type = merchant_company
+	priority = 12
+	flavourization_rules = {
+		spouse_takes_title = no
 	}
 }

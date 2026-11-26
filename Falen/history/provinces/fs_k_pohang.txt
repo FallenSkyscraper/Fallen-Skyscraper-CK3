@@ -16,6 +16,10 @@
 			level = 3
 		}
 		district = {
+			type = castle_holding_district
+			level = 2
+		}
+		district = {
 			type = port_district
 			level = 2
 		}
@@ -42,6 +46,8 @@
 }
 961 = {	#yeonil
 	holding = church_holding
+	province_size = 3
+	
 }
 
 
@@ -98,20 +104,29 @@
 	culture = pohang
 	rite = steeler
 	holding = castle_holding
-
+	province_size = 3
 	districts = {
 		district = {
 			type = fish_district
 			level = 1
+		}
+		district = {
+			type = castle_holding_district
+			level = 2
+		}
+		district = {
+			type = urban_housing_district
+			level = 2
 		}
 	}
 }
 
 960 = {	#heunghae
 	holding = city_holding
+	province_size = 3
 }
 959 = {	#cheongha
-	holding = none
+	holding = church_holding
 }
 958  = { #songra
 	holding = none
@@ -159,10 +174,10 @@
 	holding = none
 }
 1204 = {	#geumgangsong
-	holding = none
+	holding = church_holding
 }
 1207 = {	#jukbyeon
-	holding = none
+	holding = city_holding
 }
 2510 = {	#hanul
 	holding = church_holding
@@ -253,23 +268,46 @@
 	culture = pohang
 	rite = steeler
 	holding = castle_holding
-
+	province_size = 4
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 2
+		}
+		district = {
+			type = urban_housing_district
+			level = 3
 		}
 	}
 }
 
 181 = {	#bangeojin
 	holding = castle_holding
+	province_size = 2
 }
 874 = {	#nongso
 	holding = church_holding
+	province_size = 2
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 873 = {	#taehwa
 	holding = city_holding
+	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+		district = {
+			type = castle_holding_district
+			level = 2
+		}
+	}
 }
 
 
@@ -289,10 +327,10 @@
 }
 
 872 = {	#beomseo
-	holding = church_holding
+	holding = city_holding
 }
 863 = {	#dudong
-	holding = none
+	holding = church_holding
 }
 862 = {	#duseo
 	holding = none
@@ -301,7 +339,7 @@
 	holding = none
 }
 861 = {	#samnam
-	holding = none
+	holding = church_holding
 }
 ###c_ulju
 
@@ -328,7 +366,7 @@
 	holding = none
 }
 870 = {	#cheongryang
-	holding = none
+	holding = city_holding
 }
 867 = {	#onyang
 	holding = church_holding

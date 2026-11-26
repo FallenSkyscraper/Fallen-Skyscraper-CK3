@@ -23,7 +23,7 @@ seoul_national_university_01 = {
 	cost = { gold = 400 }
 
 	province_modifier = {
-		monthly_generic_tax = 0.5
+		monthly_civic_tax = 0.5
 		travel_danger = 15 # Gwanak Mountain
 		hostile_raid_time = 1
 		stationed_maa_toughness_mult = normal_maa_toughness_tier_2
@@ -130,11 +130,13 @@ seoul_national_university_02 = {
 		monthly_dynasty_prestige = 0.25
 	}
 	province_modifier = {
-		monthly_generic_tax = 3
+		monthly_civic_tax = 3
 		fort_level = good_building_fort_level_tier_1
 	}
 	county_modifier = {
-		all_tax_mult = 0.1
+		civic_tax_mult = 0.15
+		artisan_tax_mult = 0.15
+		urban_tax_mult = 0.15
 		prosperity_growth_factor = 0.25
 		prosperity_growth = 0.1
 	}

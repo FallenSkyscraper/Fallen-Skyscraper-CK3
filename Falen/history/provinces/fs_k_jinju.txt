@@ -5,7 +5,7 @@
 	culture = jinju
 	rite = lutheran
 	holding = castle_holding
-
+	province_size = 4
 	2400.1.1 = {
 		special_district_slot = gyeongsang_university_district
 	}
@@ -21,24 +21,32 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
+		}
+		district = {
+			type = castle_holding_district
+			level = 2
+		}
+		district = {
+			type = urban_housing_district
+			level = 2
 		}
 	}
 }
 809 = {	#Naedong
-	holding = none
+	holding = city_holding
 }
 810 = {	#Jeongchon
 	holding = none
 }
 817 = {	#Geumsan
-	holding = none
+	holding = church_holding
 }
 818 = {	#Munsan
-	holding = none
+	holding = church_holding
 }
 811 = {	#Geumgok
-	holding = none
+	holding = castle_holding
 }
 
 ###c_daepyeong
@@ -80,7 +88,7 @@
 	holding = none
 }
 816 = {	#Daegok
-	holding = none
+	holding = church_holding
 }
 
 ###c_jinseong
@@ -115,7 +123,7 @@
 	culture = jinju
 	rite = lutheran
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = fish_district
@@ -136,7 +144,7 @@
 	culture = jinju
 	rite = lutheran
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = fish_district
@@ -146,7 +154,7 @@
 }
 
 732 = {	#Gonmyeong
-	holding = none
+	holding = church_holding
 }
 730 = {	#Seopo
 	holding = none
@@ -156,21 +164,29 @@
 148 = {	#Samcheonpo
 	culture = jinju
 	rite = lutheran
-	holding = castle_holding
-
+	holding = city_holding
+	province_size = 3
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 5
+		}
+		district = {
+			type = city_holding_district
+			level = 2
+		}
+		district = {
+			type = urban_housing_district
+			level = 2
 		}
 	}
 }
 
 736 = {	#Sanam
-	holding = none
+	holding = church_holding
 }
 737 = {	#yonghyeon
-	holding = none
+	holding = castle_holding
 }
 ###c_samsan
 741 = {	#Samsan

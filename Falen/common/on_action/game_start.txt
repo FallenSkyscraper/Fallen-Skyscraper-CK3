@@ -880,6 +880,7 @@ on_game_start = {
 		#	limit = { has_tgp_dlc_trigger = yes }
 		#	### DYNASTIES
 			tgp_dynasty_house_name_setup_effect = yes
+			fs_initialize_starting_merchant_names_effect = yes
 		#	### BLOCS
 		#	tgp_setup_historical_house_bloc_effect = yes
 		#}
@@ -933,6 +934,7 @@ on_game_start = {
 on_game_start_after_lobby = {
 	effect = {
 		disable_succession_calculation = yes
+		fs_initialize_starting_merchants_effect = yes
 
 		# To prevent the Season Changes event from triggering on game start
 		situation:the_great_steppe ?= {
@@ -2695,6 +2697,8 @@ on_game_start_after_lobby = {
 				}
 			}
 		}
+
+		fs_finalize_starting_merchants_effect = yes
 
 		# Sanity check the setup if in debug mode
 		if = {

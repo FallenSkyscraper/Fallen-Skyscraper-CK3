@@ -523,11 +523,17 @@ ruined_city = {
 	color = hsv { 0 0 1 }
 	travel_danger_color = hsv { 0 0 0.48 }
 	travel_danger_score = 15
+	provision_cost = @provisions_cost_minimal
 	
 	province_modifier = {
 		supply_limit_mult = 0.5
-		travel_danger = 15
-		province_size_baseline_add = province_size_tier_3
+		monthly_mining_tax = 0.01
+		monthly_civic_tax = 0.02
+		monthly_urban_tax = 0.07
+		trade_category_carpentry_supplies_production_mult = 0.15
+		trade_category_cereals_production_mult = -0.25
+		trade_category_cereals_sell_price_mult = terrain_sell_price_mult
+		province_size_baseline_add = province_size_tier_5
 	}
 	county_capital_modifier = {
 		prosperity_growth_factor = 0.2

@@ -1,0 +1,144 @@
+# Establish the fixed 2444 companies before the rest of the lobby setup.
+fs_initialize_starting_merchants_effect = {
+	if = {
+		limit = {
+			game_start_date = 2444.1.1
+			has_gdp_dlc_trigger = yes
+		}
+		fs_initialize_starting_merchant_locations_effect = yes
+		fs_initialize_starting_merchant_links_effect = yes
+		every_independent_ruler = {
+			limit = {
+				government_has_flag = government_is_merchant
+				primary_title = { has_variable = fs_starting_merchant_company }
+				NOT = { has_character_flag = fs_starting_merchant_initialized }
+			}
+			fs_initialize_starting_merchant_effect = yes
+		}
+	}
+}
+
+# Character scope: preserve the company's historical purpose and size.
+fs_initialize_starting_merchant_effect = {
+	add_character_flag = fs_starting_merchant_initialized
+	save_temporary_scope_as = fs_starting_merchant
+	if = {
+		limit = { gold > 0 }
+		remove_short_term_gold = gold
+	}
+	add_gold = 50
+	if = {
+		limit = { prestige > 25 }
+		add_prestige = {
+			value = 25
+			subtract = prestige
+		}
+	}
+	if = {
+		limit = { NOT = { has_trait = lifestyle_merchant } }
+		add_trait = lifestyle_merchant
+	}
+	if = {
+		limit = { NOT = { has_realm_law = merchant_succession_law } }
+		add_realm_law_skip_effects = merchant_succession_law
+	}
+	if = {
+		limit = {
+			is_ai = no
+			is_from_ruler_designer = yes
+		}
+		add_character_flag = free_starting_merchant_purpose_change
+	}
+	house ?= {
+		if = {
+			limit = { house_head != scope:fs_starting_merchant }
+			set_house_head = scope:fs_starting_merchant
+		}
+	}
+	primary_title = {
+		set_coa = scope:fs_starting_merchant.house
+		set_variable = { name = merchant_creation_reason value = flag:historical }
+		set_variable = gdp_starting_merchant_company
+	}
+	if = {
+		limit = {
+			NOT = {
+				is_target_in_global_variable_list = {
+					name = merchants_tally
+					target = this.primary_title
+				}
+			}
+		}
+		add_to_global_variable_list = {
+			name = merchants_tally
+			target = this.primary_title
+		}
+	}
+	if = {
+		limit = {
+			exists = domicile.domicile_location.county.holder
+			domicile.domicile_location.county.holder != this
+			NOT = { suzerain ?= domicile.domicile_location.county.holder }
+		}
+		start_tributary_interaction_effect = {
+			TRIBUTARY = this
+			SUZERAIN = domicile.domicile_location.county.holder
+		}
+	}
+	# Unlike the native purpose-selection branch, fixed-purpose companies still need traders.
+	if = {
+		limit = { NOT = { has_character_flag = got_starting_courtiers } }
+		trigger_event = gdp_merchant.1001
+	}
+	gdp_update_usury_reputation_effect = yes
+	if = {
+		limit = { is_ai = yes }
+		set_starting_company_size_effect = yes
+		set_starting_company_acumen_effect = yes
+	}
+}
+
+# Record the population baseline only after all starting companies are initialized.
+fs_finalize_starting_merchants_effect = {
+	if = {
+		limit = {
+			game_start_date = 2444.1.1
+			has_gdp_dlc_trigger = yes
+			has_global_variable_list = merchants_tally
+		}
+		every_in_global_list = {
+			variable = merchants_tally
+			limit = {
+				has_variable = fs_starting_merchant_company
+				exists = holder
+				NOT = {
+					any_trade_good_category = {
+						has_trade_good_category_xp_track = yes
+						save_temporary_scope_as = fs_starting_expertise_category
+						prev = {
+							trade_good_category_xp = {
+								target = scope:fs_starting_expertise_category
+								value > 0
+							}
+						}
+					}
+				}
+			}
+			set_starting_trade_expertise_effect = yes
+		}
+		set_global_variable = {
+			name = merchant_company_starting_count
+			value = {
+				value = 0
+				every_in_global_list = {
+					variable = merchants_tally
+					add = 1
+				}
+			}
+		}
+		every_player = {
+			limit = { government_has_flag = government_is_merchant }
+			gdp_trade_envoys_resume_idle_traders_effect = yes
+		}
+	}
+}

@@ -1,0 +1,5445 @@
+# Merchant families and household members at the 2444 bookmark.
+
+fs_merchant_aprok_sinuiju = {
+	name = "fs_merchant_name_aprok_sinuiju"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_sinuiju
+	culture = uiju
+	rite = reformism
+	father = fs_merchant_aprok_seongjun
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = honest
+	trait = diligent
+	disallow_random_traits = yes
+	2391.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_suyang_haeju = {
+	name = "fs_merchant_name_suyang_haeju"
+	dynasty = dynn_fs_merchant_suyang
+	dynasty_house = house_fs_merchant_suyang_haeju
+	culture = haeju
+	rite = cheondo
+	father = fs_merchant_suyang_seonghae
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = stubborn
+	trait = honest
+	trait = diligent
+	disallow_random_traits = yes
+	2393.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_seongcheon_hamheung = {
+	name = "fs_merchant_name_seongcheon_hamheung"
+	dynasty = dynn_fs_merchant_seongcheon
+	dynasty_house = house_fs_merchant_seongcheon_hamheung
+	female = yes
+	culture = hamheung
+	rite = mechanism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = calm
+	trait = gregarious
+	trait = diligent
+	disallow_random_traits = yes
+	2401.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_songdowon_wonsan = {
+	name = "fs_merchant_name_songdowon_wonsan"
+	dynasty = dynn_fs_merchant_songdowon
+	dynasty_house = house_fs_merchant_songdowon_wonsan
+	culture = wonsan
+	rite = byzantine_rite
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = brave
+	trait = ambitious
+	trait = diligent
+	disallow_random_traits = yes
+	2398.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_duman_cheongjin = {
+	name = "fs_merchant_name_duman_cheongjin"
+	dynasty = dynn_fs_merchant_duman
+	dynasty_house = house_fs_merchant_duman_cheongjin
+	culture = gyeongseong
+	rite = cheonjin
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = gregarious
+	trait = brave
+	disallow_random_traits = yes
+	2406.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_baekmu_hyesan = {
+	name = "fs_merchant_name_baekmu_hyesan"
+	dynasty = dynn_fs_merchant_baekmu
+	dynasty_house = house_fs_merchant_baekmu_hyesan
+	female = yes
+	culture = kaema
+	rite = kaema_rite
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = stubborn
+	trait = patient
+	trait = diligent
+	disallow_random_traits = yes
+	2403.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_daesong_pyongyang = {
+	name = "fs_merchant_name_daesong_pyongyang"
+	dynasty = dynn_fs_merchant_daesong
+	dynasty_house = house_fs_merchant_daesong_pyongyang
+	culture = pyongyang
+	rite = cheondo
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = arrogant
+	trait = stubborn
+	trait = diligent
+	disallow_random_traits = yes
+	2386.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_bomhyanggi_sinuiju = {
+	name = "fs_merchant_name_bomhyanggi_sinuiju"
+	dynasty = dynn_fs_merchant_bomhyanggi
+	dynasty_house = house_fs_merchant_bomhyanggi_sinuiju
+	female = yes
+	culture = uiju
+	rite = mechanism
+	father = fs_merchant_bomhyanggi_sinuiju_parent
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = patient
+	trait = compassionate
+	disallow_random_traits = yes
+	2408.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_chollima_kangso = {
+	name = "fs_merchant_name_chollima_kangso"
+	dynasty = dynn_fs_merchant_chollima
+	dynasty_house = house_fs_merchant_chollima_kangso
+	culture = pyongyang
+	rite = steeler
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = honest
+	trait = just
+	trait = diligent
+	disallow_random_traits = yes
+	2389.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_kimchaek_cheongjin = {
+	name = "fs_merchant_name_kimchaek_cheongjin"
+	dynasty = dynn_fs_merchant_kimchaek
+	dynasty_house = house_fs_merchant_kimchaek_cheongjin
+	culture = gyeongseong
+	rite = steeler
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = stubborn
+	trait = just
+	trait = diligent
+	disallow_random_traits = yes
+	2395.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_taedonggang_pyongyang = {
+	name = "fs_merchant_name_taedonggang_pyongyang"
+	dynasty = dynn_fs_merchant_taedonggang
+	dynasty_house = house_fs_merchant_taedonggang_pyongyang
+	female = yes
+	culture = pyongyang
+	rite = mechanism
+	father = fs_merchant_taedonggang_pyongyang_parent
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = generous
+	trait = diligent
+	disallow_random_traits = yes
+	2410.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_golden_triangle_najin = {
+	name = "fs_merchant_name_golden_triangle_najin"
+	dynasty = dynn_fs_merchant_golden_triangle
+	dynasty_house = house_fs_merchant_golden_triangle_najin
+	culture = yukjin
+	rite = cheonjin
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = calm
+	trait = patient
+	trait = gregarious
+	disallow_random_traits = yes
+	2399.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_haeran_yanji = {
+	name = "fs_merchant_name_haeran_yanji"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_yanji
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_yeongmuk
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = diligent
+	trait = calm
+	disallow_random_traits = yes
+	2394.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_haeran_longjing = {
+	name = "fs_merchant_name_haeran_longjing"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_longjing
+	female = yes
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_yeonghyeon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = honest
+	trait = patient
+	trait = diligent
+	disallow_random_traits = yes
+	2397.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_haeran_tumen = {
+	name = "fs_merchant_name_haeran_tumen"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_tumen
+	female = yes
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_yeongmuk
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = stubborn
+	trait = diligent
+	disallow_random_traits = yes
+	2400.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_haeran_hunchun = {
+	name = "fs_merchant_name_haeran_hunchun"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_hunchun
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_yanji
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = brave
+	trait = gregarious
+	disallow_random_traits = yes
+	2413.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_seotap_shenyang = {
+	name = "fs_merchant_name_seotap_shenyang"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_shenyang
+	culture = chaoxian
+	rite = mechanism
+	father = fs_merchant_seotap_yeongjin
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = greedy
+	trait = diligent
+	disallow_random_traits = yes
+	2396.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_aprok_liaoyang = {
+	name = "fs_merchant_name_aprok_liaoyang"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_liaoyang
+	female = yes
+	culture = chaoxian
+	rite = reformism
+	father = fs_merchant_aprok_seongil
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = calm
+	trait = gregarious
+	trait = diligent
+	disallow_random_traits = yes
+	2405.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_seotap_dalian = {
+	name = "fs_merchant_name_seotap_dalian"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_dalian
+	female = yes
+	culture = chaoxian
+	rite = mechanism
+	father = fs_merchant_seotap_yeongjin
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = brave
+	trait = diligent
+	disallow_random_traits = yes
+	2402.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_seotap_changchun = {
+	name = "fs_merchant_name_seotap_changchun"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_changchun
+	culture = chaoxian
+	rite = mechanism
+	father = fs_merchant_seotap_yeongsu
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = diligent
+	trait = gregarious
+	disallow_random_traits = yes
+	2409.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_seotap_jirin = {
+	name = "fs_merchant_name_seotap_jirin"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_jirin
+	female = yes
+	culture = chaoxian
+	rite = mechanism
+	father = fs_merchant_seotap_yeongsu
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = brave
+	trait = diligent
+	trait = stubborn
+	disallow_random_traits = yes
+	2412.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_haeran_harbin = {
+	name = "fs_merchant_name_haeran_harbin"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_harbin
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_segange
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = calm
+	trait = ambitious
+	disallow_random_traits = yes
+	2411.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_aprok_dandung = {
+	name = "fs_merchant_name_aprok_dandung"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_dandung
+	female = yes
+	culture = yalu
+	rite = reformism
+	father = fs_merchant_aprok_seongjun
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = honest
+	trait = stubborn
+	disallow_random_traits = yes
+	2398.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_aprok_kuandian = {
+	name = "fs_merchant_name_aprok_kuandian"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_kuandian
+	culture = yalu
+	rite = reformism
+	father = fs_merchant_aprok_seongil
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = brave
+	trait = patient
+	trait = diligent
+	disallow_random_traits = yes
+	2400.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_nh_anseong = {
+	name = "fs_merchant_name_nh_anseong"
+	dynasty = dynn_fs_merchant_nh_anseong
+	dynasty_house = house_fs_merchant_nh_anseong
+	culture = suwon
+	rite = mechanism
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = honest
+	trait = just
+	trait = diligent
+	disallow_random_traits = yes
+	2392.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_nh_yesan = {
+	name = "fs_merchant_name_nh_yesan"
+	dynasty = dynn_fs_merchant_nh_yesan
+	dynasty_house = house_fs_merchant_nh_yesan
+	female = yes
+	culture = hongseong
+	rite = mechanism
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = generous
+	trait = diligent
+	disallow_random_traits = yes
+	2397.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_nh_gimje = {
+	name = "fs_merchant_name_nh_gimje"
+	dynasty = dynn_fs_merchant_nh_gimje
+	dynasty_house = house_fs_merchant_nh_gimje
+	culture = jeonju
+	rite = holyist
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = generous
+	trait = just
+	trait = patient
+	disallow_random_traits = yes
+	2388.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_nh_sangju = {
+	name = "fs_merchant_name_nh_sangju"
+	dynasty = dynn_fs_merchant_nh_sangju
+	dynasty_house = house_fs_merchant_nh_sangju
+	female = yes
+	culture = sangju
+	rite = hereditary_mu
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = honest
+	trait = diligent
+	disallow_random_traits = yes
+	2404.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_nh_jaeryeong = {
+	name = "fs_merchant_name_nh_jaeryeong"
+	dynasty = dynn_fs_merchant_nh_jaeryeong
+	dynasty_house = house_fs_merchant_nh_jaeryeong
+	culture = hwangju
+	rite = cheondo
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = diligent
+	trait = gregarious
+	disallow_random_traits = yes
+	2394.1.1 = { birth = yes }
+	2416.1.1 = { add_spouse = fs_merchant_suyang_yunhwa }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_nh_hamju = {
+	name = "fs_merchant_name_nh_hamju"
+	dynasty = dynn_fs_merchant_nh_hamju
+	dynasty_house = house_fs_merchant_nh_hamju
+	female = yes
+	culture = hamheung
+	rite = hamheung_rite
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = honest
+	trait = patient
+	trait = diligent
+	disallow_random_traits = yes
+	2400.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_tamna_jeju = {
+	name = "fs_merchant_name_tamna_jeju"
+	dynasty = dynn_fs_merchant_tamna
+	dynasty_house = house_fs_merchant_tamna_jeju
+	female = yes
+	culture = jeju
+	rite = jeju_pagan
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = brave
+	trait = gregarious
+	trait = diligent
+	disallow_random_traits = yes
+	2402.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_chagan_gorlos = {
+	name = "fs_merchant_name_chagan_gorlos"
+	dynasty = dynn_fs_merchant_chagan_tergen
+	dynasty_house = house_fs_merchant_chagan_gorlos
+	culture = gorlos
+	rite = gelugpa
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = brave
+	trait = patient
+	trait = generous
+	disallow_random_traits = yes
+	2398.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_golden_horn_vladivostok = {
+	name = "fs_merchant_name_golden_horn_vladivostok"
+	dynasty = dynn_fs_merchant_golden_horn
+	dynasty_house = house_fs_merchant_golden_horn_vladivostok
+	culture = pyotr
+	rite = anti_revisionism
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = brave
+	trait = gregarious
+	trait = diligent
+	disallow_random_traits = yes
+	2396.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_ussuri_bank = {
+	name = "fs_merchant_name_ussuri_bank"
+	dynasty = dynn_fs_merchant_ussuri
+	dynasty_house = house_fs_merchant_ussuri_bank
+	female = yes
+	culture = khanka
+	rite = anti_revisionism
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = calm
+	trait = patient
+	trait = diligent
+	disallow_random_traits = yes
+	2405.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_haeran_sangtaek = {
+	name = "fs_merchant_name_haeran_sangtaek"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_yanji
+	culture = chaoxian
+	rite = possessed_mu
+	2343.1.1 = { birth = yes }
+	2419.1.1 = { death = yes }
+}
+
+fs_merchant_haeran_yeongmuk = {
+	name = "fs_merchant_name_haeran_yeongmuk"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_yanji
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_sangtaek
+	2368.1.1 = { birth = yes }
+	2439.1.1 = { death = yes }
+}
+
+fs_merchant_haeran_segange = {
+	name = "fs_merchant_name_haeran_segange"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_harbin
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_yeongmuk
+	2389.1.1 = { birth = yes }
+	2441.1.1 = { death = yes }
+}
+
+fs_merchant_haeran_yeonghyeon = {
+	name = "fs_merchant_name_haeran_yeonghyeon"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_longjing
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_sangtaek
+	2371.1.1 = { birth = yes }
+	2435.1.1 = { death = yes }
+}
+
+fs_merchant_seotap_dongyu = {
+	name = "fs_merchant_name_seotap_dongyu"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_shenyang
+	culture = chaoxian
+	rite = mechanism
+	2349.1.1 = { birth = yes }
+	2420.1.1 = { death = yes }
+}
+
+fs_merchant_seotap_yeongjin = {
+	name = "fs_merchant_name_seotap_yeongjin"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_shenyang
+	culture = chaoxian
+	rite = mechanism
+	father = fs_merchant_seotap_dongyu
+	2372.1.1 = { birth = yes }
+	2438.1.1 = { death = yes }
+}
+
+fs_merchant_seotap_yeongsu = {
+	name = "fs_merchant_name_seotap_yeongsu"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_changchun
+	culture = chaoxian
+	rite = mechanism
+	father = fs_merchant_seotap_dongyu
+	2378.1.1 = { birth = yes }
+	2440.1.1 = { death = yes }
+}
+
+fs_merchant_aprok_gyeongmo = {
+	name = "fs_merchant_name_aprok_gyeongmo"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_sinuiju
+	culture = chaoxian
+	rite = reformism
+	2350.1.1 = { birth = yes }
+	2423.1.1 = { death = yes }
+}
+
+fs_merchant_aprok_seongjun = {
+	name = "fs_merchant_name_aprok_seongjun"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_sinuiju
+	culture = uiju
+	rite = reformism
+	father = fs_merchant_aprok_gyeongmo
+	2373.1.1 = { birth = yes }
+	2438.1.1 = { death = yes }
+}
+
+fs_merchant_aprok_seongil = {
+	name = "fs_merchant_name_aprok_seongil"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_kuandian
+	culture = yalu
+	rite = reformism
+	father = fs_merchant_aprok_gyeongmo
+	2377.1.1 = { birth = yes }
+	2439.1.1 = { death = yes }
+}
+
+fs_merchant_suyang_seonghae = {
+	name = "fs_merchant_name_suyang_seonghae"
+	dynasty = dynn_fs_merchant_suyang
+	dynasty_house = house_fs_merchant_suyang_haeju
+	culture = haeju
+	rite = cheondo
+	2362.1.1 = { birth = yes }
+	2432.1.1 = { death = yes }
+}
+
+fs_merchant_suyang_yunhwa = {
+	name = "fs_merchant_name_suyang_yunhwa"
+	dynasty = dynn_fs_merchant_suyang
+	dynasty_house = house_fs_merchant_suyang_haeju
+	female = yes
+	culture = haeju
+	rite = cheondo
+	father = fs_merchant_suyang_seonghae
+	2396.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_gyuhyeon = {
+	name = "fs_merchant_name_samsung_gyuhyeon"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_daegu
+	culture = miryang
+	rite = won_buddhism
+	2350.1.1 = { birth = yes }
+	2370.1.1 = { add_spouse = fs_merchant_samsung_yeonhwa }
+	2426.1.1 = { death = yes }
+}
+
+fs_merchant_samsung_yeonhwa = {
+	name = "fs_merchant_name_samsung_yeonhwa"
+	dynasty = dynn_fs_merchant_samsung_yeonhwa_kim
+	female = yes
+	culture = daegu
+	rite = roman_rite
+	2352.1.1 = { birth = yes }
+	2428.1.1 = { death = yes }
+}
+
+fs_merchant_samsung_seonmuk = {
+	name = "fs_merchant_name_samsung_seonmuk"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_daegu
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_gyuhyeon
+	mother = fs_merchant_samsung_yeonhwa
+	2371.1.1 = { birth = yes }
+	2439.1.1 = { death = yes }
+}
+
+fs_merchant_samsung_seongyu = {
+	name = "fs_merchant_name_samsung_seongyu"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_suwon
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_gyuhyeon
+	mother = fs_merchant_samsung_yeonhwa
+	2374.1.1 = { birth = yes }
+	2438.1.1 = { death = yes }
+}
+
+fs_merchant_samsung_seonjung = {
+	name = "fs_merchant_name_samsung_seonjung"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_seoul
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_gyuhyeon
+	mother = fs_merchant_samsung_yeonhwa
+	2377.1.1 = { birth = yes }
+	2436.1.1 = { death = yes }
+}
+
+fs_merchant_samsung_seono = {
+	name = "fs_merchant_name_samsung_seono"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_geoje
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_gyuhyeon
+	mother = fs_merchant_samsung_yeonhwa
+	2379.1.1 = { birth = yes }
+	2440.1.1 = { death = yes }
+}
+
+fs_merchant_samsung_seongyeong = {
+	name = "fs_merchant_name_samsung_seongyeong"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_cj_busan
+	culture = miryang
+	rite = mechanism
+	father = fs_merchant_samsung_gyuhyeon
+	mother = fs_merchant_samsung_yeonhwa
+	2382.1.1 = { birth = yes }
+	2441.1.1 = { death = yes }
+}
+
+fs_merchant_samsung_seonyeong = {
+	name = "fs_merchant_name_samsung_seonyeong"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_daegu
+	female = yes
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_gyuhyeon
+	mother = fs_merchant_samsung_yeonhwa
+	2385.1.1 = { birth = yes }
+	2406.1.1 = { add_spouse = fs_merchant_samsung_wonsik }
+	2437.1.1 = { death = yes }
+}
+
+fs_merchant_samsung_wonsik = {
+	name = "fs_merchant_name_samsung_wonsik"
+	dynasty = dynn_fs_merchant_samsung_wonsik_jeong
+	dynasty_house = house_fs_merchant_samsung_shinsegae_seoul
+	culture = miryang
+	rite = presbyterianism
+	2380.1.1 = { birth = yes }
+	2436.1.1 = { death = yes }
+}
+
+fs_merchant_samsung_daegu = {
+	name = "fs_merchant_name_samsung_daegu"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_daegu
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_seonmuk
+	diplomacy = 12
+	martial = 5
+	stewardship = 16
+	intrigue = 8
+	learning = 10
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = just
+	trait = arrogant
+	trait = diligent
+	disallow_random_traits = yes
+	2392.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_samsung_suwon = {
+	name = "fs_merchant_name_samsung_suwon"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_suwon
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_seongyu
+	diplomacy = 9
+	martial = 5
+	stewardship = 18
+	intrigue = 9
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = ambitious
+	trait = temperate
+	disallow_random_traits = yes
+	2396.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_samsung_seoul = {
+	name = "fs_merchant_name_samsung_seoul"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_seoul
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_seonjung
+	diplomacy = 15
+	martial = 4
+	stewardship = 16
+	intrigue = 11
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = calm
+	trait = greedy
+	disallow_random_traits = yes
+	2399.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_samsung_geoje = {
+	name = "fs_merchant_name_samsung_geoje"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_geoje
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_seono
+	diplomacy = 8
+	martial = 10
+	stewardship = 16
+	intrigue = 5
+	learning = 11
+	prowess = 10
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = stubborn
+	trait = diligent
+	trait = brave
+	disallow_random_traits = yes
+	2400.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_samsung_cj_busan = {
+	name = "fs_merchant_name_samsung_cj_busan"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_cj_busan
+	culture = miryang
+	rite = mechanism
+	father = fs_merchant_samsung_seongyeong
+	diplomacy = 14
+	martial = 4
+	stewardship = 16
+	intrigue = 8
+	learning = 11
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = generous
+	trait = ambitious
+	trait = gregarious
+	disallow_random_traits = yes
+	2404.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_samsung_shinsegae_seoul = {
+	name = "fs_merchant_name_samsung_shinsegae_seoul"
+	dynasty = dynn_fs_merchant_samsung_wonsik_jeong
+	dynasty_house = house_fs_merchant_samsung_shinsegae_seoul
+	female = yes
+	culture = miryang
+	rite = presbyterianism
+	father = fs_merchant_samsung_wonsik
+	mother = fs_merchant_samsung_seonyeong
+	diplomacy = 14
+	martial = 3
+	stewardship = 16
+	intrigue = 13
+	learning = 8
+	prowess = 3
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = patient
+	trait = deceitful
+	disallow_random_traits = yes
+	2407.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_samsung_electronics_gumi = {
+	name = "fs_merchant_name_samsung_electronics_gumi"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_electronics_gumi
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_suwon
+	diplomacy = 10
+	martial = 6
+	stewardship = 13
+	intrigue = 7
+	learning = 10
+	prowess = 7
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = impatient
+	trait = diligent
+	disallow_random_traits = yes
+	2417.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_samsung_giheung = {
+	name = "fs_merchant_name_samsung_giheung"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_giheung
+	female = yes
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_seongyu
+	diplomacy = 10
+	martial = 3
+	stewardship = 16
+	intrigue = 7
+	learning = 14
+	prowess = 3
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = diligent
+	trait = calm
+	disallow_random_traits = yes
+	2401.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_samsung_pyeongtaek = {
+	name = "fs_merchant_name_samsung_pyeongtaek"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_pyeongtaek
+	female = yes
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_suwon
+	diplomacy = 13
+	martial = 3
+	stewardship = 12
+	intrigue = 9
+	learning = 9
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = gregarious
+	trait = fickle
+	disallow_random_traits = yes
+	2420.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_samsung_cj_incheon = {
+	name = "fs_merchant_name_samsung_cj_incheon"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_cj_incheon
+	female = yes
+	culture = miryang
+	rite = mechanism
+	father = fs_merchant_samsung_seongyeong
+	diplomacy = 13
+	martial = 4
+	stewardship = 14
+	intrigue = 8
+	learning = 9
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = calm
+	trait = diligent
+	trait = stubborn
+	disallow_random_traits = yes
+	2408.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_samsung_textiles_gumi = {
+	name = "fs_merchant_name_samsung_textiles_gumi"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_textiles_gumi
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_seonmuk
+	diplomacy = 9
+	martial = 5
+	stewardship = 15
+	intrigue = 6
+	learning = 11
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = stubborn
+	trait = diligent
+	trait = content
+	disallow_random_traits = yes
+	2398.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_hyundai_doik = {
+	name = "fs_merchant_name_hyundai_doik"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_construction
+	culture = geumgang
+	rite = steeler
+	2348.1.1 = { birth = yes }
+	2368.1.1 = { add_spouse = fs_merchant_hyundai_yeonsu }
+	2425.1.1 = { death = yes }
+}
+
+fs_merchant_hyundai_yeonsu = {
+	name = "fs_merchant_name_hyundai_yeonsu"
+	dynasty = dynn_fs_merchant_hyundai_yeonsu_im
+	female = yes
+	culture = seoul
+	rite = seoulism
+	2351.1.1 = { birth = yes }
+	2429.1.1 = { death = yes }
+}
+
+fs_merchant_hyundai_wonseok = {
+	name = "fs_merchant_name_hyundai_wonseok"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_construction
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_doik
+	mother = fs_merchant_hyundai_yeonsu
+	2369.1.1 = { birth = yes }
+	2437.1.1 = { death = yes }
+}
+
+fs_merchant_hyundai_wongyu = {
+	name = "fs_merchant_name_hyundai_wongyu"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_motor
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_doik
+	mother = fs_merchant_hyundai_yeonsu
+	2372.1.1 = { birth = yes }
+	2438.1.1 = { death = yes }
+}
+
+fs_merchant_hyundai_wonho = {
+	name = "fs_merchant_name_hyundai_wonho"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_heavy
+	culture = geumgang
+	rite = presbyterianism
+	father = fs_merchant_hyundai_doik
+	mother = fs_merchant_hyundai_yeonsu
+	2375.1.1 = { birth = yes }
+	2435.1.1 = { death = yes }
+}
+
+fs_merchant_hyundai_wonpyeong = {
+	name = "fs_merchant_name_hyundai_wonpyeong"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_department
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_doik
+	mother = fs_merchant_hyundai_yeonsu
+	2377.1.1 = { birth = yes }
+	2439.1.1 = { death = yes }
+}
+
+fs_merchant_hyundai_wondal = {
+	name = "fs_merchant_name_hyundai_wondal"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_marine
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_doik
+	mother = fs_merchant_hyundai_yeonsu
+	2380.1.1 = { birth = yes }
+	2436.1.1 = { death = yes }
+}
+
+fs_merchant_hyundai_wonchan = {
+	name = "fs_merchant_name_hyundai_wonchan"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_halla
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_doik
+	mother = fs_merchant_hyundai_yeonsu
+	2382.1.1 = { birth = yes }
+	2438.1.1 = { death = yes }
+}
+
+fs_merchant_hyundai_wonmuk = {
+	name = "fs_merchant_name_hyundai_wonmuk"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_kcc
+	culture = geumgang
+	rite = jogye
+	father = fs_merchant_hyundai_doik
+	mother = fs_merchant_hyundai_yeonsu
+	2385.1.1 = { birth = yes }
+	2440.1.1 = { death = yes }
+}
+
+fs_merchant_hyundai_construction = {
+	name = "fs_merchant_name_hyundai_construction"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_construction
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_wonseok
+	diplomacy = 13
+	martial = 7
+	stewardship = 16
+	intrigue = 9
+	learning = 10
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = just
+	trait = stubborn
+	trait = ambitious
+	disallow_random_traits = yes
+	2391.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_hyundai_motor = {
+	name = "fs_merchant_name_hyundai_motor"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_motor
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_wongyu
+	diplomacy = 11
+	martial = 7
+	stewardship = 18
+	intrigue = 10
+	learning = 11
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = ambitious
+	trait = greedy
+	disallow_random_traits = yes
+	2395.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_hyundai_heavy = {
+	name = "fs_merchant_name_hyundai_heavy"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_heavy
+	culture = geumgang
+	rite = presbyterianism
+	father = fs_merchant_hyundai_wonho
+	diplomacy = 10
+	martial = 11
+	stewardship = 16
+	intrigue = 5
+	learning = 12
+	prowess = 11
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = brave
+	trait = stubborn
+	trait = diligent
+	disallow_random_traits = yes
+	2398.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_hyundai_department = {
+	name = "fs_merchant_name_hyundai_department"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_department
+	female = yes
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_wonpyeong
+	diplomacy = 16
+	martial = 3
+	stewardship = 14
+	intrigue = 10
+	learning = 9
+	prowess = 3
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = ambitious
+	trait = generous
+	disallow_random_traits = yes
+	2399.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_hyundai_marine = {
+	name = "fs_merchant_name_hyundai_marine"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_marine
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_wondal
+	diplomacy = 13
+	martial = 3
+	stewardship = 17
+	intrigue = 14
+	learning = 11
+	prowess = 3
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = calm
+	trait = patient
+	trait = deceitful
+	disallow_random_traits = yes
+	2402.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_hyundai_halla = {
+	name = "fs_merchant_name_hyundai_halla"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_halla
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_wonchan
+	diplomacy = 10
+	martial = 6
+	stewardship = 15
+	intrigue = 6
+	learning = 13
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = temperate
+	trait = calm
+	disallow_random_traits = yes
+	2404.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_hyundai_kcc = {
+	name = "fs_merchant_name_hyundai_kcc"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_kcc
+	female = yes
+	culture = geumgang
+	rite = jogye
+	father = fs_merchant_hyundai_wonmuk
+	diplomacy = 9
+	martial = 3
+	stewardship = 15
+	intrigue = 7
+	learning = 15
+	prowess = 3
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = diligent
+	trait = stubborn
+	disallow_random_traits = yes
+	2407.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_hyundai_seosan = {
+	name = "fs_merchant_name_hyundai_seosan"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_seosan
+	female = yes
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_wonseok
+	diplomacy = 13
+	martial = 4
+	stewardship = 15
+	intrigue = 6
+	learning = 10
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = just
+	trait = generous
+	disallow_random_traits = yes
+	2397.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_hyundai_asan = {
+	name = "fs_merchant_name_hyundai_asan"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_asan
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_motor
+	diplomacy = 10
+	martial = 6
+	stewardship = 13
+	intrigue = 8
+	learning = 10
+	prowess = 7
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = diligent
+	trait = impatient
+	disallow_random_traits = yes
+	2418.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_hyundai_jeonju = {
+	name = "fs_merchant_name_hyundai_jeonju"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_jeonju
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_wongyu
+	diplomacy = 12
+	martial = 5
+	stewardship = 15
+	intrigue = 5
+	learning = 12
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = calm
+	trait = content
+	disallow_random_traits = yes
+	2400.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_hyundai_steel_dangjin = {
+	name = "fs_merchant_name_hyundai_steel_dangjin"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_steel_dangjin
+	female = yes
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_motor
+	diplomacy = 8
+	martial = 7
+	stewardship = 14
+	intrigue = 5
+	learning = 11
+	prowess = 8
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = brave
+	trait = stubborn
+	disallow_random_traits = yes
+	2420.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_sk_suwon = {
+	name = "fs_merchant_name_sk_suwon"
+	dynasty = dynn_fs_merchant_sk
+	dynasty_house = house_fs_merchant_sk_suwon
+	culture = suwon
+	rite = mechanism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = patient
+	trait = temperate
+	disallow_random_traits = yes
+	2395.1.1 = { birth = yes }
+	2417.1.1 = { add_spouse = fs_merchant_lucky_hyewon }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_lucky_cheongju = {
+	name = "fs_merchant_name_lucky_cheongju"
+	dynasty = dynn_fs_merchant_lucky
+	dynasty_house = house_fs_merchant_lucky_cheongju
+	female = yes
+	culture = jinju
+	rite = toegye
+	father = fs_merchant_lucky_jeongsu
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = generous
+	trait = stubborn
+	disallow_random_traits = yes
+	2398.1.1 = { birth = yes }
+	2418.1.1 = { add_matrilineal_spouse = fs_merchant_goldstar_mingyu }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_goldstar_yeosu = {
+	name = "fs_merchant_name_goldstar_yeosu"
+	dynasty = dynn_fs_merchant_goldstar
+	dynasty_house = house_fs_merchant_goldstar_yeosu
+	culture = jinju
+	rite = toegye
+	father = fs_merchant_goldstar_munseok
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = greedy
+	trait = calm
+	trait = diligent
+	disallow_random_traits = yes
+	2401.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_lotte_busan = {
+	name = "fs_merchant_name_lotte_busan"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_lotte_busan
+	culture = pohang
+	rite = jogye
+	father = fs_merchant_lotte_gyeongheon
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = arrogant
+	trait = stubborn
+	trait = ambitious
+	disallow_random_traits = yes
+	2386.1.1 = { birth = yes }
+	2410.1.1 = { add_spouse = fs_merchant_lotte_mijeong }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_nongshim_anyang = {
+	name = "fs_merchant_name_nongshim_anyang"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_nongshim_anyang
+	culture = pohang
+	rite = jogye
+	father = fs_merchant_lotte_gyeongjin
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = generous
+	trait = ambitious
+	disallow_random_traits = yes
+	2399.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_hanwha_incheon = {
+	name = "fs_merchant_name_hanwha_incheon"
+	dynasty = dynn_fs_merchant_hanwha
+	dynasty_house = house_fs_merchant_hanwha_incheon
+	female = yes
+	culture = cheonan
+	rite = anglican
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = brave
+	trait = diligent
+	trait = stubborn
+	disallow_random_traits = yes
+	2402.1.1 = { birth = yes }
+	2422.1.1 = { add_matrilineal_spouse = fs_merchant_hanjin_seongwon }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_hanjin_incheon = {
+	name = "fs_merchant_name_hanjin_incheon"
+	dynasty = dynn_fs_merchant_hanjin
+	dynasty_house = house_fs_merchant_hanjin_incheon
+	female = yes
+	culture = seoul
+	rite = jogye
+	father = fs_merchant_hanjin_munsu
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = honest
+	trait = diligent
+	disallow_random_traits = yes
+	2397.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_doosan_changwon = {
+	name = "fs_merchant_name_doosan_changwon"
+	dynasty = dynn_fs_merchant_doosan
+	dynasty_house = house_fs_merchant_doosan_changwon
+	culture = icheon
+	rite = roman_rite
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = just
+	trait = stubborn
+	disallow_random_traits = yes
+	2391.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_kumho_gwangju = {
+	name = "fs_merchant_name_kumho_gwangju"
+	dynasty = dynn_fs_merchant_kumho
+	dynasty_house = house_fs_merchant_kumho_gwangju
+	female = yes
+	culture = muan
+	rite = jogye
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = gregarious
+	trait = diligent
+	disallow_random_traits = yes
+	2400.1.1 = { birth = yes }
+	2420.1.1 = { add_matrilineal_spouse = fs_merchant_dongwon_jeongheon }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_dongwon_changwon = {
+	name = "fs_merchant_name_dongwon_changwon"
+	dynasty = dynn_fs_merchant_dongwon
+	dynasty_house = house_fs_merchant_dongwon_changwon
+	culture = namhae
+	rite = mechanism
+	father = fs_merchant_dongwon_myeongheon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = patient
+	trait = temperate
+	disallow_random_traits = yes
+	2394.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_chosun_seoul = {
+	name = "fs_merchant_name_chosun_seoul"
+	dynasty = dynn_fs_merchant_chosun
+	dynasty_house = house_fs_merchant_chosun_seoul
+	culture = uiju
+	rite = seoulism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = arrogant
+	trait = stubborn
+	trait = just
+	disallow_random_traits = yes
+	2383.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_joongang_sangam = {
+	name = "fs_merchant_name_joongang_sangam"
+	dynasty = dynn_fs_merchant_joongang
+	dynasty_house = house_fs_merchant_joongang_sangam
+	culture = seoul
+	rite = won_buddhism
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = ambitious
+	trait = deceitful
+	disallow_random_traits = yes
+	2396.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_donga_seoul = {
+	name = "fs_merchant_name_donga_seoul"
+	dynasty = dynn_fs_merchant_donga
+	dynasty_house = house_fs_merchant_donga_seoul
+	culture = saemangeum
+	rite = yulgok
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = honest
+	trait = diligent
+	trait = just
+	disallow_random_traits = yes
+	2388.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_dongwha_chungju = {
+	name = "fs_merchant_name_dongwha_chungju"
+	dynasty = dynn_fs_merchant_dongwha
+	dynasty_house = house_fs_merchant_dongwha_chungju
+	female = yes
+	culture = seoul
+	rite = mechanism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = compassionate
+	trait = diligent
+	disallow_random_traits = yes
+	2404.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_ssangyong_yeongwol = {
+	name = "fs_merchant_name_ssangyong_yeongwol"
+	dynasty = dynn_fs_merchant_ssangyong
+	dynasty_house = house_fs_merchant_ssangyong_yeongwol
+	culture = daegu
+	rite = jogye
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = stubborn
+	trait = brave
+	trait = diligent
+	disallow_random_traits = yes
+	2390.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_harim_iksan = {
+	name = "fs_merchant_name_harim_iksan"
+	dynasty = dynn_fs_merchant_harim
+	dynasty_house = house_fs_merchant_harim_iksan
+	female = yes
+	culture = jeonju
+	rite = presbyterianism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = diligent
+	trait = temperate
+	disallow_random_traits = yes
+	2406.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_taeyoung_yeouido = {
+	name = "fs_merchant_name_taeyoung_yeouido"
+	dynasty = dynn_fs_merchant_taeyoung
+	dynasty_house = house_fs_merchant_taeyoung_yeouido
+	culture = chuncheon
+	rite = mechanism
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = diligent
+	trait = calm
+	disallow_random_traits = yes
+	2392.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_aekyung_cheongyang = {
+	name = "fs_merchant_name_aekyung_cheongyang"
+	dynasty = dynn_fs_merchant_aekyung
+	dynasty_house = house_fs_merchant_aekyung_cheongyang
+	female = yes
+	culture = seoul
+	rite = roman_rite
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = patient
+	trait = gregarious
+	disallow_random_traits = yes
+	2399.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_orion_iksan = {
+	name = "fs_merchant_name_orion_iksan"
+	dynasty = dynn_fs_merchant_orion
+	dynasty_house = house_fs_merchant_orion_iksan
+	culture = han
+	rite = mechanism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = generous
+	trait = ambitious
+	disallow_random_traits = yes
+	2403.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_youngpoong_seokpo = {
+	name = "fs_merchant_name_youngpoong_seokpo"
+	dynasty = dynn_fs_merchant_youngpoong
+	dynasty_house = house_fs_merchant_youngpoong_seokpo
+	culture = hwangju
+	rite = mechanism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = stubborn
+	trait = diligent
+	trait = greedy
+	disallow_random_traits = yes
+	2393.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_kyobo_seoul = {
+	name = "fs_merchant_name_kyobo_seoul"
+	dynasty = dynn_fs_merchant_kyobo
+	dynasty_house = house_fs_merchant_kyobo_seoul
+	culture = muan
+	rite = seoulism
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = honest
+	trait = patient
+	trait = just
+	disallow_random_traits = yes
+	2387.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_jinro_icheon = {
+	name = "fs_merchant_name_jinro_icheon"
+	dynasty = dynn_fs_merchant_jinro
+	dynasty_house = house_fs_merchant_jinro_icheon
+	female = yes
+	culture = pyongyang
+	rite = mechanism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = calm
+	trait = diligent
+	trait = stubborn
+	disallow_random_traits = yes
+	2401.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_poongsan_angang = {
+	name = "fs_merchant_name_poongsan_angang"
+	dynasty = dynn_fs_merchant_poongsan
+	dynasty_house = house_fs_merchant_poongsan_angang
+	culture = andong
+	rite = toegye
+	father = fs_merchant_poongsan_muntaek
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = stubborn
+	trait = just
+	disallow_random_traits = yes
+	2398.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_woongjin_gyoha = {
+	name = "fs_merchant_name_woongjin_gyoha"
+	dynasty = dynn_fs_merchant_woongjin
+	dynasty_house = house_fs_merchant_woongjin_gyoha
+	culture = buyeo
+	rite = mechanism
+	father = fs_merchant_woongjin_gyoha_parent
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = patient
+	trait = generous
+	disallow_random_traits = yes
+	2407.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_hwasung_suseong = {
+	name = "fs_merchant_name_hwasung_suseong"
+	dynasty = dynn_fs_merchant_hwasung
+	dynasty_house = house_fs_merchant_hwasung_suseong
+	culture = miryang
+	rite = mechanism
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = stubborn
+	trait = diligent
+	disallow_random_traits = yes
+	2389.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_maeil_jinwi = {
+	name = "fs_merchant_name_maeil_jinwi"
+	dynasty = dynn_fs_merchant_maeil
+	dynasty_house = house_fs_merchant_maeil_jinwi
+	female = yes
+	culture = hamheung
+	rite = mechanism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = honest
+	trait = compassionate
+	trait = diligent
+	disallow_random_traits = yes
+	2402.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_namyang_mokcheon = {
+	name = "fs_merchant_name_namyang_mokcheon"
+	dynasty = dynn_fs_merchant_namyang
+	dynasty_house = house_fs_merchant_namyang_mokcheon
+	culture = yeongbyeon
+	rite = mechanism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = diligent
+	trait = stubborn
+	disallow_random_traits = yes
+	2394.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_samyang_wonju = {
+	name = "fs_merchant_name_samyang_wonju"
+	dynasty = dynn_fs_merchant_samyang
+	dynasty_house = house_fs_merchant_samyang_wonju
+	culture = chuncheon
+	rite = mechanism
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = brave
+	trait = diligent
+	trait = temperate
+	disallow_random_traits = yes
+	2405.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_dongkuk_incheon = {
+	name = "fs_merchant_name_dongkuk_incheon"
+	dynasty = dynn_fs_merchant_dongkuk
+	dynasty_house = house_fs_merchant_dongkuk_incheon
+	culture = busan
+	rite = jogye
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = greedy
+	trait = diligent
+	trait = calm
+	disallow_random_traits = yes
+	2396.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_kb_yeouido = {
+	name = "fs_merchant_name_kb_yeouido"
+	dynasty = dynn_fs_merchant_kb
+	dynasty_house = house_fs_merchant_kb_yeouido
+	culture = seoul
+	rite = seoulism
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = patient
+	trait = just
+	trait = diligent
+	disallow_random_traits = yes
+	2390.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_shinhan_seoul = {
+	name = "fs_merchant_name_shinhan_seoul"
+	dynasty = dynn_fs_merchant_shinhan
+	dynasty_house = house_fs_merchant_shinhan_seoul
+	female = yes
+	culture = seoul
+	rite = seoulism
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = calm
+	trait = gregarious
+	trait = diligent
+	disallow_random_traits = yes
+	2397.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_woori_seoul = {
+	name = "fs_merchant_name_woori_seoul"
+	dynasty = dynn_fs_merchant_woori
+	dynasty_house = house_fs_merchant_woori_seoul
+	culture = seoul
+	rite = seoulism
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = stubborn
+	trait = patient
+	trait = honest
+	disallow_random_traits = yes
+	2385.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_haitai_gwangju = {
+	name = "fs_merchant_name_haitai_gwangju"
+	dynasty = dynn_fs_merchant_haitai
+	dynasty_house = house_fs_merchant_haitai_gwangju
+	female = yes
+	culture = gwangju
+	rite = mechanism
+	father = fs_merchant_haitai_gwangju_parent
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = generous
+	trait = ambitious
+	disallow_random_traits = yes
+	2408.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_kia_gwangju = {
+	name = "fs_merchant_name_kia_gwangju"
+	dynasty = dynn_fs_merchant_kia
+	dynasty_house = house_fs_merchant_kia_gwangju
+	culture = gwangju
+	rite = mechanism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = honest
+	trait = stubborn
+	disallow_random_traits = yes
+	2400.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_daewoo_bupyeong = {
+	name = "fs_merchant_name_daewoo_bupyeong"
+	dynasty = dynn_fs_merchant_daewoo_bupyeong
+	dynasty_house = house_fs_merchant_daewoo_bupyeong
+	culture = incheon
+	rite = mechanism
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = patient
+	trait = just
+	disallow_random_traits = yes
+	2393.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_kukje_busan = {
+	name = "fs_merchant_name_kukje_busan"
+	dynasty = dynn_fs_merchant_kukje
+	dynasty_house = house_fs_merchant_kukje_busan
+	female = yes
+	culture = busan
+	rite = mechanism
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = gregarious
+	trait = diligent
+	trait = honest
+	disallow_random_traits = yes
+	2398.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_posco_pohang = {
+	name = "fs_merchant_name_posco_pohang"
+	dynasty = dynn_fs_merchant_posco_pohang
+	dynasty_house = house_fs_merchant_posco_pohang
+	culture = pohang
+	rite = steeler
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = just
+	trait = stubborn
+	disallow_random_traits = yes
+	2389.1.1 = { birth = yes }
+	2413.1.1 = { add_spouse = fs_merchant_poongsan_hyejin }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_medium
+		}
+	}
+}
+
+fs_merchant_lotte_jamsil = {
+	name = "fs_merchant_name_lotte_jamsil"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_lotte_jamsil
+	female = yes
+	culture = pohang
+	rite = jogye
+	father = fs_merchant_lotte_busan
+	mother = fs_merchant_lotte_mijeong
+	diplomacy = 10
+	martial = 5
+	stewardship = 14
+	intrigue = 10
+	learning = 8
+	prowess = 4
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = ambitious
+	trait = gregarious
+	trait = diligent
+	disallow_random_traits = yes
+	2412.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_creditor
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_daewoo_okpo = {
+	name = "fs_merchant_name_daewoo_okpo"
+	dynasty = dynn_fs_merchant_daewoo_okpo
+	dynasty_house = house_fs_merchant_daewoo_okpo
+	culture = jinhae
+	rite = mechanism
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = brave
+	trait = gregarious
+	trait = diligent
+	disallow_random_traits = yes
+	2400.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_caravaneer
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_posco_gwangyang = {
+	name = "fs_merchant_name_posco_gwangyang"
+	dynasty = dynn_fs_merchant_posco_gwangyang
+	dynasty_house = house_fs_merchant_posco_gwangyang
+	female = yes
+	culture = namhae
+	rite = steeler
+	diplomacy = 8
+	martial = 5
+	stewardship = 13
+	intrigue = 6
+	learning = 12
+	prowess = 5
+	trait = education_stewardship_3
+	trait = lifestyle_merchant
+	trait = diligent
+	trait = ambitious
+	trait = just
+	disallow_random_traits = yes
+	2401.1.1 = { birth = yes }
+	2444.1.1 = {
+		effect = {
+			add_character_flag = fs_starting_merchant
+			add_character_flag = { flag = gdp_starting_company_size_fixed days = 1 }
+			add_realm_law_skip_effects = company_purpose_artisan
+			add_realm_law_skip_effects = company_size_small
+		}
+	}
+}
+
+fs_merchant_lucky_jeongsu = {
+	name = "fs_merchant_name_lucky_jeongsu"
+	dynasty = dynn_fs_merchant_lucky
+	dynasty_house = house_fs_merchant_lucky_cheongju
+	culture = jinju
+	rite = toegye
+	2368.1.1 = { birth = yes }
+	2434.1.1 = { death = yes }
+}
+
+fs_merchant_lucky_hyewon = {
+	name = "fs_merchant_name_lucky_hyewon"
+	dynasty = dynn_fs_merchant_lucky
+	dynasty_house = house_fs_merchant_lucky_cheongju
+	female = yes
+	culture = jinju
+	rite = toegye
+	father = fs_merchant_lucky_jeongsu
+	2397.1.1 = { birth = yes }
+}
+
+fs_merchant_goldstar_munseok = {
+	name = "fs_merchant_name_goldstar_munseok"
+	dynasty = dynn_fs_merchant_goldstar
+	dynasty_house = house_fs_merchant_goldstar_yeosu
+	culture = jinju
+	rite = toegye
+	2367.1.1 = { birth = yes }
+	2437.1.1 = { death = yes }
+}
+
+fs_merchant_goldstar_mingyu = {
+	name = "fs_merchant_name_goldstar_mingyu"
+	dynasty = dynn_fs_merchant_goldstar
+	dynasty_house = house_fs_merchant_goldstar_yeosu
+	culture = jinju
+	rite = toegye
+	father = fs_merchant_goldstar_munseok
+	2396.1.1 = { birth = yes }
+}
+
+fs_merchant_hanjin_munsu = {
+	name = "fs_merchant_name_hanjin_munsu"
+	dynasty = dynn_fs_merchant_hanjin
+	dynasty_house = house_fs_merchant_hanjin_incheon
+	culture = seoul
+	rite = jogye
+	2367.1.1 = { birth = yes }
+	2435.1.1 = { death = yes }
+}
+
+fs_merchant_hanjin_seongwon = {
+	name = "fs_merchant_name_hanjin_seongwon"
+	dynasty = dynn_fs_merchant_hanjin
+	dynasty_house = house_fs_merchant_hanjin_incheon
+	culture = seoul
+	rite = jogye
+	father = fs_merchant_hanjin_munsu
+	2400.1.1 = { birth = yes }
+}
+
+fs_merchant_dongwon_myeongheon = {
+	name = "fs_merchant_name_dongwon_myeongheon"
+	dynasty = dynn_fs_merchant_dongwon
+	dynasty_house = house_fs_merchant_dongwon_changwon
+	culture = namhae
+	rite = mechanism
+	2363.1.1 = { birth = yes }
+	2430.1.1 = { death = yes }
+}
+
+fs_merchant_dongwon_jeongheon = {
+	name = "fs_merchant_name_dongwon_jeongheon"
+	dynasty = dynn_fs_merchant_dongwon
+	dynasty_house = house_fs_merchant_dongwon_changwon
+	culture = namhae
+	rite = mechanism
+	father = fs_merchant_dongwon_myeongheon
+	2397.1.1 = { birth = yes }
+}
+
+fs_merchant_poongsan_muntaek = {
+	name = "fs_merchant_name_poongsan_muntaek"
+	dynasty = dynn_fs_merchant_poongsan
+	dynasty_house = house_fs_merchant_poongsan_angang
+	culture = andong
+	rite = toegye
+	2363.1.1 = { birth = yes }
+	2434.1.1 = { death = yes }
+}
+
+fs_merchant_poongsan_hyejin = {
+	name = "fs_merchant_name_poongsan_hyejin"
+	dynasty = dynn_fs_merchant_poongsan
+	dynasty_house = house_fs_merchant_poongsan_angang
+	female = yes
+	culture = andong
+	rite = toegye
+	father = fs_merchant_poongsan_muntaek
+	2393.1.1 = { birth = yes }
+}
+
+fs_merchant_lotte_wonjung = {
+	name = "fs_merchant_name_lotte_wonjung"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_lotte_busan
+	culture = pohang
+	rite = jogye
+	2299.1.1 = { birth = yes }
+	2383.1.1 = { death = yes }
+}
+
+fs_merchant_lotte_yeongtaek = {
+	name = "fs_merchant_name_lotte_yeongtaek"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_lotte_busan
+	culture = pohang
+	rite = jogye
+	father = fs_merchant_lotte_wonjung
+	2328.1.1 = { birth = yes }
+	2410.1.1 = { death = yes }
+}
+
+fs_merchant_lotte_gyeongheon = {
+	name = "fs_merchant_name_lotte_gyeongheon"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_lotte_busan
+	culture = pohang
+	rite = jogye
+	father = fs_merchant_lotte_yeongtaek
+	2359.1.1 = { birth = yes }
+	2427.1.1 = { death = yes }
+}
+
+fs_merchant_lotte_yeongjun = {
+	name = "fs_merchant_name_lotte_yeongjun"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_nongshim_anyang
+	culture = pohang
+	rite = jogye
+	father = fs_merchant_lotte_wonjung
+	2339.1.1 = { birth = yes }
+	2417.1.1 = { death = yes }
+}
+
+fs_merchant_lotte_gyeongjin = {
+	name = "fs_merchant_name_lotte_gyeongjin"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_nongshim_anyang
+	culture = pohang
+	rite = jogye
+	father = fs_merchant_lotte_yeongjun
+	2370.1.1 = { birth = yes }
+	2438.1.1 = { death = yes }
+}
+
+fs_merchant_lotte_mijeong = {
+	name = "fs_merchant_name_lotte_mijeong"
+	dynasty = dynn_fs_merchant_lotte_han
+	female = yes
+	culture = busan
+	rite = populism
+	2389.1.1 = { birth = yes }
+}
+
+fs_merchant_aprok_sinuiju_heir = {
+	name = "fs_merchant_name_aprok_sinuiju_heir"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_sinuiju
+	culture = uiju
+	rite = reformism
+	father = fs_merchant_aprok_sinuiju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_suyang_haeju_heir = {
+	name = "fs_merchant_name_suyang_haeju_heir"
+	dynasty = dynn_fs_merchant_suyang
+	dynasty_house = house_fs_merchant_suyang_haeju
+	culture = haeju
+	rite = cheondo
+	father = fs_merchant_suyang_haeju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_seongcheon_hamheung_heir = {
+	name = "fs_merchant_name_seongcheon_hamheung_heir"
+	dynasty = dynn_fs_merchant_seongcheon
+	dynasty_house = house_fs_merchant_seongcheon_hamheung
+	culture = hamheung
+	rite = mechanism
+	mother = fs_merchant_seongcheon_hamheung
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_songdowon_wonsan_heir = {
+	name = "fs_merchant_name_songdowon_wonsan_heir"
+	dynasty = dynn_fs_merchant_songdowon
+	dynasty_house = house_fs_merchant_songdowon_wonsan
+	culture = wonsan
+	rite = byzantine_rite
+	father = fs_merchant_songdowon_wonsan
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_duman_cheongjin_heir = {
+	name = "fs_merchant_name_duman_cheongjin_heir"
+	dynasty = dynn_fs_merchant_duman
+	dynasty_house = house_fs_merchant_duman_cheongjin
+	culture = gyeongseong
+	rite = cheonjin
+	father = fs_merchant_duman_cheongjin
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_baekmu_hyesan_heir = {
+	name = "fs_merchant_name_baekmu_hyesan_heir"
+	dynasty = dynn_fs_merchant_baekmu
+	dynasty_house = house_fs_merchant_baekmu_hyesan
+	culture = kaema
+	rite = kaema_rite
+	mother = fs_merchant_baekmu_hyesan
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_daesong_pyongyang_heir = {
+	name = "fs_merchant_name_daesong_pyongyang_heir"
+	dynasty = dynn_fs_merchant_daesong
+	dynasty_house = house_fs_merchant_daesong_pyongyang
+	culture = pyongyang
+	rite = cheondo
+	father = fs_merchant_daesong_pyongyang
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_bomhyanggi_sinuiju_parent = {
+	name = "fs_merchant_name_bomhyanggi_sinuiju_parent"
+	dynasty = dynn_fs_merchant_bomhyanggi
+	dynasty_house = house_fs_merchant_bomhyanggi_sinuiju
+	culture = uiju
+	rite = mechanism
+	2383.1.1 = { birth = yes }
+	2442.1.1 = { death = yes }
+}
+
+fs_merchant_bomhyanggi_sinuiju_heir = {
+	name = "fs_merchant_name_bomhyanggi_sinuiju_heir"
+	dynasty = dynn_fs_merchant_bomhyanggi
+	dynasty_house = house_fs_merchant_bomhyanggi_sinuiju
+	culture = uiju
+	rite = mechanism
+	father = fs_merchant_bomhyanggi_sinuiju_parent
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_chollima_kangso_heir = {
+	name = "fs_merchant_name_chollima_kangso_heir"
+	dynasty = dynn_fs_merchant_chollima
+	dynasty_house = house_fs_merchant_chollima_kangso
+	culture = pyongyang
+	rite = steeler
+	father = fs_merchant_chollima_kangso
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_kimchaek_cheongjin_heir = {
+	name = "fs_merchant_name_kimchaek_cheongjin_heir"
+	dynasty = dynn_fs_merchant_kimchaek
+	dynasty_house = house_fs_merchant_kimchaek_cheongjin
+	culture = gyeongseong
+	rite = steeler
+	father = fs_merchant_kimchaek_cheongjin
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_taedonggang_pyongyang_parent = {
+	name = "fs_merchant_name_taedonggang_pyongyang_parent"
+	dynasty = dynn_fs_merchant_taedonggang
+	dynasty_house = house_fs_merchant_taedonggang_pyongyang
+	culture = pyongyang
+	rite = mechanism
+	2385.1.1 = { birth = yes }
+	2442.1.1 = { death = yes }
+}
+
+fs_merchant_taedonggang_pyongyang_heir = {
+	name = "fs_merchant_name_taedonggang_pyongyang_heir"
+	dynasty = dynn_fs_merchant_taedonggang
+	dynasty_house = house_fs_merchant_taedonggang_pyongyang
+	culture = pyongyang
+	rite = mechanism
+	father = fs_merchant_taedonggang_pyongyang_parent
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_golden_triangle_najin_heir = {
+	name = "fs_merchant_name_golden_triangle_najin_heir"
+	dynasty = dynn_fs_merchant_golden_triangle
+	dynasty_house = house_fs_merchant_golden_triangle_najin
+	culture = yukjin
+	rite = cheonjin
+	father = fs_merchant_golden_triangle_najin
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_haeran_yanji_heir = {
+	name = "fs_merchant_name_haeran_yanji_heir"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_yanji
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_yanji
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_haeran_longjing_heir = {
+	name = "fs_merchant_name_haeran_longjing_heir"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_longjing
+	culture = chaoxian
+	rite = possessed_mu
+	mother = fs_merchant_haeran_longjing
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_haeran_tumen_heir = {
+	name = "fs_merchant_name_haeran_tumen_heir"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_tumen
+	culture = chaoxian
+	rite = possessed_mu
+	mother = fs_merchant_haeran_tumen
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_haeran_hunchun_heir = {
+	name = "fs_merchant_name_haeran_hunchun_heir"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_hunchun
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_yanji
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_seotap_shenyang_heir = {
+	name = "fs_merchant_name_seotap_shenyang_heir"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_shenyang
+	culture = chaoxian
+	rite = mechanism
+	father = fs_merchant_seotap_shenyang
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_aprok_liaoyang_heir = {
+	name = "fs_merchant_name_aprok_liaoyang_heir"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_liaoyang
+	culture = chaoxian
+	rite = reformism
+	mother = fs_merchant_aprok_liaoyang
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_seotap_dalian_heir = {
+	name = "fs_merchant_name_seotap_dalian_heir"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_dalian
+	culture = chaoxian
+	rite = mechanism
+	mother = fs_merchant_seotap_dalian
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_seotap_changchun_heir = {
+	name = "fs_merchant_name_seotap_changchun_heir"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_changchun
+	culture = chaoxian
+	rite = mechanism
+	father = fs_merchant_seotap_yeongsu
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_seotap_jirin_heir = {
+	name = "fs_merchant_name_seotap_jirin_heir"
+	dynasty = dynn_fs_merchant_seotap
+	dynasty_house = house_fs_merchant_seotap_jirin
+	culture = chaoxian
+	rite = mechanism
+	father = fs_merchant_seotap_yeongsu
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_haeran_harbin_heir = {
+	name = "fs_merchant_name_haeran_harbin_heir"
+	dynasty = dynn_fs_merchant_haeran
+	dynasty_house = house_fs_merchant_haeran_harbin
+	culture = chaoxian
+	rite = possessed_mu
+	father = fs_merchant_haeran_segange
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_aprok_dandung_heir = {
+	name = "fs_merchant_name_aprok_dandung_heir"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_dandung
+	culture = yalu
+	rite = reformism
+	mother = fs_merchant_aprok_dandung
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_aprok_kuandian_heir = {
+	name = "fs_merchant_name_aprok_kuandian_heir"
+	dynasty = dynn_fs_merchant_aprok
+	dynasty_house = house_fs_merchant_aprok_kuandian
+	culture = yalu
+	rite = reformism
+	father = fs_merchant_aprok_kuandian
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_nh_anseong_heir = {
+	name = "fs_merchant_name_nh_anseong_heir"
+	dynasty = dynn_fs_merchant_nh_anseong
+	dynasty_house = house_fs_merchant_nh_anseong
+	culture = suwon
+	rite = mechanism
+	father = fs_merchant_nh_anseong
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_nh_yesan_heir = {
+	name = "fs_merchant_name_nh_yesan_heir"
+	dynasty = dynn_fs_merchant_nh_yesan
+	dynasty_house = house_fs_merchant_nh_yesan
+	culture = hongseong
+	rite = mechanism
+	mother = fs_merchant_nh_yesan
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_nh_gimje_heir = {
+	name = "fs_merchant_name_nh_gimje_heir"
+	dynasty = dynn_fs_merchant_nh_gimje
+	dynasty_house = house_fs_merchant_nh_gimje
+	culture = jeonju
+	rite = holyist
+	father = fs_merchant_nh_gimje
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_nh_sangju_heir = {
+	name = "fs_merchant_name_nh_sangju_heir"
+	dynasty = dynn_fs_merchant_nh_sangju
+	dynasty_house = house_fs_merchant_nh_sangju
+	culture = sangju
+	rite = hereditary_mu
+	mother = fs_merchant_nh_sangju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_nh_jaeryeong_heir = {
+	name = "fs_merchant_name_nh_jaeryeong_heir"
+	dynasty = dynn_fs_merchant_nh_jaeryeong
+	dynasty_house = house_fs_merchant_nh_jaeryeong
+	culture = hwangju
+	rite = cheondo
+	father = fs_merchant_nh_jaeryeong
+	mother = fs_merchant_suyang_yunhwa
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_nh_hamju_heir = {
+	name = "fs_merchant_name_nh_hamju_heir"
+	dynasty = dynn_fs_merchant_nh_hamju
+	dynasty_house = house_fs_merchant_nh_hamju
+	culture = hamheung
+	rite = hamheung_rite
+	mother = fs_merchant_nh_hamju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_tamna_jeju_heir = {
+	name = "fs_merchant_name_tamna_jeju_heir"
+	dynasty = dynn_fs_merchant_tamna
+	dynasty_house = house_fs_merchant_tamna_jeju
+	culture = jeju
+	rite = jeju_pagan
+	mother = fs_merchant_tamna_jeju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_chagan_gorlos_heir = {
+	name = "fs_merchant_name_chagan_gorlos_heir"
+	dynasty = dynn_fs_merchant_chagan_tergen
+	dynasty_house = house_fs_merchant_chagan_gorlos
+	culture = gorlos
+	rite = gelugpa
+	father = fs_merchant_chagan_gorlos
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_golden_horn_vladivostok_heir = {
+	name = "fs_merchant_name_golden_horn_vladivostok_heir"
+	dynasty = dynn_fs_merchant_golden_horn
+	dynasty_house = house_fs_merchant_golden_horn_vladivostok
+	culture = pyotr
+	rite = anti_revisionism
+	father = fs_merchant_golden_horn_vladivostok
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_ussuri_bank_heir = {
+	name = "fs_merchant_name_ussuri_bank_heir"
+	dynasty = dynn_fs_merchant_ussuri
+	dynasty_house = house_fs_merchant_ussuri_bank
+	culture = khanka
+	rite = anti_revisionism
+	mother = fs_merchant_ussuri_bank
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_daegu_heir = {
+	name = "fs_merchant_name_samsung_daegu_heir"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_daegu
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_daegu
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_suwon_heir = {
+	name = "fs_merchant_name_samsung_suwon_heir"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_suwon
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_suwon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_seoul_heir = {
+	name = "fs_merchant_name_samsung_seoul_heir"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_seoul
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_seoul
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_geoje_heir = {
+	name = "fs_merchant_name_samsung_geoje_heir"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_geoje
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_geoje
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_cj_busan_heir = {
+	name = "fs_merchant_name_samsung_cj_busan_heir"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_cj_busan
+	culture = miryang
+	rite = mechanism
+	father = fs_merchant_samsung_cj_busan
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_shinsegae_seoul_heir = {
+	name = "fs_merchant_name_samsung_shinsegae_seoul_heir"
+	dynasty = dynn_fs_merchant_samsung_wonsik_jeong
+	dynasty_house = house_fs_merchant_samsung_shinsegae_seoul
+	culture = miryang
+	rite = presbyterianism
+	father = fs_merchant_samsung_wonsik
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_electronics_gumi_heir = {
+	name = "fs_merchant_name_samsung_electronics_gumi_heir"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_electronics_gumi
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_suwon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_giheung_heir = {
+	name = "fs_merchant_name_samsung_giheung_heir"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_giheung
+	culture = miryang
+	rite = won_buddhism
+	mother = fs_merchant_samsung_giheung
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_pyeongtaek_heir = {
+	name = "fs_merchant_name_samsung_pyeongtaek_heir"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_pyeongtaek
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_suwon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_cj_incheon_heir = {
+	name = "fs_merchant_name_samsung_cj_incheon_heir"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_cj_incheon
+	culture = miryang
+	rite = mechanism
+	father = fs_merchant_samsung_seongyeong
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_samsung_textiles_gumi_heir = {
+	name = "fs_merchant_name_samsung_textiles_gumi_heir"
+	dynasty = dynn_fs_merchant_samsung
+	dynasty_house = house_fs_merchant_samsung_textiles_gumi
+	culture = miryang
+	rite = won_buddhism
+	father = fs_merchant_samsung_textiles_gumi
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_construction_heir = {
+	name = "fs_merchant_name_hyundai_construction_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_construction
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_construction
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_motor_heir = {
+	name = "fs_merchant_name_hyundai_motor_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_motor
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_motor
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_heavy_heir = {
+	name = "fs_merchant_name_hyundai_heavy_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_heavy
+	culture = geumgang
+	rite = presbyterianism
+	father = fs_merchant_hyundai_heavy
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_department_heir = {
+	name = "fs_merchant_name_hyundai_department_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_department
+	culture = geumgang
+	rite = steeler
+	mother = fs_merchant_hyundai_department
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_marine_heir = {
+	name = "fs_merchant_name_hyundai_marine_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_marine
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_marine
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_halla_heir = {
+	name = "fs_merchant_name_hyundai_halla_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_halla
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_halla
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_kcc_heir = {
+	name = "fs_merchant_name_hyundai_kcc_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_kcc
+	culture = geumgang
+	rite = jogye
+	father = fs_merchant_hyundai_wonmuk
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_seosan_heir = {
+	name = "fs_merchant_name_hyundai_seosan_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_seosan
+	culture = geumgang
+	rite = steeler
+	mother = fs_merchant_hyundai_seosan
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_asan_heir = {
+	name = "fs_merchant_name_hyundai_asan_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_asan
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_motor
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_jeonju_heir = {
+	name = "fs_merchant_name_hyundai_jeonju_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_jeonju
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_jeonju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hyundai_steel_dangjin_heir = {
+	name = "fs_merchant_name_hyundai_steel_dangjin_heir"
+	dynasty = dynn_fs_merchant_hyundai
+	dynasty_house = house_fs_merchant_hyundai_steel_dangjin
+	culture = geumgang
+	rite = steeler
+	father = fs_merchant_hyundai_motor
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_sk_suwon_heir = {
+	name = "fs_merchant_name_sk_suwon_heir"
+	dynasty = dynn_fs_merchant_sk
+	dynasty_house = house_fs_merchant_sk_suwon
+	culture = suwon
+	rite = mechanism
+	father = fs_merchant_sk_suwon
+	mother = fs_merchant_lucky_hyewon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_lucky_cheongju_heir = {
+	name = "fs_merchant_name_lucky_cheongju_heir"
+	dynasty = dynn_fs_merchant_lucky
+	dynasty_house = house_fs_merchant_lucky_cheongju
+	culture = jinju
+	rite = toegye
+	father = fs_merchant_goldstar_mingyu
+	mother = fs_merchant_lucky_cheongju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_goldstar_yeosu_heir = {
+	name = "fs_merchant_name_goldstar_yeosu_heir"
+	dynasty = dynn_fs_merchant_goldstar
+	dynasty_house = house_fs_merchant_goldstar_yeosu
+	culture = jinju
+	rite = toegye
+	father = fs_merchant_goldstar_yeosu
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_lotte_busan_heir = {
+	name = "fs_merchant_name_lotte_busan_heir"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_lotte_busan
+	culture = pohang
+	rite = jogye
+	father = fs_merchant_lotte_busan
+	mother = fs_merchant_lotte_mijeong
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_nongshim_anyang_heir = {
+	name = "fs_merchant_name_nongshim_anyang_heir"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_nongshim_anyang
+	culture = pohang
+	rite = jogye
+	father = fs_merchant_nongshim_anyang
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hanwha_incheon_heir = {
+	name = "fs_merchant_name_hanwha_incheon_heir"
+	dynasty = dynn_fs_merchant_hanwha
+	dynasty_house = house_fs_merchant_hanwha_incheon
+	culture = cheonan
+	rite = anglican
+	father = fs_merchant_hanjin_seongwon
+	mother = fs_merchant_hanwha_incheon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_hanjin_incheon_heir = {
+	name = "fs_merchant_name_hanjin_incheon_heir"
+	dynasty = dynn_fs_merchant_hanjin
+	dynasty_house = house_fs_merchant_hanjin_incheon
+	culture = seoul
+	rite = jogye
+	mother = fs_merchant_hanjin_incheon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_doosan_changwon_heir = {
+	name = "fs_merchant_name_doosan_changwon_heir"
+	dynasty = dynn_fs_merchant_doosan
+	dynasty_house = house_fs_merchant_doosan_changwon
+	culture = icheon
+	rite = roman_rite
+	father = fs_merchant_doosan_changwon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_kumho_gwangju_heir = {
+	name = "fs_merchant_name_kumho_gwangju_heir"
+	dynasty = dynn_fs_merchant_kumho
+	dynasty_house = house_fs_merchant_kumho_gwangju
+	culture = muan
+	rite = jogye
+	father = fs_merchant_dongwon_jeongheon
+	mother = fs_merchant_kumho_gwangju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_dongwon_changwon_heir = {
+	name = "fs_merchant_name_dongwon_changwon_heir"
+	dynasty = dynn_fs_merchant_dongwon
+	dynasty_house = house_fs_merchant_dongwon_changwon
+	culture = namhae
+	rite = mechanism
+	father = fs_merchant_dongwon_changwon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_chosun_seoul_heir = {
+	name = "fs_merchant_name_chosun_seoul_heir"
+	dynasty = dynn_fs_merchant_chosun
+	dynasty_house = house_fs_merchant_chosun_seoul
+	culture = uiju
+	rite = seoulism
+	father = fs_merchant_chosun_seoul
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_joongang_sangam_heir = {
+	name = "fs_merchant_name_joongang_sangam_heir"
+	dynasty = dynn_fs_merchant_joongang
+	dynasty_house = house_fs_merchant_joongang_sangam
+	culture = seoul
+	rite = won_buddhism
+	father = fs_merchant_joongang_sangam
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_donga_seoul_heir = {
+	name = "fs_merchant_name_donga_seoul_heir"
+	dynasty = dynn_fs_merchant_donga
+	dynasty_house = house_fs_merchant_donga_seoul
+	culture = saemangeum
+	rite = yulgok
+	father = fs_merchant_donga_seoul
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_dongwha_chungju_heir = {
+	name = "fs_merchant_name_dongwha_chungju_heir"
+	dynasty = dynn_fs_merchant_dongwha
+	dynasty_house = house_fs_merchant_dongwha_chungju
+	culture = seoul
+	rite = mechanism
+	mother = fs_merchant_dongwha_chungju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_ssangyong_yeongwol_heir = {
+	name = "fs_merchant_name_ssangyong_yeongwol_heir"
+	dynasty = dynn_fs_merchant_ssangyong
+	dynasty_house = house_fs_merchant_ssangyong_yeongwol
+	culture = daegu
+	rite = jogye
+	father = fs_merchant_ssangyong_yeongwol
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_harim_iksan_heir = {
+	name = "fs_merchant_name_harim_iksan_heir"
+	dynasty = dynn_fs_merchant_harim
+	dynasty_house = house_fs_merchant_harim_iksan
+	culture = jeonju
+	rite = presbyterianism
+	mother = fs_merchant_harim_iksan
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_taeyoung_yeouido_heir = {
+	name = "fs_merchant_name_taeyoung_yeouido_heir"
+	dynasty = dynn_fs_merchant_taeyoung
+	dynasty_house = house_fs_merchant_taeyoung_yeouido
+	culture = chuncheon
+	rite = mechanism
+	father = fs_merchant_taeyoung_yeouido
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_aekyung_cheongyang_heir = {
+	name = "fs_merchant_name_aekyung_cheongyang_heir"
+	dynasty = dynn_fs_merchant_aekyung
+	dynasty_house = house_fs_merchant_aekyung_cheongyang
+	culture = seoul
+	rite = roman_rite
+	mother = fs_merchant_aekyung_cheongyang
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_orion_iksan_heir = {
+	name = "fs_merchant_name_orion_iksan_heir"
+	dynasty = dynn_fs_merchant_orion
+	dynasty_house = house_fs_merchant_orion_iksan
+	culture = han
+	rite = mechanism
+	father = fs_merchant_orion_iksan
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_youngpoong_seokpo_heir = {
+	name = "fs_merchant_name_youngpoong_seokpo_heir"
+	dynasty = dynn_fs_merchant_youngpoong
+	dynasty_house = house_fs_merchant_youngpoong_seokpo
+	culture = hwangju
+	rite = mechanism
+	father = fs_merchant_youngpoong_seokpo
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_kyobo_seoul_heir = {
+	name = "fs_merchant_name_kyobo_seoul_heir"
+	dynasty = dynn_fs_merchant_kyobo
+	dynasty_house = house_fs_merchant_kyobo_seoul
+	culture = muan
+	rite = seoulism
+	father = fs_merchant_kyobo_seoul
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_jinro_icheon_heir = {
+	name = "fs_merchant_name_jinro_icheon_heir"
+	dynasty = dynn_fs_merchant_jinro
+	dynasty_house = house_fs_merchant_jinro_icheon
+	culture = pyongyang
+	rite = mechanism
+	mother = fs_merchant_jinro_icheon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_poongsan_angang_heir = {
+	name = "fs_merchant_name_poongsan_angang_heir"
+	dynasty = dynn_fs_merchant_poongsan
+	dynasty_house = house_fs_merchant_poongsan_angang
+	culture = andong
+	rite = toegye
+	father = fs_merchant_poongsan_angang
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_woongjin_gyoha_parent = {
+	name = "fs_merchant_name_woongjin_gyoha_parent"
+	dynasty = dynn_fs_merchant_woongjin
+	dynasty_house = house_fs_merchant_woongjin_gyoha
+	culture = buyeo
+	rite = mechanism
+	2382.1.1 = { birth = yes }
+	2442.1.1 = { death = yes }
+}
+
+fs_merchant_woongjin_gyoha_heir = {
+	name = "fs_merchant_name_woongjin_gyoha_heir"
+	dynasty = dynn_fs_merchant_woongjin
+	dynasty_house = house_fs_merchant_woongjin_gyoha
+	culture = buyeo
+	rite = mechanism
+	father = fs_merchant_woongjin_gyoha_parent
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_hwasung_suseong_heir = {
+	name = "fs_merchant_name_hwasung_suseong_heir"
+	dynasty = dynn_fs_merchant_hwasung
+	dynasty_house = house_fs_merchant_hwasung_suseong
+	culture = miryang
+	rite = mechanism
+	father = fs_merchant_hwasung_suseong
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_maeil_jinwi_heir = {
+	name = "fs_merchant_name_maeil_jinwi_heir"
+	dynasty = dynn_fs_merchant_maeil
+	dynasty_house = house_fs_merchant_maeil_jinwi
+	culture = hamheung
+	rite = mechanism
+	mother = fs_merchant_maeil_jinwi
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_namyang_mokcheon_heir = {
+	name = "fs_merchant_name_namyang_mokcheon_heir"
+	dynasty = dynn_fs_merchant_namyang
+	dynasty_house = house_fs_merchant_namyang_mokcheon
+	culture = yeongbyeon
+	rite = mechanism
+	father = fs_merchant_namyang_mokcheon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_samyang_wonju_heir = {
+	name = "fs_merchant_name_samyang_wonju_heir"
+	dynasty = dynn_fs_merchant_samyang
+	dynasty_house = house_fs_merchant_samyang_wonju
+	culture = chuncheon
+	rite = mechanism
+	father = fs_merchant_samyang_wonju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_dongkuk_incheon_heir = {
+	name = "fs_merchant_name_dongkuk_incheon_heir"
+	dynasty = dynn_fs_merchant_dongkuk
+	dynasty_house = house_fs_merchant_dongkuk_incheon
+	culture = busan
+	rite = jogye
+	father = fs_merchant_dongkuk_incheon
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_kb_yeouido_heir = {
+	name = "fs_merchant_name_kb_yeouido_heir"
+	dynasty = dynn_fs_merchant_kb
+	dynasty_house = house_fs_merchant_kb_yeouido
+	culture = seoul
+	rite = seoulism
+	father = fs_merchant_kb_yeouido
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_shinhan_seoul_heir = {
+	name = "fs_merchant_name_shinhan_seoul_heir"
+	dynasty = dynn_fs_merchant_shinhan
+	dynasty_house = house_fs_merchant_shinhan_seoul
+	culture = seoul
+	rite = seoulism
+	mother = fs_merchant_shinhan_seoul
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_woori_seoul_heir = {
+	name = "fs_merchant_name_woori_seoul_heir"
+	dynasty = dynn_fs_merchant_woori
+	dynasty_house = house_fs_merchant_woori_seoul
+	culture = seoul
+	rite = seoulism
+	father = fs_merchant_woori_seoul
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_haitai_gwangju_parent = {
+	name = "fs_merchant_name_haitai_gwangju_parent"
+	dynasty = dynn_fs_merchant_haitai
+	dynasty_house = house_fs_merchant_haitai_gwangju
+	culture = gwangju
+	rite = mechanism
+	2383.1.1 = { birth = yes }
+	2442.1.1 = { death = yes }
+}
+
+fs_merchant_haitai_gwangju_heir = {
+	name = "fs_merchant_name_haitai_gwangju_heir"
+	dynasty = dynn_fs_merchant_haitai
+	dynasty_house = house_fs_merchant_haitai_gwangju
+	culture = gwangju
+	rite = mechanism
+	father = fs_merchant_haitai_gwangju_parent
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_kia_gwangju_heir = {
+	name = "fs_merchant_name_kia_gwangju_heir"
+	dynasty = dynn_fs_merchant_kia
+	dynasty_house = house_fs_merchant_kia_gwangju
+	culture = gwangju
+	rite = mechanism
+	father = fs_merchant_kia_gwangju
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_daewoo_bupyeong_heir = {
+	name = "fs_merchant_name_daewoo_bupyeong_heir"
+	dynasty = dynn_fs_merchant_daewoo_bupyeong
+	dynasty_house = house_fs_merchant_daewoo_bupyeong
+	culture = incheon
+	rite = mechanism
+	father = fs_merchant_daewoo_bupyeong
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_kukje_busan_heir = {
+	name = "fs_merchant_name_kukje_busan_heir"
+	dynasty = dynn_fs_merchant_kukje
+	dynasty_house = house_fs_merchant_kukje_busan
+	culture = busan
+	rite = mechanism
+	mother = fs_merchant_kukje_busan
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_posco_pohang_heir = {
+	name = "fs_merchant_name_posco_pohang_heir"
+	dynasty = dynn_fs_merchant_posco_pohang
+	dynasty_house = house_fs_merchant_posco_pohang
+	culture = pohang
+	rite = steeler
+	father = fs_merchant_posco_pohang
+	mother = fs_merchant_poongsan_hyejin
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_lotte_jamsil_heir = {
+	name = "fs_merchant_name_lotte_jamsil_heir"
+	dynasty = dynn_fs_merchant_lotte
+	dynasty_house = house_fs_merchant_lotte_jamsil
+	culture = pohang
+	rite = jogye
+	father = fs_merchant_lotte_busan
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2424.1.1 = { birth = yes }
+}
+
+fs_merchant_daewoo_okpo_heir = {
+	name = "fs_merchant_name_daewoo_okpo_heir"
+	dynasty = dynn_fs_merchant_daewoo_okpo
+	dynasty_house = house_fs_merchant_daewoo_okpo
+	culture = jinhae
+	rite = mechanism
+	father = fs_merchant_daewoo_okpo
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
+
+fs_merchant_posco_gwangyang_heir = {
+	name = "fs_merchant_name_posco_gwangyang_heir"
+	dynasty = dynn_fs_merchant_posco_gwangyang
+	dynasty_house = house_fs_merchant_posco_gwangyang
+	culture = namhae
+	rite = steeler
+	mother = fs_merchant_posco_gwangyang
+	diplomacy = 13
+	martial = 6
+	stewardship = 12
+	intrigue = 7
+	learning = 8
+	prowess = 6
+	trait = education_stewardship_2
+	trait = diligent
+	trait = calm
+	trait = temperate
+	disallow_random_traits = yes
+	2426.1.1 = { birth = yes }
+}
