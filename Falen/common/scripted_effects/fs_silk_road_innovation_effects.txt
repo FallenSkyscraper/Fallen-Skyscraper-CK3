@@ -1,0 +1,255 @@
+# Market visits transfer discoveries already known at their source.
+# Source selection runs from the current situation and only considers its active markets.
+fs_silk_road_receive_innovation_effect = {
+	if = {
+		limit = {
+			scope:innovation_temp = {
+				this = culture_innovation:innovation_$INNOVATION$
+			}
+			scope:innovation_temp = {
+				is_known_by_culture = scope:market_temp.culture
+			}
+			NOT = {
+				has_innovation = innovation_$INNOVATION$
+			}
+		}
+		add_innovation = innovation_$INNOVATION$
+	}
+}
+fs_silk_road_receive_selected_innovation_effect = {
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = NH
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = advanced_bowmaking
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = all_things
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = arched_saddle
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = assembly
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = band
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = bank
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = bombard
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = casus_belli
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = catapult
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = city_country
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = civic_council
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = communal_government
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = constitution
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = elephantry
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = five_market
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = genealogy
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = gwageoje
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = hereditary_rule
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = industrialization
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = judge
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = kaozheng
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = land_reform
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = ledger
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = levee_en_masse
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = local_government
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = mangonel
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = market_street
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = mercantilism
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = national_church
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = nationalism
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = natural_rights
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = official
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = patriotism
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = physiognomy
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = police
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = positivism
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = press
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = primogeniture
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = private_army_dismissal
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = public_school
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = public_works
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = quilted_armor
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = royal_privilege
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = royalty
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = seodang
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = social_contract
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = social_prestige
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = social_welfare
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = trebuchet
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = university
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = urbanization
+	}
+	fs_silk_road_receive_innovation_effect = {
+		INNOVATION = war_camels
+	}
+}
+fs_silk_road_save_source_culture_effect = {
+	clear_saved_scope = fs_silk_road_source_culture
+	random_in_global_list = {
+		variable = silk_road_markets
+		limit = {
+			exists = trade_market_owner.title_province.culture
+			trade_market_owner.title_province.county = {
+				any_county_situation = {
+					this = root
+				}
+			}
+			trade_market_owner.title_province.culture = {
+				any_known_innovation = {
+					OR = {
+						this = culture_innovation:innovation_NH
+						this = culture_innovation:innovation_advanced_bowmaking
+						this = culture_innovation:innovation_all_things
+						this = culture_innovation:innovation_arched_saddle
+						this = culture_innovation:innovation_assembly
+						this = culture_innovation:innovation_band
+						this = culture_innovation:innovation_bank
+						this = culture_innovation:innovation_bombard
+						this = culture_innovation:innovation_casus_belli
+						this = culture_innovation:innovation_catapult
+						this = culture_innovation:innovation_city_country
+						this = culture_innovation:innovation_civic_council
+						this = culture_innovation:innovation_communal_government
+						this = culture_innovation:innovation_constitution
+						this = culture_innovation:innovation_elephantry
+						this = culture_innovation:innovation_five_market
+						this = culture_innovation:innovation_genealogy
+						this = culture_innovation:innovation_gwageoje
+						this = culture_innovation:innovation_hereditary_rule
+						this = culture_innovation:innovation_industrialization
+						this = culture_innovation:innovation_judge
+						this = culture_innovation:innovation_kaozheng
+						this = culture_innovation:innovation_land_reform
+						this = culture_innovation:innovation_ledger
+						this = culture_innovation:innovation_levee_en_masse
+						this = culture_innovation:innovation_local_government
+						this = culture_innovation:innovation_mangonel
+						this = culture_innovation:innovation_market_street
+						this = culture_innovation:innovation_mercantilism
+						this = culture_innovation:innovation_national_church
+						this = culture_innovation:innovation_nationalism
+						this = culture_innovation:innovation_natural_rights
+						this = culture_innovation:innovation_official
+						this = culture_innovation:innovation_patriotism
+						this = culture_innovation:innovation_physiognomy
+						this = culture_innovation:innovation_police
+						this = culture_innovation:innovation_positivism
+						this = culture_innovation:innovation_press
+						this = culture_innovation:innovation_primogeniture
+						this = culture_innovation:innovation_private_army_dismissal
+						this = culture_innovation:innovation_public_school
+						this = culture_innovation:innovation_public_works
+						this = culture_innovation:innovation_quilted_armor
+						this = culture_innovation:innovation_royal_privilege
+						this = culture_innovation:innovation_royalty
+						this = culture_innovation:innovation_seodang
+						this = culture_innovation:innovation_social_contract
+						this = culture_innovation:innovation_social_prestige
+						this = culture_innovation:innovation_social_welfare
+						this = culture_innovation:innovation_trebuchet
+						this = culture_innovation:innovation_university
+						this = culture_innovation:innovation_urbanization
+						this = culture_innovation:innovation_war_camels
+					}
+				}
+			}
+		}
+		trade_market_owner.title_province.culture = {
+			save_temporary_scope_as = fs_silk_road_source_culture
+		}
+	}
+}

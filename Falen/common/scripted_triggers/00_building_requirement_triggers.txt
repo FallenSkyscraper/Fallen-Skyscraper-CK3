@@ -1024,10 +1024,7 @@ naphta_county_trigger = {
 }
 
 mint_building_unlock_early_medieval_trigger = {
-	custom_description = {
-		text = mint_building_unlock_early_medieval_trigger_desc
-		culture = { has_innovation = innovation_currency_02 }
-	}
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = commerce LEVEL = 3 }
 }
 
 building_murex_fisheries_requirement_trigger = {
@@ -1066,12 +1063,7 @@ building_requirement_no_great_barracks_project = {
 }
 
 building_gunpowder_trigger = {
-	culture = {
-		OR = {
-			has_innovation = innovation_gunpowder
-			has_innovation = innovation_fire_medicine
-		}
-	}
+	culture = { has_innovation = innovation_bombard }
 }
 
 can_have_duchy_capital_building_trigger = {
@@ -1123,181 +1115,181 @@ building_requirement_pasta_region = {
 }
 
 building_farmed_tribal_trigger = {
-	culture = { has_innovation = innovation_crop_rotation }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 0 }
 }
 
 building_farmed_early_medieval_trigger = {
-	culture = { has_innovation = innovation_heavy_plow }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
 }
 
 building_farmed_high_medieval_trigger = {
-	culture = { has_innovation = innovation_windmills }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
 }
 
 building_farmed_late_medieval_trigger = {
-	culture = { has_innovation = innovation_putting_out_system }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
 }
 
 building_artisanal_early_medieval_trigger = {
-	culture = { has_innovation = innovation_craft_ordinances }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 }
 
 building_artisanal_high_medieval_trigger = {
-	culture = { has_innovation = innovation_windmills }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 }
 
 building_artisanal_late_medieval_trigger = {
-	culture = { has_innovation = innovation_putting_out_system }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 }
 
 building_forest_early_medieval_trigger = {
-	culture = { has_innovation = innovation_coppicing }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
 }
 
 building_forest_high_medieval_trigger = {
-	culture = { has_innovation = innovation_windmills }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
 }
 
 building_forest_late_medieval_trigger = {
-	culture = { has_innovation = innovation_putting_out_system }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
 }
 
 building_mineral_early_medieval_trigger = {
-	culture = { has_innovation = innovation_prospecting }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 3 }
 }
 
 building_mineral_high_medieval_trigger = {
-	culture = { has_innovation = innovation_windmills }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 5 }
 }
 
 building_mineral_late_medieval_trigger = {
-	culture = { has_innovation = innovation_deep_mining }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 7 }
 }
 
 building_maritime_early_medieval_trigger = {
-	culture = { has_innovation = innovation_armilary_sphere }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = navigation LEVEL = 3 }
 }
 
 building_maritime_high_medieval_trigger = {
-	culture = { has_innovation = innovation_merchant_law }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = navigation LEVEL = 5 }
 }
 
 building_maritime_late_medieval_trigger = {
-	culture = { has_innovation = innovation_pilot_books }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = navigation LEVEL = 7 }
 }
 
 building_rural_early_medieval_trigger = {
-	culture = { has_innovation = innovation_manorialism }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
 }
 
 building_rural_high_medieval_trigger = {
-	culture = { has_innovation = innovation_land_grants }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
 }
 
 building_rural_late_medieval_trigger = {
-	culture = { has_innovation = innovation_agronomy }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
 }
 
 building_communal_early_medieval_trigger = {
-	culture = { has_innovation = innovation_prosperity_02 }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 3 }
 }
 
 building_urban_high_medieval_trigger = {
-	culture = { has_innovation = innovation_prosperity_03 }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 5 }
 }
 
 building_masonry_late_medieval_trigger = {
-	culture = { has_innovation = innovation_bricks }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 }
 
 building_commerce_early_medieval_trigger = {
-	culture = { has_innovation = innovation_currency_02 }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = commerce LEVEL = 3 }
 }
 
 building_commerce_high_medieval_trigger = {
-	culture = { has_innovation = innovation_merchant_law }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = commerce LEVEL = 5 }
 }
 
 building_commerce_late_medieval_trigger = {
-	culture = { has_innovation = innovation_currency_04 }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = commerce LEVEL = 7 }
 }
 
 building_administrative_early_medieval_trigger = {
-	culture = { has_innovation = innovation_baliffs }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 3 }
 }
 
 building_administrative_high_medieval_trigger = {
-	culture = { has_innovation = innovation_divine_right }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 5 }
 }
 
 building_administrative_late_medieval_trigger = {
-	culture = { has_innovation = innovation_court_officials }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 7 }
 }
 
 building_religious_early_medieval_trigger = {
-	culture = { has_innovation = innovation_monasticism }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 }
 
 building_stonework_high_medieval_trigger = {
-	culture = { has_innovation = innovation_vaulting }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 }
 
 building_fortification_tribal_trigger = {
-	culture = { has_innovation = innovation_motte }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 0 }
 }
 
 building_fortification_early_medieval_trigger = {
-	culture = { has_innovation = innovation_battlements }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 3 }
 }
 
 building_fortification_high_medieval_trigger = {
-	culture = { has_innovation = innovation_hoardings }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 5 }
 }
 
 building_fortification_late_medieval_trigger = {
-	culture = { has_innovation = innovation_machicolations }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 7 }
 }
 
 building_recruitment_tribal_trigger = {
-	culture = { has_innovation = innovation_barracks }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 0 }
 }
 
 building_recruitment_early_medieval_trigger = {
-	culture = { has_innovation = innovation_house_soldiers }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 3 }
 }
 
 building_recruitment_late_medieval_trigger = {
-	culture = { has_innovation = innovation_standing_armies }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 7 }
 }
 
 building_courtly_tribal_trigger = {
-	culture = { has_innovation = innovation_plenary_assemblies }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 0 }
 }
 
 building_courtly_early_medieval_trigger = {
-	culture = { has_innovation = innovation_royal_prerogative }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 3 }
 }
 
 building_courtly_late_medieval_trigger = {
-	culture = { has_innovation = innovation_ermine_cloaks }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 7 }
 }
 
 building_settlement_tribal_trigger = {
-	culture = { has_innovation = innovation_city_planning }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 0 }
 }
 
 building_holding_early_medieval_trigger = {
-	culture = { has_cultural_era_or_later = culture_era_early_medieval }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 }
 
 building_holding_high_medieval_trigger = {
-	culture = { has_cultural_era_or_later = culture_era_high_medieval }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 }
 
 building_holding_late_medieval_trigger = {
-	culture = { has_cultural_era_or_later = culture_era_late_medieval }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 }
 
 building_monument_tribal_trigger = {
-	culture = { has_innovation = innovation_prosperity_01 }
+	fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 0 }
 }

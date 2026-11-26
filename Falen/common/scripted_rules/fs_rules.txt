@@ -1,10 +1,18 @@
 can_traverse_river = {
 	OR = {
-		culture = {
+		AND = {
 			OR = {
-				has_innovation = innovation_longboats
-				has_innovation = innovation_african_canoes
-				has_cultural_parameter = can_travel_along_rivers
+				fs_character_technology_requirement_trigger = {
+					TECHNOLOGY = navigation
+					LEVEL = 1
+				}
+				fs_character_technology_requirement_trigger = {
+					TECHNOLOGY = navigation
+					LEVEL = 1
+				}
+				culture = {
+					has_cultural_parameter = can_travel_along_rivers
+				}
 			}
 		}
 		AND = {

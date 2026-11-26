@@ -1,0 +1,416 @@
+namespace = neutral_struggle
+
+##################################################
+# MAINTENANCE EVENTS
+
+##################################################
+# Activate Passing of Time
+# by Ewan Cowhig Croft
+# 0001 - 0010
+##################################################
+
+neutral_struggle.0001 = {
+	hidden = yes
+	scope = struggle
+
+	immediate = {
+		# Passage of Time catalyst ticks towards default phases.
+		if = {
+			limit = { phase_has_catalyst = catalyst_passing_of_time }
+			activate_struggle_catalyst = catalyst_passing_of_time
+		}
+		# Other time-based catalysts.
+		## Missing the Arabian Empire or Sunni Caliphate.
+		if = {
+			limit = {
+				OR = {
+					NOT = { exists = title:e_arabia.holder }
+					NOT = { exists = title:d_sunni.holder }
+				}
+			}
+			if = {
+				limit = { phase_has_catalyst = catalyst_missing_caliphate_or_arabian_empire }
+				activate_struggle_catalyst = catalyst_missing_caliphate_or_arabian_empire
+				log_debug_variable_for_persian_struggle_effect = { VAR = concession_catalyst_missing_caliphate_or_arabian_empire }
+			}
+		}
+		# House Unity catalysts.
+		## Disharmonious houses.
+		if = {
+			limit = {
+				OR = {
+					phase_has_catalyst = catalyst_yearly_influential_house_is_antagonistic_major
+					phase_has_catalyst = catalyst_yearly_influential_house_is_antagonistic_medium
+					phase_has_catalyst = catalyst_yearly_influential_house_is_antagonistic_minor
+					phase_has_catalyst = catalyst_yearly_influential_house_is_antagonistic_minimal
+				}
+			}
+			# Calc how many relevant houses are in a bit of a state.
+			save_scope_value_as = {
+				name = antagonistic_influential_house_check
+				value = {
+					every_involved_ruler = {
+						limit = {
+							house ?= {
+								house_head = prev
+								has_house_unity_stage = antagonistic
+							}
+						}
+						add = 1
+					}
+				}
+			}
+			# Right, now we activate different sizes of catalyst depending on how many affected houses we have.
+			## Major
+			if = {
+				limit = { scope:antagonistic_influential_house_check >= catalyst_yearly_influential_house_is_antagonistic_major_control_value }
+				activate_struggle_catalyst = catalyst_yearly_influential_house_is_antagonistic_major
+				log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_yearly_influential_house_is_antagonistic_major }
+			}
+			## Medium
+			else_if = {
+				limit = { scope:antagonistic_influential_house_check >= catalyst_yearly_influential_house_is_antagonistic_medium_control_value }
+				activate_struggle_catalyst = catalyst_yearly_influential_house_is_antagonistic_medium
+				log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_yearly_influential_house_is_antagonistic_medium }
+			}
+			## Minor
+			else_if = {
+				limit = { scope:antagonistic_influential_house_check >= catalyst_yearly_influential_house_is_antagonistic_minor_control_value }
+				activate_struggle_catalyst = catalyst_yearly_influential_house_is_antagonistic_minor
+				log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_yearly_influential_house_is_antagonistic_minor }
+			}
+			## Minimal
+			else_if = {
+				limit = { scope:antagonistic_influential_house_check >= catalyst_yearly_influential_house_is_antagonistic_minimal_control_value }
+				activate_struggle_catalyst = catalyst_yearly_influential_house_is_antagonistic_minimal
+				log_debug_variable_for_persian_struggle_effect = { VAR = unrest_catalyst_yearly_influential_house_is_antagonistic_minimal }
+			}
+		}
+		## Harmonious houses.
+		if = {
+			limit = {
+				OR = {
+					phase_has_catalyst = catalyst_yearly_influential_house_is_harmonious_major
+					phase_has_catalyst = catalyst_yearly_influential_house_is_harmonious_medium
+					phase_has_catalyst = catalyst_yearly_influential_house_is_harmonious_minor
+					phase_has_catalyst = catalyst_yearly_influential_house_is_harmonious_minimal
+				}
+			}
+			every_involved_ruler = {
+				limit = {
+					house ?= {
+						house_head = prev
+						has_house_unity_stage = harmonious
+					}
+				}
+				house = { add_to_list = harmonious_houses }
+			}
+			# Calc how many relevant houses are in a bit of a state.
+			save_scope_value_as = {
+				name = harmonious_influential_house_check
+				value = {
+					value = 0
+					every_in_list = {
+						list = harmonious_houses
+						add = 1
+					}
+				}
+			}
+			# Right, now we activate different sizes of catalyst depending on how many affected houses we have.
+			## Major
+			if = {
+				limit = { scope:harmonious_influential_house_check >= catalyst_yearly_influential_house_is_harmonious_major_control_value }
+				activate_struggle_catalyst = catalyst_yearly_influential_house_is_harmonious_major
+				log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_yearly_influential_house_is_harmonious_major }
+			}
+			## Medium
+			else_if = {
+				limit = { scope:harmonious_influential_house_check >= catalyst_yearly_influential_house_is_harmonious_medium_control_value }
+				activate_struggle_catalyst = catalyst_yearly_influential_house_is_harmonious_medium
+				log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_yearly_influential_house_is_harmonious_medium }
+			}
+			## Minor
+			else_if = {
+				limit = { scope:harmonious_influential_house_check >= catalyst_yearly_influential_house_is_harmonious_minor_control_value }
+				activate_struggle_catalyst = catalyst_yearly_influential_house_is_harmonious_minor
+				log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_yearly_influential_house_is_harmonious_minor }
+			}
+			## Minimal
+			else_if = {
+				limit = { scope:harmonious_influential_house_check >= catalyst_yearly_influential_house_is_harmonious_minimal_control_value }
+				activate_struggle_catalyst = catalyst_yearly_influential_house_is_harmonious_minimal
+				log_debug_variable_for_persian_struggle_effect = { VAR = stabil_catalyst_yearly_influential_house_is_harmonious_minimal }
+			}
+		}
+
+		# Finally, queue the event up again for a year hence.
+		trigger_event = {
+			id = neutral_struggle.0001
+			years = 1
+		}
+	}
+}
+
+##################################################
+# MAINTENANCE FOR SITUATIONS
+#
+
+namespace = neutral_situation
+
+neutral_situation.0001 = { # CHINA
+	hidden = yes
+	scope = situation
+	trigger = { exists = situation:silk_road_situation }
+	immediate = {
+		situation:silk_road_situation.situation_sub_region:region_silk_road_proper_china = { tgp_silk_road_downstream_effect = yes }
+		# Finally, queue the event up again for a year hence.
+		trigger_event = {
+			id = neutral_situation.0002 # Tibet
+			months = 2
+		}
+	}
+}
+
+neutral_situation.0002 = { # TIBET
+	hidden = yes
+	scope = situation
+	trigger = { exists = situation:silk_road_situation }
+	immediate = {
+		situation:silk_road_situation.situation_sub_region:region_silk_road_proper_tibet = { tgp_silk_road_downstream_effect = yes }
+		# Finally, queue the event up again for a year hence.
+		trigger_event = {
+			id = neutral_situation.0005 # Transcaspia
+			months = 2
+		}
+	}
+}
+
+neutral_situation.0003 = { # INDIA
+	hidden = yes
+	scope = situation
+	trigger = { exists = situation:silk_road_situation }
+	immediate = {
+		situation:silk_road_situation.situation_sub_region:region_silk_road_proper_india = { tgp_silk_road_downstream_effect = yes }
+		# Finally, queue the event up again for a year hence.
+		trigger_event = {
+			id = neutral_situation.0004 # Central Asia
+			months = 2
+		}
+	}
+}
+
+neutral_situation.0004 = { # CENTRAL ASIA
+	hidden = yes
+	scope = situation
+	trigger = { exists = situation:silk_road_situation }
+	immediate = {
+		situation:silk_road_situation.situation_sub_region:region_silk_road_proper_central_asia = { tgp_silk_road_downstream_effect = yes }
+		# Finally, queue the event up again for a year hence.
+		trigger_event = {
+			id = neutral_situation.0003 # Tibet
+			months = 2
+		}
+	}
+}
+
+neutral_situation.0005 = { # TRANSCASPIA
+	hidden = yes
+	scope = situation
+	trigger = { exists = situation:silk_road_situation }
+	immediate = {
+		situation:silk_road_situation.situation_sub_region:region_silk_road_proper_transcaspia = { tgp_silk_road_downstream_effect = yes }
+		# Finally, queue the event up again for a year hence.
+		trigger_event = {
+			id = neutral_situation.0006 # Occident
+			months = 2
+		}
+	}
+}
+
+neutral_situation.0006 = { # OCCIDENT
+	hidden = yes
+	scope = situation
+	trigger = { exists = situation:silk_road_situation }
+	immediate = {
+		situation:silk_road_situation.situation_sub_region:region_silk_road_proper_occident = { tgp_silk_road_downstream_effect = yes }
+		# Finally, queue the event up again for a year hence.
+		trigger_event = {
+			id = neutral_situation.0001 # China
+			months = 2
+		}
+	}
+}
+
+neutral_situation.0007 = { # INNOVATION SETUP
+	hidden = yes
+	scope = situation
+	trigger = { exists = situation:silk_road_situation }
+	immediate = {
+		clear_saved_scope = innovation_1
+		clear_saved_scope = innovation_2
+		clear_saved_scope = innovation_3
+		clear_saved_scope = innovation_4
+		fs_silk_road_save_source_culture_effect = yes
+		if = {
+			limit = {
+				exists = scope:fs_silk_road_source_culture
+			}
+			while = {
+				count = 4
+				random_culture_innovation = {
+					limit = {
+						OR = {
+							this = culture_innovation:innovation_NH
+							this = culture_innovation:innovation_advanced_bowmaking
+							this = culture_innovation:innovation_all_things
+							this = culture_innovation:innovation_arched_saddle
+							this = culture_innovation:innovation_assembly
+							this = culture_innovation:innovation_band
+							this = culture_innovation:innovation_bank
+							this = culture_innovation:innovation_bombard
+							this = culture_innovation:innovation_casus_belli
+							this = culture_innovation:innovation_catapult
+							this = culture_innovation:innovation_city_country
+							this = culture_innovation:innovation_civic_council
+							this = culture_innovation:innovation_communal_government
+							this = culture_innovation:innovation_constitution
+							this = culture_innovation:innovation_elephantry
+							this = culture_innovation:innovation_five_market
+							this = culture_innovation:innovation_genealogy
+							this = culture_innovation:innovation_gwageoje
+							this = culture_innovation:innovation_hereditary_rule
+							this = culture_innovation:innovation_industrialization
+							this = culture_innovation:innovation_judge
+							this = culture_innovation:innovation_kaozheng
+							this = culture_innovation:innovation_land_reform
+							this = culture_innovation:innovation_ledger
+							this = culture_innovation:innovation_levee_en_masse
+							this = culture_innovation:innovation_local_government
+							this = culture_innovation:innovation_mangonel
+							this = culture_innovation:innovation_market_street
+							this = culture_innovation:innovation_mercantilism
+							this = culture_innovation:innovation_national_church
+							this = culture_innovation:innovation_nationalism
+							this = culture_innovation:innovation_natural_rights
+							this = culture_innovation:innovation_official
+							this = culture_innovation:innovation_patriotism
+							this = culture_innovation:innovation_physiognomy
+							this = culture_innovation:innovation_police
+							this = culture_innovation:innovation_positivism
+							this = culture_innovation:innovation_press
+							this = culture_innovation:innovation_primogeniture
+							this = culture_innovation:innovation_private_army_dismissal
+							this = culture_innovation:innovation_public_school
+							this = culture_innovation:innovation_public_works
+							this = culture_innovation:innovation_quilted_armor
+							this = culture_innovation:innovation_royal_privilege
+							this = culture_innovation:innovation_royalty
+							this = culture_innovation:innovation_seodang
+							this = culture_innovation:innovation_social_contract
+							this = culture_innovation:innovation_social_prestige
+							this = culture_innovation:innovation_social_welfare
+							this = culture_innovation:innovation_trebuchet
+							this = culture_innovation:innovation_university
+							this = culture_innovation:innovation_urbanization
+							this = culture_innovation:innovation_war_camels
+						}
+						is_known_by_culture = scope:fs_silk_road_source_culture
+						NOR = {
+							scope:innovation_1 ?= this
+							scope:innovation_2 ?= this
+							scope:innovation_3 ?= this
+							scope:innovation_4 ?= this
+						}
+					}
+					if = {
+						limit = {
+							exists = scope:innovation_3
+						}
+						save_scope_as = innovation_4
+					}
+					else_if = {
+						limit = {
+							exists = scope:innovation_2
+						}
+						save_scope_as = innovation_3
+					}
+					else_if = {
+						limit = {
+							exists = scope:innovation_1
+						}
+						save_scope_as = innovation_2
+					}
+					else = {
+						save_scope_as = innovation_1
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:innovation_1
+			}
+			situation_sub_region:region_silk_road_proper_china ?= {
+				set_variable = {
+					name = innovation
+					value = scope:innovation_1
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:innovation_2
+			}
+			situation_sub_region:region_silk_road_proper_tibet ?= {
+				set_variable = {
+					name = innovation
+					value = scope:innovation_2
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:innovation_2
+			}
+			situation_sub_region:region_silk_road_proper_central_asia ?= {
+				set_variable = {
+					name = innovation
+					value = scope:innovation_2
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:innovation_3
+			}
+			situation_sub_region:region_silk_road_proper_india ?= {
+				set_variable = {
+					name = innovation
+					value = scope:innovation_3
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:innovation_3
+			}
+			situation_sub_region:region_silk_road_proper_transcaspia ?= {
+				set_variable = {
+					name = innovation
+					value = scope:innovation_3
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:innovation_4
+			}
+			situation_sub_region:region_silk_road_proper_occident ?= {
+				set_variable = {
+					name = innovation
+					value = scope:innovation_4
+				}
+			}
+		}
+	}
+}

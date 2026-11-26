@@ -1,0 +1,1506 @@
+#####################
+# Republic AI values
+#####################
+
+## Republic types AI values
+ai_will_do_republic_type_communal_value = {
+	value = 0
+
+	# Extra scoring to make sure we are more likely to keep the current type, and not swap back and forth
+	if = {
+		limit = { has_realm_law = republic_type_communal }
+		add = gdp_ai_keep_republic_type_extra_score_value
+	}
+}
+
+ai_will_do_republic_type_civic_value = {
+	value = 0
+	if = {
+		limit = {
+			highest_held_title_tier >= tier_kingdom
+		}
+		add = 1
+	}
+
+	# Cultural reasons
+	if = {
+		limit = {
+			culture ?= {
+				has_cultural_tradition = tradition_contado
+			}
+		}
+		add = 1
+	}
+
+	# Extra scoring to make sure we are more likely to keep the current type, and not swap back and forth
+	if = {
+		limit = { has_realm_law = republic_type_civic }
+		add = gdp_ai_keep_republic_type_extra_score_value
+	}
+}
+
+ai_will_do_republic_type_popular_value = {
+	value = 0
+	if = {
+		limit = {
+			highest_held_title_tier < tier_kingdom
+			sub_realm_size < 5
+		}
+		add = 1
+	}
+
+	# Cultural reasons
+	if = {
+		limit = {
+			culture ?= {
+				has_cultural_tradition = tradition_collective_lands
+			}
+		}
+		add = 1
+	}
+
+	# Extra scoring to make sure we are more likely to keep the current type, and not swap back and forth
+	if = {
+		limit = { has_realm_law = republic_type_popular }
+		add = gdp_ai_keep_republic_type_extra_score_value
+	}
+}
+
+ai_will_do_republic_type_maritime_value = {
+	value = 0
+	if = {
+		limit = {
+			highest_held_title_tier >= tier_kingdom
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			capital_province ?= {
+				is_coastal = yes
+			}
+		}
+		add = 2
+	}
+	else_if = {
+		limit = {
+			capital_county ?= {
+				OR = {
+					is_coastal_county = yes
+					AND = {
+						is_riverside_county = yes
+						any_neighboring_county = {
+							is_coastal_county = yes
+						}
+					}
+				}
+			}
+		}
+		add = 1
+	}
+
+	# Cultural reasons
+	if = {
+		limit = {
+			culture ?= {
+				has_cultural_tradition = tradition_maritime_mercantilism
+			}
+		}
+		add = 1
+	}
+
+	# Historical maritime republics get extra score
+	if = {
+		limit = {
+			gdp_is_historical_maritime_republic = yes
+		}
+		add = gdp_ai_historical_republic_extra_score_value
+	}
+
+	# Extra scoring to make sure we are more likely to keep the current type, and not swap back and forth
+	if = {
+		limit = { has_realm_law = republic_type_maritime }
+		add = gdp_ai_keep_republic_type_extra_score_value
+	}
+}
+
+ai_will_do_republic_type_noble_value = {
+	value = 0
+	if = {
+		limit = {
+			highest_held_title_tier >= tier_kingdom
+		}
+		add = 1
+	}
+
+	# Cultural reasons
+	if = {
+		limit = {
+			culture ?= {
+				OR = {
+					has_cultural_pillar = heritage_east_slavic # I.e. Novgorod
+					has_cultural_pillar = heritage_arabic # Cordoba
+				}
+			}
+		}
+		add = 1
+	}
+
+	# Extra scoring to make sure we are more likely to keep the current type, and not swap back and forth
+	if = {
+		limit = { has_realm_law = republic_type_noble }
+		add = gdp_ai_keep_republic_type_extra_score_value
+	}
+}
+
+ai_will_do_republic_type_roman_value = {
+	value = 20 # If we have access to Roman Republic, make sure to always keep it
+}
+
+gdp_ai_keep_republic_type_extra_score_value = 1
+gdp_ai_historical_republic_extra_score_value = 1
+
+## Men-at-arms AI values
+gdp_ai_landless_republic_min_net_gold_income_value = 1.5
+
+# Share of income a landless republic may spend on men-at-arms and still keep the minimum net gold
+gdp_ai_landless_republic_maa_expense_gold_share_value = {
+	value = 0
+	if = {
+		limit = { monthly_character_income > 0 }
+		value = monthly_character_income
+		subtract = monthly_character_expenses
+		add = monthly_character_men_at_arms_expense_gold
+		subtract = gdp_ai_landless_republic_min_net_gold_income_value
+		divide = monthly_character_income
+	}
+	min = 0
+}
+
+gdp_ai_landless_republic_maa_ideal_share_value = 0.25
+
+gdp_ai_landless_republic_maa_expense_gold_ideal_share_value = {
+	value = gdp_ai_landless_republic_maa_expense_gold_share_value
+	max = gdp_ai_landless_republic_maa_ideal_share_value
+}
+
+## Term Length AI values
+law_ai_will_do_republic_assembly_term_length_1_value = {
+	value = 0
+	# The AI will only seek out the shortest term length if they greatly dislike the leading candidate
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				OR = { # For this one, we allow the AI to skip a level and go straight here when applicable
+					has_realm_law = republic_assembly_term_length_2
+					has_realm_law = republic_assembly_term_length_3
+				}
+			}
+			house ?= {
+				NOT = {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+			exists = highest_liege_matching_rule:uses_assembly.primary_heir
+			OR = {
+				has_relation_rival = highest_liege_matching_rule:uses_assembly.primary_heir
+				opinion = {
+					target = highest_liege_matching_rule:uses_assembly.primary_heir
+					value <= gdp_disliked_republic_candidate_threshold_value
+				}
+			}
+		}
+		add = 4
+
+		# Increase the chance if we have the Agitation ambition
+		if = {
+			limit = {
+				house ?= { has_house_aspiration_parameter = republic_agitation }
+			}
+			add = 4
+		}
+	}
+	
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+law_ai_will_do_republic_assembly_term_length_2_value = {
+	value = 0
+	# We treat this as the baseline the AI should usually gravitate to
+	# The AI wants to increase it
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_term_length_1
+			}
+			house ?= {
+				NOR = {
+					has_house_aspiration_parameter = republic_communal
+					has_house_aspiration_parameter = republic_commerce
+				}
+			}
+		}
+
+		# Certain ambitions typically wants longer terms
+		if = {
+			limit = {
+				house ?= {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+			add = 2
+		}
+		if = {
+			limit = {
+				house ?= {
+					has_house_aspiration_parameter = republic_aggrandizement
+				}
+			}
+			add = 1
+		}
+
+		# The republic have "despotic" favored laws
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					AND = {
+						OR = {
+							has_realm_law = republic_banishment_2_permitted_by_decree
+							has_realm_law = republic_banishment_3_unrestricted
+						}
+						OR = {
+							has_realm_law = republic_execution_2_permitted_by_decree
+							has_realm_law = republic_execution_3_unrestricted
+						}
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					AND = {
+						has_realm_law = republic_banishment_3_unrestricted
+						has_realm_law = republic_execution_3_unrestricted
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					AND = {
+						has_realm_law = republic_title_revocation_2_allowed
+						has_realm_law = republic_retract_vassal_2_allowed
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_vassal_refusal_2_treason
+				}
+			}
+			add = 1
+		}
+	}
+	
+	# The AI wants to decrease it
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_term_length_3
+			}
+			house ?= {
+				NOR = {
+					has_house_aspiration_parameter = republic_signorial
+					has_house_aspiration_parameter = republic_aggrandizement
+				}
+			}
+		}
+		# Certain ambitions generally favor shorter terms
+		if = {
+			limit = {
+				house ?= {
+					OR = {
+						has_house_aspiration_parameter = republic_communal
+						has_house_aspiration_parameter = republic_commerce
+					}
+				}
+			}
+			add = 1
+		}
+
+		# The republic have "communal" favored laws
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					OR = {
+						has_realm_law = republic_assembly_composition_general
+						has_realm_law = republic_assembly_composition_parliament
+						has_realm_law = republic_assembly_composition_roman_senate
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_assembly_authority_constitutional
+				}
+			}
+			add = 1
+		}
+
+		# We greatly dislike the current candidate
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_assembly_term_length_3
+				}
+				exists = highest_liege_matching_rule:uses_assembly.primary_heir
+				OR = {
+					has_relation_rival = highest_liege_matching_rule:uses_assembly.primary_heir
+					opinion = {
+						target = highest_liege_matching_rule:uses_assembly.primary_heir
+						value <= gdp_disliked_republic_candidate_threshold_value
+					}
+				}
+			}
+			add = 5
+		}
+	}
+
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+law_ai_will_do_republic_assembly_term_length_3_value = {
+	value = 0
+	# The AI is more reluctant to go this high unless the law setup calls for it
+	# The AI wants to increase it
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_term_length_2
+			}
+			house ?= {
+				NOR = {
+					has_house_aspiration_parameter = republic_communal
+					has_house_aspiration_parameter = republic_commerce
+				}
+			}
+		}
+
+		# Certain ambitions typically wants longer terms
+		if = {
+			limit = {
+				house ?= {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+			add = 2
+		}
+		if = {
+			limit = {
+				house ?= {
+					has_house_aspiration_parameter = republic_aggrandizement
+				}
+			}
+			add = 1
+		}
+
+		# The republic have "despotic" favored laws
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					AND = {
+						OR = {
+							has_realm_law = republic_banishment_2_permitted_by_decree
+							has_realm_law = republic_banishment_3_unrestricted
+						}
+						OR = {
+							has_realm_law = republic_execution_2_permitted_by_decree
+							has_realm_law = republic_execution_3_unrestricted
+						}
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					AND = {
+						has_realm_law = republic_banishment_3_unrestricted
+						has_realm_law = republic_execution_3_unrestricted
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_vassal_refusal_2_treason
+				}
+			}
+			add = 1
+		}
+	}
+	
+	# The AI wants to decrease it
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_term_length_4
+			}
+			house ?= {
+				NOT = {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+		}
+		# Certain ambitions generally favor shorter terms
+		if = {
+			limit = {
+				house ?= {
+					OR = {
+						has_house_aspiration_parameter = republic_communal
+						has_house_aspiration_parameter = republic_commerce
+					}
+				}
+			}
+			add = 1
+		}
+
+		# The republic have "communal" favored laws
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					OR = {
+						has_realm_law = republic_assembly_composition_general
+						has_realm_law = republic_assembly_composition_parliament
+						has_realm_law = republic_assembly_composition_roman_senate
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_assembly_authority_constitutional
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					OR = {
+						has_realm_law = republic_banishment_1_prohibited
+						has_realm_law = republic_execution_1_prohibited
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_vassal_refusal_1_allowed
+				}
+			}
+			add = 1
+		}
+
+		# We greatly dislike the current candidate
+		if = {
+			limit = {
+				exists = highest_liege_matching_rule:uses_assembly.primary_heir
+				OR = {
+					has_relation_rival = highest_liege_matching_rule:uses_assembly.primary_heir
+					opinion = {
+						target = highest_liege_matching_rule:uses_assembly.primary_heir
+						value <= gdp_disliked_republic_candidate_threshold_value
+					}
+				}
+			}
+			add = 5
+		}
+	}
+	
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+law_ai_will_do_republic_assembly_term_length_4_value = {
+	value = 0
+	# The AI will only go up this far under special circumstance and when the law setup calls for it
+	# The AI wants to increase it
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_term_length_3
+			}
+			house ?= {
+				NOR = {
+					has_house_aspiration_parameter = republic_communal
+					has_house_aspiration_parameter = republic_commerce
+				}
+			}
+		}
+
+		# Certain ambitions typically wants longer terms
+		if = {
+			limit = {
+				house ?= {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+			add = 1
+		}
+
+		# The republic have "despotic" favored laws
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					AND = {
+						has_realm_law = republic_banishment_3_unrestricted
+						has_realm_law = republic_execution_3_unrestricted
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_vassal_refusal_2_treason
+				}
+			}
+			add = 1
+		}
+	}
+	
+	# The AI wants to decrease it
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_term_length_5
+			}
+			house ?= {
+				NOT = {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+		}
+		# Certain ambitions generally favor shorter terms
+		if = {
+			limit = {
+				house ?= {
+					OR = {
+						has_house_aspiration_parameter = republic_communal
+						has_house_aspiration_parameter = republic_commerce
+					}
+				}
+			}
+			add = 1
+		}
+
+		# The republic have "communal" favored laws
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					OR = {
+						has_realm_law = republic_assembly_composition_general
+						has_realm_law = republic_assembly_composition_parliament
+						has_realm_law = republic_assembly_composition_roman_senate
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					OR = {
+						has_realm_law = republic_assembly_authority_constitutional
+						has_realm_law = republic_assembly_authority_legislative
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					OR = {
+						has_realm_law = republic_banishment_1_prohibited
+						has_realm_law = republic_execution_1_prohibited
+					}
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_vassal_refusal_1_allowed
+				}
+			}
+			add = 1
+		}
+
+		# We greatly dislike the current candidate
+		if = {
+			limit = {
+				exists = highest_liege_matching_rule:uses_assembly.primary_heir
+				OR = {
+					has_relation_rival = highest_liege_matching_rule:uses_assembly.primary_heir
+					opinion = {
+						target = highest_liege_matching_rule:uses_assembly.primary_heir
+						value <= gdp_disliked_republic_candidate_threshold_value
+					}
+				}
+			}
+			add = 5
+		}
+	}
+	
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+law_ai_will_do_republic_assembly_term_length_5_value = {
+	value = 0
+	# The AI will only go up this far under special circumstance and when the law setup calls for it
+	# The AI wants to increase it
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_term_length_4
+			}
+			house ?= {
+				NOR = {
+					has_house_aspiration_parameter = republic_communal
+					has_house_aspiration_parameter = republic_commerce
+				}
+			}
+		}
+
+		# Certain ambitions typically wants longer terms
+		if = {
+			limit = {
+				house ?= {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+			add = 1
+		}
+	}
+	
+	# The AI wants to decrease it
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_term_length_indefinite
+			}
+			house ?= {
+				NOT = {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+		}
+		# Certain ambitions generally favor shorter terms
+		if = {
+			limit = {
+				house ?= {
+					OR = {
+						has_house_aspiration_parameter = republic_communal
+						has_house_aspiration_parameter = republic_commerce
+					}
+				}
+			}
+			add = 1
+		}
+
+		# The republic have "communal" favored laws
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					OR = {
+						has_realm_law = republic_assembly_composition_general
+						has_realm_law = republic_assembly_composition_parliament
+						has_realm_law = republic_assembly_composition_roman_senate
+					}
+				}
+			}
+			add = 2
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_assembly_composition_patrician
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					OR = {
+						has_realm_law = republic_assembly_authority_constitutional
+						has_realm_law = republic_assembly_authority_legislative
+					}
+				}
+			}
+			add = 2
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_banishment_1_prohibited
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_execution_1_prohibited
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_vassal_refusal_1_allowed
+				}
+			}
+			add = 1
+		}
+
+		# We greatly dislike the current candidate
+		if = {
+			limit = {
+				house ?= {
+					NOT = {
+						has_house_aspiration_parameter = republic_signorial
+					}
+				}
+				exists = highest_liege_matching_rule:uses_assembly.primary_heir
+				OR = {
+					has_relation_rival = highest_liege_matching_rule:uses_assembly.primary_heir
+					opinion = {
+						target = highest_liege_matching_rule:uses_assembly.primary_heir
+						value <= gdp_disliked_republic_candidate_threshold_value
+					}
+				}
+			}
+			add = 2
+		}
+	}
+	
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+law_ai_will_do_republic_assembly_term_length_indefinite_value = {
+	value = 0
+	# The AI will only go up this far under special circumstance and when the law setup calls for it
+	# The AI wants to increase it
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_term_length_5
+			}
+			house ?= {
+				NOR = {
+					has_house_aspiration_parameter = republic_communal
+					has_house_aspiration_parameter = republic_commerce
+				}
+			}
+		}
+
+		# Certain ambitions typically wants longer terms
+		if = {
+			limit = {
+				house ?= {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+			add = 1
+		}
+
+		# The active ruler may want to enact longer terms
+		if = {
+			limit = {
+				this = highest_liege_matching_rule:uses_assembly
+				exists = primary_heir
+				house ?= primary_heir.house
+			}
+			add = 1
+		}
+	}
+	
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+gdp_disliked_republic_candidate_threshold_value = -50
+
+## Assembly composition AI values
+ai_will_do_republic_assembly_composition_patrician_value = {
+	value = 1
+	# This is the baseline and point of reference. If the AI wants nothing else, they should want this
+	# Add some extra stickiness if the realm already has this law
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_composition_patrician
+			}
+		}
+		add = 1
+	}
+
+	# Cultural reasons
+	if = {
+		limit = {
+			culture ?= {
+				has_cultural_tradition = tradition_ruling_caste
+			}
+		}
+		add = 1
+	}
+
+	# Republic type
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_type_maritime
+			}
+		}
+		add = 1
+	}
+
+	# A small republic should want to keep this
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				realm_size < 15
+			}
+		}
+		add = 1
+	}
+
+	# Patrician rating
+	if = {
+		limit = {
+			house ?= {
+				house_power_score >= gdp_patrician_house_score_threshold_2_value
+			}
+		}
+		add = 1
+	}
+
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+ai_will_do_republic_assembly_composition_council_value = {
+	value = 0
+	# Councils should be fairly niche
+	# House ambitions
+	if = {
+		limit = {
+			house ?= {
+				OR = {
+					has_house_aspiration_parameter = republic_signorial
+					has_house_aspiration_parameter = republic_aggrandizement
+				}
+			}
+			is_councillor_of = highest_liege_matching_rule:uses_assembly
+		}
+		add = 1
+	}
+
+	# Cultural reasons
+	if = {
+		limit = {
+			culture ?= {
+				has_cultural_tradition = tradition_family_entrepreneurship
+			}
+		}
+		add = 1
+	}
+
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+ai_will_do_republic_assembly_composition_general_value = {
+	value = 0
+
+	# House ambitions
+	if = {
+		limit = {
+			house ?= {
+				has_house_aspiration_parameter = republic_communal
+			}
+		}
+		add = 1
+	}
+
+	# Laws
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_authority_constitutional
+			}
+		}
+		add = 1
+	}
+
+	# Republic type
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_type_civic
+			}
+		}
+		add = 1
+	}
+
+	# A larger republic should want to adopt this more
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				realm_size >= 20
+			}
+		}
+		add = 1
+	}
+
+	# Patrician rating
+	if = {
+		limit = {
+			house ?= {
+				house_power_score < gdp_patrician_house_score_threshold_1_value
+			}
+		}
+		add = 1
+	}
+
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+ai_will_do_republic_assembly_composition_parliament_value = {
+	value = 0
+
+	# House ambitions
+	if = {
+		limit = {
+			house ?= {
+				has_house_aspiration_parameter = republic_communal
+			}
+		}
+		add = 1
+	}
+
+	# Laws
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_authority_constitutional
+			}
+		}
+		add = 1
+	}
+
+	# Cultural reasons
+	if = {
+		limit = {
+			culture ?= {
+				has_cultural_tradition = tradition_parochialism
+			}
+		}
+		add = 1
+	}
+
+	# Republic type
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_type_popular
+			}
+		}
+		add = 1
+	}
+
+	# A larger republic should want to adopt this more
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				realm_size >= 30
+			}
+		}
+		add = 2
+	}
+
+	# More favored late game (to replace the general assembly)
+	if = {
+		limit = {
+			AND = {
+				fs_character_technology_requirement_trigger = {
+					TECHNOLOGY = urbanization
+					LEVEL = 7
+				}
+			}
+		}
+		add = 2
+	}
+
+	# If we have the Sicilian Parliament, we want to also have an actual parliament
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				capital_province ?= {
+					province_has_district = special_sicilian_parliament_01_district
+				}
+			}
+		}
+		add = 2
+	}
+
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+ai_will_do_republic_assembly_composition_communal_value = {
+	value = 0
+	# This is primarily a fallback for low tier republics
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				highest_held_title_tier <= tier_county
+			}
+		}
+		add = 1
+	}
+
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+ai_will_do_republic_assembly_composition_roman_senate_value = {
+	value = 20 # If we have access to the Roman Senate, make sure to always keep it
+
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+## Assembly authority AI values
+ai_will_do_republic_assembly_authority_constitutional_value = {
+	value = 0
+	# Considered as the baseline, and is typically what the AI will go for
+
+	# House ambitions
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_authority_legislative
+			}
+			house ?= {
+				OR = {
+					has_house_aspiration_parameter = republic_communal
+					has_house_aspiration_parameter = republic_commerce
+				}
+			}
+		}
+		add = 1
+	}
+
+	# Laws
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				OR = {
+					has_realm_law = republic_assembly_composition_general
+					has_realm_law = republic_assembly_composition_parliament
+				}
+			}
+			house ?= {
+				NOT = {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+		}
+		add = 4
+	}
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_authority_constitutional
+			}
+			house ?= {
+				NOT = {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+		}
+		add = 1
+	}
+
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+ai_will_do_republic_assembly_authority_legislative_value = {
+	value = 0
+	# Typically only pursued if the assembly is ceremonial
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_authority_ceremonial
+			}
+			house ?= {
+				NOT = {
+					has_house_aspiration_parameter = republic_signorial
+				}
+			}
+		}
+		add = 4
+	}
+	
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+ai_will_do_republic_assembly_authority_ceremonial_value = {
+	value = 0
+	# AI won't actively pursue this - it may only want to keep it if the republic is despotic enough
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = {
+				has_realm_law = republic_assembly_authority_ceremonial
+			}
+		}
+		
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_banishment_3_unrestricted
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_execution_3_unrestricted
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_vassal_refusal_2_treason
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_title_revocation_2_allowed
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_retract_vassal_2_allowed
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republic_assembly_term_length_indefinite
+				}
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				highest_liege_matching_rule:uses_assembly = {
+					has_realm_law = republican_despot_succession_law
+				}
+			}
+			add = 1
+		}
+	}
+	
+	# Grace period
+	multiply = ai_law_grace_period_value
+}
+
+## Senate size AI values
+ai_approval_increase_senate_size_value = {
+	# Base
+	value = {
+		value = -10
+		desc = LAW_BASE_RELUCTANCE_DESC
+	}
+	
+	# Opinion
+	add = {
+		value = ai_law_approval_opinion_value
+		multiply = 0.1
+		desc = LAW_PROPOSER_OPINION_DESC
+	}
+	
+	# House ambition
+	if = {
+		limit = {
+			house ?= { has_house_aspiration_parameter = republic_communal }
+		}
+		add = {
+			value = 20
+			desc = REPUBLIC_COMMUNAL_AMBITION_DESC
+		}
+	}
+	else_if = {
+		limit = {
+			house ?= { has_house_aspiration_parameter = republic_commerce }
+		}
+		add = {
+			value = 15
+			desc = REPUBLIC_COMMERCE_AMBITION_DESC
+		}
+	}
+	else_if = {
+		limit = {
+			house ?= { has_house_aspiration_parameter = republic_signorial }
+		}
+		add = {
+			value = -30
+			desc = REPUBLIC_SIGNORIAL_AMBITION_DESC
+		}
+	}
+
+	# Patrician rating
+	if = {
+		limit = {
+			house ?= {
+				house_power_score >= gdp_patrician_house_score_threshold_2_value
+			}
+		}
+		add = {
+			value = -30
+			desc = LAW_PATRICIAN_RATING_DESC
+		}
+	}
+	else_if = {
+		limit = {
+			house ?= {
+				house_power_score < gdp_patrician_house_score_threshold_1_value
+			}
+		}
+		add = {
+			value = 30
+			desc = LAW_PATRICIAN_RATING_DESC
+		}
+	}
+	else_if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = { has_realm_law = republic_senate_size_1 }
+		}
+		add = {
+			value = 30
+			desc = LAW_PATRICIAN_RATING_DESC
+		}
+	}
+	
+	# Other
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+		add = {
+			value = 10
+			desc = LAW_TRAIT_GREGARIOUS_DESC
+		}
+	}
+	if = {
+		limit = {
+			has_trait = generous
+		}
+		add = {
+			value = 10
+			desc = LAW_TRAIT_GENEROUS_DESC
+		}
+	}
+	if = {
+		limit = {
+			has_trait = greedy
+		}
+		add = {
+			value = -10
+			desc = LAW_TRAIT_GREEDY_DESC
+		}
+	}
+	if = {
+		limit = {
+			has_trait = shy
+		}
+		add = {
+			value = -10
+			desc = LAW_TRAIT_SHY_DESC
+		}
+	}
+	if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = { has_trait = generous }
+		}
+		add = {
+			value = 5
+			desc = LAW_LIEGE_TRAIT_GENEROUS_DESC
+		}
+	}
+}
+
+ai_approval_decrease_senate_size_value = {
+	# Base
+	value = {
+		value = -10
+		desc = LAW_BASE_RELUCTANCE_DESC
+	}
+	
+	# Opinion
+	add = {
+		value = ai_law_approval_opinion_value
+		multiply = 0.1
+		desc = LAW_PROPOSER_OPINION_DESC
+	}
+	
+	# House ambition
+	if = {
+		limit = {
+			house ?= { has_house_aspiration_parameter = republic_communal }
+		}
+		add = {
+			value = -20
+			desc = REPUBLIC_COMMUNAL_AMBITION_DESC
+		}
+	}
+	else_if = {
+		limit = {
+			house ?= { has_house_aspiration_parameter = republic_commerce }
+		}
+		add = {
+			value = -15
+			desc = REPUBLIC_COMMERCE_AMBITION_DESC
+		}
+	}
+	else_if = {
+		limit = {
+			house ?= { has_house_aspiration_parameter = republic_signorial }
+		}
+		add = {
+			value = 30
+			desc = REPUBLIC_SIGNORIAL_AMBITION_DESC
+		}
+	}
+
+	# Patrician rating
+	if = {
+		limit = {
+			house ?= {
+				house_power_score >= gdp_patrician_house_score_threshold_2_value
+			}
+		}
+		add = {
+			value = 30
+			desc = LAW_PATRICIAN_RATING_DESC
+		}
+	}
+	else_if = {
+		limit = {
+			house ?= {
+				house_power_score < gdp_patrician_house_score_threshold_1_value
+			}
+		}
+		add = {
+			value = -30
+			desc = LAW_PATRICIAN_RATING_DESC
+		}
+	}
+	else_if = {
+		limit = {
+			highest_liege_matching_rule:uses_assembly = { has_realm_law = republic_senate_size_3 }
+		}
+		add = {
+			value = 30
+			desc = LAW_PATRICIAN_RATING_DESC
+		}
+	}
+	
+	# Other
+	if = {
+		limit = {
+			has_trait = gregarious
+		}
+		add = {
+			value = -10
+			desc = LAW_TRAIT_GREGARIOUS_DESC
+		}
+	}
+	if = {
+		limit = {
+			has_trait = generous
+		}
+		add = {
+			value = -10
+			desc = LAW_TRAIT_GENEROUS_DESC
+		}
+	}
+	if = {
+		limit = {
+			has_trait = greedy
+		}
+		add = {
+			value = 10
+			desc = LAW_TRAIT_GREEDY_DESC
+		}
+	}
+	if = {
+		limit = {
+			has_trait = shy
+		}
+		add = {
+			value = 10
+			desc = LAW_TRAIT_SHY_DESC
+		}
+	}
+}
+
+ai_law_approval_self_proposer_value = {
+	add = {
+		value = 100
+		desc = LAW_BASE_PROPOSER_DESC
+	}
+}

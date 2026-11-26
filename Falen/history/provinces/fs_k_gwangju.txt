@@ -11,11 +11,21 @@
 			type = honey_district
 			level = 1
 		}
+		district = {
+			type = urban_housing_district
+			level = 5
+		}
 	}
 }
 2667 = {	# 상무
 	holding = city_holding
 	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 129 = {	# 운암
 	holding = city_holding
@@ -34,10 +44,21 @@
 			type = rice_district
 			level = 1
 		}
+		district = {
+			type = urban_housing_district
+			level = 4
+		}
 	}
 }
 780 = {	# 비아
 	holding = city_holding
+	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 4121 = { # 삼도
 	holding = none

@@ -11,6 +11,14 @@
 	districts = {
 		district = {
 			type = salt_district
+			level = 4
+		}
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+		district = {
+			type = port_district
 			level = 1
 		}
 	}
@@ -35,7 +43,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -51,11 +59,15 @@
 	culture = namhae
 	rite = presbyterianism
 	holding = castle_holding
-
+	province_size = 4
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
+		}
+		district = {
+			type = urban_housing_district
+			level = 2
 		}
 	}
 }
@@ -78,7 +90,7 @@
 	districts = {
 		district = {
 			type = stone_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -97,7 +109,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -123,12 +135,19 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }
 531 = {	# Beolgyo
 	holding = city_holding
+	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 639 = {	#Oeseo
 	holding = none
@@ -141,11 +160,11 @@
 	culture = namhae
 	rite = presbyterianism
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -157,7 +176,14 @@
 	holding = none
 }
 224 = {	#Geumho
-	holding = none
+	holding = city_holding
+	province_size = 2
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 658 = {	#Okryong
 	holding = none
@@ -194,7 +220,7 @@
 	culture = namwon
 	rite = hereditary_mu
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = cattle_district

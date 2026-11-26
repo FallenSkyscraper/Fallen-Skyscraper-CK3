@@ -44,7 +44,7 @@ Incheon_Port_02 = {
     cost = { gold = 1000 }
 
     province_modifier = {
-        monthly_generic_tax = 5
+        monthly_maritime_tax = 5
         maritime_tax_mult = 0.2
     }
 
@@ -447,6 +447,10 @@ dosan_academy = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		scope:holder.culture = { has_innovation = innovation_university }
+	}
 }
 
 #에버랜드(용인)

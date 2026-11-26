@@ -978,6 +978,10 @@ tribe_01 = {
 		base = 1
 		ai_capital_preference_modifier = yes
 	}
+
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 1 }
+	}
 }
 
 tribe_02 = {

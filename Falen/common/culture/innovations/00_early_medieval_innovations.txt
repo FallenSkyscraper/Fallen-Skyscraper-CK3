@@ -104,11 +104,15 @@ innovation_private_army_dismissal = {
 }
 
 innovation_seodang = {
+	unlock_building = temple_school_1
+	unlock_building = religious_school_1
+	unlock_building = reckoning_school_01
+
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
 	icon = @seodang
 
-	custom = unlock_early_medieval_economic_buildings
+
 
 	character_modifier = {
 		prosperity_growth_factor = 0.05
@@ -120,6 +124,25 @@ innovation_seodang = {
 }
 
 innovation_university = {
+	unlock_building = generic_university
+	unlock_building = seoul_national_university_01
+	unlock_building = yonsei_university
+	unlock_building = dongguk_university
+	unlock_building = sogang_university
+	unlock_building = sungkyunkwan_university
+	unlock_building = korea_university
+	unlock_building = kyunghee_university
+	unlock_building = kyungpook_national_university
+	unlock_building = pusan_national_university
+	unlock_building = gyeongsang_university
+	unlock_building = chungbuk_university
+	unlock_building = al_azhar_university
+	unlock_building = sankore_university
+	unlock_building = siena_university
+	unlock_building = nalanda_university
+	unlock_building = somapura_university_01
+	unlock_building = al_qarawiyyin_university_01
+
 	group = culture_group_civic
 	culture_era = culture_era_early_medieval
 	icon = @university

@@ -147,6 +147,10 @@ seoul_national_university_02 = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		OR = { has_variable = fs_seoul_project_building_installation scope:holder.culture = { has_innovation = innovation_university } }
+	}
 }
 
 #연세대(개신)
@@ -236,6 +240,10 @@ yonsei_university = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		OR = { has_variable = fs_seoul_project_building_installation scope:holder.culture = { has_innovation = innovation_university } }
+	}
 }
 
 #동국대(불교)
@@ -325,6 +333,10 @@ dongguk_university = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		OR = { has_variable = fs_seoul_project_building_installation scope:holder.culture = { has_innovation = innovation_university } }
+	}
 }
 
 #서강대(천주교)
@@ -414,6 +426,10 @@ sogang_university = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		OR = { has_variable = fs_seoul_project_building_installation scope:holder.culture = { has_innovation = innovation_university } }
+	}
 }
 
 #성균관대(유교)
@@ -503,6 +519,10 @@ sungkyunkwan_university = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		OR = { has_variable = fs_seoul_project_building_installation scope:holder.culture = { has_innovation = innovation_university } }
+	}
 }
 
 #고려대(천도교)
@@ -592,6 +612,10 @@ korea_university = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		OR = { has_variable = fs_seoul_project_building_installation scope:holder.culture = { has_innovation = innovation_university } }
+	}
 }
 
 #경희대
@@ -680,6 +704,10 @@ kyunghee_university = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		OR = { has_variable = fs_seoul_project_building_installation scope:holder.culture = { has_innovation = innovation_university } }
+	}
 }
 
 #경상도
@@ -757,6 +785,10 @@ kyungpook_national_university = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		scope:holder.culture = { has_innovation = innovation_university }
+	}
 }
 
 #부산대
@@ -832,6 +864,10 @@ pusan_national_university = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		scope:holder.culture = { has_innovation = innovation_university }
+	}
 }
 
 #포스텍
@@ -1057,6 +1093,10 @@ gyeongsang_university = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		scope:holder.culture = { has_innovation = innovation_university }
+	}
 }
 
 #충청도
@@ -1209,6 +1249,10 @@ chungbuk_university = {
 		}
 	}
 	flag = travel_point_of_interest_learning
+
+	can_construct_showing_failures_only = {
+		scope:holder.culture = { has_innovation = innovation_university }
+	}
 }
 
 #충남대-서비스종료

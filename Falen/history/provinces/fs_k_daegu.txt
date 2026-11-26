@@ -9,13 +9,27 @@
 	districts = {
 		district = {
 			type = stone_district
-			level = 1
+			level = 4
+		}
+		district = {
+			type = castle_holding_district
+			level = 3
+		}
+		district = {
+			type = urban_housing_district
+			level = 4
 		}
 	}
 }
 931 = { # Dalseo
 	holding = city_holding
 	province_size = 4
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 4
+		}
+	}
 }
 928 = { # Seongseo
 	holding = church_holding
@@ -27,6 +41,12 @@
 }
 929 = { # Chilseong(Buk-gu)
 	holding = church_holding
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 	province_size = 4
 	2400.1.1 = {
 		special_district_slot = kyungpook_national_university_district
@@ -45,7 +65,7 @@
 	culture = daegu
 	rite = roman_rite
 	holding = castle_holding
-
+	province_size = 3
 	districts = {
 		district = {
 			type = rice_district
@@ -58,13 +78,14 @@
 }
 94 = { # Ansim(Banyawol)
 	holding = city_holding
+	province_size = 3
 }
 ### c_suseong
 930={#Suseong
 	culture = daegu
 	rite = roman_rite
 	holding = castle_holding
-
+	province_size = 4
 	districts = {
 		district = {
 			type = honey_district

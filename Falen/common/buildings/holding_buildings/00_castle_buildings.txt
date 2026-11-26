@@ -1587,8 +1587,7 @@ castle_01 = {
 	}
 
 	can_construct = {
-		county_tech_fortification_value >= 1
-		
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 1 }
 		japan_castle_construction_trigger = yes
 	}
 }
@@ -1978,7 +1977,7 @@ castle_02 = {
 		building_requirement_tribal = no
 	}
 	can_construct_showing_failures_only = {
-		building_holding_early_medieval_trigger = yes
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 3 }
 		japan_castle_construction_trigger = yes
 	}
 
@@ -3110,10 +3109,9 @@ castle_02 = {
 	}
 
 	can_construct = {
-		county_tech_fortification_value >= 3
-		
 		japan_castle_construction_trigger = yes
-	}
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 3 }
+		}
 }
 
 castle_03 = {
@@ -3506,7 +3504,7 @@ castle_03 = {
 		building_requirement_tribal = no
 	}
 	can_construct_showing_failures_only = {
-		building_holding_high_medieval_trigger = yes
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 5 }
 		japan_castle_construction_trigger = yes
 	}
 
@@ -4637,10 +4635,9 @@ castle_03 = {
 	}
 
 	can_construct = {
-		county_tech_fortification_value >= 5
-		
 		japan_castle_construction_trigger = yes
-	}
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 5 }
+		}
 }
 
 castle_04 = {
@@ -5033,7 +5030,7 @@ castle_04 = {
 		building_requirement_tribal = no
 	}
 	can_construct_showing_failures_only = {
-		building_holding_late_medieval_trigger = yes
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 7 }
 		japan_castle_construction_trigger = yes
 	}
 
@@ -6161,8 +6158,7 @@ castle_04 = {
 	}
 
 	can_construct = {
-		county_tech_fortification_value >= 7
-		
 		japan_castle_construction_trigger = yes
-	}
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = fortification LEVEL = 7 }
+		}
 }

@@ -10,6 +10,10 @@
 		province_size = 9
 		districts = {
 			district = {
+				type = city_holding_district
+				level = 3
+			}
+			district = {
 				type = Busan_Port_00_district
 				level = 1
 			}
@@ -18,11 +22,15 @@
 				level = 7
 			}
 			district = {
-				type = household_district
+				type = urban_housing_district
 				level = 5
 			}
 			district = {
 				type = bureaucratic_district
+				level = 3
+			}
+			district = {
+				type = port_district
 				level = 3
 			}
 		}
@@ -48,16 +56,18 @@
 			level = 3
 		}
 		district = {
-			type = household_district
-			level = 4
+			type = urban_housing_district
+			level = 2
 		}
 	}
 }
 
 783 = {#Suyeong
+	province_size = 3
 	holding = castle_holding
 }
 782 = { #Daeyeon(Namgu)
+	province_size = 2
 	holding = church_holding
 }
 
@@ -67,21 +77,24 @@
 	culture = busan
 	rite = populism
 	holding = city_holding
-
+	province_size = 3
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 2
 		}
 	}
 }
 775 = {#Saha
+	province_size = 2
 	holding = castle_holding
 }
 776 = {#Sasang
+	province_size = 3
 	holding = city_holding
 }
 774 = {#Gangseo
+	province_size = 2
 	holding = church_holding
 }
 
@@ -90,7 +103,7 @@
 	culture = busan
 	rite = populism
 	holding = castle_holding
-
+	province_size = 4
 	districts = {
 		district = {
 			type = rice_district
@@ -101,6 +114,7 @@
 
 784 = {#Yeonje
 	holding = city_holding
+	province_size = 3
 	districts = {
 		district = {
 			type = bureaucratic_district
@@ -110,7 +124,7 @@
 }
 786 = {#Geumjeong
 	holding = church_holding
-
+	province_size = 2
 	2400.1.1 = {
 		special_district_slot = pusan_national_university_district
 	}
@@ -130,7 +144,7 @@
 	culture = busan
 	rite = populism
 	holding = city_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = fish_district
@@ -159,7 +173,7 @@
 	culture = busan
 	rite = populism
 	holding = city_holding
-
+	province_size = 3
 	districts = {
 		district = {
 			type = rice_district
@@ -172,6 +186,7 @@
 	holding = church_holding
 }
 762 = {#Jangyu
+	province_size = 2
 	holding = city_holding
 }
 
@@ -202,7 +217,7 @@
 	culture = busan
 	rite = populism
 	holding = city_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = cattle_district

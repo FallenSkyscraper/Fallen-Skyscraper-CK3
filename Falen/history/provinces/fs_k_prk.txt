@@ -9,15 +9,25 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
+		}
+		district = {
+			type = city_holding_district
+			level = 3
+		}
+		district = {
+			type = urban_housing_district
+			level = 4
 		}
 	}
 }
 4017 = { # 대동강
 	holding = city_holding
+	province_size = 3
 }
 4019 = { # 모란봉
 	holding = castle_holding
+	province_size = 2
 }
 2036 = {	# 임원
 	holding = church_holding
@@ -34,7 +44,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -56,11 +66,11 @@
 	culture = pyongyang
 	rite = cheondo
 	holding = castle_holding
-
+	province_size = 3
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -78,11 +88,11 @@
 	culture = pyongyang
 	rite = cheondo
 	holding = city_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -232,11 +242,23 @@
 	culture = pyongyang
 	rite = cheondo
 	holding = city_holding
-
+	province_size = 3
 	districts = {
 		district = {
-			type = rice_district
+			type = fish_district
+			level = 3
+		}
+		district = {
+			type = city_holding_district
+			level = 2
+		}
+		district = {
+			type = urban_housing_district
 			level = 1
+		}
+		district = {
+			type = port_district
+			level = 3
 		}
 	}
 }

@@ -666,7 +666,12 @@ scripted_effect fund_inspiration_0021_pick_options_to_show_effect = {
 				trigger = {
 					fund_inspiration_0021_option_plate_trigger = yes
 					scope:inspiration_owner = {
-						culture = { has_innovation = innovation_plate_armor }
+						AND = {
+							fs_character_technology_requirement_trigger = {
+								TECHNOLOGY = metallurgy
+								LEVEL = 7
+							}
+						}
 					}
 				}
 				artifact_armor_type_plate_modifier = yes

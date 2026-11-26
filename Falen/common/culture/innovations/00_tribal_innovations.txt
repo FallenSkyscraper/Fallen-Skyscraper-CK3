@@ -87,11 +87,14 @@ innovation_civic_council = {
 }
 
 innovation_public_works = {
+	unlock_building = city_01
+	unlock_building = fs_metropolis_city_01
+
 	group = culture_group_civic
 	culture_era = culture_era_tribal
 	icon = @civil_construction_1
 
-	custom = unlock_city
+
 
 	flag = global_regular
 	flag = tribal_era_regular
@@ -112,11 +115,15 @@ innovation_social_prestige = {
 }
 
 innovation_national_church = {
+	unlock_building = temple_01
+	unlock_building = pb_temple_01
+	unlock_building = pb_religious_community_01
+
 	group = culture_group_civic
 	culture_era = culture_era_tribal
 	icon = @church
 
-	custom =  unlock_church
+
 
 	flag = global_regular
 	flag = tribal_era_regular

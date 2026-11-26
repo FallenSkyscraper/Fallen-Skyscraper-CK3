@@ -4,6 +4,7 @@ tags={
 }
 name="Fallen Skyscraper"
 replace_path="common/bookmark_portraits"
+replace_path="common/culture/innovations"
 replace_path="common/bookmarks"
 replace_path="common/bookmarks/bookmarks"
 replace_path="common/bookmarks/groups"

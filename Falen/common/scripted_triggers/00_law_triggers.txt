@@ -471,24 +471,7 @@ can_keep_single_heir_dynasty_house_trigger = {
 
 can_have_single_heir_dynasty_house_trigger = {
 	exists = house
-	trigger_if = {
-		limit = {
-			culture = {
-				OR = {
-					has_cultural_pillar = heritage_west_slavic
-					NOT = {	has_innovation = innovation_genealogy }
-				}
-			}
-		}
-		culture = {
-			has_innovation = innovation_table_of_princes
-		}
-	}
-	trigger_else = {
-		culture = {
-			has_innovation = innovation_genealogy
-		}
-	}
+	culture = { has_innovation = innovation_genealogy }
 	custom_description = {
 		text = succession_laws_must_have_organised_government_tooltip
 		OR = {
@@ -622,7 +605,7 @@ can_pass_law_ca1_trigger = {
 }
 
 can_pass_law_ca2_trigger = {
-	culture = { has_innovation = innovation_royal_previlege }
+	culture = { has_innovation = innovation_royal_privilege }
 }
 
 can_pass_law_ca3_trigger = {

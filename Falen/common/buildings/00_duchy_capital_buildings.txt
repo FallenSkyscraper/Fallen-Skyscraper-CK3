@@ -271,6 +271,8 @@ examination_hall_01 = {
 		building_requirement_tribal = no
 		county = { NOT = { has_county_modifier = backwater_county_modifier } }
 		building_requirement_no_great_barracks_project = yes
+
+		scope:holder.culture = { has_innovation = innovation_gwageoje }
 	}
 
 	can_construct = {
@@ -330,6 +332,10 @@ examination_hall_02 = {
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
 		county = { NOT = { has_county_modifier = backwater_county_modifier } }
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 3 }
+
+		scope:holder.culture = { has_innovation = innovation_gwageoje }
 	}
 
 	can_construct = {
@@ -380,6 +386,10 @@ examination_hall_03 = {
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
 		county = { NOT = { has_county_modifier = backwater_county_modifier } }
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 5 }
+
+		scope:holder.culture = { has_innovation = innovation_gwageoje }
 	}
 
 	can_construct = {
@@ -430,6 +440,10 @@ examination_hall_04 = {
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
 		county = { NOT = { has_county_modifier = backwater_county_modifier } }
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 7 }
+
+		scope:holder.culture = { has_innovation = innovation_gwageoje }
 	}
 
 	can_construct = {
@@ -480,6 +494,10 @@ examination_hall_05 = {
 	can_construct_showing_failures_only = {
 		building_requirement_tribal = no
 		county = { NOT = { has_county_modifier = backwater_county_modifier } }
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 7 }
+
+		scope:holder.culture = { has_innovation = innovation_gwageoje }
 	}
 
 	can_construct = {
@@ -664,6 +682,8 @@ charnel_grounds_02 = {
 		rite = {
 			rite_has_parameter = sky_burials_active
 		}
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 	}
 
 	show_disabled = no
@@ -718,6 +738,8 @@ charnel_grounds_03 = {
 		rite = {
 			rite_has_parameter = sky_burials_active
 		}
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 	}
 
 	show_disabled = no
@@ -772,6 +794,8 @@ charnel_grounds_04 = {
 		rite = {
 			rite_has_parameter = sky_burials_active
 		}
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = no
@@ -826,6 +850,8 @@ charnel_grounds_05 = {
 		rite = {
 			rite_has_parameter = sky_burials_active
 		}
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = no
@@ -877,7 +903,7 @@ burial_site_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_construction_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 		
 	}
 
@@ -931,8 +957,10 @@ burial_site_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_construction_value >= 4
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
+
 		
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -983,8 +1011,10 @@ burial_site_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_construction_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 		
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -1035,6 +1065,8 @@ burial_site_04 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -1085,6 +1117,8 @@ burial_site_05 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -1138,7 +1172,7 @@ royal_garden_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_agriculture_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
 		
 	}
 
@@ -1190,8 +1224,10 @@ royal_garden_02 = {
 
 	can_construct_showing_failures_only = {
 		county.holder.culture = { has_cultural_parameter = enable_garden_duchy_building }
-		county_tech_agriculture_value >= 5
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+
 		
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -1240,8 +1276,10 @@ royal_garden_03 = {
 
 	can_construct_showing_failures_only = {
 		county.holder.culture = { has_cultural_parameter = enable_garden_duchy_building }
-		county_tech_agriculture_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+
 		
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -1290,6 +1328,8 @@ royal_garden_04 = {
 
 	can_construct_showing_failures_only = {
 		county.holder.culture = { has_cultural_parameter = enable_garden_duchy_building }
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -1338,6 +1378,8 @@ royal_garden_05 = {
 
 	can_construct_showing_failures_only = {
 		county.holder.culture = { has_cultural_parameter = enable_garden_duchy_building }
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -1390,7 +1432,7 @@ leisure_palace_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_construction_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 		
 	}
 
@@ -1447,8 +1489,10 @@ leisure_palace_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_construction_value >= 5
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 		
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -1488,8 +1532,10 @@ leisure_palace_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_construction_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
+
 		
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -1529,6 +1575,8 @@ leisure_palace_04 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -1568,6 +1616,8 @@ leisure_palace_05 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -1605,7 +1655,7 @@ royal_forest_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_construction_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 		
 	}
 
@@ -1647,8 +1697,10 @@ royal_forest_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_construction_value >= 5
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
+
 		
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -1687,8 +1739,10 @@ royal_forest_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_construction_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 		
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -1727,6 +1781,8 @@ royal_forest_04 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -1765,6 +1821,8 @@ royal_forest_05 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -1866,6 +1924,8 @@ reception_rooms_2 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -1932,6 +1992,8 @@ reception_rooms_3 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -1998,6 +2060,8 @@ reception_rooms_4 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -2064,6 +2128,8 @@ reception_rooms_5 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -2198,7 +2264,7 @@ military_duchy_building_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		culture = { has_innovation = innovation_burhs }
+		culture = { root = { fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 3 } } }
 	}
 
 	show_disabled = yes
@@ -2241,7 +2307,7 @@ military_duchy_building_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		culture = { has_innovation = innovation_castle_baileys }
+		culture = { root = { fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 5 } } }
 		holding_district_level_2_trigger = yes
 	}
 
@@ -2283,7 +2349,7 @@ military_duchy_building_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		culture = { has_innovation = innovation_castle_baileys }
+		culture = { root = { fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 5 } } }
 		holding_district_level_3_trigger = yes
 	}
 
@@ -2325,7 +2391,7 @@ military_duchy_building_04 = {
 	}
 
 	can_construct_showing_failures_only = {
-		culture = { has_innovation = innovation_royal_armory }
+		culture = { root = { fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 7 } } }
 		holding_district_level_4_trigger = yes
 	}
 
@@ -2376,7 +2442,7 @@ archery_ranges_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_archery_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = archery LEVEL = 3 }
 
 	}
 
@@ -2449,8 +2515,10 @@ archery_ranges_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_archery_value >= 5
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = archery LEVEL = 5 }
 
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = archery LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -2520,8 +2588,10 @@ archery_ranges_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_archery_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = archery LEVEL = 7 }
 
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = archery LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -2591,6 +2661,8 @@ archery_ranges_04 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = archery LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -2660,6 +2732,8 @@ archery_ranges_05 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = archery LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -2737,7 +2811,7 @@ blacksmiths_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_metallurgy_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 3 }
 
 	}
 
@@ -2825,8 +2899,10 @@ blacksmiths_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_metallurgy_value >= 5
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 5 }
 
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -2913,8 +2989,10 @@ blacksmiths_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_metallurgy_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 7 }
 
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -3001,6 +3079,8 @@ blacksmiths_04 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -3087,6 +3167,8 @@ blacksmiths_05 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -3173,7 +3255,7 @@ jousting_lists_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_horseback_riding_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 
 	}
 
@@ -3258,8 +3340,10 @@ jousting_lists_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_horseback_riding_value >= 5
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -3341,8 +3425,10 @@ jousting_lists_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_horseback_riding_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -3424,6 +3510,8 @@ jousting_lists_04 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -3505,6 +3593,8 @@ jousting_lists_05 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -3579,7 +3669,7 @@ march_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_fortification_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 
 	}
 
@@ -3626,8 +3716,10 @@ march_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_fortification_value >= 5
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -3671,8 +3763,10 @@ march_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_fortification_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -3716,6 +3810,8 @@ march_04 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -3759,6 +3855,8 @@ march_05 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -3804,7 +3902,7 @@ military_academy_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_military_organization_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 3 }
 
 	}
 
@@ -3847,8 +3945,10 @@ military_academy_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_military_organization_value >= 5
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 5 }
 
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -3888,8 +3988,10 @@ military_academy_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_military_organization_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 7 }
+
 		
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -3929,6 +4031,8 @@ military_academy_04 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -3968,6 +4072,8 @@ military_academy_05 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = military_organization LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -4014,7 +4120,7 @@ royal_armory_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_conscription_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 		
 	}
 
@@ -4071,8 +4177,10 @@ royal_armory_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_conscription_value >= 5
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
+
 		
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -4126,8 +4234,10 @@ royal_armory_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_conscription_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 		
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -4181,6 +4291,8 @@ royal_armory_04 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -4234,6 +4346,8 @@ royal_armory_05 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = construction LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -4283,7 +4397,7 @@ siege_works_01 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_siege_value >= 3
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = siege LEVEL = 3 }
 		
 	}
 
@@ -4326,8 +4440,10 @@ siege_works_02 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_siege_value >= 5
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = siege LEVEL = 5 }
+
 		
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = siege LEVEL = 3 }
 	}
 
 	show_disabled = yes
@@ -4367,8 +4483,10 @@ siege_works_03 = {
 	}
 
 	can_construct_showing_failures_only = {
-		county_tech_siege_value >= 7
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = siege LEVEL = 7 }
 		
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = siege LEVEL = 5 }
 	}
 
 	show_disabled = yes
@@ -4408,6 +4526,8 @@ siege_works_04 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = siege LEVEL = 7 }
 	}
 
 	show_disabled = yes
@@ -4447,6 +4567,8 @@ siege_works_05 = {
 	}
 
 	can_construct_showing_failures_only = {
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = siege LEVEL = 7 }
 	}
 
 	show_disabled = yes

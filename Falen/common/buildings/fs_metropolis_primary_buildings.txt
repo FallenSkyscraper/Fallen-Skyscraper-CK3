@@ -459,6 +459,8 @@ fs_metropolis_city_01 = {
 		building_requirement_nomad_holding_in_county = yes
 		building_requirement_herder = no
 		building_requirement_herder_holding_in_county = yes
+
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 1 }
 	}
 	cost_gold = main_building_tier_1_cost
 
@@ -1992,13 +1994,15 @@ fs_metropolis_city_02 = {
 					}
 				}
 			}
-			building_holding_early_medieval_trigger = yes
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 3 }
 		}
 		trigger_else = {
 			culture = {
 				has_cultural_parameter = next_level_cities
 			}
 		}	
+
+		scope:holder.culture = { has_innovation = innovation_public_works }
 	}
 	cost_gold = main_building_tier_2_cost
 
@@ -3063,8 +3067,7 @@ fs_metropolis_city_02 = {
 					}
 				}
 			}
-		county_tech_commerce_value >= 3
-			
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 3 }
 		}
 		trigger_else = {
 			culture = {
@@ -3513,11 +3516,13 @@ fs_metropolis_city_03 = {
 					}
 				}
 			}
-			building_holding_high_medieval_trigger = yes
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 5 }
 		}
 		trigger_else = {
-			building_holding_early_medieval_trigger = yes
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 3 }
 		}
+
+		scope:holder.culture = { has_innovation = innovation_public_works }
 	}
 	cost_gold = main_building_tier_3_cost
 	market_rite_modifier = {
@@ -4578,15 +4583,13 @@ fs_metropolis_city_03 = {
 					}
 				}
 			}
-		county_tech_commerce_value >= 4
-			
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 5 }
 		}
 		trigger_else = {
 			culture = {
 				has_cultural_parameter = next_level_cities
 			}
-		county_tech_commerce_value >= 3
-			
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 3 }
 		}
 	}
 }
@@ -5030,11 +5033,13 @@ fs_metropolis_city_04 = {
 					}
 				}
 			}
-			building_holding_late_medieval_trigger = yes
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 7 }
 		}
 		trigger_else = {
-			building_holding_high_medieval_trigger = yes
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 5 }
 		}
+
+		scope:holder.culture = { has_innovation = innovation_public_works }
 	}
 	cost_gold = main_building_tier_4_cost
 
@@ -6094,15 +6099,13 @@ fs_metropolis_city_04 = {
 					}
 				}
 			}
-		county_tech_commerce_value >= 7
-			
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 7 }
 		}
 		trigger_else = {
 			culture = {
 				has_cultural_parameter = next_level_cities
 			}
-		county_tech_commerce_value >= 4
-			
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = urbanization LEVEL = 5 }
 		}
 	}
 }

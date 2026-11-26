@@ -1,0 +1,36 @@
+# Technology is evaluated in a province, where the county technology getters are defined.
+fs_province_technology_requirement_trigger = {
+	exists = county
+	custom_description = {
+		text = fs_technology_$TECHNOLOGY$_requirement_$LEVEL$
+		value = county_tech_$TECHNOLOGY$_value
+		county_tech_$TECHNOLOGY$_value >= $LEVEL$
+	}
+}
+
+# A missing explicit capital must not be replaced by a different, more advanced county.
+fs_character_technology_requirement_trigger = {
+	trigger_if = {
+		limit = { exists = capital_province }
+		capital_province = {
+			fs_province_technology_requirement_trigger = { TECHNOLOGY = $TECHNOLOGY$ LEVEL = $LEVEL$ }
+		}
+	}
+	trigger_else = {
+		fs_domicile_technology_requirement_trigger = { TECHNOLOGY = $TECHNOLOGY$ LEVEL = $LEVEL$ }
+	}
+}
+
+fs_domicile_technology_requirement_trigger = {
+	exists = domicile.domicile_location
+	domicile.domicile_location = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = $TECHNOLOGY$ LEVEL = $LEVEL$ }
+	}
+}
+
+fs_county_technology_requirement_trigger = {
+	exists = title_province
+	title_province = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = $TECHNOLOGY$ LEVEL = $LEVEL$ }
+	}
+}

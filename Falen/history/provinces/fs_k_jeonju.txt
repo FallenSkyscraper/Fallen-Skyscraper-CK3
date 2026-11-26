@@ -33,7 +33,7 @@
 				level = 3
 			}
 			district = {
-				type = household_district
+				type = urban_housing_district
 				level = 4
 			}
 		}
@@ -51,7 +51,7 @@
 				level = 1
 			}
 			district = {
-				type = household_district
+				type = urban_housing_district
 				level = 2
 			}
 		}
@@ -72,7 +72,7 @@
 	culture = jeonju
 	rite = jeonju_rite
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = rice_district
@@ -263,11 +263,11 @@
 	culture = namwon
 	rite = holyist
 	holding = castle_holding
-
+	province_size = 3
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 2
 		}
 	}
 }

@@ -26,21 +26,43 @@
 			type = rice_district
 			level = 1
 		}
+		district = {
+			type = urban_housing_district
+			level = 1
+		}
 	}
 }
 
 1424 = {#Yeongtong
 	holding = city_holding
 	province_size = 4
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 1422 = { #Gwonseon
 	holding = church_holding
 	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 1
+		}
+	}
 }
 
 1423 = { #Jangan
 	holding = castle_holding
 	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 1
+		}
+	}
 }
 
 ### c_g_namyang
@@ -118,15 +140,31 @@
 			type = rice_district
 			level = 1
 		}
+		district = {
+			type = urban_housing_district
+			level = 1
+		}
 	}
 }
 3805 = {#Taean
 	holding = city_holding
 	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 1421 = {#Dongtan
 	holding = city_holding
 	province_size = 4
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 3
+		}
+	}
 }
 1418 = { #Bongdam
 	holding = church_holding
@@ -148,6 +186,10 @@
 	districts = {
 		district = {
 			type = fish_district
+			level = 1
+		}
+		district = {
+			type = urban_housing_district
 			level = 1
 		}
 	}
@@ -175,20 +217,42 @@
 			type = honey_district
 			level = 1
 		}
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
 	}
 }
 
 1426 = {#Manan
 	holding = city_holding
 	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 69 = { #Gwangmyeong
 	holding = city_holding
 	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 75 = { #Gunpo
 	holding = church_holding
 	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 
 ### c_gwacheon
@@ -224,16 +288,32 @@
 			type = cattle_district
 			level = 1
 		}
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
 	}
 }
 
 1525 = {#Sujeong
 	holding = city_holding
 	province_size = 3
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 1524 = { #Bundang
 	holding = city_holding
 	province_size = 5
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 3
+		}
+	}
 }
 
 ###c_kwangju
@@ -330,7 +410,7 @@
 	culture = suwon
 	rite = mechanism
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = fish_district
@@ -398,20 +478,31 @@
 	culture = suwon
 	rite = mechanism
 	holding = castle_holding
-
+	province_size = 3
 	districts = {
 		district = {
 			type = rice_district
 			level = 1
+		}
+		district = {
+			type = urban_housing_district
+			level = 2
 		}
 	}
 }
 
 85 = {#Suji
 	holding = city_holding
+	province_size = 2
+	districts = {
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+	}
 }
 1523 = { #Mohyeon
-	holding = none
+	holding = church_holding
 }
 1522 = {#Pogok
 	holding = none
@@ -440,16 +531,16 @@
 	holding = church_holding
 }
 1533 = { #Majang
-	holding = none
+	holding = castle_holding
 }
 1535 = {#Baeksa
 	holding = none
 }
 1537 = {#Bubal
-	holding = none
+	holding = city_holding
 }
 1538 = {#Hobeop
-	holding = none
+	holding = church_holding
 }
 
 
@@ -464,7 +555,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -554,7 +645,7 @@
 	holding = church_holding
 }
 1509 = { #Samjuk
-	holding = none
+	holding = church_holding
 }
 
 
@@ -691,7 +782,7 @@
 }
 
 1557 = {#Yangdong
-	holding = none
+	holding = city_holding
 }
 1558 = { #Cheongun
 	holding = church_holding
