@@ -138,7 +138,10 @@ bronze_artisan_workshop_1 = {
 	can_construct_showing_failures_only = {
 	}
 	is_enabled = {
-		has_building_or_higher = mine_tier_1
+		OR = {
+			has_building_or_higher = mine_tier_1
+			has_building_or_higher = urban_mine_resource_building_1
+		}
 	}
 	show_disabled = yes
 	can_construct = {
@@ -197,7 +200,10 @@ bronze_artisan_workshop_2 = {
 		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 3 }
 	}
 	is_enabled = {
-		has_building_or_higher = mine_tier_1
+		OR = {
+			has_building_or_higher = mine_tier_1
+			has_building_or_higher = urban_mine_resource_building_1
+		}
 	}
 	show_disabled = yes
 	can_construct = {
@@ -257,7 +263,10 @@ bronze_artisan_workshop_3 = {
 		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 7 }
 	}
 	is_enabled = {
-		has_building_or_higher = mine_tier_1
+		OR = {
+			has_building_or_higher = mine_tier_1
+			has_building_or_higher = urban_mine_resource_building_1
+		}
 	}
 	show_disabled = yes
 	can_construct = {
@@ -317,7 +326,10 @@ bronze_artisan_workshop_4 = {
 		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 7 }
 	}
 	is_enabled = {
-		has_building_or_higher = mine_tier_1
+		OR = {
+			has_building_or_higher = mine_tier_1
+			has_building_or_higher = urban_mine_resource_building_1
+		}
 	}
 	show_disabled = yes
 	can_construct = {
@@ -377,7 +389,10 @@ bronze_artisan_workshop_5 = {
 		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 7 }
 	}
 	is_enabled = {
-		has_building_or_higher = mine_tier_1
+		OR = {
+			has_building_or_higher = mine_tier_1
+			has_building_or_higher = urban_mine_resource_building_1
+		}
 	}
 	show_disabled = yes
 	can_construct = {
@@ -436,7 +451,10 @@ bell_foundry_1 = {
 		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 3 }
 	}
 	is_enabled = {
-		has_building_or_higher = mine_tier_1
+		OR = {
+			has_building_or_higher = mine_tier_1
+			has_building_or_higher = urban_mine_resource_building_1
+		}
 	}
 	show_disabled = yes
 	can_construct = {
@@ -495,7 +513,10 @@ bell_foundry_2 = {
 		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 7 }
 	}
 	is_enabled = {
-		has_building_or_higher = mine_tier_1
+		OR = {
+			has_building_or_higher = mine_tier_1
+			has_building_or_higher = urban_mine_resource_building_1
+		}
 	}
 	show_disabled = yes
 	can_construct = {
@@ -553,7 +574,10 @@ bell_foundry_3 = {
 		fs_province_technology_requirement_trigger = { TECHNOLOGY = metallurgy LEVEL = 7 }
 	}
 	is_enabled = {
-		has_building_or_higher = mine_tier_1
+		OR = {
+			has_building_or_higher = mine_tier_1
+			has_building_or_higher = urban_mine_resource_building_1
+		}
 	}
 	show_disabled = yes
 	can_construct = {

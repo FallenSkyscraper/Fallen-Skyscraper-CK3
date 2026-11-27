@@ -9,8 +9,8 @@
 	province_size = 5
 	districts = {
 		district = {
-			type = cattle_district
-			level = 1
+			type = urban_mine_district
+			level = 4
 		}
 		district = {
 			type = urban_housing_district
@@ -28,7 +28,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 		district = {
 			type = urban_housing_district
@@ -56,11 +56,16 @@
 			}
 		}
 	}
-
-	districts = {
-		district = {
-			type = cattle_district
-			level = 1
+	2444.1.1 = {
+		districts = {
+			district = {
+				type = urban_mine_district
+				level = 3
+			}
+			district = {
+				type = KAIST_district
+				level = 1
+			}
 		}
 	}
 }

@@ -16,15 +16,24 @@
 			}
 		}
 	}
-
-	districts = {
-		district = {
-			type = rice_district
-			level = 1
-		}
-		district = {
-			type = urban_housing_district
-			level = 3
+	2444.1.1 = {
+		districts = {
+			district = {
+				type = holy_site_cathedral_01_district
+				level = 1
+			}
+			district = {
+				type = rice_district
+				level = 4
+			}
+			district = {
+				type = urban_housing_district
+				level = 3
+			}
+			district = {
+				type = market_district
+				level = 2
+			}
 		}
 	}
 }
@@ -62,11 +71,16 @@
 			}
 		}
 	}
-
-	districts = {
-		district = {
-			type = cattle_district
-			level = 1
+	2444.1.1 = {
+		districts = {
+			district = {
+				type = maitreya_temple_district
+				level = 1
+			}
+			district = {
+				type = cattle_district
+				level = 3
+			}
 		}
 	}
 }
@@ -80,7 +94,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -107,7 +121,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -129,7 +143,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -152,7 +166,11 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 4
+		}
+		district = {
+			type = military_district
+			level = 2
 		}
 	}
 }
@@ -161,7 +179,7 @@
 	holding = none
 }
 1049 = {	#Okgu
-	holding = none
+	holding = church_holding
 }
 1051 = {	#Oksan
 	holding = none
@@ -202,7 +220,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -220,7 +238,7 @@
 	holding = none
 }
 1053 = {	#Daeya
-	holding = none
+	holding = city_holding
 }
 
 
@@ -231,11 +249,11 @@
 	culture = jeonju
 	rite = holyist
 	holding = castle_holding
-
+	province_size = 2
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 5
 		}
 	}
 }
@@ -269,7 +287,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -292,7 +310,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -313,7 +331,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -332,7 +350,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -405,7 +423,7 @@
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -425,7 +443,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -442,7 +460,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -461,7 +479,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -487,7 +505,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -513,7 +531,7 @@
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -536,7 +554,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -561,7 +579,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 5
 		}
 	}
 }
@@ -593,7 +611,7 @@
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -622,7 +640,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 2
 		}
 	}
 }

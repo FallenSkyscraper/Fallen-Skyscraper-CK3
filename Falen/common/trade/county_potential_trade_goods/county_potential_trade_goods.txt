@@ -173,7 +173,42 @@ trade_good_copper = {
 
 trade_good_cotton = {
 	counties = {
-		c_danseong
+		# Jeolla plains, inland basins and coasts
+		c_baeka c_baekgu c_bigeum c_bitgaram c_boan c_bojeol c_boknae c_bonghwang
+		c_bongnae c_boseong c_buan c_byeonsan c_changpyeong c_chilbo c_chunhyang c_daesan
+		c_damyang c_dohwa c_dolsan c_donggye c_g_jangseong c_gangjin c_geogeum c_geomun
+		c_geumgu c_geumji c_geumma c_gimje c_gobu c_gochang c_gogeum c_gogun
+		c_goheung c_gokseong c_gosan c_gundong c_gunsan c_gurim c_gurye c_gwanchon
+		c_gwangju c_gwangsan c_gwangyang c_gwansan c_gwayeok c_haenam c_haeri c_hakgyo
+		c_hampyeong c_hamyeol c_haui c_heuksan c_heungdeok_gochang c_hongnong c_hwangsan c_hwasun
+		c_iksan c_illo c_impi c_imsil c_j_samsan c_janggye c_jangheung c_jangpyeong
+		c_jangsu c_jeongeup c_jeonju c_jido c_jinan c_jinbong c_jindo c_juam
+		c_jucheon c_jukgok c_mangyeong c_mokpo c_muan c_mujang c_muju c_naju
+		c_nakan c_namwon c_nohwa c_okgok c_okgwa c_old_gunsan_islands c_samgye c_samho
+		c_sapyeong c_seokgok c_seongjeon c_seungju c_sijong c_sinan c_songji c_subuk
+		c_sunchang c_suncheon c_taein c_toji c_unam c_unbong c_wando c_wanggok
+		c_wanju c_wolya c_yeomsan c_yeongam c_yeonggwang c_yeosan c_yeosu c_yongan
+		# Gyeongsang plains, inland basins and coasts
+		c_andeok c_andong c_angang c_anui c_beopjeon c_bian c_bongwha c_bongyang
+		c_burim c_busan c_byeokjin c_changnyeong c_changseon c_changwon c_cheongdo c_cheongri
+		c_cheongsong c_cheongtong c_chilgok c_chilwon c_chogye c_chunyang c_daedong c_daegu
+		c_daepyeong c_dain c_danjang c_danseong c_dasa c_dongrae c_easternbusan c_eonyang
+		c_gaeun c_gajo c_gamcheon c_gampo c_garye c_geochang c_geoje c_geoncheon
+		c_geumreung c_geumyang c_gigye c_gijang c_gimcheon c_gimhae c_goja c_gongseong
+		c_gonyang c_goryeong c_goseong c_gumi c_gunbuk c_gunwi c_guryongpo c_gwangdo
+		c_gyeongju c_gyeongsan c_hadong c_haean c_haman c_hamchang c_hamyang c_hapcheon
+		c_hayang c_heunghae c_hoewon c_hwaryeong c_hwawon c_hwayang c_hyeonpung c_imgo
+		c_imha c_indong c_jain c_jangseungpo c_jeomchon c_jinhae c_jinju c_jinseong
+		c_jinyeong c_jiphyeon c_mari c_masan c_miryang c_mulgeon c_mungyeong c_namhae
+		c_okjong c_pohang c_punggi c_pungsan c_pyeonghae c_sacheon c_samcheonpo c_samga
+		c_samrangjin c_samsan c_sancheong c_sangju c_seokbo c_seongju c_seongsan c_seonsan
+		c_sunheong c_suseong c_tongyeong c_uichang c_uiheung c_uiryeong c_uiseong c_uljin
+		c_ulju c_ulleung c_ulsan c_ungsang c_waegwan c_westernbusan c_yangbuk c_yangsan
+		c_yean c_yecheon c_yeoncho c_yeongcheon c_yeongdeok c_yeonghae c_yeongju c_yeongsan
+		c_yeongyang c_yonggung c_yongmun
+		# Jeju and its outlying islands
+		c_aewol c_chuja c_hankyeong c_j_andeok c_j_seongsan c_jeju c_jocheon c_pyoseon
+		c_seogwipo c_udo
 	}
 }
 
@@ -904,7 +939,14 @@ trade_good_wool = {
 
 trade_good_tea = {
 	counties = {
-		c_boseong c_hadong
+		# Southern Jeolla coast and the adjoining Seomjin valley
+		c_boknae c_boseong c_dohwa c_dolsan c_gangjin c_goheung c_gundong c_gurye
+		c_gwangyang c_gwansan c_gwayeok c_haenam c_j_samsan c_jangheung c_jangpyeong c_nakan
+		c_okgok c_seongjeon c_seungju c_suncheon c_yeosu
+		# Hadong and the southern Gyeongsang coast
+		c_changseon c_geoje c_gonyang c_goseong c_hadong c_namhae c_sacheon c_tongyeong
+		# Selected Jeju tea-growing districts
+		c_hankyeong c_j_andeok c_pyoseon c_seogwipo
 	}
 }
 

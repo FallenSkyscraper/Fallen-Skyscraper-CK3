@@ -1,0 +1,2677 @@
+# Primary resource buildings use the standard ten-level district progression.
+
+tobacco_resource_building_1 = {
+	construction_time = construction_time_6_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_tobacco }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_1_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_tobacco_production_add = tier_1_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_1_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_1_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = tobacco_resource_building_2
+	type_icon = "district_buildings/fs_tobacco_district.dds"
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		ai_resource_new_building_modifier = yes
+	}
+}
+
+tobacco_resource_building_2 = {
+	construction_time = construction_time_9_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_tobacco }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_2_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_tobacco_production_add = tier_2_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_2_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_2_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = tobacco_resource_building_3
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 2 }
+	}
+}
+
+tobacco_resource_building_3 = {
+	construction_time = construction_time_1_year
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_tobacco }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_3_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_tobacco_production_add = tier_3_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_3_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_3_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = tobacco_resource_building_4
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 3 }
+	}
+}
+
+tobacco_resource_building_4 = {
+	construction_time = construction_time_2_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_tobacco }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_4_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_tobacco_production_add = tier_4_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_4_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_4_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = tobacco_resource_building_5
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 4 }
+	}
+}
+
+tobacco_resource_building_5 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_tobacco }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_5_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_tobacco_production_add = tier_5_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_5_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_5_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = tobacco_resource_building_6
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 5 }
+	}
+}
+
+tobacco_resource_building_6 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_tobacco }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_6_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_tobacco_production_add = tier_6_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_6_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_6_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = tobacco_resource_building_7
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 6 }
+	}
+}
+
+tobacco_resource_building_7 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_tobacco }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_7_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_tobacco_production_add = tier_7_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_7_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_7_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = tobacco_resource_building_8
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 7 }
+	}
+}
+
+tobacco_resource_building_8 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_tobacco }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_8_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_tobacco_production_add = tier_8_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_8_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_8_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = tobacco_resource_building_9
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 8 }
+	}
+}
+
+tobacco_resource_building_9 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_tobacco }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_9_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_tobacco_production_add = tier_9_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_9_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_9_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = tobacco_resource_building_10
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 9 }
+	}
+}
+
+tobacco_resource_building_10 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_tobacco }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_10_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_tobacco_production_add = tier_10_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_10_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_10_main_income_tribal
+	}
+	flag = agricultural_district_building
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_tobacco CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 10 }
+	}
+}
+
+potato_resource_building_1 = {
+	construction_time = construction_time_6_months
+	can_construct_potential = {
+		NOT = { terrain = desert }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_1_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_potato_production_add = grain_tier_1_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_1_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_1_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = potato_resource_building_2
+	type_icon = "district_buildings/fs_potato_district.dds"
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		ai_resource_new_building_modifier = yes
+	}
+}
+
+potato_resource_building_2 = {
+	construction_time = construction_time_9_months
+	can_construct_potential = {
+		NOT = { terrain = desert }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_2_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_potato_production_add = grain_tier_2_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_2_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_2_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = potato_resource_building_3
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 2 }
+	}
+}
+
+potato_resource_building_3 = {
+	construction_time = construction_time_1_year
+	can_construct_potential = {
+		NOT = { terrain = desert }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_3_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_potato_production_add = grain_tier_3_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_3_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_3_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = potato_resource_building_4
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 3 }
+	}
+}
+
+potato_resource_building_4 = {
+	construction_time = construction_time_2_years
+	can_construct_potential = {
+		NOT = { terrain = desert }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_4_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_potato_production_add = grain_tier_4_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_4_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_4_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = potato_resource_building_5
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 4 }
+	}
+}
+
+potato_resource_building_5 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		NOT = { terrain = desert }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_5_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_potato_production_add = grain_tier_5_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_5_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_5_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = potato_resource_building_6
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 5 }
+	}
+}
+
+potato_resource_building_6 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		NOT = { terrain = desert }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_6_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_potato_production_add = grain_tier_6_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_6_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_6_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = potato_resource_building_7
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 6 }
+	}
+}
+
+potato_resource_building_7 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		NOT = { terrain = desert }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_7_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_potato_production_add = grain_tier_7_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_7_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_7_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = potato_resource_building_8
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 7 }
+	}
+}
+
+potato_resource_building_8 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		NOT = { terrain = desert }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_8_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_potato_production_add = grain_tier_8_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_8_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_8_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = potato_resource_building_9
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 8 }
+	}
+}
+
+potato_resource_building_9 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		NOT = { terrain = desert }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_9_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_potato_production_add = grain_tier_9_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_9_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_9_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = potato_resource_building_10
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 9 }
+	}
+}
+
+potato_resource_building_10 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		NOT = { terrain = desert }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_10_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_potato_production_add = grain_tier_10_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_10_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_10_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 10 }
+	}
+}
+
+maize_resource_building_1 = {
+	construction_time = construction_time_6_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_maize }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_1_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_maize_production_add = grain_tier_1_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_1_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_1_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = maize_resource_building_2
+	type_icon = "district_buildings/fs_maize_district.dds"
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		ai_resource_new_building_modifier = yes
+	}
+}
+
+maize_resource_building_2 = {
+	construction_time = construction_time_9_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_maize }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_2_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_maize_production_add = grain_tier_2_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_2_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_2_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = maize_resource_building_3
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 2 }
+	}
+}
+
+maize_resource_building_3 = {
+	construction_time = construction_time_1_year
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_maize }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_3_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_maize_production_add = grain_tier_3_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_3_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_3_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = maize_resource_building_4
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 3 }
+	}
+}
+
+maize_resource_building_4 = {
+	construction_time = construction_time_2_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_maize }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_4_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_maize_production_add = grain_tier_4_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_4_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_4_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = maize_resource_building_5
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 4 }
+	}
+}
+
+maize_resource_building_5 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_maize }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_5_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_maize_production_add = grain_tier_5_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_5_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_5_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = maize_resource_building_6
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 5 }
+	}
+}
+
+maize_resource_building_6 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_maize }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_6_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_maize_production_add = grain_tier_6_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_6_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_6_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = maize_resource_building_7
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 6 }
+	}
+}
+
+maize_resource_building_7 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_maize }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_7_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_maize_production_add = grain_tier_7_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_7_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_7_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = maize_resource_building_8
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 7 }
+	}
+}
+
+maize_resource_building_8 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_maize }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_8_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_maize_production_add = grain_tier_8_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_8_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_8_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = maize_resource_building_9
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 8 }
+	}
+}
+
+maize_resource_building_9 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_maize }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_9_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_maize_production_add = grain_tier_9_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_9_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_9_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = maize_resource_building_10
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 9 }
+	}
+}
+
+maize_resource_building_10 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_maize }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_10_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_maize_production_add = grain_tier_10_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_10_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_10_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_maize CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 10 }
+	}
+}
+
+chili_resource_building_1 = {
+	construction_time = construction_time_6_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_chili }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_1_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_chili_production_add = tier_1_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_1_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_1_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = chili_resource_building_2
+	type_icon = "district_buildings/fs_chili_district.dds"
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		ai_resource_new_building_modifier = yes
+	}
+}
+
+chili_resource_building_2 = {
+	construction_time = construction_time_9_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_chili }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_2_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_chili_production_add = tier_2_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_2_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_2_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = chili_resource_building_3
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 2 }
+	}
+}
+
+chili_resource_building_3 = {
+	construction_time = construction_time_1_year
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_chili }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_3_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_chili_production_add = tier_3_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_3_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_3_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = chili_resource_building_4
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 3 }
+	}
+}
+
+chili_resource_building_4 = {
+	construction_time = construction_time_2_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_chili }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_4_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_chili_production_add = tier_4_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_4_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_4_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = chili_resource_building_5
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 4 }
+	}
+}
+
+chili_resource_building_5 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_chili }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_5_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_chili_production_add = tier_5_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_5_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_5_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = chili_resource_building_6
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 5 }
+	}
+}
+
+chili_resource_building_6 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_chili }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_6_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_chili_production_add = tier_6_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_6_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_6_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = chili_resource_building_7
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 6 }
+	}
+}
+
+chili_resource_building_7 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_chili }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_7_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_chili_production_add = tier_7_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_7_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_7_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = chili_resource_building_8
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 7 }
+	}
+}
+
+chili_resource_building_8 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_chili }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_8_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_chili_production_add = tier_8_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_8_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_8_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = chili_resource_building_9
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 8 }
+	}
+}
+
+chili_resource_building_9 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_chili }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_9_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_chili_production_add = tier_9_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_9_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_9_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = chili_resource_building_10
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 9 }
+	}
+}
+
+chili_resource_building_10 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_chili }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_10_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_chili_production_add = tier_10_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_10_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_10_main_income_tribal
+	}
+	flag = agricultural_district_building
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_chili CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 10 }
+	}
+}
+
+sweet_potato_resource_building_1 = {
+	construction_time = construction_time_6_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_sweet_potato }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_1_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_sweet_potato_production_add = grain_tier_1_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_1_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_1_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = sweet_potato_resource_building_2
+	type_icon = "district_buildings/fs_sweet_potato_district.dds"
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		ai_resource_new_building_modifier = yes
+	}
+}
+
+sweet_potato_resource_building_2 = {
+	construction_time = construction_time_9_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_sweet_potato }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_2_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_sweet_potato_production_add = grain_tier_2_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_2_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_2_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = sweet_potato_resource_building_3
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 2 }
+	}
+}
+
+sweet_potato_resource_building_3 = {
+	construction_time = construction_time_1_year
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_sweet_potato }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_3_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_sweet_potato_production_add = grain_tier_3_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_3_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_3_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = sweet_potato_resource_building_4
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 3 }
+	}
+}
+
+sweet_potato_resource_building_4 = {
+	construction_time = construction_time_2_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_sweet_potato }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_4_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_sweet_potato_production_add = grain_tier_4_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_4_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_4_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = sweet_potato_resource_building_5
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 4 }
+	}
+}
+
+sweet_potato_resource_building_5 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_sweet_potato }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_5_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_sweet_potato_production_add = grain_tier_5_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_5_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_5_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = sweet_potato_resource_building_6
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 5 }
+	}
+}
+
+sweet_potato_resource_building_6 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_sweet_potato }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_6_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_sweet_potato_production_add = grain_tier_6_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_6_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_6_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = sweet_potato_resource_building_7
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 6 }
+	}
+}
+
+sweet_potato_resource_building_7 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_sweet_potato }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_7_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_sweet_potato_production_add = grain_tier_7_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_7_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_7_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = sweet_potato_resource_building_8
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 7 }
+	}
+}
+
+sweet_potato_resource_building_8 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_sweet_potato }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_8_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_sweet_potato_production_add = grain_tier_8_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_8_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_8_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = sweet_potato_resource_building_9
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 8 }
+	}
+}
+
+sweet_potato_resource_building_9 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_sweet_potato }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_9_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_sweet_potato_production_add = grain_tier_9_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_9_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_9_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	next_building = sweet_potato_resource_building_10
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 9 }
+	}
+}
+
+sweet_potato_resource_building_10 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_sweet_potato }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_10_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_sweet_potato_production_add = grain_tier_10_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_10_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = grain_tier_10_main_income_tribal
+	}
+	flag = agricultural_district_building
+	flag = food_district_building
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_sweet_potato CATEGORY = trade_category_cereals }
+		ai_resource_district_upgrade_modifier = { LEVEL = 10 }
+	}
+}
+
+opium_resource_building_1 = {
+	construction_time = construction_time_6_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_opium }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_1_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_opium_production_add = tier_1_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_1_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_1_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = opium_resource_building_2
+	type_icon = "district_buildings/fs_opium_district.dds"
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		ai_resource_new_building_modifier = yes
+	}
+}
+
+opium_resource_building_2 = {
+	construction_time = construction_time_9_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_opium }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_2_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_opium_production_add = tier_2_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_2_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_2_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = opium_resource_building_3
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		ai_resource_district_upgrade_modifier = { LEVEL = 2 }
+	}
+}
+
+opium_resource_building_3 = {
+	construction_time = construction_time_1_year
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_opium }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_3_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_opium_production_add = tier_3_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_3_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_3_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = opium_resource_building_4
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		ai_resource_district_upgrade_modifier = { LEVEL = 3 }
+	}
+}
+
+opium_resource_building_4 = {
+	construction_time = construction_time_2_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_opium }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_4_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_opium_production_add = tier_4_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_4_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_4_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = opium_resource_building_5
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		ai_resource_district_upgrade_modifier = { LEVEL = 4 }
+	}
+}
+
+opium_resource_building_5 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_opium }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_5_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_opium_production_add = tier_5_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_5_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_5_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = opium_resource_building_6
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		ai_resource_district_upgrade_modifier = { LEVEL = 5 }
+	}
+}
+
+opium_resource_building_6 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_opium }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_6_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_opium_production_add = tier_6_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_6_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_6_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = opium_resource_building_7
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		ai_resource_district_upgrade_modifier = { LEVEL = 6 }
+	}
+}
+
+opium_resource_building_7 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_opium }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_7_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_opium_production_add = tier_7_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_7_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_7_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = opium_resource_building_8
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		ai_resource_district_upgrade_modifier = { LEVEL = 7 }
+	}
+}
+
+opium_resource_building_8 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_opium }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_8_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_opium_production_add = tier_8_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_8_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_8_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = opium_resource_building_9
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		ai_resource_district_upgrade_modifier = { LEVEL = 8 }
+	}
+}
+
+opium_resource_building_9 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_opium }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_9_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_opium_production_add = tier_9_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_9_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_9_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = opium_resource_building_10
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		ai_resource_district_upgrade_modifier = { LEVEL = 9 }
+	}
+}
+
+opium_resource_building_10 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_opium }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_10_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_opium_production_add = tier_10_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_10_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_10_main_income_tribal
+	}
+	flag = agricultural_district_building
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_opium CATEGORY = trade_category_medicaments }
+		ai_resource_district_upgrade_modifier = { LEVEL = 10 }
+	}
+}
+
+coal_resource_building_1 = {
+	construction_time = construction_time_6_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_coal }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_1_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_coal_production_add = mine_tier_1_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_1_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_1_main_income_tribal
+	}
+	next_building = coal_resource_building_2
+	type_icon = "district_buildings/fs_coal_district.dds"
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		ai_resource_new_building_modifier = yes
+	}
+}
+
+coal_resource_building_2 = {
+	construction_time = construction_time_9_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_coal }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_2_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_coal_production_add = mine_tier_2_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_2_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_2_main_income_tribal
+	}
+	next_building = coal_resource_building_3
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		ai_resource_district_upgrade_modifier = { LEVEL = 2 }
+	}
+}
+
+coal_resource_building_3 = {
+	construction_time = construction_time_1_year
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_coal }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_3_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_coal_production_add = mine_tier_3_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_3_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_3_main_income_tribal
+	}
+	next_building = coal_resource_building_4
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		ai_resource_district_upgrade_modifier = { LEVEL = 3 }
+	}
+}
+
+coal_resource_building_4 = {
+	construction_time = construction_time_2_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_coal }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_4_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_coal_production_add = mine_tier_4_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_4_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_4_main_income_tribal
+	}
+	next_building = coal_resource_building_5
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		ai_resource_district_upgrade_modifier = { LEVEL = 4 }
+	}
+}
+
+coal_resource_building_5 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_coal }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_5_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_coal_production_add = mine_tier_5_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_5_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_5_main_income_tribal
+	}
+	next_building = coal_resource_building_6
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		ai_resource_district_upgrade_modifier = { LEVEL = 5 }
+	}
+}
+
+coal_resource_building_6 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_coal }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_6_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_coal_production_add = mine_tier_6_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_6_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_6_main_income_tribal
+	}
+	next_building = coal_resource_building_7
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		ai_resource_district_upgrade_modifier = { LEVEL = 6 }
+	}
+}
+
+coal_resource_building_7 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_coal }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_7_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_coal_production_add = mine_tier_7_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_7_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_7_main_income_tribal
+	}
+	next_building = coal_resource_building_8
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		ai_resource_district_upgrade_modifier = { LEVEL = 7 }
+	}
+}
+
+coal_resource_building_8 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_coal }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_8_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_coal_production_add = mine_tier_8_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_8_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_8_main_income_tribal
+	}
+	next_building = coal_resource_building_9
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		ai_resource_district_upgrade_modifier = { LEVEL = 8 }
+	}
+}
+
+coal_resource_building_9 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_coal }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_9_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_coal_production_add = mine_tier_9_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_9_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_9_main_income_tribal
+	}
+	next_building = coal_resource_building_10
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		ai_resource_district_upgrade_modifier = { LEVEL = 9 }
+	}
+}
+
+coal_resource_building_10 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_coal }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_10_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_coal_production_add = mine_tier_10_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_10_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_10_main_income_tribal
+	}
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_coal CATEGORY = trade_category_fuel }
+		ai_resource_district_upgrade_modifier = { LEVEL = 10 }
+	}
+}
+
+ginseng_resource_building_1 = {
+	construction_time = construction_time_6_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_ginseng }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_1_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_ginseng_production_add = tier_1_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_1_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_1_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = ginseng_resource_building_2
+	type_icon = "district_buildings/fs_ginseng_district.dds"
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		ai_resource_new_building_modifier = yes
+	}
+}
+
+ginseng_resource_building_2 = {
+	construction_time = construction_time_9_months
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_ginseng }
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_2_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_ginseng_production_add = tier_2_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_2_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_2_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = ginseng_resource_building_3
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 2 }
+	}
+}
+
+ginseng_resource_building_3 = {
+	construction_time = construction_time_1_year
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_ginseng }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_3_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_ginseng_production_add = tier_3_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_3_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_3_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = ginseng_resource_building_4
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 3 }
+	}
+}
+
+ginseng_resource_building_4 = {
+	construction_time = construction_time_2_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_ginseng }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 3 }
+		holding_district_level_2_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_4_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_ginseng_production_add = tier_4_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_4_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_4_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = ginseng_resource_building_5
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 4 }
+	}
+}
+
+ginseng_resource_building_5 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_ginseng }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_5_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_ginseng_production_add = tier_5_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_5_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_5_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = ginseng_resource_building_6
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 5 }
+	}
+}
+
+ginseng_resource_building_6 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_ginseng }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 5 }
+		holding_district_level_3_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_6_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_ginseng_production_add = tier_6_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_6_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_6_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = ginseng_resource_building_7
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 6 }
+	}
+}
+
+ginseng_resource_building_7 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_ginseng }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_7_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_ginseng_production_add = tier_7_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_7_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_7_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = ginseng_resource_building_8
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 7 }
+	}
+}
+
+ginseng_resource_building_8 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_ginseng }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_8_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_ginseng_production_add = tier_8_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_8_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_8_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = ginseng_resource_building_9
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 8 }
+	}
+}
+
+ginseng_resource_building_9 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_ginseng }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_9_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_ginseng_production_add = tier_9_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_9_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_9_main_income_tribal
+	}
+	flag = agricultural_district_building
+	next_building = ginseng_resource_building_10
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 9 }
+	}
+}
+
+ginseng_resource_building_10 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		county = { has_potential_for_trade_good = trade_good_type:trade_good_ginseng }
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = agriculture LEVEL = 7 }
+		holding_district_level_4_trigger = yes
+	}
+	show_disabled = yes
+	cost_gold = resource_district_normal_tier_10_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_ginseng_production_add = tier_10_main_resource
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_10_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_agricultural_tax = resource_tier_10_main_income_tribal
+	}
+	flag = agricultural_district_building
+	ai_value = {
+		base = 10
+		ai_resource_building_need_category_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		directive_to_build_economy_modifier = yes
+		ai_market_category_shortage_modifier = { GOOD = trade_good_ginseng CATEGORY = trade_category_luxury_consumption }
+		ai_resource_district_upgrade_modifier = { LEVEL = 10 }
+	}
+}

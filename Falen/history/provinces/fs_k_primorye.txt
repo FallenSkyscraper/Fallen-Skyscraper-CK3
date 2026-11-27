@@ -5,22 +5,26 @@
 	culture = pyotr
 	rite = primorsky_rite
 	holding = castle_holding
-
+	province_size = 4
 	districts = {
 		district = {
 			type = fish_district
-			level = 1
+			level = 4
+		}
+		district = {
+			type = urban_housing_district
+			level = 3
 		}
 	}
 }
 2803 = {	# 레닌스키
-	holding = none
+	holding = city_holding
 }
 2801 = {	# 페르보레첸스키
 	holding = none
 }
 2800 = {	# 소비에츠키
-	holding = none
+	holding = church_holding
 }
 
 ###c_nadezhdinski

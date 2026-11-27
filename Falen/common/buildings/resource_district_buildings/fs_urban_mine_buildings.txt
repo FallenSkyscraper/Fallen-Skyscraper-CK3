@@ -1,0 +1,660 @@
+# Urban salvage provides building materials and trace metals without mineral-potential checks.
+
+urban_mine_resource_building_1 = {
+	construction_time = construction_time_6_months
+	can_construct_potential = {
+		terrain = ruined_city
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 1
+		}
+	}
+	is_enabled = { }
+	show_disabled = yes
+	can_construct = { }
+	cost_gold = resource_district_normal_tier_1_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_stone_production_add = mine_tier_1_main_resource
+		trade_good_iron_production_add = iron_mine_tier_1_main_resource
+		trade_good_copper_production_add = 10
+		trade_good_silver_production_add = 1
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_1_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_1_main_income_tribal
+	}
+	province_culture_modifier = {
+		parameter = industrious_productivity_bonus
+		trade_category_minerals_production_mult = 0.1
+		monthly_mining_tax = industrious_tradition_tax_bonus_low
+	}
+	on_complete = { }
+	next_building = urban_mine_resource_building_2
+	type_icon = "district_buildings/fs_urban_mine_district.dds"
+	ai_value = {
+		base = 10
+		ai_resource_building_staple_need_modifier = {
+			GOOD = trade_good_iron
+		}
+		directive_to_build_economy_modifier = yes
+		ai_market_staple_shortage_modifier = {
+			GOOD = trade_good_iron
+		}
+		ai_resource_new_building_modifier = yes
+	}
+}
+
+urban_mine_resource_building_2 = {
+	construction_time = construction_time_9_months
+	can_construct_potential = {
+		terrain = ruined_city
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 2
+		}
+	}
+	is_enabled = { }
+	show_disabled = yes
+	can_construct = { }
+	cost_gold = resource_district_normal_tier_2_cost
+	province_modifier = {
+		building_slots_for_host_district = 1
+		trade_good_stone_production_add = mine_tier_2_main_resource
+		trade_good_iron_production_add = iron_mine_tier_2_main_resource
+		trade_good_copper_production_add = 15
+		trade_good_silver_production_add = 2
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_2_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_2_main_income_tribal
+	}
+	market_modifier = {
+		trade_category_beasts_of_burden_sell_price_mult = price_basic_building_1
+	}
+	province_culture_modifier = {
+		parameter = industrious_productivity_bonus
+		trade_category_minerals_production_mult = 0.1
+		monthly_mining_tax = industrious_tradition_tax_bonus_low
+	}
+	trade_good_need = {
+		trade_good_category = trade_category_beasts_of_burden
+		amount = basic_resource_need
+		modifiers = {
+			province_modifier = {
+				trade_category_minerals_production_mult = mine_multiplier_per_beast_need
+				mining_tax_mult = tax_mult_per_production_need
+			}
+		}
+	}
+	on_complete = { }
+	next_building = urban_mine_resource_building_3
+	ai_value = {
+		base = 10
+		ai_resource_building_staple_need_modifier = {
+			GOOD = trade_good_iron
+		}
+		directive_to_build_economy_modifier = yes
+		ai_market_staple_shortage_modifier = {
+			GOOD = trade_good_iron
+		}
+		ai_resource_district_upgrade_modifier = {
+			LEVEL = 2
+		}
+	}
+}
+
+urban_mine_resource_building_3 = {
+	construction_time = construction_time_1_year
+	can_construct_potential = {
+		terrain = ruined_city
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 3
+		}
+		holding_district_level_2_trigger = yes
+	}
+	is_enabled = { }
+	show_disabled = yes
+	can_construct = { }
+	cost_gold = resource_district_normal_tier_3_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_stone_production_add = mine_tier_3_main_resource
+		trade_good_iron_production_add = iron_mine_tier_3_main_resource
+		trade_good_copper_production_add = 20
+		trade_good_gold_production_add = 1
+		trade_good_silver_production_add = 3
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_3_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_3_main_income_tribal
+	}
+	market_modifier = {
+		trade_category_beasts_of_burden_sell_price_mult = price_basic_building_1
+	}
+	province_culture_modifier = {
+		parameter = industrious_productivity_bonus
+		trade_category_minerals_production_mult = 0.1
+		monthly_mining_tax = industrious_tradition_tax_bonus_low
+	}
+	trade_good_need = {
+		trade_good_category = trade_category_beasts_of_burden
+		amount = basic_resource_need
+		can_be_filled_multiple_times = 2
+		modifiers = {
+			province_modifier = {
+				trade_category_minerals_production_mult = mine_multiplier_per_beast_need
+				mining_tax_mult = tax_mult_per_production_need
+			}
+		}
+	}
+	on_complete = { }
+	next_building = urban_mine_resource_building_4
+	ai_value = {
+		base = 10
+		ai_resource_building_staple_need_modifier = {
+			GOOD = trade_good_iron
+		}
+		directive_to_build_economy_modifier = yes
+		ai_market_staple_shortage_modifier = {
+			GOOD = trade_good_iron
+		}
+		ai_resource_district_upgrade_modifier = {
+			LEVEL = 3
+		}
+	}
+}
+
+urban_mine_resource_building_4 = {
+	construction_time = construction_time_2_years
+	can_construct_potential = {
+		terrain = ruined_city
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 4
+		}
+		holding_district_level_2_trigger = yes
+	}
+	is_enabled = { }
+	show_disabled = yes
+	can_construct = { }
+	cost_gold = resource_district_normal_tier_4_cost
+	province_modifier = {
+		building_slots_for_host_district = 2
+		trade_good_stone_production_add = mine_tier_4_main_resource
+		trade_good_iron_production_add = iron_mine_tier_4_main_resource
+		trade_good_copper_production_add = 25
+		trade_good_gold_production_add = 1
+		trade_good_silver_production_add = 4
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_4_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_4_main_income_tribal
+	}
+	market_modifier = {
+		trade_category_beasts_of_burden_sell_price_mult = price_basic_building_1
+	}
+	province_culture_modifier = {
+		parameter = industrious_productivity_bonus
+		trade_category_minerals_production_mult = 0.1
+		monthly_mining_tax = industrious_tradition_tax_bonus_low
+	}
+	trade_good_need = {
+		trade_good_category = trade_category_beasts_of_burden
+		amount = basic_resource_need
+		can_be_filled_multiple_times = 2
+		modifiers = {
+			province_modifier = {
+				trade_category_minerals_production_mult = mine_multiplier_per_beast_need
+				mining_tax_mult = tax_mult_per_production_need
+			}
+		}
+	}
+	on_complete = { }
+	next_building = urban_mine_resource_building_5
+	ai_value = {
+		base = 10
+		ai_resource_building_staple_need_modifier = {
+			GOOD = trade_good_iron
+		}
+		directive_to_build_economy_modifier = yes
+		ai_market_staple_shortage_modifier = {
+			GOOD = trade_good_iron
+		}
+		ai_resource_district_upgrade_modifier = {
+			LEVEL = 4
+		}
+	}
+}
+
+urban_mine_resource_building_5 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		terrain = ruined_city
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 5
+		}
+		holding_district_level_3_trigger = yes
+	}
+	is_enabled = { }
+	show_disabled = yes
+	can_construct = { }
+	cost_gold = resource_district_normal_tier_5_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_stone_production_add = mine_tier_5_main_resource
+		trade_good_iron_production_add = iron_mine_tier_5_main_resource
+		trade_good_copper_production_add = 25
+		trade_good_gold_production_add = 2
+		trade_good_silver_production_add = 5
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_5_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_5_main_income_tribal
+	}
+	market_modifier = {
+		trade_category_beasts_of_burden_sell_price_mult = price_basic_building_1
+	}
+	province_culture_modifier = {
+		parameter = industrious_productivity_bonus
+		trade_category_minerals_production_mult = 0.1
+		monthly_mining_tax = industrious_tradition_tax_bonus_mid
+	}
+	trade_good_need = {
+		trade_good_category = trade_category_beasts_of_burden
+		amount = basic_resource_need
+		can_be_filled_multiple_times = 3
+		modifiers = {
+			province_modifier = {
+				trade_category_minerals_production_mult = mine_multiplier_per_beast_need
+				mining_tax_mult = tax_mult_per_production_need
+			}
+		}
+	}
+	on_complete = { }
+	next_building = urban_mine_resource_building_6
+	ai_value = {
+		base = 10
+		ai_resource_building_staple_need_modifier = {
+			GOOD = trade_good_iron
+		}
+		directive_to_build_economy_modifier = yes
+		ai_market_staple_shortage_modifier = {
+			GOOD = trade_good_iron
+		}
+		ai_resource_district_upgrade_modifier = {
+			LEVEL = 5
+		}
+	}
+}
+
+urban_mine_resource_building_6 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		terrain = ruined_city
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 6
+		}
+		holding_district_level_3_trigger = yes
+	}
+	is_enabled = { }
+	show_disabled = yes
+	can_construct = { }
+	cost_gold = resource_district_normal_tier_6_cost
+	province_modifier = {
+		building_slots_for_host_district = 3
+		trade_good_stone_production_add = mine_tier_6_main_resource
+		trade_good_iron_production_add = iron_mine_tier_6_main_resource
+		trade_good_copper_production_add = 30
+		trade_good_gold_production_add = 2
+		trade_good_silver_production_add = 6
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_6_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_6_main_income_tribal
+	}
+	market_modifier = {
+		trade_category_beasts_of_burden_sell_price_mult = price_basic_building_1
+	}
+	province_culture_modifier = {
+		parameter = industrious_productivity_bonus
+		trade_category_minerals_production_mult = 0.1
+		monthly_mining_tax = industrious_tradition_tax_bonus_mid
+	}
+	trade_good_need = {
+		trade_good_category = trade_category_beasts_of_burden
+		amount = basic_resource_need
+		can_be_filled_multiple_times = 3
+		modifiers = {
+			province_modifier = {
+				trade_category_minerals_production_mult = mine_multiplier_per_beast_need
+				mining_tax_mult = tax_mult_per_production_need
+			}
+		}
+	}
+	on_complete = { }
+	next_building = urban_mine_resource_building_7
+	ai_value = {
+		base = 10
+		ai_resource_building_staple_need_modifier = {
+			GOOD = trade_good_iron
+		}
+		directive_to_build_economy_modifier = yes
+		ai_market_staple_shortage_modifier = {
+			GOOD = trade_good_iron
+		}
+		ai_resource_district_upgrade_modifier = {
+			LEVEL = 6
+		}
+	}
+}
+
+urban_mine_resource_building_7 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		terrain = ruined_city
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 7
+		}
+		holding_district_level_4_trigger = yes
+	}
+	is_enabled = { }
+	show_disabled = yes
+	can_construct = { }
+	cost_gold = resource_district_normal_tier_7_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_stone_production_add = mine_tier_7_main_resource
+		trade_good_iron_production_add = iron_mine_tier_7_main_resource
+		trade_good_copper_production_add = 35
+		trade_good_gold_production_add = 3
+		trade_good_silver_production_add = 7
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_7_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_7_main_income_tribal
+	}
+	market_modifier = {
+		trade_category_beasts_of_burden_sell_price_mult = price_basic_building_1
+	}
+	province_culture_modifier = {
+		parameter = industrious_productivity_bonus
+		trade_category_minerals_production_mult = 0.1
+		monthly_mining_tax = industrious_tradition_tax_bonus_mid
+	}
+	trade_good_need = {
+		trade_good_category = trade_category_beasts_of_burden
+		amount = basic_resource_need
+		can_be_filled_multiple_times = 4
+		modifiers = {
+			province_modifier = {
+				trade_category_minerals_production_mult = mine_multiplier_per_beast_need
+				mining_tax_mult = tax_mult_per_production_need
+			}
+		}
+	}
+	on_complete = { }
+	next_building = urban_mine_resource_building_8
+	ai_value = {
+		base = 10
+		ai_resource_building_staple_need_modifier = {
+			GOOD = trade_good_iron
+		}
+		directive_to_build_economy_modifier = yes
+		ai_market_staple_shortage_modifier = {
+			GOOD = trade_good_iron
+		}
+		ai_resource_district_upgrade_modifier = {
+			LEVEL = 7
+		}
+	}
+}
+
+urban_mine_resource_building_8 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		terrain = ruined_city
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 8
+		}
+		holding_district_level_4_trigger = yes
+	}
+	is_enabled = { }
+	show_disabled = yes
+	can_construct = { }
+	cost_gold = resource_district_normal_tier_8_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_stone_production_add = mine_tier_8_main_resource
+		trade_good_iron_production_add = iron_mine_tier_8_main_resource
+		trade_good_copper_production_add = 40
+		trade_good_gold_production_add = 3
+		trade_good_silver_production_add = 8
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_8_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_8_main_income_tribal
+	}
+	market_modifier = {
+		trade_category_beasts_of_burden_sell_price_mult = price_basic_building_1
+	}
+	province_culture_modifier = {
+		parameter = industrious_productivity_bonus
+		trade_category_minerals_production_mult = 0.1
+		monthly_mining_tax = industrious_tradition_tax_bonus_mid
+	}
+	trade_good_need = {
+		trade_good_category = trade_category_beasts_of_burden
+		amount = basic_resource_need
+		can_be_filled_multiple_times = 4
+		modifiers = {
+			province_modifier = {
+				trade_category_minerals_production_mult = mine_multiplier_per_beast_need
+				mining_tax_mult = tax_mult_per_production_need
+			}
+		}
+	}
+	on_complete = { }
+	next_building = urban_mine_resource_building_9
+	ai_value = {
+		base = 10
+		ai_resource_building_staple_need_modifier = {
+			GOOD = trade_good_iron
+		}
+		directive_to_build_economy_modifier = yes
+		ai_market_staple_shortage_modifier = {
+			GOOD = trade_good_iron
+		}
+		ai_resource_district_upgrade_modifier = {
+			LEVEL = 8
+		}
+	}
+}
+
+urban_mine_resource_building_9 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		terrain = ruined_city
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 9
+		}
+		holding_district_level_4_trigger = yes
+	}
+	is_enabled = { }
+	show_disabled = yes
+	can_construct = { }
+	cost_gold = resource_district_normal_tier_9_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_stone_production_add = mine_tier_9_main_resource
+		trade_good_iron_production_add = iron_mine_tier_9_main_resource
+		trade_good_copper_production_add = 45
+		trade_good_gold_production_add = 5
+		trade_good_silver_production_add = 10
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_9_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_9_main_income_tribal
+	}
+	market_modifier = {
+		trade_category_beasts_of_burden_sell_price_mult = price_basic_building_1
+	}
+	province_culture_modifier = {
+		parameter = industrious_productivity_bonus
+		trade_category_minerals_production_mult = 0.1
+		monthly_mining_tax = industrious_tradition_tax_bonus_high
+	}
+	trade_good_need = {
+		trade_good_category = trade_category_beasts_of_burden
+		amount = basic_resource_need
+		can_be_filled_multiple_times = 5
+		modifiers = {
+			province_modifier = {
+				trade_category_minerals_production_mult = mine_multiplier_per_beast_need
+				mining_tax_mult = tax_mult_per_production_need
+			}
+		}
+	}
+	on_complete = { }
+	next_building = urban_mine_resource_building_10
+	ai_value = {
+		base = 10
+		ai_resource_building_staple_need_modifier = {
+			GOOD = trade_good_iron
+		}
+		directive_to_build_economy_modifier = yes
+		ai_market_staple_shortage_modifier = {
+			GOOD = trade_good_iron
+		}
+		ai_resource_district_upgrade_modifier = {
+			LEVEL = 9
+		}
+	}
+}
+
+urban_mine_resource_building_10 = {
+	construction_time = construction_time_3_years
+	can_construct_potential = {
+		terrain = ruined_city
+	}
+	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 10
+		}
+		holding_district_level_4_trigger = yes
+	}
+	is_enabled = { }
+	show_disabled = yes
+	can_construct = { }
+	cost_gold = resource_district_normal_tier_10_cost
+	province_modifier = {
+		building_slots_for_host_district = 4
+		trade_good_stone_production_add = mine_tier_10_main_resource
+		trade_good_iron_production_add = iron_mine_tier_10_main_resource
+		trade_good_copper_production_add = 50
+		trade_good_gold_production_add = 10
+		trade_good_silver_production_add = 15
+	}
+	province_government_modifier = {
+		not_parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_10_main_income
+	}
+	province_government_modifier = {
+		parameter = government_is_tribal
+		monthly_mining_tax = mine_resource_tier_10_main_income_tribal
+	}
+	market_modifier = {
+		trade_category_beasts_of_burden_sell_price_mult = price_basic_building_1
+	}
+	province_culture_modifier = {
+		parameter = industrious_productivity_bonus
+		trade_category_minerals_production_mult = 0.1
+		monthly_mining_tax = industrious_tradition_tax_bonus_high
+	}
+	trade_good_need = {
+		trade_good_category = trade_category_beasts_of_burden
+		amount = basic_resource_need
+		can_be_filled_multiple_times = 5
+		modifiers = {
+			province_modifier = {
+				trade_category_minerals_production_mult = mine_multiplier_per_beast_need
+				mining_tax_mult = tax_mult_per_production_need
+			}
+		}
+	}
+	on_complete = { }
+	ai_value = {
+		base = 10
+		ai_resource_building_staple_need_modifier = {
+			GOOD = trade_good_iron
+		}
+		directive_to_build_economy_modifier = yes
+		ai_market_staple_shortage_modifier = {
+			GOOD = trade_good_iron
+		}
+		ai_resource_district_upgrade_modifier = {
+			LEVEL = 10
+		}
+	}
+}

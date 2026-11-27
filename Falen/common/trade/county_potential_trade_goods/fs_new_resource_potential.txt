@@ -1,0 +1,507 @@
+# County groups generalize agricultural regions and coal basins to the mod map.
+
+trade_good_tobacco = {
+	counties = {
+		# Temperate Korean inland farmland and adjoining western lowlands
+		c_Ildong c_anak c_andeok c_andong c_angang c_anju c_anjung c_anmyeon
+		c_ansan c_anseong c_anui c_anyang c_asan c_baecheon c_baeka c_baekgu
+		c_bakcheon c_banghyeon c_bangjang c_beopjeon c_bian c_biin c_bitgaram c_boan
+		c_boeun c_bojeol c_boknae c_boksu c_bongcheon c_bonghwang c_bongnae c_bongsan
+		c_bongwha c_bongyang c_boryeong c_boseong c_buan c_bucheon c_buheung c_buleun
+		c_bupyeong c_burim c_buyeo c_byeokjin c_byeokseong c_byeongcheon c_byeonsan c_changdo
+		c_changnyeong c_changpyeong c_cheoldo c_cheolsan c_cheolwon c_cheonan c_cheonbong c_cheongdan
+		c_cheongdo c_cheongju c_cheongpung c_cheongri c_cheongsan c_cheongsong c_cheongtong c_cheongwon
+		c_cheongyang c_chilbo c_chilgok c_chilwon c_chodo c_chogye c_chuncheon c_chungju
+		c_chunhyang c_chunyang c_daebu c_daedeok c_daegu c_daegwanryeong c_daehyeong c_daejeon
+		c_daepyeong c_daesan c_dain c_damyang c_dangjin c_danjang c_danseong c_danyang
+		c_dasa c_deokdal c_deokeon c_deoksan c_dobong c_dohwa c_dolsan c_dongdang
+		c_dongducheon c_donggye c_dongha c_donghae c_dongjak c_dunnae c_east_gate c_east_pyongyang
+		c_eonyang c_eumseong c_euncheon c_eunpa c_eunpyeong c_eunryul c_eunsan c_eupjeo
+		c_g_gyeryong c_g_icheon c_g_jangseong c_g_namyang c_g_osan c_g_seolak c_gaeseong c_gaeun
+		c_gajo c_gamcheon c_gampo c_gangbuk c_gangdong c_ganghwa c_gangjin c_gangnam
+		c_gangneung c_gangryeong c_gangsang c_gangseo c_gapyeong c_garye c_gasan c_geochang
+		c_geogeum c_geoncheon c_geumcheon c_geumga c_geumgu c_geumgwang c_geumji c_geumma
+		c_geumreung c_geumsan c_geumwang c_geumyang c_gigye c_giheung c_gimcheon c_gimhwa
+		c_gimje c_gimpo c_gimsatgat c_girin c_gobu c_gochang c_goesan c_gogeum
+		c_goheung c_goja c_goksan c_gokseong c_gongju c_gongseong c_gonyang c_goryeong
+		c_goryeongsak c_gosan c_goseong c_goyang c_gumi c_gunbuk c_gundong c_gunnam
+		c_gunsan c_gunwi c_gurim c_guro c_gurye c_guryongpo c_guseong c_guwol
+		c_gwacheon c_gwanak c_gwanchon c_gwangdeok c_gwangjin c_gwangju c_gwangmyeong c_gwangsan
+		c_gwangyang c_gwanksan c_gwansan c_gwayeok c_gyeolseong c_gyeongju c_gyeongsan c_gyeryong
+		c_gyodong c_gyoha c_h_sinpyeong c_hadong c_haean c_haeju c_haemi c_haenam
+		c_haeri c_haeun c_hakbong c_hakgyo c_haman c_hamchang c_hamjong c_hampyeong
+		c_hamyang c_hamyeol c_hanam c_hanbando c_hanchon c_hansan c_hapcheon c_hayang
+		c_heungdeok c_heungdeok_gochang c_heungeop c_heunghae c_hoechang c_hoengseong c_hoeyang c_holdong
+		c_hongcheon c_honggyo c_hongju c_hongnong c_hongsan c_hwacheon c_hwachon c_hwado
+		c_hwanggan c_hwangju c_hwangsan c_hwanseong c_hwaryeong c_hwasun c_hwawon c_hwayang
+		c_hyangnam c_hyeonnae c_hyeonpung c_icheon c_iksan c_illo c_imcheon c_imgo
+		c_imha c_impi c_imsil c_incheon c_indong c_inje c_insan c_j_samsan
+		c_jaeryeong c_jain c_jangdan c_jangdo c_jangguk c_janggye c_jangheung c_janghowon
+		c_jangjeon c_jangpyeong c_jangrin c_jangsu c_jangyeon c_jecheon c_jeomchon c_jeongeup
+		c_jeongju c_jeongsan c_jeongseon c_jeonju c_jeungpyeong c_jinan c_jinbong c_jincheon
+		c_jinju c_jinsan c_jinseong c_jiphyeon c_jipyeong c_jochiwon c_joksong c_jongno
+		c_joyang c_juam c_jucheon c_judeok c_jukgok c_juksan c_jumunjin c_junggu
+		c_junghwa c_jungnang c_jungsan c_kaechon c_kangdong c_kangso c_koseong c_kumchon
+		c_kwangju c_maan c_maengsan c_mangyeong c_mapo c_mari c_maseok c_migeum
+		c_miryang c_muan c_mujang c_muju c_mungyeong c_munjeon c_munmak c_munsan
+		c_myeoncheon c_myeongsa c_naju c_nakan c_nakrang c_nampho c_nampo c_namsan
+		c_namwon c_neungseo c_nohwa c_nonsan c_noseong c_nowon c_nyongwon c_obong
+		c_ocheon c_oesamcheok c_okcheon c_okgang c_okgok c_okgwa c_okjong c_ongjin
+		c_onyang c_paju c_phungchon c_phyongsong c_phyongwon c_pocheon c_pohang c_pukchang
+		c_punggi c_pungsan c_pyeongchang c_pyeonggang c_pyeonghae c_pyeongtaek c_pyongyang c_ryeonsan
+		c_ryonggang c_ryonghwa c_ryongsong c_sabuk c_sacheon c_sadong c_samcheon c_samcheonpo
+		c_samchun c_samga c_samgot c_samgye c_samho c_samhwa c_samrangjin c_samsan
+		c_samsok c_sancheong c_sangdo c_sangju c_sangwon c_sapgyo c_sapyeong c_sariwon
+		c_seocheon c_seocho c_seogu c_seoheung c_seokbo c_seokgok c_seokmo c_seoncheon
+		c_seongbuk c_seongdong c_seongjeon c_seongju c_seongmae c_seongnam c_seongsan c_seongyeon
+		c_seonsan c_seosan c_seoseong c_seowon c_seungju c_sijong c_simcheon c_sinbuk
+		c_sinchang c_sincheon c_singye c_sinmi_i c_sinpyeong c_sinuiju c_sinwon c_sinyang
+		c_sogwan c_soheul c_sokcho c_sokri c_songchon c_songhwa c_songjeon c_songji
+		c_songpa c_songrim c_songu c_suan c_subuk c_sucheong c_sukchon c_sunan
+		c_sunchang c_suncheon c_sunchon c_sunheong c_sunwi c_suseong c_suwon c_taean
+		c_taebaek c_taebo c_taecheon c_taedong c_taehung c_taein c_taetan c_toji
+		c_tokchon c_tongcheon c_tongjin c_tosan c_uiheung c_uijeongbu c_uiju c_uiryeong
+		c_uiseong c_uljin c_ulju c_ulsan c_umil c_unam c_unbong c_ungsang
+		c_waegwan c_wando c_wangdang c_wanggok c_wangsan c_wanju c_west_gate c_wiwon
+		c_wolya c_wonju c_wonnam c_wonryong c_yangbuk c_yangcheon c_yangdok c_yangga
+		c_yanggu c_yangju c_yangpyeong c_yangsa c_yangsan c_yangseo c_yangseong c_yangyang
+		c_yean c_yecheon c_yeoju c_yeokgudo c_yeomjeon c_yeomsan c_yeonan c_yeoncheon
+		c_yeongam c_yeongbuk c_yeongcheon c_yeongchun c_yeongdeok c_yeongdeungpo c_yeongdong c_yeonggwang
+		c_yeonghae c_yeongi c_yeongjongdo c_yeongju c_yeongsan c_yeongwol c_yeongyang c_yeonpung
+		c_yeonsan c_yeontan c_yeosan c_yeosu c_yesan c_yongan c_yongcheon c_yonggung
+		c_yongin c_yongmun c_yongsan c_yongyeon c_yugu c_yuseong
+		# Liaoning and southern Jilin agricultural belts
+		c_aji c_anbo c_anshan c_baichuan c_baiqi c_bangita c_beizhen c_benxi
+		c_biaohe c_chagou c_changsun c_changyuan c_chaoyang c_chenyang c_chilihe c_chingbo
+		c_chinggouji c_dadingbao c_dahongchi c_dahushan c_dalian c_damintun c_dandung c_dapuchaihe
+		c_dashitou c_dasicha c_dawa c_daxing c_dayusubao c_dengta c_dischao c_donglai
+		c_dongliao c_dunggang c_dunhwa c_erdao c_erdaojang c_erziegou c_faanchian c_feidi
+		c_fengcheng c_fengman c_ganchuan c_ganjingzi c_gaolifang c_gaoshanzi c_gongjutun c_gouao
+		c_guanghua c_gungchangling c_gusan c_hadaji c_heishan c_hengdaoheji c_heyuan c_hicheong
+		c_hongqi c_houan c_huadian c_huashun c_huasulinji c_hunnan c_ingkou c_janchen
+		c_jeonan c_jian c_jianchang c_jiani c_jinjeu c_jinzhou c_jirin c_jisin
+		c_kaiyuan c_kuaidamao c_kuancheng c_kuandian c_laojou c_lenli c_liangsan c_liangshuei
+		c_liaotun c_liaoyang c_liaoyuan c_liaozhong c_linghai c_liuelbao c_longchang c_longjing
+		c_luyuan c_meitun c_mingsan c_mingyang c_nandian c_nanfen c_nanguan c_natanbo
+		c_niuxingding c_panjin c_pansan c_paotai c_port_arthur c_pulandian c_qianxiangtun c_salling
+		c_sanjiazi c_sankeyusu c_shenbei c_shenyang c_shiangdui c_shianjian c_shianledong c_shuangshanzi
+		c_shwangyang c_simenzi c_singjongtai c_sinmin c_siwen c_sujiatun c_suncheong c_suzigou
+		c_taian c_taihe c_taiping c_tangwei c_tieling c_tieshi c_tonggeolbao c_tuchengji
+		c_tumen c_tunghua c_ujiyu c_uliangdian c_ulongquan c_wafangdian c_xiaobao c_xiaoshi
+		c_xiaoyang c_xiazen c_xihu c_xingtai c_xinkai c_xipu c_xisan c_xiuangtai
+		c_xiuyan c_xutun c_yangjiabao c_yangmulin c_yangtuji c_yanji c_yanjia c_yi
+		c_yongyu c_yuantai c_yuji c_zhangchun c_zhengan c_zhuanghe
+		# Sheltered northeastern Korean valleys
+		c_gilju c_hoeryeong c_seongjin
+	}
+}
+
+trade_good_maize = {
+	counties = {
+		# Korean peninsula outside the coldest uplands
+		c_Ildong c_aewol c_anak c_anbyeon c_andeok c_andong c_angang c_anju
+		c_anjung c_anmyeon c_ansan c_anseong c_anui c_anyang c_asan c_baecheon
+		c_baeka c_baekgu c_bakcheon c_banghyeon c_bangjang c_beopjeon c_bian c_bigeum
+		c_biin c_bitgaram c_boan c_boeun c_bojeol c_boknae c_boksu c_bongcheon
+		c_bonghwang c_bongnae c_bongsan c_bongwha c_bongyang c_boryeong c_boseong c_buan
+		c_bucheon c_buheung c_bukcheong c_buleun c_bupyeong c_burim c_buryeong c_busan
+		c_buyeo c_byeokdong c_byeokjin c_byeokseong c_byeongcheon c_byeonsan c_changdo c_changnyeong
+		c_changpyeong c_changseon c_changseong c_changwon c_cheoldo c_cheolsan c_cheolwon c_cheonan
+		c_cheonbong c_cheongdan c_cheongdo c_cheongjin c_cheongju c_cheongpung c_cheongri c_cheongsan
+		c_cheongsong c_cheongtong c_cheongwon c_cheongyang c_chilbo c_chilgok c_chilwon c_chodo
+		c_chogye c_chosan c_chuncheon c_chungju c_chunhyang c_chunyang c_daebu c_daedeok
+		c_daedong c_daegu c_daegwanryeong c_daehyeong c_daejeon c_daepyeong c_daesan c_dain
+		c_damyang c_dancheon c_dangjin c_danjang c_danseong c_danyang c_dasa c_deokdal
+		c_deokeon c_deoksan c_deokwon c_dobong c_dohwa c_dolsan c_dongdang c_dongdo
+		c_dongducheon c_donggye c_dongha c_donghae c_dongjak c_dongrae c_dunnae c_east_gate
+		c_east_pyongyang c_easternbusan c_eonyang c_eumseong c_euncheon c_eunpa c_eunpyeong c_eunryul
+		c_eunsan c_eupjeo c_g_gyeryong c_g_icheon c_g_jangseong c_g_namyang c_g_osan c_g_seolak
+		c_gaeseong c_gaeun c_gajo c_gamcheon c_gampo c_gangbuk c_gangdong c_ganggye
+		c_ganghwa c_gangjin c_gangnam c_gangneung c_gangryeong c_gangsang c_gangseo c_gapyeong
+		c_garye c_gasan c_geochang c_geogeum c_geoje c_geoncheon c_geoseo c_geumcheon
+		c_geumga c_geumgu c_geumgwang c_geumji c_geumma c_geumreung c_geumsan c_geumwang
+		c_geumyang c_gicheon c_gigye c_giheung c_gijang c_gilju c_gimcheon c_gimhae
+		c_gimhwa c_gimje c_gimpo c_gimsatgat c_girin c_gobu c_gochang c_goesan
+		c_gogeum c_gogun c_goheung c_goja c_goksan c_gokseong c_gongju c_gongseong
+		c_gonyang c_goryeong c_goryeongsak c_gosan c_goseong c_gowon c_goyang c_guikseong
+		c_gumi c_gunbuk c_gundong c_gunnam c_gunsan c_gunwi c_gurim c_guro
+		c_gurye c_guryongpo c_guseong c_guwol c_gwacheon c_gwanak c_gwanchon c_gwangcheon
+		c_gwangdeok c_gwangdo c_gwangjin c_gwangju c_gwangmyeong c_gwangsan c_gwangyang c_gwanksan
+		c_gwansan c_gwayeok c_gwonhoe c_gyeolseong c_gyeongju c_gyeongsan c_gyeongwon c_gyeryong
+		c_gyodong c_gyoha c_h_deoksan c_h_gigok c_h_onseong c_h_sinchang c_h_sinpyeong c_hada
+		c_hadong c_haean c_haeju c_haemi c_haenam c_haengyeong c_haeri c_haeun
+		c_haga c_hakbong c_hakgyo c_haman c_hamchang c_hamheung c_hamjong c_hampyeong
+		c_hamyang c_hamyeol c_hanam c_hanbando c_hanchon c_hanjeon c_hankyeong c_hansan
+		c_hapcheon c_haui c_hayang c_heungdeok c_heungdeok_gochang c_heungeop c_heunghae c_heungnam
+		c_hoechang c_hoengseong c_hoeryeong c_hoewon c_hoeyang c_holdong c_hongcheon c_honggyo
+		c_hongju c_hongnong c_hongsan c_hongwon c_huicheon c_hwachang c_hwacheon c_hwachon
+		c_hwado c_hwanggan c_hwangju c_hwangsan c_hwanseong c_hwaryeong c_hwasun c_hwawon
+		c_hwayang c_hyangnam c_hyeonnae c_hyeonpung c_icheon c_iksan c_illo c_imcheon
+		c_imgo c_imha c_impi c_imsil c_incheon c_indong c_inje c_inpung
+		c_insan c_iwon c_j_andeok c_j_bongsan c_j_samsan c_j_seongsan c_j_wiwon c_jaeryeong
+		c_jain c_jangdan c_jangdo c_jangdong c_jangguk c_janggye c_jangheung c_janghowon
+		c_jangjeon c_jangpyeong c_jangrin c_jangseungpo c_jangsu c_jangto c_jangwon c_jangyeon
+		c_jaseong c_jecheon c_jeju c_jeomchon c_jeoncheon c_jeongeup c_jeongju c_jeongpyeong
+		c_jeongsan c_jeongseon c_jeonju c_jeungpyeong c_jido c_jinan c_jinbong c_jincheon
+		c_jindo c_jinhae c_jinju c_jinpyeong c_jinsan c_jinseong c_jinyeong c_jiphyeon
+		c_jipyeong c_jocheon c_jochiwon c_joksong c_jongno c_jongseong c_joyang c_juam
+		c_jucheon c_judeok c_jukgok c_juksan c_jumunjin c_junggu c_junghwa c_jungnang
+		c_jungsan c_kaechon c_kangdong c_kangso c_koseong c_kumchon c_kwangju c_maan
+		c_maengsan c_mangyeong c_manpo c_mapo c_mari c_masan c_maseok c_migeum
+		c_miryang c_mokpo c_muan c_mujang c_muju c_mulgeon c_muncheon c_mungyeong
+		c_munjeon c_munmak c_munsan c_musan c_myeoncheon c_myeongcheon c_myeongsa c_najin
+		c_naju c_nakan c_nakrang c_namhae c_nampho c_nampo c_namsan c_namwon
+		c_namyang c_neungseo c_nohwa c_nonsan c_noseong c_nowon c_nyongwon c_obong
+		c_ocheon c_oesamcheok c_okcheon c_okgang c_okgok c_okgwa c_okjong c_ongjin
+		c_onyang c_paju c_paleul c_phungchon c_phyongsong c_phyongwon c_pocheon c_pohang
+		c_pukchang c_punggi c_pungsan c_pyeongchang c_pyeonggang c_pyeonghae c_pyeongtaek c_pyongyang
+		c_pyoseon c_ryeonsan c_ryonggang c_ryonghwa c_ryongsong c_sabuk c_sacheon c_sadong
+		c_sakju c_samcheon c_samcheonpo c_samchun c_samga c_samgot c_samgye c_samhae
+		c_samho c_samhwa c_samrangjin c_samsan c_samsok c_sancheong c_sangdo c_sangju
+		c_sangwon c_sapgyo c_sapyeong c_sariwon c_seocheon c_seocho c_seogu c_seogwipo
+		c_seoheung c_seokbo c_seokgok c_seokmo c_seoncheon c_seongbuk c_seongdong c_seongjeon
+		c_seongjin c_seongju c_seongmae c_seongnam c_seongsan c_seongyeon c_seonsan c_seosan
+		c_seoseong c_seowon c_seungju c_sijong c_simcheon c_sinan c_sinbuk c_sinchang
+		c_sincheon c_singye c_sinheung c_sinmi_i c_sinpa c_sinpo c_sinpyeong c_sinsang
+		c_sinuiju c_sinwon c_sinyang c_sogwan c_soheul c_sokcho c_sokri c_songchon
+		c_songhwa c_songjeon c_songji c_songpa c_songrim c_songu c_suan c_subuk
+		c_sucheong c_sudong c_sukchon c_sunan c_sunchang c_suncheon c_sunchon c_sunheong
+		c_sunwi c_suseong c_suwon c_taean c_taebaek c_taebo c_taecheon c_taedong
+		c_taehung c_taein c_taepyeong c_taetan c_toji c_tokchon c_tongcheon c_tongjin
+		c_tongyeong c_tosan c_uichang c_uiheung c_uijeongbu c_uiju c_uiryeong c_uiseong
+		c_uljin c_ulju c_ulsan c_umil c_unam c_unbong c_ungi c_ungsang
+		c_unsan c_waegwan c_wando c_wangdang c_wanggok c_wangsan c_wanju c_west_gate
+		c_westernbusan c_wiwon c_wiyeon c_wolya c_wonju c_wonnam c_wonryong c_wonsan
+		c_y_cheongsan c_y_goseong c_y_yeonsan c_yangbuk c_yangcheon c_yangdok c_yangga c_yanggang
+		c_yanggu c_yangju c_yangpyeong c_yangsa c_yangsan c_yangseo c_yangseong c_yangyang
+		c_yean c_yecheon c_yeoju c_yeokgudo c_yeomjeon c_yeomsan c_yeonan c_yeoncheon
+		c_yeoncho c_yeongam c_yeongbuk c_yeongbyeon c_yeongcheon c_yeongchun c_yeongdeok c_yeongdeungpo
+		c_yeongdong c_yeonggo c_yeonggwang c_yeonghae c_yeongheung c_yeongi c_yeongjongdo c_yeongju
+		c_yeongsan c_yeongwol c_yeongyang c_yeonpung c_yeonsan c_yeonsang c_yeontan c_yeosan
+		c_yeosu c_yesan c_yodeok c_yongan c_yongcheon c_yongdeok c_yonggung c_yongin
+		c_yongmun c_yongsan c_yongwon c_yongyeon c_yugu c_yuseong
+		# Manchurian maize belt and southern Primorye agricultural valleys
+		c_aji c_anbo c_anji c_anshan c_antu c_anuchino c_arsenyev c_avramovka
+		c_badaogou c_baekshan c_bahao c_baichuan c_baiqi c_bajiaji c_balang c_bangita
+		c_barabashi c_beigang c_beijeng c_beizhen c_benxi c_biangang c_biaohe c_borisovka
+		c_chaganhua c_chagou c_changbai c_changling c_changsun c_changyuan c_chaoyang c_charukeu
+		c_chenyang c_chernigovka c_chikarovskoye c_chilihe c_chilong c_chingbo c_chinggouji c_chisong
+		c_chitamu c_chuguyevka c_coksyarovka c_dabusu c_dadingbao c_dahongchi c_dahushan c_dalian
+		c_damintun c_dandung c_dapuchaihe c_darinji c_dashitou c_dasicha c_dasiping c_dawa
+		c_daxing c_dayusubao c_dehui c_dengta c_dischao c_donglai c_dongliao c_dunggang
+		c_dunhwa c_erdao c_erdaojang c_erziegou c_faanchian c_faku c_fanjiatun c_feidi
+		c_fengbeibao c_fengcheng c_fengman c_fuidi c_ganchuan c_ganjingzi c_gaojiadian c_gaolifang
+		c_gaoshanzi c_gongjutun c_gorlos c_gouao c_guanghua c_gucheng c_gungchangling c_gungjuling
+		c_gusan c_guyusu c_h_daxing c_h_kaiyuan c_hadaji c_hadamen c_harbin c_heilinji
+		c_heishan c_hengdaoheji c_heyuan c_hicheong c_hiching c_holol c_hongqi c_hongxing
+		c_houan c_houmisiang c_huadian c_huangyuquan c_huanren c_huashun c_huasulinji c_huhechelli
+		c_humanuma c_hunchun c_hunnan c_hwaryong c_illinka c_ingkou c_ivanovka c_janchen
+		c_janyu c_jaoyuan c_jeonan c_jeongseng c_jian c_jianchang c_jiani c_jinjeu
+		c_jinzhou c_jirin c_jisin c_jiweisan c_juchengji c_jutai c_kaiyuan c_kamenrybolov
+		c_kangping c_khasan c_kirovski c_korsakovka c_kuaidamao c_kuancheng c_kuandian c_lakovka
+		c_laojou c_lenli c_liangsan c_liangshuei c_liaotun c_liaoyang c_liaoyuan c_liaozhong
+		c_linghai c_linhai c_linzhang c_lipovchi c_lisu c_liuelbao c_liujia c_longchang
+		c_longjing c_longwang c_luyuan c_mariyanovka c_meitun c_menjialing c_mijingji c_mikhailrovka
+		c_mingsan c_mingyang c_muqi c_nandian c_nanfen c_nanguan c_natanbo c_ningjang
+		c_niuxingding c_novodemicha c_novogeorgiyevka c_nungan c_orenebod c_panjin c_pansan c_paotai
+		c_pingandi c_pogranichny c_pokrovka c_port_arthur c_pulandian c_pussung c_puwi c_qenan
+		c_qianxiangtun c_qinjiatun c_salling c_sanjiazi c_sankeyusu c_sengdanjiang c_shajianzi c_shanchingshan
+		c_shansengyu c_shenbei c_shenyang c_shiangdui c_shianjian c_shianledong c_shinsianbao c_shuangliao
+		c_shuangshan c_shuangshanzi c_shwangyang c_simenzi c_sinbin c_singingyu c_singjongtai c_singtunji
+		c_sinmin c_sivilchevo c_siwen c_slavyankya c_songjiang c_spasskdalny c_sujiatun c_sulichuliu
+		c_suncheong c_suzigou c_taian c_taihe c_taiping c_tangwei c_taonan c_tieling
+		c_tieshi c_tokosik c_tonggang c_tonggeolbao c_tuchengji c_tumen c_tunghua c_tungwi
+		c_ujiyu c_ulan_tuga c_uliangdian c_ulongquan c_usurisk c_vuriga_padeyebo c_wafangdian c_wanbao
+		c_wangching c_wangfuzhan c_wangqingmen c_wanpa c_wisu c_xiaobao c_xiaochengzi c_xiaokui
+		c_xiaoshi c_xiaoyang c_xiazen c_xidaogou c_xihe c_xihecheng c_xihu c_xinglongsan
+		c_xingtai c_xinkai c_xinli c_xinping c_xipu c_xisan c_xiu c_xiuangtai
+		c_xiushui c_xiuyan c_xuanglong c_xutun c_yangjiabao c_yangmulin c_yangtuji c_yanji
+		c_yanjia c_yaroslavski c_yi c_yongyu c_yuantai c_yuji c_yujijie c_zangwian
+		c_zarikovo c_zarubino c_zhangchun c_zhengan c_zhuanghe c_zingwi
+	}
+}
+
+trade_good_chili = {
+	counties = {
+		# Korean temperate lowlands and inland basins
+		c_Ildong c_aewol c_anak c_anbyeon c_andeok c_andong c_angang c_anju
+		c_anjung c_anmyeon c_ansan c_anseong c_anui c_anyang c_asan c_baecheon
+		c_baeka c_baekgu c_bakcheon c_banghyeon c_bangjang c_beopjeon c_bian c_bigeum
+		c_biin c_bitgaram c_boan c_boeun c_bojeol c_boknae c_boksu c_bongcheon
+		c_bonghwang c_bongnae c_bongsan c_bongwha c_bongyang c_boryeong c_boseong c_buan
+		c_bucheon c_buheung c_buleun c_bupyeong c_burim c_busan c_buyeo c_byeokjin
+		c_byeokseong c_byeongcheon c_byeonsan c_changdo c_changnyeong c_changpyeong c_changseon c_changwon
+		c_cheoldo c_cheolsan c_cheolwon c_cheonan c_cheonbong c_cheongdan c_cheongdo c_cheongju
+		c_cheongpung c_cheongri c_cheongsan c_cheongsong c_cheongtong c_cheongwon c_cheongyang c_chilbo
+		c_chilgok c_chilwon c_chodo c_chogye c_chuncheon c_chungju c_chunhyang c_chunyang
+		c_daebu c_daedeok c_daedong c_daegu c_daegwanryeong c_daehyeong c_daejeon c_daepyeong
+		c_daesan c_dain c_damyang c_dangjin c_danjang c_danseong c_danyang c_dasa
+		c_deokdal c_deokeon c_deoksan c_deokwon c_dobong c_dohwa c_dolsan c_dongdang
+		c_dongducheon c_donggye c_dongha c_donghae c_dongjak c_dongrae c_dunnae c_east_gate
+		c_east_pyongyang c_easternbusan c_eonyang c_eumseong c_euncheon c_eunpa c_eunpyeong c_eunryul
+		c_eunsan c_eupjeo c_g_gyeryong c_g_icheon c_g_jangseong c_g_namyang c_g_osan c_g_seolak
+		c_gaeseong c_gaeun c_gajo c_gamcheon c_gampo c_gangbuk c_gangdong c_ganghwa
+		c_gangjin c_gangnam c_gangneung c_gangryeong c_gangsang c_gangseo c_gapyeong c_garye
+		c_gasan c_geochang c_geogeum c_geoje c_geoncheon c_geumcheon c_geumga c_geumgu
+		c_geumgwang c_geumji c_geumma c_geumreung c_geumsan c_geumwang c_geumyang c_gigye
+		c_giheung c_gijang c_gimcheon c_gimhae c_gimhwa c_gimje c_gimpo c_gimsatgat
+		c_girin c_gobu c_gochang c_goesan c_gogeum c_gogun c_goheung c_goja
+		c_goksan c_gokseong c_gongju c_gongseong c_gonyang c_goryeong c_goryeongsak c_gosan
+		c_goseong c_gowon c_goyang c_gumi c_gunbuk c_gundong c_gunnam c_gunsan
+		c_gunwi c_gurim c_guro c_gurye c_guryongpo c_guseong c_guwol c_gwacheon
+		c_gwanak c_gwanchon c_gwangdeok c_gwangdo c_gwangjin c_gwangju c_gwangmyeong c_gwangsan
+		c_gwangyang c_gwanksan c_gwansan c_gwayeok c_gyeolseong c_gyeongju c_gyeongsan c_gyeryong
+		c_gyodong c_gyoha c_h_sinpyeong c_hadong c_haean c_haeju c_haemi c_haenam
+		c_haeri c_haeun c_hakbong c_hakgyo c_haman c_hamchang c_hamjong c_hampyeong
+		c_hamyang c_hamyeol c_hanam c_hanbando c_hanchon c_hankyeong c_hansan c_hapcheon
+		c_haui c_hayang c_heungdeok c_heungdeok_gochang c_heungeop c_heunghae c_hoechang c_hoengseong
+		c_hoewon c_hoeyang c_holdong c_hongcheon c_honggyo c_hongju c_hongnong c_hongsan
+		c_hwacheon c_hwachon c_hwado c_hwanggan c_hwangju c_hwangsan c_hwanseong c_hwaryeong
+		c_hwasun c_hwawon c_hwayang c_hyangnam c_hyeonnae c_hyeonpung c_icheon c_iksan
+		c_illo c_imcheon c_imgo c_imha c_impi c_imsil c_incheon c_indong
+		c_inje c_insan c_j_andeok c_j_samsan c_j_seongsan c_jaeryeong c_jain c_jangdan
+		c_jangdo c_jangguk c_janggye c_jangheung c_janghowon c_jangjeon c_jangpyeong c_jangrin
+		c_jangseungpo c_jangsu c_jangwon c_jangyeon c_jecheon c_jeju c_jeomchon c_jeongeup
+		c_jeongju c_jeongpyeong c_jeongsan c_jeongseon c_jeonju c_jeungpyeong c_jido c_jinan
+		c_jinbong c_jincheon c_jindo c_jinhae c_jinju c_jinpyeong c_jinsan c_jinseong
+		c_jinyeong c_jiphyeon c_jipyeong c_jocheon c_jochiwon c_joksong c_jongno c_joyang
+		c_juam c_jucheon c_judeok c_jukgok c_juksan c_jumunjin c_junggu c_junghwa
+		c_jungnang c_jungsan c_kaechon c_kangdong c_kangso c_koseong c_kumchon c_kwangju
+		c_maan c_maengsan c_mangyeong c_mapo c_mari c_masan c_maseok c_migeum
+		c_miryang c_mokpo c_muan c_mujang c_muju c_mulgeon c_muncheon c_mungyeong
+		c_munjeon c_munmak c_munsan c_myeoncheon c_myeongsa c_naju c_nakan c_nakrang
+		c_namhae c_nampho c_nampo c_namsan c_namwon c_neungseo c_nohwa c_nonsan
+		c_noseong c_nowon c_nyongwon c_obong c_ocheon c_oesamcheok c_okcheon c_okgang
+		c_okgok c_okgwa c_okjong c_ongjin c_onyang c_paju c_phungchon c_phyongsong
+		c_phyongwon c_pocheon c_pohang c_pukchang c_punggi c_pungsan c_pyeongchang c_pyeonggang
+		c_pyeonghae c_pyeongtaek c_pyongyang c_pyoseon c_ryeonsan c_ryonggang c_ryonghwa c_ryongsong
+		c_sabuk c_sacheon c_sadong c_samcheon c_samcheonpo c_samchun c_samga c_samgot
+		c_samgye c_samho c_samhwa c_samrangjin c_samsan c_samsok c_sancheong c_sangdo
+		c_sangju c_sangwon c_sapgyo c_sapyeong c_sariwon c_seocheon c_seocho c_seogu
+		c_seogwipo c_seoheung c_seokbo c_seokgok c_seokmo c_seoncheon c_seongbuk c_seongdong
+		c_seongjeon c_seongju c_seongmae c_seongnam c_seongsan c_seongyeon c_seonsan c_seosan
+		c_seoseong c_seowon c_seungju c_sijong c_simcheon c_sinan c_sinbuk c_sinchang
+		c_sincheon c_singye c_sinmi_i c_sinpyeong c_sinsang c_sinuiju c_sinwon c_sinyang
+		c_sogwan c_soheul c_sokcho c_sokri c_songchon c_songhwa c_songjeon c_songji
+		c_songpa c_songrim c_songu c_suan c_subuk c_sucheong c_sudong c_sukchon
+		c_sunan c_sunchang c_suncheon c_sunchon c_sunheong c_sunwi c_suseong c_suwon
+		c_taean c_taebaek c_taebo c_taecheon c_taedong c_taehung c_taein c_taetan
+		c_toji c_tokchon c_tongcheon c_tongjin c_tongyeong c_tosan c_uichang c_uiheung
+		c_uijeongbu c_uiju c_uiryeong c_uiseong c_uljin c_ulju c_ulsan c_umil
+		c_unam c_unbong c_ungsang c_waegwan c_wando c_wangdang c_wanggok c_wangsan
+		c_wanju c_west_gate c_westernbusan c_wiwon c_wolya c_wonju c_wonnam c_wonryong
+		c_wonsan c_yangbuk c_yangcheon c_yangdok c_yangga c_yanggu c_yangju c_yangpyeong
+		c_yangsa c_yangsan c_yangseo c_yangseong c_yangyang c_yean c_yecheon c_yeoju
+		c_yeokgudo c_yeomjeon c_yeomsan c_yeonan c_yeoncheon c_yeoncho c_yeongam c_yeongbuk
+		c_yeongcheon c_yeongchun c_yeongdeok c_yeongdeungpo c_yeongdong c_yeonggwang c_yeonghae c_yeongheung
+		c_yeongi c_yeongjongdo c_yeongju c_yeongsan c_yeongwol c_yeongyang c_yeonpung c_yeonsan
+		c_yeontan c_yeosan c_yeosu c_yesan c_yodeok c_yongan c_yongcheon c_yonggung
+		c_yongin c_yongmun c_yongsan c_yongyeon c_yugu c_yuseong
+		# Southern Manchurian valleys and plains
+		c_aji c_anbo c_anshan c_baichuan c_baiqi c_bangita c_beizhen c_benxi
+		c_chagou c_changsun c_changyuan c_chaoyang c_chenyang c_chilihe c_chingbo c_dadingbao
+		c_dahongchi c_dahushan c_dalian c_damintun c_dandung c_dasicha c_dawa c_daxing
+		c_dayusubao c_dengta c_dischao c_donglai c_dongliao c_dunggang c_erdaojang c_erziegou
+		c_faanchian c_feidi c_fengcheng c_ganchuan c_ganjingzi c_gaolifang c_gaoshanzi c_gongjutun
+		c_gouao c_guanghua c_gungchangling c_gusan c_hadaji c_heishan c_heyuan c_hicheong
+		c_hongqi c_houan c_huashun c_hunnan c_ingkou c_janchen c_jeonan c_jian
+		c_jianchang c_jiani c_jinjeu c_jinzhou c_jisin c_kaiyuan c_kuaidamao c_kuandian
+		c_laojou c_lenli c_liangsan c_liangshuei c_liaotun c_liaoyang c_liaoyuan c_liaozhong
+		c_linghai c_liuelbao c_longchang c_longjing c_meitun c_mingsan c_mingyang c_nandian
+		c_nanfen c_natanbo c_niuxingding c_panjin c_pansan c_paotai c_port_arthur c_pulandian
+		c_qianxiangtun c_salling c_sanjiazi c_sankeyusu c_shenbei c_shenyang c_shiangdui c_shianjian
+		c_shianledong c_shuangshanzi c_simenzi c_singjongtai c_sinmin c_siwen c_sujiatun c_suncheong
+		c_suzigou c_taian c_taihe c_taiping c_tangwei c_tieling c_tieshi c_tonggeolbao
+		c_tumen c_tunghua c_ujiyu c_uliangdian c_ulongquan c_wafangdian c_xiaobao c_xiaoshi
+		c_xiaoyang c_xiazen c_xihu c_xingtai c_xinkai c_xipu c_xisan c_xiuangtai
+		c_xiuyan c_xutun c_yangjiabao c_yangmulin c_yangtuji c_yanji c_yanjia c_yi
+		c_yongyu c_yuantai c_yuji c_zhengan c_zhuanghe
+	}
+}
+
+trade_good_sweet_potato = {
+	counties = {
+		# Southern and central Korean warm-season farming districts
+		c_Ildong c_aewol c_andeok c_andong c_angang c_anjung c_anmyeon c_ansan
+		c_anseong c_anui c_anyang c_asan c_baeka c_baekgu c_beopjeon c_bian
+		c_bigeum c_biin c_bitgaram c_boan c_boeun c_bojeol c_boknae c_bonghwang
+		c_bongnae c_bongwha c_bongyang c_boryeong c_boseong c_buan c_bucheon c_buleun
+		c_bupyeong c_burim c_busan c_buyeo c_byeokjin c_byeongcheon c_byeonsan c_changnyeong
+		c_changpyeong c_changseon c_changwon c_cheonan c_cheongdo c_cheongju c_cheongpung c_cheongri
+		c_cheongsan c_cheongsong c_cheongtong c_cheongwon c_cheongyang c_chilbo c_chilgok c_chilwon
+		c_chogye c_chungju c_chunhyang c_chunyang c_daebu c_daedeok c_daedong c_daegu
+		c_daejeon c_daepyeong c_daesan c_dain c_damyang c_dangjin c_danjang c_danseong
+		c_danyang c_dasa c_deoksan c_dobong c_dohwa c_dolsan c_dongducheon c_donggye
+		c_dongjak c_dongrae c_east_gate c_easternbusan c_eonyang c_eumseong c_eunpyeong c_g_gyeryong
+		c_g_icheon c_g_jangseong c_g_namyang c_g_osan c_g_seolak c_gaeseong c_gaeun c_gajo
+		c_gamcheon c_gampo c_gangbuk c_gangdong c_ganghwa c_gangjin c_gangnam c_gangsang
+		c_gangseo c_gapyeong c_garye c_geochang c_geogeum c_geoje c_geoncheon c_geumcheon
+		c_geumga c_geumgu c_geumgwang c_geumji c_geumma c_geumreung c_geumsan c_geumwang
+		c_geumyang c_gigye c_giheung c_gijang c_gimcheon c_gimhae c_gimje c_gimpo
+		c_gobu c_gochang c_goesan c_gogeum c_gogun c_goheung c_goja c_gokseong
+		c_gongju c_gongseong c_gonyang c_goryeong c_gosan c_goseong c_goyang c_gumi
+		c_gunbuk c_gundong c_gunnam c_gunsan c_gunwi c_gurim c_guro c_gurye
+		c_guryongpo c_gwacheon c_gwanak c_gwanchon c_gwangdeok c_gwangdo c_gwangjin c_gwangju
+		c_gwangsan c_gwangyang c_gwansan c_gwayeok c_gyeolseong c_gyeongju c_gyeongsan c_gyeryong
+		c_gyodong c_gyoha c_hadong c_haean c_haemi c_haenam c_haeri c_hakgyo
+		c_haman c_hamchang c_hampyeong c_hamyang c_hamyeol c_hanam c_hankyeong c_hansan
+		c_hapcheon c_haui c_hayang c_heungdeok c_heungdeok_gochang c_heunghae c_hoewon c_honggyo
+		c_hongju c_hongnong c_hongsan c_hwado c_hwanggan c_hwangsan c_hwanseong c_hwaryeong
+		c_hwasun c_hwawon c_hwayang c_hyangnam c_hyeonpung c_iksan c_illo c_imcheon
+		c_imgo c_imha c_impi c_imsil c_incheon c_indong c_j_andeok c_j_samsan
+		c_j_seongsan c_jain c_jangdan c_jangdo c_janggye c_jangheung c_janghowon c_jangpyeong
+		c_jangseungpo c_jangsu c_jecheon c_jeju c_jeomchon c_jeongeup c_jeongsan c_jeonju
+		c_jeungpyeong c_jido c_jinan c_jinbong c_jincheon c_jindo c_jinhae c_jinju
+		c_jinsan c_jinseong c_jinyeong c_jiphyeon c_jipyeong c_jocheon c_jochiwon c_jongno
+		c_juam c_jucheon c_judeok c_jukgok c_juksan c_junggu c_jungnang c_kwangju
+		c_mangyeong c_mapo c_mari c_masan c_maseok c_migeum c_miryang c_mokpo
+		c_muan c_mujang c_muju c_mulgeon c_mungyeong c_munsan c_myeoncheon c_naju
+		c_nakan c_namhae c_nampo c_namwon c_neungseo c_nohwa c_nonsan c_noseong
+		c_nowon c_ocheon c_okcheon c_okgok c_okgwa c_okjong c_onyang c_paju
+		c_pocheon c_pohang c_punggi c_pungsan c_pyeonghae c_pyeongtaek c_pyoseon c_sacheon
+		c_samcheonpo c_samga c_samgot c_samgye c_samho c_samrangjin c_samsan c_sancheong
+		c_sangdo c_sangju c_sapgyo c_sapyeong c_seocheon c_seocho c_seogu c_seogwipo
+		c_seokbo c_seokgok c_seokmo c_seongbuk c_seongdong c_seongjeon c_seongju c_seongnam
+		c_seongsan c_seongyeon c_seonsan c_seosan c_seowon c_seungju c_sijong c_sinan
+		c_sinchang c_soheul c_sokri c_songji c_songpa c_subuk c_sunchang c_suncheon
+		c_sunheong c_suseong c_suwon c_taean c_taein c_toji c_tongjin c_tongyeong
+		c_uichang c_uiheung c_uijeongbu c_uiryeong c_uiseong c_uljin c_ulju c_ulsan
+		c_unam c_unbong c_ungsang c_waegwan c_wando c_wanggok c_wanju c_west_gate
+		c_westernbusan c_wolya c_yangbuk c_yangcheon c_yangju c_yangpyeong c_yangsa c_yangsan
+		c_yangseo c_yangseong c_yean c_yecheon c_yeoju c_yeomsan c_yeoncheon c_yeoncho
+		c_yeongam c_yeongbuk c_yeongcheon c_yeongchun c_yeongdeok c_yeongdeungpo c_yeongdong c_yeonggwang
+		c_yeonghae c_yeongi c_yeongjongdo c_yeongju c_yeongsan c_yeongyang c_yeonpung c_yeonsan
+		c_yeosan c_yeosu c_yesan c_yongan c_yonggung c_yongin c_yongmun c_yongsan
+		c_yugu c_yuseong
+		# Mild Korean coastal extensions and southwestern northern lowlands
+		c_anak c_baecheon c_bongcheon c_buheung c_byeokseong c_cheonbong c_cheongdan c_chodo
+		c_deokdal c_euncheon c_eunryul c_eupjeo c_gangneung c_gangryeong c_guwol c_haeju
+		c_haeun c_hamjong c_hanchon c_jaeryeong c_jangguk c_jangrin c_jangyeon c_joksong
+		c_jumunjin c_jungsan c_kangso c_koseong c_myeongsa c_nampho c_ongjin c_phungchon
+		c_ryonggang c_samcheon c_samhwa c_sincheon c_sinpyeong c_sinwon c_sokcho c_songhwa
+		c_sunwi c_taetan c_wangsan c_wonryong c_yangyang c_yeokgudo c_yeomjeon c_yeonan
+		c_yongyeon
+		# Liaodong peninsula and adjoining southern Liaoning lowlands
+		c_anbo c_anshan c_baiqi c_chagou c_changsun c_changyuan c_chenyang c_chingbo
+		c_dahongchi c_dalian c_damintun c_dandung c_dasicha c_daxing c_dischao c_dunggang
+		c_faanchian c_fengcheng c_ganchuan c_ganjingzi c_gongjutun c_gouao c_gusan c_heyuan
+		c_hicheong c_hongqi c_ingkou c_janchen c_jeonan c_jiani c_jinzhou c_kuandian
+		c_laojou c_lenli c_liangsan c_liaozhong c_mingyang c_paotai c_port_arthur c_pulandian
+		c_sanjiazi c_shiangdui c_shianjian c_shianledong c_shuangshanzi c_simenzi c_singjongtai c_sinmin
+		c_suzigou c_taiping c_tangwei c_ulongquan c_wafangdian c_xingtai c_xiuangtai c_xiuyan
+		c_xutun c_yangjiabao c_yongyu c_yuantai c_zhuanghe
+	}
+}
+
+trade_good_opium = {
+	counties = {
+		# Temperate Korean interior basins, including Andong and its surroundings
+		c_Ildong c_andeok c_andong c_beopjeon c_bian c_boeun c_bojeol c_bongwha
+		c_bongyang c_byeokjin c_changdo c_cheolwon c_cheongdo c_cheongpung c_cheongri c_cheongsan
+		c_cheongsong c_cheongtong c_chilgok c_chuncheon c_chungju c_chunyang c_daedeok c_daegu
+		c_daejeon c_dain c_danyang c_dasa c_deoksan c_dongducheon c_dunnae c_eumseong
+		c_gaeun c_gamcheon c_geumga c_geumji c_geumreung c_geumsan c_geumwang c_gimcheon
+		c_gimhwa c_girin c_goesan c_gongseong c_goryeong c_gumi c_gunnam c_gunwi
+		c_gwanchon c_gyeongsan c_haean c_hamchang c_hayang c_heungeop c_hoengseong c_hongcheon
+		c_hwacheon c_hwachon c_hwanggan c_hwaryeong c_hwawon c_hwayang c_hyeonnae c_hyeonpung
+		c_imgo c_imha c_imsil c_indong c_inje c_jain c_janggye c_jangsu
+		c_jecheon c_jeomchon c_jeungpyeong c_jinan c_jincheon c_jinsan c_jucheon c_judeok
+		c_muju c_mungyeong c_munmak c_namsan c_namwon c_okcheon c_pocheon c_punggi
+		c_pungsan c_pyeonggang c_samgot c_sangju c_seokbo c_seongju c_seongsan c_seonsan
+		c_sinbuk c_soheul c_sokri c_sunheong c_suseong c_uiheung c_uiseong c_unam
+		c_unbong c_waegwan c_wonju c_wonnam c_yanggu c_yean c_yecheon c_yeoncheon
+		c_yeongbuk c_yeongcheon c_yeongchun c_yeongdong c_yeongju c_yeongyang c_yeonpung c_yonggung
+		c_yongmun c_yuseong
+		# Northern Korean inland valleys outside the highest plateaus
+		c_anju c_banghyeon c_byeokdong c_chilpyeong c_chosan c_daehyeong c_dongdo c_eunpa
+		c_eunsan c_gaeseong c_ganggye c_gangsang c_goksan c_guikseong c_guseong c_gwangdeok
+		c_gwangmyeong c_gwonhoe c_hanjeon c_hoechang c_honggyo c_huchang c_huicheon c_insan
+		c_jangdan c_jangdo c_jangdong c_jangto c_jaseong c_jeoncheon c_joyang c_kaechon
+		c_maengsan c_manpo c_nyongwon c_phyongsong c_phyongwon c_pukchang c_ryeonsan c_ryonghwa
+		c_sangdo c_seoheung c_seongmae c_singye c_sinyang c_sogwan c_songchon c_suan
+		c_sukchon c_sunan c_sunchon c_taehung c_taepyeong c_tokchon c_unsan c_wangdang
+		c_wiyeon c_y_goseong c_y_yeonsan c_yangdok c_yanggang c_yeongbyeon
+		# Drier continental Manchurian basins
+		c_aji c_anji c_anshan c_antu c_baichuan c_bajiaji c_balang c_bangita
+		c_beijeng c_beizhen c_benxi c_chaganhua c_chagou c_changling c_chaoyang c_chilihe
+		c_chilong c_chingbo c_chinggouji c_dabusu c_dadingbao c_dahongchi c_dahushan c_damintun
+		c_dashitou c_dasiping c_dawa c_dayusubao c_dengta c_dischao c_donglai c_dongliao
+		c_dunhwa c_erdaojang c_erziegou c_faku c_fanjiatun c_feidi c_fengbeibao c_fuidi
+		c_ganchuan c_gaolifang c_gaoshanzi c_gongjutun c_gorlos c_gouao c_guanghua c_gucheng
+		c_gungchangling c_gungjuling c_guyusu c_h_daxing c_hadaji c_heilinji c_heishan c_hicheong
+		c_hiching c_hongxing c_houan c_houmisiang c_huanren c_huashun c_huhechelli c_humanuma
+		c_hunnan c_hwaryong c_ingkou c_janchen c_janyu c_jian c_jianchang c_jiani
+		c_jinjeu c_jisin c_jiweisan c_kaiyuan c_kangping c_kuaidamao c_lenli c_liangsan
+		c_liangshuei c_liaotun c_liaoyang c_liaoyuan c_liaozhong c_linghai c_linhai c_lisu
+		c_liuelbao c_longchang c_longjing c_meitun c_menjialing c_mingsan c_muqi c_nandian
+		c_nanfen c_natanbo c_niuxingding c_panjin c_pansan c_pingandi c_qenan c_qianxiangtun
+		c_qinjiatun c_salling c_sankeyusu c_shajianzi c_shanchingshan c_shenbei c_shenyang c_shinsianbao
+		c_shuangliao c_shuangshan c_sinbin c_singjongtai c_sinmin c_siwen c_songjiang c_sujiatun
+		c_suncheong c_taian c_taihe c_taonan c_tieling c_tieshi c_tonggeolbao c_tumen
+		c_tunghua c_tungwi c_ujiyu c_ulan_tuga c_uliangdian c_wanbao c_wangfuzhan c_wangqingmen
+		c_wanpa c_xiaobao c_xiaochengzi c_xiaokui c_xiaoshi c_xiaoyang c_xiazen c_xihecheng
+		c_xihu c_xinglongsan c_xinkai c_xinping c_xipu c_xisan c_xiu c_xuanglong
+		c_yangmulin c_yangtuji c_yanji c_yanjia c_yi c_yuji c_zhengan
+	}
+}
+
+trade_good_coal = {
+	counties = {
+		# Taebaek-Samcheok, Jeongseon-Yeongwol, Gangneung, Danyang, Mungyeong and Boeun coalfields with neighboring districts
+		c_boeun c_cheongpung c_cheongri c_chungju c_daegwanryeong c_danyang c_donghae c_dunnae
+		c_gaeun c_gangneung c_geumga c_gimsatgat c_goesan c_gongseong c_hamchang c_hanbando
+		c_heungeop c_hoengseong c_hwaryeong c_jecheon c_jeomchon c_jeongseon c_jeungpyeong c_judeok
+		c_jumunjin c_mungyeong c_munmak c_oesamcheok c_pyeongchang c_sabuk c_sangju c_sokri
+		c_taebaek c_wangsan c_wonju c_yeongchun c_yeongwol c_yeonpung c_yonggung c_yongmun
+		# Chungnam and Honam coalfields with adjoining inland districts
+		c_baeka c_boryeong c_buyeo c_changpyeong c_cheongyang c_chunhyang c_damyang c_g_jangseong
+		c_gokseong c_gyeolseong c_hongju c_hongsan c_hwasun c_imcheon c_jeongsan c_juam
+		c_jukgok c_nakan c_nampo c_ocheon c_okgwa c_samgye c_sapgyo c_sapyeong
+		c_seokgok c_seungju c_subuk c_suncheon c_yesan
+		# Anju, Sunchon, Kaechon, Tokchon, Pukchang and the wider Pyongan coal basin
+		c_anju c_bakcheon c_bongsan c_cheoldo c_east_pyongyang c_eunpa c_eunsan c_gwangmyeong
+		c_haeun c_hamjong c_hoechang c_hwangju c_insan c_joksong c_joyang c_junghwa
+		c_jungsan c_kaechon c_kangdong c_kangso c_maengsan c_nakrang c_nampho c_nyongwon
+		c_obong c_phyongsong c_phyongwon c_pukchang c_pyongyang c_ryonggang c_ryonghwa c_ryongsong
+		c_samhwa c_samsok c_sangwon c_sariwon c_seoseong c_sinyang c_songchon c_songrim
+		c_songu c_sukchon c_sunan c_sunchon c_taebo c_taecheon c_taedong c_taehung
+		c_taepyeong c_tokchon c_unsan c_wiyeon c_y_goseong c_y_yeonsan c_yangdok c_yangga
+		c_yeongbyeon c_yeontan
+		# Hamgyong coalfields and neighboring coastal valleys
+		c_anbyeon c_bukcheong c_buryeong c_cheongjin c_dancheon c_deokwon c_geoseo c_gicheon
+		c_gilju c_gowon c_gwangcheon c_gyeongwon c_h_deoksan c_h_gigok c_h_onseong c_h_sinchang
+		c_hada c_haengyeong c_haga c_hamheung c_heungnam c_hoeryeong c_hongwon c_iwon
+		c_jangwon c_jeongpyeong c_jinpyeong c_jongseong c_muncheon c_myeongcheon c_najin c_namyang
+		c_paleul c_samhae c_seongjin c_sinpo c_sinsang c_sudong c_wonsan c_yeongheung
+		c_yodeok c_yongdeok c_yongwon
+		# Fushun-Shenbei, Fuxin, Benxi, Liaoyuan and neighboring Manchurian coal basins
+		c_aji c_baekshan c_baichuan c_beizhen c_benxi c_chilihe c_chilong c_chisong
+		c_dadingbao c_dahushan c_dayusubao c_donglai c_dongliao c_erdaojang c_faku c_fanjiatun
+		c_feidi c_fengbeibao c_fuidi c_gaoshanzi c_guanghua c_gungjuling c_guyusu c_hadaji
+		c_heilinji c_heishan c_houan c_houmisiang c_hunnan c_jianchang c_jiweisan c_kaiyuan
+		c_kangping c_kuaidamao c_liaotun c_liaoyuan c_linhai c_lisu c_meitun c_menjialing
+		c_mingsan c_nandian c_nanfen c_natanbo c_niuxingding c_pingandi c_qianxiangtun c_qinjiatun
+		c_sankeyusu c_shenbei c_shenyang c_shuangliao c_shuangshan c_siwen c_sujiatun c_suncheong
+		c_tieling c_tieshi c_tunghua c_ujiyu c_uliangdian c_wanpa c_xiaobao c_xiaochengzi
+		c_xiaokui c_xiaoshi c_xiaoyang c_xihecheng c_xihu c_xiu c_xuanglong c_yangmulin
+		c_yi c_zangwian c_zhengan c_zingwi
+		# Artyom, Partizansk, Pavlovka and neighboring southern Primorye coal-bearing districts
+		c_anuchino c_arsenyev c_artyom c_avramovka c_bolshoy_kamen c_borisovka c_chuguyevka c_coksyarovka
+		c_fokino c_holol c_ivanovka c_korsakovka c_lakovka c_lipovchi c_mariyanovka c_mikhailrovka
+		c_nadezhdinski c_nakhodka c_novodemicha c_novogeorgiyevka c_partizansk c_pokrovka c_sergeyevca c_sivilchevo
+		c_smolyanibono c_usurisk c_vladivostok c_volchanetz c_vuriga_padeyebo c_yaroslavski
+	}
+}
+
+trade_good_ginseng = {
+	counties = {
+		# Established Korean production centers: Geumsan, Punggi, Jinan, Kaesong and Ganghwa
+		c_buleun c_gaeseong c_ganghwa c_gangsang c_geumsan c_gwangdeok c_gyodong c_honggyo
+		c_hwado c_jangdan c_jangdo c_jinan c_jinsan c_jucheon c_punggi c_sangdo
+		c_seokmo c_sunheong c_yangsa c_yeongju
+		# Selected Changbai core production counties around Fusong, Jian, Tonghua, Baishan and Yanbian
+		c_antu c_baekshan c_beigang c_changbai c_dunhwa c_guanghua c_huashun c_hwaryong
+		c_jian c_kuaidamao c_liangshuei c_linzhang c_pussung c_singtunji c_tonggang c_tunghua
+		c_wangching c_zangwian c_zingwi
+	}
+}

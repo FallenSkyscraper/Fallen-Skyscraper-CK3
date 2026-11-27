@@ -9,7 +9,15 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
+		}
+		district = {
+			type = urban_housing_district
+			level = 2
+		}
+		district = {
+			type = walls_district
+			level = 2
 		}
 	}
 }
@@ -130,8 +138,8 @@
 
 	districts = {
 		district = {
-			type = honey_district
-			level = 1
+			type = coal_district
+			level = 4
 		}
 	}
 }
@@ -154,7 +162,7 @@
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -178,8 +186,8 @@
 
 	districts = {
 		district = {
-			type = stone_district
-			level = 1
+			type = coal_district
+			level = 5
 		}
 	}
 }
@@ -201,7 +209,7 @@
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -226,7 +234,7 @@
 	districts = {
 		district = {
 			type = stone_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -250,7 +258,7 @@
 	districts = {
 		district = {
 			type = honey_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -274,7 +282,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -301,11 +309,19 @@
 	culture = sangju
 	rite = roman_rite
 	holding = castle_holding
-
+	province_size = 3
 	districts = {
 		district = {
-			type = rice_district
-			level = 1
+			type = urban_mine_district
+			level = 3
+		}
+		district = {
+			type = urban_housing_district
+			level = 3
+		}
+		district = {
+			type = guild_district
+			level = 4
 		}
 	}
 }
@@ -327,7 +343,7 @@
 	districts = {
 		district = {
 			type = rice_district
-			level = 1
+			level = 4
 		}
 	}
 }
@@ -345,7 +361,7 @@
 	holding = none
 }
 1147 = {	#Haepyeong
-	holding = none
+	holding = church_holding
 }
 ###c_gamcheon 
 
@@ -357,7 +373,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 3
 		}
 	}
 }
@@ -381,7 +397,7 @@
 	districts = {
 		district = {
 			type = cattle_district
-			level = 1
+			level = 2
 		}
 	}
 }
@@ -396,7 +412,7 @@
 	holding = none
 }
 1113 = {	#Jirye
-	holding = none
+	holding = church_holding
 }
 1111 = {	#Jeungsan
 	holding = none

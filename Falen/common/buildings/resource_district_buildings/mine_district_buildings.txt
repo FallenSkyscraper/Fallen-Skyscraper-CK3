@@ -31,6 +31,10 @@ mine_tier_1 = {
 		}
 	}
 	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 1
+		}
 	}
 	is_enabled = {
 	}
@@ -122,6 +126,10 @@ mine_tier_2 = {
 
 	construction_time = construction_time_9_months
 	can_construct_showing_failures_only = {
+		fs_province_technology_requirement_trigger = {
+			TECHNOLOGY = mining
+			LEVEL = 2
+		}
 	}
 	is_enabled = {
 	}
@@ -317,7 +325,7 @@ mine_tier_4 = {
 
 	construction_time = construction_time_2_years
 	can_construct_showing_failures_only = {
-		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 3 }
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 4 }
 		holding_district_level_2_trigger = yes
 	}
 	is_enabled = {
@@ -521,7 +529,7 @@ mine_tier_6 = {
 		reference = "mine_tier_6_iron"
 	}
 	can_construct_showing_failures_only = {
-		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 5 }
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 6 }
 		holding_district_level_3_trigger = yes
 	}
 	is_enabled = {
@@ -725,7 +733,7 @@ mine_tier_8 = {
 		reference = "mine_tier_8_iron"
 	}
 	can_construct_showing_failures_only = {
-		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 7 }
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 8 }
 		holding_district_level_4_trigger = yes
 	}
 	is_enabled = {
@@ -824,7 +832,7 @@ mine_tier_9 = {
 
 	construction_time = construction_time_3_years
 	can_construct_showing_failures_only = {
-		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 7 }
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 9 }
 		holding_district_level_4_trigger = yes
 	}
 	is_enabled = {
@@ -923,7 +931,7 @@ mine_tier_10 = {
 
 	construction_time = construction_time_3_years
 	can_construct_showing_failures_only = {
-		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 7 }
+		fs_province_technology_requirement_trigger = { TECHNOLOGY = mining LEVEL = 10 }
 		holding_district_level_4_trigger = yes
 	}
 	is_enabled = {
